@@ -1,0 +1,57 @@
+# ---------------------------------------------------------------------------
+# Node — el servidor MCP
+# ---------------------------------------------------------------------------
+# node_modules se reinstala con `npm install` desde package-lock.json. Y el
+# compilador de TypeScript 7 trae un binario POR PLATAFORMA: el árbol de una
+# máquina Windows no sirve en el Mac. Versionarlo es peso muerto y una trampa.
+node_modules/
+
+# dist/ es la salida de `tsc`: se regenera con `npm run build`.
+dist/
+*.tsbuildinfo
+
+npm-debug.log*
+.npm/
+
+# ---------------------------------------------------------------------------
+# macOS
+# ---------------------------------------------------------------------------
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# ---------------------------------------------------------------------------
+# Windows
+# ---------------------------------------------------------------------------
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ---------------------------------------------------------------------------
+# Obsidian
+# ---------------------------------------------------------------------------
+# El estado de la interfaz cambia en cada sesión y no es contenido.
+# Ojo con el `**/`: un patrón con una barra ADENTRO queda anclado a la carpeta
+# del .gitignore, así que sin él no taparía el de boveda/.
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
+**/.obsidian/cache
+
+# ---------------------------------------------------------------------------
+# Editores y temporales
+# ---------------------------------------------------------------------------
+*.swp
+*.swo
+*~
+.idea/
+*.tmp
+
+# ---------------------------------------------------------------------------
+# Claude Code — configuracion LOCAL de cada maquina
+# ---------------------------------------------------------------------------
+# settings.local.json guarda permisos con rutas absolutas de la maquina donde se
+# uso. Es local por convencion y no debe viajar al repo.
+**/.claude/settings.local.json
