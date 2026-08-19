@@ -1,0 +1,34 @@
+# Finales de línea: LF en todas partes.
+#
+# Por qué es necesario aunque hoy funcione: el commit actual quedó con LF, pero
+# solo porque el Git de Windows viene con `core.autocrlf=true`, que normaliza al
+# guardar. Eso es configuración DE LA MÁQUINA, no del repo. Si alguien lo clona
+# con `autocrlf=false` y edita un archivo en Windows, commitea CRLF — y un script
+# .sh con CRLF falla en macOS con un error que no se entiende:
+#
+#     bash: instalar.sh: /usr/bin/env: bad interpreter: No such file or directory
+#
+# Con estas reglas el repo es LF por definición, en cualquier máquina.
+
+* text=auto eol=lf
+
+# Explícito para lo que más duele si se rompe
+*.sh    text eol=lf
+*.md    text eol=lf
+*.ts    text eol=lf
+*.mjs   text eol=lf
+*.json  text eol=lf
+*.yml   text eol=lf
+*.svg   text eol=lf
+
+# El .excalidraw es JSON, así que es texto
+*.excalidraw text eol=lf
+
+# Binarios: git no los debe tocar nunca
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.woff2 binary
+*.mdj   binary
