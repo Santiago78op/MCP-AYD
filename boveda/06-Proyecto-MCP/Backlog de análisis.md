@@ -252,14 +252,98 @@ F-06 se implementa parcial.
 
 ---
 
+## Parte 2-ter — Validación conceptual de la teoría (3ª pasada)
+
+Pasada distinta de las anteriores: no *¿transcribimos bien?* sino *¿la teoría cierra?* — diapositiva
+contra diapositiva, y diapositivas contra la teoría canónica (UML, SAIP). Tres hallazgos y una lista
+de validaciones positivas.
+
+### 🟠 F-10 · Colisión normativa entre las dos diapositivas de navegabilidad — y la nota hereda el lado equivocado
+
+**Evidencia (ambas releídas a resolución completa, verbatim):**
+
+- Diapositiva 50: *"La relación **en los dos sentidos** se muestra **sin saetas**."*
+- Diapositiva 51 (la que dice **"los convenios que usaremos serán"**): *"La flecha de iniciación del
+  actor al CUN **siempre se muestra**, aún si más tarde el CU inicia comunicación con el actor que lo
+  mostró. **En este último caso solo se pone una flecha del actor al CUN**."* Y: *"el resto de las
+  flechas **puede ser omitida**."*
+
+**La colisión:** para el caso *ambos inician*, la 50 manda "sin saetas" y la 51 manda "solo flecha
+actor→CUN". Y como la 51 permite **omitir** las flechas CUN→actor, una línea sin puntas puede ser
+una flecha omitida — no una afirmación de bidireccionalidad.
+
+**Dónde golpea:** `Convenios del diagrama de CUN` §3 tiene el callout *"Una línea sin flecha NO
+significa 'no sé'. Significa 'en los dos sentidos'. Es una afirmación, no una omisión"* — eso es la
+lógica de la 50 sola, y **bajo el convenio de la 51 es engañoso**. El árbol de decisión de §4 de la
+misma nota ya sigue a la 51: la nota se contradice a sí misma entre secciones.
+
+**Resolución propuesta:** la 51 es la operativa (ella la titula "los convenios que **usaremos**");
+la 50 es la semántica general de la notación. Arreglo: reescribir el callout de §3 —
+*"bajo la notación general (diap. 50), sin saetas = dos sentidos; bajo **el convenio de la clase**
+(diap. 51), ambos-inician se dibuja como flecha actor→CUN y las flechas CUN→actor pueden omitirse,
+así que una línea sin puntas NO es señal fiable de bidireccionalidad"*. En un examen: contestar
+según la diapositiva que se cite; en el Caso 1: dibujar según la 51.
+**Aceptación:** el callout de §3 menciona ambas diapositivas y cuál manda; el árbol de §4 no cambia.
+
+### 🟠 F-11 · "Campo de acción" es el concepto que unifica la frontera actor/trabajador — y la bóveda no lo usa
+
+**La tensión real:** *"cada actor modela algo **fuera del negocio**"* (diap. 30) convive con áreas
+internas como actores en los 4 ejemplos de ella (Contabilidad, Ventas, Almacén, Farmacia,
+Encamamiento). La bóveda lo resuelve ad-hoc en tres lugares con tres vocabularios ("fuera del
+*proceso*", "frente al *sistema*", "otras partes de la organización").
+
+**El material de clase ya trae el concepto unificador y aparece 3 veces solo como cita pasajera:**
+el Modelo de CUN describe procesos *"vinculados al **campo de acción**"* (diap. 22) y la NT dice que
+clasificar *"**depende del campo de acción** que se esté modelando"*. La frontera que decide
+actor-vs-trabajador **es el campo de acción modelado, no la empresa**: Contabilidad es actor del CUN
+*Ventas online* porque está fuera de *ese* campo de acción, aunque esté dentro de la Tienda X.
+
+**Arreglo:** sección corta en [[Actor del negocio]] ("La frontera es el campo de acción") que
+unifique los tres casos con el vocabulario de clase, y cross-links desde `Ejemplos resueltos` §4 y
+la guía. Absorbe también el F-03 (que queda contenido en este).
+**Aceptación:** `grep -c "campo de acción" 01-Notas/Actor del negocio.md` ≥ 2, con la resolución
+explícita de la tensión.
+
+### 🟠 F-12 · La definición de "drivers de calidad" de la diapositiva no cubre a uno de sus propios siete
+
+**Evidencia:** la diapositiva define *"definen **cómo debe comportarse el sistema**"*, pero entre
+sus siete está **Mantenibilidad** con ejemplos que no son comportamiento del sistema: *"cobertura de
+pruebas > 80 %"* y *"añadir un nuevo tipo de reporte en menos de 2 días-persona"*. Ahí quien
+responde es **el equipo**, no el sistema — exactamente la distinción estímulo/respuesta que la
+propia bóveda enseña en [[Atributos de calidad]] §4 (calidades de ejecución vs del desarrollo,
+SAIP): *"un estímulo para modificabilidad es una solicitud de modificación"* y responden los
+desarrolladores.
+
+**Qué es:** una **simplificación de la diapositiva**, no un error nuestro — 6 de los 7 son de
+ejecución y mantenibilidad es la excepción. Documentarlo blinda contra la pregunta cruzada
+(*"¿la mantenibilidad define cómo se comporta el sistema?"* → no: define cómo responde el equipo).
+
+**Arreglo:** en [[Drivers arquitectónicos]] §4, una fila/nota que mapee los 7 contra
+ejecución/desarrollo y marque la simplificación con la conexión a Atributos §4.
+**Aceptación:** la nota contiene el mapeo y la frase "quien responde es el equipo" (o equivalente).
+
+### ✅ Validaciones positivas (teoría que se verificó y aguantó — no tocar)
+
+| Qué se validó | Contra qué | Veredicto |
+|---|---|---|
+| Dirección de `«extend»` (extendido→base) y de `«include»` (base→incluido) | UML 2.x | ✔ las diapositivas son correctas |
+| *"El base declara puntos de extensión; el extendido solo altera los marcados"* | UML `ExtensionPoint` | ✔ correcto y bien capturado |
+| Generalización: línea **llena** + triángulo hueco | UML | ✔ (el error era nuestro y ya está corregido) |
+| *"Por cada flecha se asume un mensaje de retorno"* vs no dibujar respuestas | coherencia interna | ✔ consistente |
+| RF2 "Autenticación multifactor" clasificado como **RF** | nuestra regla de frontera (agrega vs califica) | ✔ la diapositiva y la regla coinciden: MFA **agrega** funcionalidad, aunque sirva a seguridad — buen ejemplo de examen |
+| Las tres taxonomías de calidad (9126 / FURPS / 7 drivers) | entre sí | ✔ ya reconciliadas en [[Atributos de calidad]], sin nueva contradicción |
+
+---
+
 ## Parte 3 — Orden de implementación sugerido
 
-0. **PRIMERO, por el parcial del 22 y el Caso 1: F-05 y F-06** (la guía contradice a la clase) y
-   **F-08** (el mapa del parcial en el Índice). Son los únicos con fecha encima.
+0. **PRIMERO, por el parcial del 22 y el Caso 1: F-05, F-06, F-10** (la guía y la nota de convenios
+   contradicen o distorsionan a la clase en cosas que se dibujan/contestan ya) y **F-08** (el mapa
+   del parcial en el Índice). Son los únicos con fecha encima.
 1. **M-02** (bug de 3 líneas) → **M-03** (mecánica ya existe en `tareas.ts`) → **M-01+M-04** (el
    grueso) → **M-05** (regresión).
-2. **F-02** (integridad de etiquetas: es lo que protege la jerarquía de fuentes) → **F-01** →
-   **F-04** → **F-07** → **F-03**.
+2. **F-02** (integridad de etiquetas: es lo que protege la jerarquía de fuentes) → **F-11** (absorbe
+   F-03) → **F-12** → **F-01** → **F-04** → **F-07**.
 3. Al cerrar: `npm run build` + los cuatro audits + validar Mermaid + espejar al repo + commit.
 
 Lo que NO hay que hacer: no re-dibujar en Mermaid los diagramas de ella (ver la advertencia en
