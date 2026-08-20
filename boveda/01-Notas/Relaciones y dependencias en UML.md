@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura de software
-fuente: "COMPLEMENTO — docs.staruml.io + Garland & Anthony cap. 5 + Reynoso + verificación propia del render Mermaid"
+fuente: "Tabla *Resumen de los Tipos de Relaciones en UML* (diapositiva de clase) + docs.staruml.io, Garland & Anthony cap. 5 y Reynoso (complemento) + verificación propia del render Mermaid"
 fecha: 2026-08-19
 ---
 
