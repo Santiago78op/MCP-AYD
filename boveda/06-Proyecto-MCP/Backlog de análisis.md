@@ -176,12 +176,90 @@ Convierte una induction en una regla con dos fuentes.
 
 ---
 
+## Parte 2-bis — Análisis de contenido del segundo cerebro (2ª pasada)
+
+Pasada de **coherencia conceptual**: buscar lugares donde material pre-capturas y post-capturas
+conviven sin reconciliar. Se encontraron dos contradicciones reales, en el peor archivo posible: la
+guía que el estudiante va a seguir para el Caso 1.
+
+### 🔴 F-05 · `Guía - Caso de negocio` §Diagrama 1: definición de contexto PRE-capturas
+
+**Evidencia:** la sección dice *"¿dónde termina el **negocio**?… El negocio se dibuja como una sola
+**caja**"* y mantiene el callout *"Negocio o sistema: **sigue siendo ambigüedad #2** — preguntalo"*.
+Pero esa ambigüedad **ya está resuelta** con fuente de clase: la diapositiva *"Diagramas de
+Contexto"* define **elipse = El Producto**, rectángulos = entidades, flechas = *streamlines* — y el
+`Plan - Caso 1` la marca RESUELTA, igual que la nota [[Diagrama de contexto]]. La guía quedó con la
+versión anterior: pide preguntar algo respondido, sugiere que la caja puede ser el negocio, y usa
+otra notación ("caja" vs elipse).
+
+**Arreglo:** reescribir la apertura de §Diagrama 1 alineada a [[Diagrama de contexto]] (que es
+núcleo): es el contexto **del sistema/producto**, con la notación de ella. El material de Garland
+(Context Viewpoint) se conserva como complemento — es compatible: *"el sistema va siempre en el
+medio"*. Eliminar el callout de ambigüedad y remitir al Plan.
+**Aceptación:** `grep "sigue siendo ambigüedad" 08-Tareas/` → 0; la sección menciona
+elipse/entidades/streamlines.
+
+### 🔴 F-06 · `Guía - Caso de negocio` §Diagrama 2: dos definiciones de "core" contradictorias a 5 líneas de distancia
+
+**Evidencia:** la definición dice *"el core es la categoría **núcleo**… Ejemplo (restaurante): el
+core es **Servicio de comida**. Uno solo"* — con un Mermaid `Cliente --- Servicio de comida`. El
+callout inmediatamente siguiente (*"El ejemplo resuelto por ella"*) muestra lo contrario: el core es
+**una elipse con el negocio completo** — *"Sistema de Ventas on line Tienda X"*, y en sus otros
+casos *"Automatización de Procesos del Restaurante X"* y *"Sistema Hospitalario"*.
+
+**Resolución (mandan sus diapositivas, 4 casos consistentes):** core = **UNA elipse que nombra el
+negocio/sistema completo**, todos los actores alrededor. La clasificación núcleo/soporte/gerencial
+de la NT aplica a la **primera descomposición** — el propio ejemplo del restaurante de ella la
+muestra ahí (Servicio de comida / Comprar suministros / Marketing son los TRES procesos del
+diagrama 3, no el core). El criterio de la NT (*"¿qué servicios básicos recibe el cliente?"*) sigue
+sirviendo, pero para **clasificar procesos en el diagrama 3**, no para definir el core.
+
+**Arreglo:** reescribir la definición de §Diagrama 2; recalibrar el warning (*"si tu core tiene más
+de una elipse, ya es la descomposición"* — no "ocho CDU"); corregir el Mermaid de ejemplo; mover el
+criterio de la NT a §Diagrama 3; revisar el ítem de la checklist *"el core del diagrama 2 está
+contenido en la descomposición"* → *"la descomposición abre la elipse del core conservando el juego
+de actores"* (el patrón verificado).
+**Aceptación:** la sección no contiene *"el core es Servicio de comida"*; definición y ejemplo dicen
+lo mismo.
+
+**Verificado sin daño colateral:** las flashcards **no** tienen la versión vieja del core (la única
+tarjeta del tema da la respuesta correcta), y la checklist de consistencia es mayormente salvable.
+
+### 🟠 F-07 · Tres versiones de "los pasos" sin distinguir en las flashcards
+
+En el material conviven, todas legítimas: los **4 pasos** del deck PDF (diseño de datos →
+representaciones → alternativas → método), la **lista de 7** actividades, y las **8 etapas** de la
+Figura 2-8 con el paso 0. La nota [[Proceso de diseño arquitectónico]] las reconcilia, pero la
+tarjeta *"¿Cuáles son los cuatro pasos…?"* (`Flashcards - Arquitectura de software:38`) no se
+distingue de las otras — en un parcial, "¿cuáles son los pasos?" tiene tres respuestas defendibles.
+**Arreglo:** coletilla en esa tarjeta ("los cuatro del deck; no confundir con la lista de 7 ni las 8
+etapas") + una tarjeta nueva de diferenciación de las tres versiones.
+
+### 🟠 F-08 · El primer parcial (22 ago) cae DENTRO del bloque 1.8/1.9 del cronograma
+
+**Evidencia:** cronograma — *"1.8 y 1.9: 17 al 24 de agosto"*, parcial el **22**. No se puede asumir
+que solo entra hasta 1.7. Estado de preparación real: **1.1–1.7 núcleo sólido**; **1.8 núcleo**
+(capturas de Categorías de Estructuras); **1.9 es el punto débil** — estilos arquitectónicos es
+complemento entero, candidata/referencia ya tienen fuente de clase (flujo de Ambler), y **on-premise
+vs cloud no tiene fuente alguna**.
+**Arreglo (contenido, no código):** sección corta *"Preparación del primer parcial"* en el `Índice`
+con este mapa, y la pregunta operativa para el auxiliar: *"¿el parcial cubre 1.8/1.9?"*.
+
+### 🟡 F-09 · Ítem de checklist a reformular tras F-06
+
+Cubierto dentro del arreglo de F-06 (último punto). Se lista aparte solo para que no se pierda si
+F-06 se implementa parcial.
+
+---
+
 ## Parte 3 — Orden de implementación sugerido
 
+0. **PRIMERO, por el parcial del 22 y el Caso 1: F-05 y F-06** (la guía contradice a la clase) y
+   **F-08** (el mapa del parcial en el Índice). Son los únicos con fecha encima.
 1. **M-02** (bug de 3 líneas) → **M-03** (mecánica ya existe en `tareas.ts`) → **M-01+M-04** (el
    grueso) → **M-05** (regresión).
 2. **F-02** (integridad de etiquetas: es lo que protege la jerarquía de fuentes) → **F-01** →
-   **F-04** → **F-03**.
+   **F-04** → **F-07** → **F-03**.
 3. Al cerrar: `npm run build` + los cuatro audits + validar Mermaid + espejar al repo + commit.
 
 Lo que NO hay que hacer: no re-dibujar en Mermaid los diagramas de ella (ver la advertencia en
