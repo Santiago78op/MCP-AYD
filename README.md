@@ -128,7 +128,8 @@ npm run build            # compilar
 npm run verificar        # 33 pruebas de lógica (usa una bóveda temporal)
 npm run auditoria        # las 12 herramientas por el protocolo MCP real
 npm run auditar-boveda   # integridad de la bóveda y de la documentación
-npm run cobertura        # 34 consultas reales: ¿el MCP encuentra el contenido?
+npm run cobertura        # 39 consultas reales: ¿el MCP encuentra el contenido?
+npm run atlas            # genera el Atlas de Diagramas de la bóveda
 npm run comprobar        # diagnóstico del entorno
 ```
 
@@ -140,6 +141,24 @@ Las cuatro primeras responden preguntas distintas:
 | `auditoria` | las **12 herramientas** por el protocolo MCP real | una herramienta deja de responder o de rechazar basura |
 | `auditar-boveda` | el **contenido** y la coherencia de la documentación | hay un wikilink roto, frontmatter faltante o un conteo desactualizado |
 | `cobertura` | que cada consulta real **encuentre su nota** | se agrega una nota y nadie le pone alias: existe pero es inalcanzable |
+
+### El atlas de diagramas
+
+`npm run atlas` no es una prueba: recorre la bóveda y arma **una sola página** con los **106**
+bloques `mermaid` renderizados, agrupados por tema, con filtro por texto y por procedencia
+(de clase / complemento / propio). Sirve para repasar antes de un parcial y para ver de un vistazo
+si algún diagrama quedó mal.
+
+Cada hoja lleva su identificador `Nota#mermaid-N`, el mismo que acepta `obtener_diagrama`, así que
+de la página se puede volver al código fuente sin buscar.
+
+> **Cómo verlo.** Emite los diagramas como `<pre class="mermaid">` **sin cargar ninguna librería**,
+> porque el visor de artifacts de Claude renderiza mermaid nativo. Si la abrís con `file://` no se
+> dibuja nada: el navegador bloquea el CDN desde el sistema de archivos. O la publicás como
+> artifact, o la servís por HTTP agregando el script a mano.
+
+La salida (`atlas-de-diagramas.html`) está en `.gitignore`: se regenera de la bóveda, y versionarla
+sería tener dos fuentes de verdad para los mismos diagramas.
 
 Si tocás `src/`, hay que compilar para que el servidor registrado use el código nuevo.
 
