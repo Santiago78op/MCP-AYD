@@ -185,6 +185,7 @@ Y lo que falta por otras razones:
 | ProgramaClase-AYD2-2-26.pdf | 5 | 2026-08-19 | [[Programa oficial del curso]] |
 | Caso FarmaHosp.pdf | 8 | 2026-08-19 | [[Plan - Caso 1 FarmaHosp]] + las 5 guías de `08-Tareas/` |
 | Large-Scale Software Architecture.pdf | 281 | 2026-08-19 | [[Arquitectura y proceso de desarrollo]] (complemento) |
+| **Bass, Clements, Kazman — SAIP 4ª ed.** | 620 | 2026-08-19 | el **único libro de la bibliografía oficial** en la bóveda; sostiene [[Atributos de calidad]], [[Tácticas y patrones arquitectónicos]], [[Evaluación de la arquitectura]], [[El ciclo del architecting]], [[Stakeholders]] y [[Guía - Drivers de calidad y restricción]] |
 | **capturas de clase** (68 imágenes) | — | 2026-08-19 | [[Ejemplos resueltos de casos de negocio]], [[Drivers arquitectónicos]], [[Diagrama de contexto]], [[Categorías de estructuras]], [[Método de diseño centrado en la arquitectura]], [[Convenios del diagrama de CUN]] + aportan a 6 notas y 2 guías más |
 
 ### Capturas de clase: inventario verificado
