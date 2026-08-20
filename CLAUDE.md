@@ -353,6 +353,12 @@ viaja `tutor-ayds → cliente → StarUML`.
 
 ## Mantenimiento
 
+> [!important] Hay trabajo analizado pendiente de implementar
+> `boveda/06-Proyecto-MCP/Backlog de análisis.md` tiene hallazgos **verificados con evidencia**
+> (sondas reales al MCP + verificación contra capturas): mejoras a `buscar`, un bug de duplicados,
+> resolución de alias en `leer_nota` y calibración epistémica de la bóveda. **Implementalo antes
+> de agregar cosas nuevas** — trae causa raíz, especificación y criterios de aceptación por ítem.
+
 ```bash
 cd ayds-mcp
 npm run build            # compilar
