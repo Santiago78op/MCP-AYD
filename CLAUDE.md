@@ -42,7 +42,12 @@ Todo lo que escribas en `boveda/` tiene que ser markdown compatible con Obsidian
    transcribilo a Mermaid y embebé la imagen original debajo como referencia.
 3. Creá las notas atómicas en `boveda/01-Notas/`.
 4. Actualizá `boveda/03-Glosario.md`: orden alfabético, definición de 1-2 líneas, enlace a la nota.
-5. Generá 5-10 flashcards en `boveda/04-Flashcards/` con formato `pregunta::respuesta`.
+5. Generá 5-10 flashcards en `boveda/04-Flashcards/`. Cada tarjeta es **una línea**: la pregunta, el
+   separador de **dos signos de dos puntos**, y la respuesta.
+
+   > **No escribas ese separador literal en la prosa del archivo.** Cualquier línea que lo contenga
+   > se parsea **como tarjeta** — tanto por el MCP como por el plugin Spaced Repetition de Obsidian.
+   > Ya pasó: la línea que explicaba el formato apareció como primera tarjeta en los 12 archivos.
 6. **Validá los diagramas Mermaid antes de dar la nota por terminada.** Dos cosas rompen en silencio
    sin dar error en Obsidian: el `;` dentro del texto de una nota (parte la sentencia) y el `#`
    (inicia un escape; se escribe `#35;`).
@@ -108,8 +113,8 @@ opcionales.
 | `buscar(consulta)` | Texto en notas, glosario, referencias y guías | No |
 | `glosario(termino?)` | Definición breve de un término | No |
 | `listar_diagramas()` | Inventario de diagramas, con su `id` | No |
-| `obtener_diagrama(nombre)` | La fuente cruda, lista para StarUML o Excalidraw | No |
-| `obtener_flashcards(tema, cantidad?)` | Tarjetas `pregunta::respuesta` | No |
+| `obtener_diagrama(nombre)` | La fuente cruda, lista para StarUML o Excalidraw. Si la nota tiene **más de un** diagrama, exige el `id` exacto (`Nota#mermaid-2`) y sugiere los disponibles | No |
+| `obtener_flashcards(tema, cantidad?)` | Tarjetas, ya separadas en P / R | No |
 | `registrar_resultado(tema, puntaje, comentarios?)` | Una línea en `05-Quizzes/progreso.md` | **Sí** |
 | `progreso()` | Temas evaluados y pendientes | No |
 | `referencia(herramienta?)` | Manual de StarUML/Excalidraw y sus límites | No |
@@ -125,14 +130,165 @@ opcionales.
 **Las presentaciones son el núcleo.** La jerarquía de fuentes, sin excepciones:
 
 1. **El enunciado** de la tarea.
-2. **Las presentaciones de clase** (`boveda/00-Fuentes/presentaciones/`): es la teoría que se evalúa.
+2. **El material de clase** (`boveda/00-Fuentes/`): es la teoría que se evalúa. Tres formas:
+   - `presentaciones/` — los PDF de las diapositivas.
+   - `capturas/` — fotos de la clase en vivo. **Valen igual que un PDF**: de ahí salió casi todo
+     lo de drivers, contexto y convenios.
+   - las **notas técnicas** (`NT …`, `NT1 …`). **Son material de clase, no fuentes externas.**
+     Es un error que ya se cometió: la nota de trazabilidad estuvo marcada "FUENTE EXTERNA" cuando en
+     realidad `NT1. Trazabilidad de Requerimientos.pdf` es lo que ella reparte — y su **figura 1,
+     página 91**, es la **plantilla obligatoria** de la matriz.
 3. Los libros y el material complementario: para entender, **nunca** para contradecir a 1 y 2.
 
-Varias notas están marcadas como **complemento** en su frontmatter — `Estilos arquitectónicos` es
-complemento entero, porque no hay presentación de ese punto todavía. Cuando uses una de esas, decilo.
+De la bibliografía oficial del programa, el único libro en disco es **Software Architecture in
+Practice** (Bass, Clements, Kazman). **Reynoso** y **Garland & Anthony** se usaron bastante pero **no
+están en la bibliografía**: sirven para entender, no como autoridad. Si hay que citar algo en una
+entrega, citá el SAIP. El detalle está en `Programa oficial del curso.md`.
+
+Varias notas están marcadas como **complemento** en su frontmatter — la unidad 2 y la unidad 3 son
+complemento casi entero porque no hay presentación de esos puntos todavía. Cuando uses una de esas,
+decilo.
 
 Los quizzes salen **solo** de las notas, no del conocimiento general. Si algo no está en la bóveda,
 decilo en vez de completarlo por tu cuenta.
+
+---
+
+## Conocimiento del curso: lo que hay que saber antes de opinar
+
+Esto no es teoría general de arquitectura: es **cómo lo define ella**. Cuando difiera de lo que sabés
+por tu cuenta, **manda esto**. Cada punto tiene su nota; usá `leer_nota` para el detalle.
+
+### Los tres tipos de driver — el criterio que más pesa
+
+> Los **drivers arquitectónicos** son los **factores críticos que guían el diseño** de un sistema.
+> **Determinan su estructura fundamental** y actúan como **puente entre los requerimientos del negocio
+> y la implementación técnica**.
+
+Tres tipos, y **un RF es uno de los tres**, no el género:
+
+| Tipo | Qué define | Cómo se entrega |
+|---|---|---|
+| **RF** | *"funcionalidades específicas que **moldean** la estructura"* | CDU expandidos |
+| **De calidad** | *"cómo debe **comportarse** el sistema"* | escenarios con número |
+| **De restricción** | *"condiciones impuestas **externamente** que limitan las decisiones"* | listado por categoría |
+
+> [!warning] Tres taxonomías de calidad conviven en el material — no las mezcles
+> | Para qué | Qué lista se usa |
+> |---|---|
+> | Clasificar **drivers de calidad** (criterio 3 del Caso 1) | las **siete** de su diapositiva: rendimiento, escalabilidad, disponibilidad, seguridad, mantenibilidad, usabilidad, fiabilidad |
+> | Responder el **parcial de la unidad 2** | los **seis** de ISO 9126 del programa: funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad, portabilidad |
+> | Contexto histórico | **FURPS** (5), en la Tabla 1 de la NT1 |
+>
+> No es contradicción: son usos distintos. En los drivers **la funcionalidad sale de la lista** (ya
+> tiene su categoría, los RF) y **seguridad y disponibilidad suben a primer nivel**. Lo único grave
+> es mezclar sin declarar cuál se usa.
+
+**Todos sus ejemplos de driver de calidad llevan un número**: 300 ms percentil 95, 10.000 peticiones,
+99,99 % de uptime, AES-256, TLS 1.3, 80 % de cobertura, 3 clics. **Un driver de calidad sin número no
+es un driver, es un deseo** — decíselo cuando entregue uno sin medida.
+
+Las **seis categorías de restricción** funcionan como checklist: tecnológicas, regulatorias/legales,
+de negocio/presupuesto, organizacionales, ambientales/físicas, de integración.
+
+### El caso de negocio es el paso 0
+
+Su método tiene **ocho etapas en cuatro fases**, y marca aparte, en rojo, un **paso 0: creación del
+caso de negocio**. Consecuencia directa: **la rúbrica del Caso 1 es el paso 0 más la etapa 1**
+(identificación de drivers). No pide diseñar la arquitectura: pide los **insumos** para diseñarla.
+
+### El molde de los tres diagramas, verificado en cuatro casos
+
+| | Regla |
+|---|---|
+| **Contexto** | **elipse** = El Producto · **rectángulo** = entidades o agentes · **flecha** = *streamlines*, **siempre con nombre**, en sustantivo. Un solo óvalo, y nombra un **sistema** |
+| **Core** | **UNA sola** elipse, con el nombre del negocio/sistema completo, y todos los actores alrededor |
+| **Primera descomposición** | **UN solo** diagrama, 3 a 5 procesos, **el mismo juego de actores** que el core |
+
+**Los actores pueden crecer** del core a la descomposición (afloran contrapartes implícitas); lo que
+**no** puede pasar es que desaparezca uno.
+
+**Las áreas son actores, las personas son trabajadores.** En su ejemplo del hospital, *Farmacia* y
+*Encamamiento* son **actores** del *Sistema Hospitalario*. Eso resuelve la duda recurrente de si el
+médico o el farmacéutico van como actores: como **área** sí, como **individuo** van a las
+realizaciones.
+
+### Los convenios de dibujo — dice "los convenios que usaremos serán"
+
+- Un CU **sin ningún actor es un error**, con dos excepciones: CU hijo cuyo padre describe toda la
+  comunicación, y **CU de apoyo** (el incluido por particionamiento).
+- **Navegabilidad = quién inicia.** Flecha al CUN, inicia el actor. Flecha al actor, inicia el CUN.
+  **Sin puntas = los dos sentidos** (es una afirmación, no una omisión).
+- **No hay que dibujar la respuesta**: *"por cada flecha se asume un mensaje de retorno"*.
+- **NO es un flujo de datos**: *"la navegabilidad solo indica relación de iniciación"*. Ahí está la
+  diferencia con el diagrama de contexto, donde las flechas **sí** son flujos con nombre.
+- Regla operativa: **dibujá siempre las flechas actor a CUN; las demás solo si aclaran**.
+- **Notación de negocio**: actor y CUN llevan una **barra diagonal**. Sin la diagonal es un caso de uso
+  **del sistema**.
+
+### Las relaciones, con su mecanismo
+
+| Relación | Línea | ¿El base sabe? | ¿Cuándo ocurre? | Dirección |
+|---|---|---|---|---|
+| **Asociación** | llena | — | — | — |
+| **`«include»`** | punteada | **sí**, *"describe explícitamente la inserción en el lugar especificado"* | **siempre** | base al incluido |
+| **`«extend»`** | punteada | **no**, solo *"declara un conjunto de **puntos de extensión**"* | **a veces** | extendido al base |
+| **Generalización** | **llena** + triángulo hueco | hereda todo, puede **redefinir** | — | hijo al padre |
+
+Regla mnemotécnica: **dependencia = punteada, herencia = llena**. Y `«include»` tiene **dos usos** que
+ella marca en rojo: **REUTILIZAR** (dos o más base lo comparten) y **PARTICIONAR** (uno solo, y el
+incluido **no tiene actores**).
+
+### Otras dos cosas donde el material tiene dos versiones
+
+**Identificadores.** Sus diapositivas usan `CU_02 Comprobar pedido` (guion **bajo**, dos dígitos); la
+NT1 usa `CU-0nn` y `RFG-0nn` con prefijo de paquete. Las dos son de clase: **elegí una, declarala** y
+no la mezcles. Si va a entregar matrices, conviene la de la NT1 — es la de la plantilla obligatoria.
+
+**Descripción textual.** Hay dos plantillas. **Usá la de *Atender pedido***: es la que coincide con la
+lista de campos que dictó y **la única que mostró resuelta**. Su curso normal va en **dos columnas**
+(*acción del actor* / *respuesta del proceso de negocio*) con **una sola numeración intercalada**, y
+los cursos alternos se anclan con *"En la línea N"*.
+
+### El estado del Caso 1 (FarmaHosp)
+
+Las tres ambigüedades del enunciado **están resueltas con fuente de clase** — no las vuelvas a
+plantear como dudas. Lo que **sigue abierto** es una sola cosa: qué espera con *"priorizar los 5
+drivers más críticos según el **contexto guatemalteco**"*. No hay material de clase sobre cómo
+priorizar, y "contexto guatemalteco" no está definido en ninguna parte. **Es pregunta para ella.**
+
+---
+
+## Procesar capturas de clase
+
+Es la vía por la que entra casi todo el material nuevo. El pipeline que funciona:
+
+1. Las capturas crudas llegan a `boveda/00-Fuentes/capturas/` con nombres inútiles (`image copy
+   17.png`). **No las renombres ahí**: `00-Fuentes/` no se toca.
+2. Armá una **hoja de contactos** (grillas de 12-15 con el número rotulado) para triar de qué es cada
+   una. Sirve para **clasificar**, no para transcribir.
+3. **Leé a resolución completa toda captura que vayas a citar.** Recortá el área de la diapositiva
+   (detectando el bloque claro) y ampliá antes de mirar.
+4. Guardá la versión recortada en `boveda/adjuntos/capturas-clase/` con **nombre descriptivo**.
+5. Escribí o ampliá la nota, embebiendo la imagen con la sintaxis de embed de Obsidian.
+6. Verificá que **ninguna captura quede guardada sin citar**: si está en `adjuntos/` y ninguna nota la
+   referencia, es material desperdiciado. Si es deliberado, anotalo en el `Índice`.
+
+> [!warning] La trampa que ya costó errores: no transcribas desde la hoja de contactos
+> La hoja reduce 3412 px a unos 620 px. Los títulos se leen; **las direcciones de flecha, las guardas
+> entre llaves y el texto exacto, no**. Errores reales que se cometieron así:
+>
+> - la generalización quedó descrita como "punteada" cuando la tabla dice **línea llena**;
+> - un `«extender»` quedó como `«extiende»` y las guardas parafraseadas (`{si se pidió vino}` pasó a
+>   ser "si pide vino");
+> - un CU se llamó *"Come la Comida"* en vez de *"Coma la Comida"*.
+>
+> **Y la peor: no re-dibujes sus diagramas en Mermaid.** Al reproducir dos diagramas de descomposición
+> se inventaron **4 asociaciones** que no existían. Para el **patrón conceptual**, Mermaid. Para *su*
+> diagrama concreto: la **imagen** más una **tabla de asociaciones leída con zoom**.
+>
+> Si la captura contradice una nota, gana la captura — pero **verificala a resolución completa
+> primero**, porque también puede ser que la estés leyendo mal.
 
 ---
 
@@ -152,8 +308,12 @@ Cuando mencione una tarea o pregunte por dónde empezar:
 5. Verificá con la **checklist de rigor** de la guía, donde cada item cita la nota de teoría.
 
 **No produzcas el diagrama, la tabla ni el documento por él.** Si le entregás el trabajo hecho,
-aprueba la tarea y pierde el parcial. Los ejemplos de las guías son de **otro dominio** (una
-biblioteca municipal) justamente para que no se copien.
+aprueba la tarea y pierde el parcial.
+
+Para que pueda comparar sin copiar, la bóveda tiene **`Ejemplos resueltos de casos de negocio`**: los
+**cuatro** encadenamientos completos que la catedrática resolvió en clase (Tienda Electrónica,
+Fábrica de Materiales, Restaurante y **Hospital**), con una checklist de 8 puntos para contrastar.
+Esa nota es lo primero que hay que abrir cuando empiece un caso: son **sus** moldes, no inventados.
 
 Si el enunciado es ambiguo, **marcalo como pregunta para el auxiliar**. No asumas una interpretación
 y sigas.
@@ -223,7 +383,7 @@ boveda/
 ├── 01-Notas/                    Notas atómicas: una por concepto
 ├── 02-Diagramas/                Diagramas exportados
 ├── 03-Glosario.md               Glosario alfabético
-├── 04-Flashcards/               Tarjetas pregunta::respuesta
+├── 04-Flashcards/               Tarjetas de repaso (12 archivos, 324 tarjetas)
 ├── 05-Quizzes/progreso.md       Registro de resultados (lo único que el MCP escribe)
 ├── 06-Proyecto-MCP/diseño.md    El diseño del servidor: actores, RF, RNF, decisiones
 ├── 07-Referencias/              Manual de StarUML y Excalidraw (no es materia de examen)

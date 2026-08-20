@@ -108,7 +108,7 @@ copien.
 | `glosario(termino?)` | Definición breve, o el glosario completo | No |
 | `listar_diagramas()` | Archivos de `02-Diagramas/` más los bloques mermaid de las notas | No |
 | `obtener_diagrama(nombre)` | La fuente cruda del diagrama, con su tipo | No |
-| `obtener_flashcards(tema, cantidad?)` | Pares `pregunta::respuesta` | No |
+| `obtener_flashcards(tema, cantidad?)` | Tarjetas de repaso, ya separadas en P / R | No |
 | `registrar_resultado(tema, puntaje, comentarios?)` | Agrega una línea a `05-Quizzes/progreso.md` | **Sí** |
 | `progreso()` | Temas evaluados, puntajes y pendientes | No |
 | `referencia(herramienta?)` | Manual de StarUML/Excalidraw y sus límites | No |

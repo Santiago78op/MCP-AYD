@@ -239,19 +239,27 @@ frontera en el diagrama 1. Por eso los tres diagramas tienen que ser **consisten
 >
 > ![[adjuntos/capturas-clase/cun-ejemplo-primera-descomposicion-tienda-electronica.png]]
 
-```mermaid
-flowchart LR
-    CL["Cliente"] --- PP(("Procesamiento<br/>de Pedidos"))
-    CL --- PA(("Pagos"))
-    CL --- SO(("Soporte al<br/>Cliente"))
-    PP --- AL["Almacén"]
-    GI(("Gestión de<br/>Inventario")) --- AL
-    GI --- BA["Banco"]
-    PA --- BA
-    PA --- CO["Contabilidad"]
-    EN(("Envío")) --- TR["Transporte"]
-    SO --- VE["Ventas"]
-```
+Las asociaciones, verificadas con zoom sobre la captura:
+
+| CUN | Actores con los que se asocia |
+|---|---|
+| Procesamiento de Pedidos | **Cliente** · Almacén |
+| Gestión de Inventario | Almacén |
+| Pagos | **Cliente** · Banco · Contabilidad |
+| Envío | Transporte |
+| Soporte al Cliente | **Cliente** · Ventas |
+
+Es **la misma topología** que la Fábrica de Materiales: el actor principal toca **tres** de los cinco
+procesos, y cada proceso tiene su contraparte externa. Ella reusó la plantilla — lo que refuerza que
+ese es *el* molde. Ver [[Ejemplos resueltos de casos de negocio]].
+
+> [!warning] Estas asociaciones se verificaron con zoom; la imagen es la fuente de la verdad
+> **No re-dibujes sus diagramas en Mermaid.** Es exactamente el tipo de tarea donde se cuela un error
+> de una arista, y ya pasó: la primera versión de esta tabla, hecha como diagrama Mermaid a partir de
+> la hoja de contactos, tenía **asociaciones inventadas**.
+>
+> Mermaid sirve para el **patrón conceptual**. Para *su* diagrama concreto: la imagen, y una tabla
+> leída una por una.
 
 El patrón, comparado con el core:
 

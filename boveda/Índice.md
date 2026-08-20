@@ -21,7 +21,7 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 | `01-Notas/` | Notas atómicas: una por concepto. |
 | `02-Diagramas/` | Diagramas exportados (`.excalidraw`, `.svg`, imágenes). |
 | [[03-Glosario]] | Glosario global de términos. |
-| `04-Flashcards/` | Tarjetas de repaso por tema (`pregunta::respuesta`). |
+| `04-Flashcards/` | Tarjetas de repaso por tema, para el plugin Spaced Repetition. |
 | `00-Fuentes/lecturas/` | Lecturas complementarias en PDF (Reynoso). |
 | `05-Quizzes/` | Quizzes generados y mis resultados, con fecha. |
 | `06-Proyecto-MCP/` | El proyecto práctico: diseño del servidor MCP `tutor-ayds`. |

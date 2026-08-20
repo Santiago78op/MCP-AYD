@@ -219,10 +219,17 @@ la piden enumeradas:
 |---|---|---|
 | **Asociación** | camino de comunicación entre un actor y un caso de uso en el que participa | línea llena |
 | **Extiende** | inserción de comportamiento **adicional** en un caso de uso base, *sin que éste tenga conocimiento* | punteada con `«extiende»` |
-| **Generalización** | relación entre un caso de uso **general** y otro más **específico** que hereda características y añade otras | punteada con **triángulo hueco** |
+| **Generalización** | relación entre un caso de uso **general** y otro más **específico** que hereda características y añade otras | **línea llena** con **triángulo hueco** |
 | **Incluye** | inserción de comportamiento adicional dentro de un caso de uso que **explícitamente describe la inserción** | punteada con `«incluye»` |
 
 ![[adjuntos/capturas-clase/resumen-tipos-de-relaciones-uml.png]]
+
+> [!warning] Ojo con la notación de la generalización
+> Es **línea llena** con triángulo hueco — **no punteada**. Las otras dos (*extiende*, *incluye*) sí
+> son punteadas, porque son **dependencias**; la generalización no es una dependencia, es herencia.
+>
+> Esa es la regla general de UML y sirve para no dudar: **dependencia = punteada**, **herencia =
+> llena**.
 
 > [!important] La frase que distingue extiende de incluye, en una línea
 > **Extiende:** *"sin que éste tenga conocimiento"* — el base **no sabe** que lo extienden.

@@ -111,19 +111,28 @@ Esta segunda versión es la que enseña la **convención de IDs** que usa ella:
 
 ![[adjuntos/capturas-clase/cun-primera-descomposicion-fabrica-materiales.png]]
 
-```mermaid
-flowchart LR
-    AD["Administrador"] --- GS(("Gestión de<br/>Suministros"))
-    AD --- GM(("Gestión de<br/>Materia Prima"))
-    AD --- GP(("Gestión de Productos<br/>en Proceso"))
-    AD --- GT(("Gestión de Producto<br/>Terminado"))
-    AD --- GV(("Gestión de<br/>Ventas/Alquiler"))
-    GS --- PR["Proveedor"]
-    GM --- BA["Banco"]
-    GP --- CO["Contabilidad"]
-    GT --- TR["Transporte"]
-    GV --- VE["Ventas"]
-```
+Las asociaciones, leídas una por una de la imagen:
+
+| CUN | Actores con los que se asocia |
+|---|---|
+| Gestión de Suministros | **Administrador** · Proveedor |
+| Gestión de Materia Prima | Proveedor |
+| Gestión de Productos en Proceso | **Administrador** · Banco · Contabilidad |
+| Gestión de Producto Terminado | Transporte |
+| Gestión de Ventas/Alquiler | **Administrador** · Ventas |
+
+> [!warning] Estas asociaciones se verificaron con zoom; la imagen es la fuente de la verdad
+> **No re-dibujes sus diagramas en Mermaid.** Es exactamente el tipo de tarea donde se cuela un error
+> de una arista, y ya pasó: la primera versión de esta tabla, hecha como diagrama Mermaid a partir de
+> la hoja de contactos, tenía **asociaciones inventadas**.
+>
+> Mermaid sirve para el **patrón conceptual**. Para *su* diagrama concreto: la imagen, y una tabla
+> leída una por una.
+>
+> Y fijate el detalle que aparece al contarlas: **el Administrador no se asocia a los cinco**, solo a
+> **tres**. Los otros dos procesos se relacionan únicamente con su contraparte externa. Es legal: la
+> regla es *"al menos un actor"*, no *"el actor principal en todos"*
+> (→ [[Convenios del diagrama de CUN]] §2).
 
 > [!tip] El patrón de nombres es transparente
 > Los cinco procesos son **"Gestión de X"**, y las X son las **etapas del ciclo de vida del material**:
@@ -181,14 +190,37 @@ Se abre en **Servicio de comida** (núcleo, Cliente), **Comprar suministros** (s
 
 ![[adjuntos/capturas-clase/cu-expandido-servicio-de-comida.png]]
 
-*Servicio de Comida* se expande en **Pedir Comida**, **Pedir Vino**, **Servir la Comida**, **Cocinar la
-Comida**, **Servir el Vino**, **Come la Comida**, **Beber Vino**, **Pagar la Comida**, **Pagar el
-Vino** — con actores **Camarero**, **Chef**, **Cliente** y **Cajero**, y relaciones `«extiende»`
-condicionadas (*"si pide vino"*, *"si lo consumió antes"*).
+*Servicio de Comida* se expande en **nueve** casos de uso, con **cuatro** actores
+(**Camarero**, **Chef**, **Cliente**, **Cajero**). Los cuatro pares base/extensión:
 
-> [!tip] Fijate en las guardas
-> Las extensiones llevan la **condición escrita**: *«extiende» si pide vino*. Eso es exactamente lo que
-> pide [[Relación de extensión extend]]: la extensión sin condición declarada no se puede evaluar.
+| Caso base | Lo extiende | Guarda, textual |
+|---|---|---|
+| Pedir Comida | Pedir Vino | `« extender »` *(sin guarda escrita)* |
+| Servir la Comida | Servir el Vino | `«extender» {si se pidió vino}` |
+| Coma la Comida | Beber Vino | `«extender» {si se consumió vino}` |
+| Pagar la Comida | Pagar el Vino | `«extender» {si se consumió vino}` |
+
+Más **Cocinar la Comida**, que no extiende a nadie: se asocia al **Chef**.
+
+> [!important] Cuatro cosas exactas de este ejemplo
+> **1. El estereotipo que usa es `«extender»`**, no `«extiende»` ni `«extend»`. En el material de clase
+> aparecen las tres formas según el deck — elegí una y usá la misma en toda la entrega.
+>
+> **2. Las guardas van entre llaves y son textuales**: `{si se pidió vino}`, `{si se consumió vino}`.
+> Eso es lo que pide [[Relación de extensión extend]]: una extensión sin condición declarada no se
+> puede evaluar.
+>
+> **3. Las cuatro flechas de `«extender»` apuntan al caso BASE.** Cuatro instancias en un solo
+> diagrama, todas en la misma dirección — es la mejor confirmación de la regla.
+>
+> **4. Acá las asociaciones SÍ llevan nombre**: *Recibir el pedido*, *Hacer el pedido*, *Pagar*,
+> *Aceptar el pago*, *Pedido Confirmado*. Eso **no** contradice los convenios: esos aplican al
+> diagrama de **CUN** (core y descomposición), donde las asociaciones van sin etiqueta. En un
+> **expandido** dibujado con herramienta, etiquetarlas ayuda a leerlo. Ver
+> [[Convenios del diagrama de CUN]] §3.
+>
+> Y un detalle honesto: el diagrama tiene un texto en inglés sin traducir (*"Facilitate Payment"*).
+> Es de ella, no un error de transcripción.
 
 ## 4. Hospital — el que más se parece a tu caso
 
