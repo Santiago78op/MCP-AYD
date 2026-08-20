@@ -82,6 +82,49 @@ Este deck desarrolla a fondo el lado del negocio → [[Modelo de casos de uso de
 > pero las diapositivas solo desarrollan los **del negocio**. Los casos de uso del **sistema**
 > quedan mencionados y no explicados. Falta una nota sobre ellos cuando aparezca el material.
 
+## Por qué existen los casos de uso: las motivaciones
+
+La clase abre el tema con una diapositiva de **Motivaciones**, y son problemas concretos:
+
+- **Dificultades de comunicación** entre stakeholders e ingenieros de requisitos, por usar distintos
+  lenguajes y puntos de vista.
+- Stakeholders que solo tienen una **visión parcial** del negocio, lo que impide a los ingenieros
+  tener una visión clara y dificulta la elicitación.
+- Ingenieros centrados en especificar requisitos con casos de uso, *goals* o historias de usuario, que
+  **obvian parte de la información de las relaciones entre requisitos** o de éstos con el entorno.
+
+Y la cadena que dibuja:
+
+```mermaid
+flowchart LR
+    N["NEGOCIO"] -->|"1. Proporciona"| R["REQUISITOS"]
+    R -->|"2. Conciben"| S["SISTEMAS IT"]
+    S -.->|"3. Reflejan"| N
+```
+
+![[adjuntos/capturas-clase/motivaciones-negocio-requisitos-sistemas.png]]
+
+> [!important] Las tres flechas son el curso entero en miniatura
+> El **negocio proporciona** los requisitos, los requisitos **conciben** los sistemas, y los sistemas
+> **reflejan** el negocio. Si el paso 1 sale mal, los otros dos heredan el error — y por eso el criterio
+> 1 del Caso 1 empieza por el **caso de negocio** y no por el sistema.
+
+## ¿En qué momento se usan los casos de uso?
+
+La clase lo responde sobre el diagrama de esfuerzo por flujo de trabajo de RUP, marcando **dos**
+momentos:
+
+| Flujo de trabajo | Para qué se usan los CU |
+|---|---|
+| **Modelamiento del negocio** | los **CUN**: modelar los procesos del negocio |
+| **Captura de requisitos** | los **CU del sistema**: especificar qué debe hacer el software |
+
+![[adjuntos/capturas-clase/cu-en-que-momento-rup.png]]
+
+Y el diagrama muestra otra cosa útil: esos dos flujos tienen su **pico de esfuerzo en *inception* y
+*elaboration***, y caen después. Los casos de uso son una herramienta **del principio** del proyecto.
+Ver [[Método de diseño centrado en la arquitectura]] y [[Arquitectura y proceso de desarrollo]].
+
 ## Notas relacionadas
 
 - [[Casos de uso vs DFD]]

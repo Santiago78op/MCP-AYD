@@ -128,8 +128,18 @@ npm run build            # compilar
 npm run verificar        # 33 pruebas de lógica (usa una bóveda temporal)
 npm run auditoria        # las 12 herramientas por el protocolo MCP real
 npm run auditar-boveda   # integridad de la bóveda y de la documentación
+npm run cobertura        # 34 consultas reales: ¿el MCP encuentra el contenido?
 npm run comprobar        # diagnóstico del entorno
 ```
+
+Las cuatro primeras responden preguntas distintas:
+
+| Prueba | Qué verifica | Falla cuando… |
+|---|---|---|
+| `verificar` | la **lógica**, contra una bóveda temporal | se rompe una función de `src/` |
+| `auditoria` | las **12 herramientas** por el protocolo MCP real | una herramienta deja de responder o de rechazar basura |
+| `auditar-boveda` | el **contenido** y la coherencia de la documentación | hay un wikilink roto, frontmatter faltante o un conteo desactualizado |
+| `cobertura` | que cada consulta real **encuentre su nota** | se agrega una nota y nadie le pone alias: existe pero es inalcanzable |
 
 Si tocás `src/`, hay que compilar para que el servidor registrado use el código nuevo.
 

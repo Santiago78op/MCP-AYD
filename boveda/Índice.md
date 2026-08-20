@@ -44,10 +44,24 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Diagrama de despliegue]] — punto 1.7: la vista física, la estructura de despliegue y la notación UML
 - [[Estilos arquitectónicos]] — punto 1.9: el catálogo de estilos, sus canjes de atributos y las trampas típicas
 - [[Relaciones y dependencias en UML]] — qué significa cada flecha, hacia dónde apunta, y el puente con la matriz de dependencias
+- [[Stakeholders]] — los cinco de la clase, ISO 42010, PALM, y la diferencia con actor y trabajador
+- [[Tácticas y patrones arquitectónicos]] — el eslabón entre un atributo de calidad y una decisión
+
+- [[Drivers arquitectónicos]] — **de clase**: la definición y los tres tipos (RF, calidad, restricción) con sus ejemplos
+- [[Diagrama de contexto]] — **de clase**: la notación (producto, entidades, streamlines) y dos ejemplos resueltos
+- [[Categorías de estructuras]] — **de clase**: módulos, componentes y conectores, asignación
+- [[Método de diseño centrado en la arquitectura]] — **de clase**: las 8 etapas en 4 fases, con el caso de negocio como **paso 0**
+- [[Convenios del diagrama de CUN]] — **de clase**: cuántos actores, navegabilidad, y los dos usos de `«include»`
 
 ### Calidad del software
 
 - [[Atributos de calidad]] — unidad 2: definición, los seis del programa, escenarios de 6 partes, tradeoffs e ISO
+
+### Arquitectura en el ciclo de vida
+
+- [[El ciclo del architecting]] — los seis pasos, los cinco rasgos, y qué es la descripción arquitectónica
+- [[Evaluación de la arquitectura]] — ATAM: fases, nueve pasos, riesgos, sensibilidades y tradeoffs
+- [[Arquitectura y proceso de desarrollo]] — predictivo (RUP) vs ágil (SCRUM), el rol del arquitecto en cada flujo, implementación y pruebas
 
 ### Requisitos
 
@@ -74,9 +88,14 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Flashcards - Casos de uso del negocio]] (27 tarjetas)
 - [[Flashcards - Trazabilidad de requisitos]] (25 tarjetas)
 - [[Flashcards - Diagrama de despliegue]] (23 tarjetas)
-- [[Flashcards - Estilos arquitectónicos]] (24 tarjetas)
+- [[Flashcards - Estilos arquitectónicos]] (27 tarjetas)
 - [[Flashcards - Relaciones y dependencias en UML]] (22 tarjetas)
-- [[Flashcards - Atributos de calidad]] (23 tarjetas)
+- [[Flashcards - Atributos de calidad]] (24 tarjetas)
+- [[Flashcards - Stakeholders, tácticas y evaluación]] (30 tarjetas)
+- [[Flashcards - Arquitectura y proceso de desarrollo]] (28 tarjetas)
+- [[Flashcards - Drivers arquitectónicos y contexto]] (39 tarjetas) — **todas de clase**
+- [[Flashcards - CUN, convenios y método]] (34 tarjetas) — **todas de clase**
+- [[Flashcards - Ejemplos resueltos y descripción textual]] (25 tarjetas) — **todas de clase**
 
 ## Tareas
 
@@ -84,8 +103,10 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Plan - Caso 1 FarmaHosp]] — la rúbrica desarmada: 4 criterios, 100 puntos, y las ambigüedades a preguntar
 - [[Guía - Caso de negocio]] — la secuencia canónica: contexto → core → primera descomposición → CDU expandidos → matriz
 - [[Guía - Diagrama de casos de uso del negocio]] — paso a paso con ejemplo visual incremental
+- [[Guía - Identificación de stakeholders]] — criterio 2 (25 pts): las tres checklists, la necesidad oculta y los conflictos
 - [[Guía - Drivers de calidad y restricción]] — criterio 3 (30 pts): escenarios, restricciones y la priorización de los 5
 - [[Guía - Matrices de trazabilidad]] — las tres matrices que pide la rúbrica (20 pts)
+- [[Ejemplos resueltos de casos de negocio]] — **de clase**: los tres encadenamientos completos (Tienda Electrónica, Fábrica, **Hospital**) y la checklist para compararte
 
 ## Referencias de herramientas
 
@@ -106,10 +127,10 @@ El detalle punto por punto está en [[Programa oficial del curso]].
 - [x] 1.2 ¿Por qué es importante? — [[Arquitectura de software]]
 - [x] 1.3 Beneficios — [[Beneficios de la arquitectura de software]]
 - [x] 1.4 Pasos para la definición — [[Proceso de diseño arquitectónico]]
-- [ ] 1.5 ¿Qué se tiene en cuenta para el diseño? — parcial: [[Ciclo de influencias en la arquitectura]], [[Equilibrio de restricciones del proyecto]]
+- [x] **1.5 ¿Qué se tiene en cuenta para el diseño?** — [[Proceso de diseño arquitectónico]] con los **7 pasos**, el ciclo `«precede»` y el flujo de definición de Ambler (**de clase**); más: [[Ciclo de influencias en la arquitectura]], [[Equilibrio de restricciones del proyecto]]
 - [x] 1.6 Arquitectura y Requerimientos (CDU de negocio) — bloque de casos de uso + [[Matriz de trazabilidad de requisitos]]
 - [x] **1.7 Diagramas de Despliegue** — [[Diagrama de despliegue]] (núcleo de la presentación + complemento del SAIP y Reynoso)
-- [ ] 1.8 Estructuras y Vistas · Categorías de Estructuras — parcial: [[Estructuras y vistas arquitectónicas]]; las **tres categorías** están en [[Diagrama de despliegue]] §3
+- [x] **1.8 Estructuras y Vistas · Categorías de Estructuras** — [[Estructuras y vistas arquitectónicas]] + [[Categorías de estructuras]] (**de clase**) ~~; las tres categorías** están en [[Diagrama de despliegue]] §3
 - [x] **1.9 Géneros y Estilos Arquitectónicos** — [[Estilos arquitectónicos]] (**complemento entero**: Reynoso + SAIP + guía; sin material de clase)
 
 ### Unidad 2 — Calidad del Software
@@ -120,11 +141,11 @@ El detalle punto por punto está en [[Programa oficial del curso]].
 
 ### Unidad 3 — Arquitectura en el Ciclo de Vida
 
-- [ ] Arquitectura en las metodologías: predictivo y ágil (SCRUM)
-- [ ] Integrando con la arquitectura de la información
-- [ ] Documentando la arquitectura de software
-- [ ] Implementación y pruebas
-- [ ] Evaluación de la arquitectura
+- [x] Arquitectura en las metodologías: predictivo y ágil (SCRUM) — [[Arquitectura y proceso de desarrollo]] §2–5 (**complemento**)
+- [ ] Integrando con la arquitectura de la información — **cero material en las fuentes locales**, hay que pedirlo en clase
+- [x] Documentando la arquitectura de software — [[El ciclo del architecting]] §4 (**complemento**)
+- [x] Implementación y pruebas — [[Arquitectura y proceso de desarrollo]] §3, el rol del arquitecto por flujo (**complemento**)
+- [x] **Evaluación de la arquitectura** — [[Evaluación de la arquitectura]] (**complemento**: ATAM completo)
 - [x] Dónde se coloca en el ciclo de vida — [[Arquitectura en el ciclo de vida del software]]
 
 ### Unidad 4 — Arquitectura y Negocios
@@ -138,17 +159,19 @@ Lo que **falta material** para poder escribir la nota, ordenado por urgencia:
 | Prioridad | Qué falta | Por qué urge |
 |---|---|---|
 | **Alta** | Presentación de **1.9** para validar [[Estilos arquitectónicos]], que hoy es todo complemento | Se está dando ahora (17–24 de agosto) |
-| **Alta** | **Arquitectura candidata**, **arquitectura de referencia** y **on premise vs cloud** — el material local casi no los cubre | Parte de 1.9 |
+| Media | ~~**Arquitectura candidata** y **de referencia**~~ — **RESUELTO**: aparecen en el *Flujo de Definición* de Ambler, en [[Proceso de diseño arquitectónico]]. Sigue faltando **on premise vs cloud** — el material local casi no lo cubre | Parte de 1.9 |
 | Media | 1.8 Categorías de Estructuras | Segundo parcial |
 | **Alta** | Presentación de la **unidad 2** para validar [[Atributos de calidad]], que hoy es todo complemento | Se da del 25 de agosto al 7 de septiembre |
-| Baja | Unidades 3 y 4 | Septiembre y octubre |
+| **Alta** | **"Integrando con la arquitectura de la información"** (unidad 3): lo busqué en la guía de estudio, en Reynoso y en Garland — **cero menciones** en todas | Es el único punto del programa sin **ninguna** fuente |
+| Baja | Unidad 3 (validar contra la presentación) y unidad 4 completa | Septiembre y octubre |
+| Baja | **Unidad 4**: hay una captura sin procesar — *"Sistema de entrega de valor"* (`adjuntos/capturas-clase/sistema-de-entrega-de-valor.png`), con el modelo entorno externo / interno / portafolio → programa → proyecto → producto → operaciones. Encaja en "Arquitectura y Negocios" | Se da del 19 al 27 de octubre |
 
 Y lo que falta por otras razones:
 
 - **Casos de uso del sistema.** El deck dice "del Negocio **y del Sistema**" pero solo desarrolla los del negocio.
 - **DFD.** Aparece solo como término de comparación en [[Casos de uso vs DFD]].
 - **Diagramas UML individuales.** [[Modelo 4+1 vistas]] dice qué diagrama va en cada vista, pero ninguno está explicado.
-- **Trazabilidad de requisitos.** Ya tiene nota, pero de **fuente externa**: no está en las presentaciones ni en el programa oficial. Conviene confirmar el enfoque con la catedrática.
+- ~~**Trazabilidad de requisitos** de fuente externa~~ — **RESUELTO**: apareció `NT1. Trazabilidad de Requerimientos.pdf`, nota técnica de clase, que es **la fuente de la plantilla** (su fig. 1, p. 91). El tema es núcleo, no complemento. Ver [[Matriz de trazabilidad de requisitos]].
 
 ## Presentaciones procesadas
 
@@ -157,6 +180,12 @@ Y lo que falta por otras razones:
 | Arquitectura de Software.pdf | 29 | 2026-08-19 | 9 (bloque de arquitectura) |
 | Arquitectura de Software (1).pdf | 20 | 2026-08-19 | aporta a las mismas 9 |
 | CDU Negocio - Modelado de Drivers RF.pdf | 27 | 2026-08-19 | 12 (bloque de casos de uso) |
+| NT Identificación de CDU de Negocio.pdf | 6 | 2026-08-19 | artículo fuente del deck (Hernández, 2005) |
+| **NT1. Trazabilidad de Requerimientos.pdf** | 13 | 2026-08-19 | [[Matriz de trazabilidad de requisitos]] + [[Guía - Matrices de trazabilidad]]; **fuente de la plantilla** |
+| ProgramaClase-AYD2-2-26.pdf | 5 | 2026-08-19 | [[Programa oficial del curso]] |
+| Caso FarmaHosp.pdf | 8 | 2026-08-19 | [[Plan - Caso 1 FarmaHosp]] + las 5 guías de `08-Tareas/` |
+| Large-Scale Software Architecture.pdf | 281 | 2026-08-19 | [[Arquitectura y proceso de desarrollo]] (complemento) |
+| **capturas de clase** (68 imágenes) | — | 2026-08-19 | [[Ejemplos resueltos de casos de negocio]], [[Drivers arquitectónicos]], [[Diagrama de contexto]], [[Categorías de estructuras]], [[Método de diseño centrado en la arquitectura]], [[Convenios del diagrama de CUN]] + aportan a 6 notas y 2 guías más |
 
 > [!info] Sobre los dos PDF de arquitectura
 > No son el mismo archivo ni uno es subconjunto del otro. El de **29 páginas** trae las

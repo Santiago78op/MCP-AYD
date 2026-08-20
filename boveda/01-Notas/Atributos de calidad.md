@@ -61,6 +61,29 @@ Y el programa agrega una línea que conviene no pasar por alto: **"otros atribut
 observables vía ejecución"**. Son los del desarrollo — modificabilidad, testabilidad,
 deployabilidad, integrabilidad —: no se pueden medir corriendo el sistema, se miden al **cambiarlo**.
 
+> [!note] Cómo se llama eso en el libro oficial
+> El SAIP les dice ***developmental qualities*** o ***development-time qualities***, y la distinción
+> la ancla en el **estímulo** y la **respuesta** del escenario:
+>
+> > *"El estímulo puede ser un evento para la comunidad de performance, una operación de usuario para
+> > la de usabilidad, o un ataque para la de seguridad. Usamos el mismo término para describir una
+> > **acción motivadora de las calidades del desarrollo**: así, un estímulo para modificabilidad es
+> > **una solicitud de modificación**; un estímulo para testabilidad es **la finalización de una
+> > unidad de desarrollo**."*
+>
+> Y la respuesta cambia de sujeto: *"consiste en las responsabilidades que **el sistema** (para las
+> calidades en ejecución) o **los desarrolladores** (para las calidades del desarrollo) deben
+> ejecutar"*.
+>
+> Regla práctica para escribir el escenario: si el que responde es **el sistema**, es de ejecución;
+> si el que responde es **el equipo**, es del desarrollo. Ver §7.
+>
+> El libro también explica **por qué** el programa las separa: *"muchos concerns que conducen una
+> arquitectura no se manifiestan en absoluto como observables en el sistema... las calidades del
+> desarrollo también quedan fuera de alcance: rara vez verás un documento de requisitos que describa
+> supuestos de organización de equipos"*. O sea: **no están en el documento de requisitos, y por eso
+> hay que salir a buscarlas.**
+
 > [!important] Dónde cae la seguridad
 > En la lista del programa **no aparece "seguridad" como atributo propio**, y eso no es un olvido: en
 > **ISO 9126** la seguridad es una **subcaracterística de funcionalidad**.
@@ -72,6 +95,66 @@ deployabilidad, integrabilidad —: no se pueden medir corriendo el sistema, se 
 > Para clasificar en esta materia, usá **los seis del programa** — y si un requisito es de seguridad,
 > decí bajo qué característica lo estás poniendo y por qué. Eso demuestra que entendiste la
 > taxonomía en vez de improvisar una.
+
+## 3 ter. Las TRES taxonomías en juego, y cuál usar
+
+Apareció una tercera, y **es la que manda para el Caso 1**: la de la diapositiva
+*"Drivers Arquitectónicos: De Calidad"* (→ [[Drivers arquitectónicos]] §4).
+
+| Atributo | Programa (ISO 9126) | NT1 (FURPS) | **Drivers de calidad** |
+|---|---|---|---|
+| Funcionalidad | ✅ | ✅ | ❌ *(se fue a los drivers RF)* |
+| Fiabilidad | ✅ | ✅ confiabilidad | ✅ |
+| Usabilidad | ✅ | ✅ facilidad de uso | ✅ |
+| Eficiencia / Rendimiento | ✅ eficiencia | ✅ rendimiento | ✅ **Rendimiento** |
+| Mantenibilidad | ✅ | ~ capacidad de soporte | ✅ |
+| Portabilidad | ✅ | ~ adaptabilidad | ❌ |
+| **Escalabilidad** | ❌ | ❌ | ✅ |
+| **Disponibilidad** | dentro de fiabilidad | dentro de confiabilidad | ✅ **primer nivel** |
+| **Seguridad** | dentro de funcionalidad | dentro de funcionalidad | ✅ **primer nivel** |
+| **Total** | **6** | **5** | **7** |
+
+> [!important] Regla para no equivocarse
+> | Para qué | Qué lista usás |
+> |---|---|
+> | **Clasificar drivers de calidad en el Caso 1** | las **siete** de la diapositiva de drivers |
+> | **Responder el parcial de la unidad 2** | los **seis** del programa (ISO 9126) |
+> | Entender de dónde salen las taxonomías | la comparación de arriba |
+>
+> No es contradicción: son **dos usos distintos**. La unidad 2 enseña la **norma de calidad de
+> producto**; el criterio 3 pide **drivers**, que es un modelo de diseño. Lo único grave sería
+> mezclar las listas sin declarar cuál usás.
+
+## 3 bis. Una segunda taxonomía que también es de clase: FURPS
+
+`NT1. Trazabilidad de Requerimientos.pdf` trae, en su **Tabla 1 — "Clasificación de los requisitos
+de software"**, una taxonomía **distinta** de la del programa. Es **FURPS**:
+
+| Factor de calidad | Atributos que lista |
+|---|---|
+| **Funcionalidad** | característica y capacidades del programa · generalidad de las funciones · **seguridad del sistema** |
+| **Facilidad de uso** | factores humanos · factores estéticos · consistencia de la interfaz · documentación |
+| **Confiabilidad** | frecuencia y severidad de las fallas · exactitud de las salidas · tiempo medio de fallos · capacidad de recuperación · capacidad de predicción |
+| **Rendimiento** | velocidad de procesamiento · tiempo de respuesta · consumo de recursos · rendimiento · eficacia |
+| **Capacidad de soporte** | extensibilidad · adaptabilidad · capacidad de prueba · capacidad de configuración · compatibilidad · requisitos de instalación |
+
+> [!warning] Hay DOS taxonomías de clase y no coinciden — elegí una y declarala
+> | | Programa (unidad 2) | NT1, Tabla 1 |
+> |---|---|---|
+> | Modelo | **ISO 9126** | **FURPS** |
+> | Cuántos factores | 6 | 5 |
+> | Mantenibilidad | sí | **no** — se reparte en *capacidad de soporte* |
+> | Portabilidad | sí | **no** — cae en *adaptabilidad* / *requisitos de instalación* |
+> | Seguridad | subcaracterística de funcionalidad | igual: dentro de **funcionalidad** |
+>
+> Las dos coinciden en lo importante para esta materia: **la seguridad va dentro de funcionalidad**,
+> no como factor aparte.
+>
+> **Qué hacer en la entrega:** usá **los seis del programa** — es el contenido temático evaluable — y
+> si un atributo te queda incómodo, mencioná que FURPS lo pone en otro lado. Lo que **no** se puede
+> es mezclar las dos listas sin decir cuál usás: ahí la clasificación queda indefendible.
+
+![[adjuntos/nt1-trazabilidad/nt1-p03-tabla-clasificacion-y-matriz-dependencias.png]]
 
 ## 4. Las dos categorías
 

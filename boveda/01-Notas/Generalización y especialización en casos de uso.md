@@ -71,6 +71,22 @@ desarrollado en [[Actor del negocio]].
 | El actor se asocia a… | el base | el base | el **padre** |
 | Motivo | reutilizar / simplificar | conducta opcional o elección del actor | evitar describir el mismo flujo varias veces |
 
+## El ejemplo de clase: vendedores ambulantes
+
+![[adjuntos/capturas-clase/generalizacion-especializacion-ejemplo.png]]
+
+```mermaid
+flowchart TD
+    JZ["Jefe zonal"] --- RV(("Realizar<br/>visitas"))
+    RVP(("Realizar visitas a<br/>clientes potenciales")) -->|"hereda"| RV
+    RVR(("Realizar visitas a<br/>clientes registrados")) -->|"hereda"| RV
+```
+
+El padre *Realizar visitas* es el que se asocia al **Jefe zonal**; los dos hijos heredan y se
+especializan. Es la figura que evita repetir el mismo flujo dos veces, y la que habilita la excepción
+de [[Convenios del diagrama de CUN]] §2: **los hijos pueden no tener actor propio** porque el padre ya
+describe toda la comunicación.
+
 ## Notas relacionadas
 
 - [[Caso de uso del negocio]]

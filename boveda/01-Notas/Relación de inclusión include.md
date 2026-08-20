@@ -66,6 +66,23 @@ válido: aunque nadie más lo reuse, si el CU base quedó ilegible por su largo,
 La prueba práctica: preguntate **"¿esto pasa siempre?"**. Si la respuesta es sí, es `include`;
 si es "solo a veces / bajo ciertas condiciones", es `extend`.
 
+## Un ejemplo con las tres relaciones a la vez
+
+La clase cierra el tema con un diagrama completo donde conviven `«extends»` e `«Include»`:
+
+![[adjuntos/capturas-clase/ejemplo-completo-expandido-maquina.png]]
+
+*Depositar Botella*, *Depositar Tarro* y *Depositar Jaba* **extienden** a *Depositar Item*; y
+*Depositar Item* **incluye** *Imprimir* y *Generar Alarma*. Del otro lado el **Operador** tiene
+*Generar Reporte* y *Cambiar Item*.
+
+> [!important] Lo que enseña el ejemplo
+> Las tres variantes de depósito son **`«extends»`** porque cada una es un **caso particular** del
+> depósito genérico — no todas ocurren siempre. En cambio *Imprimir* y *Generar Alarma* son
+> **`«include»`** porque **todo** depósito imprime y puede alarmar.
+>
+> Es la prueba de una palabra otra vez: *extends* = "solo a veces"; *include* = "siempre".
+
 ## Notas relacionadas
 
 - [[Caso de uso del negocio]]

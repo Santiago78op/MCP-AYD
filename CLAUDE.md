@@ -199,8 +199,12 @@ npm run build            # compilar
 npm run verificar        # 33 pruebas de lógica (bóveda temporal, no toca la real)
 npm run auditoria        # las 12 herramientas por el protocolo MCP real
 npm run auditar-boveda   # contenido de la bóveda + coherencia de la documentación
+npm run cobertura        # 34 consultas reales: ¿el MCP encuentra el contenido?
 npm run comprobar        # diagnóstico del entorno
 ```
+
+`cobertura` es la que atrapa la desincronización **silenciosa**: una nota nueva sin alias existe en
+disco pero ninguna consulta la alcanza. Cuando agregues una nota, agregale un caso ahí.
 
 **Corré `auditar-boveda` cada vez que agregues una herramienta o un lote de notas.** La
 documentación se desincroniza sola: ya pasó dos veces (el README decía 10 herramientas cuando había
@@ -231,7 +235,7 @@ ayds-mcp/
 ├── src/boveda.ts        Seguridad de rutas, Unicode, frontmatter  ← leer primero
 ├── src/index.ts         Las 12 herramientas + transporte stdio
 ├── src/*.ts             Un módulo por área
-└── pruebas/             Demo, verificaciones y las dos auditorías
+└── pruebas/             Demo, verificaciones, las dos auditorías y la sonda de cobertura
 ```
 
 Para entender el código, el orden: **`boveda.ts` → `index.ts` → el resto.**

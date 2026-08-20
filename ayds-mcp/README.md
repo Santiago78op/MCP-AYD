@@ -366,7 +366,8 @@ ayds-mcp/                    (fuera de la bóveda: node_modules son decenas de
     ├── demo.ts              Cliente MCP real: handshake + llamadas
     ├── verificaciones.ts    33 pruebas de seguridad, Unicode y escritura
     ├── auditoria.ts         Auditoría: las 12 herramientas por el protocolo MCP real
-    └── auditar-boveda.mjs   Auditoría: contenido de la bóveda y coherencia de la documentación
+    ├── auditar-boveda.mjs   Auditoría: contenido de la bóveda y coherencia de la documentación
+    └── cobertura.mjs        Sonda: 34 consultas reales contra el MCP, ¿encuentran su nota?
 ```
 
 Para entender el código, el orden que conviene: **`boveda.ts` → `index.ts` → el resto**.
