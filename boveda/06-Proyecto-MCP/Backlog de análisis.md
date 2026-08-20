@@ -4,7 +4,25 @@ fuente: "Análisis de Fable 5 sobre el MCP y la bóveda — sondas reales por st
 fecha: 2026-08-20
 ---
 
-# Backlog de análisis — hallazgos verificados, pendientes de implementar
+# Backlog de análisis — IMPLEMENTADO (2026-08-20)
+
+> [!important] Estado: los 16 ítems están implementados
+> Este documento se conserva como **registro de qué se cambió y por qué**, con la evidencia de cada
+> hallazgo. Ya no es una lista de pendientes.
+>
+> | Parte | Ítems | Resultado |
+> |---|---|---|
+> | 1 — MCP | M-01 … M-05 | `buscar` tokeniza y puntúa, sin duplicados; `leer_nota` resuelve alias; tope por archivo; 5 casos de regresión |
+> | 2 — Bóveda | F-01, F-02, F-03, F-04 | reconciliación de estereotipos, calibración epistémica, regla espejo |
+> | 2-bis — Contenido | F-05 … F-09 | contexto y core alineados a la clase, mapa del parcial |
+> | 2-ter — Conceptos | F-10, F-11, F-12 | colisión de navegabilidad, campo de acción, mantenibilidad |
+>
+> **Quedaron sin hacer a propósito:** M-06 (orden aleatorio en flashcards) y M-07 (frontmatter
+> crudo en `metodo_tarea`). Los dos son 🟡 y el backlog mismo dice que el cliente puede resolverlos.
+>
+> Verificación al cierre: **37/37** lógica · **12/12** herramientas por protocolo MCP · **0**
+> hallazgos de integridad · **39/39** cobertura · **106/106** diagramas parsean y renderizan · 0
+> enlaces rotos · 141 términos sin duplicados ni desorden.
 
 Reparto de trabajo acordado: **Fable analiza, Opus implementa.** Cada hallazgo trae la evidencia con
 la que se verificó, para no re-derivar nada. Nada de esto está implementado todavía.
