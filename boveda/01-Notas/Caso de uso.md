@@ -66,6 +66,15 @@ tipos** de casos de uso y por qué se confunden tanto.
 
 ![[adjuntos/cdu-negocio-modelado-drivers-rf/cdu-p06.png]]
 
+En la captura de clase se ve el diagrama de esfuerzo completo, con los dos flujos marcados:
+
+![[adjuntos/capturas-clase/cu-en-que-momento-rup.png]]
+
+Y confirma el dato de la escala: esos dos flujos **tienen su pico en *inception* y *elaboration*** y
+caen después. Los casos de uso son una herramienta **del principio** del proyecto — lo que encaja
+con que el caso de negocio sea el **paso 0** del método
+(→ [[Método de diseño centrado en la arquitectura]]).
+
 ## Los dos tipos
 
 | | Caso de uso del negocio (CUN) | Caso de uso del sistema |
@@ -109,21 +118,26 @@ flowchart LR
 > **reflejan** el negocio. Si el paso 1 sale mal, los otros dos heredan el error — y por eso el criterio
 > 1 del Caso 1 empieza por el **caso de negocio** y no por el sistema.
 
-## ¿En qué momento se usan los casos de uso?
+## Conceptos básicos: los tres elementos y cómo se llaman
 
-La clase lo responde sobre el diagrama de esfuerzo por flujo de trabajo de RUP, marcando **dos**
-momentos:
+Una diapositiva del deck de relaciones nombra los elementos, y dos de esos nombres conviene tenerlos:
 
-| Flujo de trabajo | Para qué se usan los CU |
+> Los *casos de uso* son **descripciones narrativas en lenguaje natural** de los procesos del dominio
+> **en un formato estructurado de prosa**. Describen una **secuencia de acciones**.
+
+| Elemento | Cómo se dibuja |
 |---|---|
-| **Modelamiento del negocio** | los **CUN**: modelar los procesos del negocio |
-| **Captura de requisitos** | los **CU del sistema**: especificar qué debe hacer el software |
+| **Caso de uso** | elipse dentro del recuadro del sistema |
+| **Actor** | monigote, fuera del recuadro |
+| ***Arco de comunicación*** | la línea que une actor y caso de uso |
 
-![[adjuntos/capturas-clase/cu-en-que-momento-rup.png]]
-
-Y el diagrama muestra otra cosa útil: esos dos flujos tienen su **pico de esfuerzo en *inception* y
-*elaboration***, y caen después. Los casos de uso son una herramienta **del principio** del proyecto.
-Ver [[Método de diseño centrado en la arquitectura]] y [[Arquitectura y proceso de desarrollo]].
+> [!tip] "Arco de comunicación" es el nombre formal de la asociación
+> Es la misma línea que en el diagrama de CUN lleva la navegabilidad
+> (→ [[Convenios del diagrama de CUN]] §3). Saber el término sirve si lo usa en un examen.
+>
+> Y guardate la definición de arriba: **"formato estructurado de prosa"** es exactamente lo que
+> justifica la ficha textual de [[Descripción textual de casos de uso]] — no es prosa libre, tiene
+> estructura.
 
 ## Notas relacionadas
 

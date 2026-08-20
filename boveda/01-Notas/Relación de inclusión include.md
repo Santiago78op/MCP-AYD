@@ -66,6 +66,27 @@ válido: aunque nadie más lo reuse, si el CU base quedó ilegible por su largo,
 La prueba práctica: preguntate **"¿esto pasa siempre?"**. Si la respuesta es sí, es `include`;
 si es "solo a veces / bajo ciertas condiciones", es `extend`.
 
+## La definición formal del deck
+
+> - Un caso de uso base **incorpora explícitamente** el comportamiento de otro caso de uso **en el
+>   lugar especificado en el caso base**.
+> - Se usa para **evitar describir el mismo flujo de eventos repetidas veces**, poniendo el
+>   comportamiento común en un caso de uso aparte.
+> - Se representa como una **dependencia estereotipada** con `«include»`.
+
+> [!important] "En el lugar especificado en el caso base" es la clave
+> La inclusión **no es en cualquier momento**: el base dice **dónde** se inserta. Y lo dice
+> *explícitamente* — a diferencia de `«extend»`, donde el base solo marca puntos disponibles y no sabe
+> quién los usa.
+>
+> | | `«include»` | `«extend»` |
+> |---|---|---|
+> | ¿El base sabe? | **sí**, describe la inserción | **no**, solo declara puntos |
+> | ¿Cuándo ocurre? | **siempre** | **a veces** |
+> | Dirección de la flecha | base → incluido | extendido → base |
+>
+> Ver [[Relación de extensión extend]] para el otro lado de la tabla.
+
 ## Un ejemplo con las tres relaciones a la vez
 
 La clase cierra el tema con un diagrama completo donde conviven `«extends»` e `«Include»`:

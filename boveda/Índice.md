@@ -187,6 +187,31 @@ Y lo que falta por otras razones:
 | Large-Scale Software Architecture.pdf | 281 | 2026-08-19 | [[Arquitectura y proceso de desarrollo]] (complemento) |
 | **capturas de clase** (68 imágenes) | — | 2026-08-19 | [[Ejemplos resueltos de casos de negocio]], [[Drivers arquitectónicos]], [[Diagrama de contexto]], [[Categorías de estructuras]], [[Método de diseño centrado en la arquitectura]], [[Convenios del diagrama de CUN]] + aportan a 6 notas y 2 guías más |
 
+### Capturas de clase: inventario verificado
+
+68 capturas en `00-Fuentes/capturas/`. Así están repartidas:
+
+| Estado | Cuántas | Detalle |
+|---|---|---|
+| **Recortadas, nombradas y citadas** en una nota | **45** | están en `adjuntos/capturas-clase/` con nombre descriptivo |
+| **Contenido cubierto** por notas hechas desde el PDF | **21** | son las mismas diapositivas del deck de 27 páginas, ya embebidas desde `adjuntos/cdu-negocio-modelado-drivers-rf/` |
+| **Pendiente a propósito** | **1** | *"Sistema de entrega de valor"* — material de **unidad 4**, que se da del 19 al 27 de octubre |
+| Descartada | 1 | la portada del deck: sin valor informativo |
+
+> [!important] Cómo se verificó que las 21 no dejan huecos
+> No por suposición: se listó el contenido concreto de cada una y se buscó en el corpus de notas.
+> Ese chequeo encontró **4 detalles que faltaban de verdad**, y se agregaron:
+>
+> | Lo que faltaba | Dónde quedó |
+> |---|---|
+> | **Puntos de extensión** — el mecanismo formal de `«extend»` | [[Relación de extensión extend]] |
+> | *"en el lugar especificado en el caso base"* — el de `«include»` | [[Relación de inclusión include]] |
+> | *"añadir **o redefinir**"* — lo que hace fuerte a la generalización | [[Generalización y especialización en casos de uso]] |
+> | ***Arco de comunicación*** y "formato estructurado de prosa" | [[Caso de uso]] |
+>
+> Y encontró **dos secciones duplicadas** que se habían creado al cablear las capturas
+> (*"¿En qué momento se usan?"* y *"El ejemplo: vendedores ambulantes"*): fusionadas.
+
 > [!info] Sobre los dos PDF de arquitectura
 > No son el mismo archivo ni uno es subconjunto del otro. El de **29 páginas** trae las
 > definiciones formales y el **modelo 4+1 vistas** completo; el de **20 páginas** trae el
