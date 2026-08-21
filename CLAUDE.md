@@ -379,6 +379,23 @@ Seis partes, en orden. La teoría en **líneas cortas**; el «cómo» es la part
 5. **La demostración** — corrida adelante suyo, con el razonamiento a la vista.
 6. **La checklist** de verificación.
 
+### La teoría se explica al pie
+
+Es lo que pide explícitamente. Aplica en *explicar*, *copiloto* y *resolver y explicar*; en **examen**
+no. Detalle completo en `boveda/_Protocolo de tutoría.md` §2 bis. Lo esencial:
+
+- **Ningún término sin definir** la primera vez que aparece: driver, concern, estereotipo, streamline.
+- **La definición formal y citable**, no una paráfrasis — la va a citar en la entrega.
+- **Decir de dónde sale**: clase = núcleo, libro = complemento **declarado como tal**.
+- **El «para qué» antes del «cómo»**: qué error evita el artefacto y qué habilita después.
+- **Tablas en vez de párrafos** para toda distinción (actor vs. trabajador, calidad vs. restricción).
+- **La trampa dicha antes** de que la cometa.
+- **El método corrido delante suyo**, no descrito: los barridos ejecutados, con el razonamiento.
+- **Cerrar con una regla memorizable** que pueda repetir en el examen.
+
+Explicar al pie **no es escribir más largo**: es cerrar el hueco — el término sin definir, el «por
+qué» que falta, la fuente no declarada, el paso resumido en vez de corrido.
+
 ### La crítica es obligatoria
 
 Un tutor que solo valida no sirve. En cada paso, con nombre: **las trampas del enunciado** (están
@@ -509,6 +526,29 @@ viaja `tutor-ayds → cliente → StarUML`.
 
 ---
 
+## Los dos repos tienen que quedar iguales
+
+`boveda/` es un espejo del vault de trabajo del repo `SO2_MT`
+(`~/Desktop/SO2/AYD_2/Ayd`). Se trabaja en dos máquinas, así que **cada cambio se espeja y se
+commitea en los dos en el mismo movimiento**.
+
+**Validar con la herramienta, nunca a ojo:**
+
+```bash
+python boveda/sincronizar.py            # informa faltantes, sobrantes y distintos
+python boveda/sincronizar.py --aplicar  # copia del vault hacia la boveda
+```
+
+Informa también el estado git de los dos repos y sale con código 1 si hay desfases. Las únicas
+excepciones legítimas son `.claude/` y `CLAUDE.md`.
+
+> [!warning] Esto ya falló una vez
+> La segunda máquina seguía la regla vieja de tutoría —*«no produzcas el diagrama por él»*— porque
+> este CLAUDE.md no se había actualizado. Las instrucciones de trabajo **van versionadas en los
+> repos**, no en la memoria de una máquina.
+
+---
+
 ## Mantenimiento
 
 > [!note] Registro de decisiones
@@ -545,15 +585,20 @@ boveda/
 ├── 00-Fuentes/presentaciones/   Las presentaciones del curso (NO modificar)
 ├── 00-Fuentes/lecturas/         Lecturas complementarias
 ├── 01-Notas/                    Notas atómicas: una por concepto
-├── 02-Diagramas/                Diagramas exportados
+├── 02-Diagramas/                Lo generado: .excalidraw editable, .svg para entregar,
+│                                .mdj para StarUML, y los PNG de verificacion
 ├── 03-Glosario.md               Glosario alfabético
 ├── 04-Flashcards/               Tarjetas de repaso (12 archivos, 324 tarjetas)
 ├── 05-Quizzes/progreso.md       Registro de resultados (lo único que el MCP escribe)
 ├── 06-Proyecto-MCP/diseño.md    El diseño del servidor: actores, RF, RNF, decisiones
-├── 06-Proyecto-MCP/estilo-diagramas.md  Reglas de layout y notación + checklist  ← obligatorio
+├── 06-Proyecto-MCP/estilo-diagramas.md  Layout, notación, checklist y metodología ADD  ← obligatorio
+├── 06-Proyecto-MCP/generar-excalidraw.py  Emite el .excalidraw editable y el .svg sin marca de agua
+├── 06-Proyecto-MCP/generar-mdj.py         Escribe el proyecto .mdj de StarUML ya acomodado
 ├── 07-Referencias/              Manual de StarUML y Excalidraw (no es materia de examen)
 ├── 08-Tareas/                   Método, guías por entregable, planes y enunciados
-├── _Protocolo de tutoría.md     CÓMO acompañar el estudio: los tres modos  ← leer primero
+├── 07-Trazabilidad.md           Las tres matrices, con plantillas y cómo se leen
+├── _Protocolo de tutoría.md     CÓMO acompañar el estudio: los CUATRO modos  ← leer primero
+├── sincronizar.py               Valida que este repo y SO2_MT esten iguales
 ├── Índice.md                    Punto de entrada
 └── Programa oficial del curso.md  Contenido temático, cronograma y fechas de parciales
 
