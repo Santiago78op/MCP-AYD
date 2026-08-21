@@ -179,6 +179,16 @@ else
   aviso "no encuentro StarUML (opcional: solo para los diagramas formales)"
 fi
 
+# Chrome: el paso 4 del checklist de diagramas (mirar la imagen renderizada,
+# obligatorio segun estilo-diagramas.md §7) se hace abriendo el SVG en un
+# Chrome real via el MCP chrome-devtools. Sin Chrome no hay verificacion visual.
+if [ -d "/Applications/Google Chrome.app" ] || command -v google-chrome >/dev/null 2>&1; then
+  ya "Google Chrome instalado"
+else
+  aviso "no encuentro Google Chrome (lo usa la verificación visual de diagramas)"
+  comando "brew install --cask google-chrome"
+fi
+
 if command -v git >/dev/null 2>&1; then
   ya "git $(git --version | awk '{print $3}')"
 else
@@ -334,6 +344,22 @@ else
   fi
 fi
 
+# --- chrome-devtools MCP: la verificación visual de los diagramas -----------
+# Es la herramienta con la que se cumple el paso 4 del checklist (§7 de
+# estilo-diagramas.md): abrir el SVG en Chrome, capturar y MIRAR la imagen.
+if [ "$CLAUDE_OK" -eq 1 ]; then
+  if claude mcp get chrome-devtools >/dev/null 2>&1; then
+    ya "el MCP 'chrome-devtools' ya está registrado en Claude Code"
+  elif [ "$SOLO_VERIFICAR" -eq 1 ]; then
+    nota "(modo verificación: no registro chrome-devtools)"
+  elif claude mcp add chrome-devtools -- npx -y chrome-devtools-mcp@latest >/dev/null 2>&1; then
+    hecho "MCP 'chrome-devtools' registrado (verificación visual de diagramas)"
+  else
+    aviso "no pude registrar el MCP chrome-devtools. A mano:"
+    comando "claude mcp add chrome-devtools -- npx -y chrome-devtools-mcp@latest"
+  fi
+fi
+
 # ---------------------------------------------------------------------------
 titulo "6. Claude Desktop (opcional, a mano)"
 # ---------------------------------------------------------------------------
@@ -409,6 +435,23 @@ else
   nota "La bóveda funciona sola, pero la regla del espejo necesita los dos repos:"
   comando "git clone https://github.com/Santiago78op/SO2_MT.git \"$HOME/Desktop/SO2\""
   nota "Si ya vive en otra ruta: VAULT_TRABAJO=/esa/ruta bash instalar.sh --verificar"
+fi
+
+# ---------------------------------------------------------------------------
+titulo "9. Las láminas de diagramas"
+# ---------------------------------------------------------------------------
+
+# Los .svg / .excalidraw / .mdj de boveda/02-Diagramas vienen VERSIONADOS en el
+# repo: tras el git pull ya son idénticos en las dos máquinas. El generador es
+# determinista (mismas coordenadas → mismos bytes), así que regenerar produce
+# exactamente los mismos archivos.
+if [ "$PY_OK" -eq 1 ] && [ -d "$BOVEDA/02-Diagramas" ]; then
+  N_SVG=$(find "$BOVEDA/02-Diagramas" -maxdepth 1 -name '*.svg' 2>/dev/null | wc -l | tr -d ' ')
+  ok "$N_SVG láminas SVG en boveda/02-Diagramas/"
+  nota "Para listar o regenerar (idéntico, byte a byte):"
+  comando "$PYBIN boveda/06-Proyecto-MCP/generar-excalidraw.py            # lista los diagramas"
+  comando "$PYBIN boveda/06-Proyecto-MCP/generar-excalidraw.py <nombre>   # regenera .excalidraw + .svg"
+  nota "El flujo completo con la verificación en Chrome: boveda/06-Proyecto-MCP/estilo-diagramas.md §7"
 fi
 
 # ---------------------------------------------------------------------------

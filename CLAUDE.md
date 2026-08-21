@@ -492,6 +492,21 @@ Lo indispensable de esa guía, para que no se pierda si no la abrís:
   contra las reglas. Un diagrama con el código perfecto puede verse mal. Nada se declara terminado
   sin haber visto la imagen.
 
+**El flujo de generación y verificación, reproducible en las dos máquinas** (el instalador registra
+el MCP `chrome-devtools`, que es la herramienta del paso 4):
+
+1. `python3 boveda/06-Proyecto-MCP/generar-excalidraw.py <nombre>` — emite el `.excalidraw`
+   editable **y** el `.svg` en `boveda/02-Diagramas/`. Es **determinista**: mismas coordenadas,
+   mismos bytes, en cualquier máquina.
+2. Servir la carpeta (`python3 -m http.server 8746 --directory boveda/02-Diagramas`) y abrir el
+   `.svg` con el MCP chrome-devtools (`new_page` → `take_screenshot`).
+3. **Mirar la captura** contra el checklist §7 de la guía; corregir coordenadas en el generador y
+   repetir hasta que pase.
+4. Guardar la captura final como `<nombre>-verificacion.png` junto al SVG, y espejar/commitear.
+
+Las láminas del Caso 1 ya están versionadas en `boveda/02-Diagramas/` — las dos máquinas las
+comparten por git; el generador existe para crear diagramas nuevos o corregir los existentes.
+
 **Antes de dibujar cualquier artefacto del curso, decidí en qué plano estás** — es el error que más
 invalida entregables:
 

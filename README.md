@@ -34,10 +34,11 @@ bash instalar.sh --verificar
 > detiene. Es a propósito: elegir entre `brew` y `nvm` es tu decisión, y así no terminás con dos
 > versiones de Node instaladas.
 
-### Lo único imprescindible
+### Lo imprescindible
 
-**Node.js ≥ 20.** Nada más. Las dependencias del servidor son JavaScript puro: no hay compilador de
-C, ni Python, ni base de datos.
+**Node.js ≥ 20** para el servidor (dependencias JavaScript puro, sin compilador de C ni base de
+datos) y **Python 3** para las herramientas de la bóveda (`sincronizar.py` y los generadores de
+diagramas — solo biblioteca estándar, sin pip).
 
 ```bash
 node -v                 # >= 20
@@ -53,7 +54,8 @@ Si falta: `brew install node` (o `nvm install 22`, si ya usás nvm).
 | **Obsidian** | Leer y editar la bóveda cómodamente | El servidor funciona igual: lee los `.md` directo |
 | **Claude Code** (CLI) | Usar el tutor desde la terminal | Se puede usar solo con Claude Desktop |
 | **Claude Desktop** | Usar el tutor en la app | Se puede usar solo con Claude Code |
-| **StarUML v7+** | Diagramas UML formales | Solo hace falta para el flujo cruzado de diagramas |
+| **StarUML v7+** | Modelar y validar la semántica UML | Ojo, medido: **sin licencia marca TODA exportación, SVG incluido** — la lámina final sale del generador |
+| **Google Chrome** + MCP `chrome-devtools` | La verificación visual de los diagramas (paso 4 del checklist) | El instalador registra el MCP; sin Chrome no hay verificación |
 
 > [!IMPORTANT]
 > **No copies `node_modules` de otra máquina.** TypeScript 7 instala un binario del compilador **por
@@ -61,6 +63,28 @@ Si falta: `brew install node` (o `nvm install 22`, si ya usás nvm).
 > `rm -rf ayds-mcp/node_modules ayds-mcp/dist` y volvé a correr el script.
 
 ---
+
+## Las herramientas de la bóveda
+
+Tres scripts Python (biblioteca estándar, sin pip), documentados en
+`boveda/06-Proyecto-MCP/estilo-diagramas.md`:
+
+| Script | Qué hace | Comando |
+|---|---|---|
+| `boveda/sincronizar.py` | Valida (y repara con `--aplicar`) que este repo y el vault de trabajo `SO2_MT` queden **idénticos** | `python3 boveda/sincronizar.py` |
+| `boveda/06-Proyecto-MCP/generar-excalidraw.py` | De coordenadas explícitas emite la lámina: `.excalidraw` editable **y** `.svg` vectorial sin marca de agua. Determinista: mismos bytes en cualquier máquina | `python3 …/generar-excalidraw.py <nombre>` |
+| `boveda/06-Proyecto-MCP/generar-mdj.py` | Escribe el proyecto **nativo `.mdj` de StarUML** con el layout ya resuelto (el MCP de StarUML no posiciona elementos) | `python3 …/generar-mdj.py <nombre>` |
+
+Las láminas generadas viven versionadas en `boveda/02-Diagramas/` — tras `git pull`, las dos
+máquinas ya comparten exactamente los mismos archivos.
+
+## El espejo con el repo de trabajo
+
+`boveda/` es un **espejo** del vault del repo `SO2_MT` (`~/Desktop/SO2/AYD_2/Ayd`): se estudia en
+dos máquinas y cada cambio se espeja y commitea **en los dos repos en el mismo movimiento**. La
+validación no es a ojo: `python3 boveda/sincronizar.py` compara archivo por archivo y sale con
+código 1 si hay desfase. El instalador corre esta validación en su sección 8. Las únicas
+diferencias legítimas son `.claude/` y `CLAUDE.md`.
 
 ## Probarlo
 
