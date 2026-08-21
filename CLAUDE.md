@@ -440,6 +440,29 @@ de FarmaHosp pide tres). Está todo en `metodo_tarea("caso de negocio")`.
 
 ---
 
+## Diagramas: regla permanente
+
+**Al crear cualquier diagrama en StarUML —o en Excalidraw, o en Mermaid dentro de una nota— seguí
+`06-Proyecto-MCP/estilo-diagramas.md` y ejecutá su checklist de verificación antes de darlo por
+terminado.** Sin excepciones.
+
+Lo indispensable de esa guía, para que no se pierda si no la abrís:
+
+- **El MCP de StarUML no puede acomodar un diagrama.** Sus 4 herramientas (`generate_diagram`,
+  `get_all_diagrams_info`, `get_current_diagram_info`, `get_diagram_image_by_id`) no mueven
+  elementos ni disparan auto-layout. El layout se controla con el **orden del Mermaid**, con el
+  auto-layout **manual** de la app, o con **coordenadas explícitas en `.excalidraw`** — la única vía
+  programable.
+- **StarUML modela y valida la semántica UML; Excalidraw produce la lámina final.** Casos de uso,
+  componentes, despliegue, actividad, paquetes y DFD **no se importan por Mermaid** a StarUML.
+- **Exportar a SVG, no a PNG.** Para entregas, SVG → PDF o PNG a 2× con fondo blanco explícito.
+- **Retícula de 20 px**, márgenes de 40, separación mínima 40 px horizontal y 30 vertical.
+- **El paso 4 del checklist no se saltea**: tomar una captura, **mirar la imagen** y compararla
+  contra las reglas. Un diagrama con el código perfecto puede verse mal. Nada se declara terminado
+  sin haber visto la imagen.
+
+---
+
 ## Diagramas: dos trampas
 
 Antes de generar Mermaid para otra herramienta, llamá `referencia("staruml")` o
@@ -503,6 +526,7 @@ boveda/
 ├── 04-Flashcards/               Tarjetas de repaso (12 archivos, 324 tarjetas)
 ├── 05-Quizzes/progreso.md       Registro de resultados (lo único que el MCP escribe)
 ├── 06-Proyecto-MCP/diseño.md    El diseño del servidor: actores, RF, RNF, decisiones
+├── 06-Proyecto-MCP/estilo-diagramas.md  Reglas de layout y notación + checklist  ← obligatorio
 ├── 07-Referencias/              Manual de StarUML y Excalidraw (no es materia de examen)
 ├── 08-Tareas/                   Método, guías por entregable, planes y enunciados
 ├── _Protocolo de tutoría.md     CÓMO acompañar el estudio: los tres modos  ← leer primero
