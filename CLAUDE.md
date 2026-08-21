@@ -90,8 +90,22 @@ bash instalar.sh               # instala lo que falte
    `node_modules/@typescript/typescript-win32-x64`, hay que borrar `node_modules` y `dist` y
    reinstalar.
 
-Lo único que el servidor necesita de verdad es **Node ≥ 20**. Obsidian, StarUML y Claude Desktop son
-opcionales.
+Lo único que el **servidor** necesita de verdad es **Node ≥ 20**. Las **herramientas de la bóveda**
+—`sincronizar.py`, `generar-excalidraw.py`, `generar-mdj.py`— necesitan además **Python 3** (solo
+biblioteca estándar, sin pip). Obsidian, StarUML y Claude Desktop son opcionales.
+
+**Después de instalar — el espejo.** Esta máquina replica lo que se trabaja en la otra, así que la
+secuencia al sentarse a trabajar es siempre la misma:
+
+```bash
+git pull                                   # este repo (MCP-AYD)
+git -C ~/Desktop/SO2 pull                  # el repo de trabajo (SO2_MT), si está clonado
+python3 boveda/sincronizar.py              # valida que los dos lados sean idénticos
+```
+
+En macOS el comando es `python3`; en Windows, `python`. El instalador corre esta validación en su
+sección 8, y si el repo de trabajo vive en otra ruta se le pasa `VAULT_TRABAJO=/esa/ruta`.
+`--aplicar` repara copiando del vault hacia la bóveda. Con desfases, el script sale con código 1.
 
 ### Si algo falla
 
