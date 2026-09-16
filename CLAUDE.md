@@ -15,6 +15,58 @@ El servidor **sirve conocimiento**; el razonamiento lo pone el cliente.
 
 ---
 
+## Antes de opinar: orientate
+
+Este archivo se escribe a mano; la bóveda cambia todos los días. **Cuando los dos digan cosas
+distintas, manda la bóveda.** Entre los dos, el desactualizado es siempre este.
+
+Lo que acá **no** podés dar por cierto sin verificarlo:
+
+| No confíes en… | Porque… | Verificalo con |
+|---|---|---|
+| El estado de una tarea | se mueve cada sesión | el `Avance - <caso>.md` |
+| Que una nota exista, o su nombre exacto | se crean y se renombran | `listar_temas()` |
+| Cualquier número (notas, tarjetas, stakeholders, drivers) | queda viejo al primer cambio | contalo en el archivo |
+| Que algo *"todavía no se hizo"* | es el error más caro: le ofrecés trabajo que ya terminó | el tablero, siempre |
+
+Lo que **sí** podés dar por cierto, porque es doctrina y no estado: la **teoría de la clase**
+(§ Conocimiento del curso), el **protocolo de tutoría**, los **convenios de dibujo** y las
+**decisiones ya tomadas**.
+
+### El barrido de orientación
+
+Tres pasos, antes de la primera respuesta sustantiva de la sesión. Cuestan menos que una corrección:
+
+1. **`listar_temas()`** — qué notas existen hoy, con su nombre exacto. Cubre solo `01-Notas/`.
+2. **`metodo_tarea()`** sin argumento — devuelve el método general **y, al final, el inventario
+   completo de `08-Tareas/`**: guías, planes, entregas y tableros. Es la forma más barata de saber
+   qué tareas hay vivas.
+3. **`metodo_tarea("Avance - <caso>")`** — el tablero de la tarea viva. Trae el estado por criterio,
+   la ruta de pasos y una bitácora fechada. **Ahí está el estado real, no acá.**
+4. **`metodo_tarea("preguntas")`** — las **dudas abiertas** con su evidencia
+   (`08-Tareas/Preguntas pendientes para clase.md`). Antes de plantearle una duda como nueva,
+   mirá si ya está anotada; y si en la sesión aparece una nueva, **agregala ahí**, no solo en el chat.
+
+Si tenés shell, sumá **`git log --oneline -10`**: si el último commit dice *"paso 9"* y este archivo
+dice *"paso 3 pendiente"*, ya sabés cuál de los dos miente.
+
+> Si te pregunta por una tarea y no hiciste el paso 3, **no respondas todavía**: hacelo.
+
+### Cuando encuentres un desfase, decilo y arreglalo
+
+Un `CLAUDE.md` viejo no es un detalle cosmético: es la instrucción que la próxima sesión va a
+obedecer a ciegas. Si detectás que algo de acá quedó atrás, **avisale y ofrecé actualizarlo en el
+mismo movimiento**. Ya pasó: la tabla de estado del Caso 1 decía *"pasos 3-9 pendientes"* cuando el
+caso estaba cerrado al 100 %.
+
+Lo mismo cuando **dos archivos de la bóveda se contradicen** entre sí. No elijas en silencio: mostrá
+las dos versiones, decí cuál manda y por qué. La jerarquía para desempatar es la de siempre —
+enunciado, clase, complemento— y entre artefactos de una tarea, **la `Entrega` manda sobre el
+`Avance`**: la Entrega es el documento que se califica; el tablero es su resumen, y los resúmenes se
+desfasan.
+
+---
+
 ## Tu rol
 
 Sos el tutor personal de **Análisis y Diseño de Sistemas II** del estudiante dueño de este repo.
@@ -36,7 +88,10 @@ Todo lo que escribas en `boveda/` tiene que ser markdown compatible con Obsidian
 
 ### Procesar una presentación nueva
 
-1. Extraé el texto y las imágenes hacia `boveda/adjuntos/<nombre-presentacion>/`.
+1. Extraé el texto y las imágenes hacia `boveda/adjuntos/<nombre-presentacion>/`. Sin poppler, alcanza
+   con `pypdf`; si las figuras son vectoriales, renderizá la página y recortá. **Los PDF bajados de
+   Studocu traen un pie *"Descargado por …"* con nombre y correo de quien lo bajó**: sacalo del texto
+   extraído y dejalo fuera de los recortes — no se versionan datos personales de terceros.
 2. **Mirá cada imagen una por una.** Muchas diapositivas son puro imagen y ahí está el contenido: en
    el deck de arquitectura, 20 de 29 páginas no tienen texto extraíble. Si es un diagrama,
    transcribilo a Mermaid y embebé la imagen original debajo como referencia.
@@ -137,6 +192,41 @@ sección 8, y si el repo de trabajo vive en otra ruta se le pasa `VAULT_TRABAJO=
 
 **Once de doce son de solo lectura.** La bóveda se edita en Obsidian, no por MCP.
 
+### Qué alcanza cada herramienta — el mapa, para no buscar donde no hay
+
+La confusión típica es creer que `listar_temas()` lista *la bóveda*. Lista **`01-Notas/` y nada
+más**. Verificado sobre la bóveda real:
+
+| Carpeta | La ve `listar_temas` | La ve `buscar` | La trae entera |
+|---|---|---|---|
+| `01-Notas/` | **sí** | sí | `leer_nota(nombre)` |
+| `08-Tareas/` (guías, planes, **Entrega y Avance**) | no | **sí** | `metodo_tarea(nombre)` |
+| `03-Glosario.md` | no | sí | `glosario(termino?)` |
+| `07-Referencias/` | no | sí | `referencia(herramienta?)` |
+| `08-Tareas/enunciados/` | no | no | `enunciado(nombre?)` |
+| `02-Diagramas/` + los mermaid embebidos | no | no | `listar_diagramas()` → `obtener_diagrama(id)` |
+
+Dos consecuencias que ahorran vueltas:
+
+- **`metodo_tarea()` no es solo "el método"**: cualquier archivo de `08-Tareas/` se pide por su
+  nombre, incluidos el `Avance` y la `Entrega`. Sin argumento, el listado del final es el inventario.
+- **`buscar` es la red más ancha**, y llega al contenido del entregable. Si no sabés dónde está algo,
+  empezá por ahí.
+
+### Los tres modos de fallar al consultar
+
+| Falla | Se ve así | Qué hacer |
+|---|---|---|
+| **`buscar` no es semántica** | buscás *"herencia"* y no aparece *"generalización"*, que es donde está | probá el sinónimo que **usa la clase**, o caé a `listar_temas()` |
+| **Nombre inventado** | `leer_nota` te devuelve *"no existe"* y sugerencias | nunca tipees un nombre de memoria: sacalo de `listar_temas()` |
+| **Diagrama ambiguo** | la nota tiene varios mermaid y te exige el `id` | `listar_diagramas()` primero; los ids son `Nota#mermaid-2` y no se construyen a mano |
+
+### Si el MCP no responde
+
+No inventes el contenido ni respondas de memoria. En orden: (1) decile que el servidor no está
+respondiendo; (2) si tenés shell, leé el archivo directo de `boveda/` y **avisá que lo hiciste así**;
+(3) si no, pedile que reinicie la sesión — los servidores MCP se cargan al arrancar el cliente.
+
 ---
 
 ## Cómo ayudarlo a estudiar
@@ -175,9 +265,12 @@ por tu cuenta, **manda esto**. Cada punto tiene su nota; usá `leer_nota` para e
 
 ### Los tres tipos de driver — el criterio que más pesa
 
-> Los **drivers arquitectónicos** son los **factores críticos que guían el diseño** de un sistema.
-> **Determinan su estructura fundamental** y actúan como **puente entre los requerimientos del negocio
-> y la implementación técnica**.
+> Los **drivers arquitectónicos** son los **factores críticos que guían el diseño** de un sistema de
+> software. **Determinan su estructura fundamental** y definen si será un **éxito o un fracaso**.
+> Actúan como el **puente entre los requerimientos del negocio y la implementación técnica**.
+
+*(Cita textual de la diapositiva, verificada contra `leer_nota("Drivers arquitectónicos")` §1. Si la
+vas a citar en una entrega, sacala de la nota, no de acá.)*
 
 Tres tipos, y **un RF es uno de los tres**, no el género:
 
@@ -264,6 +357,52 @@ lista de campos que dictó y **la única que mostró resuelta**. Su curso normal
 (*acción del actor* / *respuesta del proceso de negocio*) con **una sola numeración intercalada**, y
 los cursos alternos se anclan con *"En la línea N"*.
 
+### Cómo se diseña y cómo se modela — lo que dio en `capturas_U2`
+
+> [!warning] "U2" es el nombre de la carpeta, no la unidad del programa
+> El estudiante rotuló estas capturas como **unidad 2**, pero su contenido es el de los puntos **1.4,
+> 1.5, 1.7 y 1.9** del programa. La unidad 2 oficial (**Calidad del Software**: ISO, atributos) sigue
+> **sin presentación de clase** — la nota `Atributos de calidad` es complemento. No confundas una con otra
+> cuando pregunte "qué entra en el parcial": el cruce está en `Programa oficial del curso.md`.
+
+Las notas: hub `Cómo se modela la arquitectura` → componentes, interfaces, despliegue, paquetes,
+clases, secuencia, bloques de alto nivel; estilos → monolítica, capas, nube; y
+`Ejemplo resuelto - Parque de atracciones`, que es **su** encadenamiento completo.
+
+**El diseño.** Entradas: **requisitos + contexto + experiencia del arquitecto → documento de diseño
+arquitectónico**. El contexto tiene 4 grupos: negocio, estructura organizacional, tendencias,
+tecnología disponible. *"El diseño arquitectónico es una **actividad continua**"* y es el primer paso,
+**previo al diseño detallado**. Del equipo de arquitectura, el único rol que marca **necesario** es el
+**arquitecto jefe**.
+
+**Tres formas de modelar**: **ADLs** (textuales, formales, componentes y conectores), **diagramas
+UML** (estructurales/estáticos: componentes, despliegue · de comportamiento/dinámicos: actividad,
+secuencia) y **diagramas de bloque de alto nivel** (alto nivel de abstracción, primer paso antes del
+detalle).
+
+| Tema | Lo que manda la clase | La trampa |
+|---|---|---|
+| **Nombre del diagrama** | ella dice **"Diagrama de Distribución"** = diagrama de despliegue | buscarlo por un solo nombre |
+| **Diagrama de clases** | es del **diseño detallado** (o del análisis → esquema de BD), **no** de la arquitectura | presentarlo como vista arquitectónica |
+| **Componente** | *"elementos **físicos**"*; puede implementar **más de una clase**; **tres tipos**: de distribución, para trabajar en el producto, de ejecución | decir que todo componente "está en ejecución" |
+| **Interfaces** | provista = círculo (lollipop), requerida = semicírculo (socket); forma **icónica** o **expandida** | invertirlas — el PDF Tema 5 llama "de entrada" a la requerida |
+| **Relaciones de la vista lógica** | de débil a fuerte: dependencia < asociación < agregación < composición < herencia | — |
+| **Patrón vs estilo** | estilo = restricciones de **una familia** de diseños; patrón = solución a un problema común, **de menor alcance que el estilo** | tratarlos como sinónimos (así hacen el SAIP y Reynoso) |
+| **Capa vs nivel** | en clase se usan **como sinónimos** (N-capas, 2 capas = cliente-servidor, N-niveles en la nube) | imponer la distinción capa lógica / tier físico como si fuera de ella |
+| **Cliente-servidor** | cliente y servidor son **roles**, no máquinas (el smartphone que cambia de rol) | — |
+| **Nombres del 4+1** | la figura nueva dice *Implementation View* = componentes y *Deployment View* = física; la presentación de la unidad 1 llama "de despliegue" a la de componentes | regla: **componentes → desarrollo/implementación; nodos → física** |
+
+**Dónde el material tiene dos versiones y todavía no se decidió** — están anotadas en
+`metodo_tarea("preguntas")` con su evidencia. Preguntá cuál usar si va a dibujarlo en una entrega, y
+declaralo:
+
+- **Realización de interfaz**: en sus diagramas de clases (capturas 26-28, 54, 56) es **línea llena
+  rotulada «Realización»**; en su diapositiva de UML 2.x (32) y en el estándar, **punteada con
+  triángulo hueco**.
+- **Dentro del nodo**: el PDF Tema 5 pone **artefactos**; sus capturas ponen **componentes**.
+- **Notación de clases**: el PDF pide camelCase, tipos y `<<Interface>>`; sus ejemplos usan mayúscula
+  inicial, sin tipos, y `<<Interfaz>>`.
+
 ### El estado del Caso 1 (FarmaHosp)
 
 Las tres ambigüedades del enunciado **están resueltas con fuente de clase** — no las vuelvas a
@@ -271,19 +410,23 @@ plantear como dudas. Lo que **sigue abierto** es una sola cosa: qué espera con 
 drivers más críticos según el **contexto guatemalteco**"*. No hay material de clase sobre cómo
 priorizar, y "contexto guatemalteco" no está definido en ninguna parte. **Es pregunta para ella.**
 
-**Avance al 2026-08-21** — el tablero vivo es `boveda/08-Tareas/Avance - Caso 1 FarmaHosp.md`, y el
-entregable `boveda/08-Tareas/Entrega - Caso 1 FarmaHosp.md`. Consultalos antes de opinar: ahí está
-el estado real, no acá.
+> [!warning] El estado NO se lee acá
+> Antes había una tabla de avance en este archivo y **se desfasó**: marcaba los pasos 3-9 pendientes
+> cuando el caso ya estaba cerrado. Por eso no la vas a encontrar más. El estado vive en un solo
+> lugar:
+>
+> - **`metodo_tarea("Avance - Caso 1 FarmaHosp")`** — el tablero: criterios, ruta de pasos, bitácora.
+> - **`metodo_tarea("Entrega - Caso 1 FarmaHosp")`** — el entregable, numerado según la rúbrica.
+>
+> Si los dos discrepan, **manda la Entrega**: es el documento que se califica.
 
-| Paso | Estado |
-|---|---|
-| **0. Frontera del negocio** | ✅ El negocio es **la gestión del ciclo de vida del MAC**, no el hospital. Consecuencia: el personal clínico y administrativo son **trabajadores**; los actores son paciente, proveedor, MSPAS, Contraloría y el legacy de admisiones |
-| **1. Stakeholders** (criterio 2, 25 pts) | ✅ **13** — los 8 del enunciado más Junta Directiva, Contraloría, consultora, proveedor de MAC y operaciones de TI. Con necesidad oculta y 6 conflictos |
-| **2. Diagrama de contexto** (criterio 1) | ✅ **14 entidades, 25 streamlines**, dibujado en tres capas |
-| **3. CDU de alto nivel (core)** | ☐ siguiente |
-| **4. Primera descomposición** | ☐ |
-| **5-8. Drivers** (criterio 3, 30 pts) | ☐ |
-| **9. Las tres matrices** (criterio 4, 20 pts) | ☐ |
+Lo que sigue acá es **doctrina del caso** — no cambia con el avance, y hay que respetarlo.
+
+**La frontera, que condiciona todo lo demás:** el negocio es **la gestión del ciclo de vida del MAC**,
+no el hospital. Consecuencia: el personal clínico y administrativo son **trabajadores**; los actores
+del negocio son **cinco** — paciente, proveedor de MAC, MSPAS, Contraloría y el legacy de admisiones.
+La consultora y la Junta Directiva son stakeholders, **no actores**: no interactúan con el negocio en
+operación.
 
 **Dos decisiones tomadas que hay que respetar, no volver a discutir:**
 
@@ -301,16 +444,26 @@ el estado real, no acá.
 
 Es la vía por la que entra casi todo el material nuevo. El pipeline que funciona:
 
-1. Las capturas crudas llegan a `boveda/00-Fuentes/capturas/` con nombres inútiles (`image copy
-   17.png`). **No las renombres ahí**: `00-Fuentes/` no se toca.
+1. Las capturas crudas llegan a `boveda/00-Fuentes/capturas_U<n>/` —**una carpeta por unidad**, como
+   las organiza él (`capturas_U1/`, `capturas_U2/`)— con nombres inútiles (`image copy 17.png`, `23.png`).
+   **No las renombres ahí**: `00-Fuentes/` no se toca.
 2. Armá una **hoja de contactos** (grillas de 12-15 con el número rotulado) para triar de qué es cada
    una. Sirve para **clasificar**, no para transcribir.
 3. **Leé a resolución completa toda captura que vayas a citar.** Recortá el área de la diapositiva
    (detectando el bloque claro) y ampliá antes de mirar.
-4. Guardá la versión recortada en `boveda/adjuntos/capturas-clase/` con **nombre descriptivo**.
-5. Escribí o ampliá la nota, embebiendo la imagen con la sintaxis de embed de Obsidian.
+4. Guardá la versión recortada con **nombre descriptivo** en `boveda/adjuntos/capturas-clase-U<n>/<tema>/`
+   (una subcarpeta por tema, nunca plano). Las de la unidad 1 quedaron en `adjuntos/capturas-clase/`.
+5. Escribí o ampliá la nota, embebiendo la imagen con la **ruta completa desde la bóveda**
+   (`adjuntos/capturas-clase-U2/<tema>/<archivo>.png`): Obsidian resuelve también la ruta corta, pero
+   `auditar-boveda` la marca como embed roto.
 6. Verificá que **ninguna captura quede guardada sin citar**: si está en `adjuntos/` y ninguna nota la
    referencia, es material desperdiciado. Si es deliberado, anotalo en el `Índice`.
+7. Cerrá con `npm run auditar-boveda` y `npm run cobertura` (y agregá a `cobertura.mjs` un caso por
+   nota nueva). El inventario de qué captura fue a qué nota va en el `Índice`.
+
+> [!note] Él sigue agregando carpetas de capturas
+> Además de `capturas_U1/` y `capturas_U2/` apareció `capturas_U2_F2/`. **Listá `00-Fuentes/` al
+> empezar** en vez de asumir las carpetas que conocés.
 
 > [!warning] La trampa que ya costó errores: no transcribas desde la hoja de contactos
 > La hoja reduce 3412 px a unos 620 px. Los títulos se leen; **las direcciones de flecha, las guardas
@@ -592,7 +745,7 @@ npm run build            # compilar
 npm run verificar        # 33 pruebas de lógica (bóveda temporal, no toca la real)
 npm run auditoria        # las 12 herramientas por el protocolo MCP real
 npm run auditar-boveda   # contenido de la bóveda + coherencia de la documentación
-npm run cobertura        # 34 consultas reales: ¿el MCP encuentra el contenido?
+npm run cobertura        # consultas reales: ¿el MCP encuentra el contenido?
 npm run comprobar        # diagnóstico del entorno
 ```
 
@@ -605,6 +758,15 @@ documentación se desincroniza sola: ya pasó dos veces (el README decía 10 her
 
 Si tocás `src/`, hay que `npm run build` para que el servidor registrado use el código nuevo.
 
+> [!note] El único hallazgo aceptado de `auditar-boveda`
+> *"basename repetido README: 3 archivos"* — son los de `02-Diagramas/`, `02-Diagramas/examen/` y
+> `02-Diagramas/practica/`, y es **deliberado**: la estructura es una carpeta por sección, y cada una
+> lleva su índice. Al 2026-09-15 la auditoría no reporta nada más. **Si ves más de un hallazgo,
+> es de la sesión en curso.**
+>
+> Dos causas que ya se arreglaron y no hay que repetir: **embeds sin ruta completa** (Obsidian los
+> resuelve, la auditoría no) y **notas de `08-Tareas/` sin enlazar desde el `Índice`**.
+
 ---
 
 ## Dónde está cada cosa
@@ -612,12 +774,18 @@ Si tocás `src/`, hay que `npm run build` para que el servidor registrado use el
 ```
 boveda/
 ├── 00-Fuentes/presentaciones/   Las presentaciones del curso (NO modificar)
+├── 00-Fuentes/capturas_U1/      Capturas de clase crudas, una carpeta por unidad (NO modificar)
+├── 00-Fuentes/capturas_U2/      — idem; ojo: "U2" cubre 1.4-1.9 del programa, no Calidad
 ├── 00-Fuentes/lecturas/         Lecturas complementarias
 ├── 01-Notas/                    Notas atómicas: una por concepto
-├── 02-Diagramas/                Lo generado: .excalidraw editable, .svg para entregar,
-│                                .mdj para StarUML, y los PNG de verificacion
+├── 02-Diagramas/                Lo generado. **Una carpeta por sección de la Entrega**
+│                                (2-caso-negocio, 3.1-drivers-rf, 3.2-drivers-calidad,
+│                                3.3-drivers-restriccion, 3.4-priorizacion,
+│                                4-matrices-trazabilidad) más ejemplos-clase, herramientas
+│                                y practica. Cada lámina: .excalidraw editable, .svg para
+│                                entregar y -verificacion.png. El índice está en su README.md
 ├── 03-Glosario.md               Glosario alfabético
-├── 04-Flashcards/               Tarjetas de repaso (12 archivos, 324 tarjetas)
+├── 04-Flashcards/               Tarjetas de repaso, un archivo por tema (contalas, no las cites de memoria)
 ├── 05-Quizzes/progreso.md       Registro de resultados (lo único que el MCP escribe)
 ├── 06-Proyecto-MCP/diseño.md    El diseño del servidor: actores, RF, RNF, decisiones
 ├── 06-Proyecto-MCP/estilo-diagramas.md  Layout, notación, checklist y metodología ADD  ← obligatorio

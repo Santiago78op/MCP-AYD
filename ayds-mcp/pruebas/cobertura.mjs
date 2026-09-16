@@ -79,6 +79,27 @@ const CASOS = [
   // --- REGRESION: la linea que explica el formato NO debe salir como tarjeta
   ["obtener_flashcards", { tema: "Drivers arquitectonicos y contexto", cantidad: 1 }, "driver arquitect"],
 
+  // --- capturas_U2 (2026-09-15): como se disena y como se modela
+  ["leer_nota", { nombre: "Como se modela la arquitectura" }, "ADL"],
+  ["leer_nota", { nombre: "Que se tiene en cuenta para el diseno" }, "contexto"],
+  ["leer_nota", { nombre: "Diagrama de componentes" }, "interfaz"],
+  ["leer_nota", { nombre: "Interfaces de componentes" }, "requerida"],
+  ["leer_nota", { nombre: "Diagrama de paquetes" }, "import"],
+  ["leer_nota", { nombre: "Diagrama de secuencia" }, "loop"],
+  ["leer_nota", { nombre: "Diagrama de clases" }, "multiplicidad"],
+  ["leer_nota", { nombre: "Ejemplo resuelto - Parque de atracciones" }, "Molinete"],
+  ["leer_nota", { nombre: "Diagrama de bloques de alto nivel" }, "SCADA"],
+  ["leer_nota", { nombre: "Arquitectura monolitica" }, "base de codigo unica"],
+  ["leer_nota", { nombre: "Arquitectura en capas" }, "cliente"],
+  ["leer_nota", { nombre: "Arquitectura en la nube" }, "nube"],
+  ["buscar", { consulta: "diagrama de distribucion" }, "despliegue"],
+  ["buscar", { consulta: "patron arquitectonico" }, "Estilos arquitect"],
+  ["glosario", { termino: "entorno de ejecucion" }, "dispositivo"],
+  ["glosario", { termino: "interfaz provista" }, "ofrece"],
+  ["obtener_flashcards", { tema: "Diagrama de componentes" }, "?"],
+
+  ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
+
   // --- referencias y enunciado
   ["referencia", { herramienta: "StarUML" }, "StarUML"],
   ["enunciado", { nombre: "Caso 1 - FarmaHosp" }, "FarmaHosp"],

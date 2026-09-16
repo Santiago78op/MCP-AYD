@@ -1,6 +1,6 @@
 ---
 tema: Glosario
-fuente: "Arquitectura de Software.pdf / Arquitectura de Software (1).pdf / CDU Negocio - Modelado de Drivers RF.pdf"
+fuente: "Arquitectura de Software.pdf / Arquitectura de Software (1).pdf / CDU Negocio - Modelado de Drivers RF.pdf / capturas_U2 + PDF Tema 5 + IS 04 05b (2026-09-15)"
 fecha: 2026-08-19
 ---
 
@@ -18,6 +18,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Actor del negocio (notación)** — Monigote con una **barra diagonal cruzando la cabeza**; el CUN es una elipse con la diagonal en el borde. Sin la diagonal es un actor/CU **del sistema**. → [[Convenios del diagrama de CUN]]
 - **AD (descripción arquitectónica)** — El producto de trabajo que expresa la arquitectura: "una colección de artefactos que documentan una arquitectura" (ISO 42010). → [[El ciclo del architecting]]
 - **ADD (Attribute-Driven Design)** — Método del SAIP para diseñar la arquitectura convirtiendo drivers en estructuras, en rondas e iteraciones. → [[Guía - Drivers de calidad y restricción]]
+- **ADL (Lenguaje de descripción de arquitectura)** — Lenguaje textual formal ideado para describir una arquitectura software en términos de componentes y conectores. Una de las tres formas de modelarla, con UML y los diagramas de bloque. → [[Lenguajes de descripción de arquitectura]]
 - **Ágil (proceso)** — Proceso con cuatro rasgos: entrega rápida y frecuente, respuesta al cambio, arquitecturas que **emergen de equipos autoorganizados** y autoexamen del equipo. → [[Arquitectura y proceso de desarrollo]]
 - **Agregación** — Relación es-parte-de con rombo **hueco** en el todo: la parte sobrevive al todo. → [[Relaciones y dependencias en UML]]
 - **allocated-to / migrates-to** — Las dos relaciones de la estructura de despliegue: dónde reside un elemento de software, y a dónde puede migrar si la asignación es dinámica. → [[Diagrama de despliegue]]
@@ -25,13 +26,19 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Arqueología arquitectónica** — Recuperar la arquitectura de un sistema legacy sin documentación confiable (Clements). → [[El ciclo del architecting]]
 - **Arquitecting** — El proceso de la arquitectura del software. → [[Proceso de diseño arquitectónico]]
 - **Arquitecto de software** — Rol responsable de obtener los requisitos del cliente, generar el diseño de arquitectura, dar soluciones a los desarrolladores e integrar los requerimientos no funcionales. → [[Arquitecto de software]]
+- **Arquitecto jefe** — El único rol que la clase marca como **necesario** cuando la arquitectura la diseña un equipo (los otros: arquitecto de aplicaciones, de infraestructuras, de datos). → [[Arquitecto de software]]
 - **Arquitectura candidata** — La primera propuesta de arquitectura, producida en el **esfuerzo inicial** (guarda `[initial effort]` del flujo de definición de Ambler) y todavía por validar. → [[Proceso de diseño arquitectónico]]
+- **Arquitectura de 2 capas (cliente-servidor)** — El cliente hace la petición y el servidor responde. Cliente y servidor son **roles**, no máquinas: un smartphone puede ser los dos. → [[Arquitectura en capas]]
+- **Arquitectura de la nube** — Los componentes y subcomponentes que se encuentran en una nube, y el diseño que los conecta; "hay mucho más que solo tecnología". → [[Arquitectura en la nube]]
 - **Arquitectura de referencia** — Arquitectura que sirve de patrón **reutilizable entre varios proyectos**; más estable y transversal que la candidata. → [[Proceso de diseño arquitectónico]]
 - **Arquitectura de software** — La organización fundamental de un sistema: sus componentes, la relación entre ellos y con el ambiente, y los principios que guían su diseño y evolución. → [[Arquitectura de software]]
 - **Arquitectura empresarial** — La arquitectura de **toda la organización**, que cada proyecto refina (*Refine Enterprise Architecture*). → [[Proceso de diseño arquitectónico]]
-- **Artefacto (UML)** — El archivo físico que se despliega (`.jar`, `.ear`, `.dll`); se dibuja como rectángulo con la esquina doblada y se une a su nodo con `«deploy»`. → [[Diagrama de despliegue]]
+- **Arquitectura monolítica** — Agrupa toda la funcionalidad y servicios de la aplicación en una **base de código única**; escala verticalmente y se despliega entera. → [[Arquitectura monolítica]]
+- **Arquitectura N-Capas** — Arquitectura multinivel donde a cada nivel se le confía una **misión simple**, lo que permite diseños escalables. En clase, capa y nivel se usan como sinónimos. → [[Arquitectura en capas]]
+- **Artefacto (UML)** — El archivo físico que se despliega (`.jar`, `.ear`, `.dll`); se dibuja como rectángulo con la esquina doblada y se une a su nodo con `«deploy»` (SAIP). **En clase** (PDF Tema 5): *"cualquier producto obtenido durante el desarrollo"* —ejecutable, manual, script de BD, librería—, que **manifiesta** componentes y se dibuja dentro del nodo. → [[Diagrama de despliegue]]
 - **Asociación** — Vínculo estructural estable entre elementos, con línea llena. → [[Relaciones y dependencias en UML]]
 - **Asociación (en CUN)** — Relación entre un actor del negocio y un CUN que significa que el actor envía y/o recibe mensajes. → [[Modelo de casos de uso del negocio]]
+- **Asociación reflexiva** — Asociación de una clase consigo misma; exige **rol** en cada extremo (jefe/empleado). → [[Diagrama de clases]]
 - **ASR (requisito arquitectónicamente significativo)** — Requisito de calidad que impacta en la estructura del sistema; es uno de los componentes de los drivers en ADD. → [[Guía - Drivers de calidad y restricción]]
 - **ATAM** — *Architecture Tradeoff Analysis Method*: evaluación en 4 fases y 9 pasos que produce riesgos, no-riesgos, sensibilidades y tradeoffs. → [[Evaluación de la arquitectura]]
 - **Atributo de calidad (QA)** — Propiedad **medible o testeable** que indica cuán bien un sistema satisface las necesidades de sus stakeholders más allá de la función básica. → [[Atributos de calidad]]
@@ -43,19 +50,24 @@ líneas y el enlace a la nota donde se explica a fondo.
 
 ## C
 
+- **Caja negra / caja blanca** — Ver un componente solo por sus interfaces, o mostrando sus clases o subcomponentes internos. → [[Diagrama de componentes]]
 - **Calidad del desarrollo (*developmental quality*)** — Atributo que **no se observa ejecutando** el sistema sino modificándolo: modificabilidad, testabilidad, deployabilidad, integrabilidad. Es la línea del programa "otros atributos de calidad no observables vía ejecución". → [[Atributos de calidad]]
+- **Camino** — Conexión entre dos nodos de un diagrama de despliegue: línea llena con el protocolo como estereotipo (`«TCP/IP»`, `«wifi»`). → [[Diagrama de despliegue]]
 - **Capa vs tier** — La capa es una partición del código (estructura de módulos); el tier es una partición del despliegue (estructura de asignación). Confundirlos es el error clásico. → [[Estilos arquitectónicos]]
 - **Caso de uso (CU)** — Descripción del comportamiento de un sistema en forma de acciones y reacciones, desde el punto de vista del usuario. Propuesto por Ivar Jacobson. → [[Caso de uso]]
 - **Caso de uso de apoyo** — CU incluido por **particionamiento** que **no se relaciona con actores**; es la excepción a la regla de "todo CU tiene al menos un actor". → [[Convenios del diagrama de CUN]]
 - **Caso de uso del negocio (CUN)** — Secuencia de acciones realizadas en el negocio que producen un resultado de valor observable para ciertos actores del negocio. Representa un proceso de negocio. → [[Caso de uso del negocio]]
 - **Categorías de estructuras** — Las tres en que se agrupan todas las estructuras: **módulos** (unidades de código o datos), **componentes y conectores** (tiempo de ejecución) y **asignación** (lo que no es software: CPU, redes, equipos). → [[Categorías de estructuras]]
 - **Ciclo de influencias en la arquitectura** — Las cuatro influencias (stakeholders, organizaciones de desarrollo, ambiente técnico, experiencia del arquitecto) que moldean la arquitectura y que el sistema resultante retroalimenta. → [[Ciclo de influencias en la arquitectura]]
+- **Clase candidata** — Cada sustantivo del enunciado, en singular y sin repetir, antes de pasarlo por las canastas de descarte. → [[Diagrama de clases]]
 - **Clasificación de procesos** — Técnica que separa los procesos del negocio en núcleo, soporte y gerenciales. → [[Identificación de procesos del negocio]]
 - **Cliente y proveedor (en una dependencia)** — El cliente es el que depende; el proveedor, el que se depende. La flecha sale del cliente. → [[Relaciones y dependencias en UML]]
 - **Cliente-servidor** — Estilo asimétrico: el cliente siempre inicia la petición y los clientes no se comunican entre sí. → [[Estilos arquitectónicos]]
+- **Componente** — Pieza de software reemplazable que se define por las interfaces que ofrece y requiere; "la personificación en software de una clase" y puede implementar **más de una**. Tres tipos: de distribución, para trabajar en el producto, de ejecución. → [[Diagrama de componentes]]
 - **Composición** — Relación es-parte-de con rombo **macizo** en el todo: si muere el todo, mueren las partes. → [[Relaciones y dependencias en UML]]
 - **Comprobaciones** — Revisión, en cada etapa, de que los productos del diseño sean claros, correctos, completos y consistentes con los requerimientos y entre sí. → [[Proceso de diseño arquitectónico]]
 - **Concern** — El interés que un stakeholder tiene en la entidad de interés: performance, seguridad, mantenibilidad (ISO 42010). → [[Stakeholders]]
+- **Contexto (del diseño)** — Una de las tres entradas del diseño arquitectónico: aspectos del negocio, de la estructura organizacional, tendencias actuales y tecnología disponible. → [[Qué se tiene en cuenta para el diseño]]
 - **Core (diagrama)** — El diagrama de CUN de más alto nivel: **una sola elipse** que nombra el negocio o sistema completo, rodeada de todos los actores. → [[Ejemplos resueltos de casos de negocio]]
 - **CUN expandidos** — Los CUN con relaciones de inclusión, extensión y generalización-especialización. → [[Caso de uso del negocio]]
 - **Curso alterno** — La variante, excepción o desvío del flujo de trabajo, contada en el texto del mismo caso de uso. → [[Descripción textual de casos de uso]]
@@ -69,9 +81,20 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Descripción textual (de un CU)** — Documento con nombre, actores, propósito, resumen, flujo de trabajo (básico y alterno), prioridad y mejoras. → [[Descripción textual de casos de uso]]
 - **Deuda arquitectónica** — El deterioro acumulado por muchas decisiones pequeñas: la "muerte por mil cortes". → [[Tácticas y patrones arquitectónicos]]
 - **DFD (diagrama de flujo de datos)** — Modela la funcionalidad como transformación de flujos de entrada en flujos de salida; puede mostrar descomposición funcional interna. → [[Casos de uso vs DFD]]
+- **Diagrama de alto nivel** — Describe la arquitectura con un **alto nivel de abstracción**; suele ser el primer paso antes de un diseño más detallado. → [[Diagrama de bloques de alto nivel]]
+- **Diagrama de bloques** — Representación del funcionamiento de un sistema mediante bloques y sus relaciones, con sus entradas y salidas. → [[Diagrama de bloques de alto nivel]]
+- **Diagrama de clases** — Diagrama estructural de la parte estática del sistema; se usa en análisis (esquema de BD) y en diseño detallado (código). **No** es el diagrama de la arquitectura. → [[Diagrama de clases]]
+- **Diagrama de componentes** — Describe los elementos físicos del software (fuente, binarios, ejecutables, bibliotecas) y sus dependencias a través de interfaces. → [[Diagrama de componentes]]
 - **Diagrama de contexto** — Diagrama que fija el límite del sistema: **elipse** = El Producto, **rectángulo** = entidades o agentes, **flecha** = *streamlines*. Un solo óvalo y todas las flechas con nombre. → [[Diagrama de contexto]]
 - **Diagrama de despliegue** — Diagrama UML que muestra cómo el software se asigna a los procesadores y las vías de comunicación del hardware. → [[Diagrama de despliegue]]
+- **Diagrama de distribución** — El nombre que usa la clase para el **diagrama de despliegue**: es el mismo diagrama. → [[Diagrama de despliegue]]
 - **Diagrama de Kiviat** — Diagrama radar de cinco ejes (features, quality, cost, schedule, staff) usado como "diagrama de flexibilidad" del proyecto. → [[Equilibrio de restricciones del proyecto]]
+- **Diagrama de secuencia** — Diagrama de comportamiento que muestra la interacción de objetos a lo largo del tiempo, con mensajes en orden. → [[Diagrama de secuencia]]
+- **Diagramas estructurales / de comportamiento (UML)** — Los estructurales muestran lo **estático** (componentes, despliegue, clases, paquetes); los de comportamiento lo **dinámico** (actividad, secuencia, casos de uso). → [[Diagramas UML estructurales y de comportamiento]]
+- **Diseño arquitectónico** — Se refiere a la arquitectura de **un sistema concreto**. Es una actividad continua y previa al diseño detallado. → [[Estilos arquitectónicos]]
+- **Diseño detallado** — Etapa posterior al diseño de la arquitectura, que modela el detalle de cada pieza (por ejemplo con diagramas de clases). → [[Arquitectura en el ciclo de vida del software]]
+- **Dispositivo (`«device»`)** — Nodo que representa **hardware** capaz de ejecutar artefactos. → [[Diagrama de despliegue]]
+- **Documento de diseño arquitectónico** — Producto del diseño; se alimenta de requisitos, contexto y experiencia del arquitecto, y suele incluir varias vistas. → [[Qué se tiene en cuenta para el diseño]]
 - **Driver arquitectónico** — *(de clase)* Los **factores críticos que guían el diseño** de un sistema; determinan su **estructura fundamental** y actúan como **puente entre los requerimientos del negocio y la implementación técnica**. Hay tres tipos: RF, de calidad y de restricción. → [[Drivers arquitectónicos]]
 - **Driver de restricción** — *(de clase)* **Condición impuesta externamente que limita las decisiones arquitectónicas.** Seis categorías: tecnológicas, regulatorias/legales, de negocio/presupuesto, organizacionales, ambientales/físicas y de integración. → [[Drivers arquitectónicos]]
 - **Driver RF** — *(de clase)* **Funcionalidad específica que moldea la estructura del sistema.** Se redacta `RFn - Nombre corto: enunciado` y se modela con casos de uso expandidos. → [[Drivers arquitectónicos]]
@@ -79,10 +102,11 @@ líneas y el enlace a la nota donde se explica a fondo.
 
 ## E
 
+- **Entorno de ejecución (`«executionEnvironment»`)** — Nodo que representa **software** capaz de ejecutar artefactos (JRE, máquina virtual); siempre va dentro de un dispositivo. → [[Diagrama de despliegue]]
 - **Escenario de atributo de calidad** — La especificación de un requisito de calidad en seis partes: fuente, estímulo, artefacto, entorno, respuesta y **medida**. → [[Atributos de calidad]]
 - **Escenarios (vista de)** — La vista "+1" del modelo 4+1: los casos de uso que amarran las otras cuatro vistas y dan trazabilidad. → [[Modelo 4+1 vistas]]
 - **Estereotipo** — Extensión de UML que define un tipo especializado; se escribe entre `«»` y se aplica tanto a clases como a **relaciones**. En el modelo de CUN los dos estereotipos base son *actor del negocio* y *caso de uso del negocio*. → [[Relaciones y dependencias en UML]], [[Modelo de casos de uso del negocio]]
-- **Estilo arquitectónico** — Concepto descriptivo que define una forma de organización arquitectónica; conjuga componentes, conectores, configuraciones y restricciones (Reynoso). → [[Estilos arquitectónicos]]
+- **Estilo arquitectónico** — Concepto descriptivo que define una forma de organización arquitectónica; conjuga componentes, conectores, configuraciones y restricciones (Reynoso, complemento). **En clase**: *"establece las restricciones sobre la arquitectura de una familia de diseños arquitectónicos"*. → [[Estilos arquitectónicos]]
 - **Estructura arquitectónica** — El conjunto de elementos en sí, tal como existen en el software o el hardware. Se representa mediante vistas. → [[Estructuras y vistas arquitectónicas]]
 - **Estructura de despliegue** — Muestra cómo el software se asigna a los elementos de procesamiento y comunicación del hardware; permite razonar sobre rendimiento, integridad, seguridad y disponibilidad. → [[Diagrama de despliegue]]
 - **Estructuras de asignación** — Las que mapean software sobre lo que NO es software: despliegue, implementación y asignación de trabajo. → [[Diagrama de despliegue]]
@@ -91,6 +115,9 @@ líneas y el enlace a la nota donde se explica a fondo.
 
 ## F
 
+- **Forma icónica / expandida (interfaces)** — La interfaz dibujada como símbolo (círculo o semicírculo) o como caja `«interface»` con sus operaciones. → [[Interfaces de componentes]]
+- **Fragmento combinado (alt/opt/break/loop)** — Marco con condición en un diagrama de secuencia: alterna, hace opcional, corta o repite parte del flujo. → [[Diagrama de secuencia]]
+- **FrontEnd / BackEnd** — Agrupación que atraviesa los nodos del despliegue: lo que usa el usuario frente a lo que procesa y guarda. → [[Ejemplo resuelto - Parque de atracciones]]
 - **Función** — Grupo funcional que responde a un objetivo de la organización y que puede involucrar a varias áreas. Agrupa varios procesos de negocio; no es un CUN. → [[Identificación de procesos del negocio]]
 - **FURPS** — Taxonomía de calidad de la Tabla 1 de la NT1: **F**uncionalidad, facilidad de uso (*usability*), confiabilidad (*reliability*), rendimiento (*performance*) y capacidad de soporte (*supportability*). Es **otra** clasificación de clase, distinta de los seis del programa. → [[Atributos de calidad]]
 
@@ -101,13 +128,17 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Gold plating** — Funcionalidad construida que ningún requisito pidió; la detecta la trazabilidad hacia atrás. → [[Matriz de trazabilidad de requisitos]]
 
 ## I
+- **IaaS / PaaS / SaaS** — Modelos de nube: infraestructura (el dispositivo), plataforma (el entorno de ejecución), software listo para usar (el artefacto). → [[Diagrama de despliegue]]
 - **Importancia y urgencia (de un CU)** — Dos campos de escala **cerrada** de la plantilla textual: importancia {vital, importante, quedaría bien} y urgencia {inmediatamente, hay presión, puede esperar}. → [[Descripción textual de casos de uso]]
 
+- **Importar / exportar (paquetes)** — `«import»` es una dependencia punteada del paquete que usa al usado, y solo da acceso a lo **público** (lo exportado). → [[Diagrama de paquetes]]
 - **Inception** — Primera fase de RUP: se define la **visión**, el **caso de negocio** y el **alcance**; los requisitos de alto nivel suelen estar incompletos, así que hay que **asumir supuestos** y refinarlos después. → [[Arquitectura y proceso de desarrollo]]
 - **Include (relación de inclusión)** — Relación en que el comportamiento de un CU se inserta explícitamente dentro del CU base; siempre ocurre. → [[Relación de inclusión include]]
 - **Inclusión por particionamiento** — `«include»` usado por **un solo** CU base, para partir un flujo largo. El incluido suele ser un **CU de apoyo sin actores**. La clase la marca **PARTICIONAR**. → [[Convenios del diagrama de CUN]]
 - **Inclusión por reutilización** — `«include»` usado por **dos o más** CU base que comparten comportamiento. La clase la marca **REUTILIZAR**. → [[Convenios del diagrama de CUN]]
 - **Infraestructura de software** — Frameworks y clases utilitarias compartidas (logging, wrappers de COTS, arranque/apagado); debe empezar antes del diseño de subsistemas, aunque sus requisitos salgan del propio desarrollo. → [[Arquitectura y proceso de desarrollo]]
+- **Interfaz provista (proporcionada)** — Servicio que un componente **ofrece**; se dibuja como círculo (*lollipop*). → [[Interfaces de componentes]]
+- **Interfaz requerida** — Servicio que un componente **necesita** de otro; se dibuja como semicírculo (*socket*). → [[Interfaces de componentes]]
 - **Invocación implícita** — Estilo basado en eventos: el emisor anuncia un evento y la infraestructura decide a quién le llega; los suscriptores se invocan implícitamente. → [[Estilos arquitectónicos]]
 - **ISO 9126** — Norma de calidad de producto con seis características: funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad y portabilidad. Es la lista del programa. → [[Atributos de calidad]]
 - **ISO/IEC 25010** — Sucesora de ISO 9126; asciende la seguridad y la compatibilidad a características de primer nivel, llegando a ocho. → [[Atributos de calidad]]
@@ -122,18 +153,21 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **MAC (medicamento de alto costo)** — Medicamento cuyo valor mensual por paciente supera los Q. 50,000; el objeto del sistema FarmaHosp. → [[Plan - Caso 1 FarmaHosp]]
 - **Matriz de dependencias** — Matriz cuadrada de requisito contra requisito: las **columnas (X)** son los que **originan** la dependencia y las **filas (Y)** los que **dependen**. Se lee "fila depende de columna" y sirve para analizar el impacto de los cambios. Es la plantilla oficial del Caso 1. → [[Guía - Matrices de trazabilidad]]
 - **Matriz de trazabilidad (RTM)** — Tabla que cruza cada requisito con su origen, su diseño, su código y sus pruebas. → [[Matriz de trazabilidad de requisitos]]
+- **Mensaje síncrono / asíncrono** — El síncrono bloquea al emisor hasta la respuesta (cabeza llena, respuesta punteada); el asíncrono no espera (cabeza abierta). → [[Diagrama de secuencia]]
 - **Microkernel / plug-in** — Forma del estilo jerárquico: un núcleo con mecanismos mínimos y plug-ins que aportan la funcionalidad por interfaces fijas. → [[Estilos arquitectónicos]]
 - **Modelo 4+1 vistas** — Forma de documentar la arquitectura con las vistas lógica, de procesos, de despliegue/desarrollo y física, más la vista de escenarios. → [[Modelo 4+1 vistas]]
 - **Modelo de casos de uso del negocio** — Modelo que describe los procesos de un negocio y cómo se benefician e interactúan socios y clientes en esos procesos. → [[Modelo de casos de uso del negocio]]
 - **Moderación cautelosa** — La postura del libro frente a ágil: se produce menos documentación, pero incluso un equipo ágil grande necesita un número razonable de vistas. → [[Arquitectura y proceso de desarrollo]]
 - **Muerte por mil cortes** — El deterioro de una arquitectura por la acción bienintencionada de quienes la modifican. → [[Tácticas y patrones arquitectónicos]]
+- **Multiplicidad** — Cuántas instancias de una clase participan en un extremo de la asociación (1, 0..1, *, 1..*). → [[Diagrama de clases]]
 
 ## N
+- **N-niveles en la nube** — Tiers web, de negocio y de datos, cada uno detrás de un balanceador, en una red virtual con DMZ y bastion. → [[Arquitectura en la nube]]
 - **Navegabilidad** — En el diagrama de CUN, **quién inicia** la comunicación: flecha al CUN = inicia el actor; flecha al actor = inicia el CUN; **sin saetas** = los dos sentidos. **No** son flujos de datos. → [[Convenios del diagrama de CUN]]
 
 - **Necesidad oculta** — Lo que el stakeholder realmente necesita, distinto de lo que dice querer; es donde está el requisito medible. En el Caso 1 es una columna explícita de la tabla de stakeholders. → [[Guía - Identificación de stakeholders]]
 - **No-riesgo** — Una decisión que sí satisface un escenario; documentarla es evidencia. → [[Evaluación de la arquitectura]]
-- **Nodo (UML)** — Un equipo, servidor o dispositivo en un diagrama de despliegue; se dibuja como caja 3D y puede contener otros nodos. → [[Diagrama de despliegue]]
+- **Nodo (UML)** — Un equipo, servidor o dispositivo en un diagrama de despliegue; se dibuja como caja 3D y puede contener otros nodos. Dos clases: **dispositivo** (hardware) y **entorno de ejecución** (software). → [[Diagrama de despliegue]]
 - **NRFs (requerimientos no funcionales)** — Rendimiento, seguridad, disponibilidad, modificabilidad y similares; el arquitecto es responsable de integrarlos en el sistema. → [[Arquitecto de software]]
 - **NT (nota técnica)** — Los documentos que reparte la catedrática además de las diapositivas: `NT Identificación de CDU de Negocio` y `NT1. Trazabilidad de Requerimientos`. Son **material de clase**, no complemento. → [[Programa oficial del curso]]
 - **Núcleo, soporte y gerenciales** — Los tres tipos de procesos de negocio en la técnica de clasificación. → [[Identificación de procesos del negocio]]
@@ -141,8 +175,9 @@ líneas y el enlace a la nota donde se explica a fondo.
 ## P
 
 - **PALM** — Taller que elicita las metas de negocio como escenarios de siete partes y les asocia atributos de calidad. → [[Stakeholders]]
+- **Paquete** — Agrupa elementos del modelo para organizarlo y controlar el acceso. Puede contener clases, interfaces, componentes, nodos, colaboraciones, casos de uso, diagramas y otros paquetes. → [[Diagrama de paquetes]]
 - **Paso 0 (caso de negocio)** — La creación del caso de negocio, que la clase marca **fuera** de las ocho etapas: no es una etapa del método, es lo que existe **antes** de que arranque. → [[Método de diseño centrado en la arquitectura]]
-- **Patrón arquitectónico** — Solución probada a un problema de diseño recurrente; **empaqueta tácticas** y por eso implica tradeoffs entre varios atributos. → [[Tácticas y patrones arquitectónicos]]
+- **Patrón arquitectónico** — Solución probada a un problema de diseño recurrente; **empaqueta tácticas** y por eso implica tradeoffs entre varios atributos. **En clase**: *"solución general a un problema común del diseño arquitectónico"*, de **menor alcance que un estilo** — no son sinónimos. → [[Tácticas y patrones arquitectónicos]] · [[Estilos arquitectónicos]]
 - **Perspectiva de la arquitectura** — Representación desde una perspectiva específica de un determinado sistema o de una parte del mismo. → [[Arquitectura de software]]
 - **Pizarra (blackboard)** — Variante activa del estilo centrado en datos: el almacén notifica a los agentes suscritos. Es repositorio + invocación implícita. → [[Estilos arquitectónicos]]
 - **Plantilla obligatoria (matriz)** — La **Fig. 1, página 91** de la NT1 de trazabilidad: matriz de dependencias requisitos X vs. requisitos Y. No es sugerida, es la que hay que usar. → [[Guía - Matrices de trazabilidad]]
@@ -152,6 +187,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Primera descomposición** — **Un solo** diagrama de CUN que abre la única elipse del *core* en N procesos, conservando **el mismo juego de actores**. → [[Guía - Caso de negocio]]
 - **Prioridad y mejoras** — Dos campos de cierre de la descripción textual: la prioridad (un valor simple, p. ej. *Alta*) y las oportunidades de mejora detectadas en el proceso. → [[Descripción textual de casos de uso]]
 - **Proceso de negocio** — Grupo de tareas lógicamente relacionadas, en cierta secuencia y manera, que emplean recursos de la organización para dar resultados en apoyo a sus objetivos. → [[Proceso de negocio]]
+- **Puerto** — Punto del borde de un componente que agrupa interfaces relacionadas; habitual en caja blanca. → [[Diagrama de componentes]]
 - **Punto de extensión** — Lugar que el caso de uso **base declara** y que el caso extendido es el único autorizado a alterar. Es lo que hace a `«extend»` "más controlada" que la generalización. → [[Relación de extensión extend]]
 - **Punto de sensibilidad** — Decisión con efecto marcado sobre una respuesta de un atributo de calidad. → [[Evaluación de la arquitectura]]
 - **Punto de tradeoff** — Decisión a la que dos o más respuestas son sensibles, una mejorando y otra empeorando (ej.: la frecuencia del heartbeat). → [[Evaluación de la arquitectura]]
@@ -165,15 +201,17 @@ líneas y el enlace a la nota donde se explica a fondo.
 ## R
 
 - **Rationale** — La justificación de las decisiones arquitectónicas, ligándolas a los concerns de los stakeholders (ISO 42010). → [[El ciclo del architecting]]
-- **Realización** — Relación punteada con triángulo hueco: el elemento implementa una interfaz. → [[Relaciones y dependencias en UML]]
+- **Realización** — El elemento (clase o componente) implementa una interfaz. En UML 2.x: punteada con triángulo hueco. **Ojo**: en sus diagramas de clases (capturas_U2 26-28, 54, 56) ella la dibuja con **línea llena rotulada «Realización»**. → [[Relaciones y dependencias en UML]]
 - **Realizaciones de CUN** — Muestran cómo colaboran los trabajadores y entidades de negocio para ejecutar el proceso; se documentan con diagramas de actividad, clases y secuencia, y descripción textual. → [[Realizaciones de casos de uso del negocio]]
 - **Repositorio** — Variante pasiva del estilo centrado en datos: los accesores tienen la iniciativa y el esquema de datos es el contrato común. → [[Estilos arquitectónicos]]
 - **Requisito huérfano** — Requisito sin diseño o sin caso de prueba asociado; hueco de cobertura. → [[Matriz de trazabilidad de requisitos]]
 - **Requisitos en conflicto** — Dos requisitos están en conflicto "si no pueden implementarse juntos, es decir, si la solución a un requisito **impide** la implementación de otro" (NT1). Es el tradeoff visto desde los requisitos. → [[Matriz de trazabilidad de requisitos]]
+- **Rol (asociación)** — Nombre del papel que juega una clase en un extremo de una asociación. → [[Diagrama de clases]]
 - **RUP** — *Rational Unified Process*: fases (inception, elaboration, construction, transition) y flujos de trabajo donde el arquitecto tiene un rol definido en cada uno. → [[Arquitectura y proceso de desarrollo]]
 
 ## S
 
+- **SCADA** — Sistema de supervisión, control y adquisición de datos para procesos industriales en tiempo real; ejemplo de clase de diagrama de bloques. → [[Diagrama de bloques de alto nivel]]
 - **Scrum** — Proceso ágil iterativo; el libro relata un proyecto tipo Scrum de ~250 desarrolladores que arrancó **sin arquitecto** y tuvo que nombrar uno tarde. → [[Arquitectura y proceso de desarrollo]]
 - **Sistema** — Conjunto de componentes que cumplen una función o un conjunto de funciones específicas. → [[Arquitectura de software]]
 - **Stakeholder** — Individuo, equipo u organización con un interés en la entidad de interés (ISO 42010). Todo actor es stakeholder; no todo stakeholder es actor. → [[Stakeholders]]

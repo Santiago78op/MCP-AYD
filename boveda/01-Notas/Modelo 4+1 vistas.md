@@ -81,6 +81,14 @@ Se complementa con: **diagrama de componentes** y **diagrama de paquetes**.
 > cuatro son: Lógica, Procesos, Desarrollo y Física. Si en el examen te piden "la vista que usa
 > el diagrama de componentes", es esta; si te piden "la que usa el diagrama de deployment", es
 > la Física.
+>
+> **El material de la unidad 2 (capturas_U2) usa otro juego de nombres** y confirma el cruce. La
+> figura de la captura 2 dice *Logical / **Implementation** / Process / **Deployment** / Use Case
+> View*: ahí **Implementation View** = componentes (la del programador) y **Deployment View** = la
+> física (la del administrador de sistemas). Y la captura 37 habla de *"vista de despliegue
+> estática"* para la **topología de hardware**. Regla para no perderse: **componentes → vista de
+> desarrollo/implementación; nodos y hardware → vista física/deployment**, se llame como se llame.
+> Ver [[Proceso de diseño arquitectónico]] y [[Diagrama de despliegue]].
 
 ![[adjuntos/arquitectura-de-software/arq-p28.png]]
 

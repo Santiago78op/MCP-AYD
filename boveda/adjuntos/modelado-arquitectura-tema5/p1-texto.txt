@@ -1,0 +1,30 @@
+TEMA 5: MODELADO DE ARQUITECTURA SOFTWARE 
+1. UML 
+Una vista representa un aspecto parcial de una arquitectura software. Cada participante en el desarrollo estará 
+interesado en una o varias vistas. (Ver modelo de vistas “4+1”; Tema 2). 
+El lenguaje unificado de modelado, conocido por sus siglas en inglés como UML (Unified Modeling Language), 
+es un lenguaje gráfico de modelado de sistemas software. Está comp uesto por distintos tipos de diagramas 
+que pueden dividirse en dos tipos principales: 
+✓ Estructurales: muestran la estructura estática de los elementos de un sistema. Entre otros: 
+o Diagrama de paquetes. 
+o Diagrama de componentes. 
+o Diagrama de clases. 
+o Diagrama de objetos. 
+o Diagrama de despliegue. 
+✓ Comportamiento: muestran el comportamiento dinámico de los elementos de un sistema. Entre 
+otros: 
+o Diagrama de casos de uso. 
+o Diagrama de actividades. 
+o Diagrama de secuencia. 
+En el modelo de vistas “4+1”, el diagrama de componentes y de paquetes representa a la vista de de sarrollo, 
+el diagrama de clases a la vista lógica, el diagrama de actividad a la vista de proceso, el diagrama de despliegue 
+a la vista física y el diagrama de casos de uso a la vista de escenarios. 
+ 
+2. DIAGRAMA DE COMPONENTES 
+Describen el sistema como una agregación de componentes. Un componente es un a unidad software que 
+puede ser reemplazada y actualizada de forma independiente. 
+Los componentes se definen en términos de los servicios que ofrecen (interfaces de salida) y los servicios que 
+requieren de otros componentes (interfaces de entrada). 
+Ejemplo: mashup de predicción meteorológica. 
+ 
+lOMoARcPSD|12969512

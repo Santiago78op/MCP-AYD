@@ -1,0 +1,19 @@
+Comunicación síncrona: el objeto que envía el mensaje queda bloqueado hasta que recibe la r espuesta. Los 
+mensajes se representan con flechas con la cabeza llena. Los mensajes  de respuesta se dibujan con línea 
+discontinua. El texto de las flechas indica el método llamado y lo que se envía como respuesta. 
+ 
+Comunicación asíncrona: los mensajes asíncronos terminan inmediatamente. Se representan con flechas con 
+la cabeza abierta. El texto de las flechas indica el método llamado. 
+ 
+Redirección de flujo de control : para facilitar la comprensión de los diagramas usaremos un tipo dist into de 
+flecha para las redirecciones (no forma parte de la notación estánd ar). Las representaremos con flechas en 
+azul y con la cabeza abierta. En el texto se indica Forward seguido, entre corchetes, de los parámetros 
+enviados. 
+ 
+Activación: indican cuándo un participante está realizando una acción. Se representan con un rectángulo a lo 
+largo de la línea de vida del participante. Un mismo participante puede  activarse y desactivarse varias veces 
+durante su vida. 
+ 
+Alternativas: indican si ejecutar un flujo u otro de acuerdo con una condición. 
+ 
+lOMoARcPSD|12969512

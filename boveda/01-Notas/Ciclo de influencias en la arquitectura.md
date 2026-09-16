@@ -1,7 +1,8 @@
 ---
 tema: Arquitectura de software
-fuente: "Arquitectura de Software (1).pdf"
+fuente: "Arquitectura de Software (1).pdf + Presentación de clase — capturas_U2 (5). NÚCLEO."
 fecha: 2026-08-19
+actualizada: 2026-09-15
 ---
 
 # Ciclo de influencias en la arquitectura
@@ -61,6 +62,31 @@ Explica dos cosas que si no se ven raras:
   influencias, entonces no hay un "diseño arquitectónico" único y final
   (→ [[Arquitectura en el ciclo de vida del software]]).
 
+## La versión "embudo" de la unidad 2
+
+La unidad 2 dice lo mismo sin el ciclo, como un **embudo** titulado *"¿Qué se tiene en cuenta para el
+diseño?"*: entran **Requisitos**, **Contexto** y **Experiencia del arquitecto**, y sale el **Documento de
+diseño arquitectónico (Arquitectura Software)**.
+
+![[adjuntos/capturas-clase-U2/diseno-arquitectonico/que-se-tiene-en-cuenta-embudo.png]]
+
+Correspondencia *(propia; las dos figuras son de clase)*:
+
+| Ciclo de influencias (4) | Embudo (3) |
+|---|---|
+| Stakeholders | **Requisitos** |
+| Organizaciones de desarrollo | **Contexto** (aspectos del negocio y de la estructura organizacional) |
+| Ambiente técnico | **Contexto** (tendencias actuales y tecnología disponible) |
+| Experiencia del arquitecto | **Experiencia del arquitecto** |
+
+| Lo que tiene el ciclo y no el embudo | Lo que tiene el embudo y no el ciclo |
+|---|---|
+| la **retroalimentación**: el sistema construido cambia sus propias influencias | la **salida con nombre** (el documento de diseño) y **ejemplos concretos** de cada entrada |
+
+Si te preguntan el punto 1.5 del programa (*"¿Qué se tiene en cuenta para el diseño?"*), la respuesta
+literal es el **embudo de tres**; el ciclo sirve para explicar por qué es iterativo. Detalle en
+[[Qué se tiene en cuenta para el diseño]].
+
 ## Notas relacionadas
 
 - [[Arquitectura de software]]
@@ -68,6 +94,7 @@ Explica dos cosas que si no se ven raras:
 - [[Beneficios de la arquitectura de software]]
 - [[Arquitectura en el ciclo de vida del software]]
 - [[Equilibrio de restricciones del proyecto]]
+- [[Qué se tiene en cuenta para el diseño]]
 
 ## Preguntas de repaso
 
@@ -75,3 +102,4 @@ Explica dos cosas que si no se ven raras:
 2. ¿Cuáles dos influencias se combinan para producir los requisitos de calidad?
 3. ¿Por qué el diagrama es un ciclo y no una secuencia lineal?
 4. Usando este ciclo, explicá por qué dos arquitectos pueden llegar a arquitecturas distintas partiendo de los mismos requisitos funcionales.
+5. ¿Qué influencias del ciclo quedan agrupadas en la entrada **Contexto** del embudo de la unidad 2?

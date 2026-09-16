@@ -72,16 +72,28 @@ Leyenda: ✅ cubierto · 🟡 parcial · ❌ sin nota
 | 1.2 | ¿Por qué es importante? | ✅ | [[Arquitectura de software]] |
 | 1.3 | Beneficios de una arquitectura de SW | ✅ | [[Beneficios de la arquitectura de software]] |
 | 1.4 | Pasos para la definición de una arquitectura | ✅ | [[Proceso de diseño arquitectónico]] |
-| 1.5 | ¿Qué se tiene en cuenta para el diseño? | 🟡 | [[Ciclo de influencias en la arquitectura]], [[Equilibrio de restricciones del proyecto]] |
+| 1.5 | ¿Qué se tiene en cuenta para el diseño? | ✅ | [[Qué se tiene en cuenta para el diseño]] (clase, capturas_U2) + [[Ciclo de influencias en la arquitectura]], [[Equilibrio de restricciones del proyecto]] |
 | 1.6 | **Arquitectura y Requerimientos (CDU de negocio)** | ✅ | Todo el bloque de casos de uso + [[Matriz de trazabilidad de requisitos]] |
-| 1.7 | **¿Cómo se modela? Diagramas de Despliegue** | ❌ | solo mencionado en [[Modelo 4+1 vistas]] |
-| 1.8 | Estructuras y Vistas · Categorías de Estructuras | 🟡 | [[Estructuras y vistas arquitectónicas]] — falta "categorías de estructuras" |
-| 1.9 | Géneros y Estilos Arquitectónicos | ❌ | — |
+| 1.7 | **¿Cómo se modela? Diagramas de Despliegue** | ✅ | **Dado en clase** (capturas_U2, recibidas 2026-09-15). Hub: [[Cómo se modela la arquitectura]] → [[Lenguajes de descripción de arquitectura]], [[Diagramas UML estructurales y de comportamiento]], [[Diagrama de bloques de alto nivel]], [[Diagrama de componentes]], [[Interfaces de componentes]], [[Diagrama de despliegue]], [[Diagrama de paquetes]], [[Diagrama de secuencia]], [[Diagrama de clases]], [[Ejemplo resuelto - Parque de atracciones]] |
+| 1.8 | Estructuras y Vistas · Categorías de Estructuras | ✅ | [[Estructuras y vistas arquitectónicas]] + [[Categorías de estructuras]] (capturas de clase del 19/08) |
+| 1.9 | Géneros y Estilos Arquitectónicos | 🟡 | **Dado en parte** (capturas_U2): [[Estilos arquitectónicos]], [[Arquitectura monolítica]], [[Arquitectura en capas]], [[Arquitectura en la nube]] |
 
-El detalle de 1.9, que no tengo nada: **arquitectura candidata**, **arquitectura de referencia**,
-**diseño arquitectónico on premise vs cloud**, y el **catálogo de estilos**: cliente-servidor,
-centrada en datos, en o por capas, centrada en el flujo de datos, llamada y retorno, y basada en
-eventos.
+El detalle de 1.9 contra lo que dio la clase (capturas_U2):
+
+| Tema del programa | Estado en clase |
+|---|---|
+| Cliente-servidor | ✅ como *arquitectura de 2 capas* → [[Arquitectura en capas]] |
+| En o por capas | ✅ N-Capas + clínica veterinaria → [[Arquitectura en capas]] |
+| On premise vs cloud | 🟡 cloud sí ([[Arquitectura en la nube]]); on premise **sin diapositiva** |
+| Centrada en datos · flujo de datos · llamada y retorno | 🟡 **solo nombrados** como ejemplos de estilo |
+| Basada en eventos · arquitectura candidata · arquitectura de referencia | ❌ no aparecen |
+| *(fuera del programa)* Monolítica | ✅ → [[Arquitectura monolítica]] |
+
+> [!warning] Desfase de numeración
+> El estudiante rotuló estas capturas como **unidad 2**, pero su contenido es el de los puntos
+> **1.4, 1.5, 1.7 y 1.9** de la unidad 1 del programa. La unidad 2 del programa (**Calidad del
+> Software**) sigue **sin material de clase**. Pregunta abierta para ella: qué entra en el
+> segundo parcial (19 de septiembre).
 
 ### Unidad 2 — Calidad del Software ❌
 
@@ -121,13 +133,11 @@ presentación cuando llegue.
 
 ## Lo que falta pedir
 
-Las presentaciones que tengo cubren bien **1.1–1.6**. Para el resto necesito material:
+Las presentaciones y capturas que tengo cubren **1.1–1.8** y 1.9 en parte (actualizado 2026-09-15). Para el resto necesito material:
 
 | Prioridad | Qué falta | Para cuándo |
 |---|---|---|
-| **Alta** | **1.7 Diagramas de Despliegue** — entra en el primer parcial | ya |
-| **Alta** | **1.9 Géneros y Estilos Arquitectónicos** — se está dando ahora (17–24 de agosto) | ya |
-| Media | 1.8 Categorías de Estructuras | antes del segundo parcial |
+| Media | **1.9 lo que faltó**: basada en eventos, arquitectura candidata, arquitectura de referencia, on premise | cuando se dé |
 | Media | Unidad 2 completa — Calidad del Software | 25 de agosto al 7 de septiembre |
 | Baja | Unidades 3 y 4 | septiembre y octubre |
 

@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura de software
-fuente: "Tabla *Resumen de los Tipos de Relaciones en UML* (diapositiva de clase) + docs.staruml.io, Garland & Anthony cap. 5 y Reynoso (complemento) + verificación propia del render Mermaid"
+fuente: "Tabla *Resumen de los Tipos de Relaciones en UML* (diapositiva de clase) + Presentación de clase — capturas_U2 (25, 26, 27, 28, 54). NÚCLEO. + PDF de clase TEMA 5, pág. 4 + docs.staruml.io, Garland & Anthony cap. 5 y Reynoso (complemento) + verificación propia del render Mermaid"
 fecha: 2026-08-19
 ---
 
@@ -13,6 +13,13 @@ Qué significa cada flecha, hacia dónde apunta y cómo se dibuja.
 > conceptos de la vista de despliegue como *"nodo, componente, **dependencia**, localización"*— pero
 > no explican su notación. Todo lo que sigue viene de fuentes externas, cada una citada en su
 > sección. Si la clase dice algo distinto, **manda la clase**.
+
+> [!important] Actualización 2026-09-15 — ahora SÍ hay material de clase
+> Las capturas de la unidad 2 traen la notación explicada por ella: la tabla **"Relaciones" de la
+> Vista Lógica** (dependencia → herencia, de débil a fuerte) y la **realización con interfaz** en el
+> diagrama de clases. Están al final, en [[#Relaciones de la Vista Lógica — la tabla de clase (NÚCLEO)]]
+> y [[#Realización con interfaz — cómo la dibuja la clase (NÚCLEO)]]. Las secciones 1 a 6 siguen
+> siendo complemento; **donde difieren, manda lo del final**, y cada diferencia está anotada ahí.
 
 ---
 
@@ -263,7 +270,143 @@ una, y [[Ejemplos resueltos de casos de negocio]] para verlas usadas en sus cuat
 >
 > Esa es la diferencia conceptual, y explica por qué la flecha va al revés en cada una.
 
+---
+
+## Relaciones de la Vista Lógica — la tabla de clase (NÚCLEO)
+
+Diapositiva *"Análisis y diseño orientado a objetos con UML — Vista Lógica — Relaciones"*
+(captura 25). Es la respuesta directa si piden **las relaciones entre clases** en la
+[[Modelo 4+1 vistas|vista lógica]]. Textual, leída con zoom:
+
+| Relación | Símbolo (con zoom) | Definición de la diapositiva |
+|---|---|---|
+| **Dependencia** | línea **punteada** con punta **abierta** (V) en un extremo | *"Cuando los objetos de una clase trabajan **temporalmente** con objetos de otra clase."* |
+| **Asociación** | línea **llena**, **sin** puntas | *"Cuando los objetos de una clase **trabajan con** objetos de otra clase por **tiempo prolongado.**"* |
+| **Agregación** | línea llena con **rombo hueco** en un extremo | *"Cuando una clase es propietaria del objeto pero comparte **a otras clases la referencia del objeto**. El objeto puede existir independiente de la clase."* |
+| **Composición** | línea llena con **rombo macizo** en un extremo | *"Cuando una clase contiene objetos de otra clase. Los objetos no pueden existir independientes de la clase."* |
+| **Herencia** | línea llena con **triángulo hueco** en un extremo | *"Cuando una clase es un tipo de otra clase."* |
+
+Al margen izquierdo, vertical, la diapositiva marca un **eje**: arriba **"+ débil"** (junto a
+dependencia) y abajo **"fuerte"** (junto a herencia). O sea, las cinco están **ordenadas por la
+fuerza del vínculo**:
+
+```mermaid
+flowchart LR
+    D["Dependencia<br/>temporal"] --> A["Asociación<br/>prolongada"] --> G["Agregación<br/>comparte la referencia"] --> C["Composición<br/>no existe sin el todo"] --> H["Herencia<br/>es un tipo de"]
+```
+
+*Esquema propio del eje de la diapositiva: la flecha significa "más fuerte que", no es notación UML.*
+
+![[adjuntos/capturas-clase-U2/componentes/vista-logica-relaciones-debil-fuerte.png]]
+
+### Conciliación con las secciones 1-2 (complemento)
+
+| Punto | Secciones 1-2 (complemento) | Tabla de clase (captura 25) | Veredicto |
+|---|---|---|---|
+| Nombre | *Generalización* | *Herencia* | **mismo concepto**; en la vista lógica ella dice *herencia* |
+| Cuántas | seis (incluye **realización**) | **cinco** (no incluye realización) | la realización la muestra aparte, con interfaces (sección siguiente) |
+| Dependencia | *"usa en algún momento pero no lo guarda"* | *"trabajan **temporalmente**"* | **coinciden** |
+| Asociación | *"vínculo estructural estable"* | *"por **tiempo prolongado**"* | **coinciden**; citá la de ella |
+| Agregación | la parte **sobrevive** al todo | *"puede existir independiente"* + *"comparte la referencia"* | coinciden; ella agrega el matiz de **compartir la referencia** |
+| Composición | la parte **muere** con el todo | *"no pueden existir independientes"* | **coinciden** |
+| Orden débil → fuerte | no estaba | dependencia < asociación < agregación < composición < herencia | **nuevo, es de clase** |
+
+> [!warning] El PDF del TEMA 5 amplía la dependencia más que la diapositiva
+> PDF, pág. 4: *"**Dependencias**: se emplean para indicar que una clase hace uso de objetos de otra
+> clase en cualquier punto de esta (**atributos**, parámetros de los métodos, variables locales, etc.)."*
+> Incluir **atributos** choca con la diapositiva (*"temporalmente"*) y con la sección 2 (un atributo
+> guardado es estructural → asociación). **Manda la diapositiva**: dependencia = uso temporal.
+> El mismo PDF agrega dos reglas de notación: *"Si la clase padre es abstracta su nombre se debe
+> escribir con letra cursiva"* y las interfaces *"se representan mediante el estereotipo
+> <<Interface>>"*.
+
+---
+
+## Realización con interfaz — cómo la dibuja la clase (NÚCLEO)
+
+Diapositivas *"Diagramas de Clases: Realización"* (capturas 26, 27, 28). Primero la definición de
+interfaz, textual:
+
+> **INTERFAZ:**
+> • Conexión o frontera común entre dos aparatos o sistemas independientes
+> • Conexión física o lógica entre una computadora y el usuario, un dispositivo periférico o un enlace de comunicaciones
+
+### La plantilla (captura 26)
+
+| Caja | Compartimentos |
+|---|---|
+| **Nombre de la Clase que realiza la interfaz** | Atributos · Operaciones |
+| **`<<Interfaz>>`** (en rojo) **Nombre de la Interfaz** | (vacío) · *"Operaciones que la clase pondrá a disposición de otras clases (+)"* |
+
+Entre las dos: una línea **llena, sin punta**, señalada con una flecha roja y el rótulo
+**"Realización"**.
+
+![[adjuntos/capturas-clase-U2/componentes/realizacion-interfaz-plantilla.png]]
+
+### Ejemplo 1 — Visita (captura 27)
+
+| Elemento | Contenido |
+|---|---|
+| `Visita` | `Fecha Visita`, `Cod Paciente` · `AsignarMedicamentos()`, `AsignarServiios()` [sic], `AsignarMédico()` |
+| `<<Interfaz>> Servicios` | (vacío) · `AsignarMedicamentos()`, `AsignarServiios()` [sic] |
+| `Factura` | `Fecha_Fact` · `Agregar ServiciosFact`, `ImprimirFactura` |
+
+| Relación | Trazo (con zoom) | Lectura |
+|---|---|---|
+| `Visita` — `Servicios` | línea **llena, sin punta**, rotulada **Realización** | `Visita` realiza la interfaz |
+| `Factura` → `Servicios` | línea **punteada** con punta **rellena**, que llega a la esquina de la interfaz | `Factura` **depende** de (usa) la interfaz |
+
+Detalle: `AsignarMédico()` está en `Visita` pero **no** en la interfaz — no toda operación de la clase
+se pone a disposición de otras.
+
+![[adjuntos/capturas-clase-U2/componentes/realizacion-visita-servicios-factura.png]]
+
+### Ejemplo 2 — Pago (captura 28)
+
+| Elemento | Contenido |
+|---|---|
+| `Pago` | `Monto` · `ProcesarPago() ; Virtual` |
+| `Pago c/PayPal` | `Usuario` · `Procesar Pago(); Virtual` |
+| `Pago c/Tarjeta` | `Moneda`, `NumTarjeta` · `Procesar Pago(); Virtual` |
+| `Pago Efectivo` | `Denominación` · `Procesar Pago(); Virtual` |
+| `<<Interfaz>> IPago` | (vacío) · `ProcesarPago` |
+| `Transacción` | (solo nombre, cortado al borde) |
+
+| Relación | Trazo (con zoom) | Tipo |
+|---|---|---|
+| `Pago c/PayPal`, `Pago c/Tarjeta`, `Pago Efectivo` → `Pago` | línea llena fina con **triángulo hueco** en `Pago` | **herencia** |
+| `Pago c/PayPal`, `Pago c/Tarjeta`, `Pago Efectivo` — `IPago` | tres líneas **llenas, sin punta** (la del medio rotulada **Realización**) | **realización** |
+| `Transacción` → `IPago` | línea **punteada** con punta **rellena** hacia `IPago` | **dependencia** |
+
+Lo que enseña: una misma clase puede **heredar** de una clase y **realizar** una interfaz a la vez; y
+el cliente (`Transacción`) depende de la **interfaz**, no de las tres clases concretas.
+
+![[adjuntos/capturas-clase-U2/componentes/realizacion-pago-ipago-transaccion.png]]
+
+La captura 54 (*"Clases a Componentes"*) repite el mismo trazo: `Dictionary` — línea llena, sin punta —
+`<<Interfaz>> Servicios Diccionario`, rotulada **"Realiza"**. Ver [[Diagrama de componentes]] § 7.
+
+> [!danger] Diferencia con la sección 2: cómo se dibuja la realización
+> | Fuente | Realización |
+> |---|---|
+> | Sección 2 (complemento, UML estándar) | línea **punteada** + **triángulo hueco** hacia la interfaz |
+> | Capturas 26, 27, 28 y 54 (clase, *diagrama de clases*) | línea **llena, sin punta**, identificada por el **rótulo** y por el `<<Interfaz>>` |
+> | Captura 32 (clase, *componentes, "UML 2.X"*) | línea **punteada** + **triángulo hueco** hacia la interfaz (`Menú` → `Ordenar`, `Normalizer.dll` → `INormalize`) |
+>
+> Las dos cosas son material de clase. **La forma UML 2.x (punteada + triángulo hueco) también está en
+> sus diapositivas**, y es la que no se confunde con una asociación. Recomendación: en una entrega,
+> dibujá **punteada + triángulo hueco**, y si reproducís *su* diapositiva de *Realización*, respetá la
+> línea llena y **poné el rótulo**. Es pregunta para ella cuál espera en el examen.
+>
+> Otra variante gráfica: en 27 y 28 la dependencia lleva punta **rellena**; en la tabla de la captura 25
+> la punta es **abierta**. No cambia el significado: lo que la identifica es el **trazo punteado**.
+
+La realización **entre componentes e interfaces** (círculo, semicírculo, `«use»`) está en
+[[Interfaces de componentes]].
+
 ## Notas relacionadas
+
+- [[Diagrama de componentes]] · [[Interfaces de componentes]] — realización y uso entre componentes
 
 - [[Relación de inclusión include]] · [[Relación de extensión extend]] — dependencias estereotipadas
 - [[Generalización y especialización en casos de uso]] — la que **no** es dependencia
@@ -283,3 +426,5 @@ una, y [[Ejemplos resueltos de casos de negocio]] para verlas usadas en sus cuat
 6. ¿Cuál es la única diferencia de notación entre agregación y composición, y qué significa?
 7. En la matriz de dependencias, ¿a qué corresponden la **cola** y la **punta** de la flecha?
 8. ¿Qué dos relaciones dibuja Mermaid de forma indistinguible, y por qué es un problema?
+9. Ordená de más débil a más fuerte las cinco relaciones de la tabla de la Vista Lógica y dá la definición de clase de cada una.
+10. ¿Cómo dibuja la clase la realización entre `Visita` y `<<Interfaz>> Servicios`, y en qué se diferencia de la notación UML 2.x que aparece en la diapositiva de interfaces de componentes?

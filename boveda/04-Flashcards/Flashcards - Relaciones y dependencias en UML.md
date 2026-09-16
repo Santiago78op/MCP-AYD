@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura de software
-fuente: "COMPLEMENTO — docs.staruml.io + Garland & Anthony + Reynoso + verificación propia"
+fuente: "COMPLEMENTO — docs.staruml.io + Garland & Anthony + Reynoso + verificación propia. Las últimas 8 tarjetas: capturas_U2 (25-28), NÚCLEO."
 fecha: 2026-08-19
 ---
 
@@ -57,3 +57,19 @@ En la matriz de dependencias, ¿a qué corresponden la **cola** y la **punta** d
 Si hiciste un diagrama de clases en Mermaid con agregación y composición, ¿qué tenés que hacer?::Aclararlo **por escrito**, porque el dibujo no lo va a mostrar. Y para el entregable formal, redibujarlo en StarUML, que sí respeta la notación.
 
 ¿Cómo se dibuja una relación **bidireccional**?::Sin puntas. Poner punta en las dos direcciones es un error.
+
+En la tabla de la Vista Lógica de la clase, ¿cuál es el orden de las relaciones de más débil a más fuerte?::Dependencia, asociación, agregación, composición, herencia. La diapositiva marca "+ débil" junto a la dependencia y "fuerte" junto a la herencia.
+
+Según la clase, ¿qué diferencia hay entre dependencia y asociación?::Dependencia: los objetos de una clase trabajan **temporalmente** con objetos de otra. Asociación: trabajan con objetos de otra clase por **tiempo prolongado**.
+
+Según la clase, ¿cuándo hay agregación?::Cuando una clase es propietaria del objeto pero **comparte a otras clases la referencia** del objeto. El objeto puede existir independiente de la clase. Rombo **hueco**.
+
+Según la clase, ¿cuándo hay composición?::Cuando una clase contiene objetos de otra clase y esos objetos **no pueden existir independientes** de ella. Rombo **macizo**.
+
+¿Qué es una interfaz según la diapositiva de Realización?::Una conexión o frontera común entre dos aparatos o sistemas independientes, o la conexión física o lógica entre una computadora y el usuario, un dispositivo periférico o un enlace de comunicaciones.
+
+¿Qué operaciones van en el compartimento de una `<<Interfaz>>`?::Las operaciones que la clase pondrá a disposición de otras clases, o sea las **públicas (+)**. Ejemplo: `AsignarMédico()` está en Visita pero no en la interfaz Servicios.
+
+¿Cómo dibuja la clase la realización en sus diapositivas de diagrama de clases?::Con una línea **llena sin punta** entre la clase y la `<<Interfaz>>`, identificada por el rótulo "Realización". En la diapositiva de interfaces UML 2.x, en cambio, la realización es **punteada con triángulo hueco**.
+
+En el ejemplo Pago/IPago, ¿qué relaciones tiene `Pago c/Tarjeta`?::Dos: **herencia** hacia `Pago` (línea llena con triángulo hueco) y **realización** de `<<Interfaz>> IPago` (línea llena sin punta). `Transacción` depende de `IPago` con una línea punteada.

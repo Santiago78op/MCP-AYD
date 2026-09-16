@@ -1,0 +1,12 @@
+Flujo opcional: permite ejecutar ciertas acciones sólo si se cumple una condición. 
+ 
+Break: detiene la ejecución si se cumple una determinada condición. Se utiliz an para mostrar los casos de 
+error. Representaremos en rojo las flechas dentro de un break (no es parte de la notación). 
+ 
+Bucles: parte del flujo se ejecuta repetidamente mientras se cumpla una condición. 
+ 
+Alto nivel: además de diagramas de secuencia como el anterior, en el proyecto se usa este tipo de diagramas 
+para describir la comunicación entre las aplicaciones integradas. 
+ 
+ 
+lOMoARcPSD|12969512

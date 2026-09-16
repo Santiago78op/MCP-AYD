@@ -519,7 +519,7 @@ láminas limpias para todo tipo de diagrama.
 |---|---|
 | **Navegador** | Abrir el `.svg` en Chrome → imprimir → *Guardar como PDF*. Vectorial, sin pérdida |
 | **Excalidraw** | Exportar directo a PNG con `scale: 2` y fondo blanco |
-| **Obsidian** | El `.svg` se embebe con `![[archivo.svg]]` y se ve nítido; no hace falta convertir |
+| **Obsidian** | El `.svg` se embebe con la sintaxis de embed de Obsidian (doble corchete y nombre del archivo) y se ve nítido; no hace falta convertir |
 
 Para PNG, **siempre a 2× de escala y con fondo blanco explícito**: un PNG transparente sobre un
 documento oscuro deja el trazo negro invisible.

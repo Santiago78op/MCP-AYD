@@ -1,7 +1,7 @@
 ---
 tema: Arquitectura de software
-fuente: "COMPLEMENTO — Reynoso + SAIP 4ª ed. + Guía de estudio. NO hay material de clase todavía"
-fecha: 2026-08-19
+fuente: "Presentación de clase — capturas_U2 (21, 43-47, 49-52). NÚCLEO (tarjetas finales). + COMPLEMENTO — Reynoso + SAIP 4ª ed. + Guía de estudio (tarjetas iniciales)"
+fecha: 2026-09-15
 ---
 
 # Flashcards — Estilos arquitectónicos (punto 1.9)
@@ -9,9 +9,11 @@ fecha: 2026-08-19
 Compatible con el plugin **Spaced Repetition** de Obsidian: cada tarjeta es una línea con la
 pregunta, el separador de dos signos de dos puntos, y la respuesta.
 
-> [!warning] Todo esto es complemento
-> Salen de [[Estilos arquitectónicos]], que **no tiene núcleo de clase**: las presentaciones no
-> cubren el tema. Cuando llegue la presentación de 1.9 hay que revisar estas tarjetas contra ella.
+> [!warning] Dos bloques: complemento primero, clase al final
+> Las tarjetas iniciales salen de la **Parte II (complemento)** de [[Estilos arquitectónicos]]:
+> Reynoso, SAIP y guía de estudio. Las del bloque **"Lo que dio la clase"**, al final, salen de las
+> capturas de la unidad 2 y de [[Arquitectura monolítica]], [[Arquitectura en capas]] y
+> [[Arquitectura en la nube]]. **Si chocan, manda la clase.**
 
 #flashcards/estilos
 
@@ -67,4 +69,33 @@ pregunta, el separador de dos signos de dos puntos, y la respuesta.
 
 ¿Qué significa "instanciar" una arquitectura de referencia?::Realizar una **customización**: agregar o quitar elementos de la estructura que la arquitectura de referencia define. Ejemplo del SAIP: agregar un componente de integración de pagos junto a los tiers de presentación, negocio y datos.
 
-*(sin fuente en el material)* ¿Qué es una **arquitectura candidata**?::La primera versión de la arquitectura, todavía **no validada**, que se somete a evaluación y de la que puede haber varias en competencia. **Este término no está en el material local: confirmar en clase.**
+*(sin fuente en el material)* ¿Qué es una **arquitectura candidata**?::La primera versión de la arquitectura, todavía **no validada**, que se somete a evaluación y de la que puede haber varias en competencia. **Este término no está en el material local ni apareció en las capturas de la unidad 2: confirmar con ella.**
+
+## Lo que dio la clase (NÚCLEO — capturas_U2)
+
+¿Qué es un **diseño arquitectónico** según la clase?::Se refiere a la arquitectura de **un sistema concreto**.
+
+¿Qué es un **estilo arquitectónico** según la clase?::Establece las **restricciones** sobre la arquitectura de una **familia de diseños arquitectónicos**. Ejemplos: centrado en datos, flujo de datos, llamar y regresar, capas.
+
+¿Qué es un **patrón arquitectónico** según la clase, y cómo se compara su alcance con el del estilo?::Una **solución general a un problema común** del diseño arquitectónico. Tiene **menor alcance** que los estilos arquitectónicos.
+
+¿Cuál es la principal característica de la **arquitectura monolítica**?::**Agrupar toda la funcionalidad y servicios de la aplicación en una base de código única.**
+
+¿Cómo describe la tabla de clase la escalabilidad, el despliegue y el acoplamiento del monolito?::Escalabilidad: **escalado vertical, toda la aplicación a la vez**. Despliegue: **requiere desplegar toda la aplicación**. Acoplamiento: **fuerte entre componentes**.
+
+¿Cuáles son las siete filas de la tabla de la arquitectura monolítica?::Estructura, comunicación, escalabilidad, despliegue, mantenibilidad, tecnología y acoplamiento.
+
+¿Cómo define la clase la arquitectura **N-Capas**?::Arquitecturas **multinivel o programación por capas** donde **a cada nivel se le confía una misión simple**, lo que permite diseñar **arquitecturas escalables** (que se amplían con facilidad si las necesidades aumentan).
+
+¿A qué llama la clase **arquitectura de 2 capas**?::Al **modelo cliente-servidor**: el cliente hace la **petición [1]** y el servidor devuelve la **respuesta [2]**.
+
+¿Qué enseña el ejemplo smartphone/smartwatch?::Que **cliente y servidor son roles, no máquinas**: el smartphone es cliente del servidor físico [1-2] y después **cambia de rol** y es servidor del smartwatch [3-4].
+
+¿Qué muestra el diagrama de componentes de la clínica veterinaria?::Un diseño en **cuatro capas** como paquetes: 1 Presentación (interfaz usuarios y administrador), 2 Lógica de negocio (facturas, animales, empleados, avisos, workflow, gestor documental), 3 BBDD y 4 Servicios.
+
+¿Cómo define la clase la **arquitectura de la nube**?::Se compone de los **componentes y subcomponentes que se encuentran en una nube**; hay **mucho más que solo tecnología**: se refiere al **diseño** y conecta todos los componentes y tecnologías necesarios para la computación en la nube.
+
+¿Cuáles son las zonas del diagrama **N-niveles en la nube** de Azure?::**DMZ** (NVA), **Web tier**, **Business tier** y **Data tier** (SQL Server primario y secundario), cada una detrás de un **load balancer**, dentro de una **virtual network**, más un **Bastion** para DevOps.
+
+¿La clase distingue entre **capa** y **nivel (tier)**?::**No**: los usa como sinónimos (N-Capas = multinivel, 2 capas = cliente-servidor, N-niveles = tiers). El complemento sí los distingue: capa = partición del código, tier = partición del despliegue.
+¿Qué dos tipos de patrón distingue la diapositiva "Patrones / Estilos Arquitectónicos"?::Patrones de diseño y patrones arquitectónicos; después vienen los estilos arquitectónicos. En su dibujo, los de diseño (Singleton, Composite, Factory Method) son subcomponentes dentro de un componente.

@@ -1,7 +1,8 @@
 ---
 tema: Arquitectura de software
-fuente: "Arquitectura de Software.pdf / Arquitectura de Software (1).pdf + capturas de clase del 19/08/2026. Todo NÚCLEO."
+fuente: "Arquitectura de Software.pdf / Arquitectura de Software (1).pdf + capturas de clase del 19/08/2026 + Presentación de clase — capturas_U2 (0, 1, 2). Todo NÚCLEO."
 fecha: 2026-08-19
+actualizada: 2026-09-15
 ---
 
 # Proceso de diseño arquitectónico
@@ -68,10 +69,17 @@ flowchart TD
     D -->|"«precede»"| DOC["DOCUMENTACIÓN<br/><i>(de la arquitectura)</i>"]
     DOC -->|"«precede»"| E["EVALUACIÓN<br/><i>(de la arquitectura)</i>"]
     E -->|"«precede»"| I["IMPLEMENTACIÓN<br/><i>(de la arquitectura)</i>"]
-    I -.->|"«precede»<br/>vuelve a empezar"| R
+    I -->|"«precede»<br/>vuelve a empezar"| R
 ```
 
 ![[adjuntos/capturas-clase/pasos-definicion-ciclo-precede.png]]
+
+> [!warning] Corrección 2026-09-15 — la flecha de retorno es LLENA
+> Leída a resolución completa (capturas_U2, 1), la flecha que vuelve de IMPLEMENTACIÓN a REQUERIMIENTOS
+> es una línea **llena**, igual que las demás, con su propio **`<<precede>>`** al costado. Antes este
+> esquema la dibujaba punteada: no lo es. Además el diagrama original tiene **nodo inicial** (arriba) y
+> **nodo final** (abajo, después de IMPLEMENTACIÓN): el lazo no es infinito, se vuelve a empezar o se
+> termina. El Mermaid de arriba es un esquema; **manda la imagen**.
 
 **Cinco etapas y un lazo.** Eso confirma con fuente de clase lo que
 [[Arquitectura en el ciclo de vida del software]] dice en palabras: *"es un proceso iterativo"*. Y se
@@ -89,6 +97,24 @@ corresponde casi uno a uno con el ciclo del SAIP que está en [[El ciclo del arc
 > Usó **`«precede»`**, no `«include»` ni `«extend»`. Es un estereotipo de **precedencia
 > temporal**: "esto va antes que aquello". No confundirlo con las relaciones de casos de uso
 > (→ [[Relaciones y dependencias en UML]]).
+
+#### La misma figura, otra vez: "La etapa de diseño en la Arquitectura de Software"
+
+En la presentación de la unidad 2 el diagrama reaparece **idéntico**, pero con otro título y otro
+énfasis. Leída con zoom:
+
+| Elemento | Qué cambia respecto de la versión anterior |
+|---|---|
+| Título | *"La etapa de diseño en la Arquitectura de Software"* (antes: *"Pasos para la definición de una Arquitectura de software"*) |
+| Caja resaltada (relleno azul) | **DISEÑO** (antes estaba resaltada **REQUERIMIENTOS**) |
+| Flecha grande a la derecha | apunta a DISEÑO con el texto **"En este capítulo"** |
+| Pie de figura | *"La etapa de diseño en el ciclo de desarrollo de la arquitectura."* |
+| Todo lo demás | igual: cinco cajas *(de la arquitectura)*, cinco `<<precede>>`, nodo inicial, nodo final y retorno |
+
+![[adjuntos/capturas-clase-U2/diseno-arquitectonico/etapa-de-diseno-ciclo-precede.png]]
+
+La lectura (propia, no la dijo así): **la unidad 1 se paró en REQUERIMIENTOS** (drivers, casos de uso del negocio, trazabilidad) y
+**la unidad 2 se para en DISEÑO**. La figura funciona como mapa del curso: te dice en qué caja estás.
 
 ## El flujo de definición: las actividades son CONCURRENTES
 
@@ -137,6 +163,76 @@ cada iteración.
 
 Eso da tres niveles de alcance: **candidata** (este proyecto, primera vuelta) → **de referencia**
 (reutilizable entre proyectos) → **empresarial** (la organización entera).
+
+## ¿Qué incluye el diseño de la arquitectura?
+
+Con el mismo título *"Pasos para la definición de una Arquitectura de software"*, la unidad 2 abre con
+**qué tiene que contener** el diseño. Textual:
+
+> El diseño de la arquitectura incluye:
+> - **Estructura:** descripción de subsistemas como composición de componentes.
+> - **Comportamiento:** descripción de la comunicación entre componentes.
+> - **Cualquier otra información que el arquitecto considere relevante:**
+>   - Protocolos de comunicación, sincronización y acceso a datos.
+>   - Distribución física.
+>   - Puntos de variabilidad y extensión.
+> - **Aspectos de seguridad.**
+> - …
+
+![[adjuntos/capturas-clase-U2/diseno-arquitectonico/que-incluye-el-diseno-arquitectura.png]]
+
+| Contenido | Qué responde | Con qué se modela *(correspondencia propia → [[Cómo se modela la arquitectura]])* |
+|---|---|---|
+| **Estructura** | ¿de qué piezas está hecho? | diagramas UML **estructurales**: [[Diagrama de componentes]] |
+| **Comportamiento** | ¿cómo se hablan esas piezas? | diagramas UML **de comportamiento**: [[Diagrama de secuencia]], actividad |
+| Protocolos | ¿con qué reglas se comunican, sincronizan y leen datos? | notas sobre los conectores, interfaces |
+| **Distribución física** | ¿en qué máquinas corre cada pieza? | [[Diagrama de despliegue]] |
+| Puntos de variabilidad y extensión | ¿dónde se puede cambiar o agregar sin romper? | — (conecta con modificabilidad, → [[Atributos de calidad]]) |
+| **Aspectos de seguridad** | ¿cómo se protege? | — (atributo de calidad) |
+
+Dos cosas para marcar:
+
+- **Estructura y comportamiento son obligatorios**; lo demás es *"cualquier otra información que el
+  arquitecto considere relevante"*. O sea: el mínimo de un diseño arquitectónico son las piezas **y** cómo
+  se comunican. Solo las piezas no alcanza.
+- La lista termina en **"…"**: es abierta. Seguridad aparece suelta, en el primer nivel, no dentro de "otra
+  información" — la diapositiva la destaca.
+
+Y compará con el **producto final** de abajo (datos, estructura, propiedades y relaciones): dicen lo
+mismo con otras palabras — *relaciones (interacciones) entre componentes* es el **comportamiento**.
+
+## ¿Qué información incluye el diseño arquitectónico? — Las vistas
+
+La diapositiva siguiente pone planos de una casa (plantas, fachadas, elevaciones) al lado de la figura
+del **modelo 4+1**, con este texto:
+
+> El documento de diseño arquitectónico suele incluir varias vistas. Una vista representa un aspecto
+> parcial de una arquitectura software. Cada participante en el desarrollo estará interesado en una o
+> varias vistas.
+
+![[adjuntos/capturas-clase-U2/diseno-arquitectonico/informacion-diseno-vistas-4mas1.png]]
+
+La analogía de los planos es el punto: **una casa no se documenta con un solo plano** (planta, fachada,
+instalación eléctrica), y cada gremio mira el suyo. La figura, leída con zoom:
+
+| Vista (texto de la figura) | Participante unido con una línea | Nombre en [[Modelo 4+1 vistas]] |
+|---|---|---|
+| **Logical View** | *Analyst; End user* | Vista Lógica |
+| **Implementation View** | *Programmer* | Vista de Despliegue *(o de Desarrollo)* |
+| **Process View** | *System Integrator* | Vista de Procesos |
+| **Deployment View** | *System Administrator* | Vista **Física** |
+| **Use Case View** (óvalo al centro, encima de las cuatro) | — | +1 Escenarios |
+
+> [!warning] Ojo con "Deployment View"
+> En esta figura **Deployment View** es la de la **distribución física** (la del administrador de sistemas),
+> y la de componentes se llama **Implementation View**. La presentación de la unidad 1 llamaba *"Vista de
+> Despliegue o Vista de Desarrollo"* a la de **componentes**. Son la misma estructura con nombres cruzados:
+> el diagrama de **despliegue** va en la vista del **administrador de sistemas**, sea que se llame
+> *Deployment View* o *Vista Física* (→ [[Modelo 4+1 vistas]], [[Diagrama de despliegue]]).
+
+Lo nuevo que aporta esta figura respecto de la unidad 1: **a quién le sirve cada vista**. Es la idea de
+[[Estructuras y vistas arquitectónicas]] (cada stakeholder necesita ver el sistema de una manera) con
+nombres propios.
 
 ## ¿Cuál es el producto final?
 
@@ -190,6 +286,8 @@ diagramas de componentes y servicios con sus interacciones.
 - [[Modelo 4+1 vistas]]
 - [[Arquitectura en el ciclo de vida del software]]
 - [[Equilibrio de restricciones del proyecto]]
+- [[Qué se tiene en cuenta para el diseño]] — las entradas del documento de diseño
+- [[Cómo se modela la arquitectura]] — con qué se representa lo que el diseño incluye
 
 ## Preguntas de repaso
 
@@ -198,3 +296,5 @@ diagramas de componentes y servicios con sus interacciones.
 3. ¿Qué cuatro propiedades se revisan en las comprobaciones de cada etapa?
 4. ¿Qué incluye el modelo de arquitectura que es el producto final?
 5. ¿Por qué conviene considerar alternativas arquitectónicas temprano?
+6. Según la clase, ¿qué incluye el diseño de la arquitectura? ¿Cuáles dos contenidos son el mínimo?
+7. En la figura 4+1 de la unidad 2, ¿qué participante corresponde a cada vista, y en cuál va el diagrama de despliegue?

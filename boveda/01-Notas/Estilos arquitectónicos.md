@@ -1,31 +1,148 @@
 ---
 tema: Arquitectura de software
-fuente: "COMPLEMENTO — Reynoso (Introducción a la AS) + SAIP 4ª ed. + Guía de estudio. NO hay material de clase todavía"
-fecha: 2026-08-19
+fuente: "Presentación de clase — capturas_U2 (21; capturas_U2_F2 0; resumen de 43-47 y 49-52, desarrolladas en sus notas). NÚCLEO. + COMPLEMENTO — Reynoso (Introducción a la AS), SAIP 4ª ed. y Guía de estudio (Parte II, marcada)"
+fecha: 2026-09-15
 punto_del_programa: "1.9 — Géneros y Estilos Arquitectónicos"
 ---
 
 # Estilos arquitectónicos
 
-> [!warning] Esta nota es COMPLEMENTO ENTERO — todavía no hay núcleo de clase
-> A diferencia de [[Diagrama de despliegue]], donde la presentación al menos daba una base, acá
-> **las tres presentaciones no dicen nada sobre estilos**. Verificado: el tema no aparece.
+> [!info] Cómo está armada esta nota
+> - **Parte I — NÚCLEO (clase).** Las definiciones de *diseño*, *estilo* y *patrón* arquitectónico
+>   de la diapositiva "Estilos y Patrones Arquitectónicos", y los estilos que la catedrática
+>   desarrolló: monolítica, N-capas, 2 capas (cliente-servidor) y la nube. Es lo que se evalúa.
+> - **Parte II — COMPLEMENTO.** El catálogo de Reynoso, el SAIP y la guía de estudio, que existía
+>   antes de que llegara la clase. Sirve para **entender** los estilos que ella solo nombró (centrado
+>   en datos, flujo de datos, eventos…), **nunca** para contradecir la Parte I.
 >
-> Todo lo que sigue viene de:
-> - **Reynoso**, *Introducción a la Arquitectura de Software* (en `00-Fuentes/lecturas/`) — la
->   definición de estilo y la lista de los seis típicos.
-> - **SAIP 4ª ed.** (Bass, Clements, Kazman) — bibliografía oficial del curso; desarrolla capas,
->   microkernel, publish-subscribe y cliente-servidor como patrones.
-> - **Guía de estudio** (`Unidad_1/Guia_Arquitectura_Software.pdf`, Parte IX) — el catálogo con
->   una ficha por estilo.
->
-> Es el punto **1.9** del programa y se está dando **ahora** (17–24 de agosto). Cuando llegue la
-> presentación hay que revisar esta nota contra ella: **si la clase dice algo distinto, manda la
-> clase**. Ver [[Programa oficial del curso]].
+> Si algo de la Parte II choca con la Parte I, **manda la clase**. Los choques que ya se detectaron
+> están señalados en su lugar (capa vs. nivel, patrón vs. estilo).
 
 ---
 
-## 1. Qué es un estilo
+# Parte I — Lo que dio la clase (NÚCLEO)
+
+## 1. Diseño, estilo y patrón: las tres definiciones
+
+La diapositiva *"Estilos y Patrones Arquitectónicos"* define tres términos que se confunden. Textual:
+
+> Un **diseño arquitectónico** se refiere a la arquitectura de un sistema concreto.
+
+> Un **estilo arquitectónico** establece las restricciones sobre la arquitectura de una **familia de
+> diseños arquitectónicos**. Algunos ejemplos: centrado en datos, flujo de datos, llamar y regresar,
+> capas.
+
+> Un **patrón arquitectónico** es una solución general a un problema común del diseño
+> arquitectónico. **Menor alcance que los estilos arquitectónicos.**
+
+![[adjuntos/capturas-clase-U2/estilos/definiciones-diseno-estilo-patron.png]]
+
+Puestos lado a lado, la diferencia es **de qué habla cada uno**:
+
+| Término | Habla de… | Alcance | Ejemplo con material de clase |
+|---|---|---|---|
+| **Diseño arquitectónico** | **un** sistema concreto | uno solo | el diagrama de componentes de la clínica veterinaria (ver [[Arquitectura en capas]]) |
+| **Estilo arquitectónico** | una **familia** de diseños: les impone **restricciones** | el mayor | *capas*, *centrado en datos*, *flujo de datos*, *llamar y regresar* |
+| **Patrón arquitectónico** | un **problema común** dentro del diseño, y su solución general | **menor que el estilo** | — (la diapositiva no da ejemplo) |
+
+Esquema propio (no es un diagrama de la clase) de cómo se encadenan:
+
+```mermaid
+flowchart TD
+    E["ESTILO<br/>restricciones sobre una familia de diseños"] -->|"lo respetan muchos"| D1["Diseño arquitectónico<br/>sistema concreto A"]
+    E -->|"lo respetan muchos"| D2["Diseño arquitectónico<br/>sistema concreto B"]
+    P["PATRÓN<br/>solución general a un problema común<br/>menor alcance que el estilo"] -->|"se aplica dentro de"| D1
+```
+
+> [!warning] Las dos trampas de esta diapositiva
+> 1. **Estilo ≠ diseño.** "En capas" no es la arquitectura de nada: es una restricción que cumplen
+>    muchas arquitecturas. *La arquitectura de la clínica veterinaria* sí es un diseño.
+> 2. **Patrón arquitectónico ≠ patrón de diseño**, y **patrón ≠ estilo**. Para ella el patrón tiene
+>    **menor alcance** que el estilo: no son sinónimos. (El SAIP llama *patrones* a capas o
+>    cliente-servidor; en esta clase esos son **estilos**. Ver el choque señalado en
+>    [[Tácticas y patrones arquitectónicos]] §2.)
+
+**Regla para el examen:** *diseño = un sistema · estilo = una familia (restricciones) · patrón = un
+problema (menor alcance que el estilo).*
+
+### Los dos tipos de patrón (capturas_U2_F2, 0)
+
+La diapositiva que abre el bloque *"Patrones / Estilos Arquitectónicos"* ordena el tema así —textual:
+
+> 1. **Tipos de Patrones**
+>    - Patrones de diseño
+>    - Patrones arquitectónicos
+> 2. **Estilos Arquitectónicos**
+
+![[adjuntos/capturas-clase-U2/estilos/patrones-estilos-tipos-de-patrones.png]]
+
+El dibujo, leído a resolución completa:
+
+| Elemento | Qué es |
+|---|---|
+| `Component` | un componente (caja con dos rectángulos en el borde izquierdo, a modo de puertos/interfaces) |
+| `<subcomponent> Singleton`, `<subcomponent> Composite`, `<subcomponent> Factory Method` | tres **patrones de diseño** (GoF) dibujados como subcomponentes **dentro** del componente |
+| flechas **punteadas** | salen de `Composite` y apuntan a `Singleton` y a `Factory Method` (dependencias) |
+
+Lo que se lee de ahí *(lectura nuestra, la diapositiva no lo dice con palabras)*: los **patrones de
+diseño** viven **dentro de un componente**, a nivel de clases; los **patrones arquitectónicos** y los
+**estilos** operan sobre la organización de los componentes entre sí. Es la misma escala de alcance
+de la definición de arriba: **patrón de diseño < patrón arquitectónico < estilo**. Ver §5 y
+[[Tácticas y patrones arquitectónicos]].
+
+## 2. Los estilos que mostró la clase
+
+La diapositiva de definiciones **nombra** cuatro estilos de ejemplo; después la catedrática
+**desarrolló** otros con diapositivas propias. Conviene distinguir los dos grupos:
+
+| Estilo | ¿Cómo aparece en clase? | Nota |
+|---|---|---|
+| **Monolítica** | desarrollada: definición + tabla de 7 características + caso Amazon Prime Video | [[Arquitectura monolítica]] |
+| **N-Capas** (multinivel) | desarrollada: definición + diagrama presentación / negocio / datos + ejemplo de componentes | [[Arquitectura en capas]] |
+| **2 capas — modelo cliente-servidor** | desarrollada: petición/respuesta + ejemplo smartphone/smartwatch | [[Arquitectura en capas]] §3 |
+| **En la nube** (cloud computing, N-niveles en la nube) | desarrollada: definición + dos arquitecturas de referencia (AWS y Azure) | [[Arquitectura en la nube]] |
+| **Centrado en datos** | solo **nombrada** como ejemplo en la definición de estilo | Parte II (complemento) |
+| **Flujo de datos** | solo **nombrada** | Parte II (complemento) |
+| **Llamar y regresar** | solo **nombrada** — ojo con el nombre: la diapositiva dice *"llamar y regresar"*; el programa dice *"llamada y retorno"* | Parte II (complemento) |
+| **Capas** | nombrada **y** desarrollada (es la N-Capas de arriba) | [[Arquitectura en capas]] |
+
+> [!note] Monolítica vs. capas: no se excluyen
+> En la diapositiva del monolito los tres bloques son **Interfaz de usuario**, **Lógica del
+> negocio** y **Capa de acceso a los datos**: las mismas capas de N-Capas. Lo que distingue al
+> monolito no es la ausencia de capas sino que **todo vive en una base de código única** y se
+> despliega junto. Un monolito puede estar bien estratificado por dentro.
+
+## 3. Qué del punto 1.9 del programa cubrió la clase
+
+El programa, punto 1.9: *arquitectura candidata, arquitectura de referencia, diseño on premise vs
+cloud, y el catálogo: cliente-servidor, centrada en datos, en capas, flujo de datos, llamada y
+retorno, basada en eventos.* Contra las capturas de la unidad 2:
+
+| Punto del programa | ¿Lo cubrió la clase? | Dónde |
+|---|---|---|
+| **Cliente-servidor** | ✅ sí, como *"Arquitectura de 2 capas — Modelo Cliente Servidor"* | [[Arquitectura en capas]] §3 |
+| **En capas** | ✅ sí, como *"Arquitectura N-Capas"* y *"Arquitectura: Capas"* | [[Arquitectura en capas]] |
+| **Diseño cloud** | ✅ sí: Cloud Computing, Prime Video en AWS, N-niveles en la nube (Azure) | [[Arquitectura en la nube]] |
+| **Diseño on premise** | ⚠️ **no hay diapositiva propia**; queda implícito por contraste con la nube | [[Arquitectura en la nube]] §4 |
+| **Centrada en datos** | ⚠️ solo **nombrada** en la definición de estilo | Parte II |
+| **Flujo de datos** | ⚠️ solo **nombrada** | Parte II |
+| **Llamada y retorno** | ⚠️ solo **nombrada**, como *"llamar y regresar"* | Parte II |
+| **Basada en eventos** | ❌ **no aparece** en estas capturas | Parte II |
+| **Arquitectura candidata** | ❌ no aparece | §10 (complemento) |
+| **Arquitectura de referencia** | ❌ no con ese nombre (los diagramas de AWS y Azure **son** arquitecturas de referencia, pero ella no usa el término) | §10 (complemento) |
+| *(no está en el programa)* **Monolítica** | ✅ desarrollada | [[Arquitectura monolítica]] |
+
+---
+
+# Parte II — COMPLEMENTO (Reynoso, SAIP, guía de estudio)
+
+> [!warning] Todo lo que sigue es COMPLEMENTO
+> Viene de **Reynoso**, *Introducción a la Arquitectura de Software* (`00-Fuentes/lecturas/`), del
+> **SAIP 4ª ed.** (Bass, Clements, Kazman — bibliografía oficial) y de la **Guía de estudio**
+> (`Unidad_1/Guia_Arquitectura_Software.pdf`, Parte IX). Sirve para entender los estilos que la
+> clase solo nombró. **No se cita en lugar de la Parte I.**
+
+## 4. Qué es un estilo según Reynoso
 
 Reynoso, textual, apoyándose en el texto fundacional de Perry y Wolf:
 
@@ -53,7 +170,7 @@ cubren satisfactoriamente**. Esa es la razón de fondo por la que existen los AD
 descripción arquitectónica) y por la que un diagrama de clases no alcanza para describir una
 arquitectura.
 
-## 2. Estilo ≠ patrón de diseño
+## 5. Estilo ≠ patrón de diseño
 
 La diferencia más preguntable, y es de escala:
 
@@ -69,7 +186,7 @@ Esa modestia es deliberada y es la misma idea del "menos es más" que ya aparece
 [[Beneficios de la arquitectura de software]]: restringir el vocabulario de alternativas es una
 ventaja, no una limitación.
 
-## 3. Los estilos se componen — el rasgo más importante del catálogo
+## 6. Los estilos se componen — el rasgo más importante del catálogo
 
 Reynoso lo dice dos veces, y es lo que más se equivoca en un examen:
 
@@ -92,7 +209,7 @@ Cinco o seis estilos en un solo sistema, y eso es **lo normal, no la excepción*
 
 ---
 
-## 4. El catálogo: los seis del programa
+## 7. El catálogo: los seis del programa
 
 El programa lista seis estilos. Así se corresponden con el catálogo del material:
 
@@ -103,10 +220,12 @@ El programa lista seis estilos. Así se corresponden con el catálogo del materi
 | **En o por capas** | Jerárquicos: capas y microkernel | ✅ SAIP, el más desarrollado |
 | **Centrada en el flujo de datos** | Tubería y filtro, batch secuencial | ✅ ficha completa |
 | **Basada en eventos** | Invocación implícita: publish-subscribe y broker | ✅ SAIP como patrón |
-| **Llamada y retorno** | — | ⚠️ **no está con ese nombre** (ver abajo) |
+| **Llamada y retorno** | — | ⚠️ **no está con ese nombre** en el complemento; la clase lo nombra *"llamar y regresar"* (ver abajo) |
 
 > [!note] Sobre "llamada y retorno"
-> Ese nombre **no aparece** ni en Reynoso ni en el SAIP ni en la guía. Es el nombre de familia de
+> La **clase sí lo nombra**, como *"llamar y regresar"*, entre los ejemplos de estilo (§1), pero
+> **no lo desarrolla**. En el complemento el nombre **no aparece** ni en Reynoso ni en el SAIP ni en
+> la guía. Es el nombre de familia de
 > la taxonomía clásica (estilo Pressman), que agrupa los estilos donde el control se transfiere por
 > **invocación y vuelve**: programa principal y subrutina, orientado a objetos, y llamada a
 > procedimiento remoto (RPC).
@@ -115,15 +234,16 @@ El programa lista seis estilos. Así se corresponden con el catálogo del materi
 > retorno"**, porque en los dos el que llama espera la respuesta. Se contrapone a la **invocación
 > implícita** (basada en eventos), donde el emisor no espera a nadie.
 >
-> Es exactamente el tipo de detalle donde la nomenclatura de la catedrática puede diferir.
-> **Preguntalo.**
+> Ojo: la clase pone **capas** y **llamar y regresar** como ejemplos **separados** en la misma
+> lista. Si para ella capas estuviera dentro de llamar y regresar, no los listaría a la par.
+> **Preguntalo** antes de afirmar esa clasificación en un examen.
 
 Además, el material trae dos estilos que el programa no lista pero que Reynoso sí incluye entre los
 seis típicos: **peer-to-peer** e **intérprete / máquina virtual**.
 
 ---
 
-## 5. Las fichas
+## 8. Las fichas
 
 ### Centrada en el flujo de datos: tubería y filtro
 
@@ -182,17 +302,21 @@ flowchart TD
 | **Restricciones** | Partición **completa** del software; **nunca** usos hacia arriba; normalmente solo la capa inmediata inferior. Usar una no adyacente es ***layer bridging*** |
 | **Favorece** | Modificabilidad (cambiar una capa sin afectar las de arriba si la interfaz no cambia), **portabilidad** (la capa baja aísla el SO), testabilidad de abajo hacia arriba |
 | **Sacrifica** | **Performance** (una llamada del tope puede atravesar muchas capas); si la estratificación está mal diseñada, estorba; mucho *bridging* destruye la portabilidad que justificaba el estilo |
-| **Ejemplos** | El modelo **OSI**, UNIX System V, las arquitecturas de 3 capas |
+| **Ejemplos** | El modelo **OSI**, UNIX System V, las arquitecturas de 3 capas. **En clase:** [[Arquitectura en capas]] |
 
 Origen: el **THE de Dijkstra (1968)** — capas que se comunican solo con las adyacentes y se superponen "como capas de cebolla". Cada capa es una *máquina virtual* con interfaz gestionada, y de ahí sale la portabilidad.
 
-> [!important] Capa ≠ tier — el error clásico
+> [!important] Capa ≠ tier — la distinción del complemento, que la clase NO hace
 > Una **capa** es una partición del **código**: vive en la estructura de **módulos** (visión estática).
 > Un **tier** es una partición del **despliegue**: vive en la estructura de **asignación**.
 >
 > Se pueden tener tres capas en un solo tier (un monolito bien estratificado) o una capa repartida
-> en varios tiers. Confundirlos es el error clásico al leer un diagrama de "arquitectura en capas".
-> Ver [[Diagrama de despliegue]] §3 para las tres categorías de estructuras.
+> en varios tiers. Ver [[Categorías de estructuras]].
+>
+> **Desfase con la clase:** la catedrática usa *capa* y *nivel* **como sinónimos** — define N-Capas
+> como *"arquitecturas multinivel o Programación por capas"*, llama *"2 capas"* al modelo
+> cliente-servidor (que son dos máquinas) y *"N-niveles"* a los *tiers* de Azure. En el examen usá
+> **su vocabulario**, pero sabé que la distinción existe. Detalle en [[Arquitectura en capas]] §4.
 
 **Microkernel / plug-in** es la otra forma del estilo jerárquico: un **núcleo** con mecanismos mínimos y **plug-ins** que aportan la funcionalidad por interfaces fijas. Favorece extensibilidad controlada y evolución independiente, y habilita **dos mercados** (el del núcleo y el de los plug-ins). Sacrifica **seguridad**: los plug-ins pueden venir de terceros. Ejemplos: micro-kernels de SO, VS Code, los navegadores, R.
 
@@ -220,6 +344,8 @@ flowchart LR
 El rasgo definitorio y el origen del nombre: el emisor **no invoca a nadie directamente** — anuncia un evento y la infraestructura decide a quién le llega. La invocación de los suscriptores es **implícita**.
 
 ### Cliente-servidor
+
+> La clase lo dio como **arquitectura de 2 capas**: ver [[Arquitectura en capas]] §3. Lo que sigue es complemento.
 
 ```mermaid
 flowchart LR
@@ -259,7 +385,7 @@ Favorece portabilidad y modificabilidad **en runtime**. Sacrifica performance y 
 
 ---
 
-## 6. Tabla comparativa
+## 9. Tabla comparativa
 
 Reconstruida a partir de las fichas de arriba:
 
@@ -280,13 +406,13 @@ Reconstruida a partir de las fichas de arriba:
 
 ---
 
-## 7. Arquitectura candidata y arquitectura de referencia
+## 10. Arquitectura candidata, de referencia y on premise vs cloud
 
 > [!warning] Lo más flojo de esta nota
 > El programa lista **"Arquitectura Candidata"**, **"La Arquitectura de Referencia"** y
-> **"Diseño Arquitectónico: on premise, cloud"** dentro de 1.9, y de los tres **el material local
-> casi no dice nada**. Lo que sigue es lo poco que hay más la definición estándar. **Confirmalo en
-> clase.**
+> **"Diseño Arquitectónico: on premise, cloud"** dentro de 1.9. De los tres, la clase solo dio
+> **cloud** (ver [[Arquitectura en la nube]]); *candidata* y *de referencia* **no aparecen** en las
+> capturas de la unidad 2. Lo que sigue es complemento. **Confirmalo con ella.**
 
 **Arquitectura de referencia.** Es lo mejor documentado de los tres. El SAIP la trata como una de
 las *categorías de concepto de diseño* que se pueden elegir, junto con tácticas y patrones. Lo que
@@ -300,6 +426,9 @@ Su ejemplo: si diseñás una aplicación web que necesita comunicarse con una ap
 manejar pagos, probablemente tengas que **agregar un componente de integración** al lado de los
 *tiers* tradicionales de presentación, negocio y datos.
 
+Los diagramas de AWS y Azure que mostró la clase (en [[Arquitectura en la nube]]) son justamente
+arquitecturas de referencia de proveedores, aunque ella no use el término.
+
 O sea: una arquitectura de referencia es una **estructura preestablecida para un dominio** (una app
 web, un sistema de comercio electrónico) que se toma como punto de partida y se adapta. No es un
 estilo: es más concreta que un estilo y menos que un diseño.
@@ -310,20 +439,24 @@ validada, que se somete a evaluación y de la que puede haber varias en competen
 paso 3 del [[Proceso de diseño arquitectónico]] —"se analizan alternativas de estilos o patrones
 arquitectónicos"— y con la *evaluación de la arquitectura* de la unidad 3.
 
-**On premise vs cloud.** Tampoco está desarrollado en el material local. Es la decisión de dónde
+**On premise vs cloud.** La clase dio la parte **cloud** ([[Arquitectura en la nube]]); el
+contraste con *on premise* no tiene diapositiva. Es la decisión de dónde
 reside la infraestructura, y por lo tanto es una decisión de la **estructura de despliegue** (ver
 [[Diagrama de despliegue]]), no de estilo: el mismo estilo en capas puede desplegarse en un
 servidor propio o en la nube, y lo que cambia son los atributos de calidad alcanzables.
 
 ---
 
-## 8. Trampas típicas
+## 11. Trampas típicas
 
 | Trampa | Lo correcto |
 |---|---|
+| Confundir **diseño** con **estilo** (clase) | Diseño = un sistema concreto. Estilo = restricciones sobre una **familia** de diseños |
+| Tratar **patrón** y **estilo** como sinónimos (clase) | Para ella el patrón es una solución a un problema común, de **menor alcance** que el estilo |
+| Creer que monolítico = "sin capas" (clase) | El monolito de la diapositiva tiene UI, lógica y acceso a datos: lo que lo define es la **base de código única** |
 | "Este sistema es de estilo X" | Los sistemas reales **combinan** estilos. Nombrar uno solo casi siempre es incompleto |
-| Confundir **estilo** con **patrón de diseño** | Estilos: 6-7 clases, sistema completo. Patrones: centenares, grupos de clases |
-| Confundir **capa** con **tier** | Capa = partición del código (módulos). Tier = partición del despliegue (asignación) |
+| Confundir **estilo** con **patrón de diseño** | Estilos: 6-7 clases, sistema completo. Patrones de diseño: centenares, grupos de clases |
+| Confundir **capa** con **tier** (complemento) | Capa = partición del código. Tier = partición del despliegue. **La clase los usa como sinónimos**: en el examen, su vocabulario |
 | Decir que un estilo "es mejor" | Cada estilo **canjea** un atributo de calidad por otro. Sin requerimientos no hay mejor |
 | Llamar "microservicios" a cualquier cliente-servidor | Microservicios: un sistema, una organización, solo mensajes, dependencias acíclicas |
 | Creer que **pizarra** = repositorio | La pizarra **notifica**: es repositorio + invocación implícita |
@@ -333,23 +466,24 @@ servidor propio o en la nube, y lo que cambia son los atributos de calidad alcan
 
 ## Notas relacionadas
 
-- [[Programa oficial del curso]] — el punto 1.9 y qué falta pedir
+- [[Arquitectura monolítica]] — estilo desarrollado en clase: base de código única
+- [[Arquitectura en capas]] — N-Capas y 2 capas (cliente-servidor), con el ejemplo de la clínica veterinaria
+- [[Arquitectura en la nube]] — cloud computing, Prime Video en AWS y N-niveles en Azure
+- [[Tácticas y patrones arquitectónicos]] — táctica < patrón < estilo, y el choque de nomenclatura con el SAIP
+- [[Programa oficial del curso]] — el punto 1.9
 - [[Proceso de diseño arquitectónico]] — el paso 3 es "analizar alternativas de estilos o patrones"
-- [[Estructuras y vistas arquitectónicas]] — punto 1.8
-- [[Diagrama de despliegue]] — las tres categorías de estructuras, y capa vs tier
+- [[Estructuras y vistas arquitectónicas]] y [[Categorías de estructuras]] — dónde vive una capa y dónde un tier
+- [[Diagrama de despliegue]] — la estructura de asignación
+- [[Atributos de calidad]] — lo que cada estilo favorece o sacrifica
 - [[Matriz de trazabilidad de requisitos]] — cómo se justifica la elección de un estilo
-- [[Beneficios de la arquitectura de software]] — el "menos es más" del vocabulario restringido
-- [[Equilibrio de restricciones del proyecto]] — elegir estilo es elegir qué sacrificar
 
 ## Preguntas de repaso
 
-1. Dá la definición de estilo de Reynoso. ¿Cuáles son sus cuatro ingredientes?
-2. ¿Cuántos estilos hay y cuántos patrones de diseño? ¿Por qué esa diferencia de escala importa?
-3. ¿Por qué "ningún sistema real es de un solo estilo"? Dá un ejemplo con cinco estilos.
-4. ¿Cuál es la restricción que **define** el estilo en capas, y cómo se llama violarla?
-5. Diferencia entre **capa** y **tier**. ¿En qué categoría de estructura vive cada una?
-6. ¿Qué diferencia a la **pizarra** del **repositorio**?
-7. En publish-subscribe, ¿qué se gana y qué se pierde exactamente?
-8. ¿Qué distingue **microservicios** de **SOA** según el SAIP?
-9. ¿Qué significa "instanciar" una arquitectura de referencia?
-10. ¿Por qué no se puede decir que un estilo es mejor que otro?
+1. Según la clase, ¿qué diferencia hay entre **diseño**, **estilo** y **patrón** arquitectónico? ¿Cuál tiene mayor alcance?
+2. ¿Qué cuatro estilos da la diapositiva como ejemplo, y cuáles de ellos desarrolló después la catedrática?
+3. ¿Por qué el monolito de la clase no contradice al estilo en capas?
+4. ¿Qué partes del punto 1.9 del programa **no** aparecieron en clase?
+5. (Complemento) ¿Cuál es la restricción que **define** el estilo en capas, y cómo se llama violarla?
+6. (Complemento) Diferencia entre **capa** y **tier**. ¿La hace la clase?
+7. (Complemento) ¿Qué diferencia a la **pizarra** del **repositorio**? ¿Qué se gana y se pierde con publish-subscribe?
+8. (Complemento) ¿Por qué no se puede decir que un estilo es mejor que otro?

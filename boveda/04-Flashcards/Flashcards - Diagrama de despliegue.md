@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura de software
-fuente: "Arquitectura de Software.pdf (núcleo) + SAIP 4ª ed. y Reynoso (complemento)"
+fuente: "capturas_U2 (34-38, 42, 57) y PDF TEMA 5 págs. 4-6 (núcleo) + Arquitectura de Software.pdf (núcleo) + SAIP 4ª ed. y Reynoso (complemento)"
 fecha: 2026-08-19
 ---
 
@@ -59,3 +59,27 @@ Completá la frase clave del núcleo: los elementos definidos en la vista lógic
 ¿Por qué la multiplicidad en las vías de comunicación no es un detalle cosmético?::Porque "muchos clientes contra un servidor" es información arquitectónica: cambia por completo el análisis de rendimiento.
 
 *(complemento)* ¿Por qué los mapeos entre estructuras son muchos-a-muchos?::Porque un solo módulo puede compilarse en un servicio replicado miles de veces en ejecución, y mil módulos pueden enlazarse en un único ejecutable.
+
+## Material de clase del 15/09 (capturas_U2 y PDF TEMA 5) — núcleo
+
+La clase titula "Diagrama de Distribución" y el PDF "Diagrama de despliegue": ¿son diagramas distintos?::No. Es **el mismo diagrama** (en inglés, *deployment diagram*). Las propias diapositivas de "Distribución" lo llaman "diagramas de despliegue" en el texto.
+
+Según el PDF TEMA 5, ¿para qué se utiliza el diagrama de despliegue?::Para representar la **arquitectura física** sobre la que un sistema software es desplegado. Describe tanto **dispositivos hardware como software**.
+
+¿Cuáles son los elementos principales del diagrama de despliegue según el PDF TEMA 5?::**Nodo** (dispositivo o entorno de ejecución), **artefacto** y **despliegue**. En su tabla de ejemplos agrega el **camino** (conexión wifi/ethernet entre dos dispositivos).
+
+¿Qué diferencia hay entre un dispositivo y un entorno de ejecución?::El **dispositivo** (`«device»`) representa hardware, como un servidor. El **entorno de ejecución** (`«executionEnvironment»`) representa software, como una máquina virtual, y **siempre debe representarse dentro de un dispositivo**.
+
+¿Qué es un artefacto según el PDF y qué relación tiene con un componente?::Cualquier producto obtenido durante el desarrollo (ejecutable, manual de usuario, script de BD, librería). **Un artefacto manifiesta (o implementa) uno o varios componentes.**
+
+Completá la tabla del PDF: jar, PC, JRE, wifi/ethernet, jar en el JRE de un PC.::Artefacto = fichero jar · Dispositivo = PC · Entorno de ejecución = JRE · Camino = conexión wifi/ethernet · Despliegue = fichero jar ejecutándose en el JRE de un PC.
+
+Según la captura 42, ¿qué debe ser posible hacer a partir de un nodo del diagrama de despliegue?::Ver qué **componentes** se ejecutan en el nodo, qué **elementos lógicos** están implementados en cada componente y **trazar** esos elementos al **análisis de requerimientos inicial** del sistema.
+
+¿Qué tres tipos de sistema se suelen modelar con diagramas de despliegue?::**Sistemas empotrados**, **sistemas cliente-servidor** y **sistemas completamente distribuidos** (varios niveles de servidores, varias versiones de componentes, algunos pueden migrar de un nodo a otro).
+
+En el diagrama de distribución, ¿qué representa una línea que une dos cubos y en qué se diferencia de una línea punteada?::La línea llena entre cubos es una **conexión** entre nodos (lleva el protocolo como estereotipo, p. ej. «TCP/IP»). La punteada es una **dependencia** entre componentes de software.
+
+¿Con qué elemento del diagrama de despliegue se corresponde cada modelo de nube, según el PDF?::**IaaS** con el dispositivo, **PaaS** con el entorno de ejecución y **SaaS** con el artefacto ya funcionando.
+
+¿Qué dice la diapositiva del parque de atracciones que "incluye" el diagrama de despliegue?::**Componentes** y **distribución**: qué piezas hay y en qué nodo corre cada una.

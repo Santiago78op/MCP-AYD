@@ -53,7 +53,16 @@ Tres términos que se cruzan. Puestos en escala:
 | **Patrón arquitectónico** | media | una solución probada a un problema recurrente; empaqueta tácticas |
 | **Estilo arquitectónico** | la más gruesa | una **forma de organización** del sistema completo |
 
-En la práctica, "patrón arquitectónico" y "estilo" se usan casi como sinónimos: el SAIP habla de
+> [!warning] Lo que dice la clase manda: patrón y estilo NO son sinónimos
+> La diapositiva *"Estilos y Patrones Arquitectónicos"* (capturas_U2, 21) los separa por alcance:
+> un **estilo** *"establece las restricciones sobre la arquitectura de una familia de diseños
+> arquitectónicos"* y un **patrón** es *"una solución general a un problema común del diseño
+> arquitectónico. **Menor alcance que los estilos** arquitectónicos"*. Y a **capas** la nombra como
+> **estilo**. La tabla de arriba coincide con eso; el párrafo que sigue es el uso de los libros
+> (COMPLEMENTO) y sirve para no desorientarse al leer el SAIP, no para responder el examen.
+> Detalle en [[Estilos arquitectónicos]].
+
+En los libros (COMPLEMENTO), "patrón arquitectónico" y "estilo" se usan casi como sinónimos: el SAIP habla de
 *patrones* (capas, publish-subscribe, cliente-servidor) donde Reynoso habla de *estilos*. La guía lo
 dice: *"cuando los elementos se componen de maneras que resuelven problemas recurrentes y probados en
 muchos dominios, esas composiciones documentadas y diseminadas se llaman patrones arquitectónicos"*.

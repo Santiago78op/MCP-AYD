@@ -8,6 +8,20 @@ fecha: 2026-08-19
 
 Nota de entrada de la bóveda. Desde acá navego todo.
 
+> [!note] Última sesión: 2026-09-15 — dónde retomar
+> Se procesaron las **59 capturas de `capturas_U2/`** y los dos PDF nuevos (*TEMA 5* y *IS 04 05b*):
+> 14 notas nuevas, 6 ampliadas, 70 flashcards y 38 términos de glosario. El mapa de qué captura fue a
+> qué nota está en *Capturas de clase de la unidad 2*, más abajo.
+>
+> **Lo que sigue, por orden:**
+> 1. Llevar a clase [[Preguntas pendientes para clase]] — sobre todo la 1 (**qué entra en el parcial
+>    del 19/09**) y la 2 (**cómo se dibuja la realización**).
+> 2. **Calidad del Software** (unidad 2 del programa) sigue **sin material de clase**: si entra en el
+>    parcial, hay que pedir la presentación.
+> 3. `capturas_U2_F2/` tiene **1 sola captura** procesada; si llegan más, se procesan igual.
+> 4. Repaso pendiente: quiz de componentes y despliegue, y el encadenamiento de
+>    [[Ejemplo resuelto - Parque de atracciones]].
+
 > [!important] Antes que nada
 > [[Programa oficial del curso]] — el contenido temático oficial de la sección A, el cronograma
 > con las fechas de los parciales, y qué puntos del programa **todavía no tienen nota**.
@@ -41,8 +55,8 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Proceso de diseño arquitectónico]] — las **tres versiones** de "los pasos" reconciliadas (4 del deck, 7 de la lista, 8 etapas), el producto final y las comprobaciones
 - [[Equilibrio de restricciones del proyecto]] — triángulo, diagrama de Kiviat y cubo de dimensiones
 - [[Arquitectura en el ciclo de vida del software]] — por qué es iterativa y no una fase
-- [[Diagrama de despliegue]] — punto 1.7: la vista física, la estructura de despliegue y la notación UML
-- [[Estilos arquitectónicos]] — punto 1.9: el catálogo de estilos, sus canjes de atributos y las trampas típicas
+- [[Diagrama de despliegue]] — punto 1.7, **ahora de clase** (= *diagrama de distribución*): nodo, dispositivo, entorno de ejecución, artefacto, camino
+- [[Estilos arquitectónicos]] — punto 1.9, **ahora de clase**: diseño vs estilo vs patrón + el catálogo de complemento
 - [[Relaciones y dependencias en UML]] — qué significa cada flecha, hacia dónde apunta, y el puente con la matriz de dependencias
 - [[Stakeholders]] — los cinco de la clase, ISO 42010, PALM, y la diferencia con actor y trabajador
 - [[Tácticas y patrones arquitectónicos]] — el eslabón entre un atributo de calidad y una decisión
@@ -51,6 +65,23 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Diagrama de contexto]] — **de clase**: la notación (producto, entidades, streamlines) y dos ejemplos resueltos
 - [[Categorías de estructuras]] — **de clase**: módulos, componentes y conectores, asignación
 - [[Método de diseño centrado en la arquitectura]] — **de clase**: las 8 etapas en 4 fases, con el caso de negocio como **paso 0**
+
+#### Cómo se diseña y cómo se modela — capturas_U2 (**de clase**, 2026-09-15)
+
+- [[Qué se tiene en cuenta para el diseño]] — punto 1.5: requisitos + contexto + experiencia del arquitecto → documento de diseño
+- [[Cómo se modela la arquitectura]] — **hub** del 1.7: ADL, diagramas UML, diagramas de bloque de alto nivel
+- [[Lenguajes de descripción de arquitectura]] — ADL: componentes y conectores en texto formal
+- [[Diagramas UML estructurales y de comportamiento]] — estático vs dinámico, y qué diagrama va en qué vista
+- [[Diagrama de bloques de alto nivel]] — primer paso antes del diseño detallado; SCADA, facturación, Multi-AZ
+- [[Diagrama de componentes]] — tipos de componentes, componente vs clase, de clases a componentes
+- [[Interfaces de componentes]] — provista/requerida, forma icónica/expandida
+- [[Diagrama de paquetes]] — contenido, importar/exportar
+- [[Diagrama de secuencia]] — mensajes síncronos/asíncronos, fragmentos alt/opt/break/loop
+- [[Diagrama de clases]] — dos fines, notación, y el **método** para sacar clases de un enunciado
+- [[Ejemplo resuelto - Parque de atracciones]] — **su encadenamiento completo**: enunciado → CDU expandidos → clases → componentes → despliegue
+- [[Arquitectura monolítica]] — base de código única, la tabla de 7 características, Prime Video
+- [[Arquitectura en capas]] — N-capas y 2 capas (cliente-servidor); en clase capa = nivel
+- [[Arquitectura en la nube]] — cloud computing, N-niveles en la nube
 - [[Convenios del diagrama de CUN]] — **de clase**: cuántos actores, navegabilidad, y los dos usos de `«include»`
 
 ### Calidad del software
@@ -87,9 +118,14 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Flashcards - Arquitectura de software]] (22 tarjetas)
 - [[Flashcards - Casos de uso del negocio]] (27 tarjetas)
 - [[Flashcards - Trazabilidad de requisitos]] (25 tarjetas)
-- [[Flashcards - Diagrama de despliegue]] (23 tarjetas)
-- [[Flashcards - Estilos arquitectónicos]] (27 tarjetas)
-- [[Flashcards - Relaciones y dependencias en UML]] (22 tarjetas)
+- [[Flashcards - Diagrama de despliegue]] (34 tarjetas) — 11 de clase (capturas_U2)
+- [[Flashcards - Estilos arquitectónicos]] (41 tarjetas) — 14 de clase (capturas_U2)
+- [[Flashcards - Relaciones y dependencias en UML]] (30 tarjetas) — 8 de clase (capturas_U2)
+- [[Flashcards - Diseño arquitectónico]] (10 tarjetas) — de clase (capturas_U2)
+- [[Flashcards - Diagramas de alto nivel y secuencia]] (10 tarjetas) — de clase (capturas_U2 + PDF Tema 5)
+- [[Flashcards - Diagrama de componentes]] (10 tarjetas) — de clase (capturas_U2 + PDF Tema 5)
+- [[Flashcards - Diagrama de paquetes]] (9 tarjetas) — de clase (capturas_U2)
+- [[Flashcards - Diagrama de clases]] (10 tarjetas) — de clase (capturas_U2 + PDF IS 04 05b)
 - [[Flashcards - Atributos de calidad]] (24 tarjetas)
 - [[Flashcards - Stakeholders, tácticas y evaluación]] (30 tarjetas)
 - [[Flashcards - Arquitectura y proceso de desarrollo]] (28 tarjetas)
@@ -112,6 +148,14 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Guía - Drivers de calidad y restricción]] — criterio 3 (30 pts): escenarios, restricciones y la priorización de los 5
 - [[Guía - Matrices de trazabilidad]] — las tres matrices que pide la rúbrica (20 pts)
 - [[Ejemplos resueltos de casos de negocio]] — **de clase**: los **cuatro** encadenamientos completos (Tienda Electrónica, Fábrica, Restaurante, **Hospital**) y la checklist para compararte
+
+Los artefactos vivos de cada tarea (el estado real se lee **ahí**, no acá):
+
+- [[Preguntas pendientes para clase]] — **las 22 dudas abiertas**, con su evidencia; llevá las de prioridad alta a la próxima clase
+- [[Avance - Caso 1 FarmaHosp]] — el tablero: criterios, ruta de pasos y bitácora
+- [[Entrega - Caso 1 FarmaHosp]] — el entregable numerado según la rúbrica (**manda sobre el Avance**)
+- [[Entrega - Parcial 1 SmartPress]] — lo entregado en el primer parcial (22/08), con sus láminas en `02-Diagramas/examen/`
+- [[SmartPress - Respuestas redactadas]] — las respuestas en prosa de ese parcial
 
 ## Referencias de herramientas
 
@@ -166,11 +210,11 @@ El detalle punto por punto está en [[Programa oficial del curso]].
 - [x] 1.2 ¿Por qué es importante? — [[Arquitectura de software]]
 - [x] 1.3 Beneficios — [[Beneficios de la arquitectura de software]]
 - [x] 1.4 Pasos para la definición — [[Proceso de diseño arquitectónico]]
-- [x] **1.5 ¿Qué se tiene en cuenta para el diseño?** — [[Proceso de diseño arquitectónico]] con los **7 pasos**, el ciclo `«precede»` y el flujo de definición de Ambler (**de clase**); más: [[Ciclo de influencias en la arquitectura]], [[Equilibrio de restricciones del proyecto]]
+- [x] **1.5 ¿Qué se tiene en cuenta para el diseño?** — [[Qué se tiene en cuenta para el diseño]] (**de clase**, capturas_U2) + [[Proceso de diseño arquitectónico]] con los **7 pasos**, el ciclo `«precede»` y el flujo de definición de Ambler (**de clase**); más: [[Ciclo de influencias en la arquitectura]], [[Equilibrio de restricciones del proyecto]]
 - [x] 1.6 Arquitectura y Requerimientos (CDU de negocio) — bloque de casos de uso + [[Matriz de trazabilidad de requisitos]]
-- [x] **1.7 Diagramas de Despliegue** — [[Diagrama de despliegue]] (núcleo de la presentación + complemento del SAIP y Reynoso)
+- [x] **1.7 ¿Cómo se modela? Diagramas de Despliegue** — **de clase** desde capturas_U2: hub [[Cómo se modela la arquitectura]] → [[Diagrama de componentes]], [[Diagrama de despliegue]], [[Diagrama de paquetes]], [[Diagrama de clases]], [[Diagrama de secuencia]], [[Diagrama de bloques de alto nivel]]
 - [x] **1.8 Estructuras y Vistas · Categorías de Estructuras** — [[Estructuras y vistas arquitectónicas]] + [[Categorías de estructuras]] (**de clase**) ~~; las tres categorías** están en [[Diagrama de despliegue]] §3
-- [x] **1.9 Géneros y Estilos Arquitectónicos** — [[Estilos arquitectónicos]] (**complemento entero**: Reynoso + SAIP + guía; sin material de clase)
+- [~] **1.9 Géneros y Estilos Arquitectónicos** — **de clase en parte** (capturas_U2): [[Estilos arquitectónicos]], [[Arquitectura monolítica]], [[Arquitectura en capas]], [[Arquitectura en la nube]]. Falta: basada en eventos, candidata, de referencia, on premise
 
 ### Unidad 2 — Calidad del Software
 
@@ -197,9 +241,8 @@ Lo que **falta material** para poder escribir la nota, ordenado por urgencia:
 
 | Prioridad | Qué falta | Por qué urge |
 |---|---|---|
-| **Alta** | Presentación de **1.9** para validar [[Estilos arquitectónicos]], que hoy es todo complemento | Se está dando ahora (17–24 de agosto) |
+| Media | ~~Presentación de **1.9**~~ — **RESUELTO EN PARTE** con capturas_U2 (monolítica, capas, nube, diseño/estilo/patrón). Faltan **basada en eventos**, **on premise** y los estilos solo nombrados (centrado en datos, flujo de datos, llamada y retorno) | Parte de 1.9 |
 | Media | ~~**Arquitectura candidata** y **de referencia**~~ — **RESUELTO**: aparecen en el *Flujo de Definición* de Ambler, en [[Proceso de diseño arquitectónico]]. Sigue faltando **on premise vs cloud** — el material local casi no lo cubre | Parte de 1.9 |
-| Media | 1.8 Categorías de Estructuras | Segundo parcial |
 | **Alta** | Presentación de la **unidad 2** para validar [[Atributos de calidad]], que hoy es todo complemento | Se da del 25 de agosto al 7 de septiembre |
 | **Alta** | **"Integrando con la arquitectura de la información"** (unidad 3): lo busqué en la guía de estudio, en Reynoso y en Garland — **cero menciones** en todas | Es el único punto del programa sin **ninguna** fuente |
 | Baja | Unidad 3 (validar contra la presentación) y unidad 4 completa | Septiembre y octubre |
@@ -209,7 +252,7 @@ Y lo que falta por otras razones:
 
 - **Casos de uso del sistema.** El deck dice "del Negocio **y del Sistema**" pero solo desarrolla los del negocio.
 - **DFD.** Aparece solo como término de comparación en [[Casos de uso vs DFD]].
-- **Diagramas UML individuales.** [[Modelo 4+1 vistas]] dice qué diagrama va en cada vista, pero ninguno está explicado.
+- ~~**Diagramas UML individuales.**~~ — **RESUELTO** con capturas_U2 y el PDF Tema 5: componentes, despliegue, paquetes, clases y secuencia tienen nota. Sigue sin nota el **diagrama de actividad**.
 - ~~**Trazabilidad de requisitos** de fuente externa~~ — **RESUELTO**: apareció `NT1. Trazabilidad de Requerimientos.pdf`, nota técnica de clase, que es **la fuente de la plantilla** (su fig. 1, p. 91). El tema es núcleo, no complemento. Ver [[Matriz de trazabilidad de requisitos]].
 
 ## Presentaciones procesadas
@@ -229,7 +272,7 @@ Y lo que falta por otras razones:
 
 ### Capturas de clase: inventario verificado
 
-68 capturas en `00-Fuentes/capturas/`. Así están repartidas:
+68 capturas de la **unidad 1** en `00-Fuentes/capturas_U1/` (hasta el 15/09/2026 estaban en `00-Fuentes/capturas/`; el estudiante las separó por unidad). Así están repartidas:
 
 | Estado | Cuántas | Detalle |
 |---|---|---|
@@ -251,6 +294,32 @@ Y lo que falta por otras razones:
 >
 > Y encontró **dos secciones duplicadas** que se habían creado al cablear las capturas
 > (*"¿En qué momento se usan?"* y *"El ejemplo: vendedores ambulantes"*): fusionadas.
+
+### Capturas de clase de la unidad 2: inventario (`00-Fuentes/capturas_U2/`, 59)
+
+Recibidas el 2026-09-15. **Las 59 están recortadas, nombradas y citadas** en
+`adjuntos/capturas-clase-U2/<tema>/` — ninguna descartada.
+
+| Capturas | Subcarpeta | Notas |
+|---|---|---|
+| 0–11 | `diseno-arquitectonico/` | [[Proceso de diseño arquitectónico]], [[Arquitectura en el ciclo de vida del software]], [[Qué se tiene en cuenta para el diseño]], [[Arquitecto de software]], [[Cómo se modela la arquitectura]], [[Lenguajes de descripción de arquitectura]] |
+| 12–20 | `diagramas-alto-nivel/` | [[Diagramas UML estructurales y de comportamiento]], [[Diagrama de bloques de alto nivel]] |
+| 21, 43–47, 49–52 | `estilos/` | [[Estilos arquitectónicos]], [[Arquitectura monolítica]], [[Arquitectura en capas]], [[Arquitectura en la nube]] |
+| 22–33, 54 | `componentes/` | [[Diagrama de componentes]], [[Interfaces de componentes]], [[Relaciones y dependencias en UML]] |
+| 34–42, 48 | `despliegue/` | [[Diagrama de despliegue]], [[Diagrama de paquetes]] |
+| 53, 55–58 | `ejemplo-parque/` | [[Diagrama de clases]], [[Ejemplo resuelto - Parque de atracciones]] |
+| `capturas_U2_F2/` 0 | `estilos/` | [[Estilos arquitectónicos]] §1 — tipos de patrón (carpeta nueva, 1 captura al 2026-09-15) |
+
+Y dos PDF que llegaron con ellas:
+
+| PDF | Págs. | Adjuntos | Notas |
+|---|---|---|---|
+| *modelado-de-arquitectura-software. Diagrmas UML completo* ("TEMA 5") | 8 | `adjuntos/modelado-arquitectura-tema5/` | UML y vistas (p.1), componentes (2–3), clases (3–4), despliegue y nube (4–6), secuencia (6–8) |
+| *IS 04 05b Ejemplos de Diagramas de Clases* (Studocu; la captura 56 lo cita como su material) | 9 | `adjuntos/ejemplos-diagramas-clases/` | [[Diagrama de clases]] (método), [[Ejemplo resuelto - Parque de atracciones]] (ejercicio 2) |
+
+> [!warning] "U2" es el nombre de la carpeta, no el punto del programa
+> El contenido corresponde a **1.4, 1.5, 1.7 y 1.9** de la unidad 1 del programa oficial. La unidad 2
+> del programa (**Calidad del Software**) sigue sin presentación de clase.
 
 > [!info] Sobre los dos PDF de arquitectura
 > No son el mismo archivo ni uno es subconjunto del otro. El de **29 páginas** trae las
