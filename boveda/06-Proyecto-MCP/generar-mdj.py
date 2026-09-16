@@ -16,7 +16,7 @@ de estilo-diagramas.md DENTRO de StarUML.
 
 USO
     python generar-mdj.py contexto-farmahosp
-    -> ../02-Diagramas/contexto-farmahosp.mdj    (abrir con doble clic)
+    -> ../02-Diagramas/2-caso-negocio/contexto-farmahosp.mdj  (abrir con doble clic)
 
 Esquema verificado contra un .mdj real generado por StarUML v7:
     Project
@@ -247,7 +247,9 @@ def main():
     if huerfanos:
         print("ERROR: referencias sin destino:", huerfanos)
         return 2
-    salida = f"../02-Diagramas/{nombre}.mdj"
+    # misma convencion que generar-excalidraw.py: la carpeta es la seccion
+    # de la Entrega que usa la lamina
+    salida = f"../02-Diagramas/2-caso-negocio/{nombre}.mdj"
     with open(salida, "w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, indent=2)
     print(f"{salida}")

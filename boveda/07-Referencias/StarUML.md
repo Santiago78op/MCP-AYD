@@ -3,6 +3,7 @@ tema: Herramientas — StarUML
 fuente: https://docs.staruml.io/ + repo staruml/staruml-mcp-server
 fecha: 2026-08-19
 version_documentada: StarUML v7
+verificado_en_maquina: 2026-08-20 (StarUML 7.1.0, macOS, Node v26.3.0)
 ---
 
 # StarUML — referencia de trabajo
@@ -92,8 +93,15 @@ servidor entra directo acá.
 
 ### Activar el API Server (se olvida y es la causa típica de fallo)
 
-El MCP no habla con StarUML por magia: usa el **API Server** interno de StarUML, que viene
-apagado. Hay que editar `settings.json`:
+El MCP no habla con StarUML por magia: usa el **API Server** interno de StarUML.
+
+> [!warning] La documentación dice que viene apagado; en la 7.1.0 no
+> Verificado el 20/08/2026 en esta máquina: con `settings.json` **sin ninguna de las dos claves**,
+> StarUML 7.1.0 ya estaba escuchando en el 58321 (`lsof` lo confirma y `curl http://localhost:58321/`
+> devuelve `Hello from StarUML API Server!`). O sea que en la 7.1 viene **encendido por defecto**.
+> Igual conviene dejar las claves explícitas, para no depender de un default que puede cambiar.
+
+Se editan en `settings.json`:
 
 | SO | Ruta |
 |---|---|
@@ -122,6 +130,10 @@ apagado. Hay que editar `settings.json`:
 ```
 
 Si el puerto del API Server no es el 58321, se pasa `--api-port=<puerto>` en los `args`.
+
+> [!danger] Editá `settings.json` con StarUML **cerrado**
+> StarUML mantiene la configuración en memoria y **reescribe el archivo entero** al cerrar (guarda
+> ahí el `windowState`). Cualquier clave que agregues con la app abierta se pierde al salir.
 
 ---
 
@@ -178,6 +190,58 @@ SysML (requisitos, bloques, paramétrico).
 
 ---
 
+## Prueba real de `generate_diagram` (20/08/2026)
+
+Se corrió la herramienta contra StarUML 7.1.0 abierto, con un **diagrama de contexto** de ejemplo
+(una biblioteca, deliberadamente ajena al Caso 1). Qué se aprendió, más allá de lo que dice la doc:
+
+**1. El diagrama de contexto SÍ entra; el core y la primera descomposición NO.**
+Es consecuencia directa de los 7 tipos. El contexto es un `flowchart` —elipse del Producto,
+rectángulos de entidades, flechas con nombre—, así que viaja entero. Las otras dos etapas de
+[[Ejemplos resueltos de casos de negocio|la secuencia canónica]] son diagramas de casos de uso.
+
+| Etapa del caso de negocio | Mermaid | ¿Entra por MCP? |
+|---|---|---|
+| Contexto | `flowchart` | **Sí** |
+| Core | casos de uso | No — hay que dibujarlo |
+| Primera descomposición | casos de uso | No — hay que dibujarlo |
+
+**2. El MCP no levanta ninguna restricción: es el mismo importador.**
+La descripción del parámetro `code` en el esquema de la herramienta lista **los mismos 7 tipos**
+que el menú *Generate Diagram by Mermaid*. `generate_diagram` es ese importador expuesto por HTTP,
+no una vía distinta con más capacidad.
+
+**3. El acomodo del dibujo queda como trabajo manual.**
+StarUML coloca los nodos pero **no reacomoda las etiquetas de las flechas**: se encimaron unas con
+otras hasta quedar ilegibles. La herramienta ahorra tipear nodos y relaciones; no ahorra diagramar.
+
+![[adjuntos/staruml-mcp/prueba-generate-diagram-contexto.png]]
+
+**4. El diagrama se crea en el proyecto abierto, y el MCP no puede borrarlo.**
+Aparece como `FCFlowchartDiagram` con el nombre *"Flowchart Diagram by Mermaid"*. Si sale mal, se
+borra a mano desde el Model Explorer: no hay herramienta de borrado entre las 4.
+
+**5. `get_diagram_image_by_id` devuelve PNG con marca de agua `UNREGISTERED`.**
+Es la licencia de StarUML, no el MCP. Para una entrega, exportar desde una instalación licenciada.
+
+---
+
+## Cómo quedó conectado en esta máquina
+
+No hay **Claude Desktop** instalado: el servidor está registrado en **Claude Code**, ámbito `user`
+(`~/.claude.json`), o sea disponible desde cualquier carpeta.
+
+```bash
+claude mcp add staruml -s user -- npx -y staruml-mcp-server
+claude mcp list      # staruml: npx -y staruml-mcp-server - Connected
+```
+
+Para que las herramientas aparezcan hay que **reiniciar la sesión** del cliente: los servidores MCP
+se cargan al arrancar. Y **StarUML tiene que estar abierto** cuando se las use — el servidor es solo
+un puente HTTP hacia la app.
+
+---
+
 ## Notas relacionadas
 
 - [[Excalidraw]] — la otra herramienta de dibujo del ecosistema
@@ -192,3 +256,5 @@ SysML (requisitos, bloques, paramétrico).
 3. ¿Qué parámetro recibe `generate_diagram` y de qué tipo?
 4. ¿Qué hay que activar en StarUML para que el MCP pueda hablarle, y dónde?
 5. ¿Qué le pasa a un `subgraph` de Mermaid al importarlo?
+6. De las tres etapas del caso de negocio, ¿cuál se puede generar por MCP y por qué las otras dos no?
+7. ¿Por qué hay que cerrar StarUML antes de editar su `settings.json`?

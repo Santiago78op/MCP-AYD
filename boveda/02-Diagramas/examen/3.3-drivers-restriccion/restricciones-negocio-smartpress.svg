@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Drivers de restricción — DE NEGOCIO (presupuesto, tiempo, leyes y normativas)</text>
+<text x="40" y="88.61" font-size="13" fill="#1e1e1e" text-anchor="start">Las restricciones NO se priorizan: todas son obligatorias, y ninguna lleva medida (se cumple o no se cumple).</text>
+<text x="40" y="104.86" font-size="13" fill="#1e1e1e" text-anchor="start">Clasificadas en las TRES categorías que pide el enunciado — Técnicas, de Negocio y de Sistema —, no en las seis de clase. La última columna es la que las convierte en driver.</text>
+<rect x="40" y="140" width="110" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">ID</text>
+<rect x="150" y="140" width="640" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Restricción</text>
+<rect x="790" y="140" width="250" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Origen</text>
+<rect x="1040" y="140" width="520" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Qué decisión bloquea</text>
+<rect x="40" y="200" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N01</text>
+<rect x="150" y="200" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="225.61" font-size="13" fill="#1e1e1e" text-anchor="start">Presupuesto de infraestructura: US$ 150,000 para el próximo año (hardware, licencias y</text>
+<text x="162" y="241.86" font-size="13" fill="#1e1e1e" text-anchor="start">cloud)</text>
+<rect x="790" y="200" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Presupuesto</text>
+<rect x="1040" y="200" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Descarta ampliar la SAN a escala de petabytes</text>
+<rect x="40" y="260" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N02</text>
+<rect x="150" y="260" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">Presupuesto de capacitación: US$ 20,000</text>
+<rect x="790" y="260" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">Presupuesto</text>
+<rect x="1040" y="260" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">Limita cuantas tecnologías nuevas puede absorber el equipo</text>
+<rect x="40" y="320" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N03</text>
+<rect x="150" y="320" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Equipo interno de 4 personas, sin experiencia en Big Data ni ML</text>
+<rect x="790" y="320" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Equipo y habilidades</text>
+<rect x="1040" y="320" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Es el techo real de complejidad operativa del sistema</text>
+<rect x="40" y="380" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N04</text>
+<rect x="150" y="380" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">El científico de datos es consultor y está disponible solo 6 meses</text>
+<rect x="790" y="380" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Equipo y habilidades</text>
+<rect x="1040" y="380" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Obliga a que el pipeline de ML sea operable sin el (AC-07)</text>
+<rect x="40" y="440" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N05</text>
+<rect x="150" y="440" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="465.61" font-size="13" fill="#1e1e1e" text-anchor="start">La planta opera 24/7 en 3 turnos: no se puede parar la producción para mantenimiento ni</text>
+<text x="162" y="481.86" font-size="13" fill="#1e1e1e" text-anchor="start">actualizaciones</text>
+<rect x="790" y="440" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Junta Directiva</text>
+<rect x="1040" y="440" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Obliga a despliegue canary / shadow y a cero ventana de mantenimiento</text>
+<rect x="40" y="500" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N06</text>
+<rect x="150" y="500" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">ISO 9001: trazabilidad de toda acción que afecte la calidad</text>
+<rect x="790" y="500" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">Regulación</text>
+<rect x="1040" y="500" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">Obliga a bitácora de acciones, no solo de mediciones</text>
+<rect x="40" y="560" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N07</text>
+<rect x="150" y="560" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">IATF 16949: los sistemas de control de calidad deben ser validados y los cambios</text>
+<text x="162" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">gestionados formalmente</text>
+<rect x="790" y="560" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">Regulación</text>
+<rect x="1040" y="560" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">Obliga a inmutabilidad, versionado de modelos y gestión formal de cambios</text>
+<rect x="40" y="620" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N08</text>
+<rect x="150" y="620" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">Retención legal de los datos de producción: 7 años</text>
+<rect x="790" y="620" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">Regulación</text>
+<rect x="1040" y="620" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">1.3 PB acumulados: obliga a archivo frío por niveles</text>
+<rect x="40" y="680" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N09</text>
+<rect x="150" y="680" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">Confidencialidad: los datos de producción no pueden salir de la planta en texto plano</text>
+<rect x="790" y="680" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">Política de la empresa</text>
+<rect x="1040" y="680" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">Refuerza RES-T10 y descarta SaaS de analítica sobre datos crudos</text>
+<rect x="40" y="740" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N10</text>
+<rect x="150" y="740" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="start">La capacitación de un operario no puede exceder 3 horas</text>
+<rect x="790" y="740" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="start">Junta Directiva</text>
+<rect x="1040" y="740" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="765.61" font-size="13" fill="#1e1e1e" text-anchor="start">Descarta una interfaz de piso rica: obliga a separarla del tablero del</text>
+<text x="1052" y="781.86" font-size="13" fill="#1e1e1e" text-anchor="start">supervisor</text>
+<rect x="40" y="800" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N11</text>
+<rect x="150" y="800" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">US$ 2.5 millones en penalizaciones en 6 meses justifican el proyecto</text>
+<rect x="790" y="800" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">Caso de negocio</text>
+<rect x="1040" y="800" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="825.61" font-size="13" fill="#1e1e1e" text-anchor="start">Acota el plazo: la solución debe dar resultado antes de que el cliente</text>
+<text x="1052" y="841.86" font-size="13" fill="#1e1e1e" text-anchor="start">rescinda</text>
+</svg>

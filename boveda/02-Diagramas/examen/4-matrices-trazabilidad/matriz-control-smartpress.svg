@@ -1,0 +1,318 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1946 1098" width="1946" height="1098" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1946" height="1098" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Matriz de control — Drivers de calidad y restricción vs. CDU</text>
+<text x="40" y="88.61" font-size="13" fill="#1e1e1e" text-anchor="start">Responde a la Parte III: son los drivers que, de haberse trazado, habrían impedido la decisión de la tabla única SensorReadings.</text>
+<text x="40" y="104.86" font-size="13" fill="#1e1e1e" text-anchor="start">Celda:  ● = el CU es el punto donde el driver se realiza o se viola  ·  X = el driver lo condiciona  ·  ▲ = control directo sobre la decisión cuestionada.</text>
+<rect x="40" y="140" width="380" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Driver</text>
+<rect x="420" y="140" width="130" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Tipo</text>
+<rect x="550" y="140" width="92" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-002</text>
+<rect x="642" y="140" width="92" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-003</text>
+<rect x="734" y="140" width="92" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-004</text>
+<rect x="826" y="140" width="92" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-005</text>
+<rect x="918" y="140" width="92" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-012</text>
+<rect x="1010" y="140" width="92" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-013</text>
+<rect x="1102" y="140" width="92" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-014</text>
+<rect x="1194" y="140" width="92" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-015</text>
+<rect x="1286" y="140" width="620" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Control sobre la decisión de SensorReadings</text>
+<rect x="40" y="200" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-01 Inferencia &lt; 1 s / &lt; 5 s</text>
+<rect x="420" y="200" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Calidad</text>
+<rect x="550" y="200" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="642" y="200" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="734" y="200" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="826" y="200" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="918" y="200" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1010" y="200" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="200" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1194" y="200" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1286" y="200" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">▲ La escritura sincrónica en la tabla única roba tiempo al ciclo de inferencia</text>
+<rect x="40" y="260" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-02 Respuesta al PLC &lt; 200 ms</text>
+<rect x="420" y="260" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">Calidad</text>
+<rect x="550" y="260" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="642" y="260" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="260" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="826" y="260" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="918" y="260" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1010" y="260" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="260" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1194" y="260" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1286" y="260" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">▲ La contención de escritura en la misma instancia degrada el lazo de control</text>
+<rect x="40" y="320" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-03 Caída de red 30 s sin pérdida</text>
+<rect x="420" y="320" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Calidad</text>
+<rect x="550" y="320" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="642" y="320" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="320" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="826" y="320" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="918" y="320" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1010" y="320" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="320" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1194" y="320" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1286" y="320" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Exige buffer en el borde, no una tabla central única</text>
+<rect x="40" y="380" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-04 Pico de 10x sin degradación</text>
+<rect x="420" y="380" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Calidad</text>
+<rect x="550" y="380" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="642" y="380" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="380" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="826" y="380" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="918" y="380" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1010" y="380" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="380" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1194" y="380" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1286" y="380" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">▲ 125,000 filas/s contra índices B-tree: el diseño no escala</text>
+<rect x="40" y="440" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-05 Órdenes firmadas y autenticadas</text>
+<rect x="420" y="440" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Calidad</text>
+<rect x="550" y="440" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="642" y="440" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="440" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="826" y="440" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="918" y="440" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1010" y="440" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="440" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1194" y="440" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1286" y="440" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Canal de comandos separado del almacén de datos</text>
+<rect x="40" y="500" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-06 Forense &lt; 10 min sobre 7 años</text>
+<rect x="420" y="500" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">Calidad</text>
+<rect x="550" y="500" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="642" y="500" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="500" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="826" y="500" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="918" y="500" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1010" y="500" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="500" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1194" y="500" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1286" y="500" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">▲ Imposible sobre EAV plano: exige niveles e índice de trazabilidad</text>
+<rect x="40" y="560" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-07 Mantenible por 4 personas</text>
+<rect x="420" y="560" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">Calidad</text>
+<rect x="550" y="560" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="642" y="560" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="734" y="560" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="826" y="560" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="918" y="560" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1010" y="560" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1102" y="560" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1194" y="560" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1286" y="560" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">▲ Justifica SQL Server para el MAESTRO de trazabilidad, no para el crudo</text>
+<rect x="40" y="620" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-T06 Nada crudo en la transaccional</text>
+<rect x="420" y="620" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">Restricción</text>
+<rect x="550" y="620" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="642" y="620" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="620" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="826" y="620" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="918" y="620" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1010" y="620" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="620" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1194" y="620" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1286" y="620" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">▲ PROHIBICIÓN EXPLÍCITA: la decisión del equipo la viola de frente</text>
+<rect x="40" y="680" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-T07 BD con particionamiento y retención</text>
+<rect x="420" y="680" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">Restricción</text>
+<rect x="550" y="680" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="642" y="680" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="680" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="826" y="680" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="918" y="680" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1010" y="680" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="680" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1194" y="680" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1286" y="680" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">▲ Una tabla plana sin estrategia de partición no cumple</text>
+<rect x="40" y="740" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-T05 20 TB de SAN</text>
+<rect x="420" y="740" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="start">Restricción</text>
+<rect x="550" y="740" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="642" y="740" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="740" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="826" y="740" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="918" y="740" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1010" y="740" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="740" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1194" y="740" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1286" y="740" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="start">▲ 5 TB/día agotan la SAN en 4 días</text>
+<rect x="40" y="800" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N08 Retención 7 años (1.3 PB)</text>
+<rect x="420" y="800" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">Restricción</text>
+<rect x="550" y="800" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="642" y="800" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="800" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="826" y="800" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="918" y="800" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1010" y="800" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="800" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1194" y="800" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1286" y="800" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">▲ Obliga a archivo frío por niveles, no a una tabla única</text>
+<rect x="40" y="860" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-N06/N07 ISO 9001 / IATF 16949</text>
+<rect x="420" y="860" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="start">Restricción</text>
+<rect x="550" y="860" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="642" y="860" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="860" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="826" y="860" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="918" y="860" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1010" y="860" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1102" y="860" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1194" y="860" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1286" y="860" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="start">▲ Exigen inmutabilidad y validación, que la tabla plana no ofrece</text>
+<rect x="40" y="920" width="380" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-T10 Solo agregados a la nube</text>
+<rect x="420" y="920" width="130" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="432" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="start">Restricción</text>
+<rect x="550" y="920" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="596.0" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="642" y="920" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="688.0" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="734" y="920" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="780.0" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="826" y="920" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872.0" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="918" y="920" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="964.0" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1010" y="920" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1056.0" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1102" y="920" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1148.0" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1194" y="920" width="92" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1286" y="920" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1298" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="start">Define qué capa puede salir de la planta</text>
+<text x="40" y="1022.61" font-size="13" fill="#1e1e1e" text-anchor="start">1.  RES-T06 cruza CU-002 y CU-004 — los dos casos de uso que la tabla única pretendía servir. La celda está marcada: la restricción habría bloqueado la decisión antes de la primera línea de SQL.</text>
+<text x="40" y="1038.86" font-size="13" fill="#1e1e1e" text-anchor="start">2.  La columna CU-004 concentra 9 drivers de control. Un caso de uso con esa densidad de restricciones es un punto de ARQUITECTURA, no de implementación.</text>
+<text x="40" y="1055.11" font-size="13" fill="#1e1e1e" text-anchor="start">3.  AC-07 aparece a favor y en contra: la mantenibilidad justifica SQL Server, pero solo donde el volumen lo permite. Trazado por caso de uso, el argumento del equipo se salva a medias en vez de perderse entero.</text>
+</svg>

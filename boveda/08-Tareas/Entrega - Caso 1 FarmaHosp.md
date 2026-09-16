@@ -33,7 +33,7 @@ Enunciado: [[Caso 1 - FarmaHosp]] · Plan: [[Plan - Caso 1 FarmaHosp]]
 > farmacovigilancia y director administrativo— son **trabajadores del negocio**, no actores,
 > porque están dentro de la frontera. Son **actores del negocio** únicamente las entidades que
 > interactúan con él desde afuera: paciente, proveedor de MAC, MSPAS, Contraloría General de
-> Cuentas, proveedor de MAC y sistema legacy de admisiones.
+> Cuentas y sistema legacy de admisiones. **Son cinco**, y son exactamente los cinco del core (§2.2).
 >
 > *Criterio aplicado:* «cada actor modela algo fuera del negocio» — Jacobson, modelado de negocio.
 > Ver [[Actor del negocio]].
@@ -259,7 +259,7 @@ flowchart LR
 ```
 
 *(Versión con notación de clase — monigotes y elipse con las barras diagonales del estereotipo de
-negocio, líneas sin punta: `02-Diagramas/cdu-core-farmahosp.svg`, editable en
+negocio, líneas sin punta: `02-Diagramas/2-caso-negocio/cdu-core-farmahosp.svg`, editable en
 `cdu-core-farmahosp.excalidraw`, verificación en `cdu-core-farmahosp-verificacion.png`.)*
 
 #### Checklist del core
@@ -335,7 +335,7 @@ flowchart LR
 ```
 
 *(Versión con notación de clase — columna de procesos, actores a los lados, diagonales de negocio,
-líneas sin punta y las tres categorías rotuladas: `02-Diagramas/cdu-descomposicion-farmahosp.svg`,
+líneas sin punta y las tres categorías rotuladas: `02-Diagramas/2-caso-negocio/cdu-descomposicion-farmahosp.svg`,
 editable en `.excalidraw`, verificación en `cdu-descomposicion-farmahosp-verificacion.png`.)*
 
 #### Checklist de la primera descomposición
@@ -452,7 +452,7 @@ Las decisiones de relación, una por una:
 | Médico tratante / de urgencias → Médico | **generalización** | El CU compartido (Prescribir) queda en el **padre**; cada hijo se queda con el suyo — el patrón exacto del Hospital de la cátedra |
 | Médico de urgencias — Acceder a diagnóstico | asociación propia del hijo | Solo urgencias tiene ese derecho (ABAC, acuerdo de calidad 4) |
 
-*(Lámina en notación de sistema: `02-Diagramas/cdu-expandido-prescripcion.svg`, editable en
+*(Lámina en notación de sistema: `02-Diagramas/3.1-drivers-rf/cdu-expandido-prescripcion.svg`, editable en
 `.excalidraw`, verificación en `cdu-expandido-prescripcion-verificacion.png`.)*
 
 #### Expandidos de `CDU-04` y `CDU-05` — las relaciones
@@ -621,6 +621,10 @@ convierte el deseo en driver: sin número no se puede diseñar ni verificar.
 | Respuesta | El sistema **demuestra criptográficamente** la integridad de la serie (hash encadenado o firma de sensores — la técnica se decide en diseño; el driver fija la propiedad) |
 | **Medida** | **100 %** de las lecturas verificables; **cualquier** alteración posterior es detectable |
 
+*(Láminas: `02-Diagramas/3.2-drivers-calidad/` — `tabla-drivers-calidad.svg` es el resumen y
+`ficha-ac-01.svg` … `ficha-ac-08.svg` son los ocho escenarios de seis partes. Editables en
+`.excalidraw`, verificación en los `-verificacion.png`.)*
+
 #### Checklist de los drivers de calidad
 
 - [x] Ninguno dibujado como caso de uso
@@ -683,6 +687,9 @@ Repartidas por el enunciado fuera de la sección de restricciones; se barren por
 > INCAP reaparece como `RE-10`; el personal de admisiones como la cara negativa de `RE-12`; la
 > capacitación limitada (RRHH) es `RE-07`. Ninguno se perdió: pagan sus puntos en este criterio, como
 > se declaró al recortarlos.
+
+*(Láminas: `02-Diagramas/3.3-drivers-restriccion/restricciones-explicitas.svg` y
+`restricciones-implicitas.svg`.)*
 
 #### Checklist de las restricciones
 
@@ -748,6 +755,9 @@ patrones establecidos** (autorización por atributos; cola local con reintento) 
 la estructura temprana que el stack (`AC-07`) o la inmutabilidad transversal (`AC-03`). Y `AC-08`
 queda parcialmente cubierto por la decisión que se tome para `AC-03`. **Quedar fuera del top 5 no
 los vuelve opcionales**: siguen siendo drivers y entran a las matrices.
+
+*(Láminas: `02-Diagramas/3.4-priorizacion/priorizacion-dos-ejes.svg` y
+`priorizacion-top5.svg`.)*
 
 #### Checklist de la priorización
 
@@ -911,6 +921,11 @@ Y la vuelta — *¿si cambia `RF-17` (dispensar), a qué stakeholders les afecta
 caen `RF-18`, `RF-19/20/21`, `RF-22`, `RF-23`, `RF-26`, `RF-33`, `RF-34`; por la matriz 3 eso toca
 `CDU-04`, `CDU-05` y `CDU-07`; por la matriz 1, los afectados son **farmacéutico, enfermero,
 paciente, director y Contraloría**. Ese recorrido es el análisis de impacto que la NT1 promete.
+
+*(Láminas: `02-Diagramas/4-matrices-trazabilidad/` — `matriz-1-stakeholders-cdu.svg`,
+`matriz-2a-dependencias-rf.svg`, `matriz-2b-tronco-rf.svg` y `matriz-3-cdu-rf.svg`. La 3 entra
+**completa en una sola lámina**: los 37 RF sin la partición que la tabla de arriba necesita por
+el ancho de página.)*
 
 ### Checklist del criterio 4
 

@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 720" width="1680" height="720" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1680" height="720" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Drivers de atributos de calidad — SmartPress (resumen)</text>
+<text x="40" y="88.61" font-size="13" fill="#1e1e1e" text-anchor="start">Taxonomia declarada: las SIETE de clase (rendimiento, escalabilidad, disponibilidad, seguridad, mantenibilidad, usabilidad, fiabilidad). No se mezcla con ISO 9126 ni FURPS.</text>
+<text x="40" y="104.86" font-size="13" fill="#1e1e1e" text-anchor="start">Todos llevan número: un driver de calidad sin medida no es un driver, es un deseo. El escenario completo de seis partes está en la lámina siguiente.</text>
+<rect x="40" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">ID</text>
+<rect x="130" y="140" width="250" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Atributo</text>
+<rect x="380" y="140" width="340" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="392" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Escenario (resumen)</text>
+<rect x="720" y="140" width="400" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="732" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">MEDIDA</text>
+<rect x="1120" y="140" width="520" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1132" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Foco arquitectónico: que decisión fuerza</text>
+<rect x="40" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-01</text>
+<rect x="130" y="200" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Rendimiento (latencia)</text>
+<rect x="380" y="200" width="340" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="392" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Inferencia ML dentro del ciclo de producción</text>
+<rect x="720" y="200" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="732" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">&lt; 1 s (ciclo 45 s) y &lt; 5 s (ciclo 120 s)</text>
+<rect x="1120" y="200" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1132" y="225.61" font-size="13" fill="#1e1e1e" text-anchor="start">Procesamiento en el BORDE: la latencia a internet es impredecible y no</text>
+<text x="1132" y="241.86" font-size="13" fill="#1e1e1e" text-anchor="start">cabe en la ventana del ciclo</text>
+<rect x="40" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-02</text>
+<rect x="130" y="260" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="285.61" font-size="13" fill="#1e1e1e" text-anchor="start">Rendimiento (respuesta de</text>
+<text x="142" y="301.86" font-size="13" fill="#1e1e1e" text-anchor="start">control)</text>
+<rect x="380" y="260" width="340" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="392" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">El PLC pide una orden de ajuste</text>
+<rect x="720" y="260" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="732" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">&lt; 200 ms extremo a extremo</text>
+<rect x="1120" y="260" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1132" y="285.61" font-size="13" fill="#1e1e1e" text-anchor="start">Separar el canal de control del canal de analítica: el lazo duro no</text>
+<text x="1132" y="301.86" font-size="13" fill="#1e1e1e" text-anchor="start">comparte cola ni recursos</text>
+<rect x="40" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-03</text>
+<rect x="130" y="320" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Disponibilidad / fiabilidad</text>
+<rect x="380" y="320" width="340" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="392" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Caída de red de 30 s durante la producción</text>
+<rect x="720" y="320" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="732" y="345.61" font-size="13" fill="#1e1e1e" text-anchor="start">0 mediciones pérdidas, 100% de trazabilidad</text>
+<text x="732" y="361.86" font-size="13" fill="#1e1e1e" text-anchor="start">reconstruida, 0 cortes visibles</text>
+<rect x="1120" y="320" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1132" y="345.61" font-size="13" fill="#1e1e1e" text-anchor="start">Store-and-forward con buffer local en el borde y reconciliación</text>
+<text x="1132" y="361.86" font-size="13" fill="#1e1e1e" text-anchor="start">idempotente</text>
+<rect x="40" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-04</text>
+<rect x="130" y="380" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Escalabilidad</text>
+<rect x="380" y="380" width="340" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="392" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Pico de volumen 10x en el turno de la noche</text>
+<rect x="720" y="380" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="732" y="405.61" font-size="13" fill="#1e1e1e" text-anchor="start">Se mantiene AC-01 (p95) con 10x el caudal, sin pérdida</text>
+<text x="732" y="421.86" font-size="13" fill="#1e1e1e" text-anchor="start">de mensajes</text>
+<rect x="1120" y="380" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1132" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Ingesta desacoplada por cola y particionamiento por máquina y por tiempo</text>
+<rect x="40" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-05</text>
+<rect x="130" y="440" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="465.61" font-size="13" fill="#1e1e1e" text-anchor="start">Seguridad (integridad y</text>
+<text x="142" y="481.86" font-size="13" fill="#1e1e1e" text-anchor="start">autenticación)</text>
+<rect x="380" y="440" width="340" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="392" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Se emite una orden de ajuste al PLC</text>
+<rect x="720" y="440" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="732" y="465.61" font-size="13" fill="#1e1e1e" text-anchor="start">100% de órdenes firmadas, 0 aceptadas sin firma válida,</text>
+<text x="732" y="481.86" font-size="13" fill="#1e1e1e" text-anchor="start">0 bytes en texto plano</text>
+<rect x="1120" y="440" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1132" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Broker de comandos con firma digital y autenticación mutua sobre OPC-UA</text>
+<rect x="40" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-06</text>
+<rect x="130" y="500" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">Seguridad (no repudio) / consulta</text>
+<rect x="380" y="500" width="340" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="392" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">Consulta forense de un lote de hace 7 años</text>
+<rect x="720" y="500" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="732" y="525.61" font-size="13" fill="#1e1e1e" text-anchor="start">&lt; 10 min de respuesta, 7 años de retención, 100%</text>
+<text x="732" y="541.86" font-size="13" fill="#1e1e1e" text-anchor="start">verificable por hash</text>
+<rect x="1120" y="500" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1132" y="525.61" font-size="13" fill="#1e1e1e" text-anchor="start">Almacenamiento por niveles (caliente/tibio/frío) + registro WORM con hash</text>
+<text x="1132" y="541.86" font-size="13" fill="#1e1e1e" text-anchor="start">encadenado</text>
+<rect x="40" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-07</text>
+<rect x="130" y="560" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">Mantenibilidad</text>
+<rect x="380" y="560" width="340" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="392" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">El científico de datos consultor se retira a</text>
+<text x="392" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">los 6 meses</text>
+<rect x="720" y="560" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="732" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">Traspaso &lt;= 6 meses con US$ 20,000; despliegue de</text>
+<text x="732" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">modelo con 0 s de paro</text>
+<rect x="1120" y="560" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1132" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">LIMITA el número de componentes y de tecnologías: solo lo que 4 personas</text>
+<text x="1132" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">pueden operar</text>
+<rect x="40" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-08</text>
+<rect x="130" y="620" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">Usabilidad</text>
+<rect x="380" y="620" width="340" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="392" y="645.61" font-size="13" fill="#1e1e1e" text-anchor="start">Operario que rota de turno toma la estación</text>
+<text x="392" y="661.86" font-size="13" fill="#1e1e1e" text-anchor="start">por primera vez</text>
+<rect x="720" y="620" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="732" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">&lt;= 3 horas de capacitación</text>
+<rect x="1120" y="620" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1132" y="645.61" font-size="13" fill="#1e1e1e" text-anchor="start">Capa de presentación de piso reducida, distinta del tablero del</text>
+<text x="1132" y="661.86" font-size="13" fill="#1e1e1e" text-anchor="start">supervisor</text>
+</svg>

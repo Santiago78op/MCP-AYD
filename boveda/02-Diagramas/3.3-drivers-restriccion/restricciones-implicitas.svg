@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1380 938" width="1380" height="938" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1380" height="938" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Drivers de restricción — las implícitas</text>
+<text x="40" y="86.61" font-size="13" fill="#1e1e1e" text-anchor="start">Repartidas por el enunciado fuera de su sección de restricciones; se barren por origen: regulatorias, técnicas del entorno y organizativas.</text>
+<rect x="40" y="120" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="153.61" font-size="13" fill="#1e1e1e" text-anchor="start">ID</text>
+<rect x="130" y="120" width="420" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="153.61" font-size="13" fill="#1e1e1e" text-anchor="start">Restricción</text>
+<rect x="550" y="120" width="280" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="153.61" font-size="13" fill="#1e1e1e" text-anchor="start">Origen</text>
+<rect x="830" y="120" width="510" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="153.61" font-size="13" fill="#1e1e1e" text-anchor="start">Qué decisión bloquea / dónde se realiza</text>
+<rect x="40" y="180" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="213.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-09</text>
+<rect x="130" y="180" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="205.61" font-size="13" fill="#1e1e1e" text-anchor="start">Reporte de efectos adversos ≤ 24 h en XML con la DTD del</text>
+<text x="142" y="221.86" font-size="13" fill="#1e1e1e" text-anchor="start">MSPAS</text>
+<rect x="550" y="180" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="205.61" font-size="13" fill="#1e1e1e" text-anchor="start">regulatoria — Norma Técnica de</text>
+<text x="562" y="221.86" font-size="13" fill="#1e1e1e" text-anchor="start">Farmacovigilancia</text>
+<rect x="830" y="180" width="510" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="213.61" font-size="13" fill="#1e1e1e" text-anchor="start">El formato y el plazo no se negocian; se realiza en RF-29 y AC-06</text>
+<rect x="40" y="240" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="273.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-10</text>
+<rect x="130" y="240" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="265.61" font-size="13" fill="#1e1e1e" text-anchor="start">Doble registro farmacéutico-enfermero para oncológicos y</text>
+<text x="142" y="281.86" font-size="13" fill="#1e1e1e" text-anchor="start">opioides; alerta si discrepancia &gt; 5 min</text>
+<rect x="550" y="240" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="273.61" font-size="13" fill="#1e1e1e" text-anchor="start">regulatoria — INCAP</text>
+<rect x="830" y="240" width="510" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="273.61" font-size="13" fill="#1e1e1e" text-anchor="start">Obliga la coincidencia en tiempo real; se realiza en RF-22</text>
+<rect x="40" y="300" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="333.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-11</text>
+<rect x="130" y="300" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="325.61" font-size="13" fill="#1e1e1e" text-anchor="start">Responder solicitudes ciudadanas de datos estadísticos (no</text>
+<text x="142" y="341.86" font-size="13" fill="#1e1e1e" text-anchor="start">personales) en 10 días hábiles</text>
+<rect x="550" y="300" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="325.61" font-size="13" fill="#1e1e1e" text-anchor="start">regulatoria — Ley de Acceso a la</text>
+<text x="562" y="341.86" font-size="13" fill="#1e1e1e" text-anchor="start">Información Pública</text>
+<rect x="830" y="300" width="510" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="333.61" font-size="13" fill="#1e1e1e" text-anchor="start">Obliga la vía de datos anonimizados; se realiza en RF-36</text>
+<rect x="40" y="360" width="90" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="403.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-12</text>
+<rect x="130" y="360" width="420" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="387.61" font-size="13" fill="#1e1e1e" text-anchor="start">Diagnósticos sensibles visibles solo para tratante,</text>
+<text x="142" y="403.86" font-size="13" fill="#1e1e1e" text-anchor="start">farmacéutico y enfermero asignado; el director solo con</text>
+<text x="142" y="420.11" font-size="13" fill="#1e1e1e" text-anchor="start">orden judicial</text>
+<rect x="550" y="360" width="280" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="395.61" font-size="13" fill="#1e1e1e" text-anchor="start">regulatoria — Política de Datos del</text>
+<text x="562" y="411.86" font-size="13" fill="#1e1e1e" text-anchor="start">Hospital</text>
+<rect x="830" y="360" width="510" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="403.61" font-size="13" fill="#1e1e1e" text-anchor="start">Fija el modelo de autorización; se realiza en AC-04 y RF-16</text>
+<rect x="40" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-13</text>
+<rect x="130" y="440" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="465.61" font-size="13" fill="#1e1e1e" text-anchor="start">Data center fijo: 32 vCPU / 128 GB / SAN 10 TB, sin</text>
+<text x="142" y="481.86" font-size="13" fill="#1e1e1e" text-anchor="start">autoescalado</text>
+<rect x="550" y="440" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">técnica del entorno</text>
+<rect x="830" y="440" width="510" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="465.61" font-size="13" fill="#1e1e1e" text-anchor="start">Descarta resolver el pico con hardware; obliga la mitigación</text>
+<text x="842" y="481.86" font-size="13" fill="#1e1e1e" text-anchor="start">arquitectónica de AC-05</text>
+<rect x="40" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-14</text>
+<rect x="130" y="500" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="525.61" font-size="13" fill="#1e1e1e" text-anchor="start">Tablets Panasonic Toughpad, Android 9, 3 GB RAM ya</text>
+<text x="142" y="541.86" font-size="13" fill="#1e1e1e" text-anchor="start">compradas</text>
+<rect x="550" y="500" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">técnica del entorno</text>
+<rect x="830" y="500" width="510" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="525.61" font-size="13" fill="#1e1e1e" text-anchor="start">El cliente móvil debe correr ahí: descarta frameworks pesados y Android</text>
+<text x="842" y="541.86" font-size="13" fill="#1e1e1e" text-anchor="start">nuevos</text>
+<rect x="40" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-15</text>
+<rect x="130" y="560" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">Escáneres Bluetooth con 5 % de fallo: la entrada manual</text>
+<text x="142" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">del código es obligatoria</text>
+<rect x="550" y="560" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">técnica del entorno</text>
+<rect x="830" y="560" width="510" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">Obliga el respaldo manual de RF-25; descarta flujos solo-escáner</text>
+<rect x="40" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-16</text>
+<rect x="130" y="620" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="645.61" font-size="13" fill="#1e1e1e" text-anchor="start">Wi-Fi inestable en el sótano de farmacia; internet de 50</text>
+<text x="142" y="661.86" font-size="13" fill="#1e1e1e" text-anchor="start">Mbps compartido con priorización de tráfico crítico</text>
+<rect x="550" y="620" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">técnica del entorno</text>
+<rect x="830" y="620" width="510" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="645.61" font-size="13" fill="#1e1e1e" text-anchor="start">Descarta diseños que asuman red confiable; empuja AC-01 degradado y</text>
+<text x="842" y="661.86" font-size="13" fill="#1e1e1e" text-anchor="start">AC-02</text>
+<rect x="40" y="680" width="90" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="723.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-17</text>
+<rect x="130" y="680" width="420" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="707.61" font-size="13" fill="#1e1e1e" text-anchor="start">El sistema debe poder ser mantenido exclusivamente por el</text>
+<text x="142" y="723.86" font-size="13" fill="#1e1e1e" text-anchor="start">equipo interno (3 personas, Java 8 / Oracle PL/SQL /</text>
+<text x="142" y="740.11" font-size="13" fill="#1e1e1e" text-anchor="start">Angular) tras los 12 meses</text>
+<rect x="550" y="680" width="280" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="723.61" font-size="13" fill="#1e1e1e" text-anchor="start">organizativa</text>
+<rect x="830" y="680" width="510" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="723.61" font-size="13" fill="#1e1e1e" text-anchor="start">Acota el stack a lo que el interno pueda heredar; es el origen de AC-07</text>
+<rect x="40" y="760" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="793.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-18</text>
+<rect x="130" y="760" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="785.61" font-size="13" fill="#1e1e1e" text-anchor="start">Entrega en 12 meses, con evolución incremental:</text>
+<text x="142" y="801.86" font-size="13" fill="#1e1e1e" text-anchor="start">dispensación y almacén → prescripción → farmacovigilancia</text>
+<rect x="550" y="760" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="562" y="793.61" font-size="13" fill="#1e1e1e" text-anchor="start">organizativa</text>
+<rect x="830" y="760" width="510" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="793.61" font-size="13" fill="#1e1e1e" text-anchor="start">Fija el orden de construcción y refuerza RE-05 (módulos separados)</text>
+<text x="40" y="862.61" font-size="13" fill="#1e1e1e" text-anchor="start">La tensión que resuelven juntas: RE-03 (sin licencias: descarta Oracle Enterprise) choca con la preferencia del equipo interno (Oracle), y RE-17 exige que ese mismo</text>
+<text x="40" y="878.86" font-size="13" fill="#1e1e1e" text-anchor="start">equipo mantenga el sistema. Leídas juntas acotan el stack por las dos puntas: el lenguaje que el interno domina + una base open source con ACID (RE-01).</text>
+<text x="40" y="895.11" font-size="13" fill="#1e1e1e" text-anchor="start">Los stakeholders recortados en §1.1 se saldan acá: INCAP es RE-10; el personal de admisiones es la cara negativa de RE-12; la capacitación limitada es RE-07.</text>
+</svg>

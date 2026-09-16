@@ -38,7 +38,7 @@ Entrega: [[Entrega - Caso 1 FarmaHosp]] · Plan: [[Plan - Caso 1 FarmaHosp]] · 
 
 | Paso | Qué se hace | Estado |
 |---|---|---|
-| **0** | Definir la frontera del negocio | ✅ **hecho** — negocio = gestión del ciclo de vida del MAC; personal clínico = trabajadores; actores = paciente, proveedor, MSPAS, Contraloría, legacy admisiones, consultora |
+| **0** | Definir la frontera del negocio | ✅ **hecho** — negocio = gestión del ciclo de vida del MAC; personal clínico = trabajadores; los **5** actores = paciente, proveedor de MAC, MSPAS, Contraloría, legacy de admisiones |
 | **1** | Stakeholders: barrer → clasificar → necesidad oculta → conflictos | ✅ **hecho** — 13 stakeholders (8 del enunciado + 5), necesidad oculta y 6 conflictos |
 | **2** | Diagrama de contexto | ✅ **hecho** — dibujado en 3 capas: 14 entidades, 25 streamlines, cada una justificada |
 | **3** | CDU de alto nivel (core del negocio) | ✅ **hecho** — elipse única «Gestión del Ciclo de Vida del MAC», 5 actores, líneas sin punta, exclusiones defendidas |
@@ -74,9 +74,9 @@ Se valida al final de cada paso: nada del enunciado puede quedar sin aparecer en
 - [x] Los stakeholders **no** nombrados en esa tabla pero presentes en el texto (5 agregados; el resto se traslada a drivers de restricción)
 - [x] Cada stakeholder con su **necesidad oculta**
 - [x] Las **6 etapas** del ciclo de vida como procesos de negocio (CDU-01..06)
-- [ ] Los **8 acuerdos de calidad** clasificados como drivers
+- [x] Los **8 acuerdos de calidad** clasificados como drivers (`AC-01..08`, uno a uno, en §3.2)
 - [x] Las **8 restricciones** como drivers de restricción (RE-01..08, + 10 implícitas)
-- [ ] Los **6 escenarios críticos** aparecen en algún entregable
+- [x] Los **6 escenarios críticos** aparecen en algún entregable (en los RF de §3.1, y cada uno citado además por su `AC` en §3.2)
 - [x] Exactamente **5** drivers priorizados con justificación guatemalteca
 
 ---
@@ -85,6 +85,8 @@ Se valida al final de cada paso: nada del enunciado puede quedar sin aparecer en
 
 | Fecha | Qué se cerró |
 |---|---|
+| 2026-08-21 | **Láminas del criterio 3 y 4 generadas**: los drivers de calidad (resumen + 8 fichas de 6 partes), las restricciones (explícitas e implícitas), la priorización (dos ejes + top 5) y las tres matrices — 23 láminas en total. Son **tablas**, no diagramas: se tabulan porque un atributo de calidad no es un caso de uso. La matriz 3 entra completa en una sola lámina (los 37 RF sin partir) |
+| 2026-08-21 | **`02-Diagramas/` reorganizada**: una carpeta por sección de la Entrega (`2-caso-negocio`, `3.1-drivers-rf` … `4-matrices-trazabilidad`) más `ejemplos-clase`, `herramientas` y `practica`, con índice en su `README.md`. `practica/referencia/` espeja esas carpetas con copias de los `.svg`, para dibujar al lado y comparar |
 | 2026-08-20 | Paso 0: frontera del negocio definida y redactada |
 | 2026-08-20 | Paso 1.1-1.3: barrido completo — de 8 del enunciado a 24 candidatos |
 | 2026-08-20 | Paso 2 **cerrado**: notación + 2 ejemplos en otro dominio + diagrama de FarmaHosp dibujado en 3 capas (14 entidades / 25 streamlines) |

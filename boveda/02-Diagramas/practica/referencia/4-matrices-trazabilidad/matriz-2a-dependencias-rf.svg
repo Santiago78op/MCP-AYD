@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1850" width="1280" height="1850" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1280" height="1850" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Matriz 2a — Drivers RF vs. Drivers RF · tabla completa de dependencias</text>
+<text x="40" y="86.61" font-size="13" fill="#1e1e1e" text-anchor="start">Se lee: «la fila depende de la columna». Con 37 RF la matriz 37×37 sería casi vacía, así que se presenta en dos vistas —</text>
+<text x="40" y="102.86" font-size="13" fill="#1e1e1e" text-anchor="start">decisión declarada: esta tabla completa, y la matriz del tronco (matriz 2b) con los 12 RF que concentran las dependencias.</text>
+<rect x="40" y="130" width="300" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="163.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF que depende</text>
+<rect x="340" y="130" width="230" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="163.61" font-size="13" fill="#1e1e1e" text-anchor="start">Depende de</text>
+<rect x="570" y="130" width="570" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="163.61" font-size="13" fill="#1e1e1e" text-anchor="start">Razón</text>
+<rect x="40" y="190" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="223.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-02 recepción de lotes</text>
+<rect x="340" y="190" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="223.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-01</text>
+<rect x="570" y="190" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="223.61" font-size="13" fill="#1e1e1e" text-anchor="start">no se recibe sin orden de compra</text>
+<rect x="40" y="250" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="283.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-06 incidente y bloqueo</text>
+<rect x="340" y="250" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="283.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-05</text>
+<rect x="570" y="250" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="283.61" font-size="13" fill="#1e1e1e" text-anchor="start">sin monitoreo no hay incidente que registrar</text>
+<rect x="40" y="310" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="343.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-07 alerta de guardia</text>
+<rect x="340" y="310" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="343.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-06</text>
+<rect x="570" y="310" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="343.61" font-size="13" fill="#1e1e1e" text-anchor="start">alerta lo que el incidente detectó</text>
+<rect x="40" y="370" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="403.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-08 sobrescribir descarte</text>
+<rect x="340" y="370" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="403.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-06</text>
+<rect x="570" y="370" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="403.61" font-size="13" fill="#1e1e1e" text-anchor="start">se sobrescribe la decisión que el incidente disparó</text>
+<rect x="40" y="430" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="463.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-09 proyección de faltantes</text>
+<rect x="340" y="430" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="463.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-02, RF-10</text>
+<rect x="570" y="430" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="463.61" font-size="13" fill="#1e1e1e" text-anchor="start">proyecta sobre inventario y prescripciones programadas</text>
+<rect x="40" y="490" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="523.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-10 prescribir</text>
+<rect x="340" y="490" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="523.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-11, RF-12, RF-13, RF-14</text>
+<rect x="570" y="490" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="523.61" font-size="13" fill="#1e1e1e" text-anchor="start">los cuatro include obligatorios</text>
+<rect x="40" y="550" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="583.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-14 consultar inventario</text>
+<rect x="340" y="550" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="583.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-02</text>
+<rect x="570" y="550" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="583.61" font-size="13" fill="#1e1e1e" text-anchor="start">consulta los lotes registrados</text>
+<rect x="40" y="610" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="643.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-15 sugerir MAC</text>
+<rect x="340" y="610" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="643.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-10, RF-11</text>
+<rect x="570" y="610" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="643.61" font-size="13" fill="#1e1e1e" text-anchor="start">sugiere sobre protocolo e historial de prescripción</text>
+<rect x="40" y="670" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="703.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-17 dispensar</text>
+<rect x="340" y="670" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="703.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-10, RF-14, RF-02</text>
+<rect x="570" y="670" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="703.61" font-size="13" fill="#1e1e1e" text-anchor="start">dispensa una prescripción, contra inventario real</text>
+<rect x="40" y="730" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="763.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-18 etiqueta QR</text>
+<rect x="340" y="730" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="763.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-17</text>
+<rect x="570" y="730" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="763.61" font-size="13" fill="#1e1e1e" text-anchor="start">etiqueta el lote asignado</text>
+<rect x="40" y="790" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="823.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-19 / RF-20 / RF-21 opciones A/B/C</text>
+<rect x="340" y="790" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="823.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-17</text>
+<rect x="570" y="790" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="823.61" font-size="13" fill="#1e1e1e" text-anchor="start">las tres extienden la dispensación</text>
+<rect x="40" y="850" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="883.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-22 doble registro INCAP</text>
+<rect x="340" y="850" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="883.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-17, RF-23</text>
+<rect x="570" y="850" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="883.61" font-size="13" fill="#1e1e1e" text-anchor="start">exige coincidencia entre ambos extremos</text>
+<rect x="40" y="910" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="943.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-23 administrar</text>
+<rect x="340" y="910" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="943.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-17, RF-24</text>
+<rect x="570" y="910" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="943.61" font-size="13" fill="#1e1e1e" text-anchor="start">administra lo dispensado, tras validar</text>
+<rect x="40" y="970" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1003.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-24 validar paciente-medicamento</text>
+<rect x="340" y="970" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1003.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-18</text>
+<rect x="570" y="970" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1003.61" font-size="13" fill="#1e1e1e" text-anchor="start">valida contra la etiqueta generada</text>
+<rect x="40" y="1030" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1063.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-25 entrada manual</text>
+<rect x="340" y="1030" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1063.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-24</text>
+<rect x="570" y="1030" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1063.61" font-size="13" fill="#1e1e1e" text-anchor="start">es su respaldo</text>
+<rect x="40" y="1090" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1123.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-26 operar offline</text>
+<rect x="340" y="1090" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1123.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-17, RF-23</text>
+<rect x="570" y="1090" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1123.61" font-size="13" fill="#1e1e1e" text-anchor="start">continúa esas operaciones sin red</text>
+<rect x="40" y="1150" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1183.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-27 reacción por voz</text>
+<rect x="340" y="1150" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1183.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-23</text>
+<rect x="570" y="1150" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1183.61" font-size="13" fill="#1e1e1e" text-anchor="start">registra sobre una administración</text>
+<rect x="40" y="1210" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1243.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-28 seguimiento</text>
+<rect x="340" y="1210" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1243.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-23</text>
+<rect x="570" y="1210" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1243.61" font-size="13" fill="#1e1e1e" text-anchor="start">sigue lo administrado</text>
+<rect x="40" y="1270" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1303.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-29 reporte nacional</text>
+<rect x="340" y="1270" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1303.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-27, RF-28</text>
+<rect x="570" y="1270" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1303.61" font-size="13" fill="#1e1e1e" text-anchor="start">reporta lo registrado</text>
+<rect x="40" y="1330" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1363.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-30 patrones por lote</text>
+<rect x="340" y="1330" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1363.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-27, RF-02</text>
+<rect x="570" y="1330" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1363.61" font-size="13" fill="#1e1e1e" text-anchor="start">cruza reacciones contra lotes</text>
+<rect x="40" y="1390" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1423.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-31 notificar dosis</text>
+<rect x="340" y="1390" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1423.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-10</text>
+<rect x="570" y="1390" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1423.61" font-size="13" fill="#1e1e1e" text-anchor="start">notifica la frecuencia prescrita</text>
+<rect x="40" y="1450" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1483.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-32 trazabilidad QR</text>
+<rect x="340" y="1450" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1483.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-18, RF-23</text>
+<rect x="570" y="1450" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1483.61" font-size="13" fill="#1e1e1e" text-anchor="start">muestra la cadena etiqueta → administración</text>
+<rect x="40" y="1510" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1543.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-33 informe forense</text>
+<rect x="340" y="1510" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1543.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-02, RF-05, RF-17, RF-23</text>
+<rect x="570" y="1510" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1543.61" font-size="13" fill="#1e1e1e" text-anchor="start">recorre la cadena completa del lote</text>
+<rect x="40" y="1570" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1603.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-34 tablero financiero</text>
+<rect x="340" y="1570" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1603.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-02, RF-17</text>
+<rect x="570" y="1570" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1603.61" font-size="13" fill="#1e1e1e" text-anchor="start">agrega costos y desperdicio</text>
+<rect x="40" y="1630" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1663.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-35 auditar autorizaciones</text>
+<rect x="340" y="1630" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1663.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-01, RF-08</text>
+<rect x="570" y="1630" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1663.61" font-size="13" fill="#1e1e1e" text-anchor="start">audita compras y sobrescrituras</text>
+<rect x="40" y="1690" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1723.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-36 información pública</text>
+<rect x="340" y="1690" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1723.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-34</text>
+<rect x="570" y="1690" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1723.61" font-size="13" fill="#1e1e1e" text-anchor="start">publica los agregados anonimizados</text>
+<rect x="40" y="1750" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1783.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-37 HL7 / API nacional</text>
+<rect x="340" y="1750" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="352" y="1783.61" font-size="13" fill="#1e1e1e" text-anchor="start">RF-28, RF-29</text>
+<rect x="570" y="1750" width="570" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="582" y="1783.61" font-size="13" fill="#1e1e1e" text-anchor="start">expone lo que farmacovigilancia registra</text>
+</svg>

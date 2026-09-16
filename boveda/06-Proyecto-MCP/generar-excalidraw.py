@@ -11,12 +11,20 @@ trazo #1e1e1e, Helvetica, y los tamaños estándar por elemento.
 
 Uso:
     python generar-excalidraw.py <nombre-del-diagrama>
+    python generar-excalidraw.py <nombre-de-carpeta>    (genera el lote entero)
+    python generar-excalidraw.py --referencia          (refresca practica/ y examen/)
+    python generar-excalidraw.py --referencia examen   (solo una de las dos)
 
-Diagramas disponibles: cdu-hospital, contexto-centro-salud,
-                      cdu-negocio-centro-salud
+Cada lamina se escribe en ../02-Diagramas/<carpeta>/, donde la carpeta es la
+SECCION DE LA ENTREGA que la usa (2-caso-negocio, 3.1-drivers-rf,
+3.2-drivers-calidad, 3.3-drivers-restriccion, 3.4-priorizacion,
+4-matrices-trazabilidad) o `ejemplos-clase` para los casos de otro dominio.
+Correr sin argumento lista lo disponible.
 """
 
 import json
+import os
+import shutil
 import sys
 
 # --------------------------------------------------------------------------
@@ -61,15 +69,15 @@ def _base(tipo, x, y, w, h, **kw):
     return el
 
 
-def texto(t, x, y, w, tam=16, align="center"):
-    """Texto autónomo, centrado dentro de un ancho dado."""
+def texto(t, x, y, w, tam=16, align="center", **kw):
+    """Texto autónomo, alineado dentro de un ancho dado."""
     lineas = t.split("\n")
     alto = int(tam * 1.25 * len(lineas))
     return _base("text", x, y, w, alto,
                  text=t, originalText=t,
                  fontSize=tam, fontFamily=FUENTE,
                  textAlign=align, verticalAlign="top",
-                 containerId=None, lineHeight=1.25, autoResize=False)
+                 containerId=None, lineHeight=1.25, autoResize=False, **kw)
 
 
 def elipse(x, y, w, h, etiqueta, tam=16):
@@ -86,6 +94,106 @@ def caja(x, y, w, h, etiqueta, fondo="transparent", grosor=1, tam=16):
               backgroundColor=fondo, strokeWidth=grosor,
               roundness={"type": 3})
     return [r, texto(etiqueta, x, y + 12, w, tam)]
+
+
+# --------------------------------------------------------------------------
+# Tablas
+#
+# Excalidraw NO tiene elemento tabla: una tabla es una rejilla de rectangulos
+# con texto encima. Por eso el ancho de cada columna se fija aca a mano y el
+# texto se parte a mano — es la palanca 3 de estilo-diagramas.md §5
+# (coordenadas explicitas), la unica via programable de controlar el layout.
+# --------------------------------------------------------------------------
+ANCHO_CARACTER = 0.52   # Helvetica: ancho medio de caracter, en fracciones del tamaño
+
+
+def _partir(t, ancho_px, tam):
+    """Parte un texto en las lineas que caben en ancho_px, por palabras."""
+    maxc = max(1, int(ancho_px / (tam * ANCHO_CARACTER)))
+    lineas = []
+    for parrafo in str(t).split("\n"):
+        palabras = parrafo.split()
+        if not palabras:
+            lineas.append("")
+            continue
+        actual = palabras[0]
+        for pal in palabras[1:]:
+            if len(actual) + 1 + len(pal) <= maxc:
+                actual += " " + pal
+            else:
+                lineas.append(actual)
+                actual = pal
+        lineas.append(actual)
+    return lineas
+
+
+def _a_reticula(v, paso=GRID):
+    """Redondea hacia arriba a la retícula de 20 px (estilo-diagramas.md §5)."""
+    return int(-(-v // paso) * paso)
+
+
+def tabla(x, y, columnas, filas, tam=13, pad=12,
+          fondo_encabezado=FONDO_SISTEMA, destacar=(), alineaciones=None):
+    """Rejilla de celdas.
+
+    columnas:     [(titulo, ancho_px)]
+    filas:        [[celda, celda, ...]]  — una celda por columna
+    destacar:     indices de fila (0-based sobre `filas`) que van sombreados;
+                  se usa para la MEDIDA, que es la parte que convierte el
+                  deseo en driver y tiene que saltar a la vista.
+    alineaciones: "left" | "center" por columna. Por omision todo a la
+                  izquierda; las matrices centran las columnas de marca,
+                  que llevan una sola X o i.
+
+    Devuelve (elementos, alto_total).
+    """
+    els = []
+    anchos = [a for _, a in columnas]
+    alin = list(alineaciones) if alineaciones else ["left"] * len(columnas)
+    cursor = y
+    bloques = [[t for t, _ in columnas]] + [list(f) for f in filas]
+
+    for n, fila in enumerate(bloques):
+        encabezado = n == 0
+        resaltada = (not encabezado) and (n - 1) in destacar
+        partidas = [_partir(c, anchos[i] - 2 * pad, tam)
+                    for i, c in enumerate(fila)]
+        alto = _a_reticula(max(len(pz) for pz in partidas) * tam * 1.25 + 2 * pad)
+        cx = x
+        for i, lineas in enumerate(partidas):
+            fondo = fondo_encabezado if (encabezado or resaltada) else "transparent"
+            els.append(_base("rectangle", cx, cursor, anchos[i], alto,
+                             backgroundColor=fondo))
+            ty = cursor + (alto - len(lineas) * tam * 1.25) / 2
+            if alin[i] == "center":
+                tx, tw = cx, anchos[i]
+            else:
+                tx, tw = cx + pad, anchos[i] - 2 * pad
+            els.append(texto("\n".join(lineas), tx, int(ty), tw, tam,
+                             align=alin[i], _halo=False))
+            cx += anchos[i]
+        cursor += alto
+
+    return els, cursor - y
+
+
+def matriz(x, y, etiqueta_esquina, ancho_etiqueta, encabezados, ancho_col,
+           filas, tam=13):
+    """Matriz de trazabilidad: primera columna con la etiqueta de fila y el
+    resto centradas, porque cada celda es una sola marca.
+
+    encabezados: los rotulos de columna (sin la esquina)
+    filas:       [(etiqueta_fila, [marca, marca, ...])]
+    """
+    cols = [(etiqueta_esquina, ancho_etiqueta)] + [(h, ancho_col) for h in encabezados]
+    alin = ["left"] + ["center"] * len(encabezados)
+    datos = [[etq] + list(marcas) for etq, marcas in filas]
+    return tabla(x, y, cols, datos, tam=tam, alineaciones=alin)
+
+
+def titulo(t, x, y, w, tam=20):
+    """Titulo de lamina, alineado a la izquierda sobre la tabla."""
+    return texto(t, x, y, w, tam, align="left", _halo=False)
 
 
 def actor(x, y, nombre, tam=14):
@@ -164,11 +272,15 @@ def linea(x1, y1, x2, y2, punta=None, punteada=False, etiqueta=None, off=(0, 0))
 
 
 def envolver(elementos):
+    # las claves con guion bajo son directivas para emitir_svg, no parte del
+    # formato .excalidraw: se descartan antes de serializar
+    limpios = [{k: v for k, v in e.items() if not k.startswith("_")}
+               for e in elementos]
     return {
         "type": "excalidraw",
         "version": 2,
         "source": "generar-excalidraw.py",
-        "elements": elementos,
+        "elements": limpios,
         "appState": {
             "viewBackgroundColor": "#ffffff",
             "gridSize": GRID,
@@ -221,8 +333,9 @@ def emitir_svg(elementos, margen=40):
         elif t == "rectangle":
             fill = e.get("backgroundColor", "transparent")
             fill = "none" if fill == "transparent" else fill
+            rx = 12 if e.get("roundness") else 0
             out.append(
-                f'<rect x="{x}" y="{y}" width="{ew}" height="{eh}" rx="12" '
+                f'<rect x="{x}" y="{y}" width="{ew}" height="{eh}" rx="{rx}" '
                 f'fill="{fill}" stroke="{TRAZO}" stroke-width="{gr}"/>')
         elif t in ("line", "arrow"):
             (dx1, dy1), (dx2, dy2) = e["points"][0], e["points"][-1]
@@ -236,14 +349,21 @@ def emitir_svg(elementos, margen=40):
         elif t == "text":
             tam = e["fontSize"]
             paso = tam * 1.25
+            alin = e.get("textAlign", "center")
+            ancla = {"center": "middle", "left": "start", "right": "end"}[alin]
+            tx = {"middle": x + ew / 2, "start": x, "end": x + ew}[ancla]
+            # el halo blanco existe para que un rotulo se lea sobre una linea
+            # que lo cruza; dentro de una celda solo engorda el trazo
+            halo = ('' if e.get("_halo", True) is False else
+                    ' paint-order="stroke" stroke="#ffffff" stroke-width="4"'
+                    ' stroke-linejoin="round"')
             for i, linea_txt in enumerate(e["text"].split("\n")):
                 esc = (linea_txt.replace("&", "&amp;")
                                 .replace("<", "&lt;").replace(">", "&gt;"))
                 out.append(
-                    f'<text x="{x + ew / 2}" y="{y + paso * (i + 1) - tam * 0.28}" '
-                    f'font-size="{tam}" fill="{TRAZO}" text-anchor="middle" '
-                    f'paint-order="stroke" stroke="#ffffff" stroke-width="4" '
-                    f'stroke-linejoin="round">{esc}</text>')
+                    f'<text x="{tx}" y="{y + paso * (i + 1) - tam * 0.28}" '
+                    f'font-size="{tam}" fill="{TRAZO}" text-anchor="{ancla}"'
+                    f'{halo}>{esc}</text>')
 
     out.append("</svg>")
     return "\n".join(out)
@@ -544,6 +664,573 @@ def cdu_expandido_prescripcion():
     return els
 
 
+# --------------------------------------------------------------------------
+# Laminas: drivers de atributos de calidad del Caso 1 (FarmaHosp)
+#
+# NO son diagramas y no se dibujan como casos de uso: un atributo de calidad
+# NO es un caso de uso (estilo-diagramas.md §8). Son los 8 escenarios de SEIS
+# partes de la Entrega §3.2, puestos en lamina. El contenido es el del
+# entregable — si cambia alli, se regenera aca.
+# --------------------------------------------------------------------------
+RESUMEN_CALIDAD = [
+    ["AC-01", "Validación paciente-medicamento < 500 ms / < 2 s",
+     "Eficiencia", "Fiabilidad", "STK-03 enfermero"],
+    ["AC-02", "Operación offline ≥ 4 h con reconciliación",
+     "Fiabilidad", "Funcionalidad", "STK-02 / STK-03"],
+    ["AC-03", "Registros inmutables y trazables sin degradar",
+     "Funcionalidad (seguridad: no repudio)", "Eficiencia", "STK-11 Contraloría"],
+    ["AC-04", "Autorización contextual ABAC con excepción auditada",
+     "Funcionalidad (seguridad: confidencialidad)", "Eficiencia", "STK-06 paciente"],
+    ["AC-05", "Pico de 10x con presupuesto fijo",
+     "Eficiencia", "Fiabilidad", "STK-13 operaciones"],
+    ["AC-06", "Integración legacy SOAP + nacional XML/DTD",
+     "Funcionalidad (interoperabilidad)", "Fiabilidad, eficiencia", "STK-07 MSPAS"],
+    ["AC-07", "Mantenible por el equipo interno tras la consultora",
+     "Mantenibilidad", "—", "STK-08 equipo interno"],
+    ["AC-08", "Temperaturas inalterables y verificables criptográficamente",
+     "Funcionalidad (seguridad: integridad)", "—", "STK-11 Contraloría"],
+]
+
+FICHAS_CALIDAD = {
+    "ac-01": (
+        "AC-01 — Eficiencia (comportamiento temporal)",
+        "Secundario: fiabilidad  ·  Origen: acuerdo de calidad 1 + escenario crítico 3",
+        [("Fuente", "El enfermero de piso, desde la Toughpad junto a la cama"),
+         ("Estímulo", "Escanea la pulsera del paciente y el código del medicamento para validar"),
+         ("Artefacto", "El módulo de administración (validación paciente-medicamento)"),
+         ("Entorno", "Operación normal de red; y condición degradada (Wi-Fi inestable del piso)"),
+         ("Respuesta", "Confirma la correspondencia o dispara la alerta roja de discrepancia"),
+         ("MEDIDA", "< 500 ms (p95) en red normal y < 2 s en degradada, con 15.000 pacientes y "
+                    "800 SKUs en base — la alerta de 4 s del escenario 3 es el contraejemplo")]),
+    "ac-02": (
+        "AC-02 — Fiabilidad (tolerancia a fallos y recuperabilidad)",
+        "Secundario: funcionalidad (exactitud)  ·  Origen: acuerdo 2 + escenario crítico 5",
+        [("Fuente", "La caída del servidor central (o del enlace)"),
+         ("Estímulo", "Los puestos de farmacia y las tablets pierden conectividad"),
+         ("Artefacto", "Los módulos de dispensación y administración"),
+         ("Entorno", "Hora pico — lunes 8:30, el peor momento posible"),
+         ("Respuesta", "Siguen operando con registro local; al reconectar, la trazabilidad se "
+                       "reconcilia automáticamente"),
+         ("MEDIDA", "Operación offline ≥ 4 horas; 100 % de los registros reconciliados, "
+                    "0 duplicados")]),
+    "ac-03": (
+        "AC-03 — Funcionalidad → seguridad: no repudio",
+        "En ISO 25010 sería de primer nivel  ·  Secundario: eficiencia  ·  "
+        "Origen: acuerdo 3 + escenario crítico 4",
+        [("Fuente", "Cualquier usuario — incluido el administrador del sistema"),
+         ("Estímulo", "Intenta modificar o eliminar un registro histórico (inventario, "
+                      "prescripción, dispensación, administración)"),
+         ("Artefacto", "El almacén de registros del sistema"),
+         ("Entorno", "Operación normal"),
+         ("Respuesta", "La modificación se rechaza; todo cambio entra como evento nuevo "
+                       "trazado a su usuario"),
+         ("MEDIDA", "0 modificaciones históricas posibles; 100 % de eventos con usuario; el "
+                    "rendimiento de operación no se degrada por el historial (escrituras "
+                    "dentro de AC-01)")]),
+    "ac-04": (
+        "AC-04 — Funcionalidad → seguridad: confidencialidad",
+        "ISO 25010: primer nivel  ·  Secundario: eficiencia  ·  "
+        "Origen: acuerdo 4 + política de datos del hospital",
+        [("Fuente", "Un médico de urgencias que NO es el tratante (y, en el caso negativo, "
+                    "personal de admisión)"),
+         ("Estímulo", "Solicita el diagnóstico sensible (VIH, cáncer) de un paciente"),
+         ("Artefacto", "El módulo de expedientes y su motor de autorización (ABAC)"),
+         ("Entorno", "Emergencia, fuera del horario del tratante"),
+         ("Respuesta", "A urgencias: concede con justificación obligatoria y registro en el log. "
+                       "A admisión: niega siempre — ni el director accede sin orden judicial"),
+         ("MEDIDA", "100 % de accesos de excepción con justificación registrada; 0 accesos de "
+                    "personal no autorizado; decisión de autorización sin volverse cuello de "
+                    "botella (< 200 ms)")]),
+    "ac-05": (
+        "AC-05 — Eficiencia (utilización de recursos bajo sobrecarga)",
+        "Secundario: fiabilidad  ·  Origen: acuerdo 5 + escenario crítico 5",
+        [("Fuente", "Los usuarios concurrentes de todo el hospital"),
+         ("Estímulo", "Un pico de 10× el tráfico normal"),
+         ("Artefacto", "El sistema completo, sobre el data center fijo (32 vCPU / 128 GB / "
+                       "SAN 10 TB, sin autoescalado)"),
+         ("Entorno", "Lunes 8:30 — sobrecarga"),
+         ("Respuesta", "Sigue atendiendo priorizando el tráfico crítico (dispensaciones); "
+                       "degrada lo no crítico"),
+         ("MEDIDA", "0 colapsos; las dispensaciones se mantienen dentro de la medida de AC-01; "
+                    "sin hardware adicional (mitigación arquitectónica: caché, colas, réplicas "
+                    "de lectura)")]),
+    "ac-06": (
+        "AC-06 — Funcionalidad → interoperabilidad",
+        "ISO 25010: primer nivel  ·  Secundarios: fiabilidad, eficiencia  ·  "
+        "Origen: acuerdo 6 + escenario crítico 6",
+        [("Fuente", "El sistema legacy de admisiones (COBOL/SOAP, 3-5 s, 7:00-17:00) y el "
+                    "sistema nacional de farmacovigilancia (XML/DTD, 8:00-16:00)"),
+         ("Estímulo", "El sistema necesita identidad del paciente; debe entregar un reporte de "
+                      "efecto adverso"),
+         ("Artefacto", "Los adaptadores de integración"),
+         ("Entorno", "El incidente ocurre fuera de la ventana del sistema externo (la anafilaxia "
+                     "de las 19:30)"),
+         ("Respuesta", "Los datos de admisiones se replican/cachean para no bloquear la "
+                       "operación; los reportes se encolan y reintentan en ventana hábil — el "
+                       "plazo legal lo cumple el registro local"),
+         ("MEDIDA", "La respuesta al farmacéutico no espera al legacy (dentro de AC-01); "
+                    "100 % de reportes entregados ≤ 24 h")]),
+    "ac-07": (
+        "AC-07 — Mantenibilidad (cambiabilidad y analizabilidad)",
+        "Origen: acuerdo 7 + restricciones del equipo",
+        [("Fuente", "El equipo interno de TI: 3 personas, Java 8 / Spring Boot / Oracle PL/SQL "
+                    "/ Angular"),
+         ("Estímulo", "Un cambio normativo del MSPAS o una corrección, después de que la "
+                      "consultora se fue"),
+         ("Artefacto", "El código del sistema y su documentación viva"),
+         ("Entorno", "Mantenimiento post-entrega, sin apoyo externo, con rotación de personal alta"),
+         ("Respuesta", "El equipo implementa el cambio solo con su experiencia real y la "
+                       "documentación"),
+         ("MEDIDA", "El cambio afecta un solo módulo (cambiar farmacovigilancia sin tocar "
+                    "inventario); resuelto sin intervención externa; evolución incremental por "
+                    "módulos posible")]),
+    "ac-08": (
+        "AC-08 — Funcionalidad → seguridad: integridad",
+        "ISO 25010: primer nivel  ·  Origen: acuerdo 8 + escenario crítico 1",
+        [("Fuente", "Un auditor de la Contraloría (o el farmacéutico jefe que evalúa un lote)"),
+         ("Estímulo", "Verifica que las lecturas de temperatura que justificaron descartar un "
+                      "lote no fueron manipuladas"),
+         ("Artefacto", "El registro de lecturas de los sensores IoT"),
+         ("Entorno", "Auditoría posterior al descarte (el informe forense del escenario 4)"),
+         ("Respuesta", "El sistema demuestra criptográficamente la integridad de la serie "
+                       "(hash encadenado o firma de sensores — la técnica se decide en diseño; "
+                       "el driver fija la propiedad)"),
+         ("MEDIDA", "100 % de las lecturas verificables; cualquier alteración posterior es "
+                    "detectable")]),
+}
+
+
+def tabla_drivers_calidad():
+    """Lamina resumen: los 8 drivers de calidad con su atributo dominante."""
+    cols = [("ID", 100), ("Acuerdo de calidad del enunciado", 420),
+            ("Atributo dominante", 260), ("Otros", 180), ("Stakeholder detrás", 220)]
+    els = [
+        titulo("Drivers de atributos de calidad — FarmaHosp", 40, 40, 1180),
+        texto("Taxonomía declarada: los seis atributos del programa (ISO 9126).\n"
+              "Seguridad e interoperabilidad van bajo funcionalidad; en ISO 25010 serían "
+              "características de primer nivel.\n"
+              "Cada AC-nn se especifica como escenario de seis partes — ver su ficha.",
+              40, 76, 1180, 13, align="left", _halo=False),
+    ]
+    rejilla, _ = tabla(40, 150, cols, RESUMEN_CALIDAD)
+    return els + rejilla
+
+
+def _ficha(clave):
+    """Lamina de un driver: el escenario de SEIS partes, con la medida resaltada."""
+    def construir():
+        cabecera, sub, partes = FICHAS_CALIDAD[clave]
+        els = [
+            titulo(cabecera, 40, 40, 940),
+            texto(sub, 40, 74, 940, 13, align="left", _halo=False),
+        ]
+        cols = [("Parte del escenario", 200), ("Contenido", 740)]
+        # la MEDIDA es la ultima de las seis y va sombreada: sin numero no es
+        # un driver, es un deseo
+        rejilla, _ = tabla(40, 120, cols, [list(f) for f in partes], destacar=(5,))
+        return els + rejilla
+    return construir
+
+
+# --------------------------------------------------------------------------
+# Laminas: las tres matrices de trazabilidad del Caso 1 (criterio 4)
+#
+# Tampoco son diagramas: son TABLAS (Entrega §4). La regla comun es que una
+# matriz solo sirve si se lee en los dos sentidos, y que el hallazgo son los
+# HUECOS — por eso cada lamina lleva su leyenda de celda y su lectura al pie.
+# Los ids no se renumeran: son los de §1-§3.
+# --------------------------------------------------------------------------
+CDU_CORTOS = ["CDU-01\nAdquis.", "CDU-02\nAlmac.", "CDU-03\nPrescr.",
+              "CDU-04\nDispen.", "CDU-05\nAdmin.", "CDU-06\nSeguim.",
+              "CDU-07\nControl"]
+
+STK_CDU = [
+    ("STK-01 Médico tratante",   ["", "", "X", "i", "i", "X", ""]),
+    ("STK-02 Farmacéutico",      ["i", "X", "", "X", "i", "", ""]),
+    ("STK-03 Enfermero",         ["", "", "", "X", "X", "i", ""]),
+    ("STK-04 Director Admin.",   ["X", "i", "", "", "", "", "X"]),
+    ("STK-05 Jefe Farmacovig.",  ["", "", "", "", "i", "X", "i"]),
+    ("STK-06 Paciente",          ["", "", "X", "i", "X", "X", ""]),
+    ("STK-07 MSPAS",             ["", "", "", "", "", "X", "X"]),
+    ("STK-08 Equipo interno TI", ["i"] * 7),
+    ("STK-09 Consultora",        ["i"] * 7),
+    ("STK-10 Junta Directiva",   ["i", "", "", "", "", "", "X"]),
+    ("STK-11 Contraloría",       ["i", "i", "", "", "", "", "X"]),
+    ("STK-12 Proveedor de MAC",  ["X", "i", "", "", "", "", ""]),
+    ("STK-13 Operaciones TI",    ["i"] * 7),
+]
+
+DEPENDENCIAS_RF = [
+    ["RF-02 recepción de lotes", "RF-01", "no se recibe sin orden de compra"],
+    ["RF-06 incidente y bloqueo", "RF-05", "sin monitoreo no hay incidente que registrar"],
+    ["RF-07 alerta de guardia", "RF-06", "alerta lo que el incidente detectó"],
+    ["RF-08 sobrescribir descarte", "RF-06", "se sobrescribe la decisión que el incidente disparó"],
+    ["RF-09 proyección de faltantes", "RF-02, RF-10",
+     "proyecta sobre inventario y prescripciones programadas"],
+    ["RF-10 prescribir", "RF-11, RF-12, RF-13, RF-14", "los cuatro include obligatorios"],
+    ["RF-14 consultar inventario", "RF-02", "consulta los lotes registrados"],
+    ["RF-15 sugerir MAC", "RF-10, RF-11", "sugiere sobre protocolo e historial de prescripción"],
+    ["RF-17 dispensar", "RF-10, RF-14, RF-02", "dispensa una prescripción, contra inventario real"],
+    ["RF-18 etiqueta QR", "RF-17", "etiqueta el lote asignado"],
+    ["RF-19 / RF-20 / RF-21 opciones A/B/C", "RF-17", "las tres extienden la dispensación"],
+    ["RF-22 doble registro INCAP", "RF-17, RF-23", "exige coincidencia entre ambos extremos"],
+    ["RF-23 administrar", "RF-17, RF-24", "administra lo dispensado, tras validar"],
+    ["RF-24 validar paciente-medicamento", "RF-18", "valida contra la etiqueta generada"],
+    ["RF-25 entrada manual", "RF-24", "es su respaldo"],
+    ["RF-26 operar offline", "RF-17, RF-23", "continúa esas operaciones sin red"],
+    ["RF-27 reacción por voz", "RF-23", "registra sobre una administración"],
+    ["RF-28 seguimiento", "RF-23", "sigue lo administrado"],
+    ["RF-29 reporte nacional", "RF-27, RF-28", "reporta lo registrado"],
+    ["RF-30 patrones por lote", "RF-27, RF-02", "cruza reacciones contra lotes"],
+    ["RF-31 notificar dosis", "RF-10", "notifica la frecuencia prescrita"],
+    ["RF-32 trazabilidad QR", "RF-18, RF-23", "muestra la cadena etiqueta → administración"],
+    ["RF-33 informe forense", "RF-02, RF-05, RF-17, RF-23", "recorre la cadena completa del lote"],
+    ["RF-34 tablero financiero", "RF-02, RF-17", "agrega costos y desperdicio"],
+    ["RF-35 auditar autorizaciones", "RF-01, RF-08", "audita compras y sobrescrituras"],
+    ["RF-36 información pública", "RF-34", "publica los agregados anonimizados"],
+    ["RF-37 HL7 / API nacional", "RF-28, RF-29", "expone lo que farmacovigilancia registra"],
+]
+
+TRONCO_COLS = ["01", "02", "05", "10", "14", "17", "18", "23", "24", "28", "29", "33"]
+TRONCO_RF = [
+    ("RF-01", {"01": "—"}),
+    ("RF-02", {"01": "X", "02": "—"}),
+    ("RF-05", {"05": "—"}),
+    ("RF-10", {"10": "—", "14": "X"}),
+    ("RF-14", {"02": "X", "14": "—"}),
+    ("RF-17", {"02": "X", "10": "X", "14": "X", "17": "—"}),
+    ("RF-18", {"17": "X", "18": "—"}),
+    ("RF-23", {"17": "X", "23": "—", "24": "X"}),
+    ("RF-24", {"18": "X", "24": "—"}),
+    ("RF-28", {"23": "X", "28": "—"}),
+    ("RF-29", {"28": "X", "29": "—"}),
+    ("RF-33", {"02": "X", "05": "X", "17": "X", "23": "X", "33": "—"}),
+]
+
+# CDU -> los RF que cubre. RF-14 y RF-22 aparecen en DOS filas a proposito:
+# es la inclusion por reutilizacion de §3.1 hecha visible, no un error.
+COBERTURA_CDU = {
+    "CDU-01": [1, 2, 3, 4],
+    "CDU-02": [5, 6, 7, 8, 9],
+    "CDU-03": [10, 11, 12, 13, 14, 15, 16],
+    "CDU-04": [14, 17, 18, 19, 20, 21, 22],
+    "CDU-05": [22, 23, 24, 25, 26, 27],
+    "CDU-06": [28, 29, 30, 31, 32],
+    "CDU-07": [33, 34, 35, 36, 37],
+}
+
+
+def _pie(lineas, x, y, ancho, tam=13):
+    """Las dos lecturas al pie: una matriz solo sirve leida en los dos sentidos."""
+    return texto("\n".join(lineas), x, y, ancho, tam, align="left", _halo=False)
+
+
+def matriz_stk_cdu():
+    els = [
+        titulo("Matriz 1 — Stakeholders vs. CDU", 40, 40, 1100),
+        texto("Celda:  X = participa directamente en el proceso  ·  "
+              "i = tiene interés en su resultado sin participar",
+              40, 74, 1100, 13, align="left", _halo=False),
+    ]
+    rejilla, alto = matriz(40, 110, "Stakeholder", 260, CDU_CORTOS, 120, STK_CDU)
+    els += rejilla
+    els.append(_pie([
+        "Lectura por columna — ¿para quién es cada proceso?  Ninguna columna vacía. "
+        "El más poblado es CDU-05 (administración), coherente con que sea el acto de valor central.",
+        "Lectura por fila — ¿dónde aparece cada stakeholder?  Ninguna fila vacía. Tres filas son "
+        "enteramente i (STK-08, STK-09, STK-13):",
+        "no es un hueco, es su naturaleza — quien construye, mantiene y opera tiene interés "
+        "transversal sin participar en ningún proceso.",
+        "Es la demostración en matriz de que NO todo stakeholder es actor.",
+    ], 40, 110 + alto + 30, 1100))
+    return els
+
+
+def matriz_dependencias_rf():
+    els = [
+        titulo("Matriz 2a — Drivers RF vs. Drivers RF · tabla completa de dependencias",
+               40, 40, 1200),
+        texto("Se lee: «la fila depende de la columna». Con 37 RF la matriz 37×37 sería casi "
+              "vacía, así que se presenta en dos vistas —\n"
+              "decisión declarada: esta tabla completa, y la matriz del tronco (matriz 2b) con "
+              "los 12 RF que concentran las dependencias.",
+              40, 74, 1200, 13, align="left", _halo=False),
+    ]
+    cols = [("RF que depende", 300), ("Depende de", 230), ("Razón", 570)]
+    rejilla, _ = tabla(40, 130, cols, DEPENDENCIAS_RF)
+    return els + rejilla
+
+
+def matriz_tronco_rf():
+    filas = [(etq, [marcas.get(c, "") for c in TRONCO_COLS])
+             for etq, marcas in TRONCO_RF]
+    els = [
+        titulo("Matriz 2b — Drivers RF vs. Drivers RF · el tronco", 40, 40, 1000),
+        texto("Se lee: «la fila depende de la columna». Asimétrica, y la diagonal "
+              "queda excluida (—), según la NT1 de la cátedra.",
+              40, 74, 1000, 13, align="left", _halo=False),
+    ]
+    rejilla, alto = matriz(40, 110, "dep. ↓  /  de →", 200, TRONCO_COLS, 66, filas)
+    els += rejilla
+    els.append(_pie([
+        "Lectura por fila — ¿qué necesito antes de construir esto?  Filas vacías (autónomos, "
+        "candidatos a construirse primero): RF-01, RF-05, RF-11/12/13.",
+        "Coincide con la restricción RE-18: dispensación y almacén primero.",
+        "Lectura por columna — ¿si cambio esto, qué se rompe?  Las más pobladas son RF-02 "
+        "(4 dependientes), RF-17 (6) y RF-23 (5):",
+        "el registro de lotes, la dispensación y la administración son los RF críticos. "
+        "Sin ciclos: ningún par depende mutuamente.",
+    ], 40, 110 + alto + 30, 1100))
+    return els
+
+
+def matriz_cdu_rf():
+    cols = [f"{n:02d}" for n in range(1, 38)]
+    filas = [(cdu, ["X" if n in rfs else "" for n in range(1, 38)])
+             for cdu, rfs in COBERTURA_CDU.items()]
+    els = [
+        titulo("Matriz 3 — CDU vs. Drivers RF · cobertura", 40, 40, 1600),
+        texto("Celda:  X = ese proceso cubre ese driver.  Las columnas son RF-01 … RF-37.",
+              40, 74, 1600, 13, align="left", _halo=False),
+    ]
+    rejilla, alto = matriz(40, 110, "Proceso", 120, cols, 46, filas)
+    els += rejilla
+    els.append(_pie([
+        "Lectura por columna — ¿todo RF tiene quién lo cubra?  Ninguna columna vacía: los 37 RF "
+        "están cubiertos. Es la prueba de completitud del criterio 3.",
+        "Lectura por fila — ¿todo proceso justifica su existencia?  Ninguna fila vacía, y el "
+        "reparto es parejo (4-7 RF por proceso): ningún CDU sobrecargado ni de más.",
+        "El hallazgo fino: RF-14 aparece en dos filas (CDU-03 y CDU-04) y RF-22 también "
+        "(CDU-04 y CDU-05). No es un error de la matriz:",
+        "es la inclusión por reutilización de §3.1 hecha visible — consultar inventario lo "
+        "comparten prescribir y dispensar; el doble registro INCAP exige que",
+        "dispensación y administración coincidan.",
+    ], 40, 110 + alto + 30, 1900))
+    return els
+
+
+# --------------------------------------------------------------------------
+# Laminas: drivers de restriccion (Entrega §3.3)
+#
+# Una restriccion es una decision de diseno YA TOMADA que el arquitecto no
+# negocia. No tiene medida (se cumple o no) y NO se prioriza: todas son
+# obligatorias. La columna "que decision bloquea" es la que convierte la cita
+# en driver — una restriccion sirve para descartar alternativas.
+# Las explicitas van TEXTUALES: parafrasear es donde se pierde el requisito.
+# --------------------------------------------------------------------------
+RESTRICCIONES_EXPLICITAS = [
+    ["RE-01", "«No se puede usar una base de datos que no soporte transacciones ACID "
+              "para el módulo de inventario»", "técnica",
+     "Descarta NoSQL sin ACID para inventario — el MongoDB de la consultora incluido"],
+    ["RE-02", "«No se puede depender de la nube pública para el almacenamiento de datos "
+              "sensibles… solo… análisis estadístico agregado (datos anonimizados)»", "técnica",
+     "Descarta bases y SaaS en la nube para lo clínico; todo en el data center local"],
+    ["RE-03", "«No se puede usar una tecnología que requiera licencias de pago anuales… "
+              "(ej. Oracle Enterprise, SQL Server Enterprise). Se prefiere software "
+              "open-source»", "negocio",
+     "Descarta las bases comerciales — incluida la Oracle que el equipo interno prefiere"],
+    ["RE-04", "«No se puede obligar a los enfermeros a usar dispositivos personales (BYOD)… "
+              "el hospital provee los Toughpads»", "negocio",
+     "El cliente de enfermería se diseña para las Toughpad, no para «cualquier teléfono»"],
+    ["RE-05", "«No se puede diseñar un sistema monolítico, porque el módulo de "
+              "farmacovigilancia tiene ciclos de entrega diferentes…»", "técnica",
+     "Obliga módulos desplegables por separado; descarta el despliegue único"],
+    ["RE-06", "«No se pueden almacenar contraseñas ni credenciales en texto plano en "
+              "ninguna capa»", "técnica",
+     "Descarta configuraciones y logs con secretos; obliga hashing y gestión de secretos"],
+    ["RE-07", "«No se puede implementar una solución que requiera entrenamiento de más de "
+              "2 horas para los enfermeros»", "negocio",
+     "Acota la complejidad de la interfaz de enfermería; descarta flujos que exijan curso"],
+    ["RE-08", "«No se puede generar un único punto de falla en la autenticación; si… (LDAP) "
+              "cae, el hospital debe seguir operando con… respaldo (ej. OTP por SMS)»", "técnica",
+     "Descarta autenticar solo contra LDAP; obliga el mecanismo de respaldo"],
+]
+
+RESTRICCIONES_IMPLICITAS = [
+    ["RE-09", "Reporte de efectos adversos ≤ 24 h en XML con la DTD del MSPAS",
+     "regulatoria — Norma Técnica de Farmacovigilancia",
+     "El formato y el plazo no se negocian; se realiza en RF-29 y AC-06"],
+    ["RE-10", "Doble registro farmacéutico-enfermero para oncológicos y opioides; "
+              "alerta si discrepancia > 5 min", "regulatoria — INCAP",
+     "Obliga la coincidencia en tiempo real; se realiza en RF-22"],
+    ["RE-11", "Responder solicitudes ciudadanas de datos estadísticos (no personales) "
+              "en 10 días hábiles", "regulatoria — Ley de Acceso a la Información Pública",
+     "Obliga la vía de datos anonimizados; se realiza en RF-36"],
+    ["RE-12", "Diagnósticos sensibles visibles solo para tratante, farmacéutico y enfermero "
+              "asignado; el director solo con orden judicial",
+     "regulatoria — Política de Datos del Hospital",
+     "Fija el modelo de autorización; se realiza en AC-04 y RF-16"],
+    ["RE-13", "Data center fijo: 32 vCPU / 128 GB / SAN 10 TB, sin autoescalado",
+     "técnica del entorno",
+     "Descarta resolver el pico con hardware; obliga la mitigación arquitectónica de AC-05"],
+    ["RE-14", "Tablets Panasonic Toughpad, Android 9, 3 GB RAM ya compradas",
+     "técnica del entorno",
+     "El cliente móvil debe correr ahí: descarta frameworks pesados y Android nuevos"],
+    ["RE-15", "Escáneres Bluetooth con 5 % de fallo: la entrada manual del código es "
+              "obligatoria", "técnica del entorno",
+     "Obliga el respaldo manual de RF-25; descarta flujos solo-escáner"],
+    ["RE-16", "Wi-Fi inestable en el sótano de farmacia; internet de 50 Mbps compartido "
+              "con priorización de tráfico crítico", "técnica del entorno",
+     "Descarta diseños que asuman red confiable; empuja AC-01 degradado y AC-02"],
+    ["RE-17", "El sistema debe poder ser mantenido exclusivamente por el equipo interno "
+              "(3 personas, Java 8 / Oracle PL/SQL / Angular) tras los 12 meses",
+     "organizativa",
+     "Acota el stack a lo que el interno pueda heredar; es el origen de AC-07"],
+    ["RE-18", "Entrega en 12 meses, con evolución incremental: dispensación y almacén → "
+              "prescripción → farmacovigilancia", "organizativa",
+     "Fija el orden de construcción y refuerza RE-05 (módulos separados)"],
+]
+
+
+def restricciones_explicitas():
+    els = [
+        titulo("Drivers de restricción — las 8 explícitas del enunciado", 40, 40, 1300),
+        texto("Textuales, sin parafrasear: parafrasear es donde se pierde el requisito.\n"
+              "Una restricción no tiene medida (se cumple o no) y NO se prioriza: todas son "
+              "obligatorias. La última columna es la que la convierte en driver.",
+              40, 74, 1300, 13, align="left", _halo=False),
+    ]
+    cols = [("ID", 90), ("Restricción (textual)", 620), ("Tipo", 110),
+            ("Qué decisión bloquea", 480)]
+    rejilla, _ = tabla(40, 130, cols, RESTRICCIONES_EXPLICITAS)
+    return els + rejilla
+
+
+def restricciones_implicitas():
+    els = [
+        titulo("Drivers de restricción — las implícitas", 40, 40, 1300),
+        texto("Repartidas por el enunciado fuera de su sección de restricciones; se barren "
+              "por origen: regulatorias, técnicas del entorno y organizativas.",
+              40, 74, 1300, 13, align="left", _halo=False),
+    ]
+    cols = [("ID", 90), ("Restricción", 420), ("Origen", 280),
+            ("Qué decisión bloquea / dónde se realiza", 510)]
+    rejilla, alto = tabla(40, 120, cols, RESTRICCIONES_IMPLICITAS)
+    els += rejilla
+    els.append(_pie([
+        "La tensión que resuelven juntas: RE-03 (sin licencias: descarta Oracle Enterprise) "
+        "choca con la preferencia del equipo interno (Oracle), y RE-17 exige que ese mismo",
+        "equipo mantenga el sistema. Leídas juntas acotan el stack por las dos puntas: el "
+        "lenguaje que el interno domina + una base open source con ACID (RE-01).",
+        "Los stakeholders recortados en §1.1 se saldan acá: INCAP es RE-10; el personal de "
+        "admisiones es la cara negativa de RE-12; la capacitación limitada es RE-07.",
+    ], 40, 120 + alto + 30, 1300))
+    return els
+
+
+# --------------------------------------------------------------------------
+# Laminas: priorizacion de los 5 drivers mas criticos (Entrega §3.4)
+#
+# El metodo es ADD: DOS ejes, no una nota unica. La importancia para el
+# negocio la asignan los stakeholders; la dificultad tecnica, el arquitecto.
+# Compiten solo los AC-nn: las restricciones NO se priorizan.
+# --------------------------------------------------------------------------
+DOS_EJES = [
+    ["AC-01", "Validación < 500 ms / < 2 s",
+     "A — STK-03: evita el error fatal del escenario 3",
+     "A — el número con red degradada y equipo mixto; el enunciado mismo lo pregunta", "(A, A)"],
+    ["AC-02", "Offline ≥ 4 h con reconciliación",
+     "A — STK-02/STK-03: sin esto la quimioterapia se detiene",
+     "A — reconciliar sin duplicar es un problema de consistencia distribuida", "(A, A)"],
+    ["AC-03", "Inmutabilidad y trazabilidad total",
+     "A — STK-11: el proyecto nace de auditorías fallidas",
+     "M — event sourcing / bitácora inmutable es patrón conocido; el reto es no degradar",
+     "(A, M)"],
+    ["AC-04", "Confidencialidad ABAC con excepción",
+     "A — STK-06: ley + estigma de VIH/cáncer",
+     "M — ABAC es patrón establecido; la excepción auditada lo complica poco", "(A, M)"],
+    ["AC-05", "Pico de 10x con presupuesto fijo",
+     "A — STK-13: el lunes 8:30 ya colapsó una vez",
+     "A — sin autoescalado ni hardware nuevo: solo arquitectura (caché, colas, réplicas)",
+     "(A, A)"],
+    ["AC-06", "Interoperabilidad legacy + nacional",
+     "A — STK-07: plazo legal de 24 h",
+     "M — cola local con reintento en ventana es patrón estándar", "(A, M)"],
+    ["AC-07", "Mantenibilidad por el equipo interno",
+     "A — STK-08: sin esto el sistema muere a los 12 meses",
+     "M — la decisión dura es temprana (stack, módulos); después es disciplina", "(A, M)"],
+    ["AC-08", "Integridad criptográfica de sensores",
+     "M — STK-11: importante, pero parcialmente subsumido por AC-03",
+     "M — hash encadenado es técnica conocida", "(M, M)"],
+]
+
+TOP_5 = [
+    ["1", "AC-02", "Operación offline ≥ 4 h con reconciliación",
+     "Conectividad: el enunciado da Wi-Fi inestable en el sótano y 50 Mbps compartidos — en el "
+     "contexto local la intermitencia no es un caso raro, es el estado normal de la red. "
+     "Diseñar asumiendo conexión confiable haría el sistema inútil justo donde opera la farmacia"],
+    ["2", "AC-01", "Validación paciente-medicamento < 500 ms / < 2 s",
+     "Dispositivos y red reales: el número hay que lograrlo en Toughpads Android 9 de 3 GB "
+     "(gama baja, ya compradas — RE-14) y sobre la red degradada. En otro contexto se resuelve "
+     "con mejor hardware; acá el hardware es un dato, no una variable"],
+    ["3", "AC-05", "Pico de 10x con presupuesto fijo",
+     "Presupuesto público: no hay autoescalado, no hay nube para lo sensible (RE-02, RE-13) y el "
+     "presupuesto de un hospital nacional no crece con la demanda. El pico se absorbe con "
+     "arquitectura o no se absorbe — el autoescalado, razonable en otro contexto, acá es inviable"],
+    ["4", "AC-07", "Mantenibilidad por el equipo interno",
+     "Capital humano: 3 personas de TI, rotación alta por contratos de 12 meses, y sin dinero "
+     "para consultoras permanentes ni licencias (RE-03, RE-17). En este contexto, un sistema que "
+     "solo su constructor puede mantener es un sistema muerto a mediano plazo — y condiciona la "
+     "decisión más temprana de todas: el stack"],
+    ["5", "AC-03", "Inmutabilidad y trazabilidad total",
+     "Marco regulatorio local: la Contraloría General de Cuentas audita sin previo aviso y el "
+     "proyecto nace de auditorías fallidas (Q 2.5 M perdidos, registros en papel). En la gestión "
+     "pública guatemalteca la trazabilidad ante la Contraloría no es un plus: es la supervivencia "
+     "institucional del proyecto"],
+]
+
+
+def priorizacion_dos_ejes():
+    els = [
+        titulo("Priorización — la matriz de los dos ejes · los 8 candidatos", 40, 40, 1300),
+        texto("Método ADD: dos ejes, no una nota única. La IMPORTANCIA para el negocio la "
+              "asignan los stakeholders; la DIFICULTAD o riesgo técnico, el arquitecto.\n"
+              "Se ataca primero la intersección (A, A): alto valor y alta dificultad, donde una "
+              "decisión equivocada cuesta más deshacerla.\n"
+              "Compiten solo los drivers de calidad AC-nn: las restricciones NO se priorizan "
+              "(todas se cumplen) y la funcionalidad tiene su completitud en §3.1.",
+              40, 74, 1300, 13, align="left", _halo=False),
+    ]
+    cols = [("ID", 90), ("Driver", 300), ("Importancia (quién la sostiene)", 400),
+            ("Dificultad (por qué)", 420), ("Par", 90)]
+    rejilla, alto = tabla(40, 150, cols, DOS_EJES)
+    els += rejilla
+    els.append(_pie([
+        "Tres quedan en (A, A) y cuatro en (A, M): para los dos lugares restantes se desempata "
+        "con el contexto guatemalteco, que es exactamente lo que la rúbrica pide.",
+    ], 40, 150 + alto + 30, 1300))
+    return els
+
+
+def priorizacion_top5():
+    els = [
+        titulo("Los 5 drivers más críticos según el contexto guatemalteco", 40, 40, 1300),
+        texto("«Según el contexto guatemalteco» — interpretación declarada: la rúbrica lo exige "
+              "y no lo define en ningún material de clase (pregunta pendiente para la "
+              "catedrática).\n"
+              "Mientras tanto se declara la interpretación: los ejes del contexto nacional que el "
+              "propio enunciado pone sobre la mesa — marco regulatorio local (MSPAS, Contraloría,\n"
+              "Ley de Acceso, INCAP), presupuesto público fijo sin autoescalado ni licencias "
+              "renovables, infraestructura real (50 Mbps compartidos, Wi-Fi inestable), capital "
+              "humano\n(3 personas de TI, alta rotación) y criticidad social (referencia nacional, "
+              "1.200 pacientes diarios).",
+              40, 74, 1300, 13, align="left", _halo=False),
+    ]
+    cols = [("#", 60), ("ID", 90), ("Driver", 280),
+            ("Justificación en el contexto guatemalteco", 870)]
+    rejilla, alto = tabla(40, 170, cols, TOP_5)
+    els += rejilla
+    els.append(_pie([
+        "Por qué quedaron fuera los otros (A, M) — el desempate, dicho: AC-04 (ABAC) y AC-06 "
+        "(interoperabilidad) son de importancia alta pero su dificultad es media porque se",
+        "resuelven con patrones establecidos, que condicionan menos la estructura temprana que el "
+        "stack (AC-07) o la inmutabilidad transversal (AC-03). Y AC-08 queda",
+        "parcialmente cubierto por la decisión que se tome para AC-03.  Quedar fuera del top 5 NO "
+        "los vuelve opcionales: siguen siendo drivers y entran a las matrices.",
+    ], 40, 170 + alto + 30, 1300))
+    return els
+
+
 DIAGRAMAS = {
     "cdu-hospital": cdu_hospital,
     "contexto-centro-salud": contexto_centro_salud,
@@ -551,28 +1238,744 @@ DIAGRAMAS = {
     "cdu-core-farmahosp": cdu_core_farmahosp,
     "cdu-descomposicion-farmahosp": cdu_descomposicion_farmahosp,
     "cdu-expandido-prescripcion": cdu_expandido_prescripcion,
+    "tabla-drivers-calidad": tabla_drivers_calidad,
+    "matriz-1-stakeholders-cdu": matriz_stk_cdu,
+    "matriz-2a-dependencias-rf": matriz_dependencias_rf,
+    "matriz-2b-tronco-rf": matriz_tronco_rf,
+    "matriz-3-cdu-rf": matriz_cdu_rf,
+    "restricciones-explicitas": restricciones_explicitas,
+    "restricciones-implicitas": restricciones_implicitas,
+    "priorizacion-dos-ejes": priorizacion_dos_ejes,
+    "priorizacion-top5": priorizacion_top5,
 }
+DIAGRAMAS.update({f"ficha-{k}": _ficha(k) for k in FICHAS_CALIDAD})
+
+# Cada lamina vive en la carpeta de la SECCION DE LA ENTREGA que la usa, para
+# que buscarla no requiera recordar como se llama el archivo: el nombre de la
+# carpeta es el numero de seccion. Los ejemplos de otro dominio van aparte,
+# porque no son del caso.
+SUBCARPETA = {
+    # §2 — el caso de negocio (criterio 1)
+    "cdu-core-farmahosp": "2-caso-negocio",
+    "cdu-descomposicion-farmahosp": "2-caso-negocio",
+    # §3.1 — drivers RF (CDU expandidos)
+    "cdu-expandido-prescripcion": "3.1-drivers-rf",
+    # §3.3 — drivers de restriccion
+    "restricciones-explicitas": "3.3-drivers-restriccion",
+    "restricciones-implicitas": "3.3-drivers-restriccion",
+    # §3.4 — priorizacion
+    "priorizacion-dos-ejes": "3.4-priorizacion",
+    "priorizacion-top5": "3.4-priorizacion",
+    # §4 — matrices de trazabilidad
+    "matriz-1-stakeholders-cdu": "4-matrices-trazabilidad",
+    "matriz-2a-dependencias-rf": "4-matrices-trazabilidad",
+    "matriz-2b-tronco-rf": "4-matrices-trazabilidad",
+    "matriz-3-cdu-rf": "4-matrices-trazabilidad",
+    # los casos que resolvio la catedratica y las demostraciones en otro dominio
+    "cdu-hospital": "ejemplos-clase",
+    "contexto-centro-salud": "ejemplos-clase",
+    "cdu-negocio-centro-salud": "ejemplos-clase",
+}
+# §3.2 — drivers de atributos de calidad
+SUBCARPETA["tabla-drivers-calidad"] = "3.2-drivers-calidad"
+SUBCARPETA.update({f"ficha-{k}": "3.2-drivers-calidad" for k in FICHAS_CALIDAD})
+
+
+# Dos carpetas de trabajo con la MISMA estructura: `practica/` para entrenar sin
+# reloj y `examen/` para el dia del parcial. Cada una tiene las subcarpetas por
+# seccion (para dejar ahi lo propio) y adentro `referencia/`, que es una COPIA
+# de solo lectura de los .svg generados, con esas mismas subcarpetas.
+# El original vive siempre en la carpeta de su seccion en 02-Diagramas.
+DESTINOS = ["practica", "examen"]
+
+
+def _refrescar_uno(base):
+    """Rehace <base>/referencia/ y las carpetas de trabajo de <base>.
+
+    Espeja las MISMAS subcarpetas por seccion que 02-Diagramas: si buscar una
+    lamina requiere recordar en que carpeta esta, la copia tiene que estar en
+    la misma carpeta o no sirve de referencia.
+    """
+    raiz = os.path.join("../02-Diagramas", base)
+    referencia = os.path.join(raiz, "referencia")
+    if os.path.isdir(referencia):
+        shutil.rmtree(referencia)
+
+    copiados = 0
+    for nombre in DIAGRAMAS:
+        carpeta = SUBCARPETA.get(nombre, "")
+        origen = os.path.join("../02-Diagramas", carpeta, f"{nombre}.svg")
+        if not os.path.exists(origen):
+            print(f"  falta {origen} — generalo primero")
+            continue
+        destino = os.path.join(referencia, carpeta)
+        os.makedirs(destino, exist_ok=True)
+        shutil.copy2(origen, os.path.join(destino, f"{nombre}.svg"))
+        copiados += 1
+
+    # las carpetas de trabajo van vacias pero creadas: en el examen no se
+    # pierde tiempo decidiendo donde guardar
+    for carpeta in sorted(set(SUBCARPETA.values())):
+        if carpeta == "ejemplos-clase":
+            continue
+        propia = os.path.join(raiz, carpeta)
+        os.makedirs(propia, exist_ok=True)
+        marca = os.path.join(propia, ".gitkeep")
+        if not os.path.exists(marca):
+            open(marca, "w").close()
+
+    print(f"{raiz}/  —  referencia con {copiados} .svg + carpetas de trabajo")
+    return copiados
+
+
+def refrescar_referencia(cual=None):
+    """--referencia [practica|examen]; sin argumento, las dos."""
+    objetivos = [cual] if cual else DESTINOS
+    for base in objetivos:
+        if base not in DESTINOS:
+            print(f"destino desconocido: {base}. Disponibles: {', '.join(DESTINOS)}")
+            return 1
+        _refrescar_uno(base)
+    return 0
 
 
 def main():
-    if len(sys.argv) < 2 or sys.argv[1] not in DIAGRAMAS:
+    if len(sys.argv) >= 2 and sys.argv[1] == "--referencia":
+        return refrescar_referencia(sys.argv[2] if len(sys.argv) > 2 else None)
+
+    if len(sys.argv) < 2:
+        print(__doc__)
+        for carpeta in sorted(set(SUBCARPETA.values())):
+            laminas = [n for n in DIAGRAMAS if SUBCARPETA.get(n) == carpeta]
+            print(f"\n{carpeta}/")
+            for n in laminas:
+                print(f"    {n}")
+        return 1
+
+    # sin nombre exacto: se acepta el nombre de una subcarpeta y se generan
+    # todas sus laminas de una pasada
+    pedido = sys.argv[1]
+    if pedido in DIAGRAMAS:
+        lote = [pedido]
+    elif pedido in set(SUBCARPETA.values()):
+        lote = [n for n in DIAGRAMAS if SUBCARPETA.get(n) == pedido]
+    else:
         print(__doc__)
         print("Disponibles:", ", ".join(DIAGRAMAS))
+        print("Carpetas:", ", ".join(sorted(set(SUBCARPETA.values()))))
         return 1
-    nombre = sys.argv[1]
-    elementos = DIAGRAMAS[nombre]()
 
-    ruta_ex = f"../02-Diagramas/{nombre}.excalidraw"
-    with open(ruta_ex, "w", encoding="utf-8") as f:
-        json.dump(envolver(elementos), f, ensure_ascii=False, indent=2)
+    for nombre in lote:
+        # el contador de ids es global: sin reiniciarlo, generar una carpeta
+        # entera en un solo proceso le da a la 2da lamina ids distintos que
+        # generarla sola. El generador se documenta como DETERMINISTA, asi que
+        # cada lamina arranca siempre en el001.
+        _contador[0] = 0
+        elementos = DIAGRAMAS[nombre]()
+        destino = os.path.join("../02-Diagramas", SUBCARPETA.get(nombre, ""))
+        os.makedirs(destino, exist_ok=True)
 
-    ruta_svg = f"../02-Diagramas/{nombre}.svg"
-    with open(ruta_svg, "w", encoding="utf-8") as f:
-        f.write(emitir_svg(elementos))
+        ruta_ex = os.path.join(destino, f"{nombre}.excalidraw")
+        with open(ruta_ex, "w", encoding="utf-8") as f:
+            json.dump(envolver(elementos), f, ensure_ascii=False, indent=2)
 
-    print(f"{ruta_ex}   —  {len(elementos)} elementos (editable)")
-    print(f"{ruta_svg}  —  vectorial, sin marca de agua")
+        ruta_svg = os.path.join(destino, f"{nombre}.svg")
+        with open(ruta_svg, "w", encoding="utf-8") as f:
+            f.write(emitir_svg(elementos))
+
+        print(f"{ruta_ex}   —  {len(elementos)} elementos (editable)")
+        print(f"{ruta_svg}  —  vectorial, sin marca de agua")
     return 0
+
+
+
+# ==========================================================================
+# PRIMER PARCIAL 2026 — Caso "SmartPress" (AutoParts Guatemala S.A.)
+#
+# Frontera declarada: el negocio modelado es la GESTION DEL CONTROL DE
+# CALIDAD EN LINEA de la produccion de piezas de precision, no la planta
+# completa. Personas (operario, supervisor, ingeniero de calidad, director,
+# equipo de TI) son TRABAJADORES; las areas y los sistemas externos son
+# ACTORES DE NEGOCIO.
+# ==========================================================================
+def core_negocio_smartpress():
+    els = []
+    els += elipse_negocio(440, 330, 460, 200,
+                          "Gesti\u00f3n del Control de Calidad\nen L\u00ednea de la Producci\u00f3n de\nPiezas de Precisi\u00f3n\n(SmartPress)", tam=15)
+
+    els += actor_negocio(120, 60, "Proveedor de\nmateria prima")
+    els += actor_negocio(560, 40, "\u00c1rea de Producci\u00f3n")
+    els += actor_negocio(1000, 60, "Sistema de Control\nde M\u00e1quina (PLC)")
+    els += actor_negocio(60, 430, "Cliente (ensambladora\nautomotriz)")
+    els += actor_negocio(1120, 430, "Ente certificador\n(ISO 9001 / IATF 16949)")
+    els += actor_negocio(300, 700, "\u00c1rea de Mantenimiento")
+    els += actor_negocio(860, 700, "Sistemas legacy\n(ERP / Mantenimiento)")
+
+    # asociaciones sin punta (molde de los cuatro cores de la catedra)
+    els += linea(245, 140, 547, 345)
+    els += linea(610, 175, 647, 330)
+    els += linea(1030, 215, 790, 345)
+    els += linea(185, 480, 446, 453)
+    els += linea(1090, 480, 864, 453)
+    els += linea(350, 670, 555, 516)
+    els += linea(910, 670, 762, 522)
+    return els
+
+
+def descomposicion_smartpress():
+    els = []
+    EX, EW, EH = 460, 380, 100
+    nombres = [
+        "Recepci\u00f3n y calificaci\u00f3n\nde materia prima",
+        "Preparaci\u00f3n y calibraci\u00f3n\nde la m\u00e1quina",
+        "Monitoreo y control en l\u00ednea\ndel ciclo de producci\u00f3n",
+        "Inspecci\u00f3n final y mejora\ndel modelo predictivo",
+        "Trazabilidad, embarque y\nauditor\u00eda de calidad",
+    ]
+    ys = [60 + i * 150 for i in range(5)]
+    for n, y in zip(nombres, ys):
+        els += elipse_negocio(EX, y, EW, EH, n, tam=14)
+
+    els.append(texto("N\u00daCLEO", 350, 400, 90, 12))
+    els.append(texto("GERENCIAL", 340, 700, 110, 12))
+
+    els += actor_negocio(120, 60, "Proveedor de\nmateria prima")
+    els += actor_negocio(120, 280, "\u00c1rea de Producci\u00f3n")
+    els += actor_negocio(120, 520, "\u00c1rea de Mantenimiento")
+    els += actor_negocio(990, 60, "Sistemas legacy\n(ERP / Mantenimiento)")
+    els += actor_negocio(990, 280, "Sistema de Control\nde M\u00e1quina (PLC)")
+    els += actor_negocio(990, 470, "Sistema de medici\u00f3n\nl\u00e1ser (CMM)")
+    els += actor_negocio(990, 650, "Cliente (ensambladora\nautomotriz)")
+    els += actor_negocio(990, 830, "Ente certificador\n(ISO 9001 / IATF 16949)")
+
+    els += linea(245, 105, 458, 110)
+    els += linea(245, 320, 458, 262)
+    els += linea(245, 340, 458, 405)
+    els += linea(245, 560, 470, 440)
+    els += linea(955, 120, 842, 258)
+    els += linea(955, 330, 842, 410)
+    els += linea(955, 520, 842, 560)
+    els += linea(955, 700, 842, 706)
+    els += linea(955, 880, 830, 748)
+    return els
+
+
+def cdu_expandido_monitoreo():
+    """CUN-03 expandido — plano del SISTEMA (sin estereotipos de negocio)."""
+    els = []
+    els += caja(420, 40, 900, 810,
+                "SmartPress \u2014 Monitoreo y control en l\u00ednea del ciclo",
+                fondo=FONDO_SISTEMA, grosor=2)
+
+    els += elipse(470, 220, 320, 100, "Supervisar ciclo de\nproducci\u00f3n en l\u00ednea", tam=15)
+    els += elipse(970, 100, 310, 80, "Capturar mediciones de\nsensores v\u00eda OPC-UA", tam=13)
+    els += elipse(970, 210, 310, 80, "Predecir calidad de la pieza\n(inferencia ML)", tam=13)
+    els += elipse(970, 330, 310, 80, "Registrar trazabilidad\ndel ciclo", tam=13)
+    els += elipse(960, 450, 330, 90, "Ejecutar acci\u00f3n correctiva\nsobre la m\u00e1quina", tam=13)
+    els += elipse(470, 400, 320, 90, "Almacenar y reconciliar\ndesde buffer local", tam=13)
+    els += elipse(960, 600, 330, 90, "Notificar deriva de sensor\na Mantenimiento", tam=13)
+    els += elipse(470, 570, 320, 90, "Consultar tablero de\nestado en tiempo real", tam=13)
+    els += elipse(470, 720, 320, 90, "Atender alerta de desviaci\u00f3n\ny acci\u00f3n sugerida", tam=13)
+
+    els += actor(50, 180, "Operario de m\u00e1quina")
+    els += actor(170, 460, "Personal de piso")
+    els += actor(50, 740, "Supervisor de turno")
+    els += actor(1400, 250, "Sistema de Control\nde M\u00e1quina (PLC)")
+
+    # generalizacion: hijo -> padre, linea llena + triangulo hueco
+    els += linea(150, 330, 205, 440, punta="triangle_outline")
+    els += linea(150, 716, 202, 608, punta="triangle_outline")
+
+    # asociaciones (sin punta)
+    els += linea(185, 240, 470, 260)
+    els += linea(295, 500, 468, 605)
+    els += linea(185, 790, 470, 770)
+    els += linea(1378, 265, 1290, 168)
+    els += linea(1378, 300, 1294, 490)
+
+    # include: BASE -> incluido, punteada
+    els += linea(760, 240, 968, 150, punta="arrow", punteada=True,
+                 etiqueta="\u00abinclude\u00bb", off=(20, -22))
+    els += linea(790, 268, 968, 250, punta="arrow", punteada=True,
+                 etiqueta="\u00abinclude\u00bb", off=(10, -16))
+    els += linea(770, 300, 968, 370, punta="arrow", punteada=True,
+                 etiqueta="\u00abinclude\u00bb", off=(30, 14))
+
+    # extend: EXTENSION -> BASE, punteada, con la condicion entre corchetes
+    els += linea(958, 482, 792, 292, punta="arrow", punteada=True,
+                 etiqueta="\u00abextend\u00bb\n[predicci\u00f3n = defectuosa]", off=(58, 34))
+    els += linea(630, 398, 630, 322, punta="arrow", punteada=True,
+                 etiqueta="\u00abextend\u00bb\n[ca\u00edda de red]", off=(-118, 6))
+    els += linea(958, 630, 794, 316, punta="arrow", punteada=True,
+                 etiqueta="\u00abextend\u00bb\n[deriva de sensor]", off=(122, 84))
+    return els
+
+
+def cdu_expandido_trazabilidad():
+    """CUN-05 expandido — plano del SISTEMA."""
+    els = []
+    els += caja(420, 40, 900, 700,
+                "SmartPress \u2014 Trazabilidad, embarque y auditor\u00eda",
+                fondo=FONDO_SISTEMA, grosor=2)
+
+    els += elipse(470, 160, 330, 100, "Gestionar la trazabilidad\nde la pieza producida", tam=14)
+    els += elipse(970, 95, 310, 80, "Etiquetar pieza con\nc\u00f3digo QR \u00fanico", tam=13)
+    els += elipse(970, 215, 310, 80, "Sellar registro de\nproducci\u00f3n inmutable", tam=13)
+    els += elipse(960, 320, 330, 90, "Registrar inspecci\u00f3n CMM y\ncorrelacionar con producci\u00f3n", tam=13)
+    els += elipse(470, 420, 330, 100, "Consultar trazabilidad\nforense de un lote", tam=14)
+    els += elipse(960, 480, 330, 90, "Verificar integridad del\nregistro inmutable", tam=13)
+    els += elipse(470, 580, 330, 100, "Emitir expediente de\ncalidad del embarque", tam=14)
+
+    els += actor(150, 140, "Ingeniero de Calidad")
+    els += actor(150, 390, "Auditor externo\n(ISO / IATF)")
+    els += actor(150, 640, "Cliente (ensambladora\nautomotriz)")
+    els += actor(1400, 320, "Sistema de medici\u00f3n\nl\u00e1ser (CMM)")
+
+    els += linea(275, 190, 468, 208)
+    els += linea(275, 430, 468, 455)
+    els += linea(275, 670, 474, 505)
+    els += linea(275, 690, 468, 640)
+    els += linea(1378, 360, 1294, 365)
+
+    els += linea(780, 180, 968, 140, punta="arrow", punteada=True,
+                 etiqueta="\u00abinclude\u00bb", off=(14, -20))
+    els += linea(800, 208, 968, 255, punta="arrow", punteada=True,
+                 etiqueta="\u00abinclude\u00bb", off=(8, -18))
+    els += linea(800, 470, 958, 512, punta="arrow", punteada=True,
+                 etiqueta="\u00abinclude\u00bb", off=(6, -20))
+    els += linea(958, 350, 792, 240, punta="arrow", punteada=True,
+                 etiqueta="\u00abextend\u00bb\n[pieza en el muestreo 5%]", off=(60, 30))
+    return els
+
+
+DIAGRAMAS.update({
+    "core-negocio-smartpress": core_negocio_smartpress,
+    "descomposicion-smartpress": descomposicion_smartpress,
+    "cdu-expandido-monitoreo": cdu_expandido_monitoreo,
+    "cdu-expandido-trazabilidad": cdu_expandido_trazabilidad,
+})
+SUBCARPETA.update({
+    "core-negocio-smartpress": "examen/2-caso-negocio",
+    "descomposicion-smartpress": "examen/2-caso-negocio",
+    "cdu-expandido-monitoreo": "examen/3.1-drivers-rf",
+    "cdu-expandido-trazabilidad": "examen/3.1-drivers-rf",
+})
+
+
+
+# --------------------------------------------------------------------------
+# PARCIAL — Diagrama de CONTEXTO de SmartPress
+#
+# Convenios de la catedra: ELIPSE = El Producto (un solo ovalo, nombra un
+# SISTEMA) · RECTANGULO = entidades o agentes externos · FLECHA = streamline,
+# SIEMPRE con nombre y en sustantivo. Ojo: aca las flechas SI son flujos de
+# informacion con nombre (a diferencia del CDU, donde la navegabilidad solo
+# indica quien inicia).
+# --------------------------------------------------------------------------
+def contexto_smartpress():
+    els = []
+    els += elipse(700, 440, 380, 180,
+                  "SmartPress\nSistema de Control de Calidad\nen L\u00ednea de Producci\u00f3n", tam=16)
+
+    RW, RH = 260, 80
+    els += entidad(120, 100, RW, RH, "Proveedor de\nmateria prima")
+    els += entidad(120, 260, RW, RH, "Sistema de Control\nde M\u00e1quina (PLC)")
+    els += entidad(120, 420, RW, RH, "Sistema de medici\u00f3n\nl\u00e1ser (CMM)")
+    els += entidad(120, 580, RW, RH, "Sistemas legacy\n(ERP / Mantenimiento)")
+    els += entidad(120, 740, RW, RH, "\u00c1rea de\nMantenimiento")
+
+    els += entidad(1520, 100, RW, RH, "Operario de m\u00e1quina")
+    els += entidad(1520, 260, RW, RH, "Supervisor de turno")
+    els += entidad(1520, 420, RW, RH, "Ingeniero de Calidad")
+    els += entidad(1520, 580, RW, RH, "Director de Planta")
+    els += entidad(1520, 740, RW, RH, "Cliente (ensambladora\nautomotriz)")
+
+    els += entidad(760, 860, RW, RH, "Ente certificador\n(ISO 9001 / IATF 16949)")
+
+    # --- streamlines de ENTRADA (entidad -> El Producto)
+    els += linea(382, 140, 790, 453, punta="arrow",
+                 etiqueta="Certificado de calidad\ndel lote", off=(-30, -46))
+    els += linea(382, 300, 753, 468, punta="arrow",
+                 etiqueta="Mediciones de sensores\n(OPC-UA)", off=(-20, -44))
+    els += linea(382, 460, 708, 505, punta="arrow",
+                 etiqueta="Resultados de\ninspecci\u00f3n dimensional", off=(-10, 26))
+    els += linea(382, 620, 712, 562, punta="arrow",
+                 etiqueta="\u00d3rdenes de producci\u00f3n\ny programaci\u00f3n", off=(0, 20))
+    els += linea(1518, 480, 1072, 530, punta="arrow",
+                 etiqueta="Configuraci\u00f3n del\nmodelo predictivo", off=(0, 20))
+
+    # --- streamlines de SALIDA (El Producto -> entidad)
+    els += linea(748, 490, 384, 330, punta="arrow",
+                 etiqueta="Orden de ajuste\nde par\u00e1metros", off=(-20, -2))
+    els += linea(758, 595, 384, 780, punta="arrow",
+                 etiqueta="Aviso de deriva\nde sensor", off=(-30, 24))
+    els += linea(1005, 458, 1518, 140, punta="arrow",
+                 etiqueta="Alerta de desviaci\u00f3n\nen tiempo real", off=(30, -44))
+    els += linea(1040, 475, 1518, 300, punta="arrow",
+                 etiqueta="Tablero de desempe\u00f1o\ndel turno", off=(20, -44))
+    els += linea(1075, 509, 1518, 450, punta="arrow",
+                 etiqueta="Datos hist\u00f3ricos\nde proceso", off=(0, -44))
+    els += linea(1072, 556, 1518, 620, punta="arrow",
+                 etiqueta="Indicadores de calidad\ny costo de scrap", off=(0, 20))
+    els += linea(1035, 588, 1518, 780, punta="arrow",
+                 etiqueta="Expediente de trazabilidad\nde la pieza", off=(30, 22))
+    els += linea(890, 622, 890, 856, punta="arrow",
+                 etiqueta="Registro de auditor\u00eda\ninmutable", off=(120, -10))
+
+    return els
+
+
+DIAGRAMAS["contexto-smartpress"] = contexto_smartpress
+SUBCARPETA["contexto-smartpress"] = "examen/2-caso-negocio"
+
+
+
+# ==========================================================================
+# PARCIAL SmartPress — láminas de DRIVERS y MATRICES
+# Todas viven bajo 02-Diagramas/examen/<sección>/.
+# No son diagramas: son tablas. Un atributo de calidad NO es un caso de uso
+# (estilo-diagramas.md §8), y las matrices de trazabilidad tampoco.
+# ==========================================================================
+
+RF_SMARTPRESS = [
+    ["RFG-001", "Capturar 500 mediciones/s por máquina en 25 máquinas, en tiempo real, vía OPC-UA",
+     "CUN-03", "CU-002 (principal), CU-001, CU-006"],
+    ["RFG-002", "Ejecutar inferencia ML sobre las 500 mediciones y predecir la calidad antes de que termine el ciclo",
+     "CUN-03", "CU-003 (principal), CU-001"],
+    ["RFG-003", "Enviar orden de ajuste o de paro al PLC cuando la predicción es «defectuosa»",
+     "CUN-03", "CU-005 (principal), CU-001"],
+    ["RFG-004", "Registrar trazabilidad completa por pieza: máquina, turno, operario, lote, parámetros e inspección",
+     "CUN-03, CUN-05", "CU-004 (principal), CU-010, CU-012"],
+    ["RFG-005", "Etiquetar cada pieza con un código QR único que porte su expediente",
+     "CUN-05", "CU-011 (principal), CU-010, CU-016"],
+    ["RFG-006", "Sellar los registros de producción de forma inmutable y verificable",
+     "CUN-05", "CU-012 (principal), CU-015"],
+    ["RFG-007", "Correlacionar la inspección CMM (15 dimensiones, 5% de piezas) con los datos de producción y reentrenar",
+     "CUN-04, CUN-05", "CU-013 (principal), CU-003"],
+    ["RFG-008", "Consultar trazabilidad forense de un lote sobre el histórico de 7 años",
+     "CUN-05", "CU-014 (principal), CU-015"],
+    ["RFG-009", "Detectar deriva de sensores y notificar a Mantenimiento antes de que cause defectos",
+     "CUN-03", "CU-007 (principal), CU-002"],
+    ["RFG-010", "Presentar tablero de estado y desempeño de turno en tiempo real, con acción correctiva sugerida",
+     "CUN-03", "CU-008 (principal), CU-009"],
+    ["RFG-011", "Bufferizar localmente y reconciliar al reconectar, sin pérdida de mediciones",
+     "CUN-03", "CU-006 (principal), CU-002, CU-004"],
+    ["RFG-012", "Integrarse con ERP y sistema de mantenimiento legacy (REST, 1-2 s) para órdenes y programación",
+     "CUN-02", "— (no expandido)"],
+    ["RFG-013", "Registrar el lote de materia prima, sus propiedades y el certificado del proveedor",
+     "CUN-01", "— (no expandido)"],
+    ["RFG-014", "Actualizar el modelo predictivo (shadow, A/B, canary) sin detener la producción",
+     "CUN-04", "— (no expandido)"],
+]
+
+
+def drivers_rf_smartpress():
+    els = [
+        titulo("Drivers de Requisitos Funcionales — SmartPress", 40, 40, 1420),
+        texto("«Funcionalidades específicas que MOLDEAN la estructura». Se entregan como CDU expandidos: "
+              "los de CUN-03 y CUN-05 están dibujados (3.1-drivers-rf);\nlos de CUN-01, CUN-02 y CUN-04 quedan sin "
+              "expandir porque el enunciado pide solamente 2 CUN.",
+              40, 76, 1420, 13, align="left", _halo=False),
+    ]
+    cols = [("ID", 110), ("Driver RF", 660), ("CUN de origen", 170), ("CU del sistema que lo realiza", 400)]
+    rejilla, _ = tabla(40, 140, cols, RF_SMARTPRESS)
+    return els + rejilla
+
+
+# --- Atributos de calidad: resumen y escenarios de SEIS partes ------------
+AC_RESUMEN = [
+    ["AC-01", "Rendimiento (latencia)", "Inferencia ML dentro del ciclo de producción",
+     "< 1 s (ciclo 45 s) y < 5 s (ciclo 120 s)",
+     "Procesamiento en el BORDE: la latencia a internet es impredecible y no cabe en la ventana del ciclo"],
+    ["AC-02", "Rendimiento (respuesta de control)", "El PLC pide una orden de ajuste",
+     "< 200 ms extremo a extremo",
+     "Separar el canal de control del canal de analítica: el lazo duro no comparte cola ni recursos"],
+    ["AC-03", "Disponibilidad / fiabilidad", "Caída de red de 30 s durante la producción",
+     "0 mediciones pérdidas, 100% de trazabilidad reconstruida, 0 cortes visibles",
+     "Store-and-forward con buffer local en el borde y reconciliación idempotente"],
+    ["AC-04", "Escalabilidad", "Pico de volumen 10x en el turno de la noche",
+     "Se mantiene AC-01 (p95) con 10x el caudal, sin pérdida de mensajes",
+     "Ingesta desacoplada por cola y particionamiento por máquina y por tiempo"],
+    ["AC-05", "Seguridad (integridad y autenticación)", "Se emite una orden de ajuste al PLC",
+     "100% de órdenes firmadas, 0 aceptadas sin firma válida, 0 bytes en texto plano",
+     "Broker de comandos con firma digital y autenticación mutua sobre OPC-UA"],
+    ["AC-06", "Seguridad (no repudio) / consulta", "Consulta forense de un lote de hace 7 años",
+     "< 10 min de respuesta, 7 años de retención, 100% verificable por hash",
+     "Almacenamiento por niveles (caliente/tibio/frío) + registro WORM con hash encadenado"],
+    ["AC-07", "Mantenibilidad", "El científico de datos consultor se retira a los 6 meses",
+     "Traspaso <= 6 meses con US$ 20,000; despliegue de modelo con 0 s de paro",
+     "LIMITA el número de componentes y de tecnologías: solo lo que 4 personas pueden operar"],
+    ["AC-08", "Usabilidad", "Operario que rota de turno toma la estación por primera vez",
+     "<= 3 horas de capacitación",
+     "Capa de presentación de piso reducida, distinta del tablero del supervisor"],
+]
+
+
+def drivers_calidad_smartpress():
+    els = [
+        titulo("Drivers de atributos de calidad — SmartPress (resumen)", 40, 40, 1600),
+        texto("Taxonomia declarada: las SIETE de clase (rendimiento, escalabilidad, disponibilidad, seguridad, "
+              "mantenibilidad, usabilidad, fiabilidad). No se mezcla con ISO 9126 ni FURPS.\n"
+              "Todos llevan número: un driver de calidad sin medida no es un driver, es un deseo. "
+              "El escenario completo de seis partes está en la lámina siguiente.",
+              40, 76, 1600, 13, align="left", _halo=False),
+    ]
+    cols = [("ID", 90), ("Atributo", 250), ("Escenario (resumen)", 340),
+            ("MEDIDA", 400), ("Foco arquitectónico: que decisión fuerza", 520)]
+    rejilla, _ = tabla(40, 140, cols, AC_RESUMEN)
+    return els + rejilla
+
+
+AC_ESCENARIOS = [
+    ["AC-01", "Sensores de la máquina", "Se completan las 500 mediciones de un ciclo",
+     "Motor de inferencia ML", "Producción normal, 25 máquinas", "Emite la predicción de calidad de la pieza",
+     "< 1 s (ciclo 45 s) / < 5 s (ciclo 120 s)"],
+    ["AC-02", "PLC Siemens S7-1500", "Envía una solicitud de ajuste vía OPC-UA",
+     "Servicio de control", "Red industrial Ethernet/IP, 5 ms", "Responde con la orden de ajuste",
+     "< 200 ms extremo a extremo"],
+    ["AC-03", "Red industrial", "Caída de red de 30 s", "Ingesta + buffer local",
+     "Planta 24/7, 3 turnos", "Conserva el buffer, reconstruye la trazabilidad y sigue operando",
+     "0 mediciones pérdidas; 100% de piezas trazables; 0 cortes visibles"],
+    ["AC-04", "Turno de la noche", "El volumen de datos sube 10x", "Pipeline de ingesta y almacenamiento",
+     "Presupuesto de infraestructura fijo", "Absorbe el pico sin degradar el servicio",
+     "Se mantiene AC-01 (p95) con 10x el caudal"],
+    ["AC-05", "Emisor de una orden (o un atacante)", "Se emite «reducir temperatura 3 °C»",
+     "Canal de comandos al PLC", "Red de planta", "Solo se ejecutan órdenes firmadas y autenticadas",
+     "100% firmadas; 0 aceptadas sin firma válida; TLS obligatorio"],
+    ["AC-06", "Auditor IATF o cliente con reclamo", "Consulta forense de un lote de hace 7 años",
+     "Repositorio histórico", "1.3 PB acumulados", "Devuelve el expediente completo y verificable",
+     "< 10 min; retención 7 años; 100% con hash verificable"],
+    ["AC-07", "Equipo de TI interno (4 personas)", "El científico de datos se retira a los 6 meses",
+     "Sistema completo, incluido el pipeline de ML", "US$ 20,000 de capacitación",
+     "El equipo opera, respalda, recupera y despliega modelos",
+     "Traspaso <= 6 meses; 0 s de paro al desplegar un modelo"],
+    ["AC-08", "Operario de máquina que rota de turno", "Se le asigna la estación por primera vez",
+     "Interfaz de piso", "Personal sin perfil técnico", "Opera el tablero y atiende alertas sin asistencia",
+     "<= 3 horas de capacitación"],
+]
+
+
+def escenarios_calidad_smartpress():
+    els = [
+        titulo("Drivers de calidad — escenarios de SEIS partes", 40, 40, 1700),
+        texto("Fuente · Estímulo · Artefacto · Entorno · Respuesta · MEDIDA. La última columna va sombreada: "
+              "es la que convierte el deseo en driver.\nUn atributo de calidad NO es un caso de uso; no se dibuja "
+              "como elipse, se especifica como escenario.",
+              40, 76, 1700, 13, align="left", _halo=False),
+    ]
+    cols = [("ID", 80), ("Fuente", 230), ("Estímulo", 280), ("Artefacto", 240),
+            ("Entorno", 220), ("Respuesta", 300), ("MEDIDA", 330)]
+    rejilla, _ = tabla(40, 140, cols, AC_ESCENARIOS)
+    return els + rejilla
+
+
+# --- Restricciones: las TRES categorías que pide el enunciado -------------
+RES_TECNICAS = [
+    ["RES-T01", "El protocolo con las máquinas debe ser OPC-UA; no se puede sustituir", "Junta Directiva",
+     "Descarta cualquier protocolo propio o más liviano para el lazo de control"],
+    ["RES-T02", "25 PLC Siemens S7-1500, 500 mediciones/s cada uno", "Infraestructura de planta",
+     "Fija el caudal de ingesta: 12,500 mediciones/s en régimen normal"],
+    ["RES-T03", "Red industrial Ethernet/IP, 5 ms de latencia, con caídas esporádicas", "Infraestructura de planta",
+     "Prohíbe asumir red confiable: obliga a buffer local (AC-03)"],
+    ["RES-T04", "Internet de 100 Mbps compartido; no se puede depender únicamente de la nube para tiempo real",
+     "Infraestructura / Junta", "Descarta la inferencia en la nube; obliga a cómputo en el borde"],
+    ["RES-T05", "Data center local: 4 servidores VMware, 64 vCPU, 256 GB RAM, 20 TB SAN", "Infraestructura",
+     "20 TB se agotan en 4 días de datos crudos: descarta guardar todo on-premise"],
+    ["RES-T06", "No se pueden almacenar todos los datos crudos de sensores en la base transaccional",
+     "Junta Directiva", "PROHIBE de frente la tabla única SensorReadings de la Parte III"],
+    ["RES-T07", "La base de datos debe soportar particionamiento y retención de datos", "Junta Directiva",
+     "Descarta una tabla plana sin estrategia de partición"],
+    ["RES-T08", "No se puede diseñar un sistema monolítico: ingesta, ML y trazabilidad escalan distinto",
+     "Junta Directiva", "Obliga a servicios desplegables por separado (y tensiona con AC-07)"],
+    ["RES-T09", "Los datos de producción deben viajar cifrados; nada en texto plano por la red",
+     "Política de seguridad", "Obliga a TLS en todo canal, incluido el de comandos"],
+    ["RES-T10", "A la nube solo pueden salir análisis agregados; los datos crudos no salen de la planta",
+     "Política de seguridad", "Define qué capa puede externalizarse: la tibia, nunca la cruda"],
+    ["RES-T11", "Stack del equipo: .NET, SQL Server, Azure, Angular; ML en Python/TensorFlow/Scikit-learn",
+     "Equipo y habilidades", "Acota las tecnologías elegibles a lo que 4 personas pueden operar"],
+]
+
+RES_NEGOCIO = [
+    ["RES-N01", "Presupuesto de infraestructura: US$ 150,000 para el próximo año (hardware, licencias y cloud)",
+     "Presupuesto", "Descarta ampliar la SAN a escala de petabytes"],
+    ["RES-N02", "Presupuesto de capacitación: US$ 20,000", "Presupuesto",
+     "Limita cuantas tecnologías nuevas puede absorber el equipo"],
+    ["RES-N03", "Equipo interno de 4 personas, sin experiencia en Big Data ni ML", "Equipo y habilidades",
+     "Es el techo real de complejidad operativa del sistema"],
+    ["RES-N04", "El científico de datos es consultor y está disponible solo 6 meses", "Equipo y habilidades",
+     "Obliga a que el pipeline de ML sea operable sin el (AC-07)"],
+    ["RES-N05", "La planta opera 24/7 en 3 turnos: no se puede parar la producción para mantenimiento ni actualizaciones",
+     "Junta Directiva", "Obliga a despliegue canary / shadow y a cero ventana de mantenimiento"],
+    ["RES-N06", "ISO 9001: trazabilidad de toda acción que afecte la calidad", "Regulación",
+     "Obliga a bitácora de acciones, no solo de mediciones"],
+    ["RES-N07", "IATF 16949: los sistemas de control de calidad deben ser validados y los cambios gestionados formalmente",
+     "Regulación", "Obliga a inmutabilidad, versionado de modelos y gestión formal de cambios"],
+    ["RES-N08", "Retención legal de los datos de producción: 7 años", "Regulación",
+     "1.3 PB acumulados: obliga a archivo frío por niveles"],
+    ["RES-N09", "Confidencialidad: los datos de producción no pueden salir de la planta en texto plano",
+     "Política de la empresa", "Refuerza RES-T10 y descarta SaaS de analítica sobre datos crudos"],
+    ["RES-N10", "La capacitación de un operario no puede exceder 3 horas", "Junta Directiva",
+     "Descarta una interfaz de piso rica: obliga a separarla del tablero del supervisor"],
+    ["RES-N11", "US$ 2.5 millones en penalizaciones en 6 meses justifican el proyecto", "Caso de negocio",
+     "Acota el plazo: la solución debe dar resultado antes de que el cliente rescinda"],
+]
+
+RES_SISTEMA = [
+    ["RES-S01", "Integración con el ERP legacy (Oracle Forms) por API REST lenta: 1-2 s de respuesta",
+     "Expectativa 8 del cliente", "Prohíbe consultar el ERP dentro del lazo de tiempo real: obliga a caché"],
+    ["RES-S02", "Integración con el sistema de mantenimiento legacy, con la misma limitación",
+     "Expectativa 8 del cliente", "Obliga a sincronización asincrónica de la programación de mantenimiento"],
+    ["RES-S03", "Integración con 25 PLC simultaneos vía OPC-UA, en lectura y escritura",
+     "Infraestructura de planta", "Define la topología de conectores en el borde, uno por máquina"],
+    ["RES-S04", "Integración con el CMM: inspección destructiva, 3 min por pieza, solo el 5% de las piezas",
+     "Etapa 4 del proceso", "El reentrenamiento solo dispone del 5% etiquetado: condiciona el diseño del modelo"],
+    ["RES-S05", "El código QR es el contrato de trazabilidad con el cliente: su contenido y verificación son externos",
+     "Etapa 5 del proceso", "Fija el formato del expediente por pieza como interfaz pública"],
+]
+
+
+def _lamina_restricciones(titulo_txt, subtitulo, datos, ancho_res=640):
+    def construir():
+        ancho = 110 + ancho_res + 250 + 520
+        els = [
+            titulo(titulo_txt, 40, 40, ancho),
+            texto(subtitulo, 40, 76, ancho, 13, align="left", _halo=False),
+        ]
+        cols = [("ID", 110), ("Restricción", ancho_res), ("Origen", 250),
+                ("Qué decisión bloquea", 520)]
+        rejilla, _ = tabla(40, 140, cols, datos)
+        return els + rejilla
+    return construir
+
+
+SUB_RES = ("Las restricciones NO se priorizan: todas son obligatorias, y ninguna lleva medida (se cumple o no se cumple).\n"
+           "Clasificadas en las TRES categorías que pide el enunciado — Técnicas, de Negocio y de Sistema —, "
+           "no en las seis de clase. La última columna es la que las convierte en driver.")
+
+
+# --- Matrices de trazabilidad --------------------------------------------
+CU_COLS = ["CU-001", "CU-002", "CU-003", "CU-004", "CU-005", "CU-006", "CU-007", "CU-008",
+           "CU-009", "CU-010", "CU-011", "CU-012", "CU-013", "CU-014", "CU-015", "CU-016"]
+
+P, X, _n = "\u25cf", "X", ""
+RF_CU = [
+    ("RFG-001  Capturar 500 med/s v\u00eda OPC-UA",   [X, P, _n, _n, _n, X, _n, _n, _n, _n, _n, _n, _n, _n, _n, _n]),
+    ("RFG-002  Inferencia ML dentro del ciclo",   [X, _n, P, _n, _n, _n, _n, _n, _n, _n, _n, _n, _n, _n, _n, _n]),
+    ("RFG-003  Orden de ajuste / paro al PLC",    [X, _n, _n, _n, P, _n, _n, _n, X, _n, _n, _n, _n, _n, _n, _n]),
+    ("RFG-004  Trazabilidad completa por pieza",  [X, _n, _n, P, _n, X, _n, _n, _n, X, _n, X, _n, X, _n, X]),
+    ("RFG-005  Etiquetado QR \u00fanico",            [_n, _n, _n, _n, _n, _n, _n, _n, _n, X, P, _n, _n, X, _n, X]),
+    ("RFG-006  Sellado inmutable y verificable",  [_n, _n, _n, X, _n, _n, _n, _n, _n, X, _n, P, _n, _n, X, _n]),
+    ("RFG-007  Correlacionar CMM y reentrenar",   [_n, _n, X, X, _n, _n, _n, _n, _n, X, _n, _n, P, _n, _n, _n]),
+    ("RFG-008  Consulta forense a 7 a\u00f1os",      [_n, _n, _n, X, _n, _n, _n, _n, _n, _n, _n, X, _n, P, X, _n]),
+    ("RFG-009  Detectar deriva de sensores",      [X, X, _n, _n, _n, _n, P, _n, X, _n, _n, _n, X, _n, _n, _n]),
+    ("RFG-010  Tablero en tiempo real",           [X, _n, X, _n, _n, _n, X, P, X, _n, _n, _n, _n, _n, _n, _n]),
+    ("RFG-011  Buffer local y reconciliaci\u00f3n",  [X, X, _n, X, _n, P, _n, _n, _n, _n, _n, _n, _n, _n, _n, _n]),
+    ("RFG-014  Actualizar modelo sin parar",      [_n, _n, X, _n, _n, _n, _n, _n, _n, _n, _n, _n, X, _n, _n, _n]),
+]
+
+
+def matriz_rf_cdu_smartpress():
+    els = [
+        titulo("Matriz de trazabilidad — Drivers RF vs. CDU (SmartPress)", 40, 40, 1740),
+        texto("Plantilla de la NT1, figura 1, pág. 91.   Celda:  ● = caso de uso PRINCIPAL (dueño del "
+              "requerimiento)  ·  X = participa en su realización  ·  vacío = no interviene.\n"
+              "RFG-012 y RFG-013 no aparecen: pertenecen a CUN-01 y CUN-02, que el enunciado no manda expandir.",
+              40, 76, 1740, 13, align="left", _halo=False),
+    ]
+    rejilla, alto = matriz(40, 140, "Requerimiento", 400, CU_COLS, 90, RF_CU)
+    els += rejilla
+    els.append(_pie([
+        "Lectura por fila — ¿dónde se realiza cada requerimiento?  Ninguna fila vacía: todo RF expandido "
+        "tiene al menos un CU dueño.",
+        "Lectura por columna — ¿de dónde viene cada caso de uso?  Ninguna columna vacía: no hay CU inventado "
+        "sin requerimiento que lo origine.",
+        "La columna más poblada es CU-004 (Registrar trazabilidad del ciclo), coherente con que la pérdida de "
+        "trazabilidad sea el problema que originó el proyecto.",
+    ], 40, 140 + alto + 30, 1740))
+    return els
+
+
+CTRL_COLS = ["CU-002", "CU-003", "CU-004", "CU-005", "CU-012", "CU-013", "CU-014", "CU-015"]
+T = "▲"
+CONTROL = [
+    ["AC-01  Inferencia < 1 s / < 5 s", "Calidad", X, P, _n, _n, _n, _n, _n, _n,
+     T + " La escritura sincrónica en la tabla única roba tiempo al ciclo de inferencia"],
+    ["AC-02  Respuesta al PLC < 200 ms", "Calidad", X, _n, _n, P, _n, _n, _n, _n,
+     T + " La contención de escritura en la misma instancia degrada el lazo de control"],
+    ["AC-03  Caída de red 30 s sin pérdida", "Calidad", X, _n, X, _n, _n, _n, _n, _n,
+     "Exige buffer en el borde, no una tabla central única"],
+    ["AC-04  Pico de 10x sin degradación", "Calidad", P, _n, X, _n, _n, _n, _n, _n,
+     T + " 125,000 filas/s contra índices B-tree: el diseño no escala"],
+    ["AC-05  Órdenes firmadas y autenticadas", "Calidad", _n, _n, _n, P, X, _n, _n, X,
+     "Canal de comandos separado del almacén de datos"],
+    ["AC-06  Forense < 10 min sobre 7 años", "Calidad", _n, _n, X, _n, P, _n, P, X,
+     T + " Imposible sobre EAV plano: exige niveles e índice de trazabilidad"],
+    ["AC-07  Mantenible por 4 personas", "Calidad", X, X, X, _n, X, X, X, _n,
+     T + " Justifica SQL Server para el MAESTRO de trazabilidad, no para el crudo"],
+    ["RES-T06  Nada crudo en la transaccional", "Restricción", P, _n, P, _n, _n, _n, _n, _n,
+     T + " PROHIBICIÓN EXPLÍCITA: la decisión del equipo la viola de frente"],
+    ["RES-T07  BD con particionamiento y retención", "Restricción", X, _n, P, _n, X, _n, X, _n,
+     T + " Una tabla plana sin estrategia de partición no cumple"],
+    ["RES-T05  20 TB de SAN", "Restricción", X, _n, X, _n, _n, _n, X, _n,
+     T + " 5 TB/día agotan la SAN en 4 días"],
+    ["RES-N08  Retención 7 años (1.3 PB)", "Restricción", _n, _n, X, _n, X, _n, P, X,
+     T + " Obliga a archivo frío por niveles, no a una tabla única"],
+    ["RES-N06/N07  ISO 9001 / IATF 16949", "Restricción", _n, _n, X, X, P, X, X, P,
+     T + " Exigen inmutabilidad y validación, que la tabla plana no ofrece"],
+    ["RES-T10  Solo agregados a la nube", "Restricción", X, _n, X, _n, _n, _n, _n, _n,
+     "Define qué capa puede salir de la planta"],
+]
+
+
+def matriz_control_smartpress():
+    ancho = 380 + 130 + 8 * 92 + 620
+    els = [
+        titulo("Matriz de control — Drivers de calidad y restricción vs. CDU", 40, 40, ancho),
+        texto("Responde a la Parte III: son los drivers que, de haberse trazado, habrían impedido la decisión de la "
+              "tabla única SensorReadings.\nCelda:  ● = el CU es el punto donde el driver se realiza o se viola  "
+              "·  X = el driver lo condiciona  ·  ▲ = control directo sobre la decisión cuestionada.",
+              40, 76, ancho, 13, align="left", _halo=False),
+    ]
+    cols = ([("Driver", 380), ("Tipo", 130)]
+            + [(c, 92) for c in CTRL_COLS]
+            + [("Control sobre la decisión de SensorReadings", 620)])
+    alin = ["left", "left"] + ["center"] * 8 + ["left"]
+    rejilla, alto = tabla(40, 140, cols, CONTROL, alineaciones=alin)
+    els += rejilla
+    els.append(_pie([
+        "1.  RES-T06 cruza CU-002 y CU-004 — los dos casos de uso que la tabla única pretendía servir. "
+        "La celda está marcada: la restricción habría bloqueado la decisión antes de la primera línea de SQL.",
+        "2.  La columna CU-004 concentra 9 drivers de control. Un caso de uso con esa densidad de restricciones "
+        "es un punto de ARQUITECTURA, no de implementación.",
+        "3.  AC-07 aparece a favor y en contra: la mantenibilidad justifica SQL Server, pero solo donde el volumen "
+        "lo permite. Trazado por caso de uso, el argumento del equipo se salva a medias en vez de perderse entero.",
+    ], 40, 140 + alto + 30, ancho))
+    return els
+
+
+DIAGRAMAS.update({
+    "drivers-rf-smartpress": drivers_rf_smartpress,
+    "drivers-calidad-smartpress": drivers_calidad_smartpress,
+    "escenarios-calidad-smartpress": escenarios_calidad_smartpress,
+    "restricciones-tecnicas-smartpress": _lamina_restricciones(
+        "Drivers de restricción — TÉCNICAS (tecnologías y plataformas)", SUB_RES, RES_TECNICAS),
+    "restricciones-negocio-smartpress": _lamina_restricciones(
+        "Drivers de restricción — DE NEGOCIO (presupuesto, tiempo, leyes y normativas)", SUB_RES, RES_NEGOCIO),
+    "restricciones-sistema-smartpress": _lamina_restricciones(
+        "Drivers de restricción — DE SISTEMA (interacción con otros sistemas)", SUB_RES, RES_SISTEMA),
+    "matriz-rf-cdu-smartpress": matriz_rf_cdu_smartpress,
+    "matriz-control-smartpress": matriz_control_smartpress,
+})
+SUBCARPETA.update({
+    "drivers-rf-smartpress": "examen/3.1-drivers-rf",
+    "drivers-calidad-smartpress": "examen/3.2-drivers-calidad",
+    "escenarios-calidad-smartpress": "examen/3.2-drivers-calidad",
+    "restricciones-tecnicas-smartpress": "examen/3.3-drivers-restriccion",
+    "restricciones-negocio-smartpress": "examen/3.3-drivers-restriccion",
+    "restricciones-sistema-smartpress": "examen/3.3-drivers-restriccion",
+    "matriz-rf-cdu-smartpress": "examen/4-matrices-trazabilidad",
+    "matriz-control-smartpress": "examen/4-matrices-trazabilidad",
+})
 
 
 if __name__ == "__main__":

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 0 1570 897" width="1570" height="897" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="-10" y="0" width="1570" height="897" fill="#ffffff"/>
+<rect x="420" y="40" width="900" height="810" rx="12" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="2"/>
+<text x="870.0" y="67.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">SmartPress — Monitoreo y control en línea del ciclo</text>
+<ellipse cx="630.0" cy="270.0" rx="160.0" ry="50.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="630.0" y="265.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Supervisar ciclo de</text>
+<text x="630.0" y="284.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">producción en línea</text>
+<ellipse cx="1125.0" cy="140.0" rx="155.0" ry="40.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="135.61" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Capturar mediciones de</text>
+<text x="1125.0" y="151.86" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">sensores vía OPC-UA</text>
+<ellipse cx="1125.0" cy="250.0" rx="155.0" ry="40.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="245.61" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Predecir calidad de la pieza</text>
+<text x="1125.0" y="261.86" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(inferencia ML)</text>
+<ellipse cx="1125.0" cy="370.0" rx="155.0" ry="40.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="365.61" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Registrar trazabilidad</text>
+<text x="1125.0" y="381.86" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">del ciclo</text>
+<ellipse cx="1125.0" cy="495.0" rx="165.0" ry="45.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="490.61" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Ejecutar acción correctiva</text>
+<text x="1125.0" y="506.86" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">sobre la máquina</text>
+<ellipse cx="630.0" cy="445.0" rx="160.0" ry="45.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="630.0" y="440.61" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Almacenar y reconciliar</text>
+<text x="630.0" y="456.86" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">desde buffer local</text>
+<ellipse cx="1125.0" cy="645.0" rx="165.0" ry="45.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="640.61" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Notificar deriva de sensor</text>
+<text x="1125.0" y="656.86" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">a Mantenimiento</text>
+<ellipse cx="630.0" cy="615.0" rx="160.0" ry="45.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="630.0" y="610.61" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Consultar tablero de</text>
+<text x="630.0" y="626.86" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">estado en tiempo real</text>
+<ellipse cx="630.0" cy="765.0" rx="160.0" ry="45.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="630.0" y="760.61" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Atender alerta de desviación</text>
+<text x="630.0" y="776.86" font-size="13" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y acción sugerida</text>
+<ellipse cx="100.0" cy="194.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="100" y1="208" x2="100" y2="244" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="76" y1="220" x2="124" y2="220" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="100" y1="244" x2="80" y2="274" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="100" y1="244" x2="120" y2="274" stroke="#1e1e1e" stroke-width="1"/>
+<text x="100.0" y="293.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Operario de máquina</text>
+<ellipse cx="220.0" cy="474.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="220" y1="488" x2="220" y2="524" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="196" y1="500" x2="244" y2="500" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="220" y1="524" x2="200" y2="554" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="220" y1="524" x2="240" y2="554" stroke="#1e1e1e" stroke-width="1"/>
+<text x="220.0" y="573.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Personal de piso</text>
+<ellipse cx="100.0" cy="754.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="100" y1="768" x2="100" y2="804" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="76" y1="780" x2="124" y2="780" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="100" y1="804" x2="80" y2="834" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="100" y1="804" x2="120" y2="834" stroke="#1e1e1e" stroke-width="1"/>
+<text x="100.0" y="853.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Supervisor de turno</text>
+<ellipse cx="1450.0" cy="264.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1450" y1="278" x2="1450" y2="314" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1426" y1="290" x2="1474" y2="290" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1450" y1="314" x2="1430" y2="344" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1450" y1="314" x2="1470" y2="344" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1450.0" y="363.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema de Control</text>
+<text x="1450.0" y="381.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de Máquina (PLC)</text>
+<line x1="150" y1="330" x2="205" y2="440" stroke="#1e1e1e" stroke-width="1" marker-end="url(#gen)"/>
+<line x1="150" y1="716" x2="202" y2="608" stroke="#1e1e1e" stroke-width="1" marker-end="url(#gen)"/>
+<line x1="185" y1="240" x2="470" y2="260" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="295" y1="500" x2="468" y2="605" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="185" y1="790" x2="470" y2="770" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1378" y1="265" x2="1290" y2="168" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1378" y1="300" x2="1294" y2="490" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="760" y1="240" x2="968" y2="150" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="884.0" y="162.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«include»</text>
+<line x1="790" y1="268" x2="968" y2="250" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="889.0" y="232.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«include»</text>
+<line x1="770" y1="300" x2="968" y2="370" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="899.0" y="338.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«include»</text>
+<line x1="958" y1="482" x2="792" y2="292" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="933.0" y="410.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«extend»</text>
+<text x="933.0" y="425.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">[predicción = defectuosa]</text>
+<line x1="630" y1="398" x2="630" y2="322" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="512.0" y="355.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«extend»</text>
+<text x="512.0" y="370.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">[caída de red]</text>
+<line x1="958" y1="630" x2="794" y2="316" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="998.0" y="546.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«extend»</text>
+<text x="998.0" y="561.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">[deriva de sensor]</text>
+</svg>

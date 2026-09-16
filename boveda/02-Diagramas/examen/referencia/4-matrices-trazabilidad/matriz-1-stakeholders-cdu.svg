@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 1085" width="1180" height="1085" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1180" height="1085" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Matriz 1 — Stakeholders vs. CDU</text>
+<text x="40" y="86.61" font-size="13" fill="#1e1e1e" text-anchor="start">Celda:  X = participa directamente en el proceso  ·  i = tiene interés en su resultado sin participar</text>
+<rect x="40" y="110" width="260" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="143.61" font-size="13" fill="#1e1e1e" text-anchor="start">Stakeholder</text>
+<rect x="300" y="110" width="120" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="135.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CDU-01</text>
+<text x="360.0" y="151.86" font-size="13" fill="#1e1e1e" text-anchor="middle">Adquis.</text>
+<rect x="420" y="110" width="120" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="135.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CDU-02</text>
+<text x="480.0" y="151.86" font-size="13" fill="#1e1e1e" text-anchor="middle">Almac.</text>
+<rect x="540" y="110" width="120" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="135.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CDU-03</text>
+<text x="600.0" y="151.86" font-size="13" fill="#1e1e1e" text-anchor="middle">Prescr.</text>
+<rect x="660" y="110" width="120" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="135.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CDU-04</text>
+<text x="720.0" y="151.86" font-size="13" fill="#1e1e1e" text-anchor="middle">Dispen.</text>
+<rect x="780" y="110" width="120" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="135.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CDU-05</text>
+<text x="840.0" y="151.86" font-size="13" fill="#1e1e1e" text-anchor="middle">Admin.</text>
+<rect x="900" y="110" width="120" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="135.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CDU-06</text>
+<text x="960.0" y="151.86" font-size="13" fill="#1e1e1e" text-anchor="middle">Seguim.</text>
+<rect x="1020" y="110" width="120" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="135.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CDU-07</text>
+<text x="1080.0" y="151.86" font-size="13" fill="#1e1e1e" text-anchor="middle">Control</text>
+<rect x="40" y="170" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-01 Médico tratante</text>
+<rect x="300" y="170" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="420" y="170" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="540" y="170" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="660" y="170" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="780" y="170" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="900" y="170" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1020" y="170" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="230" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="263.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-02 Farmacéutico</text>
+<rect x="300" y="230" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="263.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="420" y="230" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="263.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="540" y="230" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="263.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="660" y="230" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="263.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="780" y="230" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="263.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="900" y="230" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="263.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1020" y="230" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="263.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="290" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="323.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-03 Enfermero</text>
+<rect x="300" y="290" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="323.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="420" y="290" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="323.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="540" y="290" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="323.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="660" y="290" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="323.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="780" y="290" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="323.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="900" y="290" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="323.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="1020" y="290" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="323.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="350" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="383.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-04 Director Admin.</text>
+<rect x="300" y="350" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="383.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="420" y="350" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="383.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="540" y="350" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="383.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="660" y="350" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="383.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="780" y="350" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="383.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="900" y="350" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="383.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1020" y="350" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="383.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="40" y="410" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="443.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-05 Jefe Farmacovig.</text>
+<rect x="300" y="410" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="443.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="420" y="410" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="443.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="540" y="410" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="443.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="660" y="410" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="443.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="780" y="410" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="443.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="900" y="410" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="443.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1020" y="410" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="443.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="40" y="470" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="503.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-06 Paciente</text>
+<rect x="300" y="470" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="503.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="420" y="470" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="503.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="540" y="470" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="503.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="660" y="470" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="503.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="780" y="470" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="503.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="900" y="470" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="503.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1020" y="470" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="503.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="530" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="563.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-07 MSPAS</text>
+<rect x="300" y="530" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="563.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="420" y="530" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="563.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="540" y="530" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="563.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="660" y="530" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="563.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="780" y="530" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="563.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="900" y="530" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="563.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1020" y="530" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="563.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="40" y="590" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="623.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-08 Equipo interno TI</text>
+<rect x="300" y="590" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="623.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="420" y="590" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="623.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="540" y="590" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="623.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="660" y="590" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="623.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="780" y="590" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="623.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="900" y="590" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="623.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="1020" y="590" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="623.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="40" y="650" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="683.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-09 Consultora</text>
+<rect x="300" y="650" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="683.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="420" y="650" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="683.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="540" y="650" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="683.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="660" y="650" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="683.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="780" y="650" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="683.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="900" y="650" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="683.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="1020" y="650" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="683.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="40" y="710" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="743.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-10 Junta Directiva</text>
+<rect x="300" y="710" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="743.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="420" y="710" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="743.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="540" y="710" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="743.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="660" y="710" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="743.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="780" y="710" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="743.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="900" y="710" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="743.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1020" y="710" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="743.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="40" y="770" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="803.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-11 Contraloría</text>
+<rect x="300" y="770" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="803.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="420" y="770" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="803.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="540" y="770" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="803.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="660" y="770" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="803.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="780" y="770" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="803.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="900" y="770" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="803.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1020" y="770" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="803.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="40" y="830" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="863.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-12 Proveedor de MAC</text>
+<rect x="300" y="830" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="863.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="420" y="830" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="863.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="540" y="830" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="863.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="660" y="830" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="863.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="780" y="830" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="863.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="900" y="830" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="863.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1020" y="830" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="863.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="890" width="260" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="923.61" font-size="13" fill="#1e1e1e" text-anchor="start">STK-13 Operaciones TI</text>
+<rect x="300" y="890" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="360.0" y="923.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="420" y="890" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="480.0" y="923.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="540" y="890" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="600.0" y="923.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="660" y="890" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="720.0" y="923.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="780" y="890" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="840.0" y="923.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="900" y="890" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="960.0" y="923.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<rect x="1020" y="890" width="120" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1080.0" y="923.61" font-size="13" fill="#1e1e1e" text-anchor="middle">i</text>
+<text x="40" y="992.61" font-size="13" fill="#1e1e1e" text-anchor="start">Lectura por columna — ¿para quién es cada proceso?  Ninguna columna vacía. El más poblado es CDU-05 (administración), coherente con que sea el acto de valor central.</text>
+<text x="40" y="1008.86" font-size="13" fill="#1e1e1e" text-anchor="start">Lectura por fila — ¿dónde aparece cada stakeholder?  Ninguna fila vacía. Tres filas son enteramente i (STK-08, STK-09, STK-13):</text>
+<text x="40" y="1025.11" font-size="13" fill="#1e1e1e" text-anchor="start">no es un hueco, es su naturaleza — quien construye, mantiene y opera tiene interés transversal sin participar en ningún proceso.</text>
+<text x="40" y="1041.36" font-size="13" fill="#1e1e1e" text-anchor="start">Es la demostración en matriz de que NO todo stakeholder es actor.</text>
+</svg>

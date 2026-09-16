@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1380 710" width="1380" height="710" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1380" height="710" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Drivers de restricción — las 8 explícitas del enunciado</text>
+<text x="40" y="86.61" font-size="13" fill="#1e1e1e" text-anchor="start">Textuales, sin parafrasear: parafrasear es donde se pierde el requisito.</text>
+<text x="40" y="102.86" font-size="13" fill="#1e1e1e" text-anchor="start">Una restricción no tiene medida (se cumple o no) y NO se prioriza: todas son obligatorias. La última columna es la que la convierte en driver.</text>
+<rect x="40" y="130" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="163.61" font-size="13" fill="#1e1e1e" text-anchor="start">ID</text>
+<rect x="130" y="130" width="620" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="163.61" font-size="13" fill="#1e1e1e" text-anchor="start">Restricción (textual)</text>
+<rect x="750" y="130" width="110" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="762" y="163.61" font-size="13" fill="#1e1e1e" text-anchor="start">Tipo</text>
+<rect x="860" y="130" width="480" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872" y="163.61" font-size="13" fill="#1e1e1e" text-anchor="start">Qué decisión bloquea</text>
+<rect x="40" y="190" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="223.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-01</text>
+<rect x="130" y="190" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="215.61" font-size="13" fill="#1e1e1e" text-anchor="start">«No se puede usar una base de datos que no soporte transacciones ACID para el módulo de</text>
+<text x="142" y="231.86" font-size="13" fill="#1e1e1e" text-anchor="start">inventario»</text>
+<rect x="750" y="190" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="762" y="223.61" font-size="13" fill="#1e1e1e" text-anchor="start">técnica</text>
+<rect x="860" y="190" width="480" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872" y="215.61" font-size="13" fill="#1e1e1e" text-anchor="start">Descarta NoSQL sin ACID para inventario — el MongoDB de la</text>
+<text x="872" y="231.86" font-size="13" fill="#1e1e1e" text-anchor="start">consultora incluido</text>
+<rect x="40" y="250" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="283.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-02</text>
+<rect x="130" y="250" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="275.61" font-size="13" fill="#1e1e1e" text-anchor="start">«No se puede depender de la nube pública para el almacenamiento de datos sensibles…</text>
+<text x="142" y="291.86" font-size="13" fill="#1e1e1e" text-anchor="start">solo… análisis estadístico agregado (datos anonimizados)»</text>
+<rect x="750" y="250" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="762" y="283.61" font-size="13" fill="#1e1e1e" text-anchor="start">técnica</text>
+<rect x="860" y="250" width="480" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872" y="275.61" font-size="13" fill="#1e1e1e" text-anchor="start">Descarta bases y SaaS en la nube para lo clínico; todo en el data</text>
+<text x="872" y="291.86" font-size="13" fill="#1e1e1e" text-anchor="start">center local</text>
+<rect x="40" y="310" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="343.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-03</text>
+<rect x="130" y="310" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="335.61" font-size="13" fill="#1e1e1e" text-anchor="start">«No se puede usar una tecnología que requiera licencias de pago anuales… (ej. Oracle</text>
+<text x="142" y="351.86" font-size="13" fill="#1e1e1e" text-anchor="start">Enterprise, SQL Server Enterprise). Se prefiere software open-source»</text>
+<rect x="750" y="310" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="762" y="343.61" font-size="13" fill="#1e1e1e" text-anchor="start">negocio</text>
+<rect x="860" y="310" width="480" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872" y="335.61" font-size="13" fill="#1e1e1e" text-anchor="start">Descarta las bases comerciales — incluida la Oracle que el equipo</text>
+<text x="872" y="351.86" font-size="13" fill="#1e1e1e" text-anchor="start">interno prefiere</text>
+<rect x="40" y="370" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="403.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-04</text>
+<rect x="130" y="370" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="395.61" font-size="13" fill="#1e1e1e" text-anchor="start">«No se puede obligar a los enfermeros a usar dispositivos personales (BYOD)… el hospital</text>
+<text x="142" y="411.86" font-size="13" fill="#1e1e1e" text-anchor="start">provee los Toughpads»</text>
+<rect x="750" y="370" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="762" y="403.61" font-size="13" fill="#1e1e1e" text-anchor="start">negocio</text>
+<rect x="860" y="370" width="480" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872" y="395.61" font-size="13" fill="#1e1e1e" text-anchor="start">El cliente de enfermería se diseña para las Toughpad, no para</text>
+<text x="872" y="411.86" font-size="13" fill="#1e1e1e" text-anchor="start">«cualquier teléfono»</text>
+<rect x="40" y="430" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="463.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-05</text>
+<rect x="130" y="430" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="455.61" font-size="13" fill="#1e1e1e" text-anchor="start">«No se puede diseñar un sistema monolítico, porque el módulo de farmacovigilancia tiene</text>
+<text x="142" y="471.86" font-size="13" fill="#1e1e1e" text-anchor="start">ciclos de entrega diferentes…»</text>
+<rect x="750" y="430" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="762" y="463.61" font-size="13" fill="#1e1e1e" text-anchor="start">técnica</text>
+<rect x="860" y="430" width="480" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872" y="455.61" font-size="13" fill="#1e1e1e" text-anchor="start">Obliga módulos desplegables por separado; descarta el despliegue</text>
+<text x="872" y="471.86" font-size="13" fill="#1e1e1e" text-anchor="start">único</text>
+<rect x="40" y="490" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="523.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-06</text>
+<rect x="130" y="490" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="523.61" font-size="13" fill="#1e1e1e" text-anchor="start">«No se pueden almacenar contraseñas ni credenciales en texto plano en ninguna capa»</text>
+<rect x="750" y="490" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="762" y="523.61" font-size="13" fill="#1e1e1e" text-anchor="start">técnica</text>
+<rect x="860" y="490" width="480" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872" y="515.61" font-size="13" fill="#1e1e1e" text-anchor="start">Descarta configuraciones y logs con secretos; obliga hashing y</text>
+<text x="872" y="531.86" font-size="13" fill="#1e1e1e" text-anchor="start">gestión de secretos</text>
+<rect x="40" y="550" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="583.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-07</text>
+<rect x="130" y="550" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="575.61" font-size="13" fill="#1e1e1e" text-anchor="start">«No se puede implementar una solución que requiera entrenamiento de más de 2 horas para</text>
+<text x="142" y="591.86" font-size="13" fill="#1e1e1e" text-anchor="start">los enfermeros»</text>
+<rect x="750" y="550" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="762" y="583.61" font-size="13" fill="#1e1e1e" text-anchor="start">negocio</text>
+<rect x="860" y="550" width="480" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872" y="575.61" font-size="13" fill="#1e1e1e" text-anchor="start">Acota la complejidad de la interfaz de enfermería; descarta flujos</text>
+<text x="872" y="591.86" font-size="13" fill="#1e1e1e" text-anchor="start">que exijan curso</text>
+<rect x="40" y="610" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="643.61" font-size="13" fill="#1e1e1e" text-anchor="start">RE-08</text>
+<rect x="130" y="610" width="620" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="635.61" font-size="13" fill="#1e1e1e" text-anchor="start">«No se puede generar un único punto de falla en la autenticación; si… (LDAP) cae, el</text>
+<text x="142" y="651.86" font-size="13" fill="#1e1e1e" text-anchor="start">hospital debe seguir operando con… respaldo (ej. OTP por SMS)»</text>
+<rect x="750" y="610" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="762" y="643.61" font-size="13" fill="#1e1e1e" text-anchor="start">técnica</text>
+<rect x="860" y="610" width="480" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="872" y="635.61" font-size="13" fill="#1e1e1e" text-anchor="start">Descarta autenticar solo contra LDAP; obliga el mecanismo de</text>
+<text x="872" y="651.86" font-size="13" fill="#1e1e1e" text-anchor="start">respaldo</text>
+</svg>

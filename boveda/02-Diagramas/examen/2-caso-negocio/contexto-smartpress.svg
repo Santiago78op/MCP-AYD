@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 60 1740 920" width="1740" height="920" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="80" y="60" width="1740" height="920" fill="#ffffff"/>
+<ellipse cx="890.0" cy="530.0" rx="190.0" ry="90.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="890.0" y="515.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">SmartPress</text>
+<text x="890.0" y="535.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema de Control de Calidad</text>
+<text x="890.0" y="555.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">en Línea de Producción</text>
+<rect x="120" y="100" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="250.0" y="135.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Proveedor de</text>
+<text x="250.0" y="153.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">materia prima</text>
+<rect x="120" y="260" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="250.0" y="295.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema de Control</text>
+<text x="250.0" y="313.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de Máquina (PLC)</text>
+<rect x="120" y="420" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="250.0" y="455.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema de medición</text>
+<text x="250.0" y="473.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">láser (CMM)</text>
+<rect x="120" y="580" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="250.0" y="615.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistemas legacy</text>
+<text x="250.0" y="633.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(ERP / Mantenimiento)</text>
+<rect x="120" y="740" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="250.0" y="775.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Área de</text>
+<text x="250.0" y="793.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Mantenimiento</text>
+<rect x="1520" y="100" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1650.0" y="144.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Operario de máquina</text>
+<rect x="1520" y="260" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1650.0" y="304.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Supervisor de turno</text>
+<rect x="1520" y="420" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1650.0" y="464.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Ingeniero de Calidad</text>
+<rect x="1520" y="580" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1650.0" y="624.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Director de Planta</text>
+<rect x="1520" y="740" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1650.0" y="775.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Cliente (ensambladora</text>
+<text x="1650.0" y="793.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">automotriz)</text>
+<rect x="760" y="860" width="260" height="80" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="890.0" y="895.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Ente certificador</text>
+<text x="890.0" y="913.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(ISO 9001 / IATF 16949)</text>
+<line x1="382" y1="140" x2="790" y2="453" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="556.0" y="239.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Certificado de calidad</text>
+<text x="556.0" y="254.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">del lote</text>
+<line x1="382" y1="300" x2="753" y2="468" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="547.0" y="329.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Mediciones de sensores</text>
+<text x="547.0" y="344.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(OPC-UA)</text>
+<line x1="382" y1="460" x2="708" y2="505" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="535.0" y="497.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Resultados de</text>
+<text x="535.0" y="512.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">inspección dimensional</text>
+<line x1="382" y1="620" x2="712" y2="562" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="547.0" y="600.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Órdenes de producción</text>
+<text x="547.0" y="615.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y programación</text>
+<line x1="1518" y1="480" x2="1072" y2="530" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1295.0" y="514.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Configuración del</text>
+<text x="1295.0" y="529.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">modelo predictivo</text>
+<line x1="748" y1="490" x2="384" y2="330" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="546.0" y="397.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Orden de ajuste</text>
+<text x="546.0" y="412.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de parámetros</text>
+<line x1="758" y1="595" x2="384" y2="780" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="541.0" y="700.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Aviso de deriva</text>
+<text x="541.0" y="715.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de sensor</text>
+<line x1="1005" y1="458" x2="1518" y2="140" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1291.0" y="244.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Alerta de desviación</text>
+<text x="1291.0" y="259.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">en tiempo real</text>
+<line x1="1040" y1="475" x2="1518" y2="300" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1299.0" y="332.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Tablero de desempeño</text>
+<text x="1299.0" y="347.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">del turno</text>
+<line x1="1075" y1="509" x2="1518" y2="450" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1296.0" y="424.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Datos históricos</text>
+<text x="1296.0" y="439.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de proceso</text>
+<line x1="1072" y1="556" x2="1518" y2="620" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1295.0" y="597.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Indicadores de calidad</text>
+<text x="1295.0" y="612.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y costo de scrap</text>
+<line x1="1035" y1="588" x2="1518" y2="780" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1306.0" y="695.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Expediente de trazabilidad</text>
+<text x="1306.0" y="710.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de la pieza</text>
+<line x1="890" y1="622" x2="890" y2="856" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1010.0" y="718.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Registro de auditoría</text>
+<text x="1010.0" y="733.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">inmutable</text>
+</svg>

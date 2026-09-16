@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1080" width="1500" height="1080" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1500" height="1080" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Drivers de Requisitos Funcionales — SmartPress</text>
+<text x="40" y="88.61" font-size="13" fill="#1e1e1e" text-anchor="start">«Funcionalidades específicas que MOLDEAN la estructura». Se entregan como CDU expandidos: los de CUN-03 y CUN-05 están dibujados (3.1-drivers-rf);</text>
+<text x="40" y="104.86" font-size="13" fill="#1e1e1e" text-anchor="start">los de CUN-01, CUN-02 y CUN-04 quedan sin expandir porque el enunciado pide solamente 2 CUN.</text>
+<rect x="40" y="140" width="110" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">ID</text>
+<rect x="150" y="140" width="660" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Driver RF</text>
+<rect x="810" y="140" width="170" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN de origen</text>
+<rect x="980" y="140" width="400" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU del sistema que lo realiza</text>
+<rect x="40" y="200" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-001</text>
+<rect x="150" y="200" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Capturar 500 mediciones/s por máquina en 25 máquinas, en tiempo real, vía OPC-UA</text>
+<rect x="810" y="200" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-03</text>
+<rect x="980" y="200" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-002 (principal), CU-001, CU-006</text>
+<rect x="40" y="260" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-002</text>
+<rect x="150" y="260" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="285.61" font-size="13" fill="#1e1e1e" text-anchor="start">Ejecutar inferencia ML sobre las 500 mediciones y predecir la calidad antes de que termine el</text>
+<text x="162" y="301.86" font-size="13" fill="#1e1e1e" text-anchor="start">ciclo</text>
+<rect x="810" y="260" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-03</text>
+<rect x="980" y="260" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-003 (principal), CU-001</text>
+<rect x="40" y="320" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-003</text>
+<rect x="150" y="320" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Enviar orden de ajuste o de paro al PLC cuando la predicción es «defectuosa»</text>
+<rect x="810" y="320" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-03</text>
+<rect x="980" y="320" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-005 (principal), CU-001</text>
+<rect x="40" y="380" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-004</text>
+<rect x="150" y="380" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="405.61" font-size="13" fill="#1e1e1e" text-anchor="start">Registrar trazabilidad completa por pieza: máquina, turno, operario, lote, parámetros e</text>
+<text x="162" y="421.86" font-size="13" fill="#1e1e1e" text-anchor="start">inspección</text>
+<rect x="810" y="380" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-03, CUN-05</text>
+<rect x="980" y="380" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-004 (principal), CU-010, CU-012</text>
+<rect x="40" y="440" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-005</text>
+<rect x="150" y="440" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Etiquetar cada pieza con un código QR único que porte su expediente</text>
+<rect x="810" y="440" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-05</text>
+<rect x="980" y="440" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-011 (principal), CU-010, CU-016</text>
+<rect x="40" y="500" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-006</text>
+<rect x="150" y="500" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">Sellar los registros de producción de forma inmutable y verificable</text>
+<rect x="810" y="500" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-05</text>
+<rect x="980" y="500" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-012 (principal), CU-015</text>
+<rect x="40" y="560" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-007</text>
+<rect x="150" y="560" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">Correlacionar la inspección CMM (15 dimensiones, 5% de piezas) con los datos de producción y</text>
+<text x="162" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">reentrenar</text>
+<rect x="810" y="560" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-04, CUN-05</text>
+<rect x="980" y="560" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-013 (principal), CU-003</text>
+<rect x="40" y="620" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-008</text>
+<rect x="150" y="620" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">Consultar trazabilidad forense de un lote sobre el histórico de 7 años</text>
+<rect x="810" y="620" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-05</text>
+<rect x="980" y="620" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-014 (principal), CU-015</text>
+<rect x="40" y="680" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-009</text>
+<rect x="150" y="680" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">Detectar deriva de sensores y notificar a Mantenimiento antes de que cause defectos</text>
+<rect x="810" y="680" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-03</text>
+<rect x="980" y="680" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-007 (principal), CU-002</text>
+<rect x="40" y="740" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-010</text>
+<rect x="150" y="740" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="765.61" font-size="13" fill="#1e1e1e" text-anchor="start">Presentar tablero de estado y desempeño de turno en tiempo real, con acción correctiva</text>
+<text x="162" y="781.86" font-size="13" fill="#1e1e1e" text-anchor="start">sugerida</text>
+<rect x="810" y="740" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-03</text>
+<rect x="980" y="740" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-008 (principal), CU-009</text>
+<rect x="40" y="800" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-011</text>
+<rect x="150" y="800" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">Bufferizar localmente y reconciliar al reconectar, sin pérdida de mediciones</text>
+<rect x="810" y="800" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-03</text>
+<rect x="980" y="800" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">CU-006 (principal), CU-002, CU-004</text>
+<rect x="40" y="860" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-012</text>
+<rect x="150" y="860" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="start">Integrarse con ERP y sistema de mantenimiento legacy (REST, 1-2 s) para órdenes y programación</text>
+<rect x="810" y="860" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-02</text>
+<rect x="980" y="860" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="start">— (no expandido)</text>
+<rect x="40" y="920" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-013</text>
+<rect x="150" y="920" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="start">Registrar el lote de materia prima, sus propiedades y el certificado del proveedor</text>
+<rect x="810" y="920" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-01</text>
+<rect x="980" y="920" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="953.61" font-size="13" fill="#1e1e1e" text-anchor="start">— (no expandido)</text>
+<rect x="40" y="980" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="1013.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-014</text>
+<rect x="150" y="980" width="660" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="1013.61" font-size="13" fill="#1e1e1e" text-anchor="start">Actualizar el modelo predictivo (shadow, A/B, canary) sin detener la producción</text>
+<rect x="810" y="980" width="170" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="822" y="1013.61" font-size="13" fill="#1e1e1e" text-anchor="start">CUN-04</text>
+<rect x="980" y="980" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="992" y="1013.61" font-size="13" fill="#1e1e1e" text-anchor="start">— (no expandido)</text>
+</svg>

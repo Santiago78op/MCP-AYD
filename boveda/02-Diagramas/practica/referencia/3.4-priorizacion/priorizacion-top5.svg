@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1380 728" width="1380" height="728" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1380" height="728" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Los 5 drivers más críticos según el contexto guatemalteco</text>
+<text x="40" y="86.61" font-size="13" fill="#1e1e1e" text-anchor="start">«Según el contexto guatemalteco» — interpretación declarada: la rúbrica lo exige y no lo define en ningún material de clase (pregunta pendiente para la catedrática).</text>
+<text x="40" y="102.86" font-size="13" fill="#1e1e1e" text-anchor="start">Mientras tanto se declara la interpretación: los ejes del contexto nacional que el propio enunciado pone sobre la mesa — marco regulatorio local (MSPAS, Contraloría,</text>
+<text x="40" y="119.11" font-size="13" fill="#1e1e1e" text-anchor="start">Ley de Acceso, INCAP), presupuesto público fijo sin autoescalado ni licencias renovables, infraestructura real (50 Mbps compartidos, Wi-Fi inestable), capital humano</text>
+<text x="40" y="135.36" font-size="13" fill="#1e1e1e" text-anchor="start">(3 personas de TI, alta rotación) y criticidad social (referencia nacional, 1.200 pacientes diarios).</text>
+<rect x="40" y="170" width="60" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="start">#</text>
+<rect x="100" y="170" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="112" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="start">ID</text>
+<rect x="190" y="170" width="280" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="202" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="start">Driver</text>
+<rect x="470" y="170" width="870" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="482" y="203.61" font-size="13" fill="#1e1e1e" text-anchor="start">Justificación en el contexto guatemalteco</text>
+<rect x="40" y="230" width="60" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="273.61" font-size="13" fill="#1e1e1e" text-anchor="start">1</text>
+<rect x="100" y="230" width="90" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="112" y="273.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-02</text>
+<rect x="190" y="230" width="280" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="202" y="265.61" font-size="13" fill="#1e1e1e" text-anchor="start">Operación offline ≥ 4 h con</text>
+<text x="202" y="281.86" font-size="13" fill="#1e1e1e" text-anchor="start">reconciliación</text>
+<rect x="470" y="230" width="870" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="482" y="257.61" font-size="13" fill="#1e1e1e" text-anchor="start">Conectividad: el enunciado da Wi-Fi inestable en el sótano y 50 Mbps compartidos — en el contexto local la intermitencia no</text>
+<text x="482" y="273.86" font-size="13" fill="#1e1e1e" text-anchor="start">es un caso raro, es el estado normal de la red. Diseñar asumiendo conexión confiable haría el sistema inútil justo donde</text>
+<text x="482" y="290.11" font-size="13" fill="#1e1e1e" text-anchor="start">opera la farmacia</text>
+<rect x="40" y="310" width="60" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="343.61" font-size="13" fill="#1e1e1e" text-anchor="start">2</text>
+<rect x="100" y="310" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="112" y="343.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-01</text>
+<rect x="190" y="310" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="202" y="335.61" font-size="13" fill="#1e1e1e" text-anchor="start">Validación paciente-medicamento &lt; 500</text>
+<text x="202" y="351.86" font-size="13" fill="#1e1e1e" text-anchor="start">ms / &lt; 2 s</text>
+<rect x="470" y="310" width="870" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="482" y="335.61" font-size="13" fill="#1e1e1e" text-anchor="start">Dispositivos y red reales: el número hay que lograrlo en Toughpads Android 9 de 3 GB (gama baja, ya compradas — RE-14) y</text>
+<text x="482" y="351.86" font-size="13" fill="#1e1e1e" text-anchor="start">sobre la red degradada. En otro contexto se resuelve con mejor hardware; acá el hardware es un dato, no una variable</text>
+<rect x="40" y="370" width="60" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">3</text>
+<rect x="100" y="370" width="90" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="112" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-05</text>
+<rect x="190" y="370" width="280" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="202" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Pico de 10x con presupuesto fijo</text>
+<rect x="470" y="370" width="870" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="482" y="397.61" font-size="13" fill="#1e1e1e" text-anchor="start">Presupuesto público: no hay autoescalado, no hay nube para lo sensible (RE-02, RE-13) y el presupuesto de un hospital</text>
+<text x="482" y="413.86" font-size="13" fill="#1e1e1e" text-anchor="start">nacional no crece con la demanda. El pico se absorbe con arquitectura o no se absorbe — el autoescalado, razonable en otro</text>
+<text x="482" y="430.11" font-size="13" fill="#1e1e1e" text-anchor="start">contexto, acá es inviable</text>
+<rect x="40" y="450" width="60" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="493.61" font-size="13" fill="#1e1e1e" text-anchor="start">4</text>
+<rect x="100" y="450" width="90" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="112" y="493.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-07</text>
+<rect x="190" y="450" width="280" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="202" y="493.61" font-size="13" fill="#1e1e1e" text-anchor="start">Mantenibilidad por el equipo interno</text>
+<rect x="470" y="450" width="870" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="482" y="477.61" font-size="13" fill="#1e1e1e" text-anchor="start">Capital humano: 3 personas de TI, rotación alta por contratos de 12 meses, y sin dinero para consultoras permanentes ni</text>
+<text x="482" y="493.86" font-size="13" fill="#1e1e1e" text-anchor="start">licencias (RE-03, RE-17). En este contexto, un sistema que solo su constructor puede mantener es un sistema muerto a mediano</text>
+<text x="482" y="510.11" font-size="13" fill="#1e1e1e" text-anchor="start">plazo — y condiciona la decisión más temprana de todas: el stack</text>
+<rect x="40" y="530" width="60" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="573.61" font-size="13" fill="#1e1e1e" text-anchor="start">5</text>
+<rect x="100" y="530" width="90" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="112" y="573.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-03</text>
+<rect x="190" y="530" width="280" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="202" y="573.61" font-size="13" fill="#1e1e1e" text-anchor="start">Inmutabilidad y trazabilidad total</text>
+<rect x="470" y="530" width="870" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="482" y="557.61" font-size="13" fill="#1e1e1e" text-anchor="start">Marco regulatorio local: la Contraloría General de Cuentas audita sin previo aviso y el proyecto nace de auditorías fallidas</text>
+<text x="482" y="573.86" font-size="13" fill="#1e1e1e" text-anchor="start">(Q 2.5 M perdidos, registros en papel). En la gestión pública guatemalteca la trazabilidad ante la Contraloría no es un plus:</text>
+<text x="482" y="590.11" font-size="13" fill="#1e1e1e" text-anchor="start">es la supervivencia institucional del proyecto</text>
+<text x="40" y="652.61" font-size="13" fill="#1e1e1e" text-anchor="start">Por qué quedaron fuera los otros (A, M) — el desempate, dicho: AC-04 (ABAC) y AC-06 (interoperabilidad) son de importancia alta pero su dificultad es media porque se</text>
+<text x="40" y="668.86" font-size="13" fill="#1e1e1e" text-anchor="start">resuelven con patrones establecidos, que condicionan menos la estructura temprana que el stack (AC-07) o la inmutabilidad transversal (AC-03). Y AC-08 queda</text>
+<text x="40" y="685.11" font-size="13" fill="#1e1e1e" text-anchor="start">parcialmente cubierto por la decisión que se tome para AC-03.  Quedar fuera del top 5 NO los vuelve opcionales: siguen siendo drivers y entran a las matrices.</text>
+</svg>

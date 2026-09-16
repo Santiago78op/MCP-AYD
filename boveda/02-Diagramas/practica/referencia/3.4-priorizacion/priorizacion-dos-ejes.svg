@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1380 776" width="1380" height="776" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1380" height="776" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Priorización — la matriz de los dos ejes · los 8 candidatos</text>
+<text x="40" y="86.61" font-size="13" fill="#1e1e1e" text-anchor="start">Método ADD: dos ejes, no una nota única. La IMPORTANCIA para el negocio la asignan los stakeholders; la DIFICULTAD o riesgo técnico, el arquitecto.</text>
+<text x="40" y="102.86" font-size="13" fill="#1e1e1e" text-anchor="start">Se ataca primero la intersección (A, A): alto valor y alta dificultad, donde una decisión equivocada cuesta más deshacerla.</text>
+<text x="40" y="119.11" font-size="13" fill="#1e1e1e" text-anchor="start">Compiten solo los drivers de calidad AC-nn: las restricciones NO se priorizan (todas se cumplen) y la funcionalidad tiene su completitud en §3.1.</text>
+<rect x="40" y="150" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="183.61" font-size="13" fill="#1e1e1e" text-anchor="start">ID</text>
+<rect x="130" y="150" width="300" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="183.61" font-size="13" fill="#1e1e1e" text-anchor="start">Driver</text>
+<rect x="430" y="150" width="400" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="442" y="183.61" font-size="13" fill="#1e1e1e" text-anchor="start">Importancia (quién la sostiene)</text>
+<rect x="830" y="150" width="420" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="183.61" font-size="13" fill="#1e1e1e" text-anchor="start">Dificultad (por qué)</text>
+<rect x="1250" y="150" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1262" y="183.61" font-size="13" fill="#1e1e1e" text-anchor="start">Par</text>
+<rect x="40" y="210" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="243.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-01</text>
+<rect x="130" y="210" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="243.61" font-size="13" fill="#1e1e1e" text-anchor="start">Validación &lt; 500 ms / &lt; 2 s</text>
+<rect x="430" y="210" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="442" y="243.61" font-size="13" fill="#1e1e1e" text-anchor="start">A — STK-03: evita el error fatal del escenario 3</text>
+<rect x="830" y="210" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="235.61" font-size="13" fill="#1e1e1e" text-anchor="start">A — el número con red degradada y equipo mixto; el</text>
+<text x="842" y="251.86" font-size="13" fill="#1e1e1e" text-anchor="start">enunciado mismo lo pregunta</text>
+<rect x="1250" y="210" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1262" y="243.61" font-size="13" fill="#1e1e1e" text-anchor="start">(A, A)</text>
+<rect x="40" y="270" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="303.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-02</text>
+<rect x="130" y="270" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="303.61" font-size="13" fill="#1e1e1e" text-anchor="start">Offline ≥ 4 h con reconciliación</text>
+<rect x="430" y="270" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="442" y="303.61" font-size="13" fill="#1e1e1e" text-anchor="start">A — STK-02/STK-03: sin esto la quimioterapia se detiene</text>
+<rect x="830" y="270" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="295.61" font-size="13" fill="#1e1e1e" text-anchor="start">A — reconciliar sin duplicar es un problema de</text>
+<text x="842" y="311.86" font-size="13" fill="#1e1e1e" text-anchor="start">consistencia distribuida</text>
+<rect x="1250" y="270" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1262" y="303.61" font-size="13" fill="#1e1e1e" text-anchor="start">(A, A)</text>
+<rect x="40" y="330" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="363.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-03</text>
+<rect x="130" y="330" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="363.61" font-size="13" fill="#1e1e1e" text-anchor="start">Inmutabilidad y trazabilidad total</text>
+<rect x="430" y="330" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="442" y="363.61" font-size="13" fill="#1e1e1e" text-anchor="start">A — STK-11: el proyecto nace de auditorías fallidas</text>
+<rect x="830" y="330" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="355.61" font-size="13" fill="#1e1e1e" text-anchor="start">M — event sourcing / bitácora inmutable es patrón</text>
+<text x="842" y="371.86" font-size="13" fill="#1e1e1e" text-anchor="start">conocido; el reto es no degradar</text>
+<rect x="1250" y="330" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1262" y="363.61" font-size="13" fill="#1e1e1e" text-anchor="start">(A, M)</text>
+<rect x="40" y="390" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="423.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-04</text>
+<rect x="130" y="390" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="423.61" font-size="13" fill="#1e1e1e" text-anchor="start">Confidencialidad ABAC con excepción</text>
+<rect x="430" y="390" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="442" y="423.61" font-size="13" fill="#1e1e1e" text-anchor="start">A — STK-06: ley + estigma de VIH/cáncer</text>
+<rect x="830" y="390" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="415.61" font-size="13" fill="#1e1e1e" text-anchor="start">M — ABAC es patrón establecido; la excepción auditada lo</text>
+<text x="842" y="431.86" font-size="13" fill="#1e1e1e" text-anchor="start">complica poco</text>
+<rect x="1250" y="390" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1262" y="423.61" font-size="13" fill="#1e1e1e" text-anchor="start">(A, M)</text>
+<rect x="40" y="450" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="483.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-05</text>
+<rect x="130" y="450" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="483.61" font-size="13" fill="#1e1e1e" text-anchor="start">Pico de 10x con presupuesto fijo</text>
+<rect x="430" y="450" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="442" y="483.61" font-size="13" fill="#1e1e1e" text-anchor="start">A — STK-13: el lunes 8:30 ya colapsó una vez</text>
+<rect x="830" y="450" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="475.61" font-size="13" fill="#1e1e1e" text-anchor="start">A — sin autoescalado ni hardware nuevo: solo arquitectura</text>
+<text x="842" y="491.86" font-size="13" fill="#1e1e1e" text-anchor="start">(caché, colas, réplicas)</text>
+<rect x="1250" y="450" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1262" y="483.61" font-size="13" fill="#1e1e1e" text-anchor="start">(A, A)</text>
+<rect x="40" y="510" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="543.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-06</text>
+<rect x="130" y="510" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="543.61" font-size="13" fill="#1e1e1e" text-anchor="start">Interoperabilidad legacy + nacional</text>
+<rect x="430" y="510" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="442" y="543.61" font-size="13" fill="#1e1e1e" text-anchor="start">A — STK-07: plazo legal de 24 h</text>
+<rect x="830" y="510" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="543.61" font-size="13" fill="#1e1e1e" text-anchor="start">M — cola local con reintento en ventana es patrón estándar</text>
+<rect x="1250" y="510" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1262" y="543.61" font-size="13" fill="#1e1e1e" text-anchor="start">(A, M)</text>
+<rect x="40" y="570" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="603.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-07</text>
+<rect x="130" y="570" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="603.61" font-size="13" fill="#1e1e1e" text-anchor="start">Mantenibilidad por el equipo interno</text>
+<rect x="430" y="570" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="442" y="603.61" font-size="13" fill="#1e1e1e" text-anchor="start">A — STK-08: sin esto el sistema muere a los 12 meses</text>
+<rect x="830" y="570" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="595.61" font-size="13" fill="#1e1e1e" text-anchor="start">M — la decisión dura es temprana (stack, módulos); después</text>
+<text x="842" y="611.86" font-size="13" fill="#1e1e1e" text-anchor="start">es disciplina</text>
+<rect x="1250" y="570" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1262" y="603.61" font-size="13" fill="#1e1e1e" text-anchor="start">(A, M)</text>
+<rect x="40" y="630" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="663.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-08</text>
+<rect x="130" y="630" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="142" y="663.61" font-size="13" fill="#1e1e1e" text-anchor="start">Integridad criptográfica de sensores</text>
+<rect x="430" y="630" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="442" y="655.61" font-size="13" fill="#1e1e1e" text-anchor="start">M — STK-11: importante, pero parcialmente subsumido por</text>
+<text x="442" y="671.86" font-size="13" fill="#1e1e1e" text-anchor="start">AC-03</text>
+<rect x="830" y="630" width="420" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="842" y="663.61" font-size="13" fill="#1e1e1e" text-anchor="start">M — hash encadenado es técnica conocida</text>
+<rect x="1250" y="630" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1262" y="663.61" font-size="13" fill="#1e1e1e" text-anchor="start">(M, M)</text>
+<text x="40" y="732.61" font-size="13" fill="#1e1e1e" text-anchor="start">Tres quedan en (A, A) y cuatro en (A, M): para los dos lugares restantes se desempata con el contexto guatemalteco, que es exactamente lo que la rúbrica pide.</text>
+</svg>

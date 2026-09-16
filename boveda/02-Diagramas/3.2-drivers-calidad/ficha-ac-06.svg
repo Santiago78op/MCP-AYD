@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 580" width="1020" height="580" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1020" height="580" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">AC-06 — Funcionalidad → interoperabilidad</text>
+<text x="40" y="86.61" font-size="13" fill="#1e1e1e" text-anchor="start">ISO 25010: primer nivel  ·  Secundarios: fiabilidad, eficiencia  ·  Origen: acuerdo 6 + escenario crítico 6</text>
+<rect x="40" y="120" width="200" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="153.61" font-size="13" fill="#1e1e1e" text-anchor="start">Parte del escenario</text>
+<rect x="240" y="120" width="740" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="252" y="153.61" font-size="13" fill="#1e1e1e" text-anchor="start">Contenido</text>
+<rect x="40" y="180" width="200" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="213.61" font-size="13" fill="#1e1e1e" text-anchor="start">Fuente</text>
+<rect x="240" y="180" width="740" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="252" y="205.61" font-size="13" fill="#1e1e1e" text-anchor="start">El sistema legacy de admisiones (COBOL/SOAP, 3-5 s, 7:00-17:00) y el sistema nacional de</text>
+<text x="252" y="221.86" font-size="13" fill="#1e1e1e" text-anchor="start">farmacovigilancia (XML/DTD, 8:00-16:00)</text>
+<rect x="40" y="240" width="200" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="273.61" font-size="13" fill="#1e1e1e" text-anchor="start">Estímulo</text>
+<rect x="240" y="240" width="740" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="252" y="273.61" font-size="13" fill="#1e1e1e" text-anchor="start">El sistema necesita identidad del paciente; debe entregar un reporte de efecto adverso</text>
+<rect x="40" y="300" width="200" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="333.61" font-size="13" fill="#1e1e1e" text-anchor="start">Artefacto</text>
+<rect x="240" y="300" width="740" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="252" y="333.61" font-size="13" fill="#1e1e1e" text-anchor="start">Los adaptadores de integración</text>
+<rect x="40" y="360" width="200" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="393.61" font-size="13" fill="#1e1e1e" text-anchor="start">Entorno</text>
+<rect x="240" y="360" width="740" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="252" y="393.61" font-size="13" fill="#1e1e1e" text-anchor="start">El incidente ocurre fuera de la ventana del sistema externo (la anafilaxia de las 19:30)</text>
+<rect x="40" y="420" width="200" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="453.61" font-size="13" fill="#1e1e1e" text-anchor="start">Respuesta</text>
+<rect x="240" y="420" width="740" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="252" y="445.61" font-size="13" fill="#1e1e1e" text-anchor="start">Los datos de admisiones se replican/cachean para no bloquear la operación; los reportes se encolan y</text>
+<text x="252" y="461.86" font-size="13" fill="#1e1e1e" text-anchor="start">reintentan en ventana hábil — el plazo legal lo cumple el registro local</text>
+<rect x="40" y="480" width="200" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="513.61" font-size="13" fill="#1e1e1e" text-anchor="start">MEDIDA</text>
+<rect x="240" y="480" width="740" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="252" y="513.61" font-size="13" fill="#1e1e1e" text-anchor="start">La respuesta al farmacéutico no espera al legacy (dentro de AC-01); 100 % de reportes entregados ≤ 24 h</text>
+</svg>
