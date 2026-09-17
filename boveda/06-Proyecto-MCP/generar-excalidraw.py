@@ -23,6 +23,7 @@ Correr sin argumento lista lo disponible.
 """
 
 import json
+import math
 import os
 import shutil
 import sys
@@ -338,6 +339,17 @@ def emitir_svg(elementos, margen=40):
             out.append(
                 f'<rect x="{x}" y="{y}" width="{ew}" height="{eh}" rx="{rx}" '
                 f'fill="{fill}" stroke="{TRAZO}" stroke-width="{gr}"{dash}/>')
+        elif t == "line" and e.get("_arco"):
+            cx, cy, r, lado = e["_arco"]
+            p0, p1, barrido = {
+                "arriba": ((cx - r, cy), (cx + r, cy), 1),
+                "abajo": ((cx - r, cy), (cx + r, cy), 0),
+                "izq": ((cx, cy - r), (cx, cy + r), 0),
+                "der": ((cx, cy - r), (cx, cy + r), 1),
+            }[lado]
+            out.append(
+                f'<path d="M {p0[0]} {p0[1]} A {r} {r} 0 0 {barrido} {p1[0]} {p1[1]}" '
+                f'fill="none" stroke="{TRAZO}" stroke-width="{gr}"/>')
         elif t in ("line", "arrow"):
             (dx1, dy1), (dx2, dy2) = e["points"][0], e["points"][-1]
             ah = e.get("endArrowhead")
@@ -2252,6 +2264,137 @@ SUBCARPETA.update({
     "bloques-farmahosp": "6-bloques-despliegue",
     "despliegue-farmahosp": "6-bloques-despliegue",
 })
+
+
+def piruleta_arriba(cx, y_top, nombre, dy=44, lado="der"):
+    """Interfaz provista sobre el componente: circulo + varilla + nombre."""
+    cy = y_top - dy
+    els = [_base("ellipse", cx - 12, cy - 12, 24, 24),
+           _base("line", cx, cy + 12, 0, dy - 12, points=[[0, 0], [0, dy - 12]])]
+    if lado == "der":
+        els.append(texto(nombre, cx + 18, cy - 8, 200, 11, align="left"))
+    else:
+        els.append(texto(nombre, cx - 218, cy - 8, 200, 11, align="right"))
+    return els
+
+
+def piruleta_izquierda(x_comp, cy, nombre):
+    """Interfaz provista sobre el borde izquierdo del componente."""
+    cx = x_comp - 36
+    return [_base("ellipse", cx - 12, cy - 12, 24, 24),
+            _base("line", cx + 12, cy, 24, 0, points=[[0, 0], [24, 0]]),
+            texto(nombre, cx - 200, cy - 30, 200, 11, align="right")]
+
+
+def piruleta_derecha(x_der, cy, nombre):
+    """Interfaz provista sobre el borde derecho del componente."""
+    cx = x_der + 36
+    return [_base("ellipse", cx - 12, cy - 12, 24, 24),
+            _base("line", x_der, cy, 24, 0, points=[[0, 0], [24, 0]]),
+            texto(nombre, cx - 100, cy - 34, 200, 11)]
+
+
+def receptaculo(cx, cy, lado, r=20):
+    """Interfaz REQUERIDA: semicirculo (socket). Si abraza a un circulo provisto,
+    el par es un ENSAMBLE (captura 31 arriba); si va separado, de el sale la
+    dependencia punteada hacia el circulo (captura 31 abajo)."""
+    ang = {"arriba": (180, 360), "abajo": (0, 180), "izq": (90, 270), "der": (-90, 90)}[lado]
+    pts = []
+    for i in range(13):
+        a_ = math.radians(ang[0] + (ang[1] - ang[0]) * i / 12)
+        pts.append([round(cx + r * math.cos(a_), 1), round(cy + r * math.sin(a_), 1)])
+    x0, y0 = pts[0]
+    el = _base("line", x0, y0, 0.1, 0.1,
+               points=[[round(px - x0, 1), round(py - y0, 1)] for px, py in pts])
+    el["_arco"] = (cx, cy, r, lado)
+    return [el]
+
+
+def ensamble_vertical(cx, y_consumidor, cy_bola, r=20):
+    """Consumidor arriba, proveedor abajo: receptaculo abrazando la bola + varilla."""
+    return receptaculo(cx, cy_bola, "arriba", r) + [
+        _base("line", cx, y_consumidor, 0, cy_bola - r - y_consumidor,
+              points=[[0, 0], [0, cy_bola - r - y_consumidor]])]
+
+
+def componentes_farmahosp():
+    els = [titulo("Diagrama de componentes — FarmaHosp", 40, 10, 1400),
+           texto("Componente = unidad de software reemplazable, definida por los servicios que ofrece y los que "
+                 "requiere · círculo = interfaz PROVISTA · semicírculo = interfaz REQUERIDA · semicírculo "
+                 "abrazando al círculo = ENSAMBLE · separados, la punteada sale del semicírculo hacia el "
+                 "círculo (captura 31) · quien depende va arriba.",
+                 40, 44, 2200, 13, align="left", _halo=False)]
+    # grupo de servicios de negocio
+    els.append(_rect(20, 300, 1420, 1150, "#f7f7f7", punteado=True))
+    els.append(texto("Servicios de negocio (SOA)", 620, 310, 230, 13, align="left", _halo=False))
+    els.append(texto("uno por proceso CDU-01..07, cada uno en capas", 1000, 310, 420, 12, align="left", _halo=False))
+    C = componente
+    # fila 1 — clientes
+    els += C(60, 120, 260, 90, "PortalWeb\n(Angular · médico, director, jefe FV)")
+    els += C(420, 120, 260, 90, "AppFarmacia\n(offline-first · RE-16)")
+    els += C(780, 120, 260, 90, "AppEnfermeria\n(Toughpad · RE-14)")
+    els += C(1900, 120, 260, 90, "GatewayIoT\n(cámaras · RF-05)")
+    # fila 2
+    els += C(60, 420, 260, 90, "SvcAuditoria\nCDU-07 · RF-33..37")
+    els += C(420, 420, 260, 90, "SvcSincronizacion\nAC-02 · RF-26")
+    els += C(780, 420, 260, 90, "SvcAdministracion\nCDU-05 · RF-23..27")
+    els += C(1900, 420, 260, 90, "PipelineTelemetria\nAC-08 · RF-05, RF-06")
+    els += piruleta_arriba(190, 420, "IAuditoria")
+    els += piruleta_arriba(550, 420, "ISincronizacion")
+    els += piruleta_arriba(910, 420, "IAdministracion")
+    els += piruleta_arriba(2030, 420, "ILectura")
+    # fila 3
+    els += C(780, 720, 260, 90, "SvcDispensacion\nCDU-04 · RF-17..22")
+    els += C(1140, 720, 260, 90, "SvcFarmacovigilancia\nCDU-06 · RF-28..32")
+    els += piruleta_arriba(910, 720, "IDispensacion")
+    els += piruleta_arriba(1270, 720, "IFarmacovigilancia")
+    # fila 4
+    els += C(780, 1020, 260, 90, "SvcPrescripcion\nCDU-03 · RF-10..16")
+    els += piruleta_arriba(910, 1020, "IPrescripcion")
+    # fila 5
+    els += C(420, 1320, 260, 90, "SvcAdquisicion\nCDU-01 · RF-01..04")
+    els += C(780, 1320, 260, 90, "SvcInventario\nCDU-02 · RF-05..09 · RE-01")
+    els += piruleta_arriba(910, 1320, "IInventario")
+    els += piruleta_derecha(680, 1365, "IOrdenCompra")
+    # transversales
+    els += C(1560, 420, 260, 90, "SvcIntegracion\nAC-06 · RF-29, RF-37")
+    els += C(1560, 720, 260, 90, "SvcNotificacion\nRF-07 · RF-31")
+    els += C(1560, 1020, 260, 90, "SvcIdentidad\nRE-08 · AC-04")
+    els += C(1560, 1320, 260, 90, "BitacoraInmutable\nAC-03")
+    for y, n in [(465, "IAdmisiones · IReporteMSPAS"), (765, "INotificacion"),
+                 (1065, "IAutenticacion · IAutorizacion"), (1365, "IRegistroEvento")]:
+        els += piruleta_izquierda(1560, y, n)
+        els += ruta([(1440, y), (1512, y)], punteada=True)
+    els.append(texto("Servicios transversales — los usan todos los servicios de negocio",
+                     1560, 380, 400, 12, align="left", _halo=False))
+    # dependencias de los clientes — ensambles (bola + receptaculo enfrentados)
+    els += ensamble_vertical(910, 210, 376)          # AppEnfermeria → IAdministracion
+    els += ensamble_vertical(550, 210, 376)          # AppFarmacia  → ISincronizacion
+    els += ensamble_vertical(190, 210, 376)          # PortalWeb    → IAuditoria
+    els += ensamble_vertical(2030, 210, 376)         # GatewayIoT   → ILectura
+    els += ensamble_vertical(910, 510, 676)          # Administracion → IDispensacion
+    els += ensamble_vertical(910, 810, 976)          # Dispensacion   → IPrescripcion
+    els += ensamble_vertical(910, 1110, 1276)        # Prescripcion   → IInventario
+    # dependencias con recorrido — receptaculo en el consumidor + punteada a la bola
+    els += receptaculo(850, 226, "abajo") + ruta([(850, 246), (850, 300), (562, 300), (562, 376)], punteada=True)
+    # AppFarmacia → IDispensacion (baja por el carril x=390)
+    els += receptaculo(408, 165, "izq") + ruta([(396, 165), (390, 165), (390, 640), (898, 640), (898, 676)], punteada=True)
+    # PortalWeb → IPrescripcion (baja por el carril x=24, pegado al borde del grupo)
+    els += receptaculo(48, 165, "izq") + ruta([(36, 165), (24, 165), (24, 940), (898, 940), (898, 976)], punteada=True)
+    els += receptaculo(1000, 522, "abajo") + ruta([(1000, 542), (1000, 600), (1258, 600), (1258, 676)], punteada=True)
+    els += receptaculo(1052, 765, "der") + ruta([(1064, 765), (1064, 1276), (922, 1276)], punteada=True)
+    els += receptaculo(840, 1122, "abajo") + ruta([(840, 1142), (840, 1240), (716, 1240), (716, 1353)], punteada=True)
+    els += receptaculo(768, 1365, "izq") + ruta([(756, 1365), (728, 1365)], punteada=True)
+    els += receptaculo(2030, 522, "abajo") + ruta([(2030, 542), (2030, 1450), (1500, 1450), (1500, 1377)], punteada=True)
+    els.append(texto("Lectura: AppEnfermeria usa IAdministracion e ISincronizacion · AppFarmacia usa IDispensacion "
+                     "e ISincronizacion · PortalWeb usa IAuditoria e IPrescripcion · la cadena de negocio va "
+                     "Administración → Dispensación → Prescripción → Inventario → Adquisición.",
+                     40, 1500, 2000, 12, align="left", _halo=False))
+    return els
+
+
+DIAGRAMAS["componentes-farmahosp"] = componentes_farmahosp
+SUBCARPETA["componentes-farmahosp"] = "6-bloques-despliegue"
 
 
 if __name__ == "__main__":

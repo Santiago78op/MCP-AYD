@@ -368,20 +368,19 @@ la nube pública solo sale el **análisis estadístico con datos anonimizados**.
 
 ## 6. Diagrama de bloques y de despliegue  ·  criterio 6 — 30 pts
 
-Dos láminas, en el orden de la clase: **primero el alto nivel, después el detalle** — *"Suele ser el
+Tres láminas, en el orden de la clase: **primero el alto nivel, después el detalle** — *"Suele ser el
 primer paso antes de un diseño más detallado (ej. con diagramas de componentes)"* (captura 13). Ver
 [[Diagrama de bloques de alto nivel]], [[Diagrama de componentes]] y [[Diagrama de despliegue]].
 
 | # | Lámina | Qué responde | Archivo |
 |---|---|---|---|
 | 6.1 | **Diagrama de bloques** | ¿Cuáles son las partes grandes, cómo se conectan y qué fluye entre ellas? | `02-Diagramas/6-bloques-despliegue/bloques-farmahosp.svg` |
-| 6.2 | **Componentes** (tabla) | ¿De qué piezas de software está hecho y qué interfaces ofrece cada una? | tabla de §6.2; dibujados **dentro de los nodos** de 6.3 |
+| 6.2 | **Diagrama de componentes** | ¿De qué piezas de software está hecho y qué interfaces ofrece cada una? | `02-Diagramas/6-bloques-despliegue/componentes-farmahosp.svg` (+ la tabla de §6.2) |
 | 6.3 | **Diagrama de despliegue** | ¿En qué hardware corre cada pieza y por qué red se hablan? | `02-Diagramas/6-bloques-despliegue/despliegue-farmahosp.svg` |
 
-*(La rúbrica pide bloques y despliegue. Los componentes se dibujan **dentro de los nodos** del
-despliegue, como en el ejemplo del parque: *"Diagrama de Despliegue Incluye: • Componentes •
-Distribución"* (captura 57). La tabla de §6.2 define sus interfaces. Un diagrama de componentes
-separado, con piruletas y dependencias, queda como **mejora opcional**: ver el tablero.)*
+*(La rúbrica pide bloques y despliegue. El de componentes se agrega igual porque la catedrática define
+el despliegue como **"Incluye: • Componentes • Distribución"** (captura 57): los componentes aparecen
+**dos veces**, con sus interfaces en §6.2 y **dentro de los nodos** en §6.3.)*
 
 ### 6.1 Diagrama de bloques de alto nivel
 
@@ -415,7 +414,7 @@ derecha (salidas)** y **todas las flechas llevan nombre** con lo que fluye.
 
 ![[02-Diagramas/6-bloques-despliegue/bloques-farmahosp.svg]]
 
-### 6.2 Los componentes y sus interfaces
+### 6.2 Diagrama de componentes
 
 **Definición de clase aplicada:** un componente es *"una unidad software que puede ser reemplazada y
 actualizada de forma independiente"* y se define *"en términos de los servicios que ofrecen (interfaces
@@ -439,6 +438,12 @@ círculo**, dependencia **punteada** del que usa hacia la interfaz (capturas 35,
 | `SvcNotificacion` | `INotificacion` | `SvcInventario`, `SvcFarmacovigilancia` | `RF-07` · `RF-31` |
 | `PipelineTelemetria` | `ILectura` | `GatewayIoT` | `RF-05` · `AC-08` |
 | `BitacoraInmutable` | `IRegistroEvento` | todos los servicios de negocio | `AC-03` |
+
+En la lámina, las cuatro interfaces transversales (`SvcIntegracion`, `SvcNotificacion`, `SvcIdentidad`
+y `BitacoraInmutable`) se dibujan como dependencias del **grupo** de servicios de negocio, para no
+repetir siete flechas iguales por cada una.
+
+![[02-Diagramas/6-bloques-despliegue/componentes-farmahosp.svg]]
 
 
 ### 6.3 Diagrama de despliegue
@@ -513,10 +518,11 @@ La prueba de que la arquitectura **no es decorativa**: cada escenario, recorrido
 ### Checklist del criterio 6
 
 - [x] Diagrama de bloques: entradas arriba, salidas a la derecha, **todas las flechas con nombre**
+- [x] Componentes: interfaz provista como **círculo**, dependencias **punteadas** del que usa hacia la interfaz, y cada interfaz colgada del componente que **la provee**
 - [x] Despliegue: cubos, `«device»` / `«executionEnvironment»` **dentro** de un dispositivo, componentes adentro del nodo
 - [x] Toda conexión con **protocolo** como estereotipo
 - [x] FrontEnd y BackEnd marcados (y los sistemas externos aparte)
 - [x] **Cada nodo y cada componente trazan a un RF, AC o RE** (tablas de §6.1 y §6.3, captura 42)
 - [x] Las cuentas de hardware cierran: 28/32 vCPU, 116/128 GB, 7.1/10 TB
-- [x] Los dos diagramas y las tablas usan **los mismos nombres**
+- [x] Los tres diagramas y las tablas usan **los mismos nombres**
 - [x] Paso 4 del checklist de `estilo-diagramas.md`: las dos láminas **se miraron** (capturas `-verificacion.png`) y se corrigieron los cruces
