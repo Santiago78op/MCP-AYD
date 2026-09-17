@@ -282,6 +282,28 @@ Verificado contra el PDF *Tema 5* y las capturas de *Distribución*; aplicado en
 - **Rótulo del nodo grande a un costado** (`cubo(..., rotulo=(x, ancho))`) cuando varias conexiones
   entran por arriba: si no, las líneas le pasan por encima al texto.
 
+### 3.10 ter El método: del enunciado a los nodos
+
+Las reglas de arriba dicen **cómo dibujarlo**; esto dice **qué dibujar**. Seis barridos, en orden.
+Aplicado en `Entrega - Tarea 2 FarmaHosp` §6.3.
+
+| # | Barrido | Pregunta mecánica | En FarmaHosp salió |
+|---|---|---|---|
+| 1 | **Dispositivos del enunciado** | ¿Qué hardware **nombra** el enunciado? Cada uno es un `«device»` | Toughpad, escáner Bluetooth, PC de farmacia, PC clínica, sensores, gateway, data center, sitio alterno |
+| 2 | **Sistemas externos** | ¿Con qué sistemas de terceros habla? Cada uno es un nodo **fuera** de la frontera | legacy de admisiones, MSPAS, LDAP, pasarela SMS, nube |
+| 3 | **Entornos de ejecución** | ¿Sobre qué corre el software en cada dispositivo? (SO, navegador, JRE, **máquina virtual**) | Android 9, navegador, VM-01..VM-11 |
+| 4 | **Reparto de componentes** | Cada componente del diagrama de componentes, ¿en qué nodo corre? Ninguno queda sin nodo, ningún nodo queda sin componente | los 7 servicios + transversales en VM-03/04 y VM-07/08 |
+| 5 | **Conexiones** | ¿Por qué red y con qué protocolo se hablan? Toda conexión con estereotipo | `«wifi»`, `«Ethernet»`, `«MQTT»`, `«SOAP»`, `«LDAPS»`, `«AMQP»`, `«JDBC»` |
+| 6 | **Cuentas y trazabilidad** | ¿Cabe en la capacidad del enunciado? ¿Cada nodo se justifica por un `RF`, `AC` o `RE`? | 28/32 vCPU · 116/128 GB · 7.1/10 TB; réplica al sitio alterno |
+
+**Lo que decide dónde va cada cosa son los drivers**, no el gusto: un driver de *operación offline*
+obliga a **base local en el dispositivo cliente**; uno de *latencia* obliga a **validar en el
+cliente** o a una **caché** cerca; uno de *pico sin autoescalado* obliga a **dos instancias + cola**;
+una restricción de *nube prohibida* obliga a que el dato sensible **no salga del data center**.
+
+Cierre: recorrer los **escenarios críticos** del enunciado sobre el dibujo. Si un escenario no se
+puede contar señalando nodos y conexiones, al diagrama le falta algo.
+
 ### 3.10 bis Bloques de alto nivel
 
 No es UML: **bloques y flechas** (`Diagrama de bloques de alto nivel`). Aplicado en

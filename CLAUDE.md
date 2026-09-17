@@ -781,6 +781,10 @@ comparten por git; el generador existe para crear diagramas nuevos o corregir lo
   continua de un componente al otro con la **bola y el receptáculo en el medio**, y el **semicírculo va
   del lado del consumidor** abrazando la bola; el componente lleva **`«component»` + ícono + nombre
   centrado**. Separados, la punteada va **del semicírculo a la bola**. Detalle en `Interfaces de componentes`.
+- **Qué dibujar en el despliegue** (no solo cómo): los seis barridos de `estilo-diagramas.md` §3.10 ter
+  — dispositivos del enunciado → sistemas externos → entornos de ejecución → reparto de los
+  componentes → conexiones con protocolo → cuentas y trazabilidad, y cerrar recorriendo los
+  **escenarios críticos** sobre el dibujo.
 - **Rótulos que se cruzan**: si varias conexiones entran por arriba de un nodo grande, el rótulo del nodo
   va a un costado (`cubo(..., rotulo=(x, ancho))`), si no las líneas atraviesan el texto.
 - **Carriles**: dos líneas en el mismo canal van a **20 px** de distancia, y una conexión que sale por
