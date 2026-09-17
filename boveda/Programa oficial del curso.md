@@ -1,7 +1,7 @@
 ---
 tema: Programa del curso
 fuente: "ProgramaClase-AYD2-2-26.pdf — ECYS-USAC, vía DTT-ECYS"
-fecha: 2026-08-19
+fecha: 2026-09-17
 ---
 
 # Programa oficial — Análisis y Diseño de Sistemas II (785)
@@ -76,16 +76,18 @@ Leyenda: ✅ cubierto · 🟡 parcial · ❌ sin nota
 | 1.6 | **Arquitectura y Requerimientos (CDU de negocio)** | ✅ | Todo el bloque de casos de uso + [[Matriz de trazabilidad de requisitos]] |
 | 1.7 | **¿Cómo se modela? Diagramas de Despliegue** | ✅ | **Dado en clase** (capturas_U2, recibidas 2026-09-15). Hub: [[Cómo se modela la arquitectura]] → [[Lenguajes de descripción de arquitectura]], [[Diagramas UML estructurales y de comportamiento]], [[Diagrama de bloques de alto nivel]], [[Diagrama de componentes]], [[Interfaces de componentes]], [[Diagrama de despliegue]], [[Diagrama de paquetes]], [[Diagrama de secuencia]], [[Diagrama de clases]], [[Ejemplo resuelto - Parque de atracciones]] |
 | 1.8 | Estructuras y Vistas · Categorías de Estructuras | ✅ | [[Estructuras y vistas arquitectónicas]] + [[Categorías de estructuras]] (capturas de clase del 19/08; la lámina *Estructuras* de capturas_U2_F2 27 llama "de localización" a la de asignación) + [[Modelo 4+1 vistas]] (repetido en clase el 16/09, capturas_U2_F2 10-13 y 29) |
-| 1.9 | Géneros y Estilos Arquitectónicos | 🟡 | **Casi completo** (capturas_U2 y capturas_U2_F2): [[Estilos arquitectónicos]], [[Catálogo de estilos arquitectónicos]], [[Arquitectura de referencia]], [[Patrones arquitectónicos]], [[Patrones de diseño]], [[Arquitectura monolítica]], [[Arquitectura en capas]], [[Arquitectura en la nube]]. Falta **on premise** y el desarrollo de **eventos** |
+| 1.9 | Géneros y Estilos Arquitectónicos | 🟡 | **Casi completo** (capturas_U2, capturas_U2_F2 y capturas_U2_F3): [[Estilos arquitectónicos]], [[Catálogo de estilos arquitectónicos]], [[Arquitectura de referencia]], [[Patrones arquitectónicos]], [[Patrones de diseño]], [[Arquitectura monolítica]], [[Arquitectura en capas]], [[Arquitectura en la nube]], [[Arquitectura centrada en el flujo de datos]], [[Tuberías y filtros]], [[Arquitectura de llamada y retorno]], [[Llamada a procedimiento remoto]], [[Modelo-Vista-Controlador]], [[Arquitectura orientada a servicios]]. Falta **on premise**, **centrada en datos** y el desarrollo de **eventos** |
 
-El detalle de 1.9 contra lo que dio la clase (capturas_U2 y capturas_U2_F2):
+El detalle de 1.9 contra lo que dio la clase (capturas_U2, capturas_U2_F2 y capturas_U2_F3):
 
 | Tema del programa | Estado en clase |
 |---|---|
-| Cliente-servidor | ✅ como *arquitectura de 2 capas* → [[Arquitectura en capas]] |
-| En o por capas | ✅ N-Capas + clínica veterinaria → [[Arquitectura en capas]] |
+| Cliente-servidor | ✅ como *arquitectura de 2 capas* y como *call return: cliente-servidor* (U2_F3 32) → [[Arquitectura en capas]] · [[Arquitectura de llamada y retorno]] |
+| En o por capas | ✅ N-Capas + clínica veterinaria + la serie *"en o por capas"* (U2_F3 0-12: definición, anillos, 3 niveles, ventajas/desventajas, 2 ejercicios) → [[Arquitectura en capas]] |
 | On premise vs cloud | 🟡 cloud sí ([[Arquitectura en la nube]]); on premise **sin diapositiva** |
-| Centrada en datos · flujo de datos · llamada y retorno | 🟡 **nombrados y clasificados** en dos catálogos (capturas_U2_F2 30 y 30-cc), sin desarrollo. Capas y MVC caen en llamada y retorno → [[Catálogo de estilos arquitectónicos]] |
+| Flujo de datos | ✅ U2_F3 13-28: la familia, tuberías y filtros, secuencial por lotes → [[Arquitectura centrada en el flujo de datos]] · [[Tuberías y filtros]] |
+| Llamada y retorno | ✅ U2_F3 29-48: definición, cliente-servidor, SOA, y los patrones RPC, OO y MVC → [[Arquitectura de llamada y retorno]] · [[Arquitectura orientada a servicios]] · [[Llamada a procedimiento remoto]] · [[Modelo-Vista-Controlador]] |
+| Centrada en datos | 🟡 **nombrada y clasificada** en dos catálogos (capturas_U2_F2 30 y 30-cc), sin desarrollo → [[Catálogo de estilos arquitectónicos]] |
 | Basada en eventos | 🟡 **nombrada** (EDA en la lista de 9; *Event-based* en el árbol C&C), sin desarrollo |
 | Arquitectura candidata · arquitectura de referencia | ✅ capturas_U2_F2 23-26 → [[Arquitectura de referencia]]. De candidata solo hay la tabla de cuatro tipos, sin definición textual |
 | Estilo vs. patrón · patrones de diseño y arquitectónicos | ✅ capturas_U2_F2 0-8 y 14-22 → [[Estilos arquitectónicos]] §1, [[Patrones arquitectónicos]], [[Patrones de diseño]] |
@@ -135,11 +137,11 @@ presentación cuando llegue.
 
 ## Lo que falta pedir
 
-Las presentaciones y capturas que tengo cubren **1.1–1.8** y 1.9 casi entero (actualizado 2026-09-16). Para el resto necesito material:
+Las presentaciones y capturas que tengo cubren **1.1–1.8** y 1.9 casi entero (actualizado 2026-09-17). Para el resto necesito material:
 
 | Prioridad | Qué falta | Para cuándo |
 |---|---|---|
-| Media | **1.9 lo que faltó**: basada en eventos desarrollada, on premise, y una definición textual de arquitectura candidata | cuando se dé |
+| Media | **1.9 lo que faltó**: centrada en datos y basada en eventos desarrolladas, on premise, y una definición textual de arquitectura candidata | cuando se dé |
 | Media | Unidad 2 completa — Calidad del Software | 25 de agosto al 7 de septiembre |
 | Baja | Unidades 3 y 4 | septiembre y octubre |
 

@@ -1,7 +1,7 @@
 ---
 tema: Arquitectura de software
-fuente: "Presentación de clase — capturas_U2_F2 (1, 4, 5, 6, 8; se cita el texto de 22, que desarrolla Estilos arquitectónicos) + capturas_U2 (21). NÚCLEO. + COMPLEMENTO — una línea por patrón de la lista (conocimiento general, marcado)"
-fecha: 2026-09-16
+fuente: "Presentación de clase — capturas_U2_F2 (1, 4, 5, 6, 8; se cita el texto de 22, que desarrolla Estilos arquitectónicos) + capturas_U2 (21) + capturas_U2_F3 (40-44 y 38, citadas: RPC, OO y MVC como patrones de llamada y retorno; SOA como estilo). NÚCLEO. + COMPLEMENTO — una línea por patrón de la lista (conocimiento general, marcado)"
+fecha: 2026-09-17
 punto_del_programa: "1.9 — Géneros y Estilos Arquitectónicos"
 ---
 
@@ -68,6 +68,11 @@ línea**: **SOA**, **Comunicación** y **Cloud**.
 > ¿*SOA*, *Comunicación* y *Cloud* son también categorías de patrón arquitectónico, o son otra cosa?
 > En la diapositiva están en otro color y desconectadas del árbol. Lo más probable es que sean
 > categorías que quedaron fuera del conector, pero no está dicho.
+>
+> **Evidencia nueva (capturas_U2_F3, 33-39 y 38):** siete diapositivas titulan *"call return: SOA"*
+> y la 38 dice *"El estilo de arquitectura SOA"*. Para ella SOA es un **estilo**, así que la caja
+> *SOA* del árbol probablemente agrupa **patrones propios de ese estilo** (Service Registry, Service
+> Discovery, API Gateway…), no a SOA como patrón → [[Arquitectura orientada a servicios]].
 
 ## 4. La jerarquía: estilo ⊃ patrón arquitectónico ⊃ patrón de diseño
 
@@ -152,6 +157,19 @@ Textual de capturas_U2_F2 (8), en su orden:
 > Fijate que **ninguno es un estilo**: no organizan el sistema entero (eso hacen capas,
 > cliente-servidor, microservicios), sino que resuelven **un aspecto** —cómo se accede a datos, cómo
 > se autentica, cómo se toleran fallas— que igual **rige cómo se comunican los componentes**.
+>
+> Service Registry, Service Discovery, API Gateway y Circuit Breaker se cruzan con las piezas de SOA
+> en [[Arquitectura orientada a servicios]] §9.
+
+> [!important] Fuera de la lista de 13: RPC, orientado a objetos y MVC (capturas_U2_F3, 40-48)
+> La clase llama **patrón arquitectónico** a tres cosas que **no están en la lista de 13**. La 40 se
+> titula *"Patrones Arquitéctónicos [sic] para arquitectura de llamada y retorno"* y da como ejemplos
+> **llamada de procedimiento remoto (RPC)**, **orientado a objetos** y **Modelo-Vista-Controlador**;
+> la 41-42 dicen *"Patrón Arquitectónico de llamada a procedimiento remoto"* y la 44-48, *"Patrón
+> Arquitectónico Modelo-Vista-Controlador"*. Es la jerarquía de §4 en un caso concreto:
+> **estilo** llamada y retorno ⊃ **patrones arquitectónicos** RPC, OO, MVC ⊃ patrones de diseño.
+> La lista de 13 no es el universo de patrones: es la que mostró en esa diapositiva.
+> → [[Arquitectura de llamada y retorno]] §4 · [[Llamada a procedimiento remoto]] · [[Modelo-Vista-Controlador]]
 
 ## 6. Patrón de diseño vs patrón arquitectónico
 
@@ -198,6 +216,8 @@ relacionados). Estilo ⊃ patrón arquitectónico ⊃ patrón de diseño.*
 - [[Tácticas y patrones arquitectónicos]] — la definición de patrón del SAIP (complemento) y su relación con las tácticas
 - [[Diagrama de componentes]] — el componente sobre el que se mide el impacto
 - [[Arquitectura en la nube]] — donde viven varios de su lista (load balance, service discovery, circuit breaker)
+- [[Llamada a procedimiento remoto]] · [[Modelo-Vista-Controlador]] — patrones arquitectónicos de llamada y retorno que la clase desarrolló fuera de la lista de 13
+- [[Arquitectura orientada a servicios]] — el estilo al que pertenecen Service Registry, Service Discovery y API Gateway
 
 ## Preguntas de repaso
 

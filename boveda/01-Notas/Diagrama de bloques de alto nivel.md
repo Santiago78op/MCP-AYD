@@ -167,6 +167,7 @@ Puede ser de software, de procesos industriales o de ingeniería.** Y el ejemplo
 - [[Estructuras y vistas arquitectónicas]] — vistas por stakeholder (ejemplo 20)
 - [[Diagrama de contexto]] — otro diagrama de bloques y flujos con nombre, del caso de negocio
 - [[Tácticas y patrones arquitectónicos]] — las decisiones de diseño que estos diagramas dejan ver
+- [[Arquitectura en capas]] §12 — los dos ejercicios de clase que piden un diagrama de bloques (capturas_U2_F3, 12)
 
 ## Preguntas de repaso
 

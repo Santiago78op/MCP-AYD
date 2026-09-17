@@ -50,7 +50,7 @@ chicos y se marcan como dudosos):
 | **Datos**, en cada zona | *Amazon Aurora* (un *Writer* en la zona 2 y *Readers* en las zonas 1 y 3, unidos por línea punteada) · *ElastiCache* en las tres |
 | **Servicios de soporte** | *Amazon EKS* · *Amazon ECR* |
 | **Conexión hacia afuera** | *VPC Attachment* → *Transit Gateway Network Account* → ícono de VPN (rótulo ilegible) |
-| **Recuadro "Cooperativa"** | *Service Bus* → *Servicios SOAP* → *Mainframe*; los Kubernetes Nodes llegan al *Service Bus* |
+| **Recuadro "Cooperativa"** | *Service Bus* → *Servicios SOAP* → *Mainframe*; los Kubernetes Nodes llegan al *Service Bus*. Es el mismo bus empresarial con SOAP que la clase dio en SOA → [[Arquitectura orientada a servicios]] §8 |
 
 > [!tip] Lo que se puede leer en el dibujo sin agregar nada
 > - **Tres zonas de disponibilidad** con la misma estructura: la aplicación está **replicada**.
@@ -154,6 +154,7 @@ de la **Cooperativa**. Ver [[Diagrama de despliegue]].
 - [[Arquitectura monolítica]] — el caso Prime Video en AWS
 - [[Diagrama de despliegue]] — dónde se modela la decisión on premise vs cloud
 - [[Atributos de calidad]] — escalabilidad, disponibilidad, seguridad
+- [[Arquitectura orientada a servicios]] — el *Enterprise Service Bus* del recuadro Cooperativa
 
 ## Preguntas de repaso
 

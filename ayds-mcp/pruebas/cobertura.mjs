@@ -116,6 +116,25 @@ const CASOS = [
   ["buscar", { consulta: "transformacion impuesta" }, "Estilos arquitect"],
   ["glosario", { termino: "elementos, forma y razon" }, "motivaci"],
 
+  // --- capturas_U2_F3 (2026-09-17): capas, flujo de datos, llamada y retorno, RPC, SOA, MVC
+  ["leer_nota", { nombre: "Arquitectura en capas" }, "Ejercicios que dejó la clase"],
+  ["buscar", { consulta: "thin client" }, "Arquitectura en capas"],
+  ["leer_nota", { nombre: "Tuberias y filtros" }, "no necesariamente realizan"],
+  ["leer_nota", { nombre: "Arquitectura centrada en el flujo de datos" }, "hasta completarse"],
+  ["buscar", { consulta: "pipes and filters" }, "Tuberías y filtros"],
+  ["buscar", { consulta: "batch sequential" }, "flujo de datos"],
+  ["leer_nota", { nombre: "Arquitectura de llamada y retorno" }, "estado de bloqueo"],
+  ["leer_nota", { nombre: "Llamada a procedimiento remoto" }, "serializables"],
+  ["buscar", { consulta: "RPC" }, "Llamada a procedimiento remoto"],
+  ["leer_nota", { nombre: "Arquitectura orientada a servicios" }, "Enterprise Service Bus"],
+  ["buscar", { consulta: "SOA" }, "Arquitectura orientada a servicios"],
+  ["buscar", { consulta: "bus empresarial" }, "Arquitectura orientada a servicios"],
+  ["leer_nota", { nombre: "Modelo-Vista-Controlador" }, "SI Evento Z"],
+  ["buscar", { consulta: "MVC" }, "Modelo-Vista-Controlador"],
+  ["buscar", { consulta: "modelo activo" }, "Modelo-Vista-Controlador"],
+  ["glosario", { termino: "sincrono" }, "correspondencia temporal"],
+  ["obtener_flashcards", { tema: "Flujo de datos" }, "?"],
+
   ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
 
   // --- referencias y enunciado

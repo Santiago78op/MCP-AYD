@@ -1,7 +1,7 @@
 ---
 tema: Arquitectura de software
-fuente: "Presentación de clase — capturas_U2 (21; resumen de 43-47 y 49-52, desarrolladas en sus notas) + capturas_U2_F2 (0; 9, 15-22; 14: la clase volvió a dar la diapositiva de la 21). NÚCLEO. La 15 cita a Óscar Blancarte: complemento citado por ella. + COMPLEMENTO — Reynoso (Introducción a la AS), SAIP 4ª ed. y Guía de estudio (Parte II, marcada)"
-fecha: 2026-09-16
+fuente: "Presentación de clase — capturas_U2 (21; resumen de 43-47 y 49-52, desarrolladas en sus notas) + capturas_U2_F2 (0; 9, 15-22; 14: la clase volvió a dar la diapositiva de la 21) + capturas_U2_F3 (resumen de 0-48: capas, flujo de datos, llamada y retorno, SOA, RPC y MVC, desarrollados en sus notas). NÚCLEO. La 15 cita a Óscar Blancarte: complemento citado por ella. + COMPLEMENTO — Reynoso (Introducción a la AS), SAIP 4ª ed. y Guía de estudio (Parte II, marcada)"
+fecha: 2026-09-17
 punto_del_programa: "1.9 — Géneros y Estilos Arquitectónicos"
 ---
 
@@ -334,13 +334,13 @@ Cruzada con el resto del material:
 | # | Estilo de su lista | ¿Lo desarrolló? | ¿Está en los 6 del programa (§7)? | ¿Está en la 15 (Blancarte)? | Dónde leerlo |
 |---|---|---|---|---|---|
 | 1 | **Monolítico** | ✅ definición + tabla + Prime Video | ❌ | ✅ | [[Arquitectura monolítica]] |
-| 2 | **Cliente-Servidor** | ✅ como *2 capas* | ✅ | ✅ | [[Arquitectura en capas]] §3 |
-| 3 | **Arquitectura en Capas** | ✅ como *N-Capas* | ✅ | ✅ | [[Arquitectura en capas]] |
+| 2 | **Cliente-Servidor** | ✅ como *2 capas* y como *call return: cliente-servidor* (U2_F3 32) | ✅ | ✅ | [[Arquitectura en capas]] §3 · [[Arquitectura de llamada y retorno]] §3 |
+| 3 | **Arquitectura en Capas** | ✅ como *N-Capas*, y una serie propia *"en o por capas"* (U2_F3 0-12) | ✅ | ✅ | [[Arquitectura en capas]] |
 | 4 | **Microkernel** | ❌ solo nombrado | ❌ (en el complemento, variante jerárquica de capas) | ✅ | §8, *En o por capas* (complemento) |
-| 5 | **SOA** | ❌ solo nombrado | ❌ (en el complemento, descendiente de cliente-servidor) | ✅ | §8, *Cliente-servidor* (complemento) |
+| 5 | **SOA** | ✅ **desarrollado** (U2_F3 33-39, *"call return: SOA"*) | ❌ (en el complemento, descendiente de cliente-servidor; en clase, **hermano** bajo Call-return) | ✅ | [[Arquitectura orientada a servicios]] |
 | 6 | **Microservicios** | ❌ solo nombrado | ❌ | ✅ | §8, *Cliente-servidor* (complemento) |
 | 7 | **EDA** | ❌ solo nombrado | ✅ como *basada en eventos* | ❌ | §8, *publish-subscribe* (complemento) |
-| 8 | **REST** | ❌ solo nombrado | ❌ | ❌ | **sin material** en la bóveda |
+| 8 | **REST** | 🟡 una diapositiva: definición de *API RESTful* (U2_F3 20), puesta **dentro de la serie de flujo de datos** | ❌ | ❌ | [[Tuberías y filtros]] §4 |
 | 9 | **P2P** | ❌ solo nombrado | ❌ (el complemento lo pone junto a cliente-servidor) | ❌ | §8, *Cliente-servidor* (complemento) |
 
 Y del otro lado: **centrada en datos**, **flujo de datos** y **llamada y retorno**, que están en el
@@ -364,12 +364,12 @@ La diapositiva de definiciones **nombra** cuatro estilos de ejemplo; después la
 | Estilo | ¿Cómo aparece en clase? | Nota |
 |---|---|---|
 | **Monolítica** | desarrollada: definición + tabla de 7 características + caso Amazon Prime Video | [[Arquitectura monolítica]] |
-| **N-Capas** (multinivel) | desarrollada: definición + diagrama presentación / negocio / datos + ejemplo de componentes | [[Arquitectura en capas]] |
-| **2 capas — modelo cliente-servidor** | desarrollada: petición/respuesta + ejemplo smartphone/smartwatch | [[Arquitectura en capas]] §3 |
+| **N-Capas** (multinivel) | desarrollada: definición + diagrama presentación / negocio / datos + ejemplo de componentes; **y la serie "en o por capas"** (U2_F3 0-12): definición externa/intermedias/interna, anillos, 3 niveles web, Apache/MySQL, thin/rich, three-tier, capas IoT, infografía, ventajas/desventajas y 2 ejercicios | [[Arquitectura en capas]] |
+| **2 capas — modelo cliente-servidor** | desarrollada: petición/respuesta + ejemplo smartphone/smartwatch; y como *call return: cliente-servidor* (U2_F3 32): *"los servidores no conocen los clientes"* | [[Arquitectura en capas]] §3 · [[Arquitectura de llamada y retorno]] §3 |
 | **En la nube** (cloud computing, N-niveles en la nube) | desarrollada: definición + dos arquitecturas de referencia (AWS y Azure) | [[Arquitectura en la nube]] |
 | **Centrado en datos** | solo **nombrada** como ejemplo en la definición de estilo | Parte II (complemento) |
-| **Flujo de datos** | solo **nombrada** | Parte II (complemento) |
-| **Llamar y regresar** | solo **nombrada** — ojo con el nombre: la diapositiva dice *"llamar y regresar"*; el programa dice *"llamada y retorno"* | Parte II (complemento) |
+| **Flujo de datos** | **desarrollada** desde U2_F3 (13-28): computación dirigida por el flujo de datos, definición, cuándo usarla, analogía textil, tuberías y filtros con ventajas/desventajas, ejemplo de seguridad, y el estilo secuencial por lotes | [[Arquitectura centrada en el flujo de datos]] · [[Tuberías y filtros]] |
+| **Llamar y regresar** | **desarrollada** desde U2_F3: definición y bloqueo (30-31), cliente-servidor (32), sus patrones RPC, OO y MVC (40), RPC (41-43), SOA (33-39) y MVC (44-48). Ojo con el nombre: la definición dice *"llamar y regresar"*; el programa y la serie, *"llamada y retorno"* | [[Arquitectura de llamada y retorno]] · [[Llamada a procedimiento remoto]] · [[Arquitectura orientada a servicios]] · [[Modelo-Vista-Controlador]] |
 | **Capas** | nombrada **y** desarrollada (es la N-Capas de arriba) | [[Arquitectura en capas]] |
 
 > [!note] Monolítica vs. capas: no se excluyen
@@ -382,23 +382,25 @@ La diapositiva de definiciones **nombra** cuatro estilos de ejemplo; después la
 
 El programa, punto 1.9: *arquitectura candidata, arquitectura de referencia, diseño on premise vs
 cloud, y el catálogo: cliente-servidor, centrada en datos, en capas, flujo de datos, llamada y
-retorno, basada en eventos.* Contra las capturas de la unidad 2 (`capturas_U2` y, desde el
-2026-09-16, `capturas_U2_F2`):
+retorno, basada en eventos.* Contra las capturas de la unidad 2 (`capturas_U2`, desde el
+2026-09-16 `capturas_U2_F2` y desde el 2026-09-17 `capturas_U2_F3`):
 
 | Punto del programa | ¿Lo cubrió la clase? | Dónde |
 |---|---|---|
-| **Cliente-servidor** | ✅ sí, como *"Arquitectura de 2 capas — Modelo Cliente Servidor"* | [[Arquitectura en capas]] §3 |
-| **En capas** | ✅ sí, como *"Arquitectura N-Capas"* y *"Arquitectura: Capas"* | [[Arquitectura en capas]] |
+| **Cliente-servidor** | ✅ sí, como *"Arquitectura de 2 capas — Modelo Cliente Servidor"* y como *"call return: cliente-servidor"* (U2_F3 32) | [[Arquitectura en capas]] §3 · [[Arquitectura de llamada y retorno]] §3 |
+| **En capas** | ✅ sí, como *"Arquitectura N-Capas"*, *"Arquitectura: Capas"* y la serie *"en o por capas"* (U2_F3 0-12) | [[Arquitectura en capas]] |
 | **Diseño cloud** | ✅ sí: Cloud Computing, Prime Video en AWS, N-niveles en la nube (Azure) | [[Arquitectura en la nube]] |
 | **Diseño on premise** | ⚠️ **sigue sin diapositiva propia** (tampoco en capturas_U2_F2); queda implícito por contraste con la nube | [[Arquitectura en la nube]] §4 |
 | **Centrada en datos** | 🟡 **nombrada** en la definición de estilo y como familia del catálogo (capturas_U2_F2, 30) | [[Catálogo de estilos arquitectónicos]] · Parte II |
-| **Flujo de datos** | 🟡 **nombrada** y como familia del catálogo (30) | [[Catálogo de estilos arquitectónicos]] · Parte II |
-| **Llamada y retorno** | 🟡 **nombrada** como *"llamar y regresar"*, y como familia *"llamada y retorno"* del catálogo (30) | [[Catálogo de estilos arquitectónicos]] · §7 |
+| **Flujo de datos** | ✅ **sí**, desde capturas_U2_F3 (13-28): la familia, tuberías y filtros y secuencial por lotes | [[Arquitectura centrada en el flujo de datos]] · [[Tuberías y filtros]] |
+| **Llamada y retorno** | ✅ **sí**, desde capturas_U2_F3: definición (30-31), cliente-servidor (32), SOA (33-39), patrones RPC/OO/MVC (40-48) | [[Arquitectura de llamada y retorno]] · [[Catálogo de estilos arquitectónicos]] |
 | **Basada en eventos** | 🟡 **nombrada**: *EDA* en su lista de 9 (capturas_U2_F2, 9), en el catálogo textual (30) y como *Event-based* en el árbol C & C (30-componentes-conectores); **no se desarrolla** | §2 · [[Catálogo de estilos arquitectónicos]] · Parte II |
 | **Arquitectura candidata** | 🟡 hay una diapositiva con ese título, capturas_U2_F2 (25) | [[Arquitectura de referencia]] · §10 |
 | **Arquitectura de referencia** | ✅ **sí**, con ese nombre, en capturas_U2_F2 (23, 24, 26) | [[Arquitectura de referencia]] · §10 |
 | *(no está en el programa)* **Monolítica** | ✅ desarrollada | [[Arquitectura monolítica]] |
-| *(no está en el programa)* **Microkernel, SOA, Microservicios, REST, P2P** | 🟡 **nombrados** en su lista de 9 (capturas_U2_F2, 9) | §2 |
+| *(no está en el programa)* **SOA** | ✅ desarrollada (capturas_U2_F3 33-39) | [[Arquitectura orientada a servicios]] |
+| *(no está en el programa)* **MVC** · **RPC** | ✅ desarrollados como **patrones arquitectónicos** de llamada y retorno (capturas_U2_F3 40-48) | [[Modelo-Vista-Controlador]] · [[Llamada a procedimiento remoto]] |
+| *(no está en el programa)* **Microkernel, Microservicios, REST, P2P** | 🟡 **nombrados** en su lista de 9 (capturas_U2_F2, 9) | §2 |
 
 ---
 
@@ -497,10 +499,10 @@ El programa lista seis estilos. Así se corresponden con el catálogo del materi
 |---|---|---|
 | **Cliente-Servidor** | Cliente-servidor (+ peer-to-peer) | ✅ SAIP como patrón |
 | **Centrada en Datos** | Repositorio y pizarra | ✅ ficha completa |
-| **En o por capas** | Jerárquicos: capas y microkernel | ✅ SAIP, el más desarrollado |
-| **Centrada en el flujo de datos** | Tubería y filtro, batch secuencial | ✅ ficha completa |
+| **En o por capas** | Jerárquicos: capas y microkernel | ✅ **de clase** (capturas_U2 y U2_F3 0-12: definición y ventajas/desventajas) → [[Arquitectura en capas]] §5, §9; el SAIP queda de complemento |
+| **Centrada en el flujo de datos** | Tubería y filtro, batch secuencial | ✅ **de clase** (capturas_U2_F3 13-28) → [[Arquitectura centrada en el flujo de datos]] · [[Tuberías y filtros]]; la ficha de §8 queda de complemento |
 | **Basada en eventos** | Invocación implícita: publish-subscribe y broker | ✅ SAIP como patrón |
-| **Llamada y retorno** | — | ⚠️ **no está con ese nombre** en el complemento; la clase lo nombra *"llamar y regresar"* (ver abajo) |
+| **Llamada y retorno** | — | ✅ **de clase** desde capturas_U2_F3 → [[Arquitectura de llamada y retorno]]. En el complemento no está con ese nombre (ver abajo) |
 
 > [!note] Sobre "llamada y retorno"
 > La **clase sí lo nombra**, como *"llamar y regresar"*, entre los ejemplos de estilo (§1), pero
@@ -528,6 +530,13 @@ El programa lista seis estilos. Así se corresponden con el catálogo del materi
 > los lista a la par porque mezcla familias y estilos concretos. Detalle en
 > [[Catálogo de estilos arquitectónicos]].
 
+> [!warning] Corrección (capturas_U2_F3, 2026-09-17): llamada y retorno ya no es "solo nombrada"
+> La clase la **desarrolló** con serie propia: *"Interacción por invocación síncrona de capacidades
+> proporcionadas por los componentes"* (30), el que invoca *"permanece en estado de bloqueo"* (31),
+> cliente-servidor (32) y SOA (33-39) como miembros, y RPC, orientado a objetos y MVC como
+> *"Patrones Arquitéctónicos [sic] para arquitectura de llamada y retorno"* (40). Lo de arriba sobre
+> Pressman queda como complemento → [[Arquitectura de llamada y retorno]].
+
 Además, el material trae dos estilos que el programa no lista pero que Reynoso sí incluye entre los
 seis típicos: **peer-to-peer** e **intérprete / máquina virtual**.
 
@@ -536,6 +545,16 @@ seis típicos: **peer-to-peer** e **intérprete / máquina virtual**.
 ## 8. Las fichas
 
 ### Centrada en el flujo de datos: tubería y filtro
+
+> [!warning] Ahora hay NÚCLEO: esta ficha es complemento (capturas_U2_F3, 13-28)
+> La clase la desarrolló → [[Arquitectura centrada en el flujo de datos]] · [[Tuberías y filtros]].
+> Tres choques con lo de abajo, y **manda la clase**:
+> - La ficha dice que los filtros trabajan **de forma incremental**. La clase pone como desventaja
+>   *"Problemas de rendimiento (los datos se transmiten de forma completa)"* (27).
+> - La ficha pone *latencia por etapa* y *manejo de errores pobre* entre lo que sacrifica. La clase
+>   dice: *"Demasiado simplista · No maneja condicionales, bucles y otras lógicas de control de flujo ·
+>   No apto para situaciones interactivas · Problemas de rendimiento"* (27).
+> - La clase **no nombra** *fuente* ni *sumidero*.
 
 ```mermaid
 flowchart LR
@@ -635,7 +654,7 @@ El rasgo definitorio y el origen del nombre: el emisor **no invoca a nadie direc
 
 ### Cliente-servidor
 
-> La clase lo dio como **arquitectura de 2 capas**: ver [[Arquitectura en capas]] §3. Lo que sigue es complemento.
+> La clase lo dio como **arquitectura de 2 capas** ([[Arquitectura en capas]] §3) y como miembro de **llamada y retorno** (capturas_U2_F3 32): *"El cliente requiere conocer el servidor y el servicio a invocar; los servidores no conocen los clientes"* → [[Arquitectura de llamada y retorno]] §3. Lo que sigue es complemento.
 
 ```mermaid
 flowchart LR
@@ -652,7 +671,7 @@ flowchart LR
 | **Restricciones** | La comunicación la inicia el cliente; **los clientes no se comunican entre sí**. Si el servidor guarda estado del cliente, cada petición debe identificarlo y hace falta un fin de sesión o *timeout* |
 | **Favorece** | Bajo acoplamiento servidor-clientes y **nulo entre clientes**; escalabilidad; evolución independiente; la interacción con el usuario queda aislada en el cliente |
 | **Sacrifica** | Performance impredecible (va por red); el servidor es **cuello de botella** y foco de disponibilidad; seguridad (hay que proveer confidencialidad e integridad explícitamente) |
-| **Descendientes** | **n-tiers**, **SOA** y **microservicios** |
+| **Descendientes** | **n-tiers**, **SOA** y **microservicios** (SAIP). En clase, el árbol C & C y la serie *"call return: SOA"* ponen a SOA como **hermano** de cliente-servidor bajo Call-return, no como descendiente → [[Arquitectura orientada a servicios]] |
 
 > [!warning] Microservicios NO es "cliente-servidor moderno"
 > El SAIP los distingue: **SOA** supone servicios **heterogéneos y de organizaciones distintas**,
@@ -681,7 +700,7 @@ Reconstruida a partir de las fichas de arriba:
 
 | Estilo | Favorece | Sacrifica |
 |---|---|---|
-| Tubería y filtro | Modificabilidad · reutilización · paralelismo | Interactividad · latencia por etapa · estado compartido |
+| Tubería y filtro | Modificabilidad · reutilización · paralelismo *(complemento; la lista de clase, textual, en [[Tuberías y filtros]] §8)* | Interactividad · latencia por etapa · estado compartido |
 | Batch secuencial | Simplicidad · repetibilidad | Latencia total · uso de recursos |
 | Repositorio | Integrabilidad · integridad de datos | Performance (cuello de botella) · acoplamiento por el esquema |
 | Pizarra | Extensibilidad con orden de contribución impredecible | Determinismo · trazabilidad del control |

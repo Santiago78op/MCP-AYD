@@ -8,20 +8,21 @@ fecha: 2026-08-19
 
 Nota de entrada de la bóveda. Desde acá navego todo.
 
-> [!note] Última sesión: 2026-09-16 — dónde retomar
-> Se procesaron las **40 capturas nuevas de `capturas_U2_F2/`** con 5 agentes en paralelo: 4 notas
-> nuevas (patrones de diseño, patrones arquitectónicos, arquitectura de referencia, catálogo de
-> estilos), 8 ampliadas, 66 flashcards y 16 términos de glosario nuevos (9 ampliados). **14 de las 40
-> eran diapositivas que ya estaban** (del PDF de *Arquitectura de Software* y de capturas_U2): ella las volvió a dar
-> antes del parcial, y eso suele indicar que pesan. El mapa está en *Capturas de clase, segunda tanda*.
+> [!note] Última sesión: 2026-09-17 — dónde retomar
+> Se procesaron las **49 capturas nuevas de `capturas_U2_F3/`** con 5 agentes en paralelo: 6 notas
+> nuevas (flujo de datos, tuberías y filtros, llamada y retorno, RPC, SOA, MVC),
+> [[Arquitectura en capas]] ampliada con la serie *"en o por capas"*, 75 flashcards y 17 términos de glosario nuevos
+> (6 ampliados). 47 capturas quedaron recortadas; la 3 ya estaba y la 29 es la 30 sin el texto rojo.
+> Los estilos **flujo de datos**, **llamada y retorno** y **SOA** pasaron de *nombrados* a
+> *desarrollados*. El mapa está en *Capturas de clase, tercera tanda*.
 >
 > **Lo que sigue, por orden:**
-> 1. Llevar a clase [[Preguntas pendientes para clase]]: la 1 (**qué entra en el parcial del 19/09**),
->    la 23 (**qué definición de estilo quiere**) y la 24 (**sus dos catálogos de estilos no coinciden**).
-> 2. **Calidad del Software** (unidad 2 del programa) sigue **sin material de clase**.
-> 3. Repaso para el parcial: **estilo vs. patrón** (sus tres diferencias en rojo), patrón de diseño
->    vs. arquitectónico por **impacto**, modelo vs. arquitectura de referencia, las 4+1 vistas con
->    **su** diagrama UML, y el quiz de componentes y despliegue que quedó pendiente.
+> 1. **Parcial del 19/09.** Repaso de lo nuevo: llamada y retorno (*invocación síncrona*, bloqueo),
+>    RPC/OO/MVC como **patrones arquitectónicos** de ese estilo, SOA en **dos familias**, ventajas y
+>    desventajas de capas y de tuberías y filtros, y las responsabilidades de modelo, vista y controlador.
+> 2. Llevar a clase [[Preguntas pendientes para clase]]: la 1 (**qué entra en el parcial**), la 24
+>    (taxonomía de estilos, ahora con más evidencia) y las nuevas 30-37.
+> 3. **Calidad del Software** (unidad 2 del programa) sigue **sin material de clase**.
 
 > [!important] Antes que nada
 > [[Programa oficial del curso]] — el contenido temático oficial de la sección A, el cronograma
@@ -81,7 +82,7 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Diagrama de clases]] — dos fines, notación, y el **método** para sacar clases de un enunciado
 - [[Ejemplo resuelto - Parque de atracciones]] — **su encadenamiento completo**: enunciado → CDU expandidos → clases → componentes → despliegue
 - [[Arquitectura monolítica]] — base de código única, la tabla de 7 características, Prime Video
-- [[Arquitectura en capas]] — N-capas y 2 capas (cliente-servidor); en clase capa = nivel
+- [[Arquitectura en capas]] — N-capas y 2 capas (cliente-servidor); en clase capa = nivel. Desde U2_F3: definición por capa, 3 niveles web, ventajas/desventajas y 2 ejercicios
 - [[Arquitectura en la nube]] — cloud computing, N-niveles en la nube
 
 #### Patrones, estilos y referencia — capturas_U2_F2 (**de clase**, 2026-09-16)
@@ -90,6 +91,15 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Patrones arquitectónicos]] — gran impacto sobre el componente, la lista de 13, estilo ⊃ patrón arquitectónico ⊃ patrón de diseño, **alcance ≠ impacto**
 - [[Arquitectura de referencia]] — modelo de referencia + patrón → arquitectura de referencia; la tabla de tipos de la **arquitectura candidata**
 - [[Catálogo de estilos arquitectónicos]] — las familias (llamada y retorno incluye capas y MVC) y el árbol C&C; **sus dos taxonomías no coinciden**
+
+#### Las familias desarrolladas — capturas_U2_F3 (**de clase**, 2026-09-17)
+
+- [[Arquitectura centrada en el flujo de datos]] — *"la computación es dirigida por el flujo de datos"*, la analogía textil y el estilo **secuencial por lotes**
+- [[Tuberías y filtros]] — filtros que transforman, pipes que conectan, cuándo usarlo, ventajas/desventajas y el ejemplo de seguridad
+- [[Arquitectura de llamada y retorno]] — *invocación síncrona*, bloqueo, cliente-servidor, y sus **patrones arquitectónicos** RPC, OO y MVC
+- [[Llamada a procedimiento remoto]] — RPC: parámetros por valor y serializables, los 15 pasos cliente-red-servidor
+- [[Arquitectura orientada a servicios]] — SOA: antes/después, invocación directa o por **ESB**, y por qué es también *event-based*
+- [[Modelo-Vista-Controlador]] — patrón arquitectónico: responsabilidades de modelo, vista y controlador, modelo activo, y por qué **no** es 3 capas
 - [[Convenios del diagrama de CUN]] — **de clase**: cuántos actores, navegabilidad, y los dos usos de `«include»`
 
 ### Calidad del software
@@ -130,6 +140,11 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Flashcards - Estilos arquitectónicos]] (58 tarjetas) — 31 de clase (capturas_U2 y capturas_U2_F2)
 - [[Flashcards - Patrones de diseño y arquitectónicos]] (14 tarjetas) — de clase (capturas_U2_F2)
 - [[Flashcards - Arquitectura de referencia y catálogo]] (15 tarjetas) — de clase (capturas_U2_F2)
+- [[Flashcards - Arquitectura en capas]] (15 tarjetas) — de clase (capturas_U2_F3)
+- [[Flashcards - Flujo de datos]] (15 tarjetas) — de clase (capturas_U2_F3)
+- [[Flashcards - Llamada y retorno]] (15 tarjetas) — de clase (capturas_U2_F3)
+- [[Flashcards - Arquitectura orientada a servicios]] (15 tarjetas) — de clase (capturas_U2_F3)
+- [[Flashcards - Modelo-Vista-Controlador]] (15 tarjetas) — de clase (capturas_U2_F3)
 - [[Flashcards - Relaciones y dependencias en UML]] (30 tarjetas) — 8 de clase (capturas_U2)
 - [[Flashcards - Diseño arquitectónico]] (10 tarjetas) — de clase (capturas_U2)
 - [[Flashcards - Diagramas de alto nivel y secuencia]] (10 tarjetas) — de clase (capturas_U2 + PDF Tema 5)
@@ -229,7 +244,7 @@ El detalle punto por punto está en [[Programa oficial del curso]].
 - [x] 1.6 Arquitectura y Requerimientos (CDU de negocio) — bloque de casos de uso + [[Matriz de trazabilidad de requisitos]]
 - [x] **1.7 ¿Cómo se modela? Diagramas de Despliegue** — **de clase** desde capturas_U2: hub [[Cómo se modela la arquitectura]] → [[Diagrama de componentes]], [[Diagrama de despliegue]], [[Diagrama de paquetes]], [[Diagrama de clases]], [[Diagrama de secuencia]], [[Diagrama de bloques de alto nivel]]
 - [x] **1.8 Estructuras y Vistas · Categorías de Estructuras** — [[Estructuras y vistas arquitectónicas]] + [[Categorías de estructuras]] (**de clase**) ~~; las tres categorías** están en [[Diagrama de despliegue]] §3
-- [~] **1.9 Géneros y Estilos Arquitectónicos** — **de clase casi entero** (capturas_U2 y capturas_U2_F2): [[Estilos arquitectónicos]], [[Catálogo de estilos arquitectónicos]], [[Arquitectura de referencia]], [[Patrones arquitectónicos]], [[Patrones de diseño]], [[Arquitectura monolítica]], [[Arquitectura en capas]], [[Arquitectura en la nube]]. Falta: basada en eventos desarrollada, on premise
+- [~] **1.9 Géneros y Estilos Arquitectónicos** — **de clase casi entero** (capturas_U2, U2_F2 y U2_F3): [[Estilos arquitectónicos]], [[Catálogo de estilos arquitectónicos]], [[Arquitectura de referencia]], [[Patrones arquitectónicos]], [[Patrones de diseño]], [[Arquitectura monolítica]], [[Arquitectura en capas]], [[Arquitectura en la nube]], [[Arquitectura centrada en el flujo de datos]], [[Tuberías y filtros]], [[Arquitectura de llamada y retorno]], [[Llamada a procedimiento remoto]], [[Arquitectura orientada a servicios]], [[Modelo-Vista-Controlador]]. Falta: centrada en datos y basada en eventos desarrolladas, on premise
 
 ### Unidad 2 — Calidad del Software
 
@@ -357,6 +372,31 @@ así que no se copiaron y se sumaron a la `fuente` de la nota como *"la clase la
 >   [[Categorías de estructuras]] y [[Diagrama de secuencia]] decían otra cosa.
 > - **Capas y MVC son de llamada y retorno** (captura 30). [[Estilos arquitectónicos]] §7 lo dejaba
 >   como duda.
+
+### Capturas de clase, tercera tanda: inventario (`00-Fuentes/capturas_U2_F3/`, 49)
+
+Recibidas el 2026-09-17, todas de la serie *"Estilos Arquitectónicos"*. Las 49 tienen destino:
+**47 nuevas** recortadas en `adjuntos/capturas-clase-U2/<tema>/`, la **3** ya estaba (el ejemplo
+smartphone/smartwatch) y la **29** es la 30 sin la definición de síncrono en rojo.
+
+| Capturas | Subcarpeta | Notas | Sin copia |
+|---|---|---|---|
+| 0–12 | `capas/` | [[Arquitectura en capas]] §3, §5-§12 | 3 = `estilos/dos-capas-smartphone-smartwatch.png` |
+| 13–17, 28 | `flujo-datos/` | [[Arquitectura centrada en el flujo de datos]] | — |
+| 18–27 | `flujo-datos/` | [[Tuberías y filtros]] | — |
+| 29–32, 40 | `llamada-retorno/` | [[Arquitectura de llamada y retorno]] | 29 = variante de la 30 |
+| 41–43 | `llamada-retorno/` | [[Llamada a procedimiento remoto]] | — |
+| 33–39 | `soa/` | [[Arquitectura orientada a servicios]] | — |
+| 44–48 | `mvc/` | [[Modelo-Vista-Controlador]] | — |
+
+> [!note] Lo que cambió en la doctrina con esta tanda
+> - **RPC, orientado a objetos y MVC son patrones arquitectónicos** del estilo llamada y retorno
+>   (captura 40), **fuera** de la lista de 13 de [[Patrones arquitectónicos]].
+> - **SOA es de llamada y retorno y basada en eventos** (33-39): coincide con el árbol C&C.
+> - La clase usa el **árbol C&C como portada** de cada familia (13, 29-30).
+> - La ficha de complemento de tubería y filtro decía "incremental"; la clase dice que **los datos se
+>   transmiten de forma completa** (27). Manda la clase.
+> - REST dejó de estar "sin material": hay una diapositiva de *API RESTful* dentro de flujo de datos (20).
 
 > [!info] Sobre los dos PDF de arquitectura
 > No son el mismo archivo ni uno es subconjunto del otro. El de **29 páginas** trae las

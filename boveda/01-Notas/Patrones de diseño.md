@@ -168,7 +168,7 @@ La diapositiva **no dice a qué familia pertenece cada uno**. Lo que sigue es CO
 > | Proxy | un sustituto que controla el acceso al objeto real |
 > | Iterator | recorre una colección sin exponer su estructura |
 > | Command | encapsula una petición como objeto (deshacer, colas) |
-> | Observer | cuando un objeto cambia, notifica a sus suscriptores |
+> | Observer | cuando un objeto cambia, notifica a sus suscriptores (es lo que hace el **modelo activo** de [[Modelo-Vista-Controlador]] con sus vistas) |
 > | Template Method | el esqueleto del algoritmo en la clase base, los pasos en las subclases |
 > | Strategy | algoritmos intercambiables detrás de una misma interfaz |
 > | Chain of Responsibility | la petición pasa por una cadena hasta que alguien la atiende |

@@ -27,11 +27,11 @@ pregunta, el separador de dos signos de dos puntos, y la respuesta.
 
 ¿Por qué "ningún sistema real es de un solo estilo"?::Porque las arquitecturas complejas resultan del **agregado o la composición** de estilos más básicos. Ejemplo: microservicios (cliente-servidor) + bus de eventos (invocación implícita) + capas internas + contenedor (VM) + base de datos (centrado en datos) + pipeline de despliegue (batch secuencial).
 
-¿Cuáles son los componentes y conectores del estilo **tubería y filtro**?::Componentes: **filtros** que transforman un flujo de forma **incremental** (empiezan a producir antes de terminar de consumir), más fuente y sumidero. Conectores: **tuberías**, flujos unidireccionales que preservan el orden y no transforman nada.
+¿Cuáles son los componentes y conectores del estilo **tubería y filtro**?::*(Complemento, Reynoso/SAIP.)* Componentes: **filtros** que transforman un flujo de forma **incremental** (empiezan a producir antes de terminar de consumir), más fuente y sumidero. *En clase: la desventaja es que los datos se transmiten de forma completa (capturas_U2_F3 27).* Conectores: **tuberías**, flujos unidireccionales que preservan el orden y no transforman nada.
 
 ¿Cuál es la restricción clave de tubería y filtro?::Los filtros **no comparten estado ni conocen la identidad de sus vecinos**; toda la comunicación pasa por las tuberías. La corrección no debe depender del orden en que procesan.
 
-¿Qué favorece y qué sacrifica tubería y filtro?::Favorece modificabilidad, reutilización, **paralelismo** y testabilidad. Sacrifica **interactividad**, estado compartido, latencia por etapa y el manejo de errores.
+¿Qué favorece y qué sacrifica tubería y filtro?::*(Complemento.)* Favorece modificabilidad, reutilización, **paralelismo** y testabilidad. Sacrifica **interactividad**, estado compartido, latencia por etapa y el manejo de errores. *Para el examen, la lista de clase está en Flashcards - Flujo de datos.*
 
 ¿Qué es el **batch secuencial** y en qué se diferencia de tubería y filtro?::Es el caso **degenerado**: cada etapa espera a que la anterior termine del todo y pasa **archivos completos**, sin concurrencia. Es el estilo de los procesos nocturnos de mainframe y de un pipeline de despliegue.
 

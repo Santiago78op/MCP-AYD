@@ -409,6 +409,25 @@ Notas: `Patrones de diseño`, `Patrones arquitectónicos`, `Arquitectura de refe
 | **Llamada y retorno** | **incluye capas y MVC** (captura 30) — ya no es duda | tratar capas como familia aparte |
 | **4+1, vista de procesos** | se complementa con el diagrama de **actividad**, no con el de secuencia. Paquetes va en **dos** vistas: lógica y desarrollo | responder "secuencia" |
 
+### Las familias desarrolladas — lo que dio en `capturas_U2_F3`
+
+Notas: `Arquitectura en capas` (ampliada), `Arquitectura centrada en el flujo de datos`,
+`Tuberías y filtros`, `Arquitectura de llamada y retorno`, `Llamada a procedimiento remoto`,
+`Arquitectura orientada a servicios`, `Modelo-Vista-Controlador`.
+
+| Tema | Lo que manda la clase | La trampa |
+|---|---|---|
+| **Portada de cada familia** | usa el **árbol C&C** con la familia resaltada y su definición al pie: *Data flow* = *"la computación/procesamiento es dirigido por el flujo de datos"* (13); *Call-return* = *"interacción por invocación síncrona de capacidades proporcionadas por los componentes"* (30) | dar la paráfrasis ("invoca y espera") en vez de su frase |
+| **RPC, OO y MVC** | son **patrones arquitectónicos** del estilo llamada y retorno (40; títulos de 41-42 y 44-48), **fuera** de la lista de 13 | llamarlos estilos porque el catálogo textual los pone junto a *en Capas* |
+| **SOA** | siete láminas *"call return: SOA"* y la 34: *"Es event-based porque puede usar motores de orquestación/coreografía"*. **Dos familias**, como el árbol C&C | ubicarlo solo bajo peer-to-peer (catálogo textual) |
+| **Tuberías y filtros** | estilo de flujo de datos; su desventaja de clase: *"los datos se transmiten de forma completa"* (27) | el "incremental" del complemento (Reynoso/SAIP) — manda la clase |
+| **MVC** | la lógica de negocio va en el **Modelo**; el controlador recibe eventos; el **modelo activo** notifica directo a las vistas | decir que MVC = 3 capas con otros nombres |
+| **Capas** | *"especialización de la arquitectura cliente-servidor"* (10), definición por capa externa/intermedias/interna (0), ventajas y desventajas (11) | — |
+
+Los **dos ejercicios** de la captura 12 (partida multijugador; tienda online en capas) están transcritos
+en `Arquitectura en capas` §12 **sin resolver**: preguntá el modo antes de trabajarlos. Las dudas nuevas
+son las **30-40** de `metodo_tarea("preguntas")`.
+
 > [!note] Ella repite diapositivas antes del parcial
 > De las 40 capturas, **14 eran diapositivas ya procesadas** (4+1 vistas, definiciones de Arlow y
 > Booch, terminología, triángulo, Kiviat, beneficios 2 y 3). Al procesar capturas, **compará contra
@@ -501,13 +520,13 @@ Es la vía por la que entra casi todo el material nuevo. El pipeline que funcion
    entraba en llamada y retorno) y cerrá con `lint_wiki`.
 
 > [!note] Él sigue agregando carpetas de capturas
-> Además de `capturas_U1/` y `capturas_U2/` apareció `capturas_U2_F2/`. **Listá `00-Fuentes/` al
+> Además de `capturas_U1/` y `capturas_U2/` aparecieron `capturas_U2_F2/` y `capturas_U2_F3/`. **Listá `00-Fuentes/` al
 > empezar** en vez de asumir las carpetas que conocés.
 
 ### Lotes grandes: agentes en paralelo
 
 Cuando llegan decenas de capturas, él pide *«analizá las capturas con agentes»*. La fórmula funcionó
-dos veces sin un solo conflicto (6 agentes el 15/09, 5 el 16/09):
+tres veces sin un solo conflicto (6 agentes el 15/09, 5 el 16/09, 5 el 17/09):
 
 1. **Clasificá vos primero** con la hoja de contactos, y repartí **por tema**, no por número.
 2. **Reglas comunes en un archivo del scratchpad** que todos leen: pipeline, jerarquía de fuentes,
@@ -802,7 +821,7 @@ excepciones legítimas son `.claude/` y `CLAUDE.md`.
 cd ayds-mcp
 export VAULT_PATH="$(cd ../boveda && pwd)"   # sin esto, auditar-boveda y cobertura no arrancan
 npm run build            # compilar
-npm run verificar        # 33 pruebas de lógica (bóveda temporal, no toca la real)
+npm run verificar        # 38 pruebas de lógica (bóveda temporal, no toca la real)
 npm run auditoria        # las 12 herramientas por el protocolo MCP real
 npm run auditar-boveda   # contenido de la bóveda + coherencia de la documentación
 npm run cobertura        # consultas reales: ¿el MCP encuentra el contenido?
@@ -838,6 +857,8 @@ boveda/
 ├── 00-Fuentes/capturas_U2/      — idem; ojo: "U2" cubre 1.4-1.9 del programa, no Calidad
 ├── 00-Fuentes/capturas_U2_F2/   — segunda tanda (patrones, estilos, referencia, 4+1); sus recortes van
 │                                al mismo árbol adjuntos/capturas-clase-U2/<tema>/
+├── 00-Fuentes/capturas_U2_F3/   — tercera tanda (capas, flujo de datos, llamada y retorno, SOA, RPC, MVC);
+│                                mismo árbol de recortes
 ├── 00-Fuentes/lecturas/         Lecturas complementarias
 ├── 01-Notas/                    Notas atómicas: una por concepto
 ├── 02-Diagramas/                Lo generado. **Una carpeta por sección de la Entrega**

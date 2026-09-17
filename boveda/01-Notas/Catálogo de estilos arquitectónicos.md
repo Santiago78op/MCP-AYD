@@ -1,7 +1,7 @@
 ---
 tema: Arquitectura de software
-fuente: "Presentación de clase — capturas_U2_F2 (30, 30-componentes-conectores; cruce con 9), serie «Estilos Arquitectónicos –Catálogo de Estilos–». NÚCLEO. + COMPLEMENTO — procedencia probable de cada diapositiva (Reynoso y Kicillof 2004 · Clements et al., Documenting Software Architectures), marcada, no en disco"
-fecha: 2026-09-16
+fuente: "Presentación de clase — capturas_U2_F2 (30, 30-componentes-conectores; cruce con 9), serie «Estilos Arquitectónicos –Catálogo de Estilos–». La clase volvió a dar el árbol C & C resaltando cada familia: capturas_U2_F3 13 (Data flow), 29-30 (Call-return). Se citan además U2_F3 10, 34 y 40. NÚCLEO. + COMPLEMENTO — procedencia probable de cada diapositiva (Reynoso y Kicillof 2004 · Clements et al., Documenting Software Architectures), marcada, no en disco"
+fecha: 2026-09-17
 punto_del_programa: "1.9 — Géneros y Estilos Arquitectónicos (catálogo: cliente-servidor, centrada en datos, en capas, flujo de datos, llamada y retorno, basada en eventos)"
 alias: "catalogo de estilos, familias de estilos, llamada y retorno, flujo de datos, centrada en datos, peer-to-peer, codigo movil, C&C, componentes y conectores, blackboard, pipes and filters"
 ---
@@ -41,8 +41,8 @@ En tabla, familia → miembros:
 | Familia | Miembros que nombra | Qué tienen en común *(paráfrasis propia)* |
 |---|---|---|
 | **Centrada en datos** | pizarra, *Data Warehouse* | un **almacén central** de datos al que acceden los componentes |
-| **Flujo de datos** | tuberías y filtros, proceso secuencial en lotes | los datos **pasan** por una serie de transformaciones |
-| **Llamada y retorno** | RPC, **MVC**, **en capas**, orientadas a objetos, basadas en componentes | el que llama **invoca y espera** la respuesta |
+| **Flujo de datos** | tuberías y filtros, proceso secuencial en lotes | **de clase** (U2_F3 13): *"La computación/procesamiento es dirigido por el flujo de datos en el sistema"* |
+| **Llamada y retorno** | RPC, **MVC**, **en capas**, orientadas a objetos, basadas en componentes | **de clase** (U2_F3 30): *"Interacción por invocación síncrona de capacidades proporcionadas por los componentes"* |
 | **Peer-to-peer** | basadas en **eventos**, orientadas a **servicios**, basadas en **recursos** | pares que se comunican **sin jerarquía** fija |
 | **Otras** | código móvil (máquinas virtuales), heterogéneos (procesos, atributos) | lo que no entra en las cuatro anteriores |
 
@@ -89,14 +89,18 @@ Está **en inglés**. Transcrito leyendo cada línea con zoom:
 >
 > | Estilo | Por qué tiene dos padres *(lectura propia)* |
 > |---|---|
-> | **SOA** | un servicio se puede consumir **por llamada** (petición-respuesta) o **por mensajes/eventos** |
+> | **SOA** | **de clase** (capturas_U2_F3 34): *"Es event-based porque puede usar motores de orquestación/ coreografía e invocar servicios de forma asíncrona"*; y las 33-39 se titulan *"call return: SOA"* → [[Arquitectura orientada a servicios]] |
 > | **Blackboard** (pizarra) | es un **repositorio** que además **avisa** a los agentes cuando cambia (invocación implícita) |
 
 **Tres detalles que valen puntos:**
 
 1. **Multi-tier es hijo de client-server.** O sea: **N-capas/multinivel es una especialización de
    cliente-servidor**, que a su vez es de llamada y retorno. Consistente con lo que dio la clase en
-   [[Arquitectura en capas]]: *2 capas = modelo cliente-servidor*.
+   [[Arquitectura en capas]]: *2 capas = modelo cliente-servidor*. Segunda evidencia de clase, textual:
+   la infografía de capas dice *"Especialización de la arquitectura cliente-servidor"* (capturas_U2_F3 10).
+   Ojo con la dirección: *"2 capas = cliente-servidor"* pone a cliente-servidor como **caso** de
+   N-capas; el árbol y la 10 ponen a capas como **especialización** de cliente-servidor. No se evalúa
+   la dirección, pero no digas que es la misma afirmación.
 2. **Peer to peer está bajo Call-return.** En el catálogo textual es al revés: P2P es una familia que
    **contiene** a eventos y servicios. Ver §4.
 3. La diapositiva escribe **"Publish-suscribe"**, sin la *b* de *subscribe*. Citalo como
@@ -105,6 +109,18 @@ Está **en inglés**. Transcrito leyendo cada línea con zoom:
 > [!note] Procedencia probable (COMPLEMENTO, no verificado en disco)
 > Es la figura de estilos C&C de **Clements et al.**, *Documenting Software Architectures: Views and
 > Beyond* (SEI) — de la misma escuela que el SAIP. No está en `00-Fuentes/`.
+
+> [!note] La clase volvió a dar el árbol, una familia por vez (capturas_U2_F3)
+> En la serie siguiente usa este mismo árbol como **portada de cada familia**, con la familia
+> resaltada en un recuadro punteado y su definición al pie:
+>
+> | Captura | Familia resaltada | Frase de clase | Nota |
+> |---|---|---|---|
+> | 13 | **Data flow** | *"La computación/procesamiento es dirigido por el flujo de datos en el sistema"* | [[Arquitectura centrada en el flujo de datos]] |
+> | 29-30 | **Call-return** | *"Interacción por invocación síncrona de capacidades proporcionadas por los componentes"* + síncrono: *"Proceso o su efecto que se desarrolla en perfecta correspondencia temporal con otro proceso o causa"* | [[Arquitectura de llamada y retorno]] |
+>
+> Eso es señal de que, para desarrollar, **usa el árbol C & C** como taxonomía. Event-based y
+> Repository todavía no tuvieron su portada.
 
 ---
 
@@ -115,21 +131,21 @@ Hay **cinco** listas de estilos en el material de clase y el programa. Ninguna c
 | Estilo | Programa 1.9 | Definición de estilo (capturas_U2 21) | Lista de 9 (captura 9) | Catálogo textual (30) | Árbol C&C (30-cc) | Desarrollado en |
 |---|---|---|---|---|---|---|
 | **Monolítico** | — | — | ✅ 1 | — | — | [[Arquitectura monolítica]] |
-| **Cliente-servidor** | ✅ | — | ✅ 2 | — | ✅ bajo Call-return | [[Arquitectura en capas]] §3 |
+| **Cliente-servidor** | ✅ | — | ✅ 2 | — | ✅ bajo Call-return | [[Arquitectura en capas]] §3 · [[Arquitectura de llamada y retorno]] §3 |
 | **En capas / multi-tier** | ✅ | ✅ *capas* | ✅ 3 | ✅ bajo llamada y retorno | ✅ *Multi-tier*, bajo Client-server | [[Arquitectura en capas]] |
 | **Microkernel** | — | — | ✅ 4 | — | — | — |
-| **SOA** (orientada a servicios) | — | — | ✅ 5 | ✅ bajo peer-to-peer | ✅ bajo Call-return **y** Event-based | — |
+| **SOA** (orientada a servicios) | — | — | ✅ 5 | ✅ bajo peer-to-peer | ✅ bajo Call-return **y** Event-based | [[Arquitectura orientada a servicios]] |
 | **Microservicios** | — | — | ✅ 6 | — | — | — |
 | **Basada en eventos** (EDA) | ✅ | — | ✅ 7 *"Event Drive Architecture"* [sic] | ✅ bajo peer-to-peer | ✅ **familia** *Event-based* | — |
-| **REST** / basadas en recursos | — | — | ✅ 8 | ✅ *basadas en Recursos*, bajo peer-to-peer | — | — |
+| **REST** / basadas en recursos | — | — | ✅ 8 | ✅ *basadas en Recursos*, bajo peer-to-peer | — | una diapositiva de *API RESTful* dentro de flujo de datos (U2_F3 20) → [[Tuberías y filtros]] §4 |
 | **Peer-to-peer** | — | — | ✅ 9 | ✅ **familia** | ✅ bajo Call-return | — |
 | **Centrada en datos** / repository | ✅ | ✅ *centrado en datos* | — | ✅ **familia** | ✅ **familia** *Repository* | Parte II de [[Estilos arquitectónicos]] |
 | Pizarra / blackboard | — | — | — | ✅ bajo centrada en datos | ✅ bajo Event-based **y** Repository | Parte II |
 | *Data Warehouse* · *Shared data* | — | — | — | ✅ *Data Warehouse* | ✅ *Shared data* | — |
-| **Flujo de datos** | ✅ | ✅ | — | ✅ **familia** | ✅ **familia** *Data flow* | Parte II |
-| Tuberías y filtros · lotes | — | — | — | ✅ los dos | ✅ Pipes and filters · Batch sequential (+ Pipeline, UNIX) | Parte II |
-| **Llamada y retorno** | ✅ | ✅ *"llamar y regresar"* | — | ✅ **familia** | ✅ **familia** *Call-return* | — |
-| RPC · MVC · OO · componentes | — | — | — | ✅ los cuatro | — | — |
+| **Flujo de datos** | ✅ | ✅ | — | ✅ **familia** | ✅ **familia** *Data flow* | [[Arquitectura centrada en el flujo de datos]] |
+| Tuberías y filtros · lotes | — | — | — | ✅ los dos | ✅ Pipes and filters · Batch sequential (+ Pipeline, UNIX) | [[Tuberías y filtros]] · [[Arquitectura centrada en el flujo de datos]] §5 |
+| **Llamada y retorno** | ✅ | ✅ *"llamar y regresar"* | — | ✅ **familia** | ✅ **familia** *Call-return* | [[Arquitectura de llamada y retorno]] |
+| RPC · MVC · OO · componentes | — | — | — | ✅ los cuatro | — | RPC, MVC y OO como **patrones arquitectónicos** de llamada y retorno (U2_F3 40) → [[Llamada a procedimiento remoto]] · [[Modelo-Vista-Controlador]] |
 | Point to point messaging · publish-subscribe | — | — | — | — | ✅ bajo Event-based | Parte II (publish-subscribe) |
 | Código móvil (máquinas virtuales) | — | — | — | ✅ en *Otras* | — | Parte II (*intérprete / MV*) |
 | Heterogéneos (procesos, atributos) | — | — | — | ✅ en *Otras* | — | — |
@@ -139,8 +155,12 @@ Hay **cinco** listas de estilos en el material de clase y el programa. Ninguna c
 
 - **Los seis del programa tienen, todos, al menos una diapositiva de clase** que los nombra. El que
   faltaba —*basada en eventos*— está en la lista de 9, en el catálogo textual y en el árbol.
-- **Nombrado no es desarrollado.** De los seis, solo **capas** y **cliente-servidor** tienen
-  diapositivas de desarrollo. Los demás siguen explicándose con complemento.
+- **Nombrado no es desarrollado.** De los seis, desde capturas_U2_F3 tienen diapositivas de desarrollo
+  **capas**, **cliente-servidor**, **flujo de datos** y **llamada y retorno** (más SOA, RPC y MVC).
+  **Centrada en datos** y **basada en eventos** siguen explicándose con complemento.
+- **El catálogo textual mezcla niveles.** Pone RPC, MVC y OO junto a *en Capas* como miembros de la
+  familia; la 40 de U2_F3 los llama *"Patrones Arquitéctónicos [sic] para arquitectura de llamada y
+  retorno"*. Para RPC, MVC y OO **manda la 40**: es la que declara el nivel.
 - La **lista de 9** (captura 9) es de **estilos concretos** y de moda (monolito, microservicios,
   REST); el **catálogo** y el **árbol** son de **familias**. Por eso casi no se solapan: la lista de 9
   no nombra ni una familia clásica (centrada en datos, flujo de datos, llamada y retorno).
@@ -153,7 +173,7 @@ Hay **cinco** listas de estilos en el material de clase y el programa. Ninguna c
 |---|---|---|
 | ¿Peer-to-peer es familia o miembro? | **familia** (contiene eventos, servicios, recursos) | **miembro** de Call-return |
 | ¿Eventos es familia o miembro? | **miembro** de peer-to-peer | **familia** (*Event-based*) |
-| ¿Dónde va SOA? | bajo peer-to-peer | bajo Call-return **y** Event-based |
+| ¿Dónde va SOA? | bajo peer-to-peer | bajo Call-return **y** Event-based — **y así lo desarrolló la clase**: 7 láminas *"call return: SOA"* y la 34, *"Es event-based porque…"* (U2_F3 33-39) |
 | ¿Dónde va la pizarra? | bajo centrada en datos | bajo Repository **y** Event-based |
 | ¿Cliente-servidor? | **no aparece** | bajo Call-return, con multi-tier debajo |
 | ¿Capas? | bajo llamada y retorno | *Multi-tier*, bajo client-server (→ call-return) |
@@ -185,6 +205,9 @@ control que vuelve (llamada y retorno), pares que se avisan (peer-to-peer / even
 - [[Arquitectura monolítica]] — el primero de la lista de 9, fuera de los dos catálogos
 - [[Arquitectura en la nube]] — el *cloud* del programa
 - [[Categorías de estructuras]] — de dónde sale el "C & C" de la raíz del árbol
+- [[Arquitectura centrada en el flujo de datos]] · [[Tuberías y filtros]] — la familia Data flow, desarrollada
+- [[Arquitectura de llamada y retorno]] · [[Llamada a procedimiento remoto]] · [[Modelo-Vista-Controlador]] — la familia Call-return y sus patrones
+- [[Arquitectura orientada a servicios]] — la hoja con dos padres, desarrollada
 
 ## Preguntas de repaso
 
