@@ -1,7 +1,7 @@
 ---
 tema: Arquitectura de software
-fuente: "Presentación de clase — capturas_U2 (21; capturas_U2_F2 0; resumen de 43-47 y 49-52, desarrolladas en sus notas). NÚCLEO. + COMPLEMENTO — Reynoso (Introducción a la AS), SAIP 4ª ed. y Guía de estudio (Parte II, marcada)"
-fecha: 2026-09-15
+fuente: "Presentación de clase — capturas_U2 (21; resumen de 43-47 y 49-52, desarrolladas en sus notas) + capturas_U2_F2 (0; 9, 15-22; 14: la clase volvió a dar la diapositiva de la 21). NÚCLEO. La 15 cita a Óscar Blancarte: complemento citado por ella. + COMPLEMENTO — Reynoso (Introducción a la AS), SAIP 4ª ed. y Guía de estudio (Parte II, marcada)"
+fecha: 2026-09-16
 punto_del_programa: "1.9 — Géneros y Estilos Arquitectónicos"
 ---
 
@@ -9,8 +9,10 @@ punto_del_programa: "1.9 — Géneros y Estilos Arquitectónicos"
 
 > [!info] Cómo está armada esta nota
 > - **Parte I — NÚCLEO (clase).** Las definiciones de *diseño*, *estilo* y *patrón* arquitectónico
->   de la diapositiva "Estilos y Patrones Arquitectónicos", y los estilos que la catedrática
->   desarrolló: monolítica, N-capas, 2 capas (cliente-servidor) y la nube. Es lo que se evalúa.
+>   de la diapositiva "Estilos y Patrones Arquitectónicos"; **qué es un estilo** (Elementos-Forma-Razón,
+>   transformación impuesta, invariantes) y **en qué se diferencia de un patrón** (capturas_U2_F2);
+>   su **lista de 9 estilos**, y los que desarrolló: monolítica, N-capas, 2 capas
+>   (cliente-servidor) y la nube. Es lo que se evalúa.
 > - **Parte II — COMPLEMENTO.** El catálogo de Reynoso, el SAIP y la guía de estudio, que existía
 >   antes de que llegara la clase. Sirve para **entender** los estilos que ella solo nombró (centrado
 >   en datos, flujo de datos, eventos…), **nunca** para contradecir la Parte I.
@@ -37,13 +39,28 @@ La diapositiva *"Estilos y Patrones Arquitectónicos"* define tres términos que
 
 ![[adjuntos/capturas-clase-U2/estilos/definiciones-diseno-estilo-patron.png]]
 
+> [!note] La volvió a dar
+> La captura **capturas_U2_F2 (14)** es **la misma diapositiva**, palabra por palabra, en otra
+> sesión. Que la repita es señal de que la considera central.
+
+> [!warning] Dos definiciones de *estilo* en el material de clase — no son la misma frase
+> | Versión | Textual | Dónde |
+> |---|---|---|
+> | **A — restricciones** | *"Un estilo arquitectónico establece las **restricciones** sobre la arquitectura de una **familia de diseños arquitectónicos**."* | capturas_U2 (21) y capturas_U2_F2 (14) |
+> | **B — marco de referencia** | *"Un estilo arquitectónico establece un **marco de referencia** a partir del cual es posible **construir aplicaciones que comparten un conjunto de atributos y características** mediante el cual es posible identificarlos y clasificarlos"* | capturas_U2_F2 (6), con el dibujo estilo ⊃ patrón arquitectónico ⊃ patrón de diseño |
+>
+> La **B** es la misma idea que la cita de Blancarte en la 15 (*"marco de referencia o estilo de
+> trabajo"*). A eso se suman las miradas de §1.1 (*transformación impuesta*, *abstracción de tipos
+> de elementos*). **No se eligió una**: si hay que escribir la definición en el examen, preguntale
+> cuál espera, o dá la A (la que repitió dos veces) y mencioná la B.
+
 Puestos lado a lado, la diferencia es **de qué habla cada uno**:
 
 | Término | Habla de… | Alcance | Ejemplo con material de clase |
 |---|---|---|---|
 | **Diseño arquitectónico** | **un** sistema concreto | uno solo | el diagrama de componentes de la clínica veterinaria (ver [[Arquitectura en capas]]) |
 | **Estilo arquitectónico** | una **familia** de diseños: les impone **restricciones** | el mayor | *capas*, *centrado en datos*, *flujo de datos*, *llamar y regresar* |
-| **Patrón arquitectónico** | un **problema común** dentro del diseño, y su solución general | **menor que el estilo** | — (la diapositiva no da ejemplo) |
+| **Patrón arquitectónico** | un **problema común** dentro del diseño, y su solución general | **menor que el estilo** | esta diapositiva no da ejemplo, pero **su lista de 13** sí (capturas_U2_F2, 8): DTO, DAO, Polling, Webhook, Load Balance, Service Registry, Service Discovery, API Gateway, Access Token, SSO, Store and forward, Circuit Breaker, Log aggregation → [[Patrones arquitectónicos]] |
 
 Esquema propio (no es un diagrama de la clase) de cómo se encadenan:
 
@@ -90,7 +107,256 @@ diseño** viven **dentro de un componente**, a nivel de clases; los **patrones a
 de la definición de arriba: **patrón de diseño < patrón arquitectónico < estilo**. Ver §5 y
 [[Tácticas y patrones arquitectónicos]].
 
+Cada tipo de patrón tiene su nota: [[Patrones de diseño]] (creacionales, estructurales, de
+comportamiento) y [[Patrones arquitectónicos]] (impacto global, su lista de 13). La lectura de
+arriba **ya no es solo nuestra**: ella dibujó la jerarquía completa —un **estilo** contiene
+**patrones arquitectónicos**, y cada uno contiene **patrones de diseño**—:
+
+![[adjuntos/capturas-clase-U2/patrones/estilo-contiene-patrones-arquitectonicos-y-de-diseno.png]]
+
+Y la captura 15 (§1.2) lo dice con palabras.
+
+### 1.1 Qué es un estilo: lo que dijo la clase (capturas_U2_F2, 18-21)
+
+Cuatro diapositivas seguidas definen el estilo desde cuatro ángulos. Textual:
+
+**(18) Qué describe y para qué sirve.**
+
+> - Un estilo **describe una clase de arquitectura o piezas de la misma**.
+> - Los estilos **se pueden reutilizar** en situaciones semejantes en el futuro.
+> - Desde que surgió la arquitectura del software se generalizó la arquitectura **cliente – servidor**,
+>   posteriormente entró en auge las arquitecturas **en capas** y las **basadas en componentes** y más
+>   recientemente las **basadas en recursos y servicios**.
+
+![[adjuntos/capturas-clase-U2/estilos/estilo-describe-clase-de-arquitectura-evolucion.png]]
+
+**(19) Qué incluye.**
+
+> Cada estilo describe una **categoría de sistemas** que incluye:
+> - Un conjunto de **componentes** (una base de datos o módulos de computo) que realizan una función
+>   requerida por el sistema.
+> - Un conjunto de **conectores** que permiten la comunicación, coordinación y cooperación entre los
+>   componentes.
+> - **Restricciones** que definen como se integran los componentes para formar el sistema.
+> - **Modelos semánticos** que permiten que un diseñador entienda las propiedades generales del
+>   sistema al analizar las propiedades conocidas de sus partes.
+
+![[adjuntos/capturas-clase-U2/estilos/estilo-categoria-de-sistemas-que-incluye.png]]
+
+**(20) Elementos, Forma y Razón.**
+
+> Se establece que una arquitectura se define mediante la afirmación:
+>
+> **Arquitectura del Software = Elementos, Forma y Razón.**
+>
+> - **Elementos:**
+>   - **Procesamiento:** Suministra la transformación de los datos
+>   - **Datos:** Contiene la información a procesar
+>   - **Conexión:** Llamadas a procedimientos, mensajes, etc.
+> - **Forma:** las propiedades y relaciones entre los elementos.
+> - **Razón:** motivación para la elección de elementos y sus formas.
+>
+> Por tanto **un estilo arquitectónico es una abstracción de tipos de elementos y aspectos formales a
+> partir de arquitecturas específicas**.
+
+![[adjuntos/capturas-clase-U2/estilos/arquitectura-elementos-forma-razon.png]]
+
+> [!info] De dónde sale la fórmula (complemento, la diapositiva no lo cita)
+> *Elementos, Forma y Razón* es la definición de **Perry y Wolf (1992)**, el mismo texto fundacional
+> en que se apoya Reynoso en §4. Sirve para ubicarla; en el examen citá la diapositiva.
+
+**(21) Transformación impuesta e invariantes** — lo que ella marca **en rojo** va en negrita:
+
+> - Un estilo arquitectónico **es una transformación impuesta** al diseño de **todo un sistema**. El
+>   objetivo es establecer una estructura para todos los componentes del sistema.
+> - Indican
+>   - Los tipos de componentes y sus conectores involucrados
+>   - Patrones y restricciones de interconexión o composición entre ellos
+>     - **Invariantes del estilo** (restricciones)
+> - Asociado a cada estilo hay una serie de **propiedades** que lo caracterizan
+>   - Determinan sus **ventajas e inconvenientes**
+>   - **Condicionan la elección** de uno u otro estilo
+
+![[adjuntos/capturas-clase-U2/estilos/estilo-transformacion-impuesta-invariantes.png]]
+
+Las cuatro juntas, ordenadas *(síntesis nuestra)*:
+
+| Pregunta | Respuesta de la clase | Captura |
+|---|---|---|
+| ¿Qué **es**? | una **abstracción** de tipos de elementos y aspectos formales a partir de arquitecturas específicas · una **transformación impuesta** al diseño de todo un sistema | 20, 21 |
+| ¿Qué **describe**? | una **clase** de arquitectura (o piezas) · una **categoría** de sistemas | 18, 19 |
+| ¿De qué **se compone**? | **componentes**, **conectores**, **restricciones** (= *invariantes del estilo*) y **modelos semánticos** | 19, 21 |
+| ¿De qué está hecha la arquitectura que abstrae? | **Elementos** (procesamiento, datos, conexión) + **Forma** + **Razón** | 20 |
+| ¿Para qué **sirve**? | se **reutiliza** en situaciones semejantes · sus **propiedades** dan ventajas e inconvenientes y **condicionan la elección** | 18, 21 |
+
+```mermaid
+flowchart LR
+    A1["Arquitectura específica 1"] --> E["ESTILO<br/>abstracción de tipos de elementos<br/>y aspectos formales"]
+    A2["Arquitectura específica 2"] --> E
+    E --> C["componentes"]
+    E --> K["conectores"]
+    E --> R["restricciones<br/>= invariantes del estilo"]
+    E --> M["modelos semánticos"]
+    E --> P["propiedades<br/>ventajas e inconvenientes"]
+    P -->|"condicionan"| EL["la elección del estilo"]
+```
+
+> [!warning] La trampa de la 20
+> *Elementos, Forma y Razón* define **la arquitectura**, no el estilo. El estilo sale **después**,
+> con el *"por tanto"*: es lo que queda cuando de muchas arquitecturas concretas se abstraen **los
+> tipos** de elementos y la forma. Y ojo con **Razón**: es la *motivación* de las decisiones — una
+> arquitectura sin su porqué está incompleta según esta definición.
+
+> [!note] Cruce con el complemento
+> Los ingredientes de la 19 son casi los de Reynoso en §4 (componentes, conectores, configuraciones,
+> restricciones). La clase **agrega los modelos semánticos** y no nombra las *configuraciones* —
+> aunque la *"forma"* de la 20 cumple ese papel. **No chocan**: citá la lista de la 19.
+
+### 1.2 Estilo vs. patrón arquitectónico: lo que dijo la clase (capturas_U2_F2, 15, 16, 17, 22)
+
+**(15) Qué son y cómo se componen** — la diapositiva cita a **Óscar Blancarte**, *Introducción a
+la Arquitectura de Software*, p. 48, como *"lectura recomendada"*. Es **complemento citado por
+ella**: vale como material de clase porque lo puso en la diapositiva, pero el libro no está en la
+bibliografía oficial ni en disco. Textual:
+
+> Es importante también tener claro también estos conceptos, ya que están relacionados pero no son
+> lo mismo, pero seamos prácticos y en un par de párrafos dejemos claro sus diferencias y qué son:
+> - Los **patrones arquitectónicos** son aquellas **soluciones recurrentes a un problema de diseño
+>   entre componentes y su relación entre ellos** y puede estar **conformada de uno o más patrones de
+>   diseño**.
+> - Por otra parte un **estilo arquitectónico** es un **marco de referencia o estilo de trabajo** que
+>   puede **componerse de uno o más patrones arquitectónicos**. (Óscar Blancarte, en su libro
+>   Introducción a la Arquitectura de software en la página 48, disponible desde
+>   https://reactiveprogramming.io/books/software-architecture/es lectura recomendada.) Entre algunos
+>   ejemplos de los principales estilos arquitectónicos tenemos a la arquitetura [sic] **monolítica,
+>   cliente-servidor, SOA, microkernel, en capas y microservicios**.
+
+![[adjuntos/capturas-clase-U2/estilos/estilos-y-patrones-de-arquitectura-blancarte.png]]
+
+**(16) Similitudes y diferencias** — la tabla, textual:
+
+| SIMILITUDES | DIFERENCIAS |
+|---|---|
+| Ambos solucionan un **problema arquitectónico recurrente**. | Los *estilos* establecen restricciones sobre la arquitectura de **todo el sistema**, y los *patrones* tienen un **alcance menor** y abordan **problemas más específicos**. |
+| Se **describen de la misma forma**. | Cada estilo describe una **familia de sistemas** que comparten un conjunto amplio de decisiones de diseño. |
+
+![[adjuntos/capturas-clase-U2/estilos/estilos-vs-patrones-similitudes-diferencias.png]]
+
+**(17) Se complementan** — textual:
+
+> Un aspecto muy importante en arquitectura del software son los patrones tanto de diseño como de
+> arquitectura
+> - Los **complementan** los estilos arquitectónicos
+> - Ambos se preocupan de los **stakeholders**
+> - Los **estilos** favorecen al tratamiento **estructural, la investigación, la teoría**
+> - Los **patrones** están más cerca del **diseño, la práctica, el proceso, el código**
+
+![[adjuntos/capturas-clase-U2/estilos/estilos-y-patrones-se-complementan-atributos-calidad.png]]
+
+El dibujo: un óvalo rotulado **Estilos** que contiene **Atributos de calidad → Arquitectura**
+(flecha gruesa). Leído: el estilo es el **puente** por el que los atributos de calidad se convierten
+en arquitectura — exactamente lo que dice la §9: elegir estilo es elegir qué atributos favorecer.
+
+**(22) Diferencias patrón-estilo** — lo que ella marca **en rojo** va en negrita:
+
+> - Un patrón arquitectónico, **al igual que un estilo**, impone una transformación en el diseño de
+>   una arquitectura.
+> - Diferencias entre patrón y estilos
+>   - El alcance de un patrón **es menor**, ya que se concentra en un aspecto en lugar de hacerlo en
+>     toda la arquitectura.
+>   - Un patrón **impone una regla** sobre la arquitectura, pues describe la manera en que el SW
+>     manejará algún aspecto de su funcionalidad al nivel de la infraestructura (por ejemplo,
+>     concurrencia).
+>   - Los patrones arquitectónicos tienden a **abarcar aspectos específicos** del comportamiento dentro
+>     del contexto de la arquitectura (por ejemplo, como maneja una aplicación en tiempo real la
+>     sincronización o las interrupciones ).
+> - Los patrones **se usan junto con** un estilo arquitectónico para determinar la forma de la
+>   estructura general de un sistema.
+
+![[adjuntos/capturas-clase-U2/estilos/patron-vs-estilo-alcance-regla-aspectos.png]]
+
+**Las cuatro diapositivas en una tabla** *(síntesis nuestra, cada celda con su captura)*:
+
+| | **Estilo arquitectónico** | **Patrón arquitectónico** | **Patrón de diseño** |
+|---|---|---|---|
+| **Alcance** | **todo el sistema** (16, 21) | **menor**: un aspecto (16, 22) | un componente, sus clases (0, 6) |
+| **Qué impone** | una **transformación** al diseño de todo el sistema (21) | también una transformación (22), en forma de **una regla** (22) | — |
+| **Qué aborda** | una **familia de sistemas** con decisiones de diseño compartidas (16) | problemas **más específicos**: concurrencia, sincronización, interrupciones (16, 22) | problemas de diseño a nivel de clases → [[Patrones de diseño]] |
+| **Se compone de** | uno o más **patrones arquitectónicos** (15) | uno o más **patrones de diseño** (15) | — |
+| **Está más cerca de** | lo estructural, la investigación, la **teoría** (17) | el diseño, la práctica, el proceso, el **código** (17) | — |
+| **En común** | los dos resuelven un problema arquitectónico **recurrente**, **se describen de la misma forma**, se preocupan de los **stakeholders** y **se usan juntos** (16, 17, 22) | | |
+
+```mermaid
+flowchart TD
+    E["ESTILO ARQUITECTÓNICO<br/>todo el sistema · teoría"] -->|"se compone de uno o más"| PA["PATRÓN ARQUITECTÓNICO<br/>un aspecto · impone una regla"]
+    PA -->|"se compone de uno o más"| PD["PATRÓN DE DISEÑO<br/>clases dentro de un componente"]
+```
+
+> [!warning] Las tres trampas de estas diapositivas
+> 1. **"El estilo impone y el patrón no"** — falso. La 22 dice que el patrón, **al igual que un
+>    estilo**, impone una transformación. La diferencia **no es si impone**, es **cuánto abarca**:
+>    todo el sistema vs. un aspecto.
+> 2. **"Se describen distinto"** — falso. La 16 pone como **similitud** que *se describen de la
+>    misma forma*.
+> 3. **"Se elige uno u otro"** — falso. La 17 dice que se **complementan** y la 22 que se usan
+>    **junto con** un estilo.
+
+**Regla para el examen:** *el estilo es el marco de todo el sistema y se compone de patrones
+arquitectónicos; el patrón arquitectónico impone una regla sobre un aspecto y se compone de
+patrones de diseño. Los dos imponen una transformación: los separa el alcance.*
+
 ## 2. Los estilos que mostró la clase
+
+### Su lista: nueve estilos (capturas_U2_F2, 9)
+
+La diapositiva *"Estilos Arquitectónicos"*, textual:
+
+> 1. Monolítico
+> 2. Cliente-Servidor
+> 3. Arquitectura en Capas
+> 4. Microkernel
+> 5. Service-Oriented Architecture (SOA)
+> 6. Microservicios
+> 7. Event Drive [sic] Architecture (EDA)
+> 8. REST
+> 9. Peer to Peer (P2P)
+
+![[adjuntos/capturas-clase-U2/estilos/estilos-lista-nueve-estilos.png]]
+
+> [!warning] El nombre del archivo no manda
+> La captura cruda se llama `9-Microservicios-Patron.png`, pero **la diapositiva dice "Estilos
+> Arquitectónicos"** y pone **Microservicios** como estilo 6. Para ella, microservicios es un
+> **estilo**, no un patrón. (La 15 confirma: *"ejemplos de los principales estilos … SOA,
+> microkernel, en capas y microservicios"*.)
+
+Cruzada con el resto del material:
+
+| # | Estilo de su lista | ¿Lo desarrolló? | ¿Está en los 6 del programa (§7)? | ¿Está en la 15 (Blancarte)? | Dónde leerlo |
+|---|---|---|---|---|---|
+| 1 | **Monolítico** | ✅ definición + tabla + Prime Video | ❌ | ✅ | [[Arquitectura monolítica]] |
+| 2 | **Cliente-Servidor** | ✅ como *2 capas* | ✅ | ✅ | [[Arquitectura en capas]] §3 |
+| 3 | **Arquitectura en Capas** | ✅ como *N-Capas* | ✅ | ✅ | [[Arquitectura en capas]] |
+| 4 | **Microkernel** | ❌ solo nombrado | ❌ (en el complemento, variante jerárquica de capas) | ✅ | §8, *En o por capas* (complemento) |
+| 5 | **SOA** | ❌ solo nombrado | ❌ (en el complemento, descendiente de cliente-servidor) | ✅ | §8, *Cliente-servidor* (complemento) |
+| 6 | **Microservicios** | ❌ solo nombrado | ❌ | ✅ | §8, *Cliente-servidor* (complemento) |
+| 7 | **EDA** | ❌ solo nombrado | ✅ como *basada en eventos* | ❌ | §8, *publish-subscribe* (complemento) |
+| 8 | **REST** | ❌ solo nombrado | ❌ | ❌ | **sin material** en la bóveda |
+| 9 | **P2P** | ❌ solo nombrado | ❌ (el complemento lo pone junto a cliente-servidor) | ❌ | §8, *Cliente-servidor* (complemento) |
+
+Y del otro lado: **centrada en datos**, **flujo de datos** y **llamada y retorno**, que están en el
+programa y en la diapositiva de definiciones, **no están en esta lista de 9**. Aparecen como
+**familias** en su catálogo de estilos → [[Catálogo de estilos arquitectónicos]].
+
+> [!tip] Cómo se entienden las dos listas sin que choquen
+> Son **dos niveles**. Las *familias* (centrada en datos, flujo de datos, llamada y retorno,
+> basada en eventos) son las del programa y el catálogo; la lista de 9 son **estilos concretos**,
+> de los que se habla hoy en la industria. Si en el examen piden "los estilos que vimos", dá **la
+> lista de 9**; si piden "el catálogo del 1.9", dá **las familias**.
+>
+> Ojo: sus dos diapositivas de catálogo (la textual y el árbol C & C) **no ubican igual** P2P,
+> eventos, SOA y pizarra. Está documentado en [[Catálogo de estilos arquitectónicos]].
+
+### Los que nombró y los que desarrolló
 
 La diapositiva de definiciones **nombra** cuatro estilos de ejemplo; después la catedrática
 **desarrolló** otros con diapositivas propias. Conviene distinguir los dos grupos:
@@ -116,21 +382,23 @@ La diapositiva de definiciones **nombra** cuatro estilos de ejemplo; después la
 
 El programa, punto 1.9: *arquitectura candidata, arquitectura de referencia, diseño on premise vs
 cloud, y el catálogo: cliente-servidor, centrada en datos, en capas, flujo de datos, llamada y
-retorno, basada en eventos.* Contra las capturas de la unidad 2:
+retorno, basada en eventos.* Contra las capturas de la unidad 2 (`capturas_U2` y, desde el
+2026-09-16, `capturas_U2_F2`):
 
 | Punto del programa | ¿Lo cubrió la clase? | Dónde |
 |---|---|---|
 | **Cliente-servidor** | ✅ sí, como *"Arquitectura de 2 capas — Modelo Cliente Servidor"* | [[Arquitectura en capas]] §3 |
 | **En capas** | ✅ sí, como *"Arquitectura N-Capas"* y *"Arquitectura: Capas"* | [[Arquitectura en capas]] |
 | **Diseño cloud** | ✅ sí: Cloud Computing, Prime Video en AWS, N-niveles en la nube (Azure) | [[Arquitectura en la nube]] |
-| **Diseño on premise** | ⚠️ **no hay diapositiva propia**; queda implícito por contraste con la nube | [[Arquitectura en la nube]] §4 |
-| **Centrada en datos** | ⚠️ solo **nombrada** en la definición de estilo | Parte II |
-| **Flujo de datos** | ⚠️ solo **nombrada** | Parte II |
-| **Llamada y retorno** | ⚠️ solo **nombrada**, como *"llamar y regresar"* | Parte II |
-| **Basada en eventos** | ❌ **no aparece** en estas capturas | Parte II |
-| **Arquitectura candidata** | ❌ no aparece | §10 (complemento) |
-| **Arquitectura de referencia** | ❌ no con ese nombre (los diagramas de AWS y Azure **son** arquitecturas de referencia, pero ella no usa el término) | §10 (complemento) |
+| **Diseño on premise** | ⚠️ **sigue sin diapositiva propia** (tampoco en capturas_U2_F2); queda implícito por contraste con la nube | [[Arquitectura en la nube]] §4 |
+| **Centrada en datos** | 🟡 **nombrada** en la definición de estilo y como familia del catálogo (capturas_U2_F2, 30) | [[Catálogo de estilos arquitectónicos]] · Parte II |
+| **Flujo de datos** | 🟡 **nombrada** y como familia del catálogo (30) | [[Catálogo de estilos arquitectónicos]] · Parte II |
+| **Llamada y retorno** | 🟡 **nombrada** como *"llamar y regresar"*, y como familia *"llamada y retorno"* del catálogo (30) | [[Catálogo de estilos arquitectónicos]] · §7 |
+| **Basada en eventos** | 🟡 **nombrada**: *EDA* en su lista de 9 (capturas_U2_F2, 9), en el catálogo textual (30) y como *Event-based* en el árbol C & C (30-componentes-conectores); **no se desarrolla** | §2 · [[Catálogo de estilos arquitectónicos]] · Parte II |
+| **Arquitectura candidata** | 🟡 hay una diapositiva con ese título, capturas_U2_F2 (25) | [[Arquitectura de referencia]] · §10 |
+| **Arquitectura de referencia** | ✅ **sí**, con ese nombre, en capturas_U2_F2 (23, 24, 26) | [[Arquitectura de referencia]] · §10 |
 | *(no está en el programa)* **Monolítica** | ✅ desarrollada | [[Arquitectura monolítica]] |
+| *(no está en el programa)* **Microkernel, SOA, Microservicios, REST, P2P** | 🟡 **nombrados** en su lista de 9 (capturas_U2_F2, 9) | §2 |
 
 ---
 
@@ -176,8 +444,14 @@ La diferencia más preguntable, y es de escala:
 
 | | Cantidad | Nivel |
 |---|---|---|
-| **Patrones de diseño** | **Centenares** (las 23 fichas de GoF son solo un catálogo) | Estructura interna de un grupo de clases |
+| **Patrones de diseño** | **Centenares** (las 23 fichas de GoF son solo un catálogo — la clase dio **25**, ver abajo) | Estructura interna de un grupo de clases |
 | **Estilos arquitectónicos** | **Seis o siete clases** fundamentales y unos **veinte ejemplares** como máximo | Organización del sistema completo |
+
+> [!note] El número de la clase (capturas_U2_F2, 7)
+> Su lista *"Patrones de Diseño"* tiene **25**: los **23 de GoF** más **Object Pool** (6) y **Null
+> Object** (23). Si preguntan *cuántos patrones de diseño vimos*, la respuesta es **25**, no 23 ni
+> "centenares". Detalle en [[Patrones de diseño]]. Lo de "centenares" es Reynoso hablando de todos
+> los que existen, no de la clase.
 
 Reynoso lo remarca: *"es digno de señalarse el empeño por subsumir todas las formas existentes de
 aplicaciones en un conjunto de dimensiones tan modestas"*.
@@ -185,6 +459,12 @@ aplicaciones en un conjunto de dimensiones tan modestas"*.
 Esa modestia es deliberada y es la misma idea del "menos es más" que ya aparece en
 [[Beneficios de la arquitectura de software]]: restringir el vocabulario de alternativas es una
 ventaja, no una limitación.
+
+> [!note] Contra la clase: no choca, y la clase agrega el eslabón del medio
+> Reynoso compara **estilo** con **patrón de diseño** y salta el nivel intermedio. La clase
+> (capturas_U2_F2, 15 y 22) pone el **patrón arquitectónico** entre los dos: el estilo se compone de
+> patrones arquitectónicos, y estos de patrones de diseño. En el examen, **los tres niveles** de
+> §1.2, no los dos de Reynoso.
 
 ## 6. Los estilos se componen — el rasgo más importante del catálogo
 
@@ -237,6 +517,16 @@ El programa lista seis estilos. Así se corresponden con el catálogo del materi
 > Ojo: la clase pone **capas** y **llamar y regresar** como ejemplos **separados** en la misma
 > lista. Si para ella capas estuviera dentro de llamar y regresar, no los listaría a la par.
 > **Preguntalo** antes de afirmar esa clasificación en un examen.
+
+> [!warning] Corrección (capturas_U2_F2, 30)
+> Lo de arriba decía que la clasificación de capas dentro de "llamada y retorno" era **dudosa** y
+> había que preguntarla. **Su catálogo de estilos lo resuelve**: textual, *"Arquitecturas de
+> llamada y retorno (llamadas a procedimientos remotos, Modelo Vista Controlador –MVC-, **en
+> Capas**, Orientadas a Objetos, basadas en Componentes)"*. Y en el árbol C & C de `30-componentes-conectores`,
+> *Client-server* (con *Multi-tier* debajo) cuelga de **Call-return**. O sea: para ella **capas y
+> cliente-servidor son estilos de la familia llamada y retorno**; la diapositiva de definiciones
+> los lista a la par porque mezcla familias y estilos concretos. Detalle en
+> [[Catálogo de estilos arquitectónicos]].
 
 Además, el material trae dos estilos que el programa no lista pero que Reynoso sí incluye entre los
 seis típicos: **peer-to-peer** e **intérprete / máquina virtual**.
@@ -408,36 +698,13 @@ Reconstruida a partir de las fichas de arriba:
 
 ## 10. Arquitectura candidata, de referencia y on premise vs cloud
 
-> [!warning] Lo más flojo de esta nota
-> El programa lista **"Arquitectura Candidata"**, **"La Arquitectura de Referencia"** y
-> **"Diseño Arquitectónico: on premise, cloud"** dentro de 1.9. De los tres, la clase solo dio
-> **cloud** (ver [[Arquitectura en la nube]]); *candidata* y *de referencia* **no aparecen** en las
-> capturas de la unidad 2. Lo que sigue es complemento. **Confirmalo con ella.**
-
-**Arquitectura de referencia.** Es lo mejor documentado de los tres. El SAIP la trata como una de
-las *categorías de concepto de diseño* que se pueden elegir, junto con tácticas y patrones. Lo que
-dice sobre cómo usarla:
-
-> En el caso de las arquitecturas de referencia, **instanciar** típicamente significa que se realiza
-> algún tipo de **customización**: agregar o quitar elementos que son parte de la estructura definida
-> por la arquitectura de referencia.
-
-Su ejemplo: si diseñás una aplicación web que necesita comunicarse con una aplicación externa para
-manejar pagos, probablemente tengas que **agregar un componente de integración** al lado de los
-*tiers* tradicionales de presentación, negocio y datos.
-
-Los diagramas de AWS y Azure que mostró la clase (en [[Arquitectura en la nube]]) son justamente
-arquitecturas de referencia de proveedores, aunque ella no use el término.
-
-O sea: una arquitectura de referencia es una **estructura preestablecida para un dominio** (una app
-web, un sistema de comercio electrónico) que se toma como punto de partida y se adapta. No es un
-estilo: es más concreta que un estilo y menos que un diseño.
-
-**Arquitectura candidata.** No aparece en el material local. En el uso corriente (RUP) es la
-**primera versión de la arquitectura** producida en la fase de elaboración: una propuesta todavía no
-validada, que se somete a evaluación y de la que puede haber varias en competencia. Conecta con el
-paso 3 del [[Proceso de diseño arquitectónico]] —"se analizan alternativas de estilos o patrones
-arquitectónicos"— y con la *evaluación de la arquitectura* de la unidad 3.
+> [!note] Candidata y de referencia ya tienen material de clase — y nota propia
+> Esta sección decía que *candidata* y *de referencia* **no aparecían** en clase y las cubría con
+> el SAIP. Llegaron en **capturas_U2_F2 (23-26)** —modelo de referencia, patrón arquitectónico →
+> arquitectura de referencia → software, y la tabla de la arquitectura candidata— y se desarrollan
+> en [[Arquitectura de referencia]]. El **catálogo de estilos** de la clase (30) está en
+> [[Catálogo de estilos arquitectónicos]]. Lo único del 1.9 que sigue sin diapositiva es
+> **on premise**.
 
 **On premise vs cloud.** La clase dio la parte **cloud** ([[Arquitectura en la nube]]); el
 contraste con *on premise* no tiene diapositiva. Es la decisión de dónde
@@ -453,9 +720,14 @@ servidor propio o en la nube, y lo que cambia son los atributos de calidad alcan
 |---|---|
 | Confundir **diseño** con **estilo** (clase) | Diseño = un sistema concreto. Estilo = restricciones sobre una **familia** de diseños |
 | Tratar **patrón** y **estilo** como sinónimos (clase) | Para ella el patrón es una solución a un problema común, de **menor alcance** que el estilo |
+| Decir que el estilo impone y el patrón no (clase, F2 22) | **Los dos** imponen una transformación; el patrón lo hace como **una regla** sobre **un aspecto** (concurrencia, sincronización) |
+| Decir que estilos y patrones se describen distinto (clase, F2 16) | Es una **similitud**: *se describen de la misma forma* |
+| Creer que se elige estilo **o** patrón (clase, F2 17 y 22) | Se **complementan** y se usan **juntos** |
+| Atribuir *Elementos, Forma y Razón* al estilo (clase, F2 20) | Define **la arquitectura**; el estilo es la **abstracción** de tipos de elementos y forma a partir de arquitecturas específicas |
+| Llamar **patrón** a microservicios (clase, F2 9) | En su lista es el **estilo** 6, junto a SOA, microkernel, EDA, REST y P2P |
 | Creer que monolítico = "sin capas" (clase) | El monolito de la diapositiva tiene UI, lógica y acceso a datos: lo que lo define es la **base de código única** |
 | "Este sistema es de estilo X" | Los sistemas reales **combinan** estilos. Nombrar uno solo casi siempre es incompleto |
-| Confundir **estilo** con **patrón de diseño** | Estilos: 6-7 clases, sistema completo. Patrones de diseño: centenares, grupos de clases |
+| Confundir **estilo** con **patrón de diseño** | Estilos: sistema completo (la clase lista 9). Patrones de diseño: grupos de clases dentro de un componente (la clase lista **25**: GoF + Object Pool + Null Object; Reynoso habla de centenares en general). Ver [[Patrones de diseño]] |
 | Confundir **capa** con **tier** (complemento) | Capa = partición del código. Tier = partición del despliegue. **La clase los usa como sinónimos**: en el examen, su vocabulario |
 | Decir que un estilo "es mejor" | Cada estilo **canjea** un atributo de calidad por otro. Sin requerimientos no hay mejor |
 | Llamar "microservicios" a cualquier cliente-servidor | Microservicios: un sistema, una organización, solo mensajes, dependencias acíclicas |
@@ -470,6 +742,10 @@ servidor propio o en la nube, y lo que cambia son los atributos de calidad alcan
 - [[Arquitectura en capas]] — N-Capas y 2 capas (cliente-servidor), con el ejemplo de la clínica veterinaria
 - [[Arquitectura en la nube]] — cloud computing, Prime Video en AWS y N-niveles en Azure
 - [[Tácticas y patrones arquitectónicos]] — táctica < patrón < estilo, y el choque de nomenclatura con el SAIP
+- [[Patrones arquitectónicos]] y [[Patrones de diseño]] — los dos tipos de patrón de la clase; el estilo se compone de los primeros, y estos de los segundos
+- [[Catálogo de estilos arquitectónicos]] — las familias de la clase (centrada en datos, flujo de datos, llamada y retorno, P2P…) y el árbol C & C
+- [[Arquitectura de referencia]] — modelo de referencia + patrón arquitectónico → arquitectura de referencia, y la arquitectura candidata
+- [[Arquitectura de software]] — la definición que *Elementos, Forma y Razón* completa
 - [[Programa oficial del curso]] — el punto 1.9
 - [[Proceso de diseño arquitectónico]] — el paso 3 es "analizar alternativas de estilos o patrones"
 - [[Estructuras y vistas arquitectónicas]] y [[Categorías de estructuras]] — dónde vive una capa y dónde un tier
@@ -483,7 +759,10 @@ servidor propio o en la nube, y lo que cambia son los atributos de calidad alcan
 2. ¿Qué cuatro estilos da la diapositiva como ejemplo, y cuáles de ellos desarrolló después la catedrática?
 3. ¿Por qué el monolito de la clase no contradice al estilo en capas?
 4. ¿Qué partes del punto 1.9 del programa **no** aparecieron en clase?
-5. (Complemento) ¿Cuál es la restricción que **define** el estilo en capas, y cómo se llama violarla?
-6. (Complemento) Diferencia entre **capa** y **tier**. ¿La hace la clase?
-7. (Complemento) ¿Qué diferencia a la **pizarra** del **repositorio**? ¿Qué se gana y se pierde con publish-subscribe?
-8. (Complemento) ¿Por qué no se puede decir que un estilo es mejor que otro?
+5. ¿Qué significa *Arquitectura del Software = Elementos, Forma y Razón*, cuáles son los tres tipos de elemento, y cómo se deriva de ahí qué es un estilo?
+6. Un patrón arquitectónico y un estilo **imponen** los dos una transformación. Entonces, ¿qué los diferencia según la clase? Dá las tres diferencias marcadas en rojo.
+7. ¿Cuáles son los nueve estilos de su lista, y cuáles de ellos desarrolló con diapositivas propias?
+8. (Complemento) ¿Cuál es la restricción que **define** el estilo en capas, y cómo se llama violarla?
+9. (Complemento) Diferencia entre **capa** y **tier**. ¿La hace la clase?
+10. (Complemento) ¿Qué diferencia a la **pizarra** del **repositorio**? ¿Qué se gana y se pierde con publish-subscribe?
+11. (Complemento) ¿Por qué no se puede decir que un estilo es mejor que otro?

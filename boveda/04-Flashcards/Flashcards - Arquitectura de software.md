@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura de software
-fuente: "Arquitectura de Software.pdf / Arquitectura de Software (1).pdf"
+fuente: "Arquitectura de Software.pdf / Arquitectura de Software (1).pdf + capturas_U2_F2 (10-13, 29: 4+1 vistas · 27, 28, 31-38: fundamentos) + capturas_U2 (2)"
 fecha: 2026-08-19
 ---
 
@@ -41,7 +41,7 @@ Según IEEE 1471, ¿qué es la arquitectura de software?::La organización funda
 
 ¿De qué tipo de requerimientos es responsable el arquitecto según SUN SL-425?::De integrar los **requerimientos no funcionales (NRFs)** en el sistema. Además visualiza el comportamiento, crea los planos y define cómo trabajan juntos los elementos.
 
-¿Qué son los tres vértices del triángulo del proyecto y qué frase lo resume?::Cost/Resources, Scope y Time/Schedule. "I can make it for you fast, cheap, or good. Pick any two."
+¿Cuáles son las tres restricciones del triángulo del proyecto (van sobre los lados, no en los vértices) y qué frase lo resume?::Cost/Resources, Scope y Time/Schedule. "I can make it for you fast, cheap, or good. Pick any two."
 
 ¿Qué mide un diagrama de Kiviat en este contexto y cuáles son sus ejes?::Mide la **flexibilidad** del proyecto —cuánto se puede mover cada dimensión— sobre cinco ejes: features, quality, cost, schedule y staff.
 
@@ -54,3 +54,47 @@ Completá: la arquitectura del software es el resultado de equilibrar ______ y _
 En el material hay **tres** versiones de "los pasos para definir una arquitectura". Nombralas y decí qué aporta cada una.::**1)** Los **4 pasos** del deck en PDF (datos → representaciones → alternativas de estilos → método de diseño). **2)** La lista de **7 actividades** (caso de negocio, requisitos, creación y selección, documentación, evaluación, implementación, aseguramiento) — es la más citable porque está en viñetas. **3)** Las **8 etapas** de la Figura 2-8 en 4 fases, con el **paso 0** (caso de negocio) y los lazos de refinamiento — la única que trae **experimentación** y una **decisión de ir/no ir**. Se reconcilian en [[Proceso de diseño arquitectónico]].
 
 Si en un parcial preguntan "¿cuáles son los pasos?" sin más contexto, ¿qué conviene responder?::La **lista de 7**: es la que ella dio en viñetas y la más reconocible. Y agregar una línea diciendo que el método completo (Figura 2-8) las organiza en **8 etapas y 4 fases** con el caso de negocio como **paso 0**. Eso demuestra que conocés las tres sin contradecirte.
+
+## Clase — capturas_U2_F2 (2026-09-16) — 4+1 vistas
+
+Según la clase, ¿por qué es frecuente separar una arquitectura en vistas?::Porque las arquitecturas del sistema son usadas por **diversos conjuntos de personas en tiempos diferentes** del ciclo de desarrollo.
+
+¿Qué proceso identifica el conjunto estándar de vistas llamado "4+1 Vistas de Arquitectura", según la clase?::El **RUP** (Proceso Unificado Racional). El autor original del modelo es Kruchten, pero ella lo atribuye al RUP.
+
+¿Qué tres cosas permite el enfoque 4+1 a los grupos de participantes?::1) **Comunicar las necesidades** (es decir, requisitos). 2) **Resolver los conflictos**. 3) **Realizar los documentos de decisiones**.
+
+¿Con qué diagramas UML se complementa la vista lógica?::Diagrama de **clases** y diagrama de **paquetes**.
+
+¿Con qué diagrama UML se complementa la vista de procesos, según sus diapositivas?::Solo con el diagrama de **actividad** (no secuencia). Lo confirma también el PDF TEMA 5.
+
+¿Con qué diagramas UML se complementa la "Vista de Despliegue o Vista de Desarrollo"?::Diagrama de **componentes** y diagrama de **paquetes**. Ojo: pese al nombre, NO lleva el diagrama de despliegue.
+
+¿Con qué diagrama UML se complementa la vista física?::Con el **diagrama de deployment** (= despliegue = distribución). Los elementos de la vista lógica se mapean a componentes de software o de hardware.
+
+¿Qué diagrama aparece en dos vistas del 4+1 y por qué no es un error?::El de **paquetes**: en la **lógica** (agrupa clases) y en la de **despliegue/desarrollo** (agrupa componentes). El paquete es un mecanismo de agrupación que sirve para cualquier elemento UML.
+
+¿Qué participante le corresponde a cada vista en la figura en inglés de la clase?::Logical View → Analyst y End user · Implementation View → Programmer · Process View → System Integrator · Deployment View → System Administrator · Use Case View al centro, sin participante.
+
+Regla para no confundir los nombres de vistas del 4+1::**Componentes y paquetes → vista de desarrollo/implementación** (sus diapositivas la llaman "de Despliegue o de Desarrollo"). **Nodos y hardware → vista física** (la figura en inglés la llama "Deployment View"). La palabra "despliegue" cambia de lado; el contenido no.
+
+## Clase — capturas_U2_F2 (2026-09-16) — fundamentos
+
+En la lámina *"Estructuras"*, ¿con qué tres nombres aparecen las categorías de estructuras?::**Módulos**, **Componentes-y-Conector** y **De Localización**. Son las mismas tres de la lámina "Categorías de Estructuras" con otros nombres.
+
+¿A qué categoría corresponden las estructuras **"De Localización"**?::A las de **asignación**. Las dos muestran la relación del software con lo que no es software: donde es **ejecutado** (CPU, redes) y donde es **creado** (equipos de desarrollo). En el examen escribí "asignación (o de localización)".
+
+Según la lámina *"Estructuras"*, ¿qué son los elementos de una estructura de módulos?::Módulos, que son **unidades de implementación**.
+
+Según la lámina *"Estructuras"*, ¿qué son los componentes y qué son los conectores?::Los componentes son **componentes de ejecución** (principalmente **unidades de computación**); los conectores son el **vehículo de comunicación** entre los componentes.
+
+¿Qué muestran las estructuras **De Localización**?::La relación entre los elementos de software y los elementos en **uno o más ambientes externos** en los cuales el software es **creado o ejecutado**.
+
+Definición básica de Arlow y Neustadt (2005)::La arquitectura de software de un programa o sistema de computación es **la estructura o estructuras del sistema**, las cuales comprometen **elementos de software**, las **propiedades externamente visibles** de esos elementos y las **relaciones** entre ellos.
+
+¿Con qué compara la clase a la arquitectura de software y qué atributos dice que garantiza?::Con los **planos de una casa** (bases, distribución, pasillos de interacción). Idea y construye los planos de aplicaciones y canales digitales, y garantiza que funcionen de manera óptima entregando **calidad, disponibilidad y seguridad**, entre otros atributos.
+
+¿Cuántos términos define la terminología de clase y cuáles son?::**Siete**, en dos láminas. Arquitectura, arquitecto y arquitecting · sistema, descripción de la arquitectura, perspectiva de la arquitectura y punto de vista arquitectónico.
+
+¿Qué cuatro cosas incluye un **punto de vista arquitectónico**?::Un **nombre**, **socios**, los **problemas más abordados** por el punto de vista, y el **modelado y las convenciones analíticas**.
+
+En el Kiviat de ejemplo, ¿qué ejes quedan casi en 0 y qué significa si "alto = más flexible"?::**Schedule** y **Staff**: la fecha y el personal **no se pueden mover**. *Features* (~8) es lo más negociable. Ojo: la lámina no define la escala, declarala antes de interpretar.

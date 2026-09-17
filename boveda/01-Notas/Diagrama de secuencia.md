@@ -1,6 +1,6 @@
 ---
 tema: Modelado de la arquitectura
-fuente: "PDF de clase «TEMA 5: Modelado de arquitectura software» (modelado-de-arquitectura-software. Diagrmas UML completo.pdf), págs. 6 (§5), 7 y 8. NÚCLEO. + capturas_U2 (12) para la clasificación. NÚCLEO. La sección «Mermaid» y la nota sobre notación estándar son COMPLEMENTO."
+fuente: "PDF de clase «TEMA 5: Modelado de arquitectura software» (modelado-de-arquitectura-software. Diagrmas UML completo.pdf), págs. 6 (§5), 7 y 8. NÚCLEO. + capturas_U2 (12) para la clasificación. NÚCLEO. La sección «Mermaid» y la nota sobre notación estándar son COMPLEMENTO. + capturas_U2_F2 (10): corrección de la vista de procesos."
 fecha: 2026-09-15
 punto_del_programa: "1.7 — ¿Cómo se modela?"
 ---
@@ -206,8 +206,13 @@ El `break` se dejó **fuera** del esquema a propósito: Mermaid lo soporta reci�
 
 - Es uno de los diagramas de las **realizaciones** de casos de uso del negocio →
   [[Realizaciones de casos de uso del negocio]].
-- En [[Categorías de estructuras]] aparece como diagrama típico de la estructura de **componentes y
-  conectores**, vista de **procesos** del [[Modelo 4+1 vistas]].
+- Es un diagrama típico de la estructura de **componentes y conectores** ([[Categorías de estructuras]]).
+
+  > [!warning] Corrección (capturas_U2_F2, 10) — no es el diagrama de la vista de procesos
+  > Esta línea decía que el de secuencia es el diagrama de la **vista de procesos** del
+  > [[Modelo 4+1 vistas]]. La diapositiva de clase dice que esa vista *"la vamos a complementar con
+  > los diagramas UML: **Diagrama de Actividad**"*, y no nombra el de secuencia. Si en el examen
+  > preguntan con qué diagrama se complementa la vista de procesos, la respuesta es **actividad**.
 - Complementa al [[Diagrama de componentes]]: los componentes y sus interfaces son los participantes
   de un diagrama de secuencia de alto nivel.
 

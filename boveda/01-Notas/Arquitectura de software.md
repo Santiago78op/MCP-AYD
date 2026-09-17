@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura de software
-fuente: "Arquitectura de Software.pdf / Arquitectura de Software (1).pdf"
+fuente: "Arquitectura de Software.pdf / Arquitectura de Software (1).pdf + capturas_U2_F2 (28, 31, 32, 33, 34): la clase la volvió a dar el 2026-09-16. NÚCLEO."
 fecha: 2026-08-19
 ---
 
@@ -16,6 +16,27 @@ La arquitectura de software hace lo mismo con las aplicaciones y canales digital
 construye los planos para que soporten las necesidades para las que fueron diseñados, y
 garantiza que funcionen bien — calidad, disponibilidad, seguridad, entre otros atributos.
 
+> [!important] Repaso en clase del 2026-09-16 — `capturas_U2_F2` (28, 31-34)
+> En la clase de estilos y patrones **volvió a proyectar** cinco diapositivas de este deck: la
+> pregunta *"¿… qué es la arquitectura de software?"* (31), las dos definiciones básicas —Arlow y
+> Neustadt (28) y Booch (34)— y las dos láminas de terminología (32, 33). El texto es **idéntico** al
+> del PDF; lo que cambia es la señal: si lo repite antes del parcial, **pesa**.
+
+Textual de la diapositiva (captura 31 = página 10 del PDF):
+
+> Quizás este es un concepto que no todo el mundo conoce.
+> Pero **¿qué tal si te decimos que es la responsable de que toda la tecnología y los servicios
+> digitales que usamos a diario sean posibles?**
+> **Pues sí.** *(en rojo)*
+> Los expertos la comparan con los planos de una casa donde se definen sus bases, su distribución y
+> sus pasillos de interacción, entre otros detalles, y que sin estos sería casi imposible construirla.
+> "La arquitectura de software hace lo mismo. **Idea y construye los planos de las aplicaciones y
+> canales digitales para que estos soporten todas las necesidades para los que fueron diseñados.** Es
+> la encargada de garantizar que funcionen de manera óptima, entregando calidad, disponibilidad y
+> seguridad, entre otros atributos".
+
+![[adjuntos/arquitectura-de-software/arq-p10.png]]
+
 ## Definiciones formales
 
 Vale la pena tener las **cinco** a mano, porque en el examen pueden pedir cualquiera:
@@ -24,8 +45,8 @@ Vale la pena tener las **cinco** a mano, porque en el examen pueden pedir cualqu
 |---|---|
 | **IEEE 1471** | El nivel conceptual más alto de un sistema en su ambiente. La arquitectura es la organización fundamental de un sistema descrita en: sus componentes, la relación entre ellos y con el ambiente, y los principios que guían su diseño y evolución. |
 | **Kazman** — *Software Architecture in Practice* | "La estructura de estructuras de un sistema, la cual abarca componentes de software, propiedades externas visibles de estos componentes y sus relaciones." |
-| **Arlow & Neustadt (2005)** | La arquitectura de software de un programa o sistema de computación es la estructura o estructuras del sistema, las cuales comprometen elementos de software, las propiedades externamente visibles de esos elementos y las relaciones entre ellos. |
-| **Grady Booch** | "Toda la arquitectura es diseño, pero no todo el diseño es arquitectura. La arquitectura representa las decisiones de diseño significativas que le dan forma a un sistema. Donde lo significativo puede ser medido por el costo del cambio." |
+| **Arlow & Neustadt (2005)** — la diapositiva escribe *"Arlow and Neustad [sic], 2005"* y la titula **"Definición básica"** | La arquitectura de software de un programa o sistema de computación es la estructura o estructuras del sistema, las cuales comprometen elementos de software, las propiedades externamente visibles de esos elementos y las relaciones entre ellos. |
+| **Grady Booch** — también bajo el título **"Definición básica"** | "Toda la arquitectura es diseño, pero no todo el diseño es arquitectura. La arquitectura representa las decisiones de diseño significativas que le dan forma a un sistema. Donde lo significativo puede ser medido por el costo del cambio." |
 | **La diapositiva "Resumen"** *(la que usó en clase)* | "La arquitectura de software de un sistema es el **conjunto de estructuras necesarias para razonar sobre el sistema**, que comprende **elementos de software**, **relaciones entre ellos** y **propiedades de ambos**." |
 
 La de Booch es la más útil como criterio práctico: **si cambiarlo sale caro, es arquitectura.**
@@ -82,6 +103,15 @@ Y los tres que dan el vocabulario del tema:
 - **Arquitectura**: la organización fundamental de un sistema encarnado en sus componentes, su relación entre sí y con el medio ambiente, y los principios que guían su diseño y evolución.
 - **Arquitecto**: el que obtiene los requisitos de los clientes, da soluciones a los desarrolladores y genera un diseño de la arquitectura. → [[Arquitecto de software]]
 - **Arquitecting**: el proceso de la arquitectura del software. → [[Proceso de diseño arquitectónico]]
+
+> [!note] Cómo están escritas en la diapositiva (capturas_U2_F2, 32 y 33)
+> - Las **dos láminas** son distintas: la 32 se titula *"Terminología"* (arquitectura, arquitecto,
+>   arquitecting) y la 33 *"Arquitectura de Software — Terminología:"* (sistema, descripción,
+>   perspectiva, punto de vista). Son **siete** términos en total, no cuatro.
+> - *"Arquitecting"* va así en la diapositiva [sic]; en inglés el término es *architecting*.
+> - En *punto de vista*, **"socios"** casi seguro traduce *stakeholders* del IEEE 1471 — un punto de
+>   vista declara **a qué interesados** sirve. *(Inferencia, la diapositiva no lo aclara.)* Si lo
+>   citás, citá "socios" tal cual.
 
 ![[adjuntos/arquitectura-de-software/arq-p15.png]]
 ![[adjuntos/arquitectura-de-software/arq-p14.png]]
@@ -149,6 +179,7 @@ La fórmula que aparece en la diapositiva es **Escala + Complejidad + Distribuci
 
 1. Según Booch, ¿cuál es el criterio para decidir si una decisión de diseño es arquitectura o no?
 2. ¿Qué tres elementos aparecen en la definición de IEEE 1471?
-3. Diferenciá **perspectiva de la arquitectura** de **punto de vista arquitectónico**.
+3. Diferenciá **perspectiva de la arquitectura** de **punto de vista arquitectónico**. ¿Qué cuatro cosas incluye un punto de vista?
 4. ¿Por qué escala, complejidad y distribución aumentan la importancia de la arquitectura?
 5. Traducí los tres atributos del buen diseño (durabilidad, utilidad, encanto) a términos de software.
+6. ¿Con qué compara la clase a la arquitectura de software y qué tres atributos dice que garantiza?

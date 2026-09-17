@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura de software
-fuente: "COMPLEMENTO — SAIP 4ª ed. vía la Guía de estudio"
+fuente: "COMPLEMENTO — SAIP 4ª ed. vía la Guía de estudio. + Contraste con la clase: capturas_U2 (21) y capturas_U2_F2 (1, 4-8), desarrolladas en Patrones de diseño y Patrones arquitectónicos"
 fecha: 2026-08-19
 ---
 
@@ -67,8 +67,26 @@ En los libros (COMPLEMENTO), "patrón arquitectónico" y "estilo" se usan casi c
 dice: *"cuando los elementos se componen de maneras que resuelven problemas recurrentes y probados en
 muchos dominios, esas composiciones documentadas y diseminadas se llaman patrones arquitectónicos"*.
 
-Ver [[Estilos arquitectónicos]] — y ojo con no confundirlos con los **patrones de diseño** de GoF,
-que son centenares y operan a nivel de clases.
+Ver [[Estilos arquitectónicos]] — y ojo con no confundirlos con los **patrones de diseño**, que
+operan a nivel de clases (ver [[Patrones de diseño]]).
+
+> [!warning] Lo que dio la clase sobre patrones (capturas_U2_F2, 1-8) — manda sobre esta sección
+> La clase separa **dos tipos de patrón** y los distingue por **impacto**, no por granularidad de
+> tácticas:
+>
+> | | Patrón de diseño | Patrón arquitectónico |
+> |---|---|---|
+> | Impacto | *"relativo con respecto a un componente"*: si lo quitás, *"solo afectaría a las clases que están directamente relacionadas con él"* | *"gran impacto sobre el componente"*, *"impacto global sobre la aplicación"*; *"rige la forma de trabajar o comunicarse con otros componentes"* |
+> | Su lista | 25 (Factory Method … Visitor) | 13 (DTO, DAO, Polling, Webhook, Load Balance, Service Registry, Service Discovery, API Gateway, Access Token, SSO, Store and forward, Circuit Breaker, Log aggregation) |
+>
+> Y los anida: **estilo ⊃ patrón arquitectónico ⊃ patrón de diseño** (capturas_U2_F2, 6).
+>
+> **El choque con el SAIP:** los *patrones* que nombra el libro —capas, publish-subscribe,
+> cliente-servidor— son, para ella, **estilos**. Sus patrones arquitectónicos son de **un solo
+> aspecto** (acceso a datos, autenticación, tolerancia a fallas). La definición del SAIP de §1
+> (*problema recurrente, solución bien probada*) no choca con la de clase —la de patrón de diseño
+> también pide *"comprobado su efectividad"*—, pero **en el examen se clasifica con su criterio de
+> impacto** y con **sus** listas. Detalle en [[Patrones arquitectónicos]] y [[Patrones de diseño]].
 
 ## 3. Por qué enfocarse en las tácticas y no solo en los patrones
 
@@ -162,6 +180,8 @@ refactoring"* — sostener la arquitectura es parte del trabajo, no un extra.
 
 - [[Atributos de calidad]] — el atributo que la táctica mueve
 - [[Estilos arquitectónicos]] — los patrones/estilos que empaquetan tácticas
+- [[Patrones arquitectónicos]] — la definición de clase, por impacto, y su lista de 13
+- [[Patrones de diseño]] — el otro tipo de patrón que dio la clase: tres familias y 25 patrones
 - [[El ciclo del architecting]] — las tácticas son el paso 3, diseñar
 - [[Matriz de trazabilidad de requisitos]] — la táctica como columna del medio
 - [[Guía - Drivers de calidad y restricción]] — de dónde vienen los atributos a satisfacer

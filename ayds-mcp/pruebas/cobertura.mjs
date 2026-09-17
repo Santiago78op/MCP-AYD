@@ -98,6 +98,24 @@ const CASOS = [
   ["glosario", { termino: "interfaz provista" }, "ofrece"],
   ["obtener_flashcards", { tema: "Diagrama de componentes" }, "?"],
 
+  // --- capturas_U2_F2 (2026-09-16): patrones, estilos, referencia, 4+1 y fundamentos
+  ["leer_nota", { nombre: "Patrones de diseno" }, "Creacionales"],
+  ["leer_nota", { nombre: "Patrones arquitectonicos" }, "Circuit Breaker"],
+  ["buscar", { consulta: "Object Pool" }, "Patrones de dise"],
+  ["buscar", { consulta: "impacto global sobre la aplicacion" }, "Patrones arquitect"],
+  ["obtener_flashcards", { tema: "Patrones de diseño y arquitectónicos" }, "?"],
+  ["leer_nota", { nombre: "Arquitectura de referencia" }, "mapeado"],
+  ["buscar", { consulta: "modelo de referencia" }, "Arquitectura de referencia"],
+  ["buscar", { consulta: "arquitectura candidata" }, "Arquitectura de referencia"],
+  ["leer_nota", { nombre: "Catalogo de estilos arquitectonicos" }, "Blackboard"],
+  ["buscar", { consulta: "llamada y retorno" }, "Catálogo de estilos"],
+  ["glosario", { termino: "modelo de referencia" }, "descomposici"],
+  ["buscar", { consulta: "Proceso Unificado Racional" }, "Modelo 4+1"],
+  ["buscar", { consulta: "de localizacion" }, "Categorías de estructuras"],
+  ["buscar", { consulta: "diagrama de flexibilidad" }, "Equilibrio de restricciones"],
+  ["buscar", { consulta: "transformacion impuesta" }, "Estilos arquitect"],
+  ["glosario", { termino: "elementos, forma y razon" }, "motivaci"],
+
   ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
 
   // --- referencias y enunciado

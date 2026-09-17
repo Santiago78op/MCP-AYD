@@ -387,10 +387,33 @@ detalle).
 | **Componente** | *"elementos **físicos**"*; puede implementar **más de una clase**; **tres tipos**: de distribución, para trabajar en el producto, de ejecución | decir que todo componente "está en ejecución" |
 | **Interfaces** | provista = círculo (lollipop), requerida = semicírculo (socket); forma **icónica** o **expandida** | invertirlas — el PDF Tema 5 llama "de entrada" a la requerida |
 | **Relaciones de la vista lógica** | de débil a fuerte: dependencia < asociación < agregación < composición < herencia | — |
-| **Patrón vs estilo** | estilo = restricciones de **una familia** de diseños; patrón = solución a un problema común, **de menor alcance que el estilo** | tratarlos como sinónimos (así hacen el SAIP y Reynoso) |
+| **Patrón vs estilo** | estilo = restricciones de **una familia** de diseños; patrón = solución a un problema común, **de menor alcance que el estilo** | tratarlos como sinónimos (así hacen el SAIP y Reynoso) — detalle abajo, en *Patrones, estilos y referencia* |
 | **Capa vs nivel** | en clase se usan **como sinónimos** (N-capas, 2 capas = cliente-servidor, N-niveles en la nube) | imponer la distinción capa lógica / tier físico como si fuera de ella |
 | **Cliente-servidor** | cliente y servidor son **roles**, no máquinas (el smartphone que cambia de rol) | — |
 | **Nombres del 4+1** | la figura nueva dice *Implementation View* = componentes y *Deployment View* = física; la presentación de la unidad 1 llama "de despliegue" a la de componentes | regla: **componentes → desarrollo/implementación; nodos → física** |
+
+### Patrones, estilos y referencia — lo que dio en `capturas_U2_F2`
+
+Notas: `Patrones de diseño`, `Patrones arquitectónicos`, `Arquitectura de referencia`,
+`Catálogo de estilos arquitectónicos`, y `Estilos arquitectónicos` §1.1-§1.2.
+
+| Tema | Lo que manda la clase | La trampa |
+|---|---|---|
+| **La composición** | **estilo ⊃ patrón arquitectónico ⊃ patrón de diseño** (su dibujo de cajas anidadas) | poner el patrón de diseño al mismo nivel que el arquitectónico |
+| **Diseño vs. arquitectónico** | se distinguen por **impacto**: quitar un patrón de diseño afecta solo a las clases relacionadas; uno arquitectónico *"rige la forma de trabajar o comunicarse"* y arrastra a los componentes relacionados | confundir **alcance** con **impacto**: el arquitectónico tiene *menor alcance* que el estilo y a la vez *gran impacto* sobre el componente. Son dos ejes distintos |
+| **Sus listas** | **25** patrones de diseño (los 23 de GoF más Object Pool y Null Object) y **13** arquitectónicos (DTO, DAO, API Gateway, Circuit Breaker…). Lista de **9 estilos**: monolítico, cliente-servidor, capas, microkernel, SOA, microservicios, EDA, REST, P2P | decir "los patrones son centenares" o poner microservicios como patrón (el archivo crudo se llama así; la diapositiva dice estilo) |
+| **Estilo vs. patrón** | las tres diferencias que marca **en rojo**: el patrón *es menor*, *impone una regla*, tiende a *abarcar aspectos específicos*. **Los dos** imponen una transformación | creer que solo el estilo transforma el diseño |
+| **Elementos, Forma y Razón** | define **la arquitectura**, no el estilo; el estilo es *"una abstracción"* de eso | citarla como definición de estilo |
+| **Referencia** | **modelo** de referencia = división de funcionalidad + flujo de datos (no habla de software); **arquitectura** de referencia = ese modelo *mapeado* en elementos de software. Ninguna de las dos *"es una arquitectura"* | confundir modelo con arquitectura de referencia: la diferencia es la palabra **mapeado** |
+| **Candidata** | su diapositiva solo trae la tabla de 4 tipos (conceptual, modular, código, ejecución) con elementos y relaciones, **sin definición textual** | inventarle una definición: se toma la del flujo de Ambler (primera propuesta sin validar) y se declara |
+| **Llamada y retorno** | **incluye capas y MVC** (captura 30) — ya no es duda | tratar capas como familia aparte |
+| **4+1, vista de procesos** | se complementa con el diagrama de **actividad**, no con el de secuencia. Paquetes va en **dos** vistas: lógica y desarrollo | responder "secuencia" |
+
+> [!note] Ella repite diapositivas antes del parcial
+> De las 40 capturas, **14 eran diapositivas ya procesadas** (4+1 vistas, definiciones de Arlow y
+> Booch, terminología, triángulo, Kiviat, beneficios 2 y 3). Al procesar capturas, **compará contra
+> `adjuntos/arquitectura-de-software*/` antes de guardar**: la repetida no se copia, se suma a la
+> `fuente` como *"la clase la volvió a dar"* — que es una señal de que pesa en el examen.
 
 **Dónde el material tiene dos versiones y todavía no se decidió** — están anotadas en
 `metodo_tarea("preguntas")` con su evidencia. Preguntá cuál usar si va a dibujarlo en una entrega, y
@@ -402,6 +425,13 @@ declaralo:
 - **Dentro del nodo**: el PDF Tema 5 pone **artefactos**; sus capturas ponen **componentes**.
 - **Notación de clases**: el PDF pide camelCase, tipos y `<<Interface>>`; sus ejemplos usan mayúscula
   inicial, sin tipos, y `<<Interfaz>>`.
+- **Definición de estilo**: *"restricciones sobre una familia de diseños"* (capturas_U2 21) vs.
+  *"marco de referencia a partir del cual es posible construir aplicaciones…"* (U2_F2 6). Citá la
+  primera y nombrá la segunda.
+- **Catálogo de estilos**: la lista de texto pone **P2P como familia** con eventos y servicios
+  adentro; el árbol C&C pone **Event-based como familia** y P2P y SOA bajo **Call-return**.
+- **Tercera categoría de estructuras**: **asignación** (captura del 19/08) vs. **de localización**
+  (U2_F2 27). Escribí *"asignación (o de localización)"*.
 
 ### El estado del Caso 1 (FarmaHosp)
 
@@ -741,6 +771,7 @@ excepciones legítimas son `.claude/` y `CLAUDE.md`.
 
 ```bash
 cd ayds-mcp
+export VAULT_PATH="$(cd ../boveda && pwd)"   # sin esto, auditar-boveda y cobertura no arrancan
 npm run build            # compilar
 npm run verificar        # 33 pruebas de lógica (bóveda temporal, no toca la real)
 npm run auditoria        # las 12 herramientas por el protocolo MCP real
@@ -776,6 +807,8 @@ boveda/
 ├── 00-Fuentes/presentaciones/   Las presentaciones del curso (NO modificar)
 ├── 00-Fuentes/capturas_U1/      Capturas de clase crudas, una carpeta por unidad (NO modificar)
 ├── 00-Fuentes/capturas_U2/      — idem; ojo: "U2" cubre 1.4-1.9 del programa, no Calidad
+├── 00-Fuentes/capturas_U2_F2/   — segunda tanda (patrones, estilos, referencia, 4+1); sus recortes van
+│                                al mismo árbol adjuntos/capturas-clase-U2/<tema>/
 ├── 00-Fuentes/lecturas/         Lecturas complementarias
 ├── 01-Notas/                    Notas atómicas: una por concepto
 ├── 02-Diagramas/                Lo generado. **Una carpeta por sección de la Entrega**

@@ -8,19 +8,20 @@ fecha: 2026-08-19
 
 Nota de entrada de la bóveda. Desde acá navego todo.
 
-> [!note] Última sesión: 2026-09-15 — dónde retomar
-> Se procesaron las **59 capturas de `capturas_U2/`** y los dos PDF nuevos (*TEMA 5* y *IS 04 05b*):
-> 14 notas nuevas, 6 ampliadas, 70 flashcards y 38 términos de glosario. El mapa de qué captura fue a
-> qué nota está en *Capturas de clase de la unidad 2*, más abajo.
+> [!note] Última sesión: 2026-09-16 — dónde retomar
+> Se procesaron las **40 capturas nuevas de `capturas_U2_F2/`** con 5 agentes en paralelo: 4 notas
+> nuevas (patrones de diseño, patrones arquitectónicos, arquitectura de referencia, catálogo de
+> estilos), 8 ampliadas, 66 flashcards y 16 términos de glosario nuevos (9 ampliados). **14 de las 40
+> eran diapositivas que ya estaban** (del PDF de *Arquitectura de Software* y de capturas_U2): ella las volvió a dar
+> antes del parcial, y eso suele indicar que pesan. El mapa está en *Capturas de clase, segunda tanda*.
 >
 > **Lo que sigue, por orden:**
-> 1. Llevar a clase [[Preguntas pendientes para clase]] — sobre todo la 1 (**qué entra en el parcial
->    del 19/09**) y la 2 (**cómo se dibuja la realización**).
-> 2. **Calidad del Software** (unidad 2 del programa) sigue **sin material de clase**: si entra en el
->    parcial, hay que pedir la presentación.
-> 3. `capturas_U2_F2/` tiene **1 sola captura** procesada; si llegan más, se procesan igual.
-> 4. Repaso pendiente: quiz de componentes y despliegue, y el encadenamiento de
->    [[Ejemplo resuelto - Parque de atracciones]].
+> 1. Llevar a clase [[Preguntas pendientes para clase]]: la 1 (**qué entra en el parcial del 19/09**),
+>    la 23 (**qué definición de estilo quiere**) y la 24 (**sus dos catálogos de estilos no coinciden**).
+> 2. **Calidad del Software** (unidad 2 del programa) sigue **sin material de clase**.
+> 3. Repaso para el parcial: **estilo vs. patrón** (sus tres diferencias en rojo), patrón de diseño
+>    vs. arquitectónico por **impacto**, modelo vs. arquitectura de referencia, las 4+1 vistas con
+>    **su** diagrama UML, y el quiz de componentes y despliegue que quedó pendiente.
 
 > [!important] Antes que nada
 > [[Programa oficial del curso]] — el contenido temático oficial de la sección A, el cronograma
@@ -56,7 +57,7 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Equilibrio de restricciones del proyecto]] — triángulo, diagrama de Kiviat y cubo de dimensiones
 - [[Arquitectura en el ciclo de vida del software]] — por qué es iterativa y no una fase
 - [[Diagrama de despliegue]] — punto 1.7, **ahora de clase** (= *diagrama de distribución*): nodo, dispositivo, entorno de ejecución, artefacto, camino
-- [[Estilos arquitectónicos]] — punto 1.9, **ahora de clase**: diseño vs estilo vs patrón + el catálogo de complemento
+- [[Estilos arquitectónicos]] — punto 1.9, **de clase**: qué es un estilo (Elementos, Forma y Razón), estilo vs. patrón, la lista de 9 estilos + el catálogo de complemento
 - [[Relaciones y dependencias en UML]] — qué significa cada flecha, hacia dónde apunta, y el puente con la matriz de dependencias
 - [[Stakeholders]] — los cinco de la clase, ISO 42010, PALM, y la diferencia con actor y trabajador
 - [[Tácticas y patrones arquitectónicos]] — el eslabón entre un atributo de calidad y una decisión
@@ -82,6 +83,13 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Arquitectura monolítica]] — base de código única, la tabla de 7 características, Prime Video
 - [[Arquitectura en capas]] — N-capas y 2 capas (cliente-servidor); en clase capa = nivel
 - [[Arquitectura en la nube]] — cloud computing, N-niveles en la nube
+
+#### Patrones, estilos y referencia — capturas_U2_F2 (**de clase**, 2026-09-16)
+
+- [[Patrones de diseño]] — impacto relativo, las tres familias, la lista de 25
+- [[Patrones arquitectónicos]] — gran impacto sobre el componente, la lista de 13, estilo ⊃ patrón arquitectónico ⊃ patrón de diseño, **alcance ≠ impacto**
+- [[Arquitectura de referencia]] — modelo de referencia + patrón → arquitectura de referencia; la tabla de tipos de la **arquitectura candidata**
+- [[Catálogo de estilos arquitectónicos]] — las familias (llamada y retorno incluye capas y MVC) y el árbol C&C; **sus dos taxonomías no coinciden**
 - [[Convenios del diagrama de CUN]] — **de clase**: cuántos actores, navegabilidad, y los dos usos de `«include»`
 
 ### Calidad del software
@@ -115,11 +123,13 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 
 ## Flashcards
 
-- [[Flashcards - Arquitectura de software]] (22 tarjetas)
+- [[Flashcards - Arquitectura de software]] (42 tarjetas) — 20 de clase (capturas_U2_F2: 4+1 vistas y fundamentos)
 - [[Flashcards - Casos de uso del negocio]] (27 tarjetas)
 - [[Flashcards - Trazabilidad de requisitos]] (25 tarjetas)
 - [[Flashcards - Diagrama de despliegue]] (34 tarjetas) — 11 de clase (capturas_U2)
-- [[Flashcards - Estilos arquitectónicos]] (41 tarjetas) — 14 de clase (capturas_U2)
+- [[Flashcards - Estilos arquitectónicos]] (58 tarjetas) — 31 de clase (capturas_U2 y capturas_U2_F2)
+- [[Flashcards - Patrones de diseño y arquitectónicos]] (14 tarjetas) — de clase (capturas_U2_F2)
+- [[Flashcards - Arquitectura de referencia y catálogo]] (15 tarjetas) — de clase (capturas_U2_F2)
 - [[Flashcards - Relaciones y dependencias en UML]] (30 tarjetas) — 8 de clase (capturas_U2)
 - [[Flashcards - Diseño arquitectónico]] (10 tarjetas) — de clase (capturas_U2)
 - [[Flashcards - Diagramas de alto nivel y secuencia]] (10 tarjetas) — de clase (capturas_U2 + PDF Tema 5)
@@ -197,6 +207,11 @@ Estado real de preparación, punto por punto:
 > Prioridad de repaso si el tiempo es corto: **1.6 y 1.9**. El 1.6 porque es el más pesado y el que
 > alimenta el Caso 1; el 1.9 porque es el que menos respaldo tiene.
 
+> [!note] Actualizado el 2026-09-16 — esta tabla es del primer parcial y quedó superada
+> Candidata, de referencia y el catálogo de estilos **ya tienen diapositivas de clase**
+> (capturas_U2_F2): [[Arquitectura de referencia]] y [[Catálogo de estilos arquitectónicos]]. On premise
+> sigue sin fuente. El estado vigente está en *Contenido del curso — estado real*, más abajo.
+
 ---
 
 ## Contenido del curso — estado real
@@ -214,7 +229,7 @@ El detalle punto por punto está en [[Programa oficial del curso]].
 - [x] 1.6 Arquitectura y Requerimientos (CDU de negocio) — bloque de casos de uso + [[Matriz de trazabilidad de requisitos]]
 - [x] **1.7 ¿Cómo se modela? Diagramas de Despliegue** — **de clase** desde capturas_U2: hub [[Cómo se modela la arquitectura]] → [[Diagrama de componentes]], [[Diagrama de despliegue]], [[Diagrama de paquetes]], [[Diagrama de clases]], [[Diagrama de secuencia]], [[Diagrama de bloques de alto nivel]]
 - [x] **1.8 Estructuras y Vistas · Categorías de Estructuras** — [[Estructuras y vistas arquitectónicas]] + [[Categorías de estructuras]] (**de clase**) ~~; las tres categorías** están en [[Diagrama de despliegue]] §3
-- [~] **1.9 Géneros y Estilos Arquitectónicos** — **de clase en parte** (capturas_U2): [[Estilos arquitectónicos]], [[Arquitectura monolítica]], [[Arquitectura en capas]], [[Arquitectura en la nube]]. Falta: basada en eventos, candidata, de referencia, on premise
+- [~] **1.9 Géneros y Estilos Arquitectónicos** — **de clase casi entero** (capturas_U2 y capturas_U2_F2): [[Estilos arquitectónicos]], [[Catálogo de estilos arquitectónicos]], [[Arquitectura de referencia]], [[Patrones arquitectónicos]], [[Patrones de diseño]], [[Arquitectura monolítica]], [[Arquitectura en capas]], [[Arquitectura en la nube]]. Falta: basada en eventos desarrollada, on premise
 
 ### Unidad 2 — Calidad del Software
 
@@ -242,7 +257,7 @@ Lo que **falta material** para poder escribir la nota, ordenado por urgencia:
 | Prioridad | Qué falta | Por qué urge |
 |---|---|---|
 | Media | ~~Presentación de **1.9**~~ — **RESUELTO EN PARTE** con capturas_U2 (monolítica, capas, nube, diseño/estilo/patrón). Faltan **basada en eventos**, **on premise** y los estilos solo nombrados (centrado en datos, flujo de datos, llamada y retorno) | Parte de 1.9 |
-| Media | ~~**Arquitectura candidata** y **de referencia**~~ — **RESUELTO**: aparecen en el *Flujo de Definición* de Ambler, en [[Proceso de diseño arquitectónico]]. Sigue faltando **on premise vs cloud** — el material local casi no lo cubre | Parte de 1.9 |
+| Media | ~~**Arquitectura candidata** y **de referencia**~~ — **RESUELTO**: primero con el *Flujo de Definición* de Ambler ([[Proceso de diseño arquitectónico]]) y desde el 2026-09-16 con diapositivas propias → [[Arquitectura de referencia]]. Sigue faltando **on premise vs cloud** | Parte de 1.9 |
 | **Alta** | Presentación de la **unidad 2** para validar [[Atributos de calidad]], que hoy es todo complemento | Se da del 25 de agosto al 7 de septiembre |
 | **Alta** | **"Integrando con la arquitectura de la información"** (unidad 3): lo busqué en la guía de estudio, en Reynoso y en Garland — **cero menciones** en todas | Es el único punto del programa sin **ninguna** fuente |
 | Baja | Unidad 3 (validar contra la presentación) y unidad 4 completa | Septiembre y octubre |
@@ -308,7 +323,7 @@ Recibidas el 2026-09-15. **Las 59 están recortadas, nombradas y citadas** en
 | 22–33, 54 | `componentes/` | [[Diagrama de componentes]], [[Interfaces de componentes]], [[Relaciones y dependencias en UML]] |
 | 34–42, 48 | `despliegue/` | [[Diagrama de despliegue]], [[Diagrama de paquetes]] |
 | 53, 55–58 | `ejemplo-parque/` | [[Diagrama de clases]], [[Ejemplo resuelto - Parque de atracciones]] |
-| `capturas_U2_F2/` 0 | `estilos/` | [[Estilos arquitectónicos]] §1 — tipos de patrón (carpeta nueva, 1 captura al 2026-09-15) |
+| `capturas_U2_F2/` 0 | `estilos/` | [[Estilos arquitectónicos]] §1 — tipos de patrón (el resto de esa carpeta, en la tabla siguiente) |
 
 Y dos PDF que llegaron con ellas:
 
@@ -320,6 +335,28 @@ Y dos PDF que llegaron con ellas:
 > [!warning] "U2" es el nombre de la carpeta, no el punto del programa
 > El contenido corresponde a **1.4, 1.5, 1.7 y 1.9** de la unidad 1 del programa oficial. La unidad 2
 > del programa (**Calidad del Software**) sigue sin presentación de clase.
+
+### Capturas de clase, segunda tanda: inventario (`00-Fuentes/capturas_U2_F2/`, 40)
+
+Recibidas el 2026-09-16. Las 40 tienen destino y **ninguna quedó descartada**: 25 son nuevas y
+quedaron recortadas en `adjuntos/capturas-clase-U2/<tema>/`, la 0 ya estaba procesada, y **14 eran
+diapositivas que ya estaban**,
+así que no se copiaron y se sumaron a la `fuente` de la nota como *"la clase la volvió a dar"*.
+
+| Capturas | Subcarpeta | Notas | Repetidas (sin copia) |
+|---|---|---|---|
+| 0–8 | `patrones/` (0 en `estilos/`) | [[Patrones de diseño]], [[Patrones arquitectónicos]], [[Tácticas y patrones arquitectónicos]] | — |
+| 9, 14–22 | `estilos/` | [[Estilos arquitectónicos]] §1.1, §1.2, §2 | 14 = capturas_U2 21 |
+| 23–26 | `arquitectura-referencia/` | [[Arquitectura de referencia]] | — |
+| 30, 30-componentes-conectores | `catalogo-estilos/` | [[Catálogo de estilos arquitectónicos]] | — |
+| 10–13, 29 | `vistas-4mas1/` (solo la 29) | [[Modelo 4+1 vistas]] | 10–13 = PDF *Arquitectura de Software* págs. 25, 27, 28, 29 |
+| 27, 28, 31–38 | `fundamentos-arquitectura/` (solo la 27) | [[Categorías de estructuras]], [[Arquitectura de software]], [[Equilibrio de restricciones del proyecto]], [[Beneficios de la arquitectura de software]] | 28, 31–38 = páginas de los dos PDF *Arquitectura de Software* |
+
+> [!note] Dos correcciones que trajo esta tanda
+> - **La vista de procesos se complementa con el diagrama de actividad, no con el de secuencia.**
+>   [[Categorías de estructuras]] y [[Diagrama de secuencia]] decían otra cosa.
+> - **Capas y MVC son de llamada y retorno** (captura 30). [[Estilos arquitectónicos]] §7 lo dejaba
+>   como duda.
 
 > [!info] Sobre los dos PDF de arquitectura
 > No son el mismo archivo ni uno es subconjunto del otro. El de **29 páginas** trae las

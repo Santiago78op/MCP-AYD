@@ -1,7 +1,7 @@
 ---
 tema: Arquitectura de software
-fuente: "Presentación de clase — capturas_U2 (21, 43-47, 49-52). NÚCLEO (tarjetas finales). + COMPLEMENTO — Reynoso + SAIP 4ª ed. + Guía de estudio (tarjetas iniciales)"
-fecha: 2026-09-15
+fuente: "Presentación de clase — capturas_U2 (21, 43-47, 49-52) + capturas_U2_F2 (0, 9, 15-22). NÚCLEO (tarjetas finales). + COMPLEMENTO — Reynoso + SAIP 4ª ed. + Guía de estudio (tarjetas iniciales)"
+fecha: 2026-09-16
 ---
 
 # Flashcards — Estilos arquitectónicos (punto 1.9)
@@ -23,7 +23,7 @@ pregunta, el separador de dos signos de dos puntos, y la respuesta.
 
 ¿Por qué el concepto de estilo va más allá de lo que cubre UML?::Porque pone los **conectores** como elemento de primera clase, y el modelado orientado a objetos y UML no los cubren satisfactoriamente. De ahí la existencia de los ADLs.
 
-¿Cuántos estilos arquitectónicos hay y cuántos patrones de diseño?::Estilos: **seis o siete clases** fundamentales y unos **veinte ejemplares** como máximo. Patrones de diseño: **centenares**.
+¿Cuántos estilos arquitectónicos hay y cuántos patrones de diseño?::Estilos: **seis o siete clases** fundamentales y unos **veinte ejemplares** como máximo. Patrones de diseño: **centenares** (Reynoso, en general). *En clase:* 9 estilos y 25 patrones de diseño.
 
 ¿Por qué "ningún sistema real es de un solo estilo"?::Porque las arquitecturas complejas resultan del **agregado o la composición** de estilos más básicos. Ejemplo: microservicios (cliente-servidor) + bus de eventos (invocación implícita) + capas internas + contenedor (VM) + base de datos (centrado en datos) + pipeline de despliegue (batch secuencial).
 
@@ -69,7 +69,7 @@ pregunta, el separador de dos signos de dos puntos, y la respuesta.
 
 ¿Qué significa "instanciar" una arquitectura de referencia?::Realizar una **customización**: agregar o quitar elementos de la estructura que la arquitectura de referencia define. Ejemplo del SAIP: agregar un componente de integración de pagos junto a los tiers de presentación, negocio y datos.
 
-*(sin fuente en el material)* ¿Qué es una **arquitectura candidata**?::La primera versión de la arquitectura, todavía **no validada**, que se somete a evaluación y de la que puede haber varias en competencia. **Este término no está en el material local ni apareció en las capturas de la unidad 2: confirmar con ella.**
+*(complemento RUP — la clase la da en capturas_U2_F2 25, ver [[Arquitectura de referencia]])* ¿Qué es una **arquitectura candidata** en el uso corriente de RUP?::La primera versión de la arquitectura, todavía **no validada**, que se somete a evaluación y de la que puede haber varias en competencia. Para la versión de la clase, manda [[Arquitectura de referencia]].
 
 ## Lo que dio la clase (NÚCLEO — capturas_U2)
 
@@ -98,4 +98,41 @@ pregunta, el separador de dos signos de dos puntos, y la respuesta.
 ¿Cuáles son las zonas del diagrama **N-niveles en la nube** de Azure?::**DMZ** (NVA), **Web tier**, **Business tier** y **Data tier** (SQL Server primario y secundario), cada una detrás de un **load balancer**, dentro de una **virtual network**, más un **Bastion** para DevOps.
 
 ¿La clase distingue entre **capa** y **nivel (tier)**?::**No**: los usa como sinónimos (N-Capas = multinivel, 2 capas = cliente-servidor, N-niveles = tiers). El complemento sí los distingue: capa = partición del código, tier = partición del despliegue.
+
 ¿Qué dos tipos de patrón distingue la diapositiva "Patrones / Estilos Arquitectónicos"?::Patrones de diseño y patrones arquitectónicos; después vienen los estilos arquitectónicos. En su dibujo, los de diseño (Singleton, Composite, Factory Method) son subcomponentes dentro de un componente.
+
+## Clase — capturas_U2_F2 (2026-09-16)
+
+¿Cuáles son los nueve estilos arquitectónicos de la lista de la clase?::Monolítico, Cliente-Servidor, Arquitectura en Capas, Microkernel, SOA, Microservicios, EDA (Event Driven Architecture), REST y Peer to Peer (P2P).
+
+Para la clase, ¿microservicios es un estilo o un patrón?::Un **estilo**: es el número 6 de su lista de estilos arquitectónicos, y la diapositiva de Blancarte lo pone entre los principales estilos.
+
+¿Qué afirmación define la arquitectura según la clase, y qué es cada parte?::**Arquitectura del Software = Elementos, Forma y Razón.** Elementos: procesamiento (transforma los datos), datos (la información a procesar) y conexión (llamadas a procedimientos, mensajes). Forma: propiedades y relaciones entre los elementos. Razón: motivación para elegir los elementos y sus formas.
+
+A partir de Elementos, Forma y Razón, ¿qué es un estilo arquitectónico?::Una **abstracción de tipos de elementos y aspectos formales a partir de arquitecturas específicas**.
+
+¿Qué incluye la categoría de sistemas que describe cada estilo?::Un conjunto de **componentes** que realizan una función requerida, un conjunto de **conectores** (comunicación, coordinación y cooperación), **restricciones** que definen cómo se integran los componentes y **modelos semánticos** que permiten entender las propiedades generales del sistema a partir de las de sus partes.
+
+¿Qué es un estilo arquitectónico según la diapositiva de la "transformación impuesta"?::Una **transformación impuesta al diseño de todo un sistema**, cuyo objetivo es establecer una estructura para todos sus componentes. Indica los tipos de componentes y conectores, y los patrones y restricciones de interconexión (los **invariantes del estilo**).
+
+¿Para qué sirven las propiedades asociadas a cada estilo?::**Determinan sus ventajas e inconvenientes** y **condicionan la elección** de uno u otro estilo.
+
+¿Cómo se componen estilo, patrón arquitectónico y patrón de diseño (Blancarte, citado en clase)?::El **estilo** es un marco de referencia que puede componerse de uno o más **patrones arquitectónicos**, y cada patrón arquitectónico puede estar conformado de uno o más **patrones de diseño**.
+
+¿Qué dos similitudes tienen estilos y patrones de arquitectura según la tabla de clase?::**Ambos solucionan un problema arquitectónico recurrente** y **se describen de la misma forma**.
+
+¿Qué diferencias da la tabla de clase entre estilos y patrones de arquitectura?::Los estilos establecen restricciones sobre la arquitectura de **todo el sistema**; los patrones tienen **alcance menor** y abordan problemas **más específicos**. Además, cada estilo describe una **familia de sistemas** que comparten un conjunto amplio de decisiones de diseño.
+
+¿Un patrón arquitectónico impone una transformación en el diseño?::Sí, **al igual que un estilo**. Lo que cambia es el alcance: el patrón se concentra en **un aspecto** en lugar de toda la arquitectura.
+
+¿Cuáles son las tres diferencias patrón-estilo que la clase marca en rojo?::1) El alcance del patrón **es menor** (un aspecto, no toda la arquitectura). 2) El patrón **impone una regla** sobre cómo el software manejará un aspecto de su funcionalidad a nivel de infraestructura (ej. concurrencia). 3) Tiende a **abarcar aspectos específicos** del comportamiento (ej. sincronización o interrupciones en tiempo real).
+
+¿A qué está más cerca un estilo y a qué un patrón, según la clase?::Los **estilos** favorecen el tratamiento estructural, la investigación y la **teoría**. Los **patrones** están más cerca del diseño, la práctica, el proceso y el **código**. Se complementan y ambos se preocupan de los stakeholders.
+
+¿Qué muestra el dibujo "Estilos: Atributos de calidad → Arquitectura"?::Que el estilo es el puente por el que los **atributos de calidad** se convierten en **arquitectura**: elegir estilo es elegir qué atributos favorecer.
+
+Según el catálogo de la clase, ¿en qué familia están capas y cliente-servidor?::En **llamada y retorno**: el catálogo lista RPC, MVC, en capas, orientadas a objetos y basadas en componentes, y el árbol C & C cuelga cliente-servidor (con multi-tier) de call-return.
+
+¿Cuántos patrones de diseño listó la clase y cuáles no son de GoF?::**25**: los 23 de GoF más **Object Pool** y **Null Object**.
+
+¿Qué dos definiciones de estilo arquitectónico dio la clase?::A) Establece las **restricciones** sobre la arquitectura de una **familia de diseños arquitectónicos**. B) Establece un **marco de referencia** a partir del cual es posible construir aplicaciones que comparten un conjunto de atributos y características, mediante el cual es posible identificarlos y clasificarlos.

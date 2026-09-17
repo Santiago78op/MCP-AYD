@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura de software
-fuente: "Arquitectura de Software (1).pdf / Arquitectura de Software.pdf"
+fuente: "Arquitectura de Software (1).pdf / Arquitectura de Software.pdf + capturas_U2_F2 (37, 38): la clase volvió a dar los beneficios 2 y 3 el 2026-09-16. NÚCLEO."
 fecha: 2026-08-19
 ---
 
@@ -11,6 +11,12 @@ Son **tres**, y conviene memorizarlos con este orden porque la presentación los
 1. Proporciona la comunicación entre stakeholders.
 2. Manifiesta las decisiones de diseño tempranamente.
 3. Las arquitecturas como un modelo reusable y transferible.
+
+> [!note] Repetido en clase el 2026-09-16 (capturas_U2_F2, 37 y 38)
+> Volvió a proyectar las láminas de los beneficios **2** y **3**, con el texto **idéntico** al del
+> PDF (págs. 13 y 14 del deck de 20). En las capturas del lote no aparece la del beneficio 1 — no
+> quiere decir que no la haya dado, solo que no quedó capturada. Los **títulos van en rojo** en la
+> diapositiva: son lo que hay que poder enumerar de memoria.
 
 ## 1. Proporciona la comunicación entre stakeholders
 

@@ -1,9 +1,9 @@
 ---
 tema: Arquitectura de software
-fuente: "Presentación de clase — capturas del 19/08/2026 (MBA. MSc. Claudia Rojas de Morán). NÚCLEO."
+fuente: "Presentación de clase — capturas del 19/08/2026 (MBA. MSc. Claudia Rojas de Morán) + capturas_U2_F2 (27), clase del 2026-09-16: segunda versión con otros nombres. NÚCLEO."
 fecha: 2026-08-19
 punto_del_programa: "Unidad 1.8 — Estructuras y Vistas · Categorías de Estructuras"
-alias: "categorias de estructuras, tres categorias, modulos, componentes y conectores, asignacion"
+alias: "categorias de estructuras, tres categorias, modulos, componentes y conectores, asignacion, localizacion, componentes-y-conector, unidades de implementacion"
 ---
 
 # Categorías de estructuras
@@ -32,6 +32,55 @@ explícito del **1.8** del programa.
 
 ![[adjuntos/capturas-clase/categorias-de-estructuras.png]]
 
+## 1 bis. La segunda versión: la lámina *"Estructuras"* (capturas_U2_F2, 27)
+
+En la clase del 2026-09-16 mostró **otra diapositiva** con las mismas tres categorías, pero con
+**otros nombres y otras definiciones**. No está en ninguno de los dos PDF de *Arquitectura de
+Software*. Textual:
+
+> **Estructuras**
+>
+> - **Módulos**: los elementos son módulos, los cuales son **unidades de implementación**.
+> - **Componentes-y-Conector**: los elementos son **componentes de ejecución** (los cuales son
+>   principalmente **unidades de computación**) y **conectores** (los cuales son el **vehículo de
+>   comunicación** entre los componentes).
+> - **De Localización**: muestran la relación entre los elementos de software y los elementos en
+>   **uno o más ambientes externos** en los cuales el software es **creado o ejecutado**.
+
+![[adjuntos/capturas-clase-U2/fundamentos-arquitectura/estructuras-modulos-componentes-conector-localizacion.png]]
+
+### Las dos versiones, lado a lado
+
+| | Lámina *"Categorías de Estructuras"* (19/08) | Lámina *"Estructuras"* (16/09, captura 27) |
+|---|---|---|
+| **1ª** | estructuras de los **módulos** — unidades de **código o de datos** que se deben **construir o adquirir** | **Módulos** — **unidades de implementación** |
+| **2ª** | estructuras de **componentes y conectores** — comportamiento en **tiempo de ejecución** (componentes) e **interacciones** (conectores) | **Componentes-y-Conector** — **componentes de ejecución** (unidades de **computación**) y conectores (**vehículo de comunicación**) |
+| **3ª** | estructuras de **asignación** — relación con estructuras que **no son de software** (CPU, sistemas de archivos, redes, **equipos de desarrollo**) | **De Localización** — relación con elementos de **ambientes externos** donde el software es **creado o ejecutado** |
+
+> [!warning] La trampa: "De Localización" y "Asignación" son **la misma categoría**
+> No son cuatro categorías. Las dos láminas traducen con dos palabras distintas la misma tercera
+> categoría, la que el SAIP llama *allocation structures* *(el nombre en inglés es complemento)*. La
+> prueba está en la propia redacción de las dos láminas:
+>
+> | Lámina *"Estructuras"* (27) | Lámina *"Categorías"* (19/08) | Pregunta |
+> |---|---|---|
+> | software **ejecutado** en ambientes externos | CPU, sistemas de archivos, redes | **dónde corre** |
+> | software **creado** en ambientes externos | **equipos de desarrollo** | **quién lo construye** |
+>
+> Lo mismo con la segunda: *"componentes y conectores"* y *"Componentes-y-Conector"* (en singular,
+> con guiones, calcado del inglés *component-and-connector*) son la misma.
+>
+> **Regla para el examen**: escribí **asignación (o de localización)** — así cubrís las dos láminas.
+> Queda anotado como pregunta para clase cuál nombre prefiere.
+
+Lo que **suma** la segunda versión, y conviene citar:
+
+- **"unidades de implementación"** — la forma corta de decir qué es un módulo.
+- **"unidades de computación"** — lo que hace un componente de ejecución.
+- **"vehículo de comunicación"** — la definición de conector más citable de las dos.
+- **"uno o más ambientes externos"** — la asignación puede mapear a **varios** entornos a la vez
+  (por ejemplo, el de desarrollo *y* el de producción — el ejemplo es lectura propia, no de la lámina).
+
 ## 2. La tabla que hay que memorizar
 
 ```mermaid
@@ -48,7 +97,7 @@ flowchart TD
 |---|---|---|---|
 | **Módulos** | unidades de **código o datos** — construidas o **adquiridas** | *¿cómo se parte el código?* | **estático**, antes de correr |
 | **Componentes y conectores** | **componentes** (comportamiento) + **conectores** (interacciones) | *¿qué pasa cuando el sistema corre?* | **tiempo de ejecución** |
-| **Asignación** | software ↔ **entorno no-software**: CPU, sistemas de archivos, redes, **equipos de desarrollo** | *¿dónde vive y quién lo construye?* | **despliegue y organización** |
+| **Asignación** *(o "De Localización", captura 27)* | software ↔ **entorno no-software**: CPU, sistemas de archivos, redes, **equipos de desarrollo** | *¿dónde vive y quién lo construye?* | **despliegue y organización** |
 
 > [!important] Tres detalles de la redacción que valen puntos
 > **1. "construir o adquirir".** Un módulo no es solo código propio: una librería o un producto COTS
@@ -84,11 +133,25 @@ nada sobre el rendimiento; un diagrama de despliegue no dice nada sobre qué toc
 
 ## 4. Cómo se corresponden con lo que ya tenés
 
-| Categoría | Vista del modelo 4+1 | Diagrama UML típico | Nota |
+> [!warning] Corrección (capturas_U2_F2, 10-13)
+> Esta tabla ponía **secuencia, actividad y comunicación** en la vista de procesos, sin marcarlo
+> como complemento. La clase dice que la vista de procesos *"la vamos a complementar con los
+> diagramas UML: **Diagrama de Actividad**"* — **solo actividad**. La columna de diagramas quedó
+> alineada con sus diapositivas del 4+1 (detalle en [[Modelo 4+1 vistas]]). También se separó la
+> vista lógica de la *"de Despliegue o de Desarrollo"*: en clase son vistas distintas, con
+> diagramas distintos.
+
+| Categoría | Vista del modelo 4+1 | Diagramas UML **según su lámina del 4+1** | Nota |
 |---|---|---|---|
-| **Módulos** | vista **lógica** / de desarrollo | clases, paquetes, componentes | [[Modelo 4+1 vistas]] |
-| **Componentes y conectores** | vista de **procesos** | secuencia, actividad, comunicación | [[Modelo 4+1 vistas]] |
-| **Asignación** | vista **física / de despliegue** | **despliegue** (nodos y artefactos) | [[Diagrama de despliegue]] |
+| **Módulos** | vista **lógica** · vista **de Despliegue o de Desarrollo** | lógica → **clases** y **paquetes** · despliegue/desarrollo → **componentes** y **paquetes** | [[Modelo 4+1 vistas]] |
+| **Componentes y conectores** | vista de **procesos** | **actividad** (solo ese) | [[Modelo 4+1 vistas]] |
+| **Asignación** *(o De Localización)* | vista **física** | **deployment** (despliegue / distribución) | [[Diagrama de despliegue]] |
+
+> [!note] Qué es de clase y qué es lectura en esta tabla
+> Los **diagramas por vista** son textuales de sus diapositivas del 4+1. El **cruce categoría → vista**
+> (columnas 1 y 2) **no está en ninguna lámina**: es lectura propia para conectar 1.8 con el 4+1.
+> Si en otro material ves secuencia o comunicación en la vista de procesos, es **complemento**
+> (Kruchten / UML general), no lo que ella pidió.
 
 El [[Diagrama de despliegue]] es, entonces, **la representación de una estructura de asignación** —
 que es justo lo que enseña el punto 1.7 del programa. Los dos puntos están encadenados: 1.7 te da
@@ -115,3 +178,4 @@ que es justo lo que enseña el punto 1.7 del programa. Los dos puntos están enc
 6. ¿Qué categoría mirás para saber por qué el sistema se cae bajo carga? ¿Y para saber qué archivo tocar?
 7. ¿A qué categoría pertenece un diagrama de despliegue?
 8. ¿Por qué una sola vista nunca alcanza?
+9. La lámina *"Estructuras"* habla de estructuras **"De Localización"**. ¿A cuál de las tres categorías corresponde, y qué palabra de su definición lo demuestra?
