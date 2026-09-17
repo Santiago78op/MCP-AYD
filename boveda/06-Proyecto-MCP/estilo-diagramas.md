@@ -1,7 +1,7 @@
 ---
 tema: Estilo de diagramas
 fuente: "UML 2.5.1 (OMG) + convenios de clase + capacidades reales de StarUML y Excalidraw"
-fecha: 2026-08-21
+fecha: 2026-09-17
 alias: "estilo de diagramas, layout, disposicion, staruml layout, excalidraw layout, checklist de diagramas"
 ---
 
@@ -242,17 +242,58 @@ personas.
 
 ### 3.9 Componentes
 
-- Componentes como rectángulos con el estereotipo `«component»` o el icono.
-- **Dependencias de arriba abajo**: quien depende, arriba.
-- Interfaces provistas/requeridas con **paleta y receptáculo** enfrentados, no como texto.
+Verificado con zoom sobre `capturas_U2` **30, 31, 32 y 33** el 2026-09-17, y aplicado en
+`02-Diagramas/6-bloques-despliegue/componentes-farmahosp`. Teoría en `Interfaces de componentes`.
+
+- Componente: **rectángulo con `«component»` arriba, el icono en la esquina superior derecha y el
+  nombre centrado** (captura 33). Si hace falta, los ids del caso (`CDU-0n · RF-nn`) van debajo en
+  letra chica.
+- **Una interfaz = UNA bola.** La bola se une por **línea llena** al componente que la **provee**, y
+  lleva **un receptáculo por cada componente que la requiere**, abrazándola por el lado desde el que
+  ese consumidor llega. *Dibujar una bola por dependencia es el error que ya se cometió*: las
+  interfaces con dos consumidores aparecían duplicadas.
+- **El nombre de la interfaz va ARRIBA del símbolo**, no al costado (capturas 32 y 33).
+- **El receptáculo (semicírculo) va del lado del consumidor**, convexo hacia su propio componente y
+  cóncavo hacia la bola. Invertirlo cambia quién provee y quién consume.
+- **Una sola forma por lámina**: o todo **ensamble** (línea llena · receptáculo · bola · línea llena,
+  capturas 31 arriba, 32 *iconic form* y 33), o todo **forma expandida** (caja `«interface»` con
+  `«use»` punteada del consumidor y triángulo hueco del que la implementa, captura 32). Mezclar
+  ensambles con dependencias punteadas en el mismo dibujo es lo que se vio mal.
+- **Dependencias de arriba abajo**: quien depende, arriba. Los servicios transversales que usa *todo*
+  el sistema se cuelgan de un **recuadro de grupo**, con un conector por interfaz, en vez de repetir
+  una flecha por componente.
 - Agrupar por capa, con las capas como bandas horizontales.
 
 ### 3.10 Despliegue
 
-- Nodos como cajas 3D, con su estereotipo (`«device»`, `«execution environment»`).
-- **Los artefactos van dentro del nodo** que los ejecuta, nunca al lado.
-- Conexiones rotuladas con el **protocolo** (`HTTPS`, `SOAP`, `JDBC`).
-- Disposición geográfica o por capa física: cliente arriba, red al medio, servidores abajo.
+Verificado contra el PDF *Tema 5* y las capturas de *Distribución*; aplicado en
+`6-bloques-despliegue/despliegue-farmahosp`. Teoría en `Diagrama de despliegue`.
+
+- Nodos como cajas 3D, con su estereotipo (`«device»` para hardware, `«executionEnvironment»` para
+  software). **El entorno de ejecución va SIEMPRE dentro de un dispositivo**: una **máquina virtual**
+  dentro del servidor de virtualización es el ejemplo canónico.
+- **Los artefactos (o los componentes) van dentro del nodo** que los ejecuta, nunca al lado.
+- Conexiones rotuladas con el **protocolo** (`«https»`, `«SOAP»`, `«JDBC»`, `«MQTT»`, `«wifi»`).
+- Disposición por zona: **FrontEnd arriba, BackEnd abajo, externos aparte**, con las zonas como
+  rectángulos punteados de fondo claro (captura 58).
+- **Las cuentas tienen que cerrar**: sumar vCPU, RAM y almacenamiento de todas las VM contra la
+  capacidad del enunciado, contando que **una réplica duplica los datos**. Un despliegue que no cabe
+  en el hardware disponible está mal, aunque se vea lindo.
+- **Rótulo del nodo grande a un costado** (`cubo(..., rotulo=(x, ancho))`) cuando varias conexiones
+  entran por arriba: si no, las líneas le pasan por encima al texto.
+
+### 3.10 bis Bloques de alto nivel
+
+No es UML: **bloques y flechas** (`Diagrama de bloques de alto nivel`). Aplicado en
+`6-bloques-despliegue/bloques-farmahosp`.
+
+- **Entradas de un lado, salidas del otro**, y bandas por nivel (entradas · acceso · servicios ·
+  datos · bus · soporte · externos), con el rótulo de cada banda en el carril lateral.
+- **Toda flecha con nombre**: lo que fluye, en sustantivo. Una flecha sin nombre no dice nada.
+- Cada bloque con el **driver que lo justifica** entre paréntesis (`AC-02`, `RE-05`): es lo que
+  permite defenderlo.
+- Los carriles verticales que atraviesan varias bandas pasan por los **huecos entre bloques**, nunca
+  por encima de uno.
 
 ### 3.11 Paquetes
 
@@ -286,6 +327,12 @@ se vea ordenado.
 | Trabajador dibujado como actor del negocio | CUN | Contradice la frontera declarada |
 | Flecha sin nombre | Contexto, DFD | El flujo no dice nada |
 | Módulos dentro del óvalo | Contexto | Ya no es un diagrama de contexto |
+| **Una bola por dependencia** en vez de una por interfaz | Componentes | La misma interfaz aparece duplicada: deja de ser un contrato único |
+| Receptáculo del lado del que **provee** | Componentes | Invierte quién ofrece y quién consume el servicio |
+| Nombre de la interfaz **al costado** del símbolo | Componentes | No es la notación de clase (va arriba) |
+| `«executionEnvironment»` **fuera** de un dispositivo | Despliegue | El PDF lo prohíbe: siempre va dentro |
+| Conexión entre nodos **sin protocolo** | Despliegue | Todos los ejemplos de clase lo nombran |
+| VM que **no caben** en el hardware del enunciado | Despliegue | El diagrama describe algo imposible |
 
 ---
 
@@ -558,6 +605,13 @@ Se ejecuta **siempre**, en este orden, y **se repite el ciclo hasta que pase com
 
 - [ ] **Tomar una captura** del diagrama renderizado y **mirarla**.
 - [ ] Compararla contra §2, §3 y §4 — no contra el código fuente, contra **la imagen**.
+- [ ] **Contar los símbolos** y compararlos con la tabla del entregable: ¿hay **una** bola por
+      interfaz?, ¿cada flecha **termina en algo**?, ¿cada símbolo cuelga del componente **correcto**?
+      Los tres errores de la lámina de componentes de FarmaHosp se detectaron así: `IOrdenCompra`
+      colgaba del componente equivocado, a `IFarmacovigilancia` le faltaba la bola y dos interfaces
+      estaban duplicadas.
+- [ ] **Buscar rótulos encimados**: un texto sobre otro elemento se corrige moviéndolo al hueco, no
+      dejándolo "casi legible".
 - [ ] Si algo falla: corregir y **volver al Paso 1**.
 
 > [!important] El paso 4 no es opcional y no se sustituye por leer el código
