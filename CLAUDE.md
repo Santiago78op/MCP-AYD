@@ -481,6 +481,10 @@ Es la vía por la que entra casi todo el material nuevo. El pipeline que funcion
    una. Sirve para **clasificar**, no para transcribir.
 3. **Leé a resolución completa toda captura que vayas a citar.** Recortá el área de la diapositiva
    (detectando el bloque claro) y ampliá antes de mirar.
+   **Antes de guardarla, fijate si ya está**: comparala contra `adjuntos/arquitectura-de-software*/`
+   (las páginas de los PDF) y `adjuntos/capturas-clase*/`. Si es la misma diapositiva, **no la
+   copies**: sumá la captura a la `fuente` de la nota como *"la clase la volvió a dar"* y agregá solo
+   el detalle que falte. En la tanda del 16/09, **14 de 40** eran repetidas.
 4. Guardá la versión recortada con **nombre descriptivo** en `boveda/adjuntos/capturas-clase-U<n>/<tema>/`
    (una subcarpeta por tema, nunca plano). Las de la unidad 1 quedaron en `adjuntos/capturas-clase/`.
 5. Escribí o ampliá la nota, embebiendo la imagen con la **ruta completa desde la bóveda**
@@ -488,12 +492,37 @@ Es la vía por la que entra casi todo el material nuevo. El pipeline que funcion
    `auditar-boveda` la marca como embed roto.
 6. Verificá que **ninguna captura quede guardada sin citar**: si está en `adjuntos/` y ninguna nota la
    referencia, es material desperdiciado. Si es deliberado, anotalo en el `Índice`.
-7. Cerrá con `npm run auditar-boveda` y `npm run cobertura` (y agregá a `cobertura.mjs` un caso por
-   nota nueva). El inventario de qué captura fue a qué nota va en el `Índice`.
+7. Cerrá con `npm run auditar-boveda` y `npm run cobertura`, con `VAULT_PATH` exportado (y agregá a
+   `cobertura.mjs` un caso por nota nueva). El inventario de qué captura fue a qué nota va en el `Índice`.
+8. **Si el MCP `dainamo` está disponible, actualizá el segundo cerebro** (`~/Documents/knowledge`,
+   tema `arquitectura-software` o `uml`). No es un espejo de la bóveda: ahí va el conocimiento
+   **general**, con las fuentes de libro, y lo propio del curso en un recuadro
+   `> [!note] En el curso AYD2 (USAC)`. Corregí los recuadros viejos (ya pasó: decía que capas no
+   entraba en llamada y retorno) y cerrá con `lint_wiki`.
 
 > [!note] Él sigue agregando carpetas de capturas
 > Además de `capturas_U1/` y `capturas_U2/` apareció `capturas_U2_F2/`. **Listá `00-Fuentes/` al
 > empezar** en vez de asumir las carpetas que conocés.
+
+### Lotes grandes: agentes en paralelo
+
+Cuando llegan decenas de capturas, él pide *«analizá las capturas con agentes»*. La fórmula funcionó
+dos veces sin un solo conflicto (6 agentes el 15/09, 5 el 16/09):
+
+1. **Clasificá vos primero** con la hoja de contactos, y repartí **por tema**, no por número.
+2. **Reglas comunes en un archivo del scratchpad** que todos leen: pipeline, jerarquía de fuentes,
+   formato, duplicados y el **informe obligatorio** (inventario, glosario, cobertura, correcciones,
+   preguntas para clase).
+3. **Cada agente con dueño de archivo explícito**: rango de capturas, qué notas **crea** y cuáles
+   **modifica**, su subcarpeta de `adjuntos/` y su archivo de flashcards. Si dos necesitan la misma
+   imagen, uno la guarda con un nombre acordado de antemano y el otro solo la embebe. Si dos comparten
+   un archivo de flashcards, cada uno agrega **su bloque** con `Edit`, nunca reescribe el archivo.
+4. **Los archivos compartidos los integra el principal**, con los informes: `03-Glosario.md`,
+   `Índice.md`, `Programa oficial del curso.md`, `Preguntas pendientes para clase.md`,
+   `cobertura.mjs`, `CLAUDE.md`, el segundo cerebro y git.
+5. **Hacé de correo**: si un agente que terminó encontró algo en el archivo de otro que sigue vivo,
+   pasáselo por `SendMessage` en vez de editarlo vos. Una nota con dos escritores se pisa.
+6. **Contá antes de escribir los totales** (repetidas, nuevas, términos): los informes se suman mal.
 
 > [!warning] La trampa que ya costó errores: no transcribas desde la hoja de contactos
 > La hoja reduce 3412 px a unos 620 px. Los títulos se leen; **las direcciones de flecha, las guardas
