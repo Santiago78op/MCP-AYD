@@ -513,6 +513,15 @@ Es la vía por la que entra casi todo el material nuevo. El pipeline que funcion
    referencia, es material desperdiciado. Si es deliberado, anotalo en el `Índice`.
 7. Cerrá con `npm run auditar-boveda` y `npm run cobertura`, con `VAULT_PATH` exportado (y agregá a
    `cobertura.mjs` un caso por nota nueva). El inventario de qué captura fue a qué nota va en el `Índice`.
+7 bis. **Validación obligatoria de cierre — la pidió él: "valida siempre".** No alcanza con que los
+   archivos existan; hay que probar que el conocimiento **llega**:
+   - **Ninguna captura huérfana**: cada `.png` nuevo de `adjuntos/` citado por al menos una nota
+     (`grep -rlF "<ruta>" --include='*.md' .` — con el `*.md` **entre comillas**: en zsh sin comillas
+     falla y reporta todo como huérfano).
+   - **El MCP en vivo** (no solo el script): `listar_temas()` muestra las notas nuevas, y
+     `buscar`, `glosario` y `obtener_flashcards` devuelven una frase textual de la tanda.
+   - **El segundo cerebro**: `search_knowledge` encuentra lo nuevo y `lint_wiki` no suma rotos.
+   Informá el resultado con números (imágenes, huérfanas, consultas) antes de dar la tanda por cerrada.
 8. **Si el MCP `dainamo` está disponible, actualizá el segundo cerebro** (`~/Documents/knowledge`,
    tema `arquitectura-software` o `uml`). No es un espejo de la bóveda: ahí va el conocimiento
    **general**, con las fuentes de libro, y lo propio del curso en un recuadro
