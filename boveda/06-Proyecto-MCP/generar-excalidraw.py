@@ -2326,8 +2326,8 @@ def componentes_farmahosp():
     els = [titulo("Diagrama de componentes — FarmaHosp", 40, 10, 1400),
            texto("Círculo = interfaz PROVISTA (la ofrece el componente del que sale la varilla) · "
                  "semicírculo = interfaz REQUERIDA (la necesita el componente del que sale su varilla) · "
-                 "semicírculo abrazando al círculo = ENSAMBLE · separados, la punteada va del semicírculo "
-                 "al círculo (captura 31) · quien depende va arriba.",
+                 "cada conector es un ENSAMBLE: línea llena del que requiere → semicírculo → círculo → el que la provee "
+                 "(capturas 31 arriba, 32 «iconic form» y 33) · el nombre va arriba del símbolo.",
                  40, 44, 2200, 13, align="left", _halo=False)]
     C = componente_uml
     # --- grupo
@@ -2360,54 +2360,56 @@ def componentes_farmahosp():
     els += C(1560, 880, 260, 90, "SvcIdentidad", "RE-08 · AC-04")
     els += C(1560, 1140, 260, 90, "BitacoraInmutable", "AC-03")
 
-    def ensamble(cx, y_consumidor, y_proveedor, nombre, x_comp=None):
-        """Consumidor arriba, proveedor abajo, en el mismo eje."""
-        cy = y_proveedor - VARILLA
-        return (bola(cx, cy, cx, y_proveedor, nombre)
-                + copa(cx, cy, "arriba", cx, y_consumidor))
+    def interfaz(cx, cy, x_prov, y_prov, nombre, tx=None, ty=None):
+        """La interfaz PROVISTA: una sola bola, unida por linea llena al
+        componente que la ofrece, con el nombre arriba (capturas 32 y 33)."""
+        els_ = [_base("ellipse", cx - R_BOLA, cy - R_BOLA, 2 * R_BOLA, 2 * R_BOLA)]
+        els_ += ruta([(cx, cy), (x_prov, y_prov)], punta=None)
+        if nombre:
+            els_.append(texto(nombre, tx if tx is not None else cx - 130,
+                              ty if ty is not None else cy - R_BOLA - 26, 260, 13))
+        return els_
 
-    # --- ENSAMBLES (el consumidor está justo encima del proveedor)
-    els += ensamble(190, 200, 360, "IAuditoria")          # PortalWeb
-    els += ensamble(550, 200, 360, "ISincronizacion")     # AppFarmacia
-    els += ensamble(910, 200, 360, "IAdministracion")     # AppEnfermeria
-    els += ensamble(2030, 200, 360, "ILectura")           # GatewayIoT
-    els += ensamble(910, 450, 620, "IDispensacion")       # SvcAdministracion
-    els += ensamble(910, 710, 880, "IPrescripcion")       # SvcDispensacion
-    els += ensamble(910, 970, 1140, "IInventario")        # SvcPrescripcion
-    # IOrdenCompra: ensamble horizontal (Adquisición provee, Inventario requiere)
-    els += bola(736, 1185, 680, 1185, "")
-    els.append(texto("IOrdenCompra", 686, 1123, 100, 12))
-    els += copa(736, 1185, "der", 780, 1185)
+    def requiere(puntos, cx, cy, lado):
+        """Un CONSUMIDOR de esa interfaz: linea llena hasta su receptaculo, que
+        abraza la bola por el lado desde el que llega. Una bola puede tener
+        varios receptaculos: uno por componente que la requiere."""
+        fin_ = {"arriba": (cx, cy - R_COPA), "abajo": (cx, cy + R_COPA),
+                "izq": (cx - R_COPA, cy), "der": (cx + R_COPA, cy)}[lado]
+        return ruta(puntos + [fin_], punta=None) + [_arco_el(cx, cy, R_COPA, lado)]
 
-    # --- DEPENDENCIAS CON RECORRIDO: copa en el consumidor + punteada a la bola
-    # AppEnfermeria → ISincronizacion
-    els += copa(850, 224, "arriba", 850, 200)
-    els += ruta([(850, 248), (850, 304), (564, 304)], punteada=True)
-    # AppFarmacia → IDispensacion
-    els += copa(396, 155, "der", 420, 155)
-    els += ruta([(372, 155), (340, 155), (340, 564), (896, 564)], punteada=True)
-    # PortalWeb → IPrescripcion
-    els += copa(36, 155, "der", 60, 155)
-    els += ruta([(12, 155), (12, 824), (896, 824)], punteada=True)
-    # SvcAdministracion → IFarmacovigilancia (la bola la ofrece SvcFarmacovigilancia)
-    els += bola(1270, 564, 1270, 620, "IFarmacovigilancia")
-    els += copa(1000, 474, "arriba", 1000, 450)
-    els += ruta([(1000, 498), (1000, 564), (1256, 564)], punteada=True)
-    # SvcDispensacion → IInventario
-    els += copa(1064, 665, "izq", 1040, 665)
-    els += ruta([(1088, 665), (1120, 665), (1120, 1084), (924, 1084)], punteada=True)
-    # SvcPrescripcion → IOrdenCompra
-    els += copa(840, 994, "arriba", 840, 970)
-    els += ruta([(840, 1018), (840, 1060), (700, 1060), (700, 1185), (722, 1185)], punteada=True)
-    # PipelineTelemetria → IRegistroEvento
-    els += copa(2030, 474, "arriba", 2030, 450)
-    els += ruta([(2030, 498), (2030, 1300), (1504, 1300), (1504, 1199)], punteada=True)
-
+    # --- clientes con sus servicios
+    els += interfaz(190, 304, 190, 360, "IAuditoria")
+    els += requiere([(190, 200)], 190, 304, "arriba")
+    els += interfaz(550, 304, 550, 360, "ISincronizacion")
+    els += requiere([(550, 200)], 550, 304, "arriba")                       # AppFarmacia
+    els += requiere([(850, 200), (850, 304)], 550, 304, "der")              # AppEnfermeria
+    els += interfaz(910, 304, 910, 360, "IAdministracion")
+    els += requiere([(910, 200)], 910, 304, "arriba")
+    els += interfaz(2030, 304, 2030, 360, "ILectura")
+    els += requiere([(2030, 200)], 2030, 304, "arriba")
+    # --- cadena de servicios de negocio
+    els += interfaz(910, 564, 910, 620, "IDispensacion")
+    els += requiere([(910, 450)], 910, 564, "arriba")                       # SvcAdministracion
+    els += requiere([(420, 155), (340, 155), (340, 564)], 910, 564, "izq")  # AppFarmacia
+    els += interfaz(1270, 564, 1270, 620, "IFarmacovigilancia")
+    els += requiere([(1000, 450), (1000, 564)], 1270, 564, "izq")           # SvcAdministracion
+    els += interfaz(910, 824, 910, 880, "IPrescripcion")
+    els += requiere([(910, 710)], 910, 824, "arriba")                       # SvcDispensacion
+    els += requiere([(60, 155), (12, 155), (12, 824)], 910, 824, "izq")     # PortalWeb
+    els += interfaz(910, 1084, 910, 1140, "IInventario")
+    els += requiere([(910, 970)], 910, 1084, "arriba")                      # SvcPrescripcion
+    els += requiere([(1040, 665), (1120, 665), (1120, 1084)], 910, 1084, "der")  # SvcDispensacion
+    els += interfaz(736, 1185, 680, 1185, "IOrdenCompra", tx=606, ty=1212)
+    els += requiere([(780, 1185)], 736, 1185, "der")                        # SvcInventario
+    els += requiere([(840, 970), (840, 1060), (736, 1060)], 736, 1185, "arriba")  # SvcPrescripcion
     # --- el grupo requiere las cuatro interfaces transversales
     for y, n in [(405, "IAdmisiones · IReporteMSPAS"), (665, "INotificacion"),
                  (925, "IAutenticacion · IAutorizacion"), (1185, "IRegistroEvento")]:
-        els += bola(1504, y, 1560, y, n)
-        els += ruta([(1440, y), (1490, y)], punteada=True)
+        els += interfaz(1504, y, 1560, y, n)
+        els += requiere([(1440, y)], 1504, y, "izq")
+    # el pipeline tambien registra en la bitacora
+    els += requiere([(2030, 450), (2030, 1300), (1504, 1300)], 1504, 1185, "abajo")
 
     els.append(texto("Lectura: AppEnfermeria requiere IAdministracion e ISincronizacion · AppFarmacia requiere "
                      "IDispensacion e ISincronizacion · PortalWeb requiere IAuditoria e IPrescripcion · la cadena "
