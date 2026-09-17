@@ -317,6 +317,39 @@ No es UML: **bloques y flechas** (`Diagrama de bloques de alto nivel`). Aplicado
 - Los carriles verticales que atraviesan varias bandas pasan por los **huecos entre bloques**, nunca
   por encima de uno.
 
+### 3.10 quater El método: del enunciado a los bloques
+
+Qué dibujar en un diagrama de bloques, en cuatro barridos. Aplicado en
+`Entrega - Tarea 2 FarmaHosp` §6.1.
+
+| # | Barrido | Pregunta mecánica |
+|---|---|---|
+| 1 | **Entradas y salidas** | ¿Quién o qué **entra** información al sistema y quién **recibe** algo de él? Los usuarios y dispositivos de un lado, los sistemas externos del otro |
+| 2 | **Bandas** | ¿Por qué niveles pasa un pedido de punta a punta? (acceso → lógica → datos, más los de soporte). Cada banda es una fila, rotulada |
+| 3 | **Un bloque por responsabilidad** | ¿Qué hace cada pieza grande? Un bloque = una responsabilidad nombrable. Si dos bloques hacen lo mismo, sobra uno |
+| 4 | **Flujos con nombre** | Por cada línea: ¿qué fluye y en qué sentido? El nombre va en **sustantivo** (*"registro de administración"*, no *"registrar"*) |
+
+Cierre: cada bloque con el **driver** que lo justifica entre paréntesis, y el chequeo de la definición
+de clase — *"bloques y sus relaciones… sus entradas y sus salidas"*: si no se ven las entradas, las
+salidas y lo que fluye, todavía no es un diagrama de bloques.
+
+> [!note] Qué tipo de diagrama tiene método escrito y cuál no
+> **Reglas de dibujo**: los trece tipos de §3. **Método de contenido** (de dónde sale cada elemento):
+>
+> | Con método | Dónde |
+> |---|---|
+> | Contexto · core · primera descomposición | §8 BLOQUE 1 · `Guía - Caso de negocio` |
+> | CDU expandidos (drivers RF) | §8 BLOQUE 2 · `Guía - Drivers de calidad y restricción` |
+> | Matrices de trazabilidad | §8 BLOQUE 3 · `Guía - Matrices de trazabilidad` |
+> | Clases | `Diagrama de clases` §5 |
+> | Componentes | `Diagrama de componentes` §7 |
+> | Despliegue | §3.10 ter |
+> | Bloques de alto nivel | §3.10 quater |
+>
+> **Sin método todavía**: **secuencia** y **paquetes** —los dio en clase (PDF *Tema 5* y capturas
+> 39-41), así que si caen en un entregable hay que escribirles el método antes de dibujar— y
+> **actividad, estados, ER y DFD**, que el curso no usó en ninguna entrega.
+
 ### 3.11 Paquetes
 
 - Dependencias con flecha punteada, **de quien depende hacia el que es usado**.

@@ -781,6 +781,9 @@ comparten por git; el generador existe para crear diagramas nuevos o corregir lo
   continua de un componente al otro con la **bola y el receptáculo en el medio**, y el **semicírculo va
   del lado del consumidor** abrazando la bola; el componente lleva **`«component»` + ícono + nombre
   centrado**. Separados, la punteada va **del semicírculo a la bola**. Detalle en `Interfaces de componentes`.
+- **Qué tipo tiene método escrito**: el recuadro al final de `estilo-diagramas.md` §3.10 quater lo
+  dice. Negocio, drivers, matrices, clases, componentes, despliegue y bloques **sí**; **secuencia y
+  paquetes no** — si un entregable los pide, escribirles el método antes de dibujar.
 - **Qué dibujar en el despliegue** (no solo cómo): los seis barridos de `estilo-diagramas.md` §3.10 ter
   — dispositivos del enunciado → sistemas externos → entornos de ejecución → reparto de los
   componentes → conexiones con protocolo → cuentas y trazabilidad, y cerrar recorriendo los
