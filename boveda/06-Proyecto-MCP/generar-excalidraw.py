@@ -2283,16 +2283,35 @@ def _arco_el(cx, cy, r, lado):
 R_BOLA, R_COPA, VARILLA = 14, 24, 56
 
 
-def bola(cx, cy, x_comp, y_comp, nombre, lado_texto="der"):
-    """Interfaz PROVISTA: circulo unido por varilla al componente que la ofrece."""
+def bola(cx, cy, x_comp, y_comp, nombre, lado_texto="arriba"):
+    """Interfaz PROVISTA: circulo unido por linea al componente que la ofrece.
+
+    El nombre va ARRIBA del simbolo, como en las capturas 32 y 33."""
     els = [_base("ellipse", cx - R_BOLA, cy - R_BOLA, 2 * R_BOLA, 2 * R_BOLA),
            _base("line", x_comp, y_comp, cx - x_comp if cx != x_comp else 0,
                  cy - y_comp if cy != y_comp else 0,
                  points=[[0, 0], [cx - x_comp, cy - y_comp]])]
-    if lado_texto == "der":
+    if not nombre:
+        return els
+    if lado_texto == "arriba":
+        els.append(texto(nombre, cx - 130, cy - R_BOLA - 24, 260, 13))
+    elif lado_texto == "der":
         els.append(texto(nombre, cx + R_BOLA + 8, cy - 8, 220, 13, align="left"))
     else:
         els.append(texto(nombre, cx - R_BOLA - 228, cy - 8, 220, 13, align="right"))
+    return els
+
+
+def componente_uml(x, y, w, h, nombre, ids):
+    """Componente como lo dibuja ella (captura 33): «component» arriba,
+    icono a la derecha, nombre centrado, y los ids del caso debajo."""
+    els = [_rect(x, y, w, h, "#ffffff")]
+    ix, iy = x + w - 26, y + 8
+    els += [_rect(ix, iy, 14, 16, "#ffffff"), _rect(ix - 5, iy + 3, 10, 4, "#ffffff"),
+            _rect(ix - 5, iy + 9, 10, 4, "#ffffff")]
+    els += [texto("\u00abcomponent\u00bb", x + 6, y + 12, w - 40, 11),
+            texto(nombre, x + 6, y + h / 2 - 12, w - 12, 14),
+            texto(ids, x + 6, y + h - 26, w - 12, 10)]
     return els
 
 
@@ -2310,36 +2329,36 @@ def componentes_farmahosp():
                  "semicírculo abrazando al círculo = ENSAMBLE · separados, la punteada va del semicírculo "
                  "al círculo (captura 31) · quien depende va arriba.",
                  40, 44, 2200, 13, align="left", _halo=False)]
-    C = componente
+    C = componente_uml
     # --- grupo
     els.append(_rect(20, 270, 1420, 1000, "#f7f7f7", punteado=True))
     els.append(texto("Servicios de negocio (SOA) — uno por proceso CDU-01..07", 1000, 244, 440, 13,
                      align="left", _halo=False))
     # --- clientes (y=110..200)
-    els += C(60, 110, 260, 90, "PortalWeb\n(Angular · médico, director, jefe FV)")
-    els += C(420, 110, 260, 90, "AppFarmacia\n(offline-first · RE-16)")
-    els += C(780, 110, 260, 90, "AppEnfermeria\n(Toughpad · RE-14)")
-    els += C(1900, 110, 260, 90, "GatewayIoT\n(cámaras · RF-05)")
+    els += C(60, 110, 260, 90, "PortalWeb", "Angular · médico, director, jefe FV")
+    els += C(420, 110, 260, 90, "AppFarmacia", "offline-first · RE-16")
+    els += C(780, 110, 260, 90, "AppEnfermeria", "Toughpad · RE-14")
+    els += C(1900, 110, 260, 90, "GatewayIoT", "cámaras · RF-05")
     # --- fila 2 (y=360..450)
-    els += C(60, 360, 260, 90, "SvcAuditoria\nCDU-07 · RF-33..37")
-    els += C(420, 360, 260, 90, "SvcSincronizacion\nAC-02 · RF-26")
-    els += C(780, 360, 260, 90, "SvcAdministracion\nCDU-05 · RF-23..27")
-    els += C(1900, 360, 260, 90, "PipelineTelemetria\nAC-08 · RF-05, RF-06")
+    els += C(60, 360, 260, 90, "SvcAuditoria", "CDU-07 · RF-33..37")
+    els += C(420, 360, 260, 90, "SvcSincronizacion", "AC-02 · RF-26")
+    els += C(780, 360, 260, 90, "SvcAdministracion", "CDU-05 · RF-23..27")
+    els += C(1900, 360, 260, 90, "PipelineTelemetria", "AC-08 · RF-05, RF-06")
     # --- fila 3 (y=620..710)
-    els += C(780, 620, 260, 90, "SvcDispensacion\nCDU-04 · RF-17..22")
-    els += C(1140, 620, 260, 90, "SvcFarmacovigilancia\nCDU-06 · RF-28..32")
+    els += C(780, 620, 260, 90, "SvcDispensacion", "CDU-04 · RF-17..22")
+    els += C(1140, 620, 260, 90, "SvcFarmacovigilancia", "CDU-06 · RF-28..32")
     # --- fila 4 (y=880..970)
-    els += C(780, 880, 260, 90, "SvcPrescripcion\nCDU-03 · RF-10..16")
+    els += C(780, 880, 260, 90, "SvcPrescripcion", "CDU-03 · RF-10..16")
     # --- fila 5 (y=1140..1230)
-    els += C(420, 1140, 260, 90, "SvcAdquisicion\nCDU-01 · RF-01..04")
-    els += C(780, 1140, 260, 90, "SvcInventario\nCDU-02 · RF-05..09 · RE-01")
+    els += C(420, 1140, 260, 90, "SvcAdquisicion", "CDU-01 · RF-01..04")
+    els += C(780, 1140, 260, 90, "SvcInventario", "CDU-02 · RF-05..09 · RE-01")
     # --- transversales
     els.append(texto("Servicios transversales — los usa todo el grupo", 1560, 244, 420, 13,
                      align="left", _halo=False))
-    els += C(1560, 360, 260, 90, "SvcIntegracion\nAC-06 · RF-29, RF-37")
-    els += C(1560, 620, 260, 90, "SvcNotificacion\nRF-07 · RF-31")
-    els += C(1560, 880, 260, 90, "SvcIdentidad\nRE-08 · AC-04")
-    els += C(1560, 1140, 260, 90, "BitacoraInmutable\nAC-03")
+    els += C(1560, 360, 260, 90, "SvcIntegracion", "AC-06 · RF-29, RF-37")
+    els += C(1560, 620, 260, 90, "SvcNotificacion", "RF-07 · RF-31")
+    els += C(1560, 880, 260, 90, "SvcIdentidad", "RE-08 · AC-04")
+    els += C(1560, 1140, 260, 90, "BitacoraInmutable", "AC-03")
 
     def ensamble(cx, y_consumidor, y_proveedor, nombre, x_comp=None):
         """Consumidor arriba, proveedor abajo, en el mismo eje."""
@@ -2356,7 +2375,8 @@ def componentes_farmahosp():
     els += ensamble(910, 710, 880, "IPrescripcion")       # SvcDispensacion
     els += ensamble(910, 970, 1140, "IInventario")        # SvcPrescripcion
     # IOrdenCompra: ensamble horizontal (Adquisición provee, Inventario requiere)
-    els += bola(736, 1185, 680, 1185, "IOrdenCompra", lado_texto="izq")
+    els += bola(736, 1185, 680, 1185, "")
+    els.append(texto("IOrdenCompra", 686, 1123, 100, 12))
     els += copa(736, 1185, "der", 780, 1185)
 
     # --- DEPENDENCIAS CON RECORRIDO: copa en el consumidor + punteada a la bola
@@ -2386,7 +2406,7 @@ def componentes_farmahosp():
     # --- el grupo requiere las cuatro interfaces transversales
     for y, n in [(405, "IAdmisiones · IReporteMSPAS"), (665, "INotificacion"),
                  (925, "IAutenticacion · IAutorizacion"), (1185, "IRegistroEvento")]:
-        els += bola(1504, y, 1560, y, n, lado_texto="izq")
+        els += bola(1504, y, 1560, y, n)
         els += ruta([(1440, y), (1490, y)], punteada=True)
 
     els.append(texto("Lectura: AppEnfermeria requiere IAdministracion e ISincronizacion · AppFarmacia requiere "

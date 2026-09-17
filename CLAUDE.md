@@ -776,6 +776,11 @@ comparten por git; el generador existe para crear diagramas nuevos o corregir lo
   virtualización (es el ejemplo del PDF Tema 5); componentes **dentro** del nodo; conexión **llena** con
   el protocolo como estereotipo; zonas **FrontEnd / BackEnd** punteadas y coloreadas (captura 58) y los
   externos en su propia zona.
+- **Componentes** (capturas_U2 30-33, releídas con zoom el 17/09): el **nombre de la interfaz va ARRIBA**
+  del símbolo; la interfaz se une a su componente con **línea llena**; en el **ensamble** la línea es
+  continua de un componente al otro con la **bola y el receptáculo en el medio**, y el **semicírculo va
+  del lado del consumidor** abrazando la bola; el componente lleva **`«component»` + ícono + nombre
+  centrado**. Separados, la punteada va **del semicírculo a la bola**. Detalle en `Interfaces de componentes`.
 - **Rótulos que se cruzan**: si varias conexiones entran por arriba de un nodo grande, el rótulo del nodo
   va a un costado (`cubo(..., rotulo=(x, ancho))`), si no las líneas atraviesan el texto.
 - **Carriles**: dos líneas en el mismo canal van a **20 px** de distancia, y una conexión que sale por

@@ -1,7 +1,7 @@
 ---
 tema: Modelado de arquitectura — diagramas UML
-fuente: "Presentación de clase — capturas_U2 (26, 27, 30, 31, 32, 33, 54). NÚCLEO. + PDF de clase «modelado-de-arquitectura-software. Diagrmas UML completo» (TEMA 5), pág. 2. NÚCLEO. Secciones marcadas COMPLEMENTO: conocimiento general de UML 2.x."
-fecha: 2026-09-15
+fuente: "Presentación de clase — capturas_U2 (26, 27, 30, 31, 32, 33, 54; 30-33 releídas con zoom el 2026-09-17 para reproducir la notación). NÚCLEO. + PDF de clase «modelado-de-arquitectura-software. Diagrmas UML completo» (TEMA 5), pág. 2. NÚCLEO. Secciones marcadas COMPLEMENTO: conocimiento general de UML 2.x."
+fecha: 2026-09-17
 ---
 
 # Interfaces de componentes
@@ -118,6 +118,23 @@ Los dos dibujos de la captura 31, leídos con zoom (los dos componentes llevan u
 |---|---|
 | Arriba | `ControlEstudiante` con el **círculo** y `ControlCursos` con el **semicírculo** abrazándolo: el **ensamble** — `ControlEstudiante` provee, `ControlCursos` requiere |
 | Abajo | Los mismos símbolos **separados**, unidos por una flecha **punteada** con punta abierta que sale del semicírculo de `ControlCursos` y apunta al círculo de `ControlEstudiante`: la **dependencia** del que requiere hacia el que provee |
+
+### Cómo se dibuja, para reproducirlo (verificado con zoom en 31, 32 y 33)
+
+Lo que hay que copiar si te piden el diagrama:
+
+| Regla | De dónde sale |
+|---|---|
+| El **nombre de la interfaz va ARRIBA del símbolo**, no al costado | capturas 32 (`INormalize`) y 33 (`AsignacionItem`, `Persona`, `Factura`) |
+| El símbolo se une al componente con una **línea llena**; en el ensamble la línea es **continua de un componente al otro**, con el símbolo **en el medio** | capturas 31 (fila de arriba) y 32 (*Iconic form*) |
+| El **semicírculo va del lado del consumidor** y su parte convexa mira **hacia su propio componente**: la concavidad abraza la bola | capturas 31, 32 y 33 |
+| El componente se dibuja con **`«component»` arriba**, el **ícono** en la esquina superior derecha y el **nombre centrado** | captura 33 |
+| Un mismo componente puede llevar **provistas de un lado y requeridas del otro** (y una hacia abajo) | captura 33: `AsignacionItem` y `Seguimiento` a la izquierda; `Persona` y `Factura` a la derecha; `ItemPedido` abajo |
+
+> [!warning] El error que cometí al dibujar la lámina de FarmaHosp
+> Puse el nombre de cada interfaz **a la derecha** del símbolo y dibujé los componentes sin el
+> estereotipo `«component»`. Las dos cosas se corrigieron; la lámina está en
+> `02-Diagramas/6-bloques-despliegue/componentes-farmahosp.svg`.
 
 > [!note] La diapositiva no rotula cuál es "icónica" y cuál "expandida"
 > Los dos dibujos de la captura 31 usan círculo y semicírculo. La distinción **rotulada** está en la
