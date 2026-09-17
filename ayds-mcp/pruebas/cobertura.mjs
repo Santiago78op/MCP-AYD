@@ -135,6 +135,11 @@ const CASOS = [
   ["glosario", { termino: "sincrono" }, "correspondencia temporal"],
   ["obtener_flashcards", { tema: "Flujo de datos" }, "?"],
 
+  // --- Tarea 2 FarmaHosp (2026-09-17): estilo, bloques y despliegue
+  ["metodo_tarea", { entregable: "Entrega - Tarea 2 FarmaHosp" }, "Funcionamiento de la Arquitectura (SOA)"],
+  ["metodo_tarea", { entregable: "Avance - Tarea 2 FarmaHosp" }, "100 pts cubiertos"],
+  ["buscar", { consulta: "Servidor de virtualización VMware" }, "Entrega - Tarea 2"],
+
   ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
 
   // --- referencias y enunciado

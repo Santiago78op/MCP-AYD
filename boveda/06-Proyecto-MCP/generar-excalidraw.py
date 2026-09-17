@@ -334,9 +334,10 @@ def emitir_svg(elementos, margen=40):
             fill = e.get("backgroundColor", "transparent")
             fill = "none" if fill == "transparent" else fill
             rx = 12 if e.get("roundness") else 0
+            dash = ' stroke-dasharray="10 6"' if e.get("strokeStyle") == "dashed" else ""
             out.append(
                 f'<rect x="{x}" y="{y}" width="{ew}" height="{eh}" rx="{rx}" '
-                f'fill="{fill}" stroke="{TRAZO}" stroke-width="{gr}"/>')
+                f'fill="{fill}" stroke="{TRAZO}" stroke-width="{gr}"{dash}/>')
         elif t in ("line", "arrow"):
             (dx1, dy1), (dx2, dy2) = e["points"][0], e["points"][-1]
             ah = e.get("endArrowhead")
@@ -1975,6 +1976,281 @@ SUBCARPETA.update({
     "restricciones-sistema-smartpress": "examen/3.3-drivers-restriccion",
     "matriz-rf-cdu-smartpress": "examen/4-matrices-trazabilidad",
     "matriz-control-smartpress": "examen/4-matrices-trazabilidad",
+})
+
+
+# ==========================================================================
+# TAREA 2 — FarmaHosp (continuación): criterio 6, bloques y despliegue
+#
+# Datos copiados de `08-Tareas/Entrega - Tarea 2 FarmaHosp.md` §5 y §6.
+# Si cambia la Entrega, se cambia aca.
+# ==========================================================================
+def _rect(x, y, w, h, fondo="transparent", punteado=False, grosor=1, redondo=False):
+    kw = dict(backgroundColor=fondo, strokeWidth=grosor,
+              strokeStyle="dashed" if punteado else "solid")
+    if redondo:
+        kw["roundness"] = {"type": 3}
+    return _base("rectangle", x, y, w, h, **kw)
+
+
+def bloque(x, y, w, h, etiqueta, fondo="transparent", tam=13, punteado=False):
+    """Bloque del diagrama de alto nivel: rectangulo con el texto centrado."""
+    lineas = etiqueta.split("\n")
+    ty = y + h / 2 - (tam * 1.25 * len(lineas)) / 2
+    return [_rect(x, y, w, h, fondo, punteado, redondo=True),
+            texto(etiqueta, x + 6, int(ty), w - 12, tam, _halo=False)]
+
+
+def ruta(puntos, punta="arrow", punteada=False, etiqueta=None, pos=None, ancho=160, tam=11):
+    """Linea ortogonal por tramos; la punta va solo en el ultimo tramo."""
+    els = []
+    for i in range(len(puntos) - 1):
+        (x1, y1), (x2, y2) = puntos[i], puntos[i + 1]
+        ultimo = i == len(puntos) - 2
+        els.append(_base("arrow", x1, y1, x2 - x1, y2 - y1,
+                         points=[[0, 0], [x2 - x1, y2 - y1]],
+                         lastCommittedPoint=None, startBinding=None, endBinding=None,
+                         startArrowhead=None, endArrowhead=punta if ultimo else None,
+                         strokeStyle="dashed" if punteada else "solid", elbowed=False))
+    if etiqueta:
+        px, py = pos
+        n = len(etiqueta.split("\n"))
+        els.append(texto(etiqueta, int(px - ancho / 2), int(py - tam * 1.25 * n / 2), ancho, tam))
+    return els
+
+
+def cubo(x, y, w, h, estereotipo, nombre, d=20, fondo="transparent", tam=13, rotulo=None):
+    """Nodo UML: caja 3D. El frente ocupa (x, y+d) a (x+w-d, y+h).
+
+    rotulo=(tx, tw) ubica estereotipo y nombre alineados a la izquierda en ese
+    tramo, para que las conexiones que entran por arriba no crucen el texto."""
+    els = [_rect(x, y + d, w - d, h - d, fondo)]
+    for (x1, y1, x2, y2) in [(x, y + d, x + d, y), (x + d, y, x + w, y),
+                             (x + w, y, x + w - d, y + d), (x + w, y, x + w, y + h - d),
+                             (x + w, y + h - d, x + w - d, y + h)]:
+        els.append(_base("line", x1, y1, x2 - x1, y2 - y1, points=[[0, 0], [x2 - x1, y2 - y1]]))
+    if rotulo:
+        tx, tw = rotulo
+        els.append(texto(estereotipo, tx, y + d + 6, tw, 11, align="left", _halo=False))
+        els.append(texto(nombre, tx, y + d + 22, tw, tam, align="left", _halo=False))
+    else:
+        els.append(texto(estereotipo, x + 4, y + d + 6, w - d - 8, 11, _halo=False))
+        els.append(texto(nombre, x + 4, y + d + 22, w - d - 8, tam, _halo=False))
+    return els
+
+
+def componente(x, y, w, h, nombre, tam=12):
+    """Componente UML 2.x: rectangulo + icono de componente arriba a la derecha."""
+    els = [_rect(x, y, w, h, "#ffffff")]
+    ix, iy = x + w - 20, y + 6
+    els += [_rect(ix, iy, 12, 14, "#ffffff"), _rect(ix - 4, iy + 3, 8, 3, "#ffffff"),
+            _rect(ix - 4, iy + 8, 8, 3, "#ffffff")]
+    lineas = nombre.split("\n")
+    ty = y + h / 2 - (tam * 1.25 * len(lineas)) / 2 + 2
+    els.append(texto(nombre, x + 4, int(ty), w - 28, tam, _halo=False))
+    return els
+
+
+VERDE, NARANJA, GRIS, AMARILLO = "#e8f5e9", "#fff1e0", "#f1f1f1", "#fff8dc"
+
+
+def bloques_farmahosp():
+    els = [titulo("Diagrama de bloques de alto nivel — FarmaHosp", 40, 10, 1400),
+           texto("Estilo principal SOA (un servicio por proceso CDU-01..07) · cada servicio en capas · "
+                 "llamada y retorno (flechas llenas) · eventos (bus) · tuberías y filtros (telemetría). "
+                 "Entradas arriba, salidas a la derecha; toda flecha nombra lo que fluye.",
+                 40, 44, 2200, 13, align="left", _halo=False)]
+    # rotulos de banda (carril izquierdo)
+    for t, y in [("ENTRADAS", 96), ("ACCESO", 328), ("SERVICIOS\nDE NEGOCIO", 520),
+                 ("DATOS", 752), ("BUS", 898)]:
+        els.append(texto(t, 40, y, 90, 12, align="left", _halo=False))
+    # --- entradas
+    E = [(40, 240, "Sensores IoT de cámaras\n(vía Gateway IoT)"),
+         (340, 300, "Enfermería\nToughpad + escáner Bluetooth"),
+         (700, 300, "Farmacia (sótano)\nestación offline-first"),
+         (1060, 300, "Portal clínico y administrativo\nmédico · director · jefe FV"),
+         (1420, 300, "Paciente\nconsulta de trazabilidad QR")]
+    for x, w, t in E:
+        els += bloque(x, 120, w, 90, t, VERDE)
+    # --- acceso
+    els += bloque(340, 300, 1020, 80, "Balanceador y API Gateway\nreparte la carga y prioriza dispensación y administración (AC-05)", AMARILLO)
+    els += bloque(1420, 300, 300, 80, "Identidad y acceso\nLDAP + OTP · ABAC (RE-08, AC-04)", AMARILLO)
+    els += ruta([(490, 210), (490, 300)], etiqueta="HTTPS · sincroniza\nal volver (AC-02)", pos=(575, 255))
+    els += ruta([(850, 210), (850, 300)], etiqueta="HTTPS\nWi-Fi inestable", pos=(925, 255))
+    els += ruta([(1210, 210), (1210, 300)], etiqueta="HTTPS", pos=(1160, 255), ancho=80)
+    els += ruta([(1570, 210), (1570, 250), (1330, 250), (1330, 300)], etiqueta="Internet · HTTPS", pos=(1450, 232))
+    els += ruta([(1360, 340), (1420, 340)], etiqueta="token", pos=(1390, 326), ancho=50, tam=10)
+    # --- servicios de negocio (SOA)
+    els.append(_rect(340, 440, 1540, 190, "#f5f5f5"))
+    els.append(texto("Un servicio por proceso · cada servicio en capas: API → lógica de negocio → acceso a datos",
+                     360, 452, 1500, 13, align="left", _halo=False))
+    S = ["Adquisición\nCDU-01\nRF-01..04", "Almacenamiento\ne Inventario\nCDU-02 · RF-05..09",
+         "Prescripción\nCDU-03\nRF-10..16", "Dispensación\nCDU-04\nRF-17..22",
+         "Administración\nCDU-05\nRF-23..27", "Farmacovigilancia\nCDU-06\nRF-28..32",
+         "Auditoría y Tablero\nCDU-07\nRF-33..37", "Sincronización\noffline\nAC-02 · RF-26"]
+    for i, t in enumerate(S):
+        els += bloque(360 + i * 190, 500, 170, 110, t, "#ffffff")
+    els += ruta([(850, 380), (850, 440)], etiqueta="REST · llamada y retorno", pos=(960, 410), ancho=180)
+    # --- datos
+    els += bloque(340, 720, 380, 90, "Base transaccional PostgreSQL\ninventario con ACID (RE-01)")
+    els += bloque(780, 720, 360, 90, "Réplica en sitio alterno\ninformes y tablero (RF-33, RF-34)")
+    els += bloque(1200, 720, 320, 90, "Bitácora inmutable\nsolo inserción + hash (AC-03)")
+    els += bloque(1580, 720, 300, 90, "Caché Redis\nlecturas rápidas (AC-01, AC-05)")
+    els += ruta([(530, 630), (530, 720)], etiqueta="lee y escribe\n(JDBC)", pos=(615, 675), ancho=120)
+    els += ruta([(720, 765), (780, 765)])
+    els += ruta([(1360, 630), (1360, 720)], etiqueta="registra\ncada cambio", pos=(1440, 675), ancho=110)
+    els += ruta([(1730, 630), (1730, 720)], etiqueta="consulta", pos=(1680, 675), ancho=80)
+    els.append(texto("replicación", 700, 812, 100, 11))
+    # --- bus
+    els += bloque(340, 880, 1540, 60, "BUS DE EVENTOS (RabbitMQ · AMQP) — asíncrono: absorbe el pico del lunes (AC-05) "
+                  "y guarda lo que no puede entregarse (AC-06)", "#fdf3c4")
+    els += ruta([(1170, 630), (1170, 880)], punta=None)
+    els += ruta([(1550, 630), (1550, 880)], punta=None)
+    els.append(texto("publican y consumen eventos", 1180, 842, 360, 11))
+    # --- soporte
+    els.append(_rect(40, 1020, 860, 160, "#ffffff", redondo=True))
+    els.append(texto("Pipeline de telemetría — TUBERÍAS Y FILTROS (AC-08 · RF-05 · RF-06)",
+                     220, 1034, 660, 13, align="left", _halo=False))
+    F = ["Recibir", "Validar", "Sellar\n(hash encadenado)", "Detectar\nruptura", "Publicar\nevento"]
+    for i, t in enumerate(F):
+        els += bloque(60 + i * 170, 1090, 140, 60, t, "#ffffff", tam=12)
+        if i < 4:
+            els += ruta([(200 + i * 170, 1120), (230 + i * 170, 1120)])
+    els += ruta([(130, 210), (130, 1090)], etiqueta="lecturas cada\n5 min · MQTT", pos=(195, 640), ancho=120)
+    els += ruta([(810, 1090), (810, 940)], etiqueta="publica: ruptura\nde cadena de frío", pos=(700, 978), ancho=150)
+    els += bloque(960, 1020, 420, 160, "Notificaciones\nSMS · WhatsApp · correo\n(RF-07, RF-31)", "#ffffff")
+    els += bloque(1440, 1020, 440, 160, "Integración — adaptadores\nlegacy SOAP · MSPAS XML/DTD · HL7 FHIR\n"
+                  "cola «guardar y reenviar» (AC-06)", "#ffffff")
+    els += ruta([(1170, 940), (1170, 1020)], etiqueta="alertas y\nrecordatorios", pos=(1255, 980), ancho=120)
+    els += ruta([(1660, 940), (1660, 1020)], etiqueta="reportes y\nconsultas", pos=(1735, 980), ancho=100)
+    # --- salidas: sistemas externos
+    els.append(texto("SALIDAS — sistemas externos", 2020, 270, 300, 12, align="left", _halo=False))
+    els += bloque(2020, 300, 280, 80, "Directorio activo LDAP", GRIS)
+    els += ruta([(1720, 340), (2020, 340)], etiqueta="LDAPS · OTP por SMS\nsi LDAP cae (RE-08)", pos=(1870, 316), ancho=170)
+    els += bloque(2020, 1000, 280, 50, "Nube pública (analítica)", GRIS)
+    els += bloque(2020, 1070, 280, 50, "Legacy de admisiones", GRIS)
+    els += bloque(2020, 1140, 280, 50, "Sistema nacional MSPAS", GRIS)
+    els += bloque(2020, 1240, 280, 60, "Pasarela SMS / WhatsApp", GRIS)
+    els += ruta([(1880, 1030), (2020, 1030)], etiqueta="solo anonimizado", pos=(1950, 1016), ancho=140)
+    els += ruta([(1880, 1095), (2020, 1095)], etiqueta="SOAP · 7-17 h", pos=(1950, 1081), ancho=140)
+    els += ruta([(1880, 1165), (2020, 1165)], etiqueta="XML/DTD · 8-16 h", pos=(1950, 1151), ancho=140)
+    els += ruta([(1170, 1180), (1170, 1270), (2020, 1270)], etiqueta="mensajes de notificación", pos=(1600, 1256), ancho=200)
+    els.append(texto("Verde: entradas (usuarios y dispositivos) · Amarillo: acceso · Gris: sistemas externos · "
+                     "Flecha llena: llamada y retorno síncrona · Bus: eventos asíncronos · "
+                     "Todo lo sensible reside en el data center local (RE-02).",
+                     40, 1330, 1900, 12, align="left", _halo=False))
+    return els
+
+
+def despliegue_farmahosp():
+    els = [titulo("Diagrama de despliegue (distribución) — FarmaHosp", 40, 10, 1400),
+           texto("Nodo = cubo · «device» = hardware · «executionEnvironment» = software, siempre dentro de un "
+                 "dispositivo (una máquina virtual) · componentes dentro del nodo que los ejecuta · "
+                 "conexión = línea llena con el protocolo como estereotipo.",
+                 40, 44, 2250, 13, align="left", _halo=False)]
+    # --- zonas (detras de todo), como la captura 58
+    els.append(_rect(20, 80, 1900, 500, VERDE, punteado=True))
+    els.append(texto("FrontEnd — clientes y dispositivos", 30, 88, 400, 13, align="left", _halo=False))
+    els.append(_rect(20, 600, 1900, 860, NARANJA, punteado=True))
+    els.append(texto("BackEnd — hospital", 30, 1432, 400, 13, align="left", _halo=False))
+    els.append(_rect(1980, 600, 330, 860, GRIS, punteado=True))
+    els.append(texto("Sistemas externos", 1990, 1432, 300, 13, align="left", _halo=False))
+    # --- clientes
+    els += cubo(40, 120, 400, 250, "«device»", "Toughpad Panasonic (Android 9 · 3 GB)")
+    els += cubo(60, 190, 340, 170, "«executionEnvironment»", "Android 9", d=12)
+    for i, t in enumerate(["App de\nEnfermería", "Validación\nlocal (AC-01)", "BD local cifrada\n(SQLite)", "Bandeja de\nsincronización"]):
+        els += componente(75 + (i % 2) * 160, 250 + (i // 2) * 55, 150, 48, t, 11)
+    els += cubo(40, 420, 220, 110, "«device»", "Escáner Bluetooth\n(5 % de fallo)")
+    els += ruta([(140, 370), (140, 420)], punta=None, etiqueta="«Bluetooth»", pos=(210, 395), ancho=100)
+    els += cubo(480, 120, 400, 250, "«device»", "Estación de farmacia (sótano)")
+    els += cubo(500, 190, 340, 170, "«executionEnvironment»", "Navegador", d=12)
+    for i, t in enumerate(["App de Farmacia\n(offline-first)", "BD local\n(IndexedDB)", "Bandeja de\nsincronización"]):
+        els += componente(515 + (i % 2) * 160, 250 + (i // 2) * 55, 150, 48, t, 11)
+    els += cubo(500, 420, 200, 90, "«device»", "Impresora de etiquetas")
+    els += ruta([(600, 370), (600, 420)], punta=None, etiqueta="«USB»", pos=(650, 395), ancho=60)
+    els += cubo(920, 120, 320, 200, "«device»", "PC clínica y administrativa")
+    els += cubo(940, 190, 260, 120, "«executionEnvironment»", "Navegador", d=12)
+    els += componente(960, 250, 200, 48, "Portal web\n(Angular)", 11)
+    els += cubo(1280, 120, 300, 200, "«device»", "Smartphone del paciente")
+    els += cubo(1300, 190, 240, 120, "«executionEnvironment»", "Navegador", d=12)
+    els += componente(1320, 250, 180, 48, "Consulta QR\n(RF-32)", 11)
+    els += cubo(1640, 110, 240, 100, "«device»", "Sensores IoT de cámaras")
+    els += cubo(1640, 290, 240, 150, "«device»", "Gateway IoT")
+    els += componente(1660, 360, 180, 48, "Buffer local\n(guardar y reenviar)", 11)
+    els += ruta([(1760, 210), (1760, 290)], punta=None, etiqueta="«MQTT»", pos=(1820, 250), ancho=70)
+    # --- data center principal
+    els += cubo(300, 620, 1580, 580, "«device»",
+                "Servidor de virtualización VMware — data center principal\n32 vCPU · 128 GB RAM · SAN 10 TB",
+                rotulo=(1100, 640))
+    els += cubo(340, 700, 360, 130, "«executionEnvironment»", "VM-05/06 Identidad · 1 vCPU · 4 GB c/u", d=12, tam=12)
+    els += componente(360, 760, 150, 50, "Keycloak\nLDAP + OTP", 11)
+    els += componente(530, 760, 150, 50, "Autorización\nABAC", 11)
+    els += cubo(740, 700, 360, 130, "«executionEnvironment»", "VM-01/02 Nginx · 1 vCPU · 2 GB c/u", d=12, tam=12)
+    els += componente(760, 760, 310, 50, "Balanceo y prioridad de tráfico\n(AC-05)", 11)
+    els += cubo(1140, 700, 260, 130, "«executionEnvironment»", "VM-09 · 1 vCPU · 8 GB", d=12, tam=12)
+    els += componente(1160, 760, 210, 50, "Caché Redis", 11)
+    els += cubo(1440, 700, 260, 130, "«executionEnvironment»", "VM-11 · 1 vCPU · 4 GB", d=12, tam=12)
+    els += componente(1460, 760, 210, 50, "Observabilidad\nPrometheus + Grafana", 11)
+    els += cubo(340, 880, 660, 300, "«executionEnvironment»", "VM-03/04 Servidor de aplicaciones (JRE 17) · 5 vCPU · 14 GB c/u",
+                d=12, tam=12)
+    SV = ["Adquisición", "Almacenamiento\ne Inventario", "Prescripción", "Dispensación",
+          "Administración", "Farmacovigilancia", "Auditoría y\nTablero", "Sincronización\noffline"]
+    for i, t in enumerate(SV):
+        els += componente(355 + (i % 4) * 155, 950 + (i // 4) * 105, 145, 70, t, 11)
+    els += cubo(1040, 880, 300, 300, "«executionEnvironment»", "VM-10 PostgreSQL 16 · 8 vCPU · 48 GB", d=12, tam=12)
+    els += componente(1060, 960, 250, 60, "BD transaccional\n(ACID · RE-01)", 11)
+    els += componente(1060, 1060, 250, 60, "Bitácora inmutable\n(solo inserción · AC-03)", 11)
+    els += cubo(1380, 880, 460, 300, "«executionEnvironment»", "VM-07/08 Integración y eventos · 2 vCPU · 8 GB c/u",
+                d=12, tam=12)
+    for i, t in enumerate(["Bus de eventos\n(RabbitMQ)", "Pipeline de\ntelemetría", "Integración\nSOAP · XML/DTD · FHIR", "Notificaciones\nSMS · WhatsApp · correo"]):
+        els += componente(1395 + (i % 2) * 215, 960 + (i // 2) * 100, 200, 70, t, 11)
+    # conexiones de los clientes al balanceador
+    els += ruta([(320, 370), (320, 540), (780, 540), (780, 700)], punta=None, etiqueta="«wifi · HTTPS»", pos=(430, 526), ancho=120)
+    els += ruta([(820, 370), (820, 520), (860, 520), (860, 700)], punta=None, etiqueta="«wifi inestable · HTTPS»", pos=(990, 506), ancho=170)
+    els += ruta([(940, 320), (940, 700)], punta=None, etiqueta="«Ethernet 1 Gbps\n· HTTPS»", pos=(1010, 420), ancho=120)
+    els += ruta([(1400, 320), (1400, 560), (1020, 560), (1020, 700)], punta=None, etiqueta="«Internet · HTTPS»", pos=(1200, 546), ancho=140)
+    els += ruta([(1760, 440), (1760, 850), (1600, 850), (1600, 880)], punta=None, etiqueta="«MQTT / TLS»", pos=(1820, 560), ancho=100)
+    # conexiones dentro del data center
+    els += ruta([(740, 765), (700, 765)], punta=None)
+    els += ruta([(900, 830), (900, 880)], punta=None, etiqueta="«HTTP»", pos=(940, 855), ancho=60)
+    els += ruta([(520, 830), (520, 880)], punta=None, etiqueta="«OIDC»", pos=(560, 855), ancho=60)
+    els += ruta([(980, 880), (980, 845), (1270, 845), (1270, 830)], punta=None)
+    els.append(texto("«TCP»", 1180, 822, 60, 11))
+    els += ruta([(990, 880), (990, 865), (1420, 865), (1420, 880)], punta=None)
+    els.append(texto("«AMQP»", 1290, 868, 70, 11))
+    els += ruta([(1000, 1030), (1040, 1030)], punta=None)
+    els.append(texto("«JDBC»", 990, 1036, 60, 11))
+    els += ruta([(1380, 1030), (1340, 1030)], punta=None)
+    els.append(texto("«JDBC»", 1330, 1036, 60, 11))
+    # LDAP a la izquierda del data center
+    els += cubo(40, 700, 220, 110, "«device»", "Directorio activo\nLDAP")
+    els += ruta([(260, 765), (340, 765)], punta=None, etiqueta="«LDAPS»", pos=(300, 750), ancho=70)
+    # sitio alterno
+    els += cubo(1040, 1240, 420, 200, "«device»", "Servidor de respaldo — sitio alterno")
+    els += cubo(1060, 1310, 380, 120, "«executionEnvironment»", "VM PostgreSQL réplica", d=12, tam=12)
+    els += componente(1080, 1370, 330, 44, "Réplica de lectura (informes y tablero)", 11)
+    els += ruta([(1190, 1180), (1190, 1240)], punta=None, etiqueta="«replicación streaming · TCP»", pos=(1330, 1212), ancho=210)
+    # externos
+    X = [("Legacy de admisiones · COBOL · 7-17 h", "«SOAP · HTTPS»"),
+         ("Sistema nacional MSPAS (farmacovigilancia)", "«HTTPS · XML/DTD»"),
+         ("Pasarela SMS / WhatsApp", "«HTTPS · API»"),
+         ("Nube pública · analítica anonimizada", "«HTTPS · anonimizado»")]
+    for i, (t, proto) in enumerate(X):
+        y = 880 + i * 78
+        els += cubo(2000, y, 300, 66, "«device»", t, d=14, tam=11)
+        yc = y + 44
+        els += ruta([(1840, yc), (2000, yc)], punta=None)
+        els.append(texto(proto, 1845, yc - 16, 150, 10))
+    return els
+
+
+DIAGRAMAS.update({
+    "bloques-farmahosp": bloques_farmahosp,
+    "despliegue-farmahosp": despliegue_farmahosp,
+})
+SUBCARPETA.update({
+    "bloques-farmahosp": "6-bloques-despliegue",
+    "despliegue-farmahosp": "6-bloques-despliegue",
 })
 
 

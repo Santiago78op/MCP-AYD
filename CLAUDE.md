@@ -477,6 +477,27 @@ del negocio son **cinco** — paciente, proveedor de MAC, MSPAS, Contraloría y 
 La consultora y la Junta Directiva son stakeholders, **no actores**: no interactúan con el negocio en
 operación.
 
+### La Tarea 2 (continuación del caso) — entrega 18/09/2026
+
+La rúbrica **repite los criterios 1-4** de la Tarea 1 con otros pesos (20/10/20/10) y **agrega el 5
+(estilo y justificación, 10 pts) y el 6 (bloques y despliegue, 30 pts)**. El estado vive en
+**`metodo_tarea("Avance - Tarea 2 FarmaHosp")`** y el entregable en **`Entrega - Tarea 2 FarmaHosp`**
+(que manda sobre el Avance). Modo elegido por él: **resolver y explicar**; la hace **solo**.
+
+Doctrina de esa entrega, para no volver a discutirla sin evidencia nueva:
+
+- **Criterios 1-4 no se rehacen**: se reutiliza la Entrega del Caso 1; lo único que faltaba eran las
+  **descripciones textuales** de CDU-01..07 (plantilla *Atender pedido*), que ya están.
+- **Estilo principal SOA, un servicio por proceso CDU**: se justifica con la escalera de la captura 35
+  (*Define → Desarrolla procesos como Servicios → Cada Servicio evoluciona independientemente →
+  Distribuida multi-nivel*) y con `RE-05`/`RE-18`. Complementarios, cada uno con su driver: capas
+  (`AC-07`), llamada y retorno (`AC-01`), eventos (`AC-05`, `AC-06`), cliente-servidor offline-first
+  (`AC-02`), tuberías y filtros para telemetría (`AC-08`). Microservicios descartado por `AC-07`/`RE-13`.
+- **La réplica de lectura va en el sitio alterno**: la SAN de 10 TB no admite otra copia de 5 TB.
+  Las VM suman 28/32 vCPU y 116/128 GB — **las cuentas de hardware son parte del entregable**.
+- **Componentes dentro de los nodos** del despliegue (captura 57), no en lámina aparte; el diagrama de
+  componentes separado quedó como mejora opcional.
+
 **Dos decisiones tomadas que hay que respetar, no volver a discutir:**
 
 1. **El "Equipo de Desarrollo" del enunciado se separó en dos** (`STK-08` interno Java/Oracle y
@@ -747,6 +768,21 @@ el MCP `chrome-devtools`, que es la herramienta del paso 4):
 Las láminas del Caso 1 ya están versionadas en `boveda/02-Diagramas/` — las dos máquinas las
 comparten por git; el generador existe para crear diagramas nuevos o corregir los existentes.
 
+**Bloques y despliegue — lo aprendido al dibujar la Tarea 2** (láminas en `6-bloques-despliegue/`):
+
+- **Bloques**: entradas de un lado, salidas del otro, **toda flecha con lo que fluye**, bandas por nivel
+  (entradas, acceso, servicios, datos, bus, soporte, externos) y el driver entre paréntesis en cada bloque.
+- **Despliegue**: la **máquina virtual es `«executionEnvironment»`** dentro del `«device»` servidor de
+  virtualización (es el ejemplo del PDF Tema 5); componentes **dentro** del nodo; conexión **llena** con
+  el protocolo como estereotipo; zonas **FrontEnd / BackEnd** punteadas y coloreadas (captura 58) y los
+  externos en su propia zona.
+- **Rótulos que se cruzan**: si varias conexiones entran por arriba de un nodo grande, el rótulo del nodo
+  va a un costado (`cubo(..., rotulo=(x, ancho))`), si no las líneas atraviesan el texto.
+- **Carriles**: dos líneas en el mismo canal van a **20 px** de distancia, y una conexión que sale por
+  abajo (replicación) no puede compartir tramo con otra que rodea por abajo: se reubica una.
+- El generador tiene ahora `bloque`, `ruta` (ortogonal por tramos), `cubo` (nodo 3D) y `componente`,
+  y dibuja rectángulos punteados. Las láminas viejas no cambian un byte (verificado).
+
 **Antes de dibujar cualquier artefacto del curso, decidí en qué plano estás** — es el error que más
 invalida entregables:
 
@@ -873,8 +909,9 @@ boveda/
 ├── 02-Diagramas/                Lo generado. **Una carpeta por sección de la Entrega**
 │                                (2-caso-negocio, 3.1-drivers-rf, 3.2-drivers-calidad,
 │                                3.3-drivers-restriccion, 3.4-priorizacion,
-│                                4-matrices-trazabilidad) más ejemplos-clase, herramientas
-│                                y practica. Cada lámina: .excalidraw editable, .svg para
+│                                4-matrices-trazabilidad, 6-bloques-despliegue de la Tarea 2)
+│                                más ejemplos-clase, herramientas, practica, examen (1er parcial)
+│                                y "examen 2" (vacía: el día del 2do parcial todo va ahí). Cada lámina: .excalidraw editable, .svg para
 │                                entregar y -verificacion.png. El índice está en su README.md
 ├── 03-Glosario.md               Glosario alfabético
 ├── 04-Flashcards/               Tarjetas de repaso, un archivo por tema (contalas, no las cites de memoria)

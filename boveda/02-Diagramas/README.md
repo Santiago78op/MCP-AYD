@@ -18,6 +18,8 @@ cómo se llama el archivo.
 | `3.3-drivers-restriccion/` | §3.3 | 3 — restricciones | Las 8 explícitas y las 10 implícitas |
 | `3.4-priorizacion/` | §3.4 | 3 — los 5 más críticos | La matriz de dos ejes y el top 5 |
 | `4-matrices-trazabilidad/` | §4 | 4 — trazabilidad (20 pts) | Las tres matrices (la 2 en dos vistas) |
+| `6-bloques-despliegue/` | Tarea 2 §6 | 6 — bloques y despliegue (30 pts) | Diagrama de bloques de alto nivel y diagrama de despliegue con componentes dentro de los nodos (`Entrega - Tarea 2 FarmaHosp.md`) |
+| `examen 2/` | — | — | **Vacía a propósito: el día del segundo parcial (19/09) todo lo generado va acá**, una subcarpeta por sección |
 | `ejemplos-clase/` | — | — | Los casos que resolvió la catedrática y las demostraciones en otro dominio |
 | `herramientas/` | — | — | Evidencia sobre las herramientas (la marca de agua de StarUML) |
 | `practica/` | — | — | **Lo que dibuja Julián a mano.** Tiene su propio README y su convención de versiones |
