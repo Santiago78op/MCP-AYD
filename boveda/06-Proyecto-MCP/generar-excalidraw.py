@@ -225,21 +225,37 @@ def entidad(x, y, w, h, nombre, tam=14):
 def actor_negocio(x, y, nombre, tam=14):
     """Actor de NEGOCIO: monigote + barra diagonal + estereotipo textual.
 
-    La barra diagonal sobre el hombro es el icono UML de actor de negocio;
-    el estereotipo textual va arriba porque es el que siempre es valido.
+    NOTACION DE CLASE, verificada contra
+    `adjuntos/capturas-clase/cun-ejemplo-core-tienda-electronica.png`:
+    la diagonal **cruza la cabeza**, como una cuerda a 45 grados de abajo-izquierda
+    a arriba-derecha, y es de trazo GRUESO. Ver [[Convenios del diagrama de CUN]] \u00a71:
+    *"monigote con una barra diagonal cruzando la cabeza"*.
+
+    No va al costado del torso: ahi parece un brazo suelto y deja de leerse como
+    el estereotipo de negocio. (Era como estaba hasta el 2026-09-18.)
     """
     cx = x + 50
     partes = [texto("\u00abactor de negocio\u00bb", x - 30, y - 24, 160, 11)]
     partes += actor(x, y, nombre, tam)
-    # barra diagonal del icono de actor de negocio: al costado del torso,
-    # NO sobre la cabeza (ahi se encimaria, y el paso 1 del checklist lo prohibe)
-    partes.append(_base("line", cx - 38, y + 66, 26, -22,
-                        points=[[0, 0], [26, -22]]))
+    # cuerda a 45 grados por el centro de la cabeza: la cabeza es un circulo de
+    # radio 14 centrado en (cx, y+14), asi que la cuerda va de esquina a esquina
+    d = 14 / math.sqrt(2)          # 9.9 -> el diametro inclinado 45 grados
+    partes.append(_base("line", cx - d, y + 14 + d, 2 * d, -2 * d,
+                        points=[[0, 0], [2 * d, -2 * d]], strokeWidth=2))
     return partes
 
 
 def elipse_negocio(x, y, w, h, etiqueta, tam=16):
-    """Caso de uso de NEGOCIO: elipse + diagonal + estereotipo sobre el nombre."""
+    """Caso de uso de NEGOCIO: elipse + diagonal + estereotipo sobre el nombre.
+
+    NOTACION DE CLASE (misma captura): la diagonal va en el **borde derecho** y
+    **corta el contorno** \u2014 arranca dentro de la elipse, abajo, y sale por el
+    lado derecho. Ver [[Convenios del diagrama de CUN]] \u00a71: *"elipse con una barra
+    diagonal en el borde derecho"*.
+
+    No va adentro, abajo a la izquierda: ahi queda flotando y no se lee como
+    estereotipo. (Era como estaba hasta el 2026-09-18.)
+    """
     e = _base("ellipse", x, y, w, h)
     lineas = etiqueta.split("\n")
     alto_total = 13 * 1.25 + tam * 1.25 * len(lineas)
@@ -247,9 +263,14 @@ def elipse_negocio(x, y, w, h, etiqueta, tam=16):
     els = [e,
            texto("\u00abcaso de uso de negocio\u00bb", x, int(ty), w, 12),
            texto(etiqueta, x, int(ty + 17), w, tam)]
-    # diagonal del icono de negocio, en la esquina inferior izquierda
-    els.append(_base("line", x + w * 0.10, y + h * 0.80, 26, -20,
-                     points=[[0, 0], [26, -20]]))
+    # proporciones medidas sobre la lamina de la catedratica: la cuerda va de
+    # (0.53 rx, 0.67 ry) a (0.97 rx, -0.40 ry) respecto del centro, de modo que
+    # el extremo de arriba sale apenas del contorno derecho
+    cx, cy, rx, ry = x + w / 2, y + h / 2, w / 2, h / 2
+    x1, y1 = cx + 0.53 * rx, cy + 0.67 * ry
+    x2, y2 = cx + 0.99 * rx, cy - 0.40 * ry
+    els.append(_base("line", x1, y1, x2 - x1, y2 - y1,
+                     points=[[0, 0], [x2 - x1, y2 - y1]], strokeWidth=2))
     return els
 
 
@@ -493,6 +514,154 @@ def contexto_centro_salud():
 
 
 # --------------------------------------------------------------------------
+# BLOQUE 1.1 — Diagrama de contexto del SISTEMA
+#   Caso: FarmaHosp (Entrega §2.1). Reemplaza al render de StarUML, que traia
+#   marca de agua UNREGISTERED, rotulos encimados y texto sin tildes.
+#   Reglas (estilo-diagramas.md 8, BLOQUE 1.1):
+#     · El Producto como UNICA elipse al centro, sin interior
+#     · entidades y agentes en rectangulos; personas a los costados y sistemas
+#       externos arriba y abajo, para que sus flechas no se crucen
+#     · toda flecha con nombre en SUSTANTIVO; ida y vuelta = dos flechas
+#   27 streamlines: uno por sentido y por entidad, salvo los sensores IoT, que
+#   solo emiten (la tabla de §2.1 pone "-" en su columna de salida).
+# --------------------------------------------------------------------------
+CTX_CX, CTX_CY, CTX_RX, CTX_RY = 880, 600, 240, 140
+
+
+def _pe(ang):
+    """Punto sobre la elipse del producto, en grados de pantalla."""
+    a = math.radians(ang)
+    return (CTX_CX + CTX_RX * math.cos(a), CTX_CY + CTX_RY * math.sin(a))
+
+
+def _flujo(p1, p2, etiqueta, t=0.25, dx=0, dy=0, pos=None):
+    """Streamline con su rotulo colocado a la fraccion t del recorrido.
+
+    linea() centra el rotulo en el punto medio; acá se calcula el corrimiento
+    necesario para llevarlo a t, que es como se separan los rotulos de dos
+    flujos casi paralelos sin tocarse.
+
+    `pos` fija el centro del rotulo en coordenadas absolutas y tiene prioridad
+    sobre t: es lo que hace falta arriba y abajo, donde seis flechas convergen
+    en el mismo tramo y el corrimiento relativo las amontona (ya pasó: "Consulta
+    de identificacion" quedo encima de "Solicitud de autenticacion").
+    """
+    (x1, y1), (x2, y2) = p1, p2
+    mx, my = (x1 + x2) / 2.0, (y1 + y2) / 2.0
+    if pos is not None:
+        lx, ly = pos
+    else:
+        lx, ly = x1 + (x2 - x1) * t + dx, y1 + (y2 - y1) * t + dy
+    return linea(int(x1), int(y1), int(x2), int(y2), punta="arrow",
+                 etiqueta=etiqueta, off=(lx - mx, ly - my))
+
+
+def contexto_farmahosp():
+    els = []
+
+    # --- El Producto: la unica elipse
+    els += elipse(CTX_CX - CTX_RX, CTX_CY - CTX_RY, CTX_RX * 2, CTX_RY * 2,
+                  "Sistema Integral de Gestión\nde Medicamentos de Alto\nCosto — FarmaHosp")
+
+    # =====================================================================
+    # IZQUIERDA — los cuatro que usan el sistema en la atencion del paciente
+    # =====================================================================
+    XI, WI = 40, 270
+    izq = [
+        (240, "Médico tratante",
+         "Prescripción médica", 214,
+         "Alerta de interacción\ny disponibilidad", 222),
+        (460, "Farmacéutico clínico",
+         "Confirmación de\ndispensación", 192,
+         "Orden de dispensación\ny etiqueta QR", 200),
+        (740, "Enfermero de piso",
+         "Registro de\nadministración", 160,
+         "Validación\npaciente-medicamento", 168),
+        (960, "Paciente",
+         "Consulta de\ntrazabilidad QR", 138,
+         "Recordatorio de\npróxima dosis", 146),
+    ]
+    for y, nombre, etq_out, ang_out, etq_in, ang_in in izq:
+        els += entidad(XI, y, WI, 70, nombre)
+        borde = XI + WI + 2
+        cy = y + 35
+        els += _flujo((borde, cy + 26), _pe(ang_out), etq_out, t=0.26)
+        els += _flujo(_pe(ang_in), (borde, cy - 26), etq_in, t=0.26)
+
+    # =====================================================================
+    # DERECHA — los que deciden, abastecen y auditan
+    # =====================================================================
+    XD, WD = 1450, 270
+    der = [
+        (240, "Director Administrativo",
+         "Autorización de\norden de compra", 322,
+         "Tablero de costos\ny desperdicio", 330),
+        (460, "Jefe de\nFarmacovigilancia",
+         "Seguimiento\nfarmacoterapéutico", 348,
+         "Alerta de patrón de\nefectos adversos", 340),
+        (740, "Proveedor de MAC",
+         "Lote, vencimiento\ny factura", 20,
+         "Orden de compra", 12),
+        (960, "Contraloría General\nde Cuentas",
+         "Solicitud de\nauditoría de lote", 42,
+         "Informe forense\nde trazabilidad", 34),
+    ]
+    for y, nombre, etq_out, ang_out, etq_in, ang_in in der:
+        els += entidad(XD, y, WD, 70, nombre)
+        borde = XD - 2
+        cy = y + 35
+        els += _flujo((borde, cy + 26), _pe(ang_out), etq_out, t=0.26)
+        els += _flujo(_pe(ang_in), (borde, cy - 26), etq_in, t=0.26)
+
+    # =====================================================================
+    # ARRIBA — el agente y los dos sistemas externos de consulta
+    # =====================================================================
+    # Los rotulos van en DOS RENGLONES escalonados (y=210 y y=330) para que dos
+    # vecinos nunca compartan renglon: es lo que evita el amontonamiento.
+    YA, HA, WA = 40, 70, 250
+    els += entidad(430, YA, WA, HA, "Sensores IoT\nde cámaras")
+    els += _flujo((555, YA + HA + 2), _pe(244),
+                  "Lecturas de temperatura\ny humedad", pos=(600, 330))
+
+    els += entidad(780, YA, WA, HA, "Sistema legacy\nde admisiones")
+    els += _flujo((870, YA + HA + 2), _pe(263),
+                  "Datos demográficos\ndel paciente", pos=(790, 210))
+    els += _flujo(_pe(277), (940, YA + HA + 2),
+                  "Consulta de\nidentificación", pos=(1000, 330))
+
+    els += entidad(1130, YA, WA, HA, "Directorio activo\nLDAP")
+    els += _flujo(_pe(296), (1210, YA + HA + 2),
+                  "Solicitud de\nautenticación", pos=(1120, 210))
+    els += _flujo((1280, YA + HA + 2), _pe(302),
+                  "Credenciales\nvalidadas", pos=(1265, 280))
+
+    # =====================================================================
+    # ABAJO — los tres sistemas externos de salida
+    # =====================================================================
+    # Mismo criterio: renglones y=900 y y=1030.
+    YB, HB, WB = 1160, 70, 250
+    els += entidad(430, YB, WB, HB, "Sistema nacional de\nfarmacovigilancia")
+    els += _flujo(_pe(118), (515, YB - 2),
+                  "Reporte de efecto\nadverso XML/DTD", pos=(580, 900))
+    els += _flujo((585, YB - 2), _pe(112),
+                  "Alerta nacional\nde retiro de lote", pos=(760, 1030))
+
+    els += entidad(780, YB, WB, HB, "Pasarela\nSMS / WhatsApp")
+    els += _flujo(_pe(97), (870, YB - 2),
+                  "Mensaje de\nnotificación", pos=(950, 900))
+    els += _flujo((940, YB - 2), _pe(83),
+                  "Acuse de entrega\ndel mensaje", pos=(1060, 1030))
+
+    els += entidad(1130, YB, WB, HB, "Operaciones de TI\n/ data center")
+    els += _flujo(_pe(62), (1210, YB - 2),
+                  "Métricas y alertas\nde operación", pos=(1180, 900))
+    els += _flujo((1280, YB - 2), _pe(56),
+                  "Parámetros\nde operación", pos=(1330, 1030))
+
+    return els
+
+
+# --------------------------------------------------------------------------
 # BLOQUE 1.2 — CDU de alto nivel: el CORE del negocio
 #   Reglas (estilo-diagramas.md 8, BLOQUE 1.2):
 #     · estereotipos DE NEGOCIO en todos los elementos
@@ -592,7 +761,10 @@ def cdu_descomposicion_farmahosp():
 
     # categorias de la NT, como rotulos de zona a la izquierda de la columna
     els.append(texto("SOPORTE", 330, ys[0] + 100, 80, 12))
-    els.append(texto("NÚCLEO", 330, ys[3] + 40, 80, 12))
+    # NUCLEO va en el HUECO entre elipses, no a media altura de una: a la altura
+    # del centro de Dispensacion pasa la asociacion horizontal desde Paciente y
+    # la atravesaba (checklist 7, paso 1)
+    els.append(texto("NÚCLEO", 330, ys[2] + 20, 80, 12))
     els.append(texto("GERENCIAL", 320, ys[6] + 35, 100, 12))
 
     # actores: el mismo juego del core, a los lados
@@ -1248,6 +1420,7 @@ DIAGRAMAS = {
     "cdu-hospital": cdu_hospital,
     "contexto-centro-salud": contexto_centro_salud,
     "cdu-negocio-centro-salud": cdu_negocio_centro_salud,
+    "contexto-farmahosp": contexto_farmahosp,
     "cdu-core-farmahosp": cdu_core_farmahosp,
     "cdu-descomposicion-farmahosp": cdu_descomposicion_farmahosp,
     "cdu-expandido-prescripcion": cdu_expandido_prescripcion,
@@ -1269,6 +1442,7 @@ DIAGRAMAS.update({f"ficha-{k}": _ficha(k) for k in FICHAS_CALIDAD})
 # porque no son del caso.
 SUBCARPETA = {
     # §2 — el caso de negocio (criterio 1)
+    "contexto-farmahosp": "2-caso-negocio",
     "cdu-core-farmahosp": "2-caso-negocio",
     "cdu-descomposicion-farmahosp": "2-caso-negocio",
     # §3.1 — drivers RF (CDU expandidos)
@@ -1330,6 +1504,11 @@ def _refrescar_uno(base):
     # pierde tiempo decidiendo donde guardar
     for carpeta in sorted(set(SUBCARPETA.values())):
         if carpeta == "ejemplos-clase":
+            continue
+        # Algunas laminas ya viven DENTRO de un destino (contexto-smartpress esta
+        # en "examen/2-caso-negocio"). Espejarlas otra vez crearia examen/examen/
+        # y practica/examen/, que son carpetas vacias sin sentido.
+        if carpeta.split("/")[0] in DESTINOS:
             continue
         propia = os.path.join(raiz, carpeta)
         os.makedirs(propia, exist_ok=True)

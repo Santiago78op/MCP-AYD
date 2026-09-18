@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 540" width="1600" height="540" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1600" height="540" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Drivers de restricción — DE SISTEMA (interacción con otros sistemas)</text>
+<text x="40" y="88.61" font-size="13" fill="#1e1e1e" text-anchor="start">Las restricciones NO se priorizan: todas son obligatorias, y ninguna lleva medida (se cumple o no se cumple).</text>
+<text x="40" y="104.86" font-size="13" fill="#1e1e1e" text-anchor="start">Clasificadas en las TRES categorías que pide el enunciado — Técnicas, de Negocio y de Sistema —, no en las seis de clase. La última columna es la que las convierte en driver.</text>
+<rect x="40" y="140" width="110" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">ID</text>
+<rect x="150" y="140" width="640" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Restricción</text>
+<rect x="790" y="140" width="250" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Origen</text>
+<rect x="1040" y="140" width="520" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Qué decisión bloquea</text>
+<rect x="40" y="200" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-S01</text>
+<rect x="150" y="200" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Integración con el ERP legacy (Oracle Forms) por API REST lenta: 1-2 s de respuesta</text>
+<rect x="790" y="200" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Expectativa 8 del cliente</text>
+<rect x="1040" y="200" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Prohíbe consultar el ERP dentro del lazo de tiempo real: obliga a caché</text>
+<rect x="40" y="260" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-S02</text>
+<rect x="150" y="260" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">Integración con el sistema de mantenimiento legacy, con la misma limitación</text>
+<rect x="790" y="260" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">Expectativa 8 del cliente</text>
+<rect x="1040" y="260" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">Obliga a sincronización asincrónica de la programación de mantenimiento</text>
+<rect x="40" y="320" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-S03</text>
+<rect x="150" y="320" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Integración con 25 PLC simultaneos vía OPC-UA, en lectura y escritura</text>
+<rect x="790" y="320" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Infraestructura de planta</text>
+<rect x="1040" y="320" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Define la topología de conectores en el borde, uno por máquina</text>
+<rect x="40" y="380" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-S04</text>
+<rect x="150" y="380" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Integración con el CMM: inspección destructiva, 3 min por pieza, solo el 5% de las piezas</text>
+<rect x="790" y="380" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Etapa 4 del proceso</text>
+<rect x="1040" y="380" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="405.61" font-size="13" fill="#1e1e1e" text-anchor="start">El reentrenamiento solo dispone del 5% etiquetado: condiciona el diseño</text>
+<text x="1052" y="421.86" font-size="13" fill="#1e1e1e" text-anchor="start">del modelo</text>
+<rect x="40" y="440" width="110" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">RES-S05</text>
+<rect x="150" y="440" width="640" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="162" y="465.61" font-size="13" fill="#1e1e1e" text-anchor="start">El código QR es el contrato de trazabilidad con el cliente: su contenido y verificación son</text>
+<text x="162" y="481.86" font-size="13" fill="#1e1e1e" text-anchor="start">externos</text>
+<rect x="790" y="440" width="250" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="802" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Etapa 5 del proceso</text>
+<rect x="1040" y="440" width="520" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1052" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Fija el formato del expediente por pieza como interfaz pública</text>
+</svg>

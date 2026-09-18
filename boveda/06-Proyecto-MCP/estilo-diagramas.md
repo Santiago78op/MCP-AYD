@@ -163,6 +163,32 @@ Igual que 3.1, más los **convenios de clase** de [[Convenios del diagrama de CU
   es **un solo diagrama** con los N procesos como CUN y **el mismo juego de actores** del core.
 - Cada CUN corresponde a **un proceso de negocio**, no a una función.
 
+#### Dónde va la barra diagonal — el estereotipo de negocio
+
+Es lo que distingue un CUN de un caso de uso **del sistema**, así que mal puesta invalida el
+artefacto. La referencia es **su** lámina, `adjuntos/capturas-clase/cun-ejemplo-core-tienda-electronica.png`,
+y la regla textual de [[Convenios del diagrama de CUN]] §1:
+
+| Elemento | Dónde va la diagonal | Cómo se dibuja |
+|---|---|---|
+| **Actor de negocio** | **cruzando la cabeza** | cuerda a 45° **por el centro del círculo** de la cabeza, de abajo-izquierda a arriba-derecha, trazo **grueso** |
+| **Caso de uso de negocio** | **en el borde derecho** | cuerda que **arranca dentro** de la elipse, abajo, y **sale cortando el contorno** derecho; mismo ángulo y mismo trazo grueso |
+
+> [!warning] Los dos errores que ya se cometieron, y por qué
+> Hasta el 2026-09-18 el generador ponía la diagonal del actor **al costado del torso** y la de la
+> elipse **adentro, abajo a la izquierda**. Las dos estaban mal y por el mismo motivo: se movieron
+> para **evitar un encimado** con la cabeza y con el texto.
+>
+> **Esa es la inversión de prioridades que hay que no repetir.** La notación de clase **no se negocia
+> para acomodar el layout**: si la diagonal choca con algo, se agranda el elemento o se corre lo otro
+> — la diagonal se queda donde ella la pone. Al costado del torso parecía un brazo suelto; adentro de
+> la elipse, una raya perdida. En los dos casos dejaba de leerse como estereotipo, que es su única
+> función.
+
+Las proporciones que reproducen su lámina están en `generar-excalidraw.py`, en `actor_negocio()` y
+`elipse_negocio()`: la cabeza usa el diámetro inclinado 45° (`14/√2`), y la elipse una cuerda de
+`(0.53·rx, 0.67·ry)` a `(0.99·rx, −0.40·ry)` respecto del centro.
+
 ### 3.3 Diagrama de contexto (notación de clase)
 
 **No es UML.** Notación propia de la cátedra — ver [[Diagrama de contexto]]:
@@ -178,6 +204,47 @@ Igual que 3.1, más los **convenios de clase** de [[Convenios del diagrama de CU
 Disposición: óvalo centrado; entidades de negocio a izquierda y derecha; **dispositivos y sistemas
 externos arriba y abajo**, que es lo que evita que las flechas de los sistemas cruccen las de las
 personas.
+
+### 3.3 bis El rotulado radial — cómo se colocan N rótulos sin que se toquen
+
+Aprendido al dibujar **`contexto-farmahosp`** (14 entidades, 27 streamlines, 2026-09-18). El
+contexto es el único diagrama del curso con forma **radial**: todas las flechas convergen en un
+punto. Eso rompe la intuición de rotular «en el medio de la flecha», porque los medios de 27 flechas
+que salen del mismo óvalo caen casi todos en la misma corona.
+
+**El problema, con nombre:** dos flechas vecinas que van a entidades distintas tienen recorridos casi
+paralelos; sus rótulos, colocados por **desplazamiento relativo** (una fracción `t` del recorrido más
+un `dx`), terminan encimados. Y encimados **no se ve**: el texto de arriba tapa al de abajo y solo
+asoman las letras del más ancho. En la primera vuelta quedó *«Solicitud de**e** / autenticación**n**»*
+— que era *Consulta de identificación* escondida detrás de *Solicitud de autenticación*.
+
+**Las tres reglas que lo resuelven:**
+
+| # | Regla | Por qué |
+|---|---|---|
+| 1 | **Costados por fracción, arriba y abajo por posición absoluta** | A los costados las flechas se abren en abanico y `t` basta. Arriba y abajo corren casi verticales y juntas: ahí el rótulo se fija en coordenadas, no en fracción |
+| 2 | **Renglones escalonados**: dos vecinos nunca comparten renglón | Con dos renglones alternados (p. ej. `y=210` y `y=330` arriba), aunque las cajas de 140 px se solapen en X, la separación en Y las salva |
+| 3 | **El rótulo va al costado de su línea, no encima** | El halo enmascara la línea y el texto se lee igual, pero un rótulo corrido ~70 px deja el dibujo más limpio |
+
+**La cuenta que hay que hacer antes de elegir la posición:** el rótulo es una caja de **140 px de
+ancho** centrada en el punto, o sea `centro ± 70`. Dos rótulos del mismo renglón necesitan sus
+centros a **más de 140 px**; si no, hay que bajar uno al otro renglón.
+
+**El orden de las flechas alrededor del óvalo.** Los puntos de anclaje se calculan por **ángulo**
+sobre la elipse (`_pe(ang)` en el generador), no a ojo. Para cada entidad se toman **dos ángulos
+consecutivos separados 8°**, y se respeta el apareamiento: la flecha que **sale** de la entidad usa
+el ángulo menor y la que **entra** usa el mayor. Así las dos líneas del par quedan paralelas y **no se
+cruzan entre sí** — que es el error que aparece si se asignan al revés.
+
+> [!warning] Y la razón por la que existe esta sección
+> La lámina anterior de contexto se había hecho **en StarUML** y salió con **marca de agua
+> UNREGISTERED**, rótulos encimados y **texto sin tildes**. No era entregable. Vale la regla de §6:
+> **StarUML modela y valida la semántica; la lámina final sale del generador**.
+
+**El dibujo no se declara terminado hasta haberlo mirado**, y mirarlo significa **recortar y ampliar
+las zonas densas**, no mirar la lámina entera: a tamaño completo los rótulos encimados parecen texto
+normal. En este diagrama hicieron falta **tres vueltas** de generar → mirar → corregir, y las dos
+primeras encontraron choques reales.
 
 ### 3.4 Clases
 
@@ -667,7 +734,14 @@ Se ejecuta **siempre**, en este orden, y **se repite el ciclo hasta que pase com
       estaban duplicadas.
 - [ ] **Buscar rótulos encimados**: un texto sobre otro elemento se corrige moviéndolo al hueco, no
       dejándolo "casi legible".
-- [ ] Si algo falla: corregir y **volver al Paso 1**.
+- [ ] **Recortar y ampliar las zonas densas**, no mirar solo la lámina entera. A tamaño completo dos
+      rótulos encimados **parecen texto normal**: solo con zoom se ve que uno tapa al otro y que lo
+      que asoma son las letras del más ancho. En `contexto-farmahosp` las tres zonas de convergencia
+      (arriba, abajo y el cuadrante superior derecho) escondieron **tres choques** que la vista
+      completa no delató.
+- [ ] Si algo falla: corregir y **volver al Paso 1**. Un diagrama radial denso tarda **varias
+      vueltas**: el contexto de FarmaHosp necesitó tres, y las dos primeras encontraron defectos
+      reales.
 
 > [!important] El paso 4 no es opcional y no se sustituye por leer el código
 > Un diagrama puede tener el Mermaid o el JSON perfecto y verse mal: el motor de layout mete

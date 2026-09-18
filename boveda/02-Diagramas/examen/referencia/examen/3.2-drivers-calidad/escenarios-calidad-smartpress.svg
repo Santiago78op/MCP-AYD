@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1780 720" width="1780" height="720" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1780" height="720" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Drivers de calidad — escenarios de SEIS partes</text>
+<text x="40" y="88.61" font-size="13" fill="#1e1e1e" text-anchor="start">Fuente · Estímulo · Artefacto · Entorno · Respuesta · MEDIDA. La última columna va sombreada: es la que convierte el deseo en driver.</text>
+<text x="40" y="104.86" font-size="13" fill="#1e1e1e" text-anchor="start">Un atributo de calidad NO es un caso de uso; no se dibuja como elipse, se especifica como escenario.</text>
+<rect x="40" y="140" width="80" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">ID</text>
+<rect x="120" y="140" width="230" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="132" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Fuente</text>
+<rect x="350" y="140" width="280" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="362" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Estímulo</text>
+<rect x="630" y="140" width="240" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="642" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Artefacto</text>
+<rect x="870" y="140" width="220" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Entorno</text>
+<rect x="1090" y="140" width="300" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1102" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Respuesta</text>
+<rect x="1390" y="140" width="330" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1402" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">MEDIDA</text>
+<rect x="40" y="200" width="80" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-01</text>
+<rect x="120" y="200" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="132" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Sensores de la máquina</text>
+<rect x="350" y="200" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="362" y="225.61" font-size="13" fill="#1e1e1e" text-anchor="start">Se completan las 500 mediciones de un</text>
+<text x="362" y="241.86" font-size="13" fill="#1e1e1e" text-anchor="start">ciclo</text>
+<rect x="630" y="200" width="240" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="642" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">Motor de inferencia ML</text>
+<rect x="870" y="200" width="220" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882" y="225.61" font-size="13" fill="#1e1e1e" text-anchor="start">Producción normal, 25</text>
+<text x="882" y="241.86" font-size="13" fill="#1e1e1e" text-anchor="start">máquinas</text>
+<rect x="1090" y="200" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1102" y="225.61" font-size="13" fill="#1e1e1e" text-anchor="start">Emite la predicción de calidad de la</text>
+<text x="1102" y="241.86" font-size="13" fill="#1e1e1e" text-anchor="start">pieza</text>
+<rect x="1390" y="200" width="330" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1402" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">&lt; 1 s (ciclo 45 s) / &lt; 5 s (ciclo 120 s)</text>
+<rect x="40" y="260" width="80" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-02</text>
+<rect x="120" y="260" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="132" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">PLC Siemens S7-1500</text>
+<rect x="350" y="260" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="362" y="285.61" font-size="13" fill="#1e1e1e" text-anchor="start">Envía una solicitud de ajuste vía</text>
+<text x="362" y="301.86" font-size="13" fill="#1e1e1e" text-anchor="start">OPC-UA</text>
+<rect x="630" y="260" width="240" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="642" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">Servicio de control</text>
+<rect x="870" y="260" width="220" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882" y="285.61" font-size="13" fill="#1e1e1e" text-anchor="start">Red industrial Ethernet/IP,</text>
+<text x="882" y="301.86" font-size="13" fill="#1e1e1e" text-anchor="start">5 ms</text>
+<rect x="1090" y="260" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1102" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">Responde con la orden de ajuste</text>
+<rect x="1390" y="260" width="330" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1402" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">&lt; 200 ms extremo a extremo</text>
+<rect x="40" y="320" width="80" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-03</text>
+<rect x="120" y="320" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="132" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Red industrial</text>
+<rect x="350" y="320" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="362" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Caída de red de 30 s</text>
+<rect x="630" y="320" width="240" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="642" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Ingesta + buffer local</text>
+<rect x="870" y="320" width="220" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">Planta 24/7, 3 turnos</text>
+<rect x="1090" y="320" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1102" y="345.61" font-size="13" fill="#1e1e1e" text-anchor="start">Conserva el buffer, reconstruye la</text>
+<text x="1102" y="361.86" font-size="13" fill="#1e1e1e" text-anchor="start">trazabilidad y sigue operando</text>
+<rect x="1390" y="320" width="330" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1402" y="345.61" font-size="13" fill="#1e1e1e" text-anchor="start">0 mediciones pérdidas; 100% de piezas</text>
+<text x="1402" y="361.86" font-size="13" fill="#1e1e1e" text-anchor="start">trazables; 0 cortes visibles</text>
+<rect x="40" y="380" width="80" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-04</text>
+<rect x="120" y="380" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="132" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Turno de la noche</text>
+<rect x="350" y="380" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="362" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">El volumen de datos sube 10x</text>
+<rect x="630" y="380" width="240" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="642" y="405.61" font-size="13" fill="#1e1e1e" text-anchor="start">Pipeline de ingesta y</text>
+<text x="642" y="421.86" font-size="13" fill="#1e1e1e" text-anchor="start">almacenamiento</text>
+<rect x="870" y="380" width="220" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882" y="405.61" font-size="13" fill="#1e1e1e" text-anchor="start">Presupuesto de</text>
+<text x="882" y="421.86" font-size="13" fill="#1e1e1e" text-anchor="start">infraestructura fijo</text>
+<rect x="1090" y="380" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1102" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Absorbe el pico sin degradar el servicio</text>
+<rect x="1390" y="380" width="330" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1402" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">Se mantiene AC-01 (p95) con 10x el caudal</text>
+<rect x="40" y="440" width="80" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-05</text>
+<rect x="120" y="440" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="132" y="465.61" font-size="13" fill="#1e1e1e" text-anchor="start">Emisor de una orden (o un</text>
+<text x="132" y="481.86" font-size="13" fill="#1e1e1e" text-anchor="start">atacante)</text>
+<rect x="350" y="440" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="362" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Se emite «reducir temperatura 3 °C»</text>
+<rect x="630" y="440" width="240" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="642" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Canal de comandos al PLC</text>
+<rect x="870" y="440" width="220" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">Red de planta</text>
+<rect x="1090" y="440" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1102" y="465.61" font-size="13" fill="#1e1e1e" text-anchor="start">Solo se ejecutan órdenes firmadas y</text>
+<text x="1102" y="481.86" font-size="13" fill="#1e1e1e" text-anchor="start">autenticadas</text>
+<rect x="1390" y="440" width="330" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1402" y="465.61" font-size="13" fill="#1e1e1e" text-anchor="start">100% firmadas; 0 aceptadas sin firma válida;</text>
+<text x="1402" y="481.86" font-size="13" fill="#1e1e1e" text-anchor="start">TLS obligatorio</text>
+<rect x="40" y="500" width="80" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-06</text>
+<rect x="120" y="500" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="132" y="525.61" font-size="13" fill="#1e1e1e" text-anchor="start">Auditor IATF o cliente con</text>
+<text x="132" y="541.86" font-size="13" fill="#1e1e1e" text-anchor="start">reclamo</text>
+<rect x="350" y="500" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="362" y="525.61" font-size="13" fill="#1e1e1e" text-anchor="start">Consulta forense de un lote de hace 7</text>
+<text x="362" y="541.86" font-size="13" fill="#1e1e1e" text-anchor="start">años</text>
+<rect x="630" y="500" width="240" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="642" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">Repositorio histórico</text>
+<rect x="870" y="500" width="220" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">1.3 PB acumulados</text>
+<rect x="1090" y="500" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1102" y="525.61" font-size="13" fill="#1e1e1e" text-anchor="start">Devuelve el expediente completo y</text>
+<text x="1102" y="541.86" font-size="13" fill="#1e1e1e" text-anchor="start">verificable</text>
+<rect x="1390" y="500" width="330" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1402" y="525.61" font-size="13" fill="#1e1e1e" text-anchor="start">&lt; 10 min; retención 7 años; 100% con hash</text>
+<text x="1402" y="541.86" font-size="13" fill="#1e1e1e" text-anchor="start">verificable</text>
+<rect x="40" y="560" width="80" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-07</text>
+<rect x="120" y="560" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="132" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">Equipo de TI interno (4</text>
+<text x="132" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">personas)</text>
+<rect x="350" y="560" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="362" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">El científico de datos se retira a</text>
+<text x="362" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">los 6 meses</text>
+<rect x="630" y="560" width="240" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="642" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">Sistema completo, incluido el</text>
+<text x="642" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">pipeline de ML</text>
+<rect x="870" y="560" width="220" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">US$ 20,000 de capacitación</text>
+<rect x="1090" y="560" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1102" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">El equipo opera, respalda, recupera y</text>
+<text x="1102" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">despliega modelos</text>
+<rect x="1390" y="560" width="330" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1402" y="585.61" font-size="13" fill="#1e1e1e" text-anchor="start">Traspaso &lt;= 6 meses; 0 s de paro al desplegar</text>
+<text x="1402" y="601.86" font-size="13" fill="#1e1e1e" text-anchor="start">un modelo</text>
+<rect x="40" y="620" width="80" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">AC-08</text>
+<rect x="120" y="620" width="230" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="132" y="645.61" font-size="13" fill="#1e1e1e" text-anchor="start">Operario de máquina que rota</text>
+<text x="132" y="661.86" font-size="13" fill="#1e1e1e" text-anchor="start">de turno</text>
+<rect x="350" y="620" width="280" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="362" y="645.61" font-size="13" fill="#1e1e1e" text-anchor="start">Se le asigna la estación por primera</text>
+<text x="362" y="661.86" font-size="13" fill="#1e1e1e" text-anchor="start">vez</text>
+<rect x="630" y="620" width="240" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="642" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">Interfaz de piso</text>
+<rect x="870" y="620" width="220" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">Personal sin perfil técnico</text>
+<rect x="1090" y="620" width="300" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1102" y="645.61" font-size="13" fill="#1e1e1e" text-anchor="start">Opera el tablero y atiende alertas sin</text>
+<text x="1102" y="661.86" font-size="13" fill="#1e1e1e" text-anchor="start">asistencia</text>
+<rect x="1390" y="620" width="330" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1402" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">&lt;= 3 horas de capacitación</text>
+</svg>

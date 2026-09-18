@@ -1,0 +1,458 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -30 2370 1530" width="2370" height="1530" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="-20" y="-30" width="2370" height="1530" fill="#ffffff"/>
+<text x="40" y="29.4" font-size="20" fill="#1e1e1e" text-anchor="start">Diagrama de despliegue (distribución) — FarmaHosp</text>
+<text x="40" y="56.61" font-size="13" fill="#1e1e1e" text-anchor="start">Nodo = cubo · «device» = hardware · «executionEnvironment» = software, siempre dentro de un dispositivo (una máquina virtual) · componentes dentro del nodo que los ejecuta · conexión = línea llena con el protocolo como estereotipo.</text>
+<rect x="20" y="80" width="1900" height="500" rx="0" fill="#e8f5e9" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="10 6"/>
+<text x="30" y="100.61" font-size="13" fill="#1e1e1e" text-anchor="start">FrontEnd — clientes y dispositivos</text>
+<rect x="20" y="600" width="1900" height="860" rx="0" fill="#fff1e0" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="10 6"/>
+<text x="30" y="1444.61" font-size="13" fill="#1e1e1e" text-anchor="start">BackEnd — hospital</text>
+<rect x="1980" y="600" width="330" height="860" rx="0" fill="#f1f1f1" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="10 6"/>
+<text x="1990" y="1444.61" font-size="13" fill="#1e1e1e" text-anchor="start">Sistemas externos</text>
+<rect x="40" y="140" width="380" height="230" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="40" y1="140" x2="60" y2="120" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="60" y1="120" x2="440" y2="120" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="440" y1="120" x2="420" y2="140" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="440" y1="120" x2="440" y2="350" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="440" y1="350" x2="420" y2="370" stroke="#1e1e1e" stroke-width="1"/>
+<text x="230.0" y="156.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="230.0" y="174.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Toughpad Panasonic (Android 9 · 3 GB)</text>
+<rect x="60" y="202" width="328" height="158" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="60" y1="202" x2="72" y2="190" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="72" y1="190" x2="400" y2="190" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="400" y1="190" x2="388" y2="202" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="400" y1="190" x2="400" y2="348" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="400" y1="348" x2="388" y2="360" stroke="#1e1e1e" stroke-width="1"/>
+<text x="224.0" y="218.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="224.0" y="236.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Android 9</text>
+<rect x="75" y="250" width="150" height="48" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="205" y="256" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="201" y="259" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="201" y="264" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="140.0" y="272.67" font-size="11" fill="#1e1e1e" text-anchor="middle">App de</text>
+<text x="140.0" y="286.42" font-size="11" fill="#1e1e1e" text-anchor="middle">Enfermería</text>
+<rect x="235" y="250" width="150" height="48" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="365" y="256" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="361" y="259" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="361" y="264" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="300.0" y="272.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Validación</text>
+<text x="300.0" y="286.42" font-size="11" fill="#1e1e1e" text-anchor="middle">local (AC-01)</text>
+<rect x="75" y="305" width="150" height="48" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="205" y="311" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="201" y="314" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="201" y="319" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="140.0" y="327.67" font-size="11" fill="#1e1e1e" text-anchor="middle">BD local cifrada</text>
+<text x="140.0" y="341.42" font-size="11" fill="#1e1e1e" text-anchor="middle">(SQLite)</text>
+<rect x="235" y="305" width="150" height="48" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="365" y="311" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="361" y="314" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="361" y="319" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="300.0" y="327.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Bandeja de</text>
+<text x="300.0" y="341.42" font-size="11" fill="#1e1e1e" text-anchor="middle">sincronización</text>
+<rect x="40" y="440" width="200" height="90" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="40" y1="440" x2="60" y2="420" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="60" y1="420" x2="260" y2="420" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="260" y1="420" x2="240" y2="440" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="260" y1="420" x2="260" y2="510" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="260" y1="510" x2="240" y2="530" stroke="#1e1e1e" stroke-width="1"/>
+<text x="140.0" y="456.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="140.0" y="474.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Escáner Bluetooth</text>
+<text x="140.0" y="490.86" font-size="13" fill="#1e1e1e" text-anchor="middle">(5 % de fallo)</text>
+<line x1="140" y1="370" x2="140" y2="420" stroke="#1e1e1e" stroke-width="1"/>
+<text x="210.0" y="398.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«Bluetooth»</text>
+<rect x="480" y="140" width="380" height="230" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="480" y1="140" x2="500" y2="120" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="500" y1="120" x2="880" y2="120" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="880" y1="120" x2="860" y2="140" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="880" y1="120" x2="880" y2="350" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="880" y1="350" x2="860" y2="370" stroke="#1e1e1e" stroke-width="1"/>
+<text x="670.0" y="156.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="670.0" y="174.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Estación de farmacia (sótano)</text>
+<rect x="500" y="202" width="328" height="158" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="500" y1="202" x2="512" y2="190" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="512" y1="190" x2="840" y2="190" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="840" y1="190" x2="828" y2="202" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="840" y1="190" x2="840" y2="348" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="840" y1="348" x2="828" y2="360" stroke="#1e1e1e" stroke-width="1"/>
+<text x="664.0" y="218.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="664.0" y="236.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Navegador</text>
+<rect x="515" y="250" width="150" height="48" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="645" y="256" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="641" y="259" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="641" y="264" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="580.0" y="272.67" font-size="11" fill="#1e1e1e" text-anchor="middle">App de Farmacia</text>
+<text x="580.0" y="286.42" font-size="11" fill="#1e1e1e" text-anchor="middle">(offline-first)</text>
+<rect x="675" y="250" width="150" height="48" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="805" y="256" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="801" y="259" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="801" y="264" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="740.0" y="272.67" font-size="11" fill="#1e1e1e" text-anchor="middle">BD local</text>
+<text x="740.0" y="286.42" font-size="11" fill="#1e1e1e" text-anchor="middle">(IndexedDB)</text>
+<rect x="515" y="305" width="150" height="48" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="645" y="311" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="641" y="314" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="641" y="319" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="580.0" y="327.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Bandeja de</text>
+<text x="580.0" y="341.42" font-size="11" fill="#1e1e1e" text-anchor="middle">sincronización</text>
+<rect x="500" y="440" width="180" height="70" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="500" y1="440" x2="520" y2="420" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="520" y1="420" x2="700" y2="420" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="700" y1="420" x2="680" y2="440" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="700" y1="420" x2="700" y2="490" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="700" y1="490" x2="680" y2="510" stroke="#1e1e1e" stroke-width="1"/>
+<text x="590.0" y="456.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="590.0" y="474.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Impresora de etiquetas</text>
+<line x1="600" y1="370" x2="600" y2="420" stroke="#1e1e1e" stroke-width="1"/>
+<text x="650.0" y="398.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«USB»</text>
+<rect x="920" y="140" width="300" height="180" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="920" y1="140" x2="940" y2="120" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="940" y1="120" x2="1240" y2="120" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1240" y1="120" x2="1220" y2="140" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1240" y1="120" x2="1240" y2="300" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1240" y1="300" x2="1220" y2="320" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1070.0" y="156.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="1070.0" y="174.61" font-size="13" fill="#1e1e1e" text-anchor="middle">PC clínica y administrativa</text>
+<rect x="940" y="202" width="248" height="108" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="940" y1="202" x2="952" y2="190" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="952" y1="190" x2="1200" y2="190" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1200" y1="190" x2="1188" y2="202" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1200" y1="190" x2="1200" y2="298" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1200" y1="298" x2="1188" y2="310" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1064.0" y="218.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="1064.0" y="236.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Navegador</text>
+<rect x="960" y="250" width="200" height="48" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1140" y="256" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1136" y="259" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1136" y="264" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1050.0" y="272.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Portal web</text>
+<text x="1050.0" y="286.42" font-size="11" fill="#1e1e1e" text-anchor="middle">(Angular)</text>
+<rect x="1280" y="140" width="280" height="180" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1280" y1="140" x2="1300" y2="120" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1300" y1="120" x2="1580" y2="120" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1580" y1="120" x2="1560" y2="140" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1580" y1="120" x2="1580" y2="300" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1580" y1="300" x2="1560" y2="320" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1420.0" y="156.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="1420.0" y="174.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Smartphone del paciente</text>
+<rect x="1300" y="202" width="228" height="108" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1300" y1="202" x2="1312" y2="190" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1312" y1="190" x2="1540" y2="190" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1540" y1="190" x2="1528" y2="202" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1540" y1="190" x2="1540" y2="298" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1540" y1="298" x2="1528" y2="310" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1414.0" y="218.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="1414.0" y="236.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Navegador</text>
+<rect x="1320" y="250" width="180" height="48" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1480" y="256" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1476" y="259" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1476" y="264" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1400.0" y="272.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Consulta QR</text>
+<text x="1400.0" y="286.42" font-size="11" fill="#1e1e1e" text-anchor="middle">(RF-32)</text>
+<rect x="1640" y="130" width="220" height="80" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1640" y1="130" x2="1660" y2="110" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1660" y1="110" x2="1880" y2="110" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1880" y1="110" x2="1860" y2="130" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1880" y1="110" x2="1880" y2="190" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1880" y1="190" x2="1860" y2="210" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1750.0" y="146.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="1750.0" y="164.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Sensores IoT de cámaras</text>
+<rect x="1640" y="310" width="220" height="130" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1640" y1="310" x2="1660" y2="290" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1660" y1="290" x2="1880" y2="290" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1880" y1="290" x2="1860" y2="310" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1880" y1="290" x2="1880" y2="420" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1880" y1="420" x2="1860" y2="440" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1750.0" y="326.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="1750.0" y="344.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Gateway IoT</text>
+<rect x="1660" y="360" width="180" height="48" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1820" y="366" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1816" y="369" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1816" y="374" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1740.0" y="382.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Buffer local</text>
+<text x="1740.0" y="396.42" font-size="11" fill="#1e1e1e" text-anchor="middle">(guardar y reenviar)</text>
+<line x1="1760" y1="210" x2="1760" y2="290" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1820.0" y="253.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«MQTT»</text>
+<rect x="300" y="640" width="1560" height="560" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="300" y1="640" x2="320" y2="620" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="320" y1="620" x2="1880" y2="620" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1880" y1="620" x2="1860" y2="640" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1880" y1="620" x2="1880" y2="1180" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1880" y1="1180" x2="1860" y2="1200" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1100" y="656.67" font-size="11" fill="#1e1e1e" text-anchor="start">«device»</text>
+<text x="1100" y="674.61" font-size="13" fill="#1e1e1e" text-anchor="start">Servidor de virtualización VMware — data center principal</text>
+<text x="1100" y="690.86" font-size="13" fill="#1e1e1e" text-anchor="start">32 vCPU · 128 GB RAM · SAN 10 TB</text>
+<rect x="340" y="712" width="348" height="118" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="340" y1="712" x2="352" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="352" y1="700" x2="700" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="700" y1="700" x2="688" y2="712" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="700" y1="700" x2="700" y2="818" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="700" y1="818" x2="688" y2="830" stroke="#1e1e1e" stroke-width="1"/>
+<text x="514.0" y="728.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="514.0" y="745.64" font-size="12" fill="#1e1e1e" text-anchor="middle">VM-05/06 Identidad · 1 vCPU · 4 GB c/u</text>
+<rect x="360" y="760" width="150" height="50" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="490" y="766" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="486" y="769" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="486" y="774" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="425.0" y="783.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Keycloak</text>
+<text x="425.0" y="797.42" font-size="11" fill="#1e1e1e" text-anchor="middle">LDAP + OTP</text>
+<rect x="530" y="760" width="150" height="50" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="660" y="766" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="656" y="769" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="656" y="774" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="595.0" y="783.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Autorización</text>
+<text x="595.0" y="797.42" font-size="11" fill="#1e1e1e" text-anchor="middle">ABAC</text>
+<rect x="740" y="712" width="348" height="118" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="740" y1="712" x2="752" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="752" y1="700" x2="1100" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1100" y1="700" x2="1088" y2="712" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1100" y1="700" x2="1100" y2="818" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1100" y1="818" x2="1088" y2="830" stroke="#1e1e1e" stroke-width="1"/>
+<text x="914.0" y="728.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="914.0" y="745.64" font-size="12" fill="#1e1e1e" text-anchor="middle">VM-01/02 Nginx · 1 vCPU · 2 GB c/u</text>
+<rect x="760" y="760" width="310" height="50" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1050" y="766" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1046" y="769" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1046" y="774" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="905.0" y="783.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Balanceo y prioridad de tráfico</text>
+<text x="905.0" y="797.42" font-size="11" fill="#1e1e1e" text-anchor="middle">(AC-05)</text>
+<rect x="1140" y="712" width="248" height="118" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1140" y1="712" x2="1152" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1152" y1="700" x2="1400" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1400" y1="700" x2="1388" y2="712" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1400" y1="700" x2="1400" y2="818" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1400" y1="818" x2="1388" y2="830" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1264.0" y="728.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="1264.0" y="745.64" font-size="12" fill="#1e1e1e" text-anchor="middle">VM-09 · 1 vCPU · 8 GB</text>
+<rect x="1160" y="760" width="210" height="50" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1350" y="766" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1346" y="769" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1346" y="774" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1255.0" y="790.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Caché Redis</text>
+<rect x="1440" y="712" width="248" height="118" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1440" y1="712" x2="1452" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1452" y1="700" x2="1700" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1700" y1="700" x2="1688" y2="712" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1700" y1="700" x2="1700" y2="818" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1700" y1="818" x2="1688" y2="830" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1564.0" y="728.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="1564.0" y="745.64" font-size="12" fill="#1e1e1e" text-anchor="middle">VM-11 · 1 vCPU · 4 GB</text>
+<rect x="1460" y="760" width="210" height="50" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1650" y="766" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1646" y="769" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1646" y="774" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1555.0" y="783.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Observabilidad</text>
+<text x="1555.0" y="797.42" font-size="11" fill="#1e1e1e" text-anchor="middle">Prometheus + Grafana</text>
+<rect x="340" y="892" width="648" height="288" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="340" y1="892" x2="352" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="352" y1="880" x2="1000" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1000" y1="880" x2="988" y2="892" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1000" y1="880" x2="1000" y2="1168" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1000" y1="1168" x2="988" y2="1180" stroke="#1e1e1e" stroke-width="1"/>
+<text x="664.0" y="908.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="664.0" y="925.64" font-size="12" fill="#1e1e1e" text-anchor="middle">VM-03/04 Servidor de aplicaciones (JRE 17) · 5 vCPU · 14 GB c/u</text>
+<rect x="355" y="950" width="145" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="480" y="956" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="476" y="959" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="476" y="964" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="417.5" y="990.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Adquisición</text>
+<rect x="510" y="950" width="145" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="635" y="956" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="631" y="959" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="631" y="964" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="572.5" y="983.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Almacenamiento</text>
+<text x="572.5" y="997.42" font-size="11" fill="#1e1e1e" text-anchor="middle">e Inventario</text>
+<rect x="665" y="950" width="145" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="790" y="956" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="786" y="959" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="786" y="964" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="727.5" y="990.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Prescripción</text>
+<rect x="820" y="950" width="145" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="945" y="956" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="941" y="959" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="941" y="964" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882.5" y="990.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Dispensación</text>
+<rect x="355" y="1055" width="145" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="480" y="1061" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="476" y="1064" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="476" y="1069" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="417.5" y="1095.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Administración</text>
+<rect x="510" y="1055" width="145" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="635" y="1061" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="631" y="1064" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="631" y="1069" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="572.5" y="1095.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Farmacovigilancia</text>
+<rect x="665" y="1055" width="145" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="790" y="1061" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="786" y="1064" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="786" y="1069" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="727.5" y="1088.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Auditoría y</text>
+<text x="727.5" y="1102.42" font-size="11" fill="#1e1e1e" text-anchor="middle">Tablero</text>
+<rect x="820" y="1055" width="145" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="945" y="1061" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="941" y="1064" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="941" y="1069" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="882.5" y="1088.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Sincronización</text>
+<text x="882.5" y="1102.42" font-size="11" fill="#1e1e1e" text-anchor="middle">offline</text>
+<rect x="1040" y="892" width="288" height="288" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1040" y1="892" x2="1052" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1052" y1="880" x2="1340" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1340" y1="880" x2="1328" y2="892" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1340" y1="880" x2="1340" y2="1168" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1340" y1="1168" x2="1328" y2="1180" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1184.0" y="908.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="1184.0" y="925.64" font-size="12" fill="#1e1e1e" text-anchor="middle">VM-10 PostgreSQL 16 · 8 vCPU · 48 GB</text>
+<rect x="1060" y="960" width="250" height="60" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1290" y="966" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1286" y="969" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1286" y="974" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1175.0" y="988.67" font-size="11" fill="#1e1e1e" text-anchor="middle">BD transaccional</text>
+<text x="1175.0" y="1002.42" font-size="11" fill="#1e1e1e" text-anchor="middle">(ACID · RE-01)</text>
+<rect x="1060" y="1060" width="250" height="60" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1290" y="1066" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1286" y="1069" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1286" y="1074" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1175.0" y="1088.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Bitácora inmutable</text>
+<text x="1175.0" y="1102.42" font-size="11" fill="#1e1e1e" text-anchor="middle">(solo inserción · AC-03)</text>
+<rect x="1380" y="892" width="448" height="288" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1380" y1="892" x2="1392" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1392" y1="880" x2="1840" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1840" y1="880" x2="1828" y2="892" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1840" y1="880" x2="1840" y2="1168" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1840" y1="1168" x2="1828" y2="1180" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1604.0" y="908.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="1604.0" y="925.64" font-size="12" fill="#1e1e1e" text-anchor="middle">VM-07/08 Integración y eventos · 2 vCPU · 8 GB c/u</text>
+<rect x="1395" y="960" width="200" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1575" y="966" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1571" y="969" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1571" y="974" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1485.0" y="993.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Bus de eventos</text>
+<text x="1485.0" y="1007.42" font-size="11" fill="#1e1e1e" text-anchor="middle">(RabbitMQ)</text>
+<rect x="1610" y="960" width="200" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1790" y="966" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1786" y="969" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1786" y="974" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1700.0" y="993.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Pipeline de</text>
+<text x="1700.0" y="1007.42" font-size="11" fill="#1e1e1e" text-anchor="middle">telemetría</text>
+<rect x="1395" y="1060" width="200" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1575" y="1066" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1571" y="1069" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1571" y="1074" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1485.0" y="1093.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Integración</text>
+<text x="1485.0" y="1107.42" font-size="11" fill="#1e1e1e" text-anchor="middle">SOAP · XML/DTD · FHIR</text>
+<rect x="1610" y="1060" width="200" height="70" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1790" y="1066" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1786" y="1069" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1786" y="1074" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1700.0" y="1093.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Notificaciones</text>
+<text x="1700.0" y="1107.42" font-size="11" fill="#1e1e1e" text-anchor="middle">SMS · WhatsApp · correo</text>
+<line x1="320" y1="370" x2="320" y2="540" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="320" y1="540" x2="780" y2="540" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="780" y1="540" x2="780" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<text x="430.0" y="529.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«wifi · HTTPS»</text>
+<line x1="820" y1="370" x2="820" y2="520" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="820" y1="520" x2="860" y2="520" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="860" y1="520" x2="860" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<text x="990.0" y="509.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«wifi inestable · HTTPS»</text>
+<line x1="940" y1="320" x2="940" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1010.0" y="416.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«Ethernet 1 Gbps</text>
+<text x="1010.0" y="430.42" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">· HTTPS»</text>
+<line x1="1400" y1="320" x2="1400" y2="560" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1400" y1="560" x2="1020" y2="560" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1020" y1="560" x2="1020" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1200.0" y="549.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«Internet · HTTPS»</text>
+<line x1="1760" y1="440" x2="1760" y2="850" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1760" y1="850" x2="1600" y2="850" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1600" y1="850" x2="1600" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1820.0" y="563.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«MQTT / TLS»</text>
+<line x1="740" y1="765" x2="700" y2="765" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="900" y1="830" x2="900" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<text x="940.0" y="858.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«HTTP»</text>
+<line x1="520" y1="830" x2="520" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<text x="560.0" y="858.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«OIDC»</text>
+<line x1="980" y1="880" x2="980" y2="845" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="980" y1="845" x2="1270" y2="845" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1270" y1="845" x2="1270" y2="830" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1210.0" y="832.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«TCP»</text>
+<line x1="990" y1="880" x2="990" y2="865" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="990" y1="865" x2="1420" y2="865" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1420" y1="865" x2="1420" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1325.0" y="878.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«AMQP»</text>
+<line x1="1000" y1="1030" x2="1040" y2="1030" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1020.0" y="1046.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«JDBC»</text>
+<line x1="1380" y1="1030" x2="1340" y2="1030" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1360.0" y="1046.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«JDBC»</text>
+<rect x="40" y="720" width="200" height="90" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="40" y1="720" x2="60" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="60" y1="700" x2="260" y2="700" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="260" y1="700" x2="240" y2="720" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="260" y1="700" x2="260" y2="790" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="260" y1="790" x2="240" y2="810" stroke="#1e1e1e" stroke-width="1"/>
+<text x="140.0" y="736.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="140.0" y="754.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Directorio activo</text>
+<text x="140.0" y="770.86" font-size="13" fill="#1e1e1e" text-anchor="middle">LDAP</text>
+<line x1="260" y1="765" x2="340" y2="765" stroke="#1e1e1e" stroke-width="1"/>
+<text x="300.0" y="753.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«LDAPS»</text>
+<rect x="1040" y="1260" width="400" height="180" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1040" y1="1260" x2="1060" y2="1240" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1060" y1="1240" x2="1460" y2="1240" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1460" y1="1240" x2="1440" y2="1260" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1460" y1="1240" x2="1460" y2="1420" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1460" y1="1420" x2="1440" y2="1440" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1240.0" y="1276.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="1240.0" y="1294.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Servidor de respaldo — sitio alterno</text>
+<rect x="1060" y="1322" width="368" height="108" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1060" y1="1322" x2="1072" y2="1310" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1072" y1="1310" x2="1440" y2="1310" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1440" y1="1310" x2="1428" y2="1322" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1440" y1="1310" x2="1440" y2="1418" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1440" y1="1418" x2="1428" y2="1430" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1244.0" y="1338.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
+<text x="1244.0" y="1355.64" font-size="12" fill="#1e1e1e" text-anchor="middle">VM PostgreSQL réplica</text>
+<rect x="1080" y="1370" width="330" height="44" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1390" y="1376" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1386" y="1379" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1386" y="1384" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1235.0" y="1397.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Réplica de lectura (informes y tablero)</text>
+<line x1="1190" y1="1180" x2="1190" y2="1240" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1330.0" y="1215.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«replicación streaming · TCP»</text>
+<rect x="2000" y="894" width="286" height="52" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2000" y1="894" x2="2014" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2014" y1="880" x2="2300" y2="880" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="880" x2="2286" y2="894" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="880" x2="2300" y2="932" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="932" x2="2286" y2="946" stroke="#1e1e1e" stroke-width="1"/>
+<text x="2143.0" y="910.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="2143.0" y="926.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Legacy de admisiones · COBOL · 7-17 h</text>
+<line x1="1840" y1="924" x2="2000" y2="924" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1920.0" y="917.7" font-size="10" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«SOAP · HTTPS»</text>
+<rect x="2000" y="972" width="286" height="52" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2000" y1="972" x2="2014" y2="958" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2014" y1="958" x2="2300" y2="958" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="958" x2="2286" y2="972" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="958" x2="2300" y2="1010" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="1010" x2="2286" y2="1024" stroke="#1e1e1e" stroke-width="1"/>
+<text x="2143.0" y="988.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="2143.0" y="1004.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Sistema nacional MSPAS (farmacovigilancia)</text>
+<line x1="1840" y1="1002" x2="2000" y2="1002" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1920.0" y="995.7" font-size="10" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«HTTPS · XML/DTD»</text>
+<rect x="2000" y="1050" width="286" height="52" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2000" y1="1050" x2="2014" y2="1036" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2014" y1="1036" x2="2300" y2="1036" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="1036" x2="2286" y2="1050" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="1036" x2="2300" y2="1088" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="1088" x2="2286" y2="1102" stroke="#1e1e1e" stroke-width="1"/>
+<text x="2143.0" y="1066.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="2143.0" y="1082.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Pasarela SMS / WhatsApp</text>
+<line x1="1840" y1="1080" x2="2000" y2="1080" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1920.0" y="1073.7" font-size="10" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«HTTPS · API»</text>
+<rect x="2000" y="1128" width="286" height="52" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2000" y1="1128" x2="2014" y2="1114" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2014" y1="1114" x2="2300" y2="1114" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="1114" x2="2286" y2="1128" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="1114" x2="2300" y2="1166" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="2300" y1="1166" x2="2286" y2="1180" stroke="#1e1e1e" stroke-width="1"/>
+<text x="2143.0" y="1144.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
+<text x="2143.0" y="1160.67" font-size="11" fill="#1e1e1e" text-anchor="middle">Nube pública · analítica anonimizada</text>
+<line x1="1840" y1="1158" x2="2000" y2="1158" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1920.0" y="1151.7" font-size="10" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«HTTPS · anonimizado»</text>
+</svg>

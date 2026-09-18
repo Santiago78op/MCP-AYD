@@ -51,8 +51,14 @@ python3 generar-excalidraw.py --referencia examen      # solo una de las dos
 Cuando regeneres cualquier lámina, corré también `--referencia`: las copias de `practica/` y
 `examen/` no se actualizan solas.
 
-El diagrama de contexto es la excepción: se emite con `generar-mdj.py contexto-farmahosp`, porque
-StarUML valida la semántica UML que el `.excalidraw` no puede validar.
+El diagrama de contexto **también sale del generador** desde el 2026-09-18
+(`generar-excalidraw.py contexto-farmahosp`). El `.mdj` de StarUML se conserva porque valida la
+semántica que el `.excalidraw` no puede validar, pero **su render no se entrega**: salía con marca de
+agua *UNREGISTERED*, rótulos encimados y texto sin tildes. La lámina entregable es el `.svg`.
+
+Es un diagrama **radial** —27 flechas convergen en un óvalo—, así que sus rótulos se colocan con la
+técnica de `estilo-diagramas.md` §3.3 bis: posición absoluta en renglones escalonados arriba y abajo,
+fracción del recorrido a los costados.
 
 ## Lo que hay que saber antes de tocar esto
 

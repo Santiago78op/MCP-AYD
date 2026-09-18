@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1760 1270" width="1760" height="1270" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1760" height="1270" fill="#ffffff"/>
+<ellipse cx="880.0" cy="600.0" rx="240.0" ry="140.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="880.0" y="585.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema Integral de Gestión</text>
+<text x="880.0" y="605.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de Medicamentos de Alto</text>
+<text x="880.0" y="625.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Costo — FarmaHosp</text>
+<rect x="40" y="240" width="270" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="175.0" y="279.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Médico tratante</text>
+<line x1="312" y1="301" x2="681" y2="521" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="407.0" y="347.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Prescripción médica</text>
+<line x1="701" y1="506" x2="312" y2="249" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="600.0" y="428.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Alerta de interacción</text>
+<text x="600.0" y="443.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y disponibilidad</text>
+<rect x="40" y="460" width="270" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="175.0" y="499.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Farmacéutico clínico</text>
+<line x1="312" y1="521" x2="645" y2="570" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="398.0" y="522.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Confirmación de</text>
+<text x="398.0" y="537.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">dispensación</text>
+<line x1="654" y1="552" x2="312" y2="469" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="565.0" y="519.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Orden de dispensación</text>
+<text x="565.0" y="534.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y etiqueta QR</text>
+<rect x="40" y="740" width="270" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="175.0" y="779.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Enfermero de piso</text>
+<line x1="312" y1="801" x2="654" y2="647" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="400.0" y="749.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Registro de</text>
+<text x="400.0" y="764.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">administración</text>
+<line x1="645" y1="629" x2="312" y2="749" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="558.0" y="649.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Validación</text>
+<text x="558.0" y="664.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">paciente-medicamento</text>
+<rect x="40" y="960" width="270" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="175.0" y="999.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Paciente</text>
+<line x1="312" y1="1021" x2="701" y2="693" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="412.0" y="924.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Consulta de</text>
+<text x="412.0" y="939.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">trazabilidad QR</text>
+<line x1="681" y1="678" x2="312" y2="969" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="585.0" y="742.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Recordatorio de</text>
+<text x="585.0" y="757.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">próxima dosis</text>
+<rect x="1450" y="240" width="270" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1585.0" y="279.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Director Administrativo</text>
+<line x1="1448" y1="301" x2="1069" y2="513" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1349.0" y="344.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Autorización de</text>
+<text x="1349.0" y="359.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">orden de compra</text>
+<line x1="1087" y1="530" x2="1448" y2="249" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1181.0" y="445.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Tablero de costos</text>
+<text x="1181.0" y="460.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y desperdicio</text>
+<rect x="1450" y="460" width="270" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1585.0" y="490.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Jefe de</text>
+<text x="1585.0" y="508.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Farmacovigilancia</text>
+<line x1="1448" y1="521" x2="1114" y2="570" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1360.0" y="522.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Seguimiento</text>
+<text x="1360.0" y="537.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">farmacoterapéutico</text>
+<line x1="1105" y1="552" x2="1448" y2="469" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1194.0" y="519.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Alerta de patrón de</text>
+<text x="1194.0" y="534.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">efectos adversos</text>
+<rect x="1450" y="740" width="270" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1585.0" y="779.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Proveedor de MAC</text>
+<line x1="1448" y1="801" x2="1105" y2="647" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1358.0" y="749.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Lote, vencimiento</text>
+<text x="1358.0" y="764.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y factura</text>
+<line x1="1114" y1="629" x2="1448" y2="749" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1201.0" y="649.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Orden de compra</text>
+<rect x="1450" y="960" width="270" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1585.0" y="990.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Contraloría General</text>
+<text x="1585.0" y="1008.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de Cuentas</text>
+<line x1="1448" y1="1021" x2="1058" y2="693" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1346.0" y="924.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Solicitud de</text>
+<text x="1346.0" y="939.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">auditoría de lote</text>
+<line x1="1078" y1="678" x2="1448" y2="969" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1174.0" y="742.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Informe forense</text>
+<text x="1174.0" y="757.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de trazabilidad</text>
+<rect x="430" y="40" width="250" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="555.0" y="70.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sensores IoT</text>
+<text x="555.0" y="88.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de cámaras</text>
+<line x1="555" y1="112" x2="774" y2="474" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="599.0" y="318.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Lecturas de temperatura</text>
+<text x="599.0" y="333.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y humedad</text>
+<rect x="780" y="40" width="250" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="905.0" y="70.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema legacy</text>
+<text x="905.0" y="88.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de admisiones</text>
+<line x1="870" y1="112" x2="850" y2="461" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="789.0" y="198.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Datos demográficos</text>
+<text x="789.0" y="213.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">del paciente</text>
+<line x1="909" y1="461" x2="940" y2="112" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="999.0" y="318.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Consulta de</text>
+<text x="999.0" y="333.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">identificación</text>
+<rect x="1130" y="40" width="250" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1255.0" y="70.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Directorio activo</text>
+<text x="1255.0" y="88.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">LDAP</text>
+<line x1="985" y1="474" x2="1210" y2="112" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1119.0" y="198.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Solicitud de</text>
+<text x="1119.0" y="213.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">autenticación</text>
+<line x1="1280" y1="112" x2="1007" y2="481" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1264.0" y="268.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Credenciales</text>
+<text x="1264.0" y="283.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">validadas</text>
+<rect x="430" y="1160" width="250" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="555.0" y="1190.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema nacional de</text>
+<text x="555.0" y="1208.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">farmacovigilancia</text>
+<line x1="767" y1="723" x2="515" y2="1158" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="579.0" y="888.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Reporte de efecto</text>
+<text x="579.0" y="903.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">adverso XML/DTD</text>
+<line x1="585" y1="1158" x2="790" y2="729" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="759.0" y="1018.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Alerta nacional</text>
+<text x="759.0" y="1033.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de retiro de lote</text>
+<rect x="780" y="1160" width="250" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="905.0" y="1190.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Pasarela</text>
+<text x="905.0" y="1208.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">SMS / WhatsApp</text>
+<line x1="850" y1="738" x2="870" y2="1158" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="949.0" y="888.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Mensaje de</text>
+<text x="949.0" y="903.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">notificación</text>
+<line x1="940" y1="1158" x2="909" y2="738" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1059.0" y="1018.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Acuse de entrega</text>
+<text x="1059.0" y="1033.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">del mensaje</text>
+<rect x="1130" y="1160" width="250" height="70" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1255.0" y="1190.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Operaciones de TI</text>
+<text x="1255.0" y="1208.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">/ data center</text>
+<line x1="992" y1="723" x2="1210" y2="1158" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1179.0" y="888.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Métricas y alertas</text>
+<text x="1179.0" y="903.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de operación</text>
+<line x1="1280" y1="1158" x2="1014" y2="716" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1329.0" y="1018.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Parámetros</text>
+<text x="1329.0" y="1033.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de operación</text>
+</svg>

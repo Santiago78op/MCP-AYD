@@ -105,15 +105,15 @@
     {
       "id": "el004",
       "type": "line",
-      "x": 464.0,
-      "y": 132.0,
-      "width": 26,
-      "height": -20,
+      "x": 690.1,
+      "y": 135.15,
+      "width": 78.19999999999993,
+      "height": -48.150000000000006,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -134,8 +134,8 @@
           0
         ],
         [
-          26,
-          -20
+          78.19999999999993,
+          -48.150000000000006
         ]
       ]
     },
@@ -241,15 +241,15 @@
     {
       "id": "el008",
       "type": "line",
-      "x": 464.0,
-      "y": 262.0,
-      "width": 26,
-      "height": -20,
+      "x": 690.1,
+      "y": 265.15,
+      "width": 78.19999999999993,
+      "height": -48.14999999999998,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -270,8 +270,8 @@
           0
         ],
         [
-          26,
-          -20
+          78.19999999999993,
+          -48.14999999999998
         ]
       ]
     },
@@ -377,15 +377,15 @@
     {
       "id": "el012",
       "type": "line",
-      "x": 464.0,
-      "y": 392.0,
-      "width": 26,
-      "height": -20,
+      "x": 690.1,
+      "y": 395.15,
+      "width": 78.19999999999993,
+      "height": -48.14999999999998,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -406,8 +406,8 @@
           0
         ],
         [
-          26,
-          -20
+          78.19999999999993,
+          -48.14999999999998
         ]
       ]
     },
@@ -513,15 +513,15 @@
     {
       "id": "el016",
       "type": "line",
-      "x": 464.0,
-      "y": 522.0,
-      "width": 26,
-      "height": -20,
+      "x": 690.1,
+      "y": 525.15,
+      "width": 78.19999999999993,
+      "height": -48.14999999999998,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -542,8 +542,8 @@
           0
         ],
         [
-          26,
-          -20
+          78.19999999999993,
+          -48.14999999999998
         ]
       ]
     },
@@ -649,15 +649,15 @@
     {
       "id": "el020",
       "type": "line",
-      "x": 464.0,
-      "y": 652.0,
-      "width": 26,
-      "height": -20,
+      "x": 690.1,
+      "y": 655.15,
+      "width": 78.19999999999993,
+      "height": -48.14999999999998,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -678,8 +678,8 @@
           0
         ],
         [
-          26,
-          -20
+          78.19999999999993,
+          -48.14999999999998
         ]
       ]
     },
@@ -785,15 +785,15 @@
     {
       "id": "el024",
       "type": "line",
-      "x": 464.0,
-      "y": 782.0,
-      "width": 26,
-      "height": -20,
+      "x": 690.1,
+      "y": 785.15,
+      "width": 78.19999999999993,
+      "height": -48.14999999999998,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -814,8 +814,8 @@
           0
         ],
         [
-          26,
-          -20
+          78.19999999999993,
+          -48.14999999999998
         ]
       ]
     },
@@ -921,15 +921,15 @@
     {
       "id": "el028",
       "type": "line",
-      "x": 464.0,
-      "y": 912.0,
-      "width": 26,
-      "height": -20,
+      "x": 690.1,
+      "y": 915.15,
+      "width": 78.19999999999993,
+      "height": -48.14999999999998,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -950,8 +950,8 @@
           0
         ],
         [
-          26,
-          -20
+          78.19999999999993,
+          -48.14999999999998
         ]
       ]
     },
@@ -995,7 +995,7 @@
       "id": "el030",
       "type": "text",
       "x": 330,
-      "y": 490,
+      "y": 340,
       "width": 80,
       "height": 15,
       "angle": 0,
@@ -1313,15 +1313,15 @@
     {
       "id": "el039",
       "type": "line",
-      "x": 132,
-      "y": 126,
-      "width": 26,
-      "height": -22,
+      "x": 160.10050506338834,
+      "y": 83.89949493661166,
+      "width": 19.79898987322333,
+      "height": -19.79898987322333,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -1342,8 +1342,8 @@
           0
         ],
         [
-          26,
-          -22
+          19.79898987322333,
+          -19.79898987322333
         ]
       ]
     },
@@ -1597,15 +1597,15 @@
     {
       "id": "el047",
       "type": "line",
-      "x": 132,
-      "y": 536,
-      "width": 26,
-      "height": -22,
+      "x": 160.10050506338834,
+      "y": 493.8994949366117,
+      "width": 19.79898987322333,
+      "height": -19.79898987322333,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -1626,8 +1626,8 @@
           0
         ],
         [
-          26,
-          -22
+          19.79898987322333,
+          -19.79898987322333
         ]
       ]
     },
@@ -1881,15 +1881,15 @@
     {
       "id": "el055",
       "type": "line",
-      "x": 962,
-      "y": 366,
-      "width": 26,
-      "height": -22,
+      "x": 990.1005050633884,
+      "y": 323.8994949366117,
+      "width": 19.79898987322333,
+      "height": -19.79898987322333,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -1910,8 +1910,8 @@
           0
         ],
         [
-          26,
-          -22
+          19.79898987322333,
+          -19.79898987322333
         ]
       ]
     },
@@ -2165,15 +2165,15 @@
     {
       "id": "el063",
       "type": "line",
-      "x": 962,
-      "y": 756,
-      "width": 26,
-      "height": -22,
+      "x": 990.1005050633884,
+      "y": 713.8994949366116,
+      "width": 19.79898987322333,
+      "height": -19.79898987322333,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -2194,8 +2194,8 @@
           0
         ],
         [
-          26,
-          -22
+          19.79898987322333,
+          -19.79898987322333
         ]
       ]
     },
@@ -2449,15 +2449,15 @@
     {
       "id": "el071",
       "type": "line",
-      "x": 962,
-      "y": 916,
-      "width": 26,
-      "height": -22,
+      "x": 990.1005050633884,
+      "y": 873.8994949366116,
+      "width": 19.79898987322333,
+      "height": -19.79898987322333,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -2478,8 +2478,8 @@
           0
         ],
         [
-          26,
-          -22
+          19.79898987322333,
+          -19.79898987322333
         ]
       ]
     },

@@ -1,0 +1,452 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1038" width="1920" height="1038" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="0" width="1920" height="1038" fill="#ffffff"/>
+<text x="40" y="59.4" font-size="20" fill="#1e1e1e" text-anchor="start">Matriz de trazabilidad — Drivers RF vs. CDU (SmartPress)</text>
+<text x="40" y="88.61" font-size="13" fill="#1e1e1e" text-anchor="start">Plantilla de la NT1, figura 1, pág. 91.   Celda:  ● = caso de uso PRINCIPAL (dueño del requerimiento)  ·  X = participa en su realización  ·  vacío = no interviene.</text>
+<text x="40" y="104.86" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-012 y RFG-013 no aparecen: pertenecen a CUN-01 y CUN-02, que el enunciado no manda expandir.</text>
+<rect x="40" y="140" width="400" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="start">Requerimiento</text>
+<rect x="440" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-001</text>
+<rect x="530" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-002</text>
+<rect x="620" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-003</text>
+<rect x="710" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-004</text>
+<rect x="800" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-005</text>
+<rect x="890" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-006</text>
+<rect x="980" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-007</text>
+<rect x="1070" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-008</text>
+<rect x="1160" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-009</text>
+<rect x="1250" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-010</text>
+<rect x="1340" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-011</text>
+<rect x="1430" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-012</text>
+<rect x="1520" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-013</text>
+<rect x="1610" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-014</text>
+<rect x="1700" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-015</text>
+<rect x="1790" y="140" width="90" height="60" rx="0" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="173.61" font-size="13" fill="#1e1e1e" text-anchor="middle">CU-016</text>
+<rect x="40" y="200" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-001 Capturar 500 med/s vía OPC-UA</text>
+<rect x="440" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="530" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="620" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="710" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="800" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="980" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1070" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1250" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1340" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1520" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1610" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1700" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1790" y="200" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="233.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="260" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-002 Inferencia ML dentro del ciclo</text>
+<rect x="440" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="530" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="620" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="710" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="800" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="980" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1070" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1250" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1340" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1520" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1610" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1700" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1790" y="260" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="293.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="320" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-003 Orden de ajuste / paro al PLC</text>
+<rect x="440" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="530" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="620" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="710" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="800" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="890" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="980" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1070" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1250" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1340" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1520" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1610" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1700" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1790" y="320" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="353.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="380" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-004 Trazabilidad completa por pieza</text>
+<rect x="440" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="530" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="620" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="710" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="800" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="980" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1070" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1250" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1340" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1520" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1610" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1700" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1790" y="380" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="413.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="40" y="440" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-005 Etiquetado QR único</text>
+<rect x="440" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="530" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="620" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="710" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="800" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="980" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1070" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1250" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1340" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1430" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1520" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1610" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1700" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1790" y="440" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="473.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="40" y="500" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-006 Sellado inmutable y verificable</text>
+<rect x="440" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="530" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="620" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="710" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="800" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="980" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1070" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1250" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1340" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1520" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1610" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1700" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1790" y="500" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="533.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="560" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-007 Correlacionar CMM y reentrenar</text>
+<rect x="440" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="530" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="620" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="710" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="800" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="980" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1070" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1250" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1340" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1520" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1610" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1700" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1790" y="560" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="593.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="620" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-008 Consulta forense a 7 años</text>
+<rect x="440" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="530" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="620" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="710" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="800" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="980" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1070" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1250" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1340" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1520" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1610" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1700" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1790" y="620" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="653.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="680" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-009 Detectar deriva de sensores</text>
+<rect x="440" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="530" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="620" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="710" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="800" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="980" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1070" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1250" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1340" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1520" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1610" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1700" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1790" y="680" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="713.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="740" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-010 Tablero en tiempo real</text>
+<rect x="440" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="530" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="620" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="710" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="800" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="980" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1070" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="1160" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1250" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1340" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1520" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1610" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1700" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1790" y="740" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="773.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="800" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-011 Buffer local y reconciliación</text>
+<rect x="440" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="530" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="620" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="710" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="800" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle">●</text>
+<rect x="980" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1070" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1250" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1340" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1520" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1610" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1700" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1790" y="800" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="833.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="40" y="860" width="400" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="52" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="start">RFG-014 Actualizar modelo sin parar</text>
+<rect x="440" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="485.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="530" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="575.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="620" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="665.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="710" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="755.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="800" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="845.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="890" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="935.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="980" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1025.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1070" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1115.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1160" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1205.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1250" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1340" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1385.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1430" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1475.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1520" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1565.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle">X</text>
+<rect x="1610" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1655.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1700" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1745.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<rect x="1790" y="860" width="90" height="60" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1835.0" y="893.61" font-size="13" fill="#1e1e1e" text-anchor="middle"></text>
+<text x="40" y="962.61" font-size="13" fill="#1e1e1e" text-anchor="start">Lectura por fila — ¿dónde se realiza cada requerimiento?  Ninguna fila vacía: todo RF expandido tiene al menos un CU dueño.</text>
+<text x="40" y="978.86" font-size="13" fill="#1e1e1e" text-anchor="start">Lectura por columna — ¿de dónde viene cada caso de uso?  Ninguna columna vacía: no hay CU inventado sin requerimiento que lo origine.</text>
+<text x="40" y="995.11" font-size="13" fill="#1e1e1e" text-anchor="start">La columna más poblada es CU-004 (Registrar trazabilidad del ciclo), coherente con que la pérdida de trazabilidad sea el problema que originó el proyecto.</text>
+</svg>

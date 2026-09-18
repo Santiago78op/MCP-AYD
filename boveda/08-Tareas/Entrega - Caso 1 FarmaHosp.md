@@ -193,7 +193,7 @@ el producto, rectángulos para las entidades, una flecha por sentido, todas con 
 
 #### Resumen del diagrama
 
-**14 entidades · 25 streamlines.** Distribucion por canasta: 4 usuarios directos, 4 del negocio
+**14 entidades · 27 streamlines.** Distribucion por canasta: 4 usuarios directos, 4 del negocio
 (decide / insumo / audita), 6 dispositivos y sistemas externos.
 
 | Canasta | Entidades |
@@ -206,9 +206,18 @@ el producto, rectángulos para las entidades, una flecha por sentido, todas con 
 | **Sistemas externos** | Legacy de admisiones (COBOL/SOAP, 7-17 h), Directorio activo LDAP, Sistema nacional de farmacovigilancia (XML/DTD, 8-16 h), Pasarela SMS/WhatsApp |
 | **Opera** | Operaciones de TI / data center |
 
-> [!tip] Version dibujada
-> El diagrama esta dibujado en tres capas, con la justificacion de cada entidad y cada flujo, en el
-> artifact **Contexto de FarmaHosp**: https://claude.ai/code/artifact/613ddb25-bac3-4c33-b498-45cc73550eb4
+*(Version con notacion de clase — un solo ovalo para El Producto, rectangulos para las entidades y
+una flecha con nombre por sentido: `02-Diagramas/2-caso-negocio/contexto-farmahosp.svg`, editable en
+`contexto-farmahosp.excalidraw`, verificacion en `contexto-farmahosp-verificacion.png`.)*
+
+> [!note] Por que el conteo dice 27 y no 25
+> El mermaid de trabajo de arriba dibuja **25** flechas: omite los dos retornos de la **pasarela
+> SMS/WhatsApp** (acuse de entrega) y de **Operaciones de TI** (parametros de operacion), que la tabla
+> de entidades **si** lista. Manda la tabla, que es la enumeracion completa: la lamina entregable
+> tiene **27** streamlines — dos por entidad, salvo los sensores IoT, que solo emiten.
+>
+> El render viejo de StarUML (`contexto-farmahosp-render-staruml.png`) **no se entrega**: traia marca
+> de agua UNREGISTERED, rotulos encimados y texto sin tildes.
 
 ### 2.2 Diagrama de CDU de alto nivel (core del negocio)
 

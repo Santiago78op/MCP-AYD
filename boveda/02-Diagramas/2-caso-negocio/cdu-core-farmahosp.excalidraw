@@ -105,15 +105,15 @@
     {
       "id": "el004",
       "type": "line",
-      "x": 418.0,
-      "y": 386.0,
-      "width": 26,
-      "height": -20,
+      "x": 670.7,
+      "y": 391.95,
+      "width": 87.39999999999998,
+      "height": -90.94999999999999,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -134,8 +134,8 @@
           0
         ],
         [
-          26,
-          -20
+          87.39999999999998,
+          -90.94999999999999
         ]
       ]
     },
@@ -389,15 +389,15 @@
     {
       "id": "el012",
       "type": "line",
-      "x": 72,
-      "y": 366,
-      "width": 26,
-      "height": -22,
+      "x": 100.10050506338834,
+      "y": 323.8994949366117,
+      "width": 19.79898987322333,
+      "height": -19.79898987322333,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -418,8 +418,8 @@
           0
         ],
         [
-          26,
-          -22
+          19.79898987322333,
+          -19.79898987322333
         ]
       ]
     },
@@ -673,15 +673,15 @@
     {
       "id": "el020",
       "type": "line",
-      "x": 192,
-      "y": 126,
-      "width": 26,
-      "height": -22,
+      "x": 220.10050506338834,
+      "y": 83.89949493661166,
+      "width": 19.79898987322333,
+      "height": -19.79898987322333,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -702,8 +702,8 @@
           0
         ],
         [
-          26,
-          -22
+          19.79898987322333,
+          -19.79898987322333
         ]
       ]
     },
@@ -957,15 +957,15 @@
     {
       "id": "el028",
       "type": "line",
-      "x": 892,
-      "y": 126,
-      "width": 26,
-      "height": -22,
+      "x": 920.1005050633884,
+      "y": 83.89949493661166,
+      "width": 19.79898987322333,
+      "height": -19.79898987322333,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -986,8 +986,8 @@
           0
         ],
         [
-          26,
-          -22
+          19.79898987322333,
+          -19.79898987322333
         ]
       ]
     },
@@ -1241,15 +1241,15 @@
     {
       "id": "el036",
       "type": "line",
-      "x": 1012,
-      "y": 366,
-      "width": 26,
-      "height": -22,
+      "x": 1040.1005050633883,
+      "y": 323.8994949366117,
+      "width": 19.79898987322333,
+      "height": -19.79898987322333,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -1270,8 +1270,8 @@
           0
         ],
         [
-          26,
-          -22
+          19.79898987322333,
+          -19.79898987322333
         ]
       ]
     },
@@ -1525,15 +1525,15 @@
     {
       "id": "el044",
       "type": "line",
-      "x": 522,
-      "y": 646,
-      "width": 26,
-      "height": -22,
+      "x": 550.1005050633884,
+      "y": 603.8994949366116,
+      "width": 19.79898987322333,
+      "height": -19.79898987322333,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "fillStyle": "solid",
-      "strokeWidth": 1,
+      "strokeWidth": 2,
       "strokeStyle": "solid",
       "roughness": 0,
       "opacity": 100,
@@ -1554,8 +1554,8 @@
           0
         ],
         [
-          26,
-          -22
+          19.79898987322333,
+          -19.79898987322333
         ]
       ]
     },
