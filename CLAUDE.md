@@ -484,6 +484,12 @@ La rúbrica **repite los criterios 1-4** de la Tarea 1 con otros pesos (20/10/20
 **`metodo_tarea("Avance - Tarea 2 FarmaHosp")`** y el entregable en **`Entrega - Tarea 2 FarmaHosp`**
 (que manda sobre el Avance). Modo elegido por él: **resolver y explicar**; la hace **solo**.
 
+> [!note] Al 2026-09-18 el entregable está armado
+> `08-Tareas/Entrega - Tarea 2 FarmaHosp.docx` — los criterios 1-6 y las 7 láminas en un solo
+> archivo, que es lo que recibe la plataforma. **No se edita a mano**: se rehace con
+> `python3 boveda/06-Proyecto-MCP/generar-entrega-docx.py`. Lo único que faltaba al cierre de la
+> sesión era que él lo subiera.
+
 Doctrina de esa entrega, para no volver a discutirla sin evidencia nueva:
 
 - **Criterios 1-4 no se rehacen**: se reutiliza la Entrega del Caso 1; lo único que faltaba eran las
@@ -633,6 +639,21 @@ califican: declarar la **frontera** en una línea, poner **IDs** (`STK-01`, `DR-
 entregable, **nombrar todas las flechas** de cualquier diagrama, y declarar **lo que quedó fuera y por
 qué**. Todo lo demás que no se pidió **no se agrega**: en modo examen, agregar de más es un error.
 
+**Si el examen pide elegir y justificar un estilo: `metodo_tarea("que estilo uso")`.** La respuesta
+por defecto es **SOA**, por dos razones que no hay que mezclar: (1) **a la catedrática le gusta** —
+dato de él sobre ella, inclina el empate; y (2) la razón fuerte, que es estructural: todo caso del
+curso produce N procesos de negocio y el escalón 2 de su lámina dice *"desarrolla procesos de
+negocio como Servicios"*, así que **la granularidad ya viene decidida por el criterio 1** y la
+justificación se escribe sola. La guía trae el molde de cinco partes y —lo que importa— las tres
+señales de **cuándo NO contestar SOA**. Una restricción del enunciado con *«no se puede»* manda
+sobre cualquier preferencia.
+
+**El documento se arma con los parámetros del paso 6 de `_Método para resolver una tarea`**: sin
+carátula (encabezado compacto con carné y fecha), monocromo, notas por negrita + cuerpo 9.5 +
+sangría, salto de página solo antes de nivel 1. Y la distinción al recortar: **se sacan las
+checklists y los comentarios sobre la rúbrica; NO se sacan las declaraciones** —frontera, convención
+de ids, taxonomía, supuestos—, porque declarar es justamente lo que evita perder puntos.
+
 Cómo se trabaja: **primero lo que más vale** (orden por puntaje de la rúbrica); tablas y listas, no
 prosa; **sin preguntas** salvo que sin la respuesta el trabajo sea inútil —si algo es ambiguo, se
 **asume y se declara la asunción en una línea**—; sin explorar alternativas; y si un punto se traba,
@@ -751,7 +772,26 @@ Lo indispensable de esa guía, para que no se pierda si no la abrís:
 - **Retícula de 20 px**, márgenes de 40, separación mínima 40 px horizontal y 30 vertical.
 - **El paso 4 del checklist no se saltea**: tomar una captura, **mirar la imagen** y compararla
   contra las reglas. Un diagrama con el código perfecto puede verse mal. Nada se declara terminado
-  sin haber visto la imagen.
+  sin haber visto la imagen. Y **recortar y ampliar las zonas densas**: a tamaño completo dos
+  rótulos encimados parecen texto normal.
+
+> [!warning] La diagonal de negocio: dónde va, y la regla que la sostiene
+> **Actor de negocio → la diagonal CRUZA LA CABEZA** (cuerda a 45° por el centro del círculo).
+> **Caso de uso de negocio → la diagonal CORTA EL BORDE DERECHO** de la elipse (arranca dentro,
+> abajo, y sale por el contorno). Verificado contra
+> `adjuntos/capturas-clase/cun-ejemplo-core-tienda-electronica.png`.
+>
+> Ya se cometió el error dos veces, y siempre por el mismo motivo: se movió la diagonal **para
+> evitar un encimado** — al costado del torso y flotando dentro de la elipse. En los dos casos dejó
+> de leerse como estereotipo, que es su única función. **La notación de clase no se negocia para
+> acomodar el layout**: si choca, se agranda el elemento o se corre lo otro. Detalle en
+> `estilo-diagramas.md` §3.2.
+
+**Diagramas radiales** (el contexto es el único del curso): todas las flechas convergen en un punto,
+así que rotular «en el medio de la flecha» amontona los rótulos. Costados por fracción del recorrido;
+**arriba y abajo, por posición absoluta en renglones escalonados**. El rótulo es una caja de 140 px,
+o sea `centro ± 70`: dos del mismo renglón necesitan sus centros a más de 140 px. Detalle en
+`estilo-diagramas.md` §3.3 bis.
 
 **El flujo de generación y verificación, reproducible en las dos máquinas** (el instalador registra
 el MCP `chrome-devtools`, que es la herramienta del paso 4):
@@ -903,6 +943,16 @@ Si tocás `src/`, hay que `npm run build` para que el servidor registrado use el
 > Dos causas que ya se arreglaron y no hay que repetir: **embeds sin ruta completa** (Obsidian los
 > resuelve, la auditoría no) y **notas de `08-Tareas/` sin enlazar desde el `Índice`**.
 
+> [!warning] Bug abierto: `listar_diagramas()` no ve ningún archivo
+> Devuelve *"0 archivos"* aunque hay **127** `.svg`/`.excalidraw` en disco. Los bloques mermaid sí
+> los lista. La causa es `listarArchivos` en `src/boveda.ts`: usa `readdirSync` **no recursivo**, y
+> desde que los diagramas se reorganizaron en **subcarpetas por sección** no hay ninguno suelto en la
+> raíz de `02-Diagramas/`. Detectado el 2026-09-18 y **sin arreglar**: tocarlo implica cambiar
+> también la resolución de `obtener_diagrama` y sumar casos a `cobertura`.
+>
+> Mientras tanto, para inventariar láminas: `ls boveda/02-Diagramas/*/*.svg` o el `README.md` de esa
+> carpeta.
+
 ---
 
 ## Dónde está cada cosa
@@ -932,6 +982,7 @@ boveda/
 ├── 06-Proyecto-MCP/estilo-diagramas.md  Layout, notación, checklist y metodología ADD  ← obligatorio
 ├── 06-Proyecto-MCP/generar-excalidraw.py  Emite el .excalidraw editable y el .svg sin marca de agua
 ├── 06-Proyecto-MCP/generar-mdj.py         Escribe el proyecto .mdj de StarUML ya acomodado
+├── 06-Proyecto-MCP/generar-entrega-docx.py  Arma el .docx que se sube a la plataforma
 ├── 07-Referencias/              Manual de StarUML y Excalidraw (no es materia de examen)
 ├── 08-Tareas/                   Método, guías por entregable, planes y enunciados
 ├── 07-Trazabilidad.md           Las tres matrices, con plantillas y cómo se leen

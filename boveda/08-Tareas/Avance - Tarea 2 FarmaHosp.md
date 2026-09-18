@@ -30,10 +30,15 @@ Entrega: [[Entrega - Tarea 2 FarmaHosp]] · Base: [[Entrega - Caso 1 FarmaHosp]]
 
 ## Lo que falta para entregar
 
-| Pendiente | Por qué | Prioridad |
-|---|---|---|
-| **Pasar a limpio** en un solo documento (Word/PDF) con los criterios 1-6 | La plataforma recibe un archivo; la bóveda tiene el contenido repartido en dos Entregas | Alta — antes del 18/09 |
-| Revisar la Entrega §5 y §6 **con el estudiante** y que la pueda defender | Modo resolver y explicar: estudia el razonamiento | Alta |
+| Pendiente | Estado |
+|---|---|
+| **Pasar a limpio** en un solo documento | ✅ **hecho** — `Entrega - Tarea 2 FarmaHosp.docx`, criterios 1-6 y las 7 láminas |
+| Revisar §5 y §6 con el estudiante y que la pueda defender | ✅ **hecho** — se recorrió el razonamiento el 18/09 |
+| **Subirlo a la plataforma** | ⬜ lo hace el estudiante |
+
+El `.docx` se **regenera** con `python3 06-Proyecto-MCP/generar-entrega-docx.py`: lee las láminas de
+`02-Diagramas/`, las convierte a PNG 2× y arma el documento con los parámetros de forma del paso 6
+de [[_Método para resolver una tarea]].
 
 ## Decisiones tomadas (no volver a discutir sin evidencia nueva)
 
@@ -50,3 +55,8 @@ Entrega: [[Entrega - Tarea 2 FarmaHosp]] · Base: [[Entrega - Caso 1 FarmaHosp]]
 | 2026-09-17 | §2.4 descripciones textuales de CDU-01..07 |
 | 2026-09-17 | Lámina de componentes agregada: piruletas, dependencias punteadas y grupo de servicios de negocio; corregido que `IOrdenCompra` colgaba del componente equivocado |
 | 2026-09-17 | §5 estilo y justificación, §6 bloques y despliegue: láminas `6-bloques-despliegue/` generadas, miradas y corregidas (cruces de externos, AMQP vs. replicación, rótulo del data center) |
+| 2026-09-18 | Se recorrió §5 y §6 con el estudiante: escalera de SOA, cuentas de hardware y por qué la réplica va al sitio alterno |
+| 2026-09-18 | **Diagrama de contexto rehecho**: el render de StarUML traía marca de agua *UNREGISTERED*, rótulos encimados y sin tildes. Ahora sale de `generar-excalidraw.py`. Tres vueltas de generar → mirar → corregir |
+| 2026-09-18 | **La diagonal de negocio, corregida** en el core y en la primera descomposición: cruza la cabeza del actor y corta el borde derecho de la elipse, como en la lámina de la cátedra |
+| 2026-09-18 | Conteo del contexto: **27 streamlines**, no 25 — el mermaid de trabajo omitía dos retornos que la tabla sí lista |
+| 2026-09-18 | **Entrega en limpio**: sin carátula, sin checklists ni comentarios sobre la rúbrica, monocroma, saltos solo de nivel 1. Los parámetros quedaron en el paso 6 del método |
