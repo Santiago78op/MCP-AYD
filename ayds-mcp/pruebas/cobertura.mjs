@@ -57,6 +57,8 @@ const CASOS = [
   ["metodo_tarea", { entregable: "por donde empiezo" }, "enunciado"],
   ["metodo_tarea", { entregable: "ejemplos resueltos" }, "Tienda Electr"],
   ["metodo_tarea", { entregable: "stakeholders" }, "necesidad oculta"],
+  ["metodo_tarea", { entregable: "que estilo uso" }, "cuatro escalones"],
+  ["metodo_tarea", { entregable: "seleccion de estilo" }, "NO contestar SOA"],
   ["metodo_tarea", { entregable: "core" }, "core"],
 
   // --- diagramas y flashcards de las notas nuevas

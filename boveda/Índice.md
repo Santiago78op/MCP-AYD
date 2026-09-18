@@ -172,6 +172,7 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Guía - Identificación de stakeholders]] — criterio 2 (25 pts): las tres checklists, la necesidad oculta y los conflictos
 - [[Guía - Drivers de calidad y restricción]] — criterio 3 (30 pts): escenarios, restricciones y la priorización de los 5
 - [[Guía - Matrices de trazabilidad]] — las tres matrices que pide la rúbrica (20 pts)
+- [[Guía - Selección del estilo arquitectónico]] — el molde de respuesta con SOA por defecto, sus complementarios, los descartes y **cuándo NO contestar SOA**
 - [[Ejemplos resueltos de casos de negocio]] — **de clase**: los **cuatro** encadenamientos completos (Tienda Electrónica, Fábrica, Restaurante, **Hospital**) y la checklist para compararte
 
 Los artefactos vivos de cada tarea (el estado real se lee **ahí**, no acá):
