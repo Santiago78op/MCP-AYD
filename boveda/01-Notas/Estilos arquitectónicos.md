@@ -378,6 +378,45 @@ La diapositiva de definiciones **nombra** cuatro estilos de ejemplo; después la
 > monolito no es la ausencia de capas sino que **todo vive en una base de código única** y se
 > despliega junto. Un monolito puede estar bien estratificado por dentro.
 
+## 2 bis. Cuánto le dedicó a cada estilo — el peso real en el material
+
+Contado sobre las capturas que cita cada nota (2026-09-18). Sirve para repartir el tiempo de estudio:
+lo que ella desarrolla en más láminas es lo que más probablemente pregunta.
+
+| Estilo o familia | Láminas | |
+|---|---|---|
+| **En capas** | **17** | `#################` |
+| **Tuberías y filtros** | **10** | `##########` |
+| **SOA** | 7 | `#######` |
+| **Flujo de datos** (familia) | 7 | `#######` |
+| **MVC** | 7 | `#######` |
+| **Llamada y retorno** (familia) | 5 | `#####` |
+| **RPC** | 4 | `####` |
+| **Monolítica** | 3 | `###` |
+| **En la nube** | 3 | `###` |
+
+> [!warning] La impresión engaña: el estilo al que más tiempo le dedicó es **capas**, no SOA
+> SOA se siente central porque tiene **siete láminas seguidas** con su propio subtítulo
+> (*"call return: SOA"*) y porque es el estilo que se eligió para la Tarea 2. Pero **capas tiene 17**
+> — dos veces y media más — repartidas en dos tandas (`capturas_U2` 45-49 y `capturas_U2_F3` 0-12), y
+> es la única con **ejercicios sin resolver** (captura 12, transcritos en
+> [[Arquitectura en capas]] §12).
+>
+> Estudiar SOA y descuidar capas es el error que este conteo evita.
+
+**Lo que igual hace a SOA candidata fuerte**, y que no se ve en el conteo:
+
+- Es el único estilo con una **definición operativa en cuatro escalones** (captura 35): *Define las
+  necesidades → Desarrolla procesos como Servicios → Cada Servicio evoluciona independientemente →
+  Aplicaciones distribuidas multi-nivel*. Una lámina así se pregunta.
+- Es el único que ella ubica en **dos familias**: bajo *call-return* en el árbol C&C y, en la
+  captura 34, *"es event-based porque puede usar motores de orquestación/coreografía"*. Esa doble
+  pertenencia es material de pregunta capciosa, y sigue **sin resolver** (duda #24 de
+  [[Preguntas pendientes para clase]]).
+
+Y las dudas abiertas de **capas** son igual de capciosas: dónde va el servidor web (#33) y si las
+capas son estrictas o relajadas (#34).
+
 ## 3. Qué del punto 1.9 del programa cubrió la clase
 
 El programa, punto 1.9: *arquitectura candidata, arquitectura de referencia, diseño on premise vs

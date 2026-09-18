@@ -138,6 +138,34 @@ Lo que se pierde por descuido, no por no saber:
 - [ ] ¿Las decisiones están **justificadas**, no solo enunciadas?
 - [ ] ¿Se entrega **en fecha**? (el programa dice: *"las entregas fuera de fecha no son aceptadas"*)
 
+### Los parámetros del documento que se entrega
+
+Decididos el **2026-09-18** al pasar en limpio la Tarea 2, y **válidos para todo entregable
+posterior, incluido el examen**. El generador que los aplica es
+`06-Proyecto-MCP/generar-entrega-docx.py`.
+
+| Parámetro | Cómo va | Por qué |
+|---|---|---|
+| **Portada** | **no**. Un encabezado compacto de 3 líneas: título · curso, catedrática · estudiante, carné, fecha | Una página entera de portada no suma; los **datos sí se piden** y su ausencia se descuenta |
+| **Color** | **ninguno**. Todo en negro | Se imprime y se lee en blanco y negro |
+| **Notas** | negrita en la entrada, cuerpo a **9.5**, sangría de 0.3" | Se distinguen por **tamaño y desnivel**, nunca por recuadro ni relleno |
+| **Saltos de página** | solo **antes de las secciones de nivel 1** | Los de nivel 2 parten un criterio a la mitad y dejan páginas a medio llenar |
+| **Cómo se fuerza el salto** | `page_break_before` **sobre el título** | Un párrafo vacío con salto deja una línea colgando arriba de cada sección |
+| **Índice** | tabla de **correspondencia con la rúbrica** (criterio → puntos → sección) en la primera página | El que califica va tildando; le resuelve la búsqueda en 10 segundos |
+| **Numeración** | la del **material**, sin renumerar, y la rúbrica se mapea en esa tabla | Renumerar rompe las referencias cruzadas internas, y una que se escape es una contradicción |
+| **Tablas** | encabezado en gris claro que **se repite** al cortar página; ancho fijo | El gris es escala, no color |
+| **Diagramas anchos** | página **apaisada** propia | A 6.5" de ancho el texto del diagrama no se lee |
+| **Formato de lámina** | SVG → **PNG 2× con fondo blanco explícito** | Ver `estilo-diagramas.md` §6 |
+
+> [!important] Lo que se saca y lo que NO se saca
+> Se sacan las **checklists de rigor**, los comentarios sobre la rúbrica, las referencias a la bóveda
+> y cualquier mención a preguntas pendientes: son **aparato de trabajo**.
+>
+> **No se sacan las declaraciones**, aunque parezcan notas al margen: frontera, convención de
+> identificadores, taxonomía usada, supuestos y el porqué de una decisión contraintuitiva. **Declarar
+> es justamente lo que evita perder puntos** — sin la frontera, la discusión actor vs. trabajador se
+> queda sin sostén; sin los supuestos, parecen olvidos.
+
 ---
 
 ## Dónde van los enunciados
