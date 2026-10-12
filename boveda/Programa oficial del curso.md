@@ -99,9 +99,12 @@ El detalle de 1.9 contra lo que dio la clase (capturas_U2, capturas_U2_F2 y capt
 > Software**) sigue **sin material de clase**. Pregunta abierta para ella: qué entra en el
 > segundo parcial (19 de septiembre).
 
-### Unidad 2 — Calidad del Software ❌
+### Unidad 2 — Calidad del Software 🟡
 
-Nada cubierto todavía:
+Llegó la presentación *Calidad del Software* (2026-10-12), pero es un **ejemplo resuelto**, no la
+teoría de estos cuatro puntos: de calidad trae la tabla de escenarios `EAC-nn` →
+[[Ejemplo resuelto - Sistema de Transporte READM]]. Las normas ISO siguen como complemento en
+[[Atributos de calidad]]. Sin presentación de clase todavía:
 
 1. Conceptos generales
 2. ¿Por qué es importante?

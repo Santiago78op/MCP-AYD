@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 1740 1050" width="1740" height="1050" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="-30" width="1740" height="1050" fill="#ffffff"/>
+<text x="40" y="29.4" font-size="20" fill="#1e1e1e" text-anchor="start">Diagrama de contexto — SiL'K (Supplier Information Link)</text>
+<text x="40" y="56.61" font-size="13" fill="#1e1e1e" text-anchor="start">Elipse = El Producto · rectángulo = entidades o agentes externos · flecha = streamline, con nombre y en sustantivo.</text>
+<ellipse cx="870.0" cy="580.0" rx="210.0" ry="400.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="870.0" y="550.43" font-size="19" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">SiL'K</text>
+<text x="870.0" y="574.18" font-size="19" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema integrado</text>
+<text x="870.0" y="597.93" font-size="19" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de compras y gestión</text>
+<text x="870.0" y="621.68" font-size="19" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de suministradores</text>
+<rect x="40" y="242" width="280" height="76" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="180.0" y="285.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Empleado solicitante</text>
+<line x1="320" y1="266" x2="740" y2="266" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="530.0" y="255.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Solicitud de pedido</text>
+<line x1="723" y1="294" x2="320" y2="294" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="521.5" y="315.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Estado de la solicitud</text>
+<rect x="40" y="392" width="280" height="76" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="180.0" y="425.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Responsable de área</text>
+<text x="180.0" y="445.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(aprobador)</text>
+<line x1="320" y1="416" x2="678" y2="416" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="499.0" y="405.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Decisión de aprobación</text>
+<line x1="673" y1="444" x2="320" y2="444" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="496.5" y="465.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Solicitud pendiente de aprobación</text>
+<rect x="40" y="542" width="280" height="76" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="180.0" y="585.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Comprador</text>
+<line x1="320" y1="566" x2="660" y2="566" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="490.0" y="555.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Pedido de compra y evaluación</text>
+<line x1="660" y1="594" x2="320" y2="594" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="490.0" y="615.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Propuestas de pedido y alertas de plazo</text>
+<rect x="40" y="692" width="280" height="76" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="180.0" y="735.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Dirección de Compras</text>
+<line x1="320" y1="716" x2="673" y2="716" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="496.5" y="705.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Contratos y reglas de compra</text>
+<line x1="678" y1="744" x2="320" y2="744" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="499.0" y="765.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Gasto consolidado e indicadores</text>
+<rect x="40" y="842" width="280" height="76" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="180.0" y="875.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Ingeniería (Centro de</text>
+<text x="180.0" y="895.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Desarrollo de Productos)</text>
+<line x1="320" y1="866" x2="723" y2="866" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="521.5" y="855.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Plan del proyecto y coste objetivo</text>
+<line x1="740" y1="894" x2="320" y2="894" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="530.0" y="915.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Estado de preparación de las piezas</text>
+<rect x="1420" y="242" width="280" height="76" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1560.0" y="285.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Suministrador</text>
+<line x1="1420" y1="266" x2="1000" y2="266" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1210.0" y="255.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Confirmación, aviso de envío y factura</text>
+<line x1="1017" y1="294" x2="1420" y2="294" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1218.5" y="315.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Pedido, demanda prevista y resultados</text>
+<rect x="1420" y="392" width="280" height="76" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1560.0" y="425.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema MRP/DRP</text>
+<text x="1560.0" y="445.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de planta</text>
+<line x1="1420" y1="416" x2="1062" y2="416" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1241.0" y="405.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Requisitos de material</text>
+<line x1="1067" y1="444" x2="1420" y2="444" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1243.5" y="465.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Pedidos en firme y fechas de entrega</text>
+<rect x="1420" y="542" width="280" height="76" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1560.0" y="585.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Recepción y Logística</text>
+<line x1="1420" y1="566" x2="1080" y2="566" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1250.0" y="555.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Recepción de material</text>
+<line x1="1080" y1="594" x2="1420" y2="594" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1250.0" y="615.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Entregas previstas</text>
+<rect x="1420" y="692" width="280" height="76" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1560.0" y="725.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema de Cuentas</text>
+<text x="1560.0" y="745.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de Acreedores</text>
+<line x1="1420" y1="716" x2="1067" y2="716" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1243.5" y="705.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Estado del pago</text>
+<line x1="1062" y1="744" x2="1420" y2="744" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1241.0" y="765.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Factura conciliada para pago</text>
+<rect x="1420" y="842" width="280" height="76" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1560.0" y="875.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistemas de compras locales</text>
+<text x="1560.0" y="895.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(en retiro)</text>
+<line x1="1420" y1="866" x2="1017" y2="866" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1218.5" y="855.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Histórico de pedidos y suministradores</text>
+</svg>

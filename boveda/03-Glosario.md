@@ -51,6 +51,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 ## B
 
 - **Batch secuencial (secuencial por lotes)** — **En clase** (capturas_U2_F3, 28): *"los componentes son programas independientes; el supuesto es que cada paso se ejecuta hasta completarse antes que se inicie el siguiente"*. Estilo de la familia flujo de datos. → [[Arquitectura centrada en el flujo de datos]] §5
+- **Bus de eventos** — **En clase** (*Calidad del Software*, láminas 19-23): *"componente central que recibe eventos de los publicadores y los distribuye a los suscriptores correspondientes"*, con un modelo de publicación-suscripción. En el diagrama de bloques es el *Event Router*. → [[Ejemplo resuelto - Sistema de Transporte READM]] §10
 
 ## C
 
@@ -111,6 +112,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 
 ## E
 
+- **EAC (escenario de atributo de calidad)** — El identificador `EAC-nn` de los drivers de calidad en el ejemplo de clase. Tabla de cuatro columnas: ID, Categoría, Escenario (fuente de estímulo, estímulo, artefacto, entorno, respuesta, medida de la respuesta) y Prioridad como par, por ejemplo (A, A). Es lo que la rúbrica llama «EaC». → [[Ejemplo resuelto - Sistema de Transporte READM]] §5
 - **EDA (Event Driven Architecture)** — Estilo 7 de la lista de nueve de la clase: la arquitectura basada en eventos. Está nombrada, pero no se desarrolló. → [[Estilos arquitectónicos]] · [[Catálogo de estilos arquitectónicos]]
 - **Elementos, Forma y Razón** — La afirmación con que la clase define la **arquitectura** (no el estilo): elementos de procesamiento, datos y conexión; la forma, que son sus propiedades y relaciones; y la razón, que es la motivación de la elección. → [[Estilos arquitectónicos]]
 - **Empaquetado / desempaquetado** — En RPC, convertir los parámetros o el resultado en bytes para cruzar la red y reconstruirlos del otro lado (pasos del diagrama de la captura 43 de U2_F3). → [[Llamada a procedimiento remoto]]

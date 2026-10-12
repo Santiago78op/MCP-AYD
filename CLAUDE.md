@@ -504,6 +504,53 @@ Doctrina de esa entrega, para no volver a discutirla sin evidencia nueva:
 - **Componentes dentro de los nodos** del despliegue (captura 57), no en lámina aparte; el diagrama de
   componentes separado quedó como mejora opcional.
 
+### El Caso Harley-Davidson (proyecto SiL'K) — entrega y presentación 13/10/2026
+
+Caso nuevo, **no** continúa FarmaHosp. El PDF llegó en `enunciados/Tarea 2/`, pero todo se llama
+*Caso Harley-Davidson* para no confundirlo con la Tarea 2 de FarmaHosp. El estado vive en
+**`metodo_tarea("Avance - Caso Harley-Davidson")`** y el entregable en
+**`Entrega - Caso Harley-Davidson`**. Lo hace **solo**; modo **resolver y explicar**.
+
+> [!note] El entregable no se edita a mano
+> `08-Tareas/GrupoN_CasoHD.pdf` y el `.docx` salen de
+> `python3 boveda/06-Proyecto-MCP/generar-entrega-hd.py`, que también escribe la `Entrega` en
+> markdown. Las cuatro matrices se **generan** de tres relaciones (`STK_RF`, `RF_CU`, `DEP_RF`) y la
+> de stakeholders contra casos de uso se **deriva**: para cambiar una celda se cambia la relación.
+
+Doctrina de esa entrega:
+
+- **Frontera:** el negocio es la **gestión de suministros y compras**, no la empresa ni el concurso
+  de proveedores de software que da título al caso. Actores: el proveedor y las **áreas** que piden,
+  reciben y pagan. Los compradores son trabajadores.
+- **«Suministrador» son dos poblaciones** en el caso: el proveedor de piezas (actor) y el de
+  software (stakeholder, no actor).
+- **Cuatro procesos = cuatro servicios**: SOA por proceso, capas por dentro y eventos entre
+  servicios — la misma combinación del ejemplo READM.
+- **Modelo de calidad:** la catedrática respondió *pensamiento ISO, familia de normas, concretas
+  como la 9126 o la 25000*. Se adoptó ISO/IEC 25010 declarando que sucede a la 9126 del programa.
+- **Los números de calidad son supuestos declarados**: el caso solo trae cifras de negocio.
+
+### El ejemplo READM — lo que dio en la presentación *Calidad del Software*
+
+Nota: `Ejemplo resuelto - Sistema de Transporte READM`. El PDF está en `00-Fuentes/lecturas/`, pero
+**es material de clase**, no una lectura complementaria.
+
+| Tema | Lo que manda la clase | La trampa |
+|---|---|---|
+| **«EaC»** | Escenario de atributo de calidad, id **`EAC-nn`**. Tabla: ID · Categoría · Escenario · Prioridad | seguir usando `AC-nn` en una entrega nueva (FarmaHosp y SmartPress quedaron con `AC-nn`: no se renumeran) |
+| **Las seis partes** | *fuente de estímulo · estímulo · artefacto · entorno · respuesta · medida de la respuesta* | escribir «fuente» y «medida» a secas si se cita la lámina |
+| **Prioridad** | un **par** en A / M / B: `(A, A)`. La lámina no define los ejes; se leen como importancia para el negocio y dificultad técnica, y se **declara** | darlo por definido en clase |
+| **Categorías del ejemplo** | desempeño, disponibilidad, seguridad, usabilidad, facilidad de prueba, modificabilidad | mezclarlas con la lista de siete sin declarar cuál se usa — es una **cuarta** lista de calidad |
+| **Restricciones** | dos tipos: *del cliente* y *de la organización de desarrollo* | creer que reemplaza a las seis categorías: esas sirven para encontrarlas |
+| **Diagrama de bloques** | *Arquitectura basada en Eventos*: **productores · enrutador · consumidores**, cada flecha con su evento, cada bloque con ícono y una línea de qué hace | dibujar bandas por nivel como en FarmaHosp cuando el estilo es de eventos |
+| **Perspectiva lógica** | **CAPAS/SOA**: presentación, servicios web, negocio, datos, integración | declarar un solo estilo: su ejemplo combina capas, SOA y eventos |
+| **Bus de eventos** | componente central con interfaz **publicador / suscriptor**; cuatro beneficios: desacople, flexibilidad, escalabilidad, reutilización | dejar EDA como «solo nombrada»: ya tiene desarrollo |
+| **La matriz de la lámina 13** | interesados **contra vistas** de la documentación (`d`, `m`, `p`) | tomarla como plantilla de las matrices de requisitos: esa sigue siendo la de la NT1 |
+
+**Íconos en las láminas.** `generar-excalidraw.py` tiene `icono(nombre, x, y, tam)`: incrusta un
+trazo de `06-Proyecto-MCP/iconos/` (Lucide, licencia ISC, monocromos) en el `.excalidraw` y en el
+`.svg`. Para sumar uno: bajar el `.svg` de Lucide a esa carpeta.
+
 **Dos decisiones tomadas que hay que respetar, no volver a discutir:**
 
 1. **El "Equipo de Desarrollo" del enunciado se separó en dos** (`STK-08` interno Java/Oracle y
@@ -966,7 +1013,7 @@ boveda/
 │                                al mismo árbol adjuntos/capturas-clase-U2/<tema>/
 ├── 00-Fuentes/capturas_U2_F3/   — tercera tanda (capas, flujo de datos, llamada y retorno, SOA, RPC, MVC);
 │                                mismo árbol de recortes
-├── 00-Fuentes/lecturas/         Lecturas complementarias
+├── 00-Fuentes/lecturas/         Lecturas complementarias — y, ojo, `Calidad del SW Parte II.pdf`, que es de clase
 ├── 01-Notas/                    Notas atómicas: una por concepto
 ├── 02-Diagramas/                Lo generado. **Una carpeta por sección de la Entrega**
 │                                (2-caso-negocio, 3.1-drivers-rf, 3.2-drivers-calidad,
@@ -983,6 +1030,8 @@ boveda/
 ├── 06-Proyecto-MCP/generar-excalidraw.py  Emite el .excalidraw editable y el .svg sin marca de agua
 ├── 06-Proyecto-MCP/generar-mdj.py         Escribe el proyecto .mdj de StarUML ya acomodado
 ├── 06-Proyecto-MCP/generar-entrega-docx.py  Arma el .docx que se sube a la plataforma
+├── 06-Proyecto-MCP/generar-entrega-hd.py    Caso Harley-Davidson: emite la Entrega en .md, .docx y .pdf
+├── 06-Proyecto-MCP/iconos/                 Trazos Lucide (ISC) para las láminas de bloques
 ├── 07-Referencias/              Manual de StarUML y Excalidraw (no es materia de examen)
 ├── 08-Tareas/                   Método, guías por entregable, planes y enunciados
 ├── 07-Trazabilidad.md           Las tres matrices, con plantillas y cómo se leen

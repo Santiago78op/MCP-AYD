@@ -12,10 +12,12 @@ Aplicación del **paso 1** de [[_Método para resolver una tarea]]: el enunciado
 entregables, anclado a la teoría de clase, con lo que el material **no cubre** y las decisiones que
 hay que tomar antes de escribir una sola línea del entregable.
 
-> [!warning] Estado al 2026-10-12: solo estudiado
-> Este archivo es el **estudio del enunciado**. No hay `Entrega` ni `Avance` todavía: se abren
-> cuando el estudiante elija el modo de trabajo. **Entrega y presentación: martes 13 de octubre de
-> 2026.** Lo hace solo, sin grupo.
+> [!note] Estado al 2026-10-13: entrega armada
+> El entregable está en [[Entrega - Caso Harley-Davidson]] y el estado en
+> [[Avance - Caso Harley-Davidson]]. Este archivo queda como el **estudio del enunciado**. Dos de los
+> tres huecos del §3 se cerraron después de escribirlo: «EaC» con el material de clase
+> ([[Ejemplo resuelto - Sistema de Transporte READM]]) y «modelo de calidad» con la respuesta de la
+> catedrática (familia ISO: 9126 y serie 25000).
 
 > [!note] El nombre de la carpeta
 > El PDF llegó en `enunciados/Tarea 2/`, pero ya existe una *Tarea 2* (la continuación de FarmaHosp,
@@ -130,7 +132,7 @@ Los hechos y las páginas están en la ficha del enunciado (`enunciado("Caso Har
 ## Notas relacionadas
 
 - [[_Método para resolver una tarea]] · [[_Protocolo de tutoría]]
-- [[Preguntas pendientes para clase]] — las 41 a 45 son de este caso
+- [[Preguntas pendientes para clase]] — las 43 a 46 siguen abiertas; la 41 y la 42 están resueltas
 - [[Entrega - Tarea 2 FarmaHosp]] — el antecedente más cercano en forma, no en contenido
 
 ## Preguntas de repaso

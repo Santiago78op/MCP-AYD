@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 1480 1075" width="1480" height="1075" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="-30" width="1480" height="1075" fill="#ffffff"/>
+<text x="40" y="29.4" font-size="20" fill="#1e1e1e" text-anchor="start">CDU primera descomposición — plano del negocio</text>
+<ellipse cx="710.0" cy="160.0" rx="280.0" ry="60.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="710.0" y="145.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«caso de uso de negocio»</text>
+<text x="710.0" y="164.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CDU-01 · Requisición y emisión</text>
+<text x="710.0" y="182.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">del pedido de compra</text>
+<line x1="858.4" y1="200.2" x2="987.2" y2="136.0" stroke="#1e1e1e" stroke-width="2"/>
+<ellipse cx="710.0" cy="370.0" rx="280.0" ry="60.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="710.0" y="355.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«caso de uso de negocio»</text>
+<text x="710.0" y="374.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CDU-02 · Recepción, seguimiento</text>
+<text x="710.0" y="392.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y pago al suministrador</text>
+<line x1="858.4" y1="410.2" x2="987.2" y2="346.0" stroke="#1e1e1e" stroke-width="2"/>
+<ellipse cx="710.0" cy="580.0" rx="280.0" ry="60.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="710.0" y="565.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«caso de uso de negocio»</text>
+<text x="710.0" y="584.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CDU-03 · Gestión de la información</text>
+<text x="710.0" y="602.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y la relación con suministradores</text>
+<line x1="858.4" y1="620.2" x2="987.2" y2="556.0" stroke="#1e1e1e" stroke-width="2"/>
+<ellipse cx="710.0" cy="790.0" rx="280.0" ry="60.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="710.0" y="775.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«caso de uso de negocio»</text>
+<text x="710.0" y="794.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CDU-04 · Seguimiento de compras en</text>
+<text x="710.0" y="812.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">proyectos de nuevos productos</text>
+<line x1="858.4" y1="830.2" x2="987.2" y2="766.0" stroke="#1e1e1e" stroke-width="2"/>
+<text x="160.0" y="376.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«actor de negocio»</text>
+<ellipse cx="160.0" cy="404.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="160" y1="418" x2="160" y2="454" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="136" y1="430" x2="184" y2="430" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="160" y1="454" x2="140" y2="484" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="160" y1="454" x2="180" y2="484" stroke="#1e1e1e" stroke-width="1"/>
+<text x="160.0" y="503.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Proveedor</text>
+<text x="160.0" y="521.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(suministrador)</text>
+<line x1="150.10050506338834" y1="413.8994949366117" x2="169.89949493661166" y2="394.10050506338837" stroke="#1e1e1e" stroke-width="2"/>
+<line x1="232" y1="408" x2="603" y2="215" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="232" y1="435" x2="474" y2="402" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="232" y1="463" x2="526" y2="535" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="232" y1="490" x2="619" y2="733" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1260.0" y="76.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«actor de negocio»</text>
+<ellipse cx="1260.0" cy="104.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="118" x2="1260" y2="154" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1236" y1="130" x2="1284" y2="130" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="154" x2="1240" y2="184" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="154" x2="1280" y2="184" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1260.0" y="203.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Áreas solicitantes</text>
+<line x1="1250.1005050633883" y1="113.89949493661166" x2="1269.8994949366115" y2="94.10050506338833" stroke="#1e1e1e" stroke-width="2"/>
+<line x1="1188" y1="147" x2="988" y2="152" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1260.0" y="271.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«actor de negocio»</text>
+<ellipse cx="1260.0" cy="299.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="313" x2="1260" y2="349" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1236" y1="325" x2="1284" y2="325" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="349" x2="1240" y2="379" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="349" x2="1280" y2="379" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1260.0" y="398.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Fabricación (centros</text>
+<text x="1260.0" y="416.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de producción)</text>
+<line x1="1250.1005050633883" y1="308.8994949366117" x2="1269.8994949366115" y2="289.10050506338837" stroke="#1e1e1e" stroke-width="2"/>
+<line x1="1188" y1="316" x2="863" y2="210" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1260.0" y="466.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«actor de negocio»</text>
+<ellipse cx="1260.0" cy="494.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="508" x2="1260" y2="544" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1236" y1="520" x2="1284" y2="520" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="544" x2="1240" y2="574" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="544" x2="1280" y2="574" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1260.0" y="593.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Logística</text>
+<line x1="1250.1005050633883" y1="503.8994949366117" x2="1269.8994949366115" y2="484.10050506338837" stroke="#1e1e1e" stroke-width="2"/>
+<line x1="1188" y1="501" x2="963" y2="395" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1260.0" y="661.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«actor de negocio»</text>
+<ellipse cx="1260.0" cy="689.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="703" x2="1260" y2="739" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1236" y1="715" x2="1284" y2="715" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="739" x2="1240" y2="769" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="739" x2="1280" y2="769" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1260.0" y="788.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Cuentas de Acreedores</text>
+<text x="1260.0" y="806.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Comerciales</text>
+<line x1="1250.1005050633883" y1="698.8994949366116" x2="1269.8994949366115" y2="679.1005050633883" stroke="#1e1e1e" stroke-width="2"/>
+<line x1="1188" y1="684" x2="779" y2="428" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1260.0" y="856.67" font-size="11" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«actor de negocio»</text>
+<ellipse cx="1260.0" cy="884.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="898" x2="1260" y2="934" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1236" y1="910" x2="1284" y2="910" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="934" x2="1240" y2="964" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1260" y1="934" x2="1280" y2="964" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1260.0" y="983.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Desarrollo de Productos</text>
+<text x="1260.0" y="1001.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(Ingeniería)</text>
+<line x1="1250.1005050633883" y1="893.8994949366116" x2="1269.8994949366115" y2="874.1005050633883" stroke="#1e1e1e" stroke-width="2"/>
+<line x1="1188" y1="907" x2="894" y2="835" stroke="#1e1e1e" stroke-width="1"/>
+</svg>

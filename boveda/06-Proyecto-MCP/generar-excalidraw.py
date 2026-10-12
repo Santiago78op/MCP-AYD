@@ -22,7 +22,9 @@ SECCION DE LA ENTREGA que la usa (2-caso-negocio, 3.1-drivers-rf,
 Correr sin argumento lista lo disponible.
 """
 
+import base64
 import json
+import re
 import math
 import os
 import shutil
@@ -298,6 +300,9 @@ def envolver(elementos):
     # formato .excalidraw: se descartan antes de serializar
     limpios = [{k: v for k, v in e.items() if not k.startswith("_")}
                for e in elementos]
+    archivos = {e["fileId"]: {"mimeType": "image/svg+xml", "id": e["fileId"],
+                              "dataURL": e["_dataurl"], "created": 1}
+                for e in elementos if e.get("type") == "image"}
     return {
         "type": "excalidraw",
         "version": 2,
@@ -310,7 +315,7 @@ def envolver(elementos):
             "currentItemRoughness": 0,
             "currentItemFontFamily": FUENTE,
         },
-        "files": {},
+        "files": archivos,
     }
 
 
@@ -380,6 +385,11 @@ def emitir_svg(elementos, margen=40):
             out.append(
                 f'<line x1="{x + dx1}" y1="{y + dy1}" x2="{x + dx2}" y2="{y + dy2}" '
                 f'stroke="{TRAZO}" stroke-width="{gr}"{dash}{punta}/>')
+        elif t == "image":
+            out.append(
+                f'<svg x="{x}" y="{y}" width="{ew}" height="{eh}" viewBox="0 0 24 24" fill="none" '
+                f'stroke="{TRAZO}" stroke-width="1.4" stroke-linecap="round" '
+                f'stroke-linejoin="round">{e["_svg"]}</svg>')
         elif t == "text":
             tam = e["fontSize"]
             paso = tam * 1.25
@@ -2599,6 +2609,423 @@ def componentes_farmahosp():
 
 DIAGRAMAS["componentes-farmahosp"] = componentes_farmahosp
 SUBCARPETA["componentes-farmahosp"] = "6-bloques-despliegue"
+
+
+
+# ==========================================================================
+# CASO HARLEY-DAVIDSON — proyecto SiL'K (entrega 13/10/2026)
+#
+# Frontera declarada: el negocio es la GESTION DE SUMINISTROS Y COMPRAS de
+# Harley-Davidson (el ambito del anexo 6a), no la empresa entera ni el
+# concurso de proveedores de software. Los compradores son TRABAJADORES; los
+# actores son el proveedor y las AREAS que piden, reciben y pagan.
+# Datos copiados de `08-Tareas/Entrega - Caso Harley-Davidson.md`.
+# ==========================================================================
+def _f_elipse(x, y, w, h):
+    return ("e", x + w / 2.0, y + h / 2.0, w / 2.0, h / 2.0)
+
+
+def _f_actor(x, y, negocio=False):
+    """Caja envolvente del monigote con su nombre (y su estereotipo)."""
+    top = y - 30 if negocio else y - 6
+    return ("r", x + 50, (top + y + 140) / 2.0, 72, (y + 140 - top) / 2.0)
+
+
+def _borde(f, tx, ty):
+    """Punto del contorno de la figura f en direccion a (tx, ty)."""
+    _, cx, cy, rx, ry = f
+    dx, dy = tx - cx, ty - cy
+    if dx == 0 and dy == 0:
+        return cx, cy
+    if f[0] == "e":
+        k = 1.0 / math.sqrt((dx / rx) ** 2 + (dy / ry) ** 2)
+    else:
+        k = min(rx / abs(dx) if dx else 1e9, ry / abs(dy) if dy else 1e9)
+    return cx + dx * k, cy + dy * k
+
+
+def _une(a, b, **kw):
+    """Linea de contorno a contorno: nunca entra en ninguna de las dos figuras."""
+    x1, y1 = _borde(a, b[1], b[2])
+    x2, y2 = _borde(b, a[1], a[2])
+    return linea(int(round(x1)), int(round(y1)), int(round(x2)), int(round(y2)), **kw)
+
+
+# --------------------------------------------------------------------------
+# Contexto. El Producto es un ovalo ALTO a proposito: asi cada streamline sale
+# horizontal y su rotulo cabe entero encima o debajo, sin que diecinueve
+# flechas converjan en un punto (estilo-diagramas.md 3.3 bis).
+# --------------------------------------------------------------------------
+def contexto_hd():
+    CX, CY, RX, RY = 870, 580, 210, 400
+    els = [titulo("Diagrama de contexto — SiL'K (Supplier Information Link)", 40, 10, 1400),
+           texto("Elipse = El Producto · rectángulo = entidades o agentes externos · flecha = streamline, "
+                 "con nombre y en sustantivo.", 40, 44, 1600, 13, align="left", _halo=False)]
+    els += elipse(CX - RX, CY - RY, 2 * RX, 2 * RY,
+                  "SiL'K\nSistema integrado\nde compras y gestión\nde suministradores", tam=19)
+    RW, RH = 280, 76
+    XI, XD = 40, 1420
+    izq = [("Empleado solicitante", "Solicitud de pedido", "Estado de la solicitud"),
+           ("Responsable de área\n(aprobador)", "Decisión de aprobación", "Solicitud pendiente de aprobación"),
+           ("Comprador", "Pedido de compra y evaluación", "Propuestas de pedido y alertas de plazo"),
+           ("Dirección de Compras", "Contratos y reglas de compra", "Gasto consolidado e indicadores"),
+           ("Ingeniería (Centro de\nDesarrollo de Productos)", "Plan del proyecto y coste objetivo",
+            "Estado de preparación de las piezas")]
+    der = [("Suministrador", "Confirmación, aviso de envío y factura", "Pedido, demanda prevista y resultados"),
+           ("Sistema MRP/DRP\nde planta", "Requisitos de material", "Pedidos en firme y fechas de entrega"),
+           ("Recepción y Logística", "Recepción de material", "Entregas previstas"),
+           ("Sistema de Cuentas\nde Acreedores", "Estado del pago", "Factura conciliada para pago"),
+           ("Sistemas de compras locales\n(en retiro)", "Histórico de pedidos y suministradores", None)]
+
+    def xe(y, lado):
+        r = RX * math.sqrt(max(0.0, 1 - ((y - CY) / float(RY)) ** 2))
+        return int(round(CX - r if lado == "i" else CX + r))
+
+    for lado, lista in (("i", izq), ("d", der)):
+        for k, (nombre, entra, sale) in enumerate(lista):
+            yc = CY + (k - 2) * 150
+            x0 = XI if lado == "i" else XD
+            els += entidad(x0, yc - RH // 2, RW, RH, nombre, tam=16)
+            borde = x0 + RW if lado == "i" else x0
+            ya, yb = yc - 14, yc + 14
+            ea, eb = xe(ya, lado), xe(yb, lado)
+            gx, gw = (borde, ea - borde) if lado == "i" else (ea, borde - ea)
+            # entrada: entidad -> El Producto
+            els += linea(borde, ya, ea, ya, punta="arrow")
+            els.append(texto(entra, gx + 6, ya - 25, gw - 12, 15))
+            if sale:
+                gx2, gw2 = (borde, eb - borde) if lado == "i" else (eb, borde - eb)
+                els += linea(eb, yb, borde, yb, punta="arrow")
+                els.append(texto(sale, gx2 + 6, yb + 7, gw2 - 12, 15))
+    return els
+
+
+def core_negocio_hd():
+    els = [titulo("CDU de alto nivel (core) — plano del negocio", 40, 10, 1400)]
+    EX, EY, EW, EH = 520, 370, 560, 200
+    els += elipse_negocio(EX, EY, EW, EH, "Gestión de Suministros y Compras\nde Harley-Davidson", tam=17)
+    e = _f_elipse(EX, EY, EW, EH)
+    A = [(250, 110, "Áreas solicitantes"), (750, 90, "Proveedor\n(suministrador)"),
+         (1250, 110, "Fabricación (centros\nde producción)"),
+         (250, 690, "Desarrollo de Productos\n(Ingeniería)"), (750, 710, "Logística"),
+         (1250, 690, "Cuentas de Acreedores\nComerciales")]
+    for x, y, n in A:
+        els += actor_negocio(x, y, n)
+        els += _une(_f_actor(x, y, True), e)
+    return els
+
+
+def descomposicion_hd():
+    els = [titulo("CDU primera descomposición — plano del negocio", 40, 10, 1400)]
+    EX, EW, EH = 430, 560, 120
+    nombres = ["CDU-01 · Requisición y emisión\ndel pedido de compra",
+               "CDU-02 · Recepción, seguimiento\ny pago al suministrador",
+               "CDU-03 · Gestión de la información\ny la relación con suministradores",
+               "CDU-04 · Seguimiento de compras en\nproyectos de nuevos productos"]
+    ys = [100 + i * 210 for i in range(4)]
+    E = []
+    for n, y in zip(nombres, ys):
+        els += elipse_negocio(EX, y, EW, EH, n, tam=14)
+        E.append(_f_elipse(EX, y, EW, EH))
+    px, py = 110, 390
+    els += actor_negocio(px, py, "Proveedor\n(suministrador)")
+    for e in E:
+        els += _une(_f_actor(px, py, True), e)
+    D = [(90, "Áreas solicitantes", 0), (285, "Fabricación (centros\nde producción)", 0),
+         (480, "Logística", 1), (675, "Cuentas de Acreedores\nComerciales", 1),
+         (870, "Desarrollo de Productos\n(Ingeniería)", 3)]
+    for y, n, k in D:
+        els += actor_negocio(1210, y, n)
+        a = _f_actor(1210, y, True)
+        if k == 1:
+            # los dos actores de CDU-02 entran por puntos distintos: Logistica por
+            # el extremo derecho y Cuentas por debajo, para que no se crucen entre
+            # si ni rocen la punta de CDU-03
+            dx, dy = (400, 40) if n == "Logística" else (240, 200)
+            x2, y2 = _borde(E[k], E[k][1] + dx, E[k][2] + dy)
+            x1, y1 = _borde(a, x2, y2)
+            els += linea(int(x1), int(y1), int(x2), int(y2))
+        else:
+            els += _une(a, E[k])
+    return els
+
+
+# --------------------------------------------------------------------------
+# CDU expandidos (drivers RF) — plano del SISTEMA: sin estereotipos de negocio.
+# Molde comun: limite del sistema, casos base a la izquierda, incluidos y
+# extensiones a la derecha, actores fuera del limite.
+# --------------------------------------------------------------------------
+_L, _R, _CW, _CH = 470, 960, 330, 96
+
+
+def _expandido(titulo_txt, alto, casos, actores, asociaciones, relaciones):
+    """casos: {clave: (columna 'L'|'R'|x, y, texto)} · actores: {clave: (x, y, nombre)}
+    asociaciones: [(actor, caso)] · relaciones: [(tipo, origen, destino, guarda, off)]"""
+    els = caja(420, 40, 920, alto, titulo_txt, fondo=FONDO_SISTEMA, grosor=2)
+    F = {}
+    for k, (col, y, t) in casos.items():
+        x = _L if col == "L" else _R if col == "R" else col
+        els += elipse(x, y, _CW, _CH, t, tam=15)
+        F[k] = _f_elipse(x, y, _CW, _CH)
+    for k, (x, y, n) in actores.items():
+        els += actor(x, y, n)
+        F[k] = _f_actor(x, y)
+    for a, c in asociaciones:
+        els += _une(F[a], F[c])
+    for tipo, o, d, guarda, off in relaciones:
+        etq = "«%s»" % tipo + ("\n[%s]" % guarda if guarda else "")
+        els += _une(F[o], F[d], punta="arrow", punteada=True, etiqueta=etq, off=off)
+    return els
+
+
+def cdu_expandido_hd_01():
+    return _expandido(
+        "SiL'K — CDU-01 Requisición y emisión del pedido de compra", 800,
+        {"CU01": ("L", 110, "CU-01 Solicitar material\no servicio"),
+         "CU04": ("L", 300, "CU-04 Aprobar solicitud\nde pedido"),
+         "CU02": ("L", 500, "CU-02 Emitir pedido\nde compra"),
+         "CU03": ("R", 110, "CU-03 Generar propuestas de\npedido desde MRP/DRP"),
+         "CU15": ("R", 300, "CU-15 Agrupar demanda\ncontra contrato vigente"),
+         "CU16": (715, 690, "CU-16 Solicitar cotización\na suministradores")},
+        {"EMP": (150, 90, "Empleado solicitante"), "RES": (150, 280, "Responsable de área"),
+         "COM": (150, 480, "Comprador"), "MRP": (1440, 90, "Sistema MRP/DRP\nde planta"),
+         "SUM": (1440, 500, "Suministrador")},
+        [("EMP", "CU01"), ("RES", "CU04"), ("COM", "CU02"), ("MRP", "CU03"), ("SUM", "CU02"), ("SUM", "CU16")],
+        [("include", "CU02", "CU15", None, (-58, 16)), ("include", "CU03", "CU15", None, (62, 0)),
+         ("extend", "CU16", "CU02", "no hay contrato vigente", (-150, 0))])
+
+
+def cdu_expandido_hd_02():
+    return _expandido(
+        "SiL'K — CDU-02 Recepción, seguimiento y pago al suministrador", 760,
+        {"CU05": ("L", 110, "CU-05 Recibir material\ncontra pedido"),
+         "CU06": ("L", 350, "CU-06 Seguir el estado\ndel pedido"),
+         "CU17": ("L", 610, "CU-17 Resolver discrepancia\nde factura"),
+         "CU18": ("R", 150, "CU-18 Reclamar retraso\nal suministrador"),
+         "CU07": ("R", 450, "CU-07 Conciliar factura,\npedido y recepción")},
+        {"REC": (150, 90, "Recepcionista\nde almacén"), "COM": (150, 470, "Comprador"),
+         "SUM": (1440, 180, "Suministrador"),
+         "CXP": (1440, 520, "Sistema de Cuentas\nde Acreedores")},
+        [("REC", "CU05"), ("COM", "CU06"), ("COM", "CU17"), ("SUM", "CU18"), ("SUM", "CU07"), ("CXP", "CU07")],
+        [("extend", "CU18", "CU06", "plazo de entrega vencido", (40, 44)),
+         ("extend", "CU17", "CU07", "factura, pedido y recepción\nno coinciden", (40, 56))])
+
+
+def cdu_expandido_hd_03():
+    return _expandido(
+        "SiL'K — CDU-03 Información y relación con suministradores", 760,
+        {"CU08": ("L", 110, "CU-08 Incorporar suministrador\na la base de aprovisionamiento"),
+         "CU10": ("L", 350, "CU-10 Evaluar resultados\ndel suministrador"),
+         "CU11": ("L", 610, "CU-11 Analizar el gasto\nconsolidado de la empresa"),
+         "CU09": ("R", 150, "CU-09 Consultar desempeño\ny demanda prevista"),
+         "CU19": ("R", 450, "CU-19 Calcular indicadores de\ncalidad, coste y plazo")},
+        {"COM": (150, 220, "Comprador"), "DIR": (150, 600, "Director de Compras"),
+         "SUM": (1440, 130, "Suministrador")},
+        [("COM", "CU08"), ("COM", "CU10"), ("DIR", "CU11"), ("SUM", "CU09")],
+        [("include", "CU09", "CU19", None, (62, 0)), ("include", "CU10", "CU19", None, (0, -20)),
+         ("include", "CU11", "CU19", None, (20, 28))])
+
+
+def cdu_expandido_hd_04():
+    return _expandido(
+        "SiL'K — CDU-04 Compras en proyectos de nuevos productos", 760,
+        {"CU12": ("L", 110, "CU-12 Planificar la participación\nde Compras en el proyecto"),
+         "CU13": ("L", 350, "CU-13 Acordar el coste objetivo\nde una pieza"),
+         "CU14": ("L", 610, "CU-14 Controlar la preparación\npara el lanzamiento"),
+         "CU20": ("R", 610, "CU-20 Escalar riesgo\nde lanzamiento")},
+        {"COM": (150, 330, "Comprador de\ndesarrollo"),
+         "ING": (1440, 90, "Ingeniero del Centro\nde Desarrollo"),
+         "SUM": (1440, 380, "Suministrador")},
+        [("COM", "CU12"), ("COM", "CU13"), ("COM", "CU14"), ("ING", "CU12"), ("ING", "CU13"), ("SUM", "CU13")],
+        [("extend", "CU20", "CU14", "hito de preparación incumplido", (0, -40))])
+
+
+# --------------------------------------------------------------------------
+# Despliegue. El caso no trae hardware: la plataforma se trae al presente
+# (nube privada virtual + centros existentes por VPN) y el dimensionamiento va
+# rotulado como supuesto. Convenios de clase: «device» / «executionEnvironment»,
+# componentes DENTRO del nodo, conexion llena con el protocolo, zonas punteadas.
+# --------------------------------------------------------------------------
+def despliegue_hd():
+    els = [titulo("Diagrama de despliegue (distribución) — SiL'K", 40, 10, 1400),
+           texto("Nodo = cubo · «device» = hardware · «executionEnvironment» = software dentro de un dispositivo · "
+                 "componentes dentro del nodo que los ejecuta · conexión = línea llena con el protocolo como estereotipo.",
+                 40, 44, 2250, 13, align="left", _halo=False)]
+    els.append(_rect(20, 80, 2420, 320, VERDE, punteado=True))
+    els.append(texto("FrontEnd — usuarios y dispositivos", 30, 86, 400, 13, align="left", _halo=False))
+    els.append(_rect(20, 440, 1560, 760, NARANJA, punteado=True))
+    els.append(texto("BackEnd — nube privada virtual de Harley-Davidson (región primaria)",
+                     30, 1176, 700, 13, align="left", _halo=False))
+    els.append(_rect(20, 1220, 1560, 190, GRIS, punteado=True))
+    els.append(texto("Región secundaria — recuperación ante desastre", 30, 1386, 600, 13, align="left", _halo=False))
+    els.append(_rect(1740, 440, 700, 970, AMARILLO, punteado=True))
+    els.append(texto("Sistemas existentes — centros de Harley-Davidson", 1750, 1386, 600, 13,
+                     align="left", _halo=False))
+
+    C = [(60, "PC de oficina (comprador, solicitante, dirección)", "Navegador web",
+          "Aplicación web SiL'K"),
+         (630, "Tableta del muelle de recepción", "Navegador web (aplicación instalable)",
+          "App de recepción\n(cola local sin conexión)"),
+         (1200, "Equipo del suministrador", "Navegador web", "Portal del suministrador"),
+         (1830, "Servidor del suministrador", "Sistema de gestión del suministrador",
+          "Cliente de API / EDI")]
+    for x, dev, ee, comp in C:
+        els += cubo(x, 110, 480, 260, "«device»", dev)
+        els += cubo(x + 20, 190, 420, 160, "«executionEnvironment»", ee, d=12, tam=12)
+        els += componente(x + 45, 258, 350, 62, comp, 12)
+
+    els += cubo(60, 480, 1480, 170, "«device»",
+                "Borde de red — balanceador de carga y cortafuegos de aplicación\n(dos zonas de disponibilidad)",
+                rotulo=(80, 600))
+    els += componente(720, 565, 240, 62, "API Gateway\n(límite de tasa · EAC-04)", 11)
+    els += componente(990, 565, 240, 62, "Proveedor de identidad\n(SSO · MFA)", 11)
+    els += componente(1260, 565, 240, 62, "Pasarela VPN\na los centros", 11)
+
+    els += cubo(60, 690, 900, 420, "«device»",
+                "Clúster de contenedores — 3 nodos · 8 vCPU · 32 GB c/u (supuesto)", rotulo=(80, 800))
+    els += cubo(80, 770, 860, 320, "«executionEnvironment»", "Orquestador de contenedores — espacio SiL'K",
+                d=12, tam=12)
+    SV = ["Servicio Requisición\ny Pedido (CDU-01)", "Servicio Recepción\ny Facturas (CDU-02)",
+          "Servicio Suministradores\n(CDU-03)", "Servicio Proyectos\nde producto (CDU-04)",
+          "Portal web y Portal\ndel suministrador", "Servicio de Integración\n(adaptadores · RE-13)"]
+    for i, t in enumerate(SV):
+        els += componente(100 + (i % 3) * 275, 850 + (i // 3) * 110, 255, 80, t, 11)
+
+    els += cubo(1100, 690, 440, 130, "«device»", "Clúster de mensajería (3 nodos)")
+    els += componente(1115, 757, 195, 50, "Bus de eventos", 11)
+    els += componente(1320, 757, 195, 50, "Cola de reintentos\n(EAC-09)", 11)
+    els += cubo(1100, 850, 440, 130, "«device»", "Almacén analítico")
+    els += componente(1115, 917, 195, 50, "Almacén de datos\nde compras", 11)
+    els += componente(1320, 917, 195, 50, "Tablero de gasto\ne indicadores", 11)
+    els += cubo(1100, 1010, 440, 170, "«device»", "Servidor de base de datos — primario + espera activa")
+    els += componente(1115, 1090, 195, 62, "BD transaccional\n(SGBD relacional)", 11)
+    els += componente(1320, 1090, 195, 62, "Bitácora de auditoría\n(solo inserción · RE-15)", 11)
+
+    els += cubo(1100, 1250, 440, 130, "«device»", "Servidor de la región secundaria")
+    els += componente(1115, 1317, 400, 50, "Réplica de la BD y clúster en espera", 11)
+
+    els += cubo(1780, 480, 620, 310, "«device»",
+                "Servidor de planta — uno por centro (York · Kansas City ·\nTomahawk · Wauwatosa · Menomonee Falls · Franklin)")
+    els += componente(1800, 590, 270, 62, "Sistema MRP/DRP\nde planta", 11)
+    els += componente(2090, 590, 270, 62, "Agente de integración\n(guardar y reenviar)", 11)
+    els += componente(1800, 690, 270, 62, "Sistema de compras local\n(en retiro · RE-14)", 11)
+    els += cubo(1780, 840, 620, 310, "«device»", "Servidores corporativos — sede de Milwaukee")
+    els += componente(1800, 930, 270, 62, "Sistema de Cuentas\nde Acreedores", 11)
+    els += componente(2090, 930, 270, 62, "Directorio corporativo", 11)
+    els += componente(1800, 1030, 270, 62, "Sistemas de ingeniería\n(Centro de Desarrollo)", 11)
+
+    # clientes -> borde
+    els += ruta([(300, 370), (300, 500)], punta=None, etiqueta="«HTTPS · TLS 1.3»", pos=(390, 420), ancho=130)
+    els += ruta([(870, 370), (870, 500)], punta=None, etiqueta="«HTTPS · TLS 1.3»", pos=(960, 420), ancho=130)
+    els += ruta([(1340, 370), (1340, 500)], punta=None, etiqueta="«Internet · HTTPS»", pos=(1250, 420), ancho=130)
+    els += ruta([(2070, 370), (2070, 424), (1460, 424), (1460, 500)], punta=None,
+                etiqueta="«Internet · HTTPS · API»", pos=(1670, 411), ancho=170)
+    # dentro de la nube
+    els += ruta([(400, 650), (400, 710)], punta=None, etiqueta="«HTTPS»", pos=(450, 672), ancho=70)
+    els += ruta([(950, 760), (1100, 760)], punta=None, etiqueta="«AMQP · TLS»", pos=(1025, 745), ancho=110)
+    els += ruta([(950, 1090), (1100, 1090)], punta=None, etiqueta="«SQL · TLS»", pos=(1025, 1075), ancho=110)
+    els += ruta([(1300, 980), (1300, 1030)], punta=None, etiqueta="«captura de cambios»", pos=(1420, 997), ancho=150)
+    els += ruta([(1300, 1180), (1300, 1270)], punta=None, etiqueta="«replicación asíncrona · TLS»",
+                pos=(1440, 1211), ancho=210)
+    # hacia los centros
+    els += ruta([(1530, 560), (1780, 560)], punta=None, etiqueta="«VPN IPsec · HTTPS»", pos=(1660, 545), ancho=130)
+    els += ruta([(1530, 620), (1612, 620), (1612, 900), (1780, 900)], punta=None,
+                etiqueta="«VPN IPsec ·\nHTTPS · LDAPS»", pos=(1678, 760), ancho=104)
+    return els
+
+
+# --------------------------------------------------------------------------
+# Iconos. Trazos de Lucide (licencia ISC, en iconos/LICENSE-lucide.txt): son
+# monocromos y de linea, asi que respetan la entrega en blanco y negro.
+# --------------------------------------------------------------------------
+def icono(nombre, x, y, tam=64):
+    ruta_svg = os.path.join(os.path.dirname(os.path.abspath(__file__)), "iconos", nombre + ".svg")
+    with open(ruta_svg, encoding="utf-8") as f:
+        crudo = f.read()
+    interior = re.sub(r"\s+", " ", re.search(r"<svg[^>]*>(.*)</svg>", crudo, re.S).group(1)).strip()
+    completo = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%s" '
+                'stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">%s</svg>' % (TRAZO, interior))
+    datos = "data:image/svg+xml;base64," + base64.b64encode(completo.encode("utf-8")).decode("ascii")
+    return _base("image", x, y, tam, tam, fileId="icono-" + nombre, status="saved",
+                 scale=[1, 1], _svg=interior, _dataurl=datos)
+
+
+# --------------------------------------------------------------------------
+# Bloques. Molde del ejemplo de clase (Sistema de Transporte READM, lamina
+# "DIAGRAMA DE BLOQUES. Arquitectura basada en Eventos"): productores a la
+# izquierda, enrutador al centro, consumidores a la derecha, y CADA flecha
+# con el evento que lleva.
+# --------------------------------------------------------------------------
+def bloques_hd():
+    els = [titulo("Diagrama de bloques — SiL'K, arquitectura basada en eventos", 40, 10, 1500),
+           texto("Los productores publican eventos sin conocer a los consumidores: el enrutador los filtra y los "
+                 "entrega. Cada flecha lleva el nombre del evento.", 40, 44, 1560, 13, align="left", _halo=False)]
+    Y = [140, 350, 560, 770]
+    YC = 500
+    P = [("monitor", "Aplicación web SiL'K", "Un empleado solicita y un comprador\nemite o sigue un pedido de compra",
+          "solicitud aprobada /\npedido emitido"),
+         ("globe", "Portal del suministrador", "El suministrador confirma el pedido,\navisa el envío o presenta su factura",
+          "pedido confirmado /\nfactura presentada"),
+         ("tablet-smartphone", "App de recepción", "El almacén registra en el muelle\nel material recibido",
+          "material recibido"),
+         ("factory", "MRP/DRP de planta", "Cada centro de producción publica\nsus requisitos de material",
+          "requisitos publicados")]
+    C = [("database", "Base de datos de compras", "Los eventos actualizan pedidos, recepciones\ny el registro de suministradores",
+          "pedido · recepción ·\nfactura"),
+         ("banknote", "Cuentas de Acreedores", "Los eventos desencadenan el pago\nde las facturas conciliadas",
+          "factura conciliada"),
+         ("mail", "Suministrador", "Los eventos le notifican pedidos nuevos\ny reclamos de plazo",
+          "pedido emitido /\nretraso detectado"),
+         ("chart-column", "Almacén analítico", "Los eventos alimentan el gasto consolidado\ny los indicadores de calidad, coste y plazo",
+          "todos los eventos")]
+    for x0, rotulo, lista in ((40, "Productores de eventos", P), (1200, "Consumidores de eventos", C)):
+        els.append(_rect(x0, 100, 400, 870))
+        els.append(texto(rotulo, x0 + 90, 91, 220, 15))
+        for (ic, nombre, desc, _), y in zip(lista, Y):
+            els.append(icono(ic, x0 + 168, y, 64))
+            els.append(texto(nombre, x0 + 20, y + 72, 360, 15, _halo=False))
+            els.append(texto(desc, x0 + 20, y + 96, 360, 12, _halo=False))
+    # enrutador
+    els.append(icono("filter", 780, YC - 110, 80))
+    els.append(texto("Enrutador de eventos", 680, YC - 20, 280, 15, _halo=False))
+    els.append(texto("El bus de eventos recibe, filtra\ny empuja los eventos a los\nconsumidores apropiados",
+                     680, YC + 4, 280, 12, _halo=False))
+    # productores -> enrutador (tronco comun en x=600)
+    for (_, _, _, ev), y in zip(P, Y):
+        yy = y + 40
+        els += ruta([(440, yy), (600, yy), (600, YC - 70), (770, YC - 70)], etiqueta=ev,
+                    pos=(520, yy - 20), ancho=150, tam=12)
+    # enrutador -> consumidores (tronco comun en x=1040)
+    for (_, _, _, ev), y in zip(C, Y):
+        yy = y + 40
+        els += ruta([(870, YC - 70), (1040, YC - 70), (1040, yy), (1200, yy)], etiqueta=ev,
+                    pos=(1120, yy - 20), ancho=150, tam=12)
+    return els
+
+
+DIAGRAMAS["bloques-hd"] = bloques_hd
+SUBCARPETA["bloques-hd"] = "caso-hd/5-estilo-despliegue"
+
+DIAGRAMAS.update({
+    "contexto-hd": contexto_hd,
+    "cdu-core-hd": core_negocio_hd,
+    "cdu-descomposicion-hd": descomposicion_hd,
+    "cdu-expandido-hd-01-requisicion": cdu_expandido_hd_01,
+    "cdu-expandido-hd-02-recepcion": cdu_expandido_hd_02,
+    "cdu-expandido-hd-03-suministradores": cdu_expandido_hd_03,
+    "cdu-expandido-hd-04-proyectos": cdu_expandido_hd_04,
+    "despliegue-hd": despliegue_hd,
+})
+SUBCARPETA.update({
+    "contexto-hd": "caso-hd/1-caso-negocio",
+    "cdu-core-hd": "caso-hd/1-caso-negocio",
+    "cdu-descomposicion-hd": "caso-hd/1-caso-negocio",
+    "cdu-expandido-hd-01-requisicion": "caso-hd/3-drivers-rf",
+    "cdu-expandido-hd-02-recepcion": "caso-hd/3-drivers-rf",
+    "cdu-expandido-hd-03-suministradores": "caso-hd/3-drivers-rf",
+    "cdu-expandido-hd-04-proyectos": "caso-hd/3-drivers-rf",
+    "despliegue-hd": "caso-hd/5-estilo-despliegue",
+})
 
 
 if __name__ == "__main__":

@@ -147,6 +147,12 @@ const CASOS = [
   ["metodo_tarea", { entregable: "harley" }, "SiL'K"],
   ["buscar", { consulta: "Requerimientos vrs. Requerimientos" }, "Plan - Caso Harley-Davidson"],
   ["enunciado", { nombre: "Caso Harley-Davidson" }, "GrupoN_CasoHD.pdf"],
+  ["metodo_tarea", { entregable: "Entrega - Caso Harley-Davidson" }, "ISO/IEC 25010"],
+  ["metodo_tarea", { entregable: "Avance - Caso Harley-Davidson" }, "Lo que falta"],
+  ["leer_nota", { nombre: "Ejemplo resuelto - Sistema de Transporte READM" }, "EAC-01"],
+  ["buscar", { consulta: "bus de eventos" }, "Ejemplo resuelto - Sistema de Transporte READM"],
+  ["glosario", { termino: "EAC" }, "escenario de atributo de calidad"],
+  ["obtener_flashcards", { tema: "READM" }, "?"],
 
   ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
 

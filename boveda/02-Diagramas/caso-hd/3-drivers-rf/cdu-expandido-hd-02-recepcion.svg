@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 0 1510 840" width="1510" height="840" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="90" y="0" width="1510" height="840" fill="#ffffff"/>
+<rect x="420" y="40" width="920" height="760" rx="12" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="2"/>
+<text x="880.0" y="67.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">SiL'K — CDU-02 Recepción, seguimiento y pago al suministrador</text>
+<ellipse cx="635.0" cy="158.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="635.0" y="153.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-05 Recibir material</text>
+<text x="635.0" y="172.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">contra pedido</text>
+<ellipse cx="635.0" cy="398.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="635.0" y="393.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-06 Seguir el estado</text>
+<text x="635.0" y="412.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">del pedido</text>
+<ellipse cx="635.0" cy="658.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="635.0" y="653.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-17 Resolver discrepancia</text>
+<text x="635.0" y="672.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de factura</text>
+<ellipse cx="1125.0" cy="198.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="193.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-18 Reclamar retraso</text>
+<text x="1125.0" y="212.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">al suministrador</text>
+<ellipse cx="1125.0" cy="498.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="493.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-07 Conciliar factura,</text>
+<text x="1125.0" y="512.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">pedido y recepción</text>
+<ellipse cx="200.0" cy="104.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="200" y1="118" x2="200" y2="154" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="176" y1="130" x2="224" y2="130" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="200" y1="154" x2="180" y2="184" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="200" y1="154" x2="220" y2="184" stroke="#1e1e1e" stroke-width="1"/>
+<text x="200.0" y="203.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Recepcionista</text>
+<text x="200.0" y="221.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de almacén</text>
+<ellipse cx="200.0" cy="484.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="200" y1="498" x2="200" y2="534" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="176" y1="510" x2="224" y2="510" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="200" y1="534" x2="180" y2="564" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="200" y1="534" x2="220" y2="564" stroke="#1e1e1e" stroke-width="1"/>
+<text x="200.0" y="583.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Comprador</text>
+<ellipse cx="1490.0" cy="194.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1490" y1="208" x2="1490" y2="244" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1466" y1="220" x2="1514" y2="220" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1490" y1="244" x2="1470" y2="274" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1490" y1="244" x2="1510" y2="274" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1490.0" y="293.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Suministrador</text>
+<ellipse cx="1490.0" cy="534.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1490" y1="548" x2="1490" y2="584" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1466" y1="560" x2="1514" y2="560" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1490" y1="584" x2="1470" y2="614" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1490" y1="584" x2="1510" y2="614" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1490.0" y="633.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema de Cuentas</text>
+<text x="1490.0" y="651.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de Acreedores</text>
+<line x1="272" y1="157" x2="470" y2="158" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="272" y1="514" x2="524" y2="433" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="272" y1="557" x2="516" y2="625" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1418" y1="237" x2="1275" y2="218" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1418" y1="297" x2="1189" y2="454" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1418" y1="569" x2="1251" y2="529" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1029" y1="237" x2="731" y2="359" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="920.0" y="331.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«extend»</text>
+<text x="920.0" y="346.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">[plazo de entrega vencido]</text>
+<line x1="745" y1="622" x2="1015" y2="534" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="920.0" y="623.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«extend»</text>
+<text x="920.0" y="638.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">[factura, pedido y recepción</text>
+<text x="920.0" y="653.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">no coinciden]</text>
+</svg>

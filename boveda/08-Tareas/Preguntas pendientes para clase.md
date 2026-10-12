@@ -84,14 +84,13 @@ moverla a *Resueltas* con la fecha y **actualizar la nota que la origina**.
 
 ---
 
-## Del Caso Harley-Davidson (entrega 13/10) — urgentes
+## Del Caso Harley-Davidson (entrega 13/10)
 
 | # | Pregunta | Por qué importa | Dónde está la evidencia |
 |---|---|---|---|
-| 41 | **¿Qué significa «EaC»** en *"Incorporar los drivers atributos de calidad en el software (mediante Eac)"*? | La sigla **no aparece en ningún material de clase**. Lectura asumida: *escenarios de atributos de calidad* (seis partes, con medida). Es el numeral 4 y pesa en el criterio 6 (20 pts) | instrucciones del caso · [[Atributos de calidad]] §7 (complemento) · [[Plan - Caso Harley-Davidson]] §3 |
-| 42 | **¿Qué modelo de calidad espera, y qué es «determinarlo»?** ¿ISO 9126 (el del programa), ISO/IEC 25010, otro? ¿Elegir la norma o armar el árbol característica, subcaracterística y métrica para SiL'K? | La unidad 2 **no tiene presentación**. El caso nombra compatibilidad y portabilidad, que no están en los siete drivers de calidad de la diapositiva pero sí en las ISO | rúbrica, criterio 6 · [[Atributos de calidad]] · [[Drivers arquitectónicos]] |
 | 43 | **¿Cuáles son «los pasos para definir la arquitectura»** del criterio 6: los 4 pasos, los 7 de la lámina *"Pasos para la definición de una Arquitectura de software"* o las 8 etapas del método centrado en la arquitectura? | Hay tres listas de clase. Lectura asumida: **los 7**, por el título | [[Proceso de diseño arquitectónico]] · [[Método de diseño centrado en la arquitectura]] |
 | 44 | **Trabajo sin grupo**: ¿la presentación individual habilita la entrega? ¿Cómo se nombra el archivo si el formato es `GrupoN_CasoHD.pdf`? | La presentación en grupo es *"requisito para habilitar la entrega final"* | instrucciones del caso |
+| 46 | **«Diagrama de Distribución» y «Diagrama de Despliegue», ¿son dos diagramas?** En *Calidad del Software* hay una lámina con cada título: la de distribución reparte capas en nodos; la de despliegue baja al componente y rotula el protocolo | En las capturas anteriores decía *Diagrama de Distribución* por el de despliegue. Lectura asumida: es el mismo diagrama a dos niveles de detalle | láminas 17-18 · [[Ejemplo resuelto - Sistema de Transporte READM]] §9 · [[Diagrama de despliegue]] |
 | 45 | **«Traer el caso al presente»**: ¿se actualiza solo la tecnología, o también los hechos del caso (cifras, organización, normativa vigente)? | El caso es de 1998-1999 y no trae ni hardware ni números de calidad. Lectura asumida: se actualiza la tecnología, los hechos no se tocan, y lo agregado va como supuesto declarado | instrucciones del caso · [[Plan - Caso Harley-Davidson]] §5 |
 
 ---
@@ -102,6 +101,9 @@ Al responder una, moverla acá con la fecha y actualizar la nota que la originó
 
 | Era | Pregunta | Respuesta | Cómo se resolvió |
 |---|---|---|---|
+| 41 | ¿Qué significa «EaC» en *"Incorporar los drivers atributos de calidad en el software (mediante Eac)"*? | **Escenarios de atributos de calidad.** La tabla de drivers de calidad del ejemplo READM usa el id `EAC-nn`, con el escenario en seis partes y la prioridad como par | Con material de clase, presentación *Calidad del Software* lámina 11, el 2026-10-12 · [[Ejemplo resuelto - Sistema de Transporte READM]] §5 |
+| 42 | ¿Qué modelo de calidad espera? | **El pensamiento ISO como familia de normas, con normas concretas como la 9126 o la serie 25000.** Qué significa *determinarlo* no lo precisó: se entregó como árbol característica, subcaracterística, métrica y umbral | Respuesta de la catedrática, transmitida por el estudiante el 2026-10-12. **No hay lámina**: las normas siguen siendo complemento en [[Atributos de calidad]] |
+| 6 (en parte) | ¿Va a dar arquitectura **basada en eventos**? | **Sí, con un ejemplo:** diagrama de bloques *Arquitectura basada en Eventos* y el bus de eventos como componente publicador/suscriptor | Con material de clase, *Calidad del Software* láminas 14 y 19-23, el 2026-10-12 · [[Ejemplo resuelto - Sistema de Transporte READM]] §8 y §10 |
 | 6 (en parte) | ¿Va a dar arquitectura **candidata** y **de referencia**? | **Sí, se dieron.** Referencia: *"un modelo de referencia mapeado en elementos de software…"*; candidata: la tabla de cuatro tipos | Con material de clase, capturas_U2_F2 23-26, el 2026-09-16 · [[Arquitectura de referencia]] |
 | 7 (en parte) | ¿"Llamada y retorno" **incluye** capas? | **Sí.** *"Arquitecturas de llamada y retorno (llamadas a procedimientos remotos, Modelo Vista Controlador –MVC–, en Capas, Orientadas a Objetos, basadas en Componentes)"*. En el árbol C&C, client-server y multi-tier también cuelgan de call-return | Con material de clase, capturas_U2_F2 30 y 30-cc, el 2026-09-16 · [[Catálogo de estilos arquitectónicos]] |
 | 7 (en parte) | ¿Va a desarrollar **flujo de datos**, **llamada y retorno** y **SOA**, o solo los nombra? | **Los desarrolló.** Flujo de datos con tuberías y filtros y secuencial por lotes; llamada y retorno con cliente-servidor, RPC y MVC; SOA con siete láminas | Con material de clase, capturas_U2_F3 13-48, el 2026-09-17 · [[Arquitectura centrada en el flujo de datos]] · [[Arquitectura de llamada y retorno]] · [[Arquitectura orientada a servicios]] |
