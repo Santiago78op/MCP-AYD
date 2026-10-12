@@ -177,9 +177,10 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 
 Los artefactos vivos de cada tarea (el estado real se lee **ahí**, no acá):
 
-- [[Preguntas pendientes para clase]] — **las 22 dudas abiertas**, con su evidencia; llevá las de prioridad alta a la próxima clase
+- [[Preguntas pendientes para clase]] — **las dudas abiertas** (las 41-45 son del Caso Harley-Davidson), con su evidencia; llevá las de prioridad alta a la próxima clase
 - [[Avance - Tarea 2 FarmaHosp]] — **Tarea 2 (entrega 18/09)**: criterios 1-4 reutilizados, 5 estilo y 6 bloques y despliegue
 - [[Entrega - Tarea 2 FarmaHosp]] — descripciones textuales de CDU-01..07, estilo SOA justificado, bloques y despliegue
+- [[Plan - Caso Harley-Davidson]] — **Caso Harley-Davidson, proyecto SiL'K (entrega 13/10)**: la rúbrica desarmada en 6 criterios, lo que el material no cubre (EaC, modelo de calidad) y las decisiones de fondo
 - [[Avance - Caso 1 FarmaHosp]] — el tablero: criterios, ruta de pasos y bitácora
 - [[Entrega - Caso 1 FarmaHosp]] — el entregable numerado según la rúbrica (**manda sobre el Avance**)
 - [[Entrega - Parcial 1 SmartPress]] — lo entregado en el primer parcial (22/08), con sus láminas en `02-Diagramas/examen/`

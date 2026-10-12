@@ -142,6 +142,12 @@ const CASOS = [
   ["metodo_tarea", { entregable: "Avance - Tarea 2 FarmaHosp" }, "100 pts cubiertos"],
   ["buscar", { consulta: "Servidor de virtualización VMware" }, "Entrega - Tarea 2"],
 
+  // --- Caso Harley-Davidson (2026-10-12): enunciado estudiado
+  ["metodo_tarea", { entregable: "Plan - Caso Harley-Davidson" }, "modelo de calidad"],
+  ["metodo_tarea", { entregable: "harley" }, "SiL'K"],
+  ["buscar", { consulta: "Requerimientos vrs. Requerimientos" }, "Plan - Caso Harley-Davidson"],
+  ["enunciado", { nombre: "Caso Harley-Davidson" }, "GrupoN_CasoHD.pdf"],
+
   ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
 
   // --- referencias y enunciado

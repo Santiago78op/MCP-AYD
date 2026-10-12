@@ -84,6 +84,18 @@ moverla a *Resueltas* con la fecha y **actualizar la nota que la origina**.
 
 ---
 
+## Del Caso Harley-Davidson (entrega 13/10) — urgentes
+
+| # | Pregunta | Por qué importa | Dónde está la evidencia |
+|---|---|---|---|
+| 41 | **¿Qué significa «EaC»** en *"Incorporar los drivers atributos de calidad en el software (mediante Eac)"*? | La sigla **no aparece en ningún material de clase**. Lectura asumida: *escenarios de atributos de calidad* (seis partes, con medida). Es el numeral 4 y pesa en el criterio 6 (20 pts) | instrucciones del caso · [[Atributos de calidad]] §7 (complemento) · [[Plan - Caso Harley-Davidson]] §3 |
+| 42 | **¿Qué modelo de calidad espera, y qué es «determinarlo»?** ¿ISO 9126 (el del programa), ISO/IEC 25010, otro? ¿Elegir la norma o armar el árbol característica, subcaracterística y métrica para SiL'K? | La unidad 2 **no tiene presentación**. El caso nombra compatibilidad y portabilidad, que no están en los siete drivers de calidad de la diapositiva pero sí en las ISO | rúbrica, criterio 6 · [[Atributos de calidad]] · [[Drivers arquitectónicos]] |
+| 43 | **¿Cuáles son «los pasos para definir la arquitectura»** del criterio 6: los 4 pasos, los 7 de la lámina *"Pasos para la definición de una Arquitectura de software"* o las 8 etapas del método centrado en la arquitectura? | Hay tres listas de clase. Lectura asumida: **los 7**, por el título | [[Proceso de diseño arquitectónico]] · [[Método de diseño centrado en la arquitectura]] |
+| 44 | **Trabajo sin grupo**: ¿la presentación individual habilita la entrega? ¿Cómo se nombra el archivo si el formato es `GrupoN_CasoHD.pdf`? | La presentación en grupo es *"requisito para habilitar la entrega final"* | instrucciones del caso |
+| 45 | **«Traer el caso al presente»**: ¿se actualiza solo la tecnología, o también los hechos del caso (cifras, organización, normativa vigente)? | El caso es de 1998-1999 y no trae ni hardware ni números de calidad. Lectura asumida: se actualiza la tecnología, los hechos no se tocan, y lo agregado va como supuesto declarado | instrucciones del caso · [[Plan - Caso Harley-Davidson]] §5 |
+
+---
+
 ## Resueltas
 
 Al responder una, moverla acá con la fecha y actualizar la nota que la originó.
