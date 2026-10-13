@@ -40,7 +40,8 @@ integrantes); el material lo elabora Santiago. Modo: **resolver y explicar**. El
 - [x] Nombre del archivo: `Grupo2_CasoHD.pdf`.
 - [ ] Ensayar la presentación una vez con reloj: 10 minutos, 23 clics de animación.
 - [x] Presentación descargada en PowerPoint y completada (el exportado venía sin animaciones).
-- [ ] Abrir `Grupo2_CasoHD_Presentacion.pptx` en PowerPoint o Keynote y pasarla una vez: las animaciones se validaron por estructura, no reproducidas.
+- [x] Animaciones reproducidas en Keynote (exportando a video): 36 estados, 13 láminas más 23 entradas.
+- [ ] Si el aula usa PowerPoint, abrir ahí `Grupo2_CasoHD_Presentacion.pptx` un minuto antes: solo se probó en Keynote.
 
 > [!warning] La nota de la rúbrica sobre los integrantes
 > El enunciado dice: *"SOLO TOMEN EN CUENTA A LAS PERSONAS DEL EQUIPO QUE TRABAJEN ACTIVAMENTE EN LA
@@ -80,6 +81,8 @@ dimensionamiento del despliegue: el caso no trae esos datos. También la lectura
 - **2026-10-13, PowerPoint** — El `.pptx` exportado desde la página no trae animaciones ni transiciones y
   depende de una tipografía que no está instalada. `animar-pptx.py` le agrega 13 transiciones, 23
   animaciones de entrada por clic y el guion como notas, y cambia la tipografía a Arial.
+- **2026-10-13, animaciones** — Las tarjetas entran subiendo. Cada una se agrupó en un solo objeto porque,
+  animadas pieza por pieza, en Keynote se encimaban a mitad de la subida.
 
 ## Preguntas de repaso
 

@@ -39,16 +39,26 @@ def timing_xml(grupos):
     for ids in grupos:
         efectos = []
         for i, sp in enumerate(ids):
+            # entrada "ascender": aparece con desvanecido mientras sube 6 % del alto de la lamina.
+            # Todas las formas de una tarjeta llevan el mismo desplazamiento, asi que sube entera.
+            dest = '<p:tgtEl><p:spTgt spid="%d"/></p:tgtEl>' % sp
             efectos.append(
-                '<p:par><p:cTn id="%d" presetID="10" presetClass="entr" presetSubtype="0" fill="hold" nodeType="%s">'
+                '<p:par><p:cTn id="%d" presetID="42" presetClass="entr" presetSubtype="0" fill="hold" nodeType="%s">'
                 '<p:stCondLst><p:cond delay="0"/></p:stCondLst><p:childTnLst>'
                 '<p:set><p:cBhvr><p:cTn id="%d" dur="1" fill="hold"><p:stCondLst><p:cond delay="0"/></p:stCondLst></p:cTn>'
-                '<p:tgtEl><p:spTgt spid="%d"/></p:tgtEl><p:attrNameLst><p:attrName>style.visibility</p:attrName></p:attrNameLst>'
+                '%s<p:attrNameLst><p:attrName>style.visibility</p:attrName></p:attrNameLst>'
                 '</p:cBhvr><p:to><p:strVal val="visible"/></p:to></p:set>'
-                '<p:animEffect transition="in" filter="fade"><p:cBhvr><p:cTn id="%d" dur="450"/>'
-                '<p:tgtEl><p:spTgt spid="%d"/></p:tgtEl></p:cBhvr></p:animEffect>'
+                '<p:animEffect transition="in" filter="fade"><p:cBhvr><p:cTn id="%d" dur="600"/>%s</p:cBhvr></p:animEffect>'
+                '<p:anim calcmode="lin" valueType="num"><p:cBhvr><p:cTn id="%d" dur="600" fill="hold"/>%s'
+                '<p:attrNameLst><p:attrName>ppt_x</p:attrName></p:attrNameLst></p:cBhvr><p:tavLst>'
+                '<p:tav tm="0"><p:val><p:strVal val="#ppt_x"/></p:val></p:tav>'
+                '<p:tav tm="100000"><p:val><p:strVal val="#ppt_x"/></p:val></p:tav></p:tavLst></p:anim>'
+                '<p:anim calcmode="lin" valueType="num"><p:cBhvr><p:cTn id="%d" dur="600" decel="100000" fill="hold"/>%s'
+                '<p:attrNameLst><p:attrName>ppt_y</p:attrName></p:attrNameLst></p:cBhvr><p:tavLst>'
+                '<p:tav tm="0"><p:val><p:strVal val="#ppt_y+.06"/></p:val></p:tav>'
+                '<p:tav tm="100000"><p:val><p:strVal val="#ppt_y"/></p:val></p:tav></p:tavLst></p:anim>'
                 '</p:childTnLst></p:cTn></p:par>'
-                % (nid(), "clickEffect" if i == 0 else "withEffect", nid(), sp, nid(), sp))
+                % (nid(), "clickEffect" if i == 0 else "withEffect", nid(), dest, nid(), dest, nid(), dest, nid(), dest))
         clicks.append(
             '<p:par><p:cTn id="%d" fill="hold"><p:stCondLst><p:cond delay="indefinite"/></p:stCondLst><p:childTnLst>'
             '<p:par><p:cTn id="%d" fill="hold"><p:stCondLst><p:cond delay="0"/></p:stCondLst><p:childTnLst>%s'
@@ -85,10 +95,16 @@ for num, slide in enumerate(prs.slides, 1):
                                % (P, '<p:push dir="l"/>' if num in EMPUJE else '<p:fade/>'))]
     grupos = []
     for (x1, y1, x2, y2) in GRUPOS.get(num, []):
-        ids = [sh.shape_id for sh in slide.shapes
-               if x1 <= (sh.left + sh.width / 2) / K <= x2 and y1 <= (sh.top + sh.height / 2) / K <= y2]
-        if ids:
-            grupos.append(ids)
+        piezas = [sh for sh in slide.shapes
+                  if x1 <= (sh.left + sh.width / 2) / K <= x2 and y1 <= (sh.top + sh.height / 2) / K <= y2]
+        if len(piezas) > 1:
+            # la tarjeta se agrupa en UN objeto: si cada pieza se anima por separado, Keynote las
+            # hace viajar distancias distintas y se enciman a mitad de la subida
+            grupo = slide.shapes.add_group_shape(shapes=piezas)
+            grupo.name = "Tarjeta %d" % (len(grupos) + 1)
+            grupos.append([grupo.shape_id])
+        elif piezas:
+            grupos.append([piezas[0].shape_id])
     if grupos:
         nuevos.append(etree.fromstring(timing_xml(grupos)))
     for el in nuevos:
