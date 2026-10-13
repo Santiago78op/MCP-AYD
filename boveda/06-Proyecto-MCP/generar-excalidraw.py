@@ -404,10 +404,14 @@ def emitir_svg(elementos, margen=40):
             for i, linea_txt in enumerate(e["text"].split("\n")):
                 esc = (linea_txt.replace("&", "&amp;")
                                 .replace("<", "&lt;").replace(">", "&gt;"))
+                giro = ""
+                if e.get("angle"):
+                    giro = (f' transform="rotate({math.degrees(e["angle"]):.2f} '
+                            f'{x + ew / 2:.1f} {y + eh / 2:.1f})"')
                 out.append(
                     f'<text x="{tx}" y="{y + paso * (i + 1) - tam * 0.28}" '
                     f'font-size="{tam}" fill="{TRAZO}" text-anchor="{ancla}"'
-                    f'{halo}>{esc}</text>')
+                    f'{halo}{giro}>{esc}</text>')
 
     out.append("</svg>")
     return "\n".join(out)
@@ -2652,56 +2656,139 @@ def _une(a, b, **kw):
 
 
 # --------------------------------------------------------------------------
-# Contexto. El Producto es un ovalo ALTO a proposito: asi cada streamline sale
-# horizontal y su rotulo cabe entero encima o debajo, sin que diecinueve
-# flechas converjan en un punto (estilo-diagramas.md 3.3 bis).
+# Contexto. Mismo molde que `contexto_farmahosp`: ELIPSE = El Producto (una
+# sola, de proporcion normal, al centro), RECTANGULO = entidad o agente
+# externo, alrededor; FLECHA = streamline con nombre, en sustantivo, con el
+# rotulo HORIZONTAL.
+#
+# Diecinueve flechas convergen en la elipse, asi que los rotulos no se ubican
+# a ojo: `_ubicar_rotulos` prueba posiciones a lo largo de cada flecha, del
+# lado de afuera del par, y se queda con la primera que no toca ninguna
+# flecha, ningun otro rotulo, ninguna caja ni la elipse. Si no encuentra
+# lugar, aborta: una lamina con rotulos encimados no se emite.
 # --------------------------------------------------------------------------
+CTX_HD = [
+    # (entidad, lado, x, y, entrega a SiL'K, recibe de SiL'K)
+    ("Empleado solicitante", "arriba", 215, 40, "Solicitud\nde pedido", "Estado de\nla solicitud"),
+    ("Responsable de área\n(aprobador)", "arriba", 745, 40, "Decisión de\naprobación", "Solicitud\npor aprobar"),
+    ("Dirección de Compras", "arriba", 1275, 40, "Contratos y\nreglas de compra", "Gasto\nconsolidado"),
+    ("Comprador", "izq", 20, 380, "Pedido de compra\ny evaluación", "Propuestas y\nalertas de plazo"),
+    ("Ingeniería (Centro de\nDesarrollo de Productos)", "izq", 20, 750, "Plan y coste\nobjetivo", "Preparación\nde las piezas"),
+    ("Suministrador", "der", 1470, 380, "Confirmación,\nenvío y factura", "Pedido, demanda\ny resultados"),
+    ("Recepción y Logística", "der", 1470, 750, "Recepción\nde material", "Entregas\nprevistas"),
+    ("Sistemas de compras\nlocales (en retiro)", "abajo", 215, 1090, "Histórico\nde pedidos", None),
+    ("Sistema MRP/DRP\nde planta", "abajo", 745, 1090, "Requisitos\nde material", "Pedidos en firme\ny fechas"),
+    ("Sistema de Cuentas\nde Acreedores", "abajo", 1275, 1090, "Estado\ndel pago", "Factura\nconciliada"),
+]
+_CTXH = dict(CX=880, CY=600, RX=250, RY=145, EW=270, EH=72, TAM=15)
+
+
+def _corta(seg, caja_):
+    """True si el segmento toca el rectangulo (x1, y1, x2, y2)."""
+    (ax, ay), (bx, by) = seg
+    x1, y1, x2, y2 = caja_
+    if x1 <= ax <= x2 and y1 <= ay <= y2:
+        return True
+    if x1 <= bx <= x2 and y1 <= by <= y2:
+        return True
+
+    def cruza(p, q, r, t):
+        def o(a, b, c):
+            return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])
+        return o(p, q, r) * o(p, q, t) < 0 and o(r, t, p) * o(r, t, q) < 0
+    esquinas = [(x1, y1), (x2, y1), (x2, y2), (x1, y2)]
+    return any(cruza((ax, ay), (bx, by), esquinas[k], esquinas[(k + 1) % 4]) for k in range(4))
+
+
+def _ubicar_rotulos(pedidos, segmentos, cajas, elipse_):
+    """pedidos: [(texto, P_entidad, Q_elipse, punto_medio_del_hermano | None)].
+    Devuelve [(texto, x, y, ancho)] en el mismo orden."""
+    cx, cy, rx, ry = elipse_
+    tam = _CTXH["TAM"]
+    puestos, salida = [], []
+    for txt, P, Q, hermano in pedidos:
+        lineas = txt.split("\n")
+        w = max(len(l) for l in lineas) * tam * 0.56 + 10
+        h = len(lineas) * tam * 1.25 + 4
+        ux, uy = Q[0] - P[0], Q[1] - P[1]
+        largo = math.hypot(ux, uy)
+        ux, uy = ux / largo, uy / largo
+        nx, ny = -uy, ux
+        if hermano is not None:
+            mx, my = (P[0] + Q[0]) / 2.0, (P[1] + Q[1]) / 2.0
+            if (hermano[0] - mx) * nx + (hermano[1] - my) * ny > 0:
+                nx, ny = -nx, -ny                # hacia afuera del par
+        dmin = (w / 2) * abs(nx) + (h / 2) * abs(ny) + 7
+        elegido = None
+        for t in (0.5, 0.42, 0.58, 0.34, 0.66, 0.26, 0.74, 0.2, 0.8):
+            for extra in (0, 8, 16):
+                d = dmin + extra
+                px = P[0] + (Q[0] - P[0]) * t + nx * d
+                py = P[1] + (Q[1] - P[1]) * t + ny * d
+                c = (px - w / 2 - 4, py - h / 2 - 3, px + w / 2 + 4, py + h / 2 + 3)
+                if any(_corta(sg, c) for sg in segmentos):
+                    continue
+                if any(c[0] < o[2] and o[0] < c[2] and c[1] < o[3] and o[1] < c[3] for o in puestos + cajas):
+                    continue
+                muestras = [(c[0], c[1]), (c[2], c[1]), (c[0], c[3]), (c[2], c[3]), (px, py),
+                            (px, c[1]), (px, c[3]), (c[0], py), (c[2], py)]
+                if any(((x - cx) / (rx + 6)) ** 2 + ((y - cy) / (ry + 6)) ** 2 < 1 for x, y in muestras):
+                    continue
+                elegido = (c, px, py)
+                break
+            if elegido:
+                break
+        if not elegido:
+            raise SystemExit("contexto-hd: no hay lugar libre para el rotulo %r" % txt)
+        puestos.append(elegido[0])
+        salida.append((txt, int(elegido[1] - w / 2), int(elegido[2] - h / 2), int(w)))
+    return salida
+
+
 def contexto_hd():
-    CX, CY, RX, RY = 870, 580, 210, 400
-    els = [titulo("Diagrama de contexto — SiL'K (Supplier Information Link)", 40, 10, 1400),
-           texto("Elipse = El Producto · rectángulo = entidades o agentes externos · flecha = streamline, "
-                 "con nombre y en sustantivo.", 40, 44, 1600, 13, align="left", _halo=False)]
-    els += elipse(CX - RX, CY - RY, 2 * RX, 2 * RY,
-                  "SiL'K\nSistema integrado\nde compras y gestión\nde suministradores", tam=19)
-    RW, RH = 280, 76
-    XI, XD = 40, 1420
-    izq = [("Empleado solicitante", "Solicitud de pedido", "Estado de la solicitud"),
-           ("Responsable de área\n(aprobador)", "Decisión de aprobación", "Solicitud pendiente de aprobación"),
-           ("Comprador", "Pedido de compra y evaluación", "Propuestas de pedido y alertas de plazo"),
-           ("Dirección de Compras", "Contratos y reglas de compra", "Gasto consolidado e indicadores"),
-           ("Ingeniería (Centro de\nDesarrollo de Productos)", "Plan del proyecto y coste objetivo",
-            "Estado de preparación de las piezas")]
-    der = [("Suministrador", "Confirmación, aviso de envío y factura", "Pedido, demanda prevista y resultados"),
-           ("Sistema MRP/DRP\nde planta", "Requisitos de material", "Pedidos en firme y fechas de entrega"),
-           ("Recepción y Logística", "Recepción de material", "Entregas previstas"),
-           ("Sistema de Cuentas\nde Acreedores", "Estado del pago", "Factura conciliada para pago"),
-           ("Sistemas de compras locales\n(en retiro)", "Histórico de pedidos y suministradores", None)]
-
-    def xe(y, lado):
-        r = RX * math.sqrt(max(0.0, 1 - ((y - CY) / float(RY)) ** 2))
-        return int(round(CX - r if lado == "i" else CX + r))
-
-    for lado, lista in (("i", izq), ("d", der)):
-        for k, (nombre, entra, sale) in enumerate(lista):
-            yc = CY + (k - 2) * 150
-            x0 = XI if lado == "i" else XD
-            els += entidad(x0, yc - RH // 2, RW, RH, nombre, tam=16)
-            borde = x0 + RW if lado == "i" else x0
-            ya, yb = yc - 14, yc + 14
-            ea, eb = xe(ya, lado), xe(yb, lado)
-            gx, gw = (borde, ea - borde) if lado == "i" else (ea, borde - ea)
-            # entrada: entidad -> El Producto
-            els += linea(borde, ya, ea, ya, punta="arrow")
-            els.append(texto(entra, gx + 6, ya - 25, gw - 12, 15))
-            if sale:
-                gx2, gw2 = (borde, eb - borde) if lado == "i" else (eb, borde - eb)
-                els += linea(eb, yb, borde, yb, punta="arrow")
-                els.append(texto(sale, gx2 + 6, yb + 7, gw2 - 12, 15))
+    CX, CY, RX, RY, EW, EH, TAM = (_CTXH[k] for k in ("CX", "CY", "RX", "RY", "EW", "EH", "TAM"))
+    els = elipse(CX - RX, CY - RY, 2 * RX, 2 * RY,
+                 "SiL'K\nSistema integrado de compras\ny gestión de suministradores", tam=18)
+    cajas, segmentos, pedidos, flechas = [], [], [], []
+    for nombre, lado, x, y, entra, sale in CTX_HD:
+        els += entidad(x, y, EW, EH, nombre, tam=16)
+        cajas.append((x - 6, y - 6, x + EW + 6, y + EH + 6))
+        ex, ey = x + EW / 2.0, y + EH / 2.0
+        # dos puntos de salida sobre el borde de la caja que mira a la elipse
+        if lado == "arriba":
+            a1, a2 = (ex - 38, y + EH), (ex + 38, y + EH)
+        elif lado == "abajo":
+            a1, a2 = (ex - 38, y), (ex + 38, y)
+        elif lado == "izq":
+            a1, a2 = (x + EW, ey - 18), (x + EW, ey + 18)
+        else:
+            a1, a2 = (x, ey - 18), (x, ey + 18)
+        ang = math.atan2((ey - CY) / RY, (ex - CX) / RX)
+        e1, e2 = [(CX + RX * math.cos(ang + s * math.radians(7)), CY + RY * math.sin(ang + s * math.radians(7)))
+                  for s in (-1, 1)]
+        # se emparejan de modo que las dos flechas no se crucen
+        if math.hypot(a1[0] - e1[0], a1[1] - e1[1]) + math.hypot(a2[0] - e2[0], a2[1] - e2[1]) > \
+           math.hypot(a1[0] - e2[0], a1[1] - e2[1]) + math.hypot(a2[0] - e1[0], a2[1] - e1[1]):
+            e1, e2 = e2, e1
+        if sale is None:
+            a1 = ((a1[0] + a2[0]) / 2.0, (a1[1] + a2[1]) / 2.0)
+            e1 = (CX + RX * math.cos(ang), CY + RY * math.sin(ang))
+        segmentos.append((a1, e1))
+        flechas.append((a1, e1))                         # entrada: entidad -> El Producto
+        pedidos.append((entra, a1, e1, None if sale is None else ((a2[0] + e2[0]) / 2.0, (a2[1] + e2[1]) / 2.0)))
+        if sale is not None:
+            segmentos.append((a2, e2))
+            flechas.append((e2, a2))                     # salida: El Producto -> entidad
+            pedidos.append((sale, a2, e2, ((a1[0] + e1[0]) / 2.0, (a1[1] + e1[1]) / 2.0)))
+    for (p1, p2) in flechas:
+        els += linea(int(round(p1[0])), int(round(p1[1])), int(round(p2[0])), int(round(p2[1])), punta="arrow")
+    for txt, x, y, w in _ubicar_rotulos(pedidos, segmentos, cajas, (CX, CY, RX, RY)):
+        els.append(texto(txt, x, y, w, TAM))
     return els
 
 
 def core_negocio_hd():
-    els = [titulo("CDU de alto nivel (core) — plano del negocio", 40, 10, 1400)]
+    els = [titulo("CDU de alto nivel (core): plano del negocio", 40, 10, 1400)]
     EX, EY, EW, EH = 520, 370, 560, 200
     els += elipse_negocio(EX, EY, EW, EH, "Gestión de Suministros y Compras\nde Harley-Davidson", tam=17)
     e = _f_elipse(EX, EY, EW, EH)
@@ -2716,7 +2803,7 @@ def core_negocio_hd():
 
 
 def descomposicion_hd():
-    els = [titulo("CDU primera descomposición — plano del negocio", 40, 10, 1400)]
+    els = [titulo("CDU primera descomposición: plano del negocio", 40, 10, 1400)]
     EX, EW, EH = 430, 560, 120
     nombres = ["CDU-01 · Requisición y emisión\ndel pedido de compra",
                "CDU-02 · Recepción, seguimiento\ny pago al suministrador",
@@ -2780,7 +2867,7 @@ def _expandido(titulo_txt, alto, casos, actores, asociaciones, relaciones):
 
 def cdu_expandido_hd_01():
     return _expandido(
-        "SiL'K — CDU-01 Requisición y emisión del pedido de compra", 800,
+        "SiL'K: CDU-01 Requisición y emisión del pedido de compra", 800,
         {"CU01": ("L", 110, "CU-01 Solicitar material\no servicio"),
          "CU04": ("L", 300, "CU-04 Aprobar solicitud\nde pedido"),
          "CU02": ("L", 500, "CU-02 Emitir pedido\nde compra"),
@@ -2797,7 +2884,7 @@ def cdu_expandido_hd_01():
 
 def cdu_expandido_hd_02():
     return _expandido(
-        "SiL'K — CDU-02 Recepción, seguimiento y pago al suministrador", 760,
+        "SiL'K: CDU-02 Recepción, seguimiento y pago al suministrador", 760,
         {"CU05": ("L", 110, "CU-05 Recibir material\ncontra pedido"),
          "CU06": ("L", 350, "CU-06 Seguir el estado\ndel pedido"),
          "CU17": ("L", 610, "CU-17 Resolver discrepancia\nde factura"),
@@ -2813,7 +2900,7 @@ def cdu_expandido_hd_02():
 
 def cdu_expandido_hd_03():
     return _expandido(
-        "SiL'K — CDU-03 Información y relación con suministradores", 760,
+        "SiL'K: CDU-03 Información y relación con suministradores", 760,
         {"CU08": ("L", 110, "CU-08 Incorporar suministrador\na la base de aprovisionamiento"),
          "CU10": ("L", 350, "CU-10 Evaluar resultados\ndel suministrador"),
          "CU11": ("L", 610, "CU-11 Analizar el gasto\nconsolidado de la empresa"),
@@ -2828,7 +2915,7 @@ def cdu_expandido_hd_03():
 
 def cdu_expandido_hd_04():
     return _expandido(
-        "SiL'K — CDU-04 Compras en proyectos de nuevos productos", 760,
+        "SiL'K: CDU-04 Compras en proyectos de nuevos productos", 760,
         {"CU12": ("L", 110, "CU-12 Planificar la participación\nde Compras en el proyecto"),
          "CU13": ("L", 350, "CU-13 Acordar el coste objetivo\nde una pieza"),
          "CU14": ("L", 610, "CU-14 Controlar la preparación\npara el lanzamiento"),
@@ -2847,19 +2934,19 @@ def cdu_expandido_hd_04():
 # componentes DENTRO del nodo, conexion llena con el protocolo, zonas punteadas.
 # --------------------------------------------------------------------------
 def despliegue_hd():
-    els = [titulo("Diagrama de despliegue (distribución) — SiL'K", 40, 10, 1400),
+    els = [titulo("Diagrama de despliegue (distribución): SiL'K", 40, 10, 1400),
            texto("Nodo = cubo · «device» = hardware · «executionEnvironment» = software dentro de un dispositivo · "
                  "componentes dentro del nodo que los ejecuta · conexión = línea llena con el protocolo como estereotipo.",
                  40, 44, 2250, 13, align="left", _halo=False)]
     els.append(_rect(20, 80, 2420, 320, VERDE, punteado=True))
-    els.append(texto("FrontEnd — usuarios y dispositivos", 30, 86, 400, 13, align="left", _halo=False))
+    els.append(texto("FrontEnd: usuarios y dispositivos", 30, 86, 400, 13, align="left", _halo=False))
     els.append(_rect(20, 440, 1560, 760, NARANJA, punteado=True))
-    els.append(texto("BackEnd — nube privada virtual de Harley-Davidson (región primaria)",
+    els.append(texto("BackEnd: nube privada virtual de Harley-Davidson (región primaria)",
                      30, 1176, 700, 13, align="left", _halo=False))
     els.append(_rect(20, 1220, 1560, 190, GRIS, punteado=True))
-    els.append(texto("Región secundaria — recuperación ante desastre", 30, 1386, 600, 13, align="left", _halo=False))
+    els.append(texto("Región secundaria: recuperación ante desastre", 30, 1386, 600, 13, align="left", _halo=False))
     els.append(_rect(1740, 440, 700, 970, AMARILLO, punteado=True))
-    els.append(texto("Sistemas existentes — centros de Harley-Davidson", 1750, 1386, 600, 13,
+    els.append(texto("Sistemas existentes: centros de Harley-Davidson", 1750, 1386, 600, 13,
                      align="left", _halo=False))
 
     C = [(60, "PC de oficina (comprador, solicitante, dirección)", "Navegador web",
@@ -2875,15 +2962,15 @@ def despliegue_hd():
         els += componente(x + 45, 258, 350, 62, comp, 12)
 
     els += cubo(60, 480, 1480, 170, "«device»",
-                "Borde de red — balanceador de carga y cortafuegos de aplicación\n(dos zonas de disponibilidad)",
+                "Borde de red: balanceador de carga y cortafuegos de aplicación\n(dos zonas de disponibilidad)",
                 rotulo=(80, 600))
     els += componente(720, 565, 240, 62, "API Gateway\n(límite de tasa · EAC-04)", 11)
     els += componente(990, 565, 240, 62, "Proveedor de identidad\n(SSO · MFA)", 11)
     els += componente(1260, 565, 240, 62, "Pasarela VPN\na los centros", 11)
 
     els += cubo(60, 690, 900, 420, "«device»",
-                "Clúster de contenedores — 3 nodos · 8 vCPU · 32 GB c/u (supuesto)", rotulo=(80, 800))
-    els += cubo(80, 770, 860, 320, "«executionEnvironment»", "Orquestador de contenedores — espacio SiL'K",
+                "Clúster de contenedores: 3 nodos · 8 vCPU · 32 GB c/u (supuesto)", rotulo=(80, 800))
+    els += cubo(80, 770, 860, 320, "«executionEnvironment»", "Orquestador de contenedores: espacio SiL'K",
                 d=12, tam=12)
     SV = ["Servicio Requisición\ny Pedido (CDU-01)", "Servicio Recepción\ny Facturas (CDU-02)",
           "Servicio Suministradores\n(CDU-03)", "Servicio Proyectos\nde producto (CDU-04)",
@@ -2897,7 +2984,7 @@ def despliegue_hd():
     els += cubo(1100, 850, 440, 130, "«device»", "Almacén analítico")
     els += componente(1115, 917, 195, 50, "Almacén de datos\nde compras", 11)
     els += componente(1320, 917, 195, 50, "Tablero de gasto\ne indicadores", 11)
-    els += cubo(1100, 1010, 440, 170, "«device»", "Servidor de base de datos — primario + espera activa")
+    els += cubo(1100, 1010, 440, 170, "«device»", "Servidor de base de datos: primario + espera activa")
     els += componente(1115, 1090, 195, 62, "BD transaccional\n(SGBD relacional)", 11)
     els += componente(1320, 1090, 195, 62, "Bitácora de auditoría\n(solo inserción · RE-15)", 11)
 
@@ -2905,11 +2992,11 @@ def despliegue_hd():
     els += componente(1115, 1317, 400, 50, "Réplica de la BD y clúster en espera", 11)
 
     els += cubo(1780, 480, 620, 310, "«device»",
-                "Servidor de planta — uno por centro (York · Kansas City ·\nTomahawk · Wauwatosa · Menomonee Falls · Franklin)")
+                "Servidor de planta: uno por centro (York · Kansas City ·\nTomahawk · Wauwatosa · Menomonee Falls · Franklin)")
     els += componente(1800, 590, 270, 62, "Sistema MRP/DRP\nde planta", 11)
     els += componente(2090, 590, 270, 62, "Agente de integración\n(guardar y reenviar)", 11)
     els += componente(1800, 690, 270, 62, "Sistema de compras local\n(en retiro · RE-14)", 11)
-    els += cubo(1780, 840, 620, 310, "«device»", "Servidores corporativos — sede de Milwaukee")
+    els += cubo(1780, 840, 620, 310, "«device»", "Servidores corporativos: sede de Milwaukee")
     els += componente(1800, 930, 270, 62, "Sistema de Cuentas\nde Acreedores", 11)
     els += componente(2090, 930, 270, 62, "Directorio corporativo", 11)
     els += componente(1800, 1030, 270, 62, "Sistemas de ingeniería\n(Centro de Desarrollo)", 11)
@@ -2957,7 +3044,7 @@ def icono(nombre, x, y, tam=64):
 # con el evento que lleva.
 # --------------------------------------------------------------------------
 def bloques_hd():
-    els = [titulo("Diagrama de bloques — SiL'K, arquitectura basada en eventos", 40, 10, 1500),
+    els = [titulo("Diagrama de bloques: SiL'K, arquitectura basada en eventos", 40, 10, 1500),
            texto("Los productores publican eventos sin conocer a los consumidores: el enrutador los filtra y los "
                  "entrega. Cada flecha lleva el nombre del evento.", 40, 44, 1560, 13, align="left", _halo=False)]
     Y = [140, 350, 560, 770]

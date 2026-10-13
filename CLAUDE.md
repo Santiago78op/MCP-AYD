@@ -547,6 +547,19 @@ Nota: `Ejemplo resuelto - Sistema de Transporte READM`. El PDF está en `00-Fuen
 | **Bus de eventos** | componente central con interfaz **publicador / suscriptor**; cuatro beneficios: desacople, flexibilidad, escalabilidad, reutilización | dejar EDA como «solo nombrada»: ya tiene desarrollo |
 | **La matriz de la lámina 13** | interesados **contra vistas** de la documentación (`d`, `m`, `p`) | tomarla como plantilla de las matrices de requisitos: esa sigue siendo la de la NT1 |
 
+**El diagrama de contexto no se deforma para acomodar los rótulos.** Ya pasó en este caso: la elipse
+se estiró hasta ser un óvalo alto para que las flechas salieran horizontales, y él lo rechazó
+(*«tiene un huevo en vez de la figura»*, *«ya lo sabías dibujar bien»*). El molde es
+`contexto_farmahosp`: elipse de proporción normal al centro, entidades **alrededor** y rótulos
+horizontales. `contexto_hd` lo hace con `_ubicar_rotulos`, que prueba posiciones y descarta las que
+tocan una flecha, otro rótulo, una caja o la elipse, y aborta si no hay lugar.
+
+**Forma de lo que se entrega, pedido el 2026-10-13:** sin rayas largas (`llano()` en
+`generar-entrega-hd.py` las convierte en puntuación corriente), con sección de referencias, y las
+propiedades del archivo a su nombre. En presentaciones: estilo sobrio tipo keynote (fondo casi negro
+o gris neutro, una sola tipografía sans, números grandes), **sin tonos crema ni degradados**, con
+animaciones de entrada, íconos, y ningún texto partido: los números con unidad van en una sola línea.
+
 **Íconos en las láminas.** `generar-excalidraw.py` tiene `icono(nombre, x, y, tam)`: incrusta un
 trazo de `06-Proyecto-MCP/iconos/` (Lucide, licencia ISC, monocromos) en el `.excalidraw` y en el
 `.svg`. Para sumar uno: bajar el `.svg` de Lucide a esa carpeta.

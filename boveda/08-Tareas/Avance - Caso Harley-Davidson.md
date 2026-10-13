@@ -30,7 +30,7 @@ explicar**. El entregable es [[Entrega - Caso Harley-Davidson]]; el estudio del 
 | Documento que se sube | `08-Tareas/GrupoN_CasoHD.pdf` (36 páginas, apaisado) | `python3 06-Proyecto-MCP/generar-entrega-hd.py` |
 | Versión editable | `08-Tareas/Entrega - Caso Harley-Davidson.docx` | el mismo comando |
 | Las nueve láminas | `02-Diagramas/caso-hd/` | `python3 06-Proyecto-MCP/generar-excalidraw.py caso-hd/<carpeta>` |
-| Presentación de 10 minutos | 12 láminas con notas del orador, en claude.ai | se edita en la página |
+| Presentación de 10 minutos | 13 láminas (12 más referencias) con notas del orador y animaciones, en claude.ai | se edita en la página |
 
 ## Lo que falta — lo hace el estudiante
 
@@ -61,6 +61,10 @@ dimensionamiento del despliegue: el caso no trae esos datos. También la lectura
   con el ejemplo READM: confirma `EAC-nn` y da el molde del diagrama de bloques basado en eventos.
 - **2026-10-13** — Entrega armada: 9 láminas verificadas mirando la imagen, documento de 36 páginas
   y presentación de 12 láminas.
+- **2026-10-13, revisión** — El diagrama de contexto se rehízo con el molde de FarmaHosp (elipse normal al
+  centro, entidades alrededor, rótulos horizontales): la primera versión estiraba la elipse y no era la
+  figura de la notación. Al documento se le sumaron referencias y se le quitaron las rayas largas. La
+  presentación pasó a un estilo sobrio de fondo oscuro, sin tonos crema ni degradados.
 
 ## Preguntas de repaso
 

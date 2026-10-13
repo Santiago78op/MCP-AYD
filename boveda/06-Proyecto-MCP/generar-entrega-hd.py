@@ -99,7 +99,7 @@ def carta(sec, landscape=False):
 carta(doc.sections[0], True)
 
 
-def pie(sec, texto="Caso Harley-Davidson — proyecto SiL'K · Santiago Barrera"):
+def pie(sec, texto="Caso Harley-Davidson, proyecto SiL'K · Santiago Barrera"):
     if sec is None:
         return
     p = sec.footer.paragraphs[0]
@@ -114,8 +114,20 @@ def pie(sec, texto="Caso Harley-Davidson — proyecto SiL'K · Santiago Barrera"
 pie(doc.sections[0])
 
 
+def llano(t):
+    """Puntuacion corriente en vez de rayas largas."""
+    t = re.sub(r"Figura (\d+) \u2014 ", r"Figura \1. ", t)
+    t = re.sub(r"Matriz (\d+) \u2014 ", r"Matriz \1: ", t)
+    t = re.sub(r" \u00b7 criterio (\d) \u2014 (\d+) pts", r" (criterio \1, \2 pts)", t)
+    t = re.sub(r" ?\u2014([^\u2014\n]{3,90}?)\u2014 ?,?",
+               lambda m: (", " + m.group(1).strip() + ", ") if "(" in m.group(1) else (" (" + m.group(1).strip() + ") "), t)
+    t = t.replace("** \u2014 ", "**: ").replace("\u2014 (", "(")
+    t = t.replace(" \u2014 ", ", ")
+    return t.replace("\u2014", "-").replace(" ,", ",")
+
+
 def runs(par, text, size=None, bold_all=False):
-    text = text.replace("`", "")
+    text = llano(text).replace("`", "")
     for i, chunk in enumerate(re.split(r"\*\*", text)):
         if not chunk:
             continue
@@ -144,13 +156,13 @@ def H(text, level=1, brk=False):
         r.font.color.rgb = NEGRO
     if brk:
         p.paragraph_format.page_break_before = True
-    MD.append("\n%s %s\n" % ("#" * (level + 1), text))
+    MD.append("\n%s %s\n" % ("#" * (level + 1), llano(text)))
 
 
 def P(text, size=10.5):
     p = doc.add_paragraph()
     runs(p, text, size=size)
-    MD.append(text + "\n")
+    MD.append(llano(text) + "\n")
 
 
 def BUL(items, size=10):
@@ -158,7 +170,7 @@ def BUL(items, size=10):
         p = doc.add_paragraph(style="List Bullet")
         runs(p, it, size=size)
         p.paragraph_format.space_after = Pt(2)
-        MD.append("- " + it)
+        MD.append("- " + llano(it))
     MD.append("")
 
 
@@ -173,7 +185,7 @@ def NOTE(text):
                 r.bold = True
         par.paragraph_format.left_indent = Inches(0.3)
         par.paragraph_format.space_after = Pt(3 if i < len(lineas) - 1 else 10)
-        MD.append("> " + line + ("" if i else "") )
+        MD.append("> " + llano(line))
         MD.append(">")
     MD[-1] = ""
 
@@ -230,10 +242,10 @@ def TBL(headers, rows, fracs=None, size=9, usable=9.4, centro_desde=None):
     tw.set(qn('w:w'), str(int(sum(int(w) for w in widths) / 635)))
     tblPr.append(tw)
     doc.add_paragraph().paragraph_format.space_after = Pt(2)
-    MD.append("| " + " | ".join(headers) + " |")
+    MD.append("| " + " | ".join(llano(h) for h in headers) + " |")
     MD.append("|" + "---|" * n)
     for row in rows:
-        MD.append("| " + " | ".join(str(v).replace("\n", "<br>").replace("|", "/") for v in row) + " |")
+        MD.append("| " + " | ".join(llano(str(v)).replace("\n", "<br>").replace("|", "/") for v in row) + " |")
     MD.append("")
 
 
@@ -252,7 +264,7 @@ def IMGP(nombre, width=6.5, caption=None):
         for r in p.runs:
             r.italic = True
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        MD.append("*%s*\n" % caption)
+        MD.append("*%s*\n" % llano(caption))
 
 
 def SEC(landscape=False):
@@ -476,9 +488,9 @@ STK_CORTO = {"STK-01": "VP Gestión de Materiales", "STK-02": "VP Servicios de I
 MD.append("---\ntema: Entrega de tarea\nfuente: \"Generado por 06-Proyecto-MCP/generar-entrega-hd.py — no editar a mano: "
           "cambiar el generador y volver a correrlo\"\nfecha: 2026-10-13\ntarea: Caso Harley-Davidson\n"
           "alias: [entrega harley, entrega HD, CasoHD]\n---\n")
-MD.append("# Caso Harley-Davidson — proyecto SiL'K · Entrega\n")
+MD.append("# Caso Harley-Davidson, proyecto SiL'K · Entrega\n")
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-r = p.add_run("Caso Harley-Davidson — arquitectura del proyecto SiL'K")
+r = p.add_run("Caso Harley-Davidson: arquitectura del proyecto SiL'K")
 r.bold = True; r.font.size = Pt(19)
 for line in ["Análisis y Diseño de Sistemas II (785) · ECYS, USAC · MBA. MSc. Claudia Rojas de Morán",
              "Santiago Barrera · Carné: ____________________ · 13 de octubre de 2026"]:
@@ -528,24 +540,26 @@ NOTE("**Cómo se leyó la consigna**\n"
 H("1. Caso de negocio · criterio 1 — 15 pts", 1, brk=True)
 P("Es el **paso 0** del método de clase: antes de diseñar, delimitar el negocio y lo que el producto intercambia con "
   "su entorno. Tres diagramas, de afuera hacia adentro.")
+P("La notación es la de clase: en el diagrama de contexto, la **elipse** es El Producto, cada **rectángulo** es una "
+  "entidad o agente externo y cada **flecha** es un flujo con nombre.")
 H("1.1 Diagrama de contexto", 2)
 P("**El Producto** es el software SiL'K. Las entidades son todo lo que intercambia información con él: personas, "
   "áreas y sistemas. Cada flecha es un *streamline* con nombre, en sustantivo: son **19**.")
 sec = SEC(True); pie(sec)
-IMGP("contexto-hd", 9.3, "Figura 1 — Diagrama de contexto de SiL'K: diez entidades y diecinueve streamlines.")
+IMGP("contexto-hd", 9.3, "Figura 1 — Diagrama de contexto de SiL'K: diez entidades y diecinueve flujos.")
 sec = SEC(False); pie(sec)
 TBL(["Entidad", "Entrega a SiL'K", "Recibe de SiL'K"],
     [["Empleado solicitante", "Solicitud de pedido", "Estado de la solicitud"],
-     ["Responsable de área (aprobador)", "Decisión de aprobación", "Solicitud pendiente de aprobación"],
-     ["Comprador", "Pedido de compra y evaluación", "Propuestas de pedido y alertas de plazo"],
-     ["Dirección de Compras", "Contratos y reglas de compra", "Gasto consolidado e indicadores"],
-     ["Ingeniería (Centro de Desarrollo de Productos)", "Plan del proyecto y coste objetivo", "Estado de preparación de las piezas"],
-     ["Suministrador", "Confirmación, aviso de envío y factura", "Pedido, demanda prevista y resultados"],
-     ["Sistema MRP/DRP de planta", "Requisitos de material", "Pedidos en firme y fechas de entrega"],
+     ["Responsable de área (aprobador)", "Decisión de aprobación", "Solicitud por aprobar"],
+     ["Dirección de Compras", "Contratos y reglas de compra", "Gasto consolidado"],
+     ["Comprador", "Pedido de compra y evaluación", "Propuestas y alertas de plazo"],
+     ["Ingeniería (Centro de Desarrollo de Productos)", "Plan y coste objetivo", "Preparación de las piezas"],
+     ["Suministrador", "Confirmación, envío y factura", "Pedido, demanda y resultados"],
      ["Recepción y Logística", "Recepción de material", "Entregas previstas"],
-     ["Sistema de Cuentas de Acreedores", "Estado del pago", "Factura conciliada para pago"],
-     ["Sistemas de compras locales (en retiro)", "Histórico de pedidos y suministradores", "— (solo emiten: se migran y se apagan)"]],
-    fracs=[0.30, 0.35, 0.35], size=9)
+     ["Sistema MRP/DRP de planta", "Requisitos de material", "Pedidos en firme y fechas"],
+     ["Sistema de Cuentas de Acreedores", "Estado del pago", "Factura conciliada"],
+     ["Sistemas de compras locales (en retiro)", "Histórico de pedidos", "Ninguno: solo emiten, se migran y se apagan"]],
+    fracs=[0.36, 0.32, 0.32], size=9)
 
 H("1.2 CDU de alto nivel (core)", 2)
 P("Una sola elipse con el nombre del negocio completo y todos sus actores alrededor. Las asociaciones van **sin "
@@ -635,7 +649,7 @@ for n, cap in [("cdu-expandido-hd-01-requisicion", "Figura 4 — CDU-01 expandid
                ("cdu-expandido-hd-04-proyectos", "Figura 7 — CDU-04 expandido.")]:
     IMGP(n, 6.3, cap)
 
-H("Descripción textual — CU-02 Emitir pedido de compra", 3)
+H("Descripción textual del caso de uso CU-02, Emitir pedido de compra", 3)
 TBL(["Campo", "Contenido"],
     [["**Nombre**", "CU-02 Emitir pedido de compra"],
      ["**Actores**", "Comprador (inicia) · Suministrador"],
@@ -674,7 +688,8 @@ TBL(["Id", "Categoría", "Característica ISO/IEC 25010", "Motivo en el caso", "
     fracs=[0.06, 0.10, 0.15, 0.18, 0.27, 0.07, 0.09, 0.08], size=8, usable=9.4)
 P("**Escenarios de atributos de calidad (EaC).** Cada driver se especifica en seis partes: quién o qué lo provoca "
   "(fuente de estímulo), qué ocurre (estímulo), sobre qué parte (artefacto), en qué condiciones (entorno), qué hace "
-  "el sistema (respuesta) y cómo se comprueba (medida de la respuesta). Sin medida no es un driver.")
+  "el sistema (respuesta) y cómo se comprueba (medida de la respuesta). Sin medida no es un driver. El formato "
+  "de seis partes es el de Bass, Clements y Kazman (2021) y el del ejemplo visto en clase.")
 CAT = {a[0]: a[1] for a in AC}
 TBL(["ID", "Categoría", "Escenario", "Prioridad"],
     [[e[0], CAT[e[0]],
@@ -741,7 +756,7 @@ H("4.4 Matriz 4 — Requerimientos vs. Requerimientos", 2)
 P("Matriz cuadrada de **dependencia**, con la plantilla de la nota técnica de trazabilidad: las columnas originan "
   "la dependencia y las filas dependen. Se lee **«la fila depende de la columna»**. La diagonal no aplica.", size=9.5)
 TBL(["Depende ↓ / de →"] + rfh,
-    [["RF-%02d %s" % (n, RF_CORTO[n])] + ["—" if c == n else (X if c in DEP_RF.get(n, []) else "") for c in range(1, 19)]
+    [["RF-%02d %s" % (n, RF_CORTO[n])] + ["-" if c == n else (X if c in DEP_RF.get(n, []) else "") for c in range(1, 19)]
      for n in range(1, 19)],
     fracs=[0.28] + [0.04] * 18, size=7.5, usable=9.4, centro_desde=1)
 P("**Lectura:** las columnas más marcadas son **RF-10** (registro único de suministradores, seis dependientes), "
@@ -759,7 +774,7 @@ P("**Estilo principal: arquitectura orientada a servicios (SOA), con un servicio
   "(CDU-01 a CDU-04), más un servicio de integración; **en capas** por dentro y **basada en eventos** entre "
   "servicios. Es la misma combinación del ejemplo de clase (perspectiva lógica capas/SOA y bloques basados en eventos). Un **estilo arquitectónico** establece las restricciones "
   "sobre la arquitectura de una familia de diseños; se elige en función de los drivers, no por preferencia.")
-H("5.2 Por qué SOA — en función de los criterios anteriores", 2)
+H("5.2 Por qué SOA, en función de los criterios anteriores", 2)
 TBL(["Escalón de la lámina «Funcionamiento de la Arquitectura (SOA)»", "Cómo se cumple en SiL'K", "Criterio que lo respalda"],
     [["*«Define las necesidades del negocio»*", "La Estrategia de Gestión de Suministros y el negocio delimitado", "§1 — caso de negocio"],
      ["*«Desarrolla procesos de negocio como Servicios»*", "Los cuatro procesos de la primera descomposición son los cuatro servicios: la granularidad ya viene decidida", "§1.3 · matriz 2"],
@@ -769,7 +784,7 @@ TBL(["Escalón de la lámina «Funcionamiento de la Arquitectura (SOA)»", "Cóm
 P("La razón de fondo es de **integración**: el problema que el caso describe son sistemas de compras distintos en "
   "cada centro (pág. 4) y la obligación de convivir con lo existente (`RE-01`, `RE-13`, `RE-14`). SOA expone cada "
   "proceso con un contrato estable, detrás del cual puede haber el paquete comprado (`RE-02`) o un sistema de planta.")
-H("5.3 Estilos complementarios — cada uno con su driver", 2)
+H("5.3 Estilos complementarios, cada uno con su driver", 2)
 TBL(["Estilo", "Dónde se aplica", "Driver"],
     [["**En capas**", "Dentro de cada servicio: presentación, lógica de negocio y datos", "EAC-07"],
      ["**Cliente-servidor (N niveles)**", "Navegador, portal y tableta como clientes; servicios y base de datos como niveles", "EAC-03 · RE-11"],
@@ -807,7 +822,7 @@ TBL(["Elemento", "Responsabilidad"],
      ["**Capa de datos**", "Almacena los objetos y oculta al resto que es una base relacional"],
      ["**Capa de integración**", "Conecta con los sistemas existentes: MRP/DRP de planta, Cuentas de Acreedores, ingeniería"]],
     fracs=[0.28, 0.72], size=9)
-H("5.8 Diagrama de bloques — arquitectura basada en eventos", 2)
+H("5.8 Diagrama de bloques: arquitectura basada en eventos", 2)
 P("El **diagrama de bloques de alto nivel** es el primer paso antes del detalle: quién produce, quién enruta y quién "
   "consume. Toda flecha lleva el nombre del evento que transporta.")
 sec = SEC(True); pie(sec)
@@ -858,7 +873,7 @@ NOTE("**Supuestos de dimensionamiento**\n"
 H("6. Drivers de calidad y de restricción en los pasos, y modelo de calidad · criterio 6 — 20 pts", 1, brk=True)
 H("6.1 Los pasos para definir la arquitectura, con sus drivers", 2)
 P("Los siete pasos de la lámina *Pasos para la definición de una Arquitectura de software*. En cada uno se indica "
-  "qué drivers de calidad y de restricción lo gobiernan: no son un anexo del diseño, lo deciden.")
+  "qué drivers de calidad y de restricción lo condicionan.")
 TBL(["#", "Paso", "Qué se hizo para SiL'K", "Drivers de calidad", "Drivers de restricción"],
     [["1", "Creación del **caso de negocio**", "Negocio delimitado, contexto, core y descomposición (§1)", "—", "RE-04 ámbito · RE-06 valor"],
      ["2", "**Entendimiento de los requisitos**", "Stakeholders, RF, escenarios de calidad y restricciones; matrices (§2-§4)", "EAC-01 a EAC-09, escritos como EaC", "RE-01 a RE-16, por categoría"],
@@ -905,7 +920,7 @@ P("Un **modelo de calidad** descompone la calidad del producto en característic
   "pueden medir. El pensamiento ISO no es una norma suelta, es una **familia**:")
 TBL(["Norma", "Qué aporta", "Uso en SiL'K"],
     [["**ISO/IEC 9126** (2001)", "El modelo clásico: seis características —funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad, portabilidad— y métricas internas, externas y en uso", "Es el modelo del programa del curso; sirve de referencia y de puente"],
-     ["**ISO/IEC 25000** — SQuaRE", "La familia que la sucede, en cinco divisiones: 2500n gestión, 2501n modelo, 2502n medición, 2503n requisitos, 2504n evaluación", "Marco general"],
+     ["**ISO/IEC 25000** (SQuaRE)", "La familia que la sucede, en cinco divisiones: 2500n gestión, 2501n modelo, 2502n medición, 2503n requisitos, 2504n evaluación", "Marco general"],
      ["**ISO/IEC 25010**", "El modelo de calidad del producto: ocho características", "**Modelo adoptado**"],
      ["**ISO/IEC 25023**", "Medidas para cada característica", "Origen de las métricas"],
      ["**ISO/IEC 25040**", "El proceso de evaluación", "Cómo se aplica en los pasos 5 y 7"]],
@@ -942,6 +957,28 @@ BUL(["Las medidas de calidad, las dos restricciones regulatorias y el dimensiona
      "No se incluye un diagrama de componentes aparte: los componentes van dentro de sus nodos en el despliegue.",
      "Se entrega la descripción textual de un caso de uso (CU-02) como muestra de la plantilla; los otros trece "
      "quedan especificados por su diagrama y su traza."], size=9.5)
+
+H("8. Referencias", 2)
+BUL(["Austin, R. D., Sole, D. y Cotteleer, M. J. (2003). *La selección de software empresarial de Harley Davidson "
+     "Motor Company* (caso 606-S14). Harvard Business School.",
+     "Bass, L., Clements, P. y Kazman, R. (2021). *Software Architecture in Practice* (4.ª ed.). Addison-Wesley.",
+     "ISO/IEC 9126-1:2001. *Software engineering. Product quality. Part 1: Quality model*. International "
+     "Organization for Standardization.",
+     "ISO/IEC 25010:2011. *Systems and software engineering. Systems and software Quality Requirements and "
+     "Evaluation (SQuaRE). System and software quality models*. International Organization for Standardization.",
+     "Montoya-Suárez, Monsalve-Gómez y Sepúlveda-Castaño (2015). Un caso de estudio para la adopción de un modelo "
+     "de trazabilidad de requisitos en el sector energético. *Lámpsakos*, (13), 88-100. Nota técnica del curso.",
+     "Rojas de Morán, C. (2026). Presentaciones del curso Análisis y Diseño de Sistemas II: *Arquitectura de "
+     "Software*, *CDU Negocio: modelado de drivers RF* y *Calidad del Software*. ECYS, Universidad de San Carlos "
+     "de Guatemala."], size=9.5)
+
+cp = doc.core_properties
+cp.author = "Santiago Barrera"
+cp.last_modified_by = "Santiago Barrera"
+cp.title = "Caso Harley-Davidson: arquitectura del proyecto SiL'K"
+cp.subject = "Análisis y Diseño de Sistemas II"
+cp.comments = ""
+cp.keywords = ""
 
 MD.append("\n## Preguntas de repaso\n")
 MD.append("1. ¿Por qué el negocio es la gestión de suministros y no la selección del software?\n"

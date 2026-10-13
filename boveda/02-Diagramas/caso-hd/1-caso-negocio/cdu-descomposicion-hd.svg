@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 1480 1075" width="1480" height="1075" font-family="Helvetica, Arial, sans-serif">
 <defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
 <rect x="0" y="-30" width="1480" height="1075" fill="#ffffff"/>
-<text x="40" y="29.4" font-size="20" fill="#1e1e1e" text-anchor="start">CDU primera descomposición — plano del negocio</text>
+<text x="40" y="29.4" font-size="20" fill="#1e1e1e" text-anchor="start">CDU primera descomposición: plano del negocio</text>
 <ellipse cx="710.0" cy="160.0" rx="280.0" ry="60.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
 <text x="710.0" y="145.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«caso de uso de negocio»</text>
 <text x="710.0" y="164.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CDU-01 · Requisición y emisión</text>

@@ -6,7 +6,7 @@ tarea: Caso Harley-Davidson
 alias: [entrega harley, entrega HD, CasoHD]
 ---
 
-# Caso Harley-Davidson — proyecto SiL'K · Entrega
+# Caso Harley-Davidson, proyecto SiL'K · Entrega
 
 Análisis y Diseño de Sistemas II (785) · ECYS, USAC · MBA. MSc. Claudia Rojas de Morán
 
@@ -32,13 +32,13 @@ Santiago Barrera · Carné: ____________________ · 13 de octubre de 2026
 >
 > **El negocio** es la **gestión de suministros y compras de Harley-Davidson**: el ámbito que el propio caso dibuja en su anexo 6a. No es la empresa entera, y **no es el concurso de proveedores de software** que da título al caso: ese relato es la fuente de los stakeholders, los requisitos y las restricciones.
 >
-> **Consecuencia:** quienes ejecutan las compras —compradores, dirección de compras, recepcionistas— son **trabajadores del negocio**. Son **actores** las entidades de afuera: el proveedor y las **áreas** que piden, reciben y pagan. Regla de clase aplicada: las áreas son actores, las personas son trabajadores.
+> **Consecuencia:** quienes ejecutan las compras (compradores, dirección de compras, recepcionistas) son **trabajadores del negocio**. Son **actores** las entidades de afuera: el proveedor y las **áreas** que piden, reciben y pagan. Regla de clase aplicada: las áreas son actores, las personas son trabajadores.
 >
 > **Cambio de lente:** frente al **software** SiL'K, esos mismos trabajadores pasan a ser entidades externas. Por eso el comprador no aparece en el core (§1.2) y sí en el diagrama de contexto (§1.1) y en los CDU expandidos (§3.1).
 
 > **Cómo se leyó la consigna**
 >
-> **«Traer el caso al presente»:** se actualiza la **tecnología** (la «red Internet de Suministros» de 1998 pasa a ser portal web, API y nube). Los **hechos** del caso —organización, ámbito, fases, cifras— no se tocan. Lo que el caso no dice y hace falta va rotulado como **supuesto**.
+> **«Traer el caso al presente»:** se actualiza la **tecnología** (la «red Internet de Suministros» de 1998 pasa a ser portal web, API y nube). Los **hechos** del caso (organización, ámbito, fases, cifras) no se tocan. Lo que el caso no dice y hace falta va rotulado como **supuesto**.
 >
 > **«Los pasos para definir la arquitectura»:** los siete de la lámina de clase *Pasos para la definición de una Arquitectura de software* (§6.1).
 >
@@ -51,9 +51,11 @@ Santiago Barrera · Carné: ____________________ · 13 de octubre de 2026
 > **Trabajo individual:** el documento lo elaboró una sola persona. El nombre del archivo conserva el formato pedido.
 
 
-## 1. Caso de negocio · criterio 1 — 15 pts
+## 1. Caso de negocio (criterio 1, 15 pts)
 
 Es el **paso 0** del método de clase: antes de diseñar, delimitar el negocio y lo que el producto intercambia con su entorno. Tres diagramas, de afuera hacia adentro.
+
+La notación es la de clase: en el diagrama de contexto, la **elipse** es El Producto, cada **rectángulo** es una entidad o agente externo y cada **flecha** es un flujo con nombre.
 
 
 ### 1.1 Diagrama de contexto
@@ -62,20 +64,20 @@ Es el **paso 0** del método de clase: antes de diseñar, delimitar el negocio y
 
 ![[02-Diagramas/caso-hd/1-caso-negocio/contexto-hd.svg]]
 
-*Figura 1 — Diagrama de contexto de SiL'K: diez entidades y diecinueve streamlines.*
+*Figura 1. Diagrama de contexto de SiL'K: diez entidades y diecinueve flujos.*
 
 | Entidad | Entrega a SiL'K | Recibe de SiL'K |
 |---|---|---|
 | Empleado solicitante | Solicitud de pedido | Estado de la solicitud |
-| Responsable de área (aprobador) | Decisión de aprobación | Solicitud pendiente de aprobación |
-| Comprador | Pedido de compra y evaluación | Propuestas de pedido y alertas de plazo |
-| Dirección de Compras | Contratos y reglas de compra | Gasto consolidado e indicadores |
-| Ingeniería (Centro de Desarrollo de Productos) | Plan del proyecto y coste objetivo | Estado de preparación de las piezas |
-| Suministrador | Confirmación, aviso de envío y factura | Pedido, demanda prevista y resultados |
-| Sistema MRP/DRP de planta | Requisitos de material | Pedidos en firme y fechas de entrega |
+| Responsable de área (aprobador) | Decisión de aprobación | Solicitud por aprobar |
+| Dirección de Compras | Contratos y reglas de compra | Gasto consolidado |
+| Comprador | Pedido de compra y evaluación | Propuestas y alertas de plazo |
+| Ingeniería (Centro de Desarrollo de Productos) | Plan y coste objetivo | Preparación de las piezas |
+| Suministrador | Confirmación, envío y factura | Pedido, demanda y resultados |
 | Recepción y Logística | Recepción de material | Entregas previstas |
-| Sistema de Cuentas de Acreedores | Estado del pago | Factura conciliada para pago |
-| Sistemas de compras locales (en retiro) | Histórico de pedidos y suministradores | — (solo emiten: se migran y se apagan) |
+| Sistema MRP/DRP de planta | Requisitos de material | Pedidos en firme y fechas |
+| Sistema de Cuentas de Acreedores | Estado del pago | Factura conciliada |
+| Sistemas de compras locales (en retiro) | Histórico de pedidos | Ninguno: solo emiten, se migran y se apagan |
 
 
 ### 1.2 CDU de alto nivel (core)
@@ -84,7 +86,7 @@ Una sola elipse con el nombre del negocio completo y todos sus actores alrededor
 
 ![[02-Diagramas/caso-hd/1-caso-negocio/cdu-core-hd.svg]]
 
-*Figura 2 — CDU core: el negocio y sus seis actores.*
+*Figura 2. CDU core: el negocio y sus seis actores.*
 
 | Actor del negocio | Por qué está afuera | Qué obtiene del negocio |
 |---|---|---|
@@ -104,7 +106,7 @@ Un solo diagrama, con **cuatro procesos** y el **mismo juego de actores** que el
 
 ![[02-Diagramas/caso-hd/1-caso-negocio/cdu-descomposicion-hd.svg]]
 
-*Figura 3 — Primera descomposición: cuatro procesos de negocio.*
+*Figura 3. Primera descomposición: cuatro procesos de negocio.*
 
 | Proceso | Origen en el caso | Actores | Resultado de valor |
 |---|---|---|---|
@@ -118,28 +120,28 @@ Un solo diagrama, con **cuatro procesos** y el **mismo juego de actores** que el
 > El anexo 6a marca tres actividades como «no entra dentro del ámbito del proyecto SiL'K»: **Pedido / Programación** (pedidos de los clientes), **Movimiento interno de materiales** y **Distribución** (producto acabado al cliente). No se modelan. Por eso el **cliente** y el **concesionario** no son actores de este negocio.
 
 
-## 2. Identificación de stakeholders · criterio 2 — 10 pts
+## 2. Identificación de stakeholders (criterio 2, 10 pts)
 
 **Stakeholder** es toda persona, grupo u organización con un interés en el sistema. Se identificaron con cuatro barridos sobre el caso: el anexo 4 (promotores, comité y equipo), los grupos de gobierno (págs. 3, 4 y 9), las partes encuestadas (pág. 8) y los externos. Entra a la lista quien aporta **un interés propio** que ningún otro trae. El tipo de interés anticipa la clase de driver que aporta en el §3.
 
 | Id | Stakeholder | Interés | Posición | Interés propio (concern) | Fuente |
 |---|---|---|---|---|---|
-| STK-01 | Garry Berryman — vicepresidente de Gestión de Materiales (promotor) | paga · patrocina | interno | Que la Estrategia de Gestión de Suministros se cumpla: el personal de compras al 70 % en gestión de proveedores y 34 M USD de ahorro en cinco años | págs. 4-7, anexo 4 |
-| STK-02 | Dave Storm — vicepresidente de Planificación y Servicios de Información (promotor) | paga · patrocina | interno | Que SiL'K encaje en la estrategia de sistemas de toda la compañía y dé una visión consolidada | pág. 3, anexo 4 |
+| STK-01 | Garry Berryman, vicepresidente de Gestión de Materiales (promotor) | paga · patrocina | interno | Que la Estrategia de Gestión de Suministros se cumpla: el personal de compras al 70 % en gestión de proveedores y 34 M USD de ahorro en cinco años | págs. 4-7, anexo 4 |
+| STK-02 | Dave Storm, vicepresidente de Planificación y Servicios de Información (promotor) | paga · patrocina | interno | Que SiL'K encaje en la estrategia de sistemas de toda la compañía y dé una visión consolidada | pág. 3, anexo 4 |
 | STK-03 | Grupo de Unidad de Compras (PUG) | decide · usa | interno | Un proceso de compras común a los centros y divisiones, y los recursos que cede al proyecto | págs. 4, 7 |
-| STK-04 | Pat Davidson — directora de Planificación y Control de Compras | usa · dueña del proceso | interno | Planificar y controlar las compras de toda la empresa con datos únicos | pág. 1, anexo 4 |
-| STK-05 | Dave Cotteleer — director del proyecto SiL'K | dirige el proyecto | interno | Una implantación sin riesgos, dentro del ámbito y en tres fases | págs. 9-11 |
-| STK-06 | Compradores de los centros y divisiones (unas 200 personas: MRO, OE, P&A, Artículos Varios) | usa | interno — trabajador | Dejar de gastar el 85 % del tiempo en tareas no estratégicas: revisar existencias, acelerar pedidos, registrar datos | pág. 8, anexo 5 |
+| STK-04 | Pat Davidson, directora de Planificación y Control de Compras | usa · dueña del proceso | interno | Planificar y controlar las compras de toda la empresa con datos únicos | pág. 1, anexo 4 |
+| STK-05 | Dave Cotteleer, director del proyecto SiL'K | dirige el proyecto | interno | Una implantación sin riesgos, dentro del ámbito y en tres fases | págs. 9-11 |
+| STK-06 | Compradores de los centros y divisiones (unas 200 personas: MRO, OE, P&A, Artículos Varios) | usa | interno, trabajador | Dejar de gastar el 85 % del tiempo en tareas no estratégicas: revisar existencias, acelerar pedidos, registrar datos | pág. 8, anexo 5 |
 | STK-07 | Empleados solicitantes (más de 2.000 generan solicitudes de pedido) | usa (ocasional) | interno | Pedir lo que necesitan sin formación previa y saber en qué estado está | pág. 8 |
-| STK-08 | Suministradores estratégicos — Consejo Asesor de Suministradores (16) | usa (externo) | externo — actor | Acceso a sus datos de calidad, costes y plazos y a la demanda prevista; ser tratados como socios, no como vendedores | págs. 5, 10, anexo 3 |
-| STK-09 | Grupo de Integración de Arquitecturas — Karen Kaminski | regula (técnico) | interno | Que la solución cumpla las normas de hardware y software y sea compatible con la arquitectura existente | págs. 9, 12 |
+| STK-08 | Suministradores estratégicos, Consejo Asesor de Suministradores (16) | usa (externo) | externo, actor | Acceso a sus datos de calidad, costes y plazos y a la demanda prevista; ser tratados como socios, no como vendedores | págs. 5, 10, anexo 3 |
+| STK-09 | Grupo de Integración de Arquitecturas, Karen Kaminski | regula (técnico) | interno | Que la solución cumpla las normas de hardware y software y sea compatible con la arquitectura existente | págs. 9, 12 |
 | STK-10 | Dirección de Sistemas del Grupo de Fabricación (Cory Mason, Tom Cullen) y su Círculo de Tecnologías de la Información | decide la inversión · opera | interno | Aprobar la inversión y operar la solución sin afectar a la producción | págs. 3, 6, 12 |
-| STK-11 | Gestión del Cambio — Julie Anding | acompaña la adopción | interno | Que las 800 personas del público objetivo adopten el nuevo proceso: formación y comunicación | págs. 10, 14 |
-| STK-12 | Innovación de Procesos — Chuck Braunschweig | diseña el proceso | interno | Un flujo de proceso común, construido sobre las similitudes entre centros | pág. 8 |
-| STK-13 | Cuentas de Acreedores Comerciales (Finanzas) | usa · paga a proveedores | externo — actor | Pagar solo facturas conciliadas con pedido y recepción | pág. 8, anexo 6b |
-| STK-14 | Logística y recepción | usa | externo — actor | Saber qué llega y cuándo, y registrar la recepción en el muelle | pág. 8, anexo 6a |
-| STK-15 | Fabricación — centros de producción | usa · depende del resultado | externo — actor | Que las líneas de producción no dejen de funcionar | pág. 6 |
-| STK-16 | Ingeniería — Centro de Desarrollo de Productos y equipos de plataforma | usa | externo — actor | Integrar a Compras y a los suministradores en el desarrollo de nuevos productos | págs. 4-5, anexo 6b |
+| STK-11 | Gestión del Cambio, Julie Anding | acompaña la adopción | interno | Que las 800 personas del público objetivo adopten el nuevo proceso: formación y comunicación | págs. 10, 14 |
+| STK-12 | Innovación de Procesos, Chuck Braunschweig | diseña el proceso | interno | Un flujo de proceso común, construido sobre las similitudes entre centros | pág. 8 |
+| STK-13 | Cuentas de Acreedores Comerciales (Finanzas) | usa · paga a proveedores | externo, actor | Pagar solo facturas conciliadas con pedido y recepción | pág. 8, anexo 6b |
+| STK-14 | Logística y recepción | usa | externo, actor | Saber qué llega y cuándo, y registrar la recepción en el muelle | pág. 8, anexo 6a |
+| STK-15 | Fabricación, centros de producción | usa · depende del resultado | externo, actor | Que las líneas de producción no dejen de funcionar | pág. 6 |
+| STK-16 | Ingeniería, Centro de Desarrollo de Productos y equipos de plataforma | usa | externo, actor | Integrar a Compras y a los suministradores en el desarrollo de nuevos productos | págs. 4-5, anexo 6b |
 | STK-17 | Proveedor del software (el finalista elegido) | construye · da soporte | externo | Implantar su paquete sin personalizaciones que no pueda mantener; relación a largo plazo | págs. 11-14, anexo 10 |
 
 > **Dos poblaciones con la misma palabra**
@@ -148,10 +150,10 @@ Un solo diagrama, con **cuatro procesos** y el **mismo juego de actores** que el
 
 > **Lo que quedó fuera, y por qué**
 >
-> **Recursos Humanos** fue encuestado (pág. 8), pero su interés —la formación— ya lo trae Gestión del Cambio: entra como restricción `RE-10`. Los **proveedores de software no elegidos** y la **empresa de estudios del sector** intervienen solo en la selección, no en el sistema. Los miembros del equipo con nombre propio (Carter, Jarosz, Christianson, Doman, Peissig, Pues, Sarder, Walker) se agrupan en `STK-06`: representan a su centro o división, con el mismo interés.
+> **Recursos Humanos** fue encuestado (pág. 8), pero su interés (la formación) ya lo trae Gestión del Cambio: entra como restricción `RE-10`. Los **proveedores de software no elegidos** y la **empresa de estudios del sector** intervienen solo en la selección, no en el sistema. Los miembros del equipo con nombre propio (Carter, Jarosz, Christianson, Doman, Peissig, Pues, Sarder, Walker) se agrupan en `STK-06`: representan a su centro o división, con el mismo interés.
 
 
-## 3. Drivers arquitectónicos · criterio 3 — 20 pts
+## 3. Drivers arquitectónicos (criterio 3, 20 pts)
 
 Los **drivers arquitectónicos** son los factores críticos que guían el diseño; hay tres tipos. Los **RF** moldean la estructura y se entregan como casos de uso expandidos. Los **de calidad** definen cómo debe comportarse el sistema y se entregan como escenarios con número. Los **de restricción** son condiciones impuestas desde afuera y se entregan como listado por categoría.
 
@@ -219,30 +221,30 @@ Salen de las doce actividades de las tres fases (anexo 6b), de los diez criterio
 
 > **Cómo leer las relaciones**
 >
-> **«include»** — el caso base lo ejecuta **siempre**; la flecha va del base al incluido. Aquí se usa para **reutilizar**: dos o tres casos base comparten el incluido.
+> **«include»**: el caso base lo ejecuta **siempre**; la flecha va del base al incluido. Aquí se usa para **reutilizar**: dos o tres casos base comparten el incluido.
 >
-> **«extend»** — ocurre **a veces**, bajo la condición entre corchetes; la flecha va de la extensión al base.
+> **«extend»**: ocurre **a veces**, bajo la condición entre corchetes; la flecha va de la extensión al base.
 >
 > Los cuatro diagramas están en el **plano del sistema**: actores y casos de uso sin la barra de negocio.
 
 ![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-01-requisicion.svg]]
 
-*Figura 4 — CDU-01 expandido.*
+*Figura 4. CDU-01 expandido.*
 
 ![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-02-recepcion.svg]]
 
-*Figura 5 — CDU-02 expandido.*
+*Figura 5. CDU-02 expandido.*
 
 ![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-03-suministradores.svg]]
 
-*Figura 6 — CDU-03 expandido.*
+*Figura 6. CDU-03 expandido.*
 
 ![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-04-proyectos.svg]]
 
-*Figura 7 — CDU-04 expandido.*
+*Figura 7. CDU-04 expandido.*
 
 
-#### Descripción textual — CU-02 Emitir pedido de compra
+#### Descripción textual del caso de uso CU-02, Emitir pedido de compra
 
 | Campo | Contenido |
 |---|---|
@@ -262,7 +264,7 @@ Salen de las doce actividades de las tres fases (anexo 6b), de los diez criterio
 
 - **En la línea 2:** no hay contrato vigente para el artículo. El Comprador solicita cotización a los suministradores (CU-16) y, con la oferta elegida, se continúa en la línea 3.
 - **En la línea 5:** el Suministrador propone otra fecha. El sistema avisa al Comprador, que acepta o renegocia; con la fecha acordada se continúa en la línea 6.
-- **Prioridad:** alta — es el caso que más RF concentra (RF-04, RF-05, RF-13).
+- **Prioridad:** alta, es el caso que más RF concentra (RF-04, RF-05, RF-13).
 
 
 ### 3.2 Drivers de atributos de calidad
@@ -287,7 +289,7 @@ Salen de las doce actividades de las tres fases (anexo 6b), de los diez criterio
 | EAC-08 | Portabilidad | Portabilidad › adaptabilidad, capacidad de ser instalado | El caso califica la «portabilidad de plataformas» | El mismo paquete de despliegue se levanta en otra nube o centro de datos en ≤ 5 días hábiles con 0 cambios de código | (B, M) | STK-09 | anexo 10 |
 | EAC-09 | Fiabilidad | Fiabilidad › tolerancia a fallos · Seguridad › integridad | «Eliminación de registros duplicados» y «corrección de errores» | 0 pedidos o facturas duplicados ante reintentos; 100 % de las facturas conciliadas a tres bandas antes del pago | (A, M) | STK-13, STK-06, STK-12 | anexo 3 |
 
-**Escenarios de atributos de calidad (EaC).** Cada driver se especifica en seis partes: quién o qué lo provoca (fuente de estímulo), qué ocurre (estímulo), sobre qué parte (artefacto), en qué condiciones (entorno), qué hace el sistema (respuesta) y cómo se comprueba (medida de la respuesta). Sin medida no es un driver.
+**Escenarios de atributos de calidad (EaC).** Cada driver se especifica en seis partes: quién o qué lo provoca (fuente de estímulo), qué ocurre (estímulo), sobre qué parte (artefacto), en qué condiciones (entorno), qué hace el sistema (respuesta) y cómo se comprueba (medida de la respuesta). Sin medida no es un driver. El formato de seis partes es el de Bass, Clements y Kazman (2021) y el del ejemplo visto en clase.
 
 | ID | Categoría | Escenario | Prioridad |
 |---|---|---|---|
@@ -303,7 +305,7 @@ Salen de las doce actividades de las tres fases (anexo 6b), de los diez criterio
 
 > **Prioridad**
 >
-> Con los dos ejes —importancia para el negocio y dificultad técnica— los que más pesan en el diseño son **EAC-01, EAC-04 y EAC-06** — los tres (A, A) —, seguidos de EAC-02, EAC-05 y EAC-09, que son (A, M). Las restricciones no se priorizan: todas son obligatorias.
+> Con los dos ejes (importancia para el negocio y dificultad técnica) los que más pesan en el diseño son **EAC-01, EAC-04 y EAC-06**, los tres (A, A),  seguidos de EAC-02, EAC-05 y EAC-09, que son (A, M). Las restricciones no se priorizan: todas son obligatorias.
 
 
 ### 3.3 Drivers de restricción
@@ -326,16 +328,16 @@ Por las seis categorías de clase. El caso no cita ninguna norma legal: las dos 
 | RE-12 | Ambiental / física | La implantación no puede interrumpir las líneas de producción | pág. 6 | STK-15, STK-10 |
 | RE-13 | De integración | Interconexión con los sistemas en funcionamiento (MRP/DRP de planta, cuentas de acreedores, ingeniería) y con las iniciativas de tecnología en marcha | pág. 12 | STK-09, STK-10 |
 | RE-14 | De integración | Coexistencia con los sistemas de compras locales de cada centro mientras dura la migración por fases | pág. 4 · anexo 6b | STK-06, STK-15 |
-| RE-15 | Regulatoria (supuesto) | Control interno financiero de una empresa cotizada: segregación de funciones y rastro de auditoría en aprobaciones y pagos | supuesto «al presente» — pág. 2 (cotiza desde 1986) | STK-13, STK-02 |
-| RE-16 | Regulatoria (supuesto) | Protección de los datos personales de los contactos de suministradores en las filiales europeas | supuesto «al presente» — pág. 2 (filiales en Europa) | STK-08, STK-02 |
+| RE-15 | Regulatoria (supuesto) | Control interno financiero de una empresa cotizada: segregación de funciones y rastro de auditoría en aprobaciones y pagos | supuesto «al presente», pág. 2 (cotiza desde 1986) | STK-13, STK-02 |
+| RE-16 | Regulatoria (supuesto) | Protección de los datos personales de los contactos de suministradores en las filiales europeas | supuesto «al presente», pág. 2 (filiales en Europa) | STK-08, STK-02 |
 
 
-## 4. Matrices de trazabilidad · criterio 4 — 15 pts
+## 4. Matrices de trazabilidad (criterio 4, 15 pts)
 
 Las cuatro matrices cruzan los artefactos de los criterios 1, 2 y 3. Están **acopladas**: la matriz 3 no se llenó a mano, se **derivó** de la 1 y la 2 (un stakeholder se relaciona con un caso de uso si le interesa algún requisito que ese caso realiza). Así no pueden contradecirse.
 
 
-### 4.1 Matriz 1 — Stakeholders vs. Requerimientos
+### 4.1 Matriz 1: Stakeholders vs. Requerimientos
 
 | Stakeholder \ RF- | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -382,7 +384,7 @@ Los requerimientos de calidad y de restricción también tienen dueño:
 E01-E09 son los escenarios de calidad EAC-01 a EAC-09; R01-R16, las restricciones RE-01 a RE-16. **Lectura:** ningún requerimiento queda sin stakeholder y ningún stakeholder queda sin requerimiento. `STK-11` (Gestión del Cambio) no pide funciones: su fila en RF está vacía y su interés aparece en EAC-05 y RE-10.
 
 
-### 4.2 Matriz 2 — Requerimientos vs. Casos de Uso
+### 4.2 Matriz 2: Requerimientos vs. Casos de Uso
 
 | Requerimiento | CU-01 | CU-02 | CU-03 | CU-04 | CU-05 | CU-06 | CU-07 | CU-08 | CU-09 | CU-10 | CU-11 | CU-12 | CU-13 | CU-14 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -408,7 +410,7 @@ E01-E09 son los escenarios de calidad EAC-01 a EAC-09; R01-R16, las restriccione
 **Lectura:** todo requerimiento lo realiza al menos un caso de uso (ninguna fila vacía) y todo caso de uso responde a algún requerimiento (ninguna columna vacía). RF-13 y RF-18 cruzan cuatro casos cada uno: el intercambio con el suministrador y la integración con lo existente son **transversales**, y eso es lo que justifica en el §5 un Servicio de Integración y un API Gateway propios. Los casos de apoyo CU-15 a CU-20 heredan la traza de su caso base.
 
 
-### 4.3 Matriz 3 — Stakeholders vs. Casos de Uso
+### 4.3 Matriz 3: Stakeholders vs. Casos de Uso
 
 | Stakeholder | CU-01 | CU-02 | CU-03 | CU-04 | CU-05 | CU-06 | CU-07 | CU-08 | CU-09 | CU-10 | CU-11 | CU-12 | CU-13 | CU-14 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -433,35 +435,35 @@ E01-E09 son los escenarios de calidad EAC-01 a EAC-09; R01-R16, las restriccione
 **Lectura:** derivada de las matrices 1 y 2. La fila de `STK-06` (compradores) es la más densa: son los usuarios principales. La de `STK-11` queda vacía por la razón ya dicha. Las columnas CU-02, CU-06 y CU-07 concentran más interesados: son los casos de la fase 1, y por eso la fase 1 va primero.
 
 
-### 4.4 Matriz 4 — Requerimientos vs. Requerimientos
+### 4.4 Matriz 4: Requerimientos vs. Requerimientos
 
 Matriz cuadrada de **dependencia**, con la plantilla de la nota técnica de trazabilidad: las columnas originan la dependencia y las filas dependen. Se lee **«la fila depende de la columna»**. La diagonal no aplica.
 
 | Depende ↓ / de → | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| RF-01 Solicitud de pedido | — |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| RF-02 Requisitos MRP/DRP |  | — |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X |
-| RF-03 Aprobación | X |  | — |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| RF-04 Pedido de compra |  | X | X | — | X |  |  |  |  | X |  |  |  |  |  |  |  |  |
-| RF-05 Agrupar demanda |  |  |  |  | — |  |  |  |  | X |  |  |  |  |  |  |  |  |
-| RF-06 Recepción |  |  |  | X |  | — |  |  |  |  |  |  |  |  |  |  |  |  |
-| RF-07 Seguimiento de plazos |  |  |  | X |  |  | — |  |  |  |  |  | X |  |  |  |  |  |
-| RF-08 Conciliar factura |  |  |  | X |  | X |  | — |  |  |  |  |  |  |  |  |  |  |
-| RF-09 Envío a pago |  |  |  |  |  |  |  | X | — |  |  |  |  |  |  |  |  | X |
-| RF-10 Registro de suministradores |  |  |  |  |  |  |  |  |  | — |  |  |  |  |  |  |  |  |
-| RF-11 Publicar resultados y demanda |  |  |  |  |  |  |  |  |  | X | — | X | X |  |  |  |  |  |
-| RF-12 Evaluar suministrador |  |  |  |  |  | X | X | X |  | X |  | — |  |  |  |  |  |  |
-| RF-13 Documentos por Internet |  |  |  |  |  |  |  |  |  | X |  |  | — |  |  |  |  |  |
-| RF-14 Consolidar datos |  |  |  | X |  |  |  | X |  |  |  | X |  | — |  |  |  |  |
-| RF-15 Planificar proyecto |  |  |  |  |  |  |  |  |  | X |  |  |  |  | — |  |  | X |
-| RF-16 Coste objetivo |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X | — |  |  |
-| RF-17 Preparación de lanzamiento |  |  |  |  |  |  |  |  |  |  |  | X |  |  | X |  | — |  |
-| RF-18 Integración con existentes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | — |
+| RF-01 Solicitud de pedido | - |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| RF-02 Requisitos MRP/DRP |  | - |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X |
+| RF-03 Aprobación | X |  | - |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| RF-04 Pedido de compra |  | X | X | - | X |  |  |  |  | X |  |  |  |  |  |  |  |  |
+| RF-05 Agrupar demanda |  |  |  |  | - |  |  |  |  | X |  |  |  |  |  |  |  |  |
+| RF-06 Recepción |  |  |  | X |  | - |  |  |  |  |  |  |  |  |  |  |  |  |
+| RF-07 Seguimiento de plazos |  |  |  | X |  |  | - |  |  |  |  |  | X |  |  |  |  |  |
+| RF-08 Conciliar factura |  |  |  | X |  | X |  | - |  |  |  |  |  |  |  |  |  |  |
+| RF-09 Envío a pago |  |  |  |  |  |  |  | X | - |  |  |  |  |  |  |  |  | X |
+| RF-10 Registro de suministradores |  |  |  |  |  |  |  |  |  | - |  |  |  |  |  |  |  |  |
+| RF-11 Publicar resultados y demanda |  |  |  |  |  |  |  |  |  | X | - | X | X |  |  |  |  |  |
+| RF-12 Evaluar suministrador |  |  |  |  |  | X | X | X |  | X |  | - |  |  |  |  |  |  |
+| RF-13 Documentos por Internet |  |  |  |  |  |  |  |  |  | X |  |  | - |  |  |  |  |  |
+| RF-14 Consolidar datos |  |  |  | X |  |  |  | X |  |  |  | X |  | - |  |  |  |  |
+| RF-15 Planificar proyecto |  |  |  |  |  |  |  |  |  | X |  |  |  |  | - |  |  | X |
+| RF-16 Coste objetivo |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X | - |  |  |
+| RF-17 Preparación de lanzamiento |  |  |  |  |  |  |  |  |  |  |  | X |  |  | X |  | - |  |
+| RF-18 Integración con existentes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | - |
 
 **Lectura:** las columnas más marcadas son **RF-10** (registro único de suministradores, seis dependientes), **RF-04** (pedido de compra, cuatro) y **RF-18** (integración, tres). Son la base de todo lo demás, y confirman el orden de las fases: primero las transacciones, y el registro de suministradores antes que su evaluación. RF-01, RF-10 y RF-18 no dependen de nadie: por ahí se empieza a construir.
 
 
-## 5. Estilos arquitectónicos y diagrama de despliegue · criterio 5 — 20 pts
+## 5. Estilos arquitectónicos y diagrama de despliegue (criterio 5, 20 pts)
 
 
 ### 5.1 La decisión
@@ -469,11 +471,11 @@ Matriz cuadrada de **dependencia**, con la plantilla de la nota técnica de traz
 **Estilo principal: arquitectura orientada a servicios (SOA), con un servicio por proceso de negocio** (CDU-01 a CDU-04), más un servicio de integración; **en capas** por dentro y **basada en eventos** entre servicios. Es la misma combinación del ejemplo de clase (perspectiva lógica capas/SOA y bloques basados en eventos). Un **estilo arquitectónico** establece las restricciones sobre la arquitectura de una familia de diseños; se elige en función de los drivers, no por preferencia.
 
 
-### 5.2 Por qué SOA — en función de los criterios anteriores
+### 5.2 Por qué SOA, en función de los criterios anteriores
 
 | Escalón de la lámina «Funcionamiento de la Arquitectura (SOA)» | Cómo se cumple en SiL'K | Criterio que lo respalda |
 |---|---|---|
-| *«Define las necesidades del negocio»* | La Estrategia de Gestión de Suministros y el negocio delimitado | §1 — caso de negocio |
+| *«Define las necesidades del negocio»* | La Estrategia de Gestión de Suministros y el negocio delimitado | §1, caso de negocio |
 | *«Desarrolla procesos de negocio como Servicios»* | Los cuatro procesos de la primera descomposición son los cuatro servicios: la granularidad ya viene decidida | §1.3 · matriz 2 |
 | *«Permite que cada Servicio evolucione independientemente»* | Las tres fases de implantación se entregan servicio por servicio, sin detener lo ya entregado | RE-05 · RE-12 · EAC-07 |
 | *«Plantea aplicaciones distribuidas, multi-nivel»* | Siete centros, cinco filiales y suministradores externos acceden a la misma plataforma | RE-11 · RE-03 · EAC-03 |
@@ -481,7 +483,7 @@ Matriz cuadrada de **dependencia**, con la plantilla de la nota técnica de traz
 La razón de fondo es de **integración**: el problema que el caso describe son sistemas de compras distintos en cada centro (pág. 4) y la obligación de convivir con lo existente (`RE-01`, `RE-13`, `RE-14`). SOA expone cada proceso con un contrato estable, detrás del cual puede haber el paquete comprado (`RE-02`) o un sistema de planta.
 
 
-### 5.3 Estilos complementarios — cada uno con su driver
+### 5.3 Estilos complementarios, cada uno con su driver
 
 | Estilo | Dónde se aplica | Driver |
 |---|---|---|
@@ -529,13 +531,13 @@ De la lista de clase, de menor alcance que el estilo y con una regla cada uno: *
 | **Capa de integración** | Conecta con los sistemas existentes: MRP/DRP de planta, Cuentas de Acreedores, ingeniería |
 
 
-### 5.8 Diagrama de bloques — arquitectura basada en eventos
+### 5.8 Diagrama de bloques: arquitectura basada en eventos
 
 El **diagrama de bloques de alto nivel** es el primer paso antes del detalle: quién produce, quién enruta y quién consume. Toda flecha lleva el nombre del evento que transporta.
 
 ![[02-Diagramas/caso-hd/5-estilo-despliegue/bloques-hd.svg]]
 
-*Figura 8 — Diagrama de bloques de SiL'K: productores, enrutador y consumidores de eventos.*
+*Figura 8. Diagrama de bloques de SiL'K: productores, enrutador y consumidores de eventos.*
 
 **Cómo se integra el bus de eventos.** Es un componente central con una interfaz para publicar y suscribirse; los publicadores no conocen a los suscriptores.
 
@@ -557,7 +559,7 @@ El **diagrama de despliegue** (o de distribución) muestra los nodos físicos y 
 
 ![[02-Diagramas/caso-hd/5-estilo-despliegue/despliegue-hd.svg]]
 
-*Figura 9 — Diagrama de despliegue de SiL'K.*
+*Figura 9. Diagrama de despliegue de SiL'K.*
 
 | Nodo | Componentes | Por qué está ahí |
 |---|---|---|
@@ -578,16 +580,16 @@ El **diagrama de despliegue** (o de distribución) muestra los nodos físicos y 
 > El caso no trae ningún dato de hardware. Para 800 usuarios concurrentes (`EAC-02`) con crecimiento a 3.000 (`EAC-03`) se supone: clúster de 3 nodos de 8 vCPU y 32 GB (24 vCPU y 96 GB en total, con capacidad para perder un nodo), base de datos primaria y en espera en zonas distintas, y mensajería de 3 nodos. Son valores de partida para la prueba de carga del paso 5 (§6.1), no un compromiso.
 
 
-## 6. Drivers de calidad y de restricción en los pasos, y modelo de calidad · criterio 6 — 20 pts
+## 6. Drivers de calidad y de restricción en los pasos, y modelo de calidad (criterio 6, 20 pts)
 
 
 ### 6.1 Los pasos para definir la arquitectura, con sus drivers
 
-Los siete pasos de la lámina *Pasos para la definición de una Arquitectura de software*. En cada uno se indica qué drivers de calidad y de restricción lo gobiernan: no son un anexo del diseño, lo deciden.
+Los siete pasos de la lámina *Pasos para la definición de una Arquitectura de software*. En cada uno se indica qué drivers de calidad y de restricción lo condicionan.
 
 | # | Paso | Qué se hizo para SiL'K | Drivers de calidad | Drivers de restricción |
 |---|---|---|---|---|
-| 1 | Creación del **caso de negocio** | Negocio delimitado, contexto, core y descomposición (§1) | — | RE-04 ámbito · RE-06 valor |
+| 1 | Creación del **caso de negocio** | Negocio delimitado, contexto, core y descomposición (§1) | - | RE-04 ámbito · RE-06 valor |
 | 2 | **Entendimiento de los requisitos** | Stakeholders, RF, escenarios de calidad y restricciones; matrices (§2-§4) | EAC-01 a EAC-09, escritos como EaC | RE-01 a RE-16, por categoría |
 | 3 | **Creación y selección** de la arquitectura | SOA con un servicio por proceso y estilos complementarios (§5) | EAC-06 y EAC-07 deciden SOA; EAC-01 y EAC-09 piden eventos | RE-01, RE-02, RE-13 (integrar) · RE-04 (no monolítico) |
 | 4 | **Documentación y comunicación** | Este documento: vista de escenarios (CDU) y vista física (despliegue) | Cada EaC ubicado en un nodo (§6.2) | RE-10: comunicar a 800 personas, como los boletines del caso |
@@ -610,10 +612,10 @@ Cada escenario del §3.2 se convierte en una decisión de arquitectura y queda u
 | EAC-02 Desempeño | Reparto de carga; las consultas analíticas salen de la base transaccional | Load Balance | Borde · almacén analítico |
 | EAC-03 Escalabilidad | Servicios sin estado en contenedores; se agregan nodos | Load Balance | Clúster de contenedores |
 | EAC-04 Seguridad | Entrada única, doble factor, autorización por suministrador, cifrado en tránsito y en reposo, bitácora | API Gateway · SSO · Access Token | Borde · BD (bitácora) |
-| EAC-05 Usabilidad | Una sola aplicación web con catálogo guiado; la interfaz separada de la lógica | — | PC de oficina · portal web |
+| EAC-05 Usabilidad | Una sola aplicación web con catálogo guiado; la interfaz separada de la lógica | - | PC de oficina · portal web |
 | EAC-06 Compatibilidad | Adaptadores por sistema, contratos de servicio estables, VPN a los centros | Store and forward · Webhook | Servicio de Integración · agente de planta |
 | EAC-07 Modificabilidad | Un servicio por proceso, capas dentro de cada uno, reglas por configuración | Log aggregation | Clúster de contenedores |
-| EAC-08 Portabilidad | Contenedores e infraestructura como código; base de datos relacional estándar | — | Clúster · BD |
+| EAC-08 Portabilidad | Contenedores e infraestructura como código; base de datos relacional estándar | - | Clúster · BD |
 | EAC-09 Fiabilidad | Mensajes idempotentes, reintentos, transacciones y conciliación a tres bandas | Store and forward | Clúster de mensajería · BD |
 
 
@@ -639,15 +641,15 @@ Un **modelo de calidad** descompone la calidad del producto en características 
 
 | Norma | Qué aporta | Uso en SiL'K |
 |---|---|---|
-| **ISO/IEC 9126** (2001) | El modelo clásico: seis características —funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad, portabilidad— y métricas internas, externas y en uso | Es el modelo del programa del curso; sirve de referencia y de puente |
-| **ISO/IEC 25000** — SQuaRE | La familia que la sucede, en cinco divisiones: 2500n gestión, 2501n modelo, 2502n medición, 2503n requisitos, 2504n evaluación | Marco general |
+| **ISO/IEC 9126** (2001) | El modelo clásico: seis características (funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad, portabilidad) y métricas internas, externas y en uso | Es el modelo del programa del curso; sirve de referencia y de puente |
+| **ISO/IEC 25000** (SQuaRE) | La familia que la sucede, en cinco divisiones: 2500n gestión, 2501n modelo, 2502n medición, 2503n requisitos, 2504n evaluación | Marco general |
 | **ISO/IEC 25010** | El modelo de calidad del producto: ocho características | **Modelo adoptado** |
 | **ISO/IEC 25023** | Medidas para cada característica | Origen de las métricas |
 | **ISO/IEC 25040** | El proceso de evaluación | Cómo se aplica en los pasos 5 y 7 |
 
 > **Por qué 25010 y no 9126**
 >
-> La consigna pide métodos actuales, y la 25010 sustituye a la 9126. Además, lo que más pesa en este caso —**seguridad** y **compatibilidad**— en la 9126 eran subcaracterísticas de *funcionalidad*; en la 25010 son características de primer nivel. El caso mismo eliminó a un proveedor por compatibilidad.
+> La consigna pide métodos actuales, y la 25010 sustituye a la 9126. Además, lo que más pesa en este caso (**seguridad** y **compatibilidad**) en la 9126 eran subcaracterísticas de *funcionalidad*; en la 25010 son características de primer nivel. El caso mismo eliminó a un proveedor por compatibilidad.
 
 **El modelo determinado para SiL'K.** Cada característica se concreta en una subcaracterística, una métrica y un umbral, y se traza al driver del §3. Es el árbol que se mide en los pasos 5 y 7.
 
@@ -673,6 +675,16 @@ Un **modelo de calidad** descompone la calidad del producto en características 
 - No se elige proveedor de software: el caso termina sin decidirlo y la rúbrica no lo pide. La arquitectura vale para cualquiera de los tres finalistas, porque el paquete queda detrás de los contratos de servicio.
 - No se incluye un diagrama de componentes aparte: los componentes van dentro de sus nodos en el despliegue.
 - Se entrega la descripción textual de un caso de uso (CU-02) como muestra de la plantilla; los otros trece quedan especificados por su diagrama y su traza.
+
+
+### 8. Referencias
+
+- Austin, R. D., Sole, D. y Cotteleer, M. J. (2003). *La selección de software empresarial de Harley Davidson Motor Company* (caso 606-S14). Harvard Business School.
+- Bass, L., Clements, P. y Kazman, R. (2021). *Software Architecture in Practice* (4.ª ed.). Addison-Wesley.
+- ISO/IEC 9126-1:2001. *Software engineering. Product quality. Part 1: Quality model*. International Organization for Standardization.
+- ISO/IEC 25010:2011. *Systems and software engineering. Systems and software Quality Requirements and Evaluation (SQuaRE). System and software quality models*. International Organization for Standardization.
+- Montoya-Suárez, Monsalve-Gómez y Sepúlveda-Castaño (2015). Un caso de estudio para la adopción de un modelo de trazabilidad de requisitos en el sector energético. *Lámpsakos*, (13), 88-100. Nota técnica del curso.
+- Rojas de Morán, C. (2026). Presentaciones del curso Análisis y Diseño de Sistemas II: *Arquitectura de Software*, *CDU Negocio: modelado de drivers RF* y *Calidad del Software*. ECYS, Universidad de San Carlos de Guatemala.
 
 
 ## Preguntas de repaso

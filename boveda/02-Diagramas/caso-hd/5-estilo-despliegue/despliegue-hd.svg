@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -30 2500 1480" width="2500" height="1480" font-family="Helvetica, Arial, sans-serif">
 <defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
 <rect x="-20" y="-30" width="2500" height="1480" fill="#ffffff"/>
-<text x="40" y="29.4" font-size="20" fill="#1e1e1e" text-anchor="start">Diagrama de despliegue (distribución) — SiL'K</text>
+<text x="40" y="29.4" font-size="20" fill="#1e1e1e" text-anchor="start">Diagrama de despliegue (distribución): SiL'K</text>
 <text x="40" y="56.61" font-size="13" fill="#1e1e1e" text-anchor="start">Nodo = cubo · «device» = hardware · «executionEnvironment» = software dentro de un dispositivo · componentes dentro del nodo que los ejecuta · conexión = línea llena con el protocolo como estereotipo.</text>
 <rect x="20" y="80" width="2420" height="320" rx="0" fill="#e8f5e9" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="10 6"/>
-<text x="30" y="98.61" font-size="13" fill="#1e1e1e" text-anchor="start">FrontEnd — usuarios y dispositivos</text>
+<text x="30" y="98.61" font-size="13" fill="#1e1e1e" text-anchor="start">FrontEnd: usuarios y dispositivos</text>
 <rect x="20" y="440" width="1560" height="760" rx="0" fill="#fff1e0" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="10 6"/>
-<text x="30" y="1188.61" font-size="13" fill="#1e1e1e" text-anchor="start">BackEnd — nube privada virtual de Harley-Davidson (región primaria)</text>
+<text x="30" y="1188.61" font-size="13" fill="#1e1e1e" text-anchor="start">BackEnd: nube privada virtual de Harley-Davidson (región primaria)</text>
 <rect x="20" y="1220" width="1560" height="190" rx="0" fill="#f1f1f1" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="10 6"/>
-<text x="30" y="1398.61" font-size="13" fill="#1e1e1e" text-anchor="start">Región secundaria — recuperación ante desastre</text>
+<text x="30" y="1398.61" font-size="13" fill="#1e1e1e" text-anchor="start">Región secundaria: recuperación ante desastre</text>
 <rect x="1740" y="440" width="700" height="970" rx="0" fill="#fff8dc" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="10 6"/>
-<text x="1750" y="1398.61" font-size="13" fill="#1e1e1e" text-anchor="start">Sistemas existentes — centros de Harley-Davidson</text>
+<text x="1750" y="1398.61" font-size="13" fill="#1e1e1e" text-anchor="start">Sistemas existentes: centros de Harley-Davidson</text>
 <rect x="60" y="130" width="460" height="240" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="60" y1="130" x2="80" y2="110" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="80" y1="110" x2="540" y2="110" stroke="#1e1e1e" stroke-width="1"/>
@@ -103,7 +103,7 @@
 <line x1="1540" y1="480" x2="1540" y2="630" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="1540" y1="630" x2="1520" y2="650" stroke="#1e1e1e" stroke-width="1"/>
 <text x="80" y="516.67" font-size="11" fill="#1e1e1e" text-anchor="start">«device»</text>
-<text x="80" y="534.61" font-size="13" fill="#1e1e1e" text-anchor="start">Borde de red — balanceador de carga y cortafuegos de aplicación</text>
+<text x="80" y="534.61" font-size="13" fill="#1e1e1e" text-anchor="start">Borde de red: balanceador de carga y cortafuegos de aplicación</text>
 <text x="80" y="550.86" font-size="13" fill="#1e1e1e" text-anchor="start">(dos zonas de disponibilidad)</text>
 <rect x="720" y="565" width="240" height="62" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
 <rect x="940" y="571" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
@@ -130,7 +130,7 @@
 <line x1="960" y1="690" x2="960" y2="1090" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="960" y1="1090" x2="940" y2="1110" stroke="#1e1e1e" stroke-width="1"/>
 <text x="80" y="726.67" font-size="11" fill="#1e1e1e" text-anchor="start">«device»</text>
-<text x="80" y="744.61" font-size="13" fill="#1e1e1e" text-anchor="start">Clúster de contenedores — 3 nodos · 8 vCPU · 32 GB c/u (supuesto)</text>
+<text x="80" y="744.61" font-size="13" fill="#1e1e1e" text-anchor="start">Clúster de contenedores: 3 nodos · 8 vCPU · 32 GB c/u (supuesto)</text>
 <rect x="80" y="782" width="848" height="308" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="80" y1="782" x2="92" y2="770" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="92" y1="770" x2="940" y2="770" stroke="#1e1e1e" stroke-width="1"/>
@@ -138,7 +138,7 @@
 <line x1="940" y1="770" x2="940" y2="1078" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="940" y1="1078" x2="928" y2="1090" stroke="#1e1e1e" stroke-width="1"/>
 <text x="504.0" y="798.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«executionEnvironment»</text>
-<text x="504.0" y="815.64" font-size="12" fill="#1e1e1e" text-anchor="middle">Orquestador de contenedores — espacio SiL'K</text>
+<text x="504.0" y="815.64" font-size="12" fill="#1e1e1e" text-anchor="middle">Orquestador de contenedores: espacio SiL'K</text>
 <rect x="100" y="850" width="255" height="80" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
 <rect x="335" y="856" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
 <rect x="331" y="859" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
@@ -221,7 +221,7 @@
 <line x1="1540" y1="1010" x2="1540" y2="1160" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="1540" y1="1160" x2="1520" y2="1180" stroke="#1e1e1e" stroke-width="1"/>
 <text x="1310.0" y="1046.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
-<text x="1310.0" y="1064.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Servidor de base de datos — primario + espera activa</text>
+<text x="1310.0" y="1064.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Servidor de base de datos: primario + espera activa</text>
 <rect x="1115" y="1090" width="195" height="62" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
 <rect x="1290" y="1096" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
 <rect x="1286" y="1099" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
@@ -254,7 +254,7 @@
 <line x1="2400" y1="480" x2="2400" y2="770" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="2400" y1="770" x2="2380" y2="790" stroke="#1e1e1e" stroke-width="1"/>
 <text x="2080.0" y="516.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
-<text x="2080.0" y="534.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Servidor de planta — uno por centro (York · Kansas City ·</text>
+<text x="2080.0" y="534.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Servidor de planta: uno por centro (York · Kansas City ·</text>
 <text x="2080.0" y="550.86" font-size="13" fill="#1e1e1e" text-anchor="middle">Tomahawk · Wauwatosa · Menomonee Falls · Franklin)</text>
 <rect x="1800" y="590" width="270" height="62" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
 <rect x="2050" y="596" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
@@ -281,7 +281,7 @@
 <line x1="2400" y1="840" x2="2400" y2="1130" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="2400" y1="1130" x2="2380" y2="1150" stroke="#1e1e1e" stroke-width="1"/>
 <text x="2080.0" y="876.67" font-size="11" fill="#1e1e1e" text-anchor="middle">«device»</text>
-<text x="2080.0" y="894.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Servidores corporativos — sede de Milwaukee</text>
+<text x="2080.0" y="894.61" font-size="13" fill="#1e1e1e" text-anchor="middle">Servidores corporativos: sede de Milwaukee</text>
 <rect x="1800" y="930" width="270" height="62" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
 <rect x="2050" y="936" width="12" height="14" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
 <rect x="2046" y="939" width="8" height="3" rx="0" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 1640 1040" width="1640" height="1040" font-family="Helvetica, Arial, sans-serif">
 <defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
 <rect x="0" y="-30" width="1640" height="1040" fill="#ffffff"/>
-<text x="40" y="29.4" font-size="20" fill="#1e1e1e" text-anchor="start">Diagrama de bloques — SiL'K, arquitectura basada en eventos</text>
+<text x="40" y="29.4" font-size="20" fill="#1e1e1e" text-anchor="start">Diagrama de bloques: SiL'K, arquitectura basada en eventos</text>
 <text x="40" y="56.61" font-size="13" fill="#1e1e1e" text-anchor="start">Los productores publican eventos sin conocer a los consumidores: el enrutador los filtra y los entrega. Cada flecha lleva el nombre del evento.</text>
 <rect x="40" y="100" width="400" height="870" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
 <text x="240.0" y="105.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Productores de eventos</text>
