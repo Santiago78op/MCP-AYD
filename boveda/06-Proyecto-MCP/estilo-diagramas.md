@@ -246,6 +246,23 @@ las zonas densas**, no mirar la lámina entera: a tamaño completo los rótulos 
 normal. En este diagrama hicieron falta **tres vueltas** de generar → mirar → corregir, y las dos
 primeras encontraron choques reales.
 
+### 3.3 ter Lo que enseñó el contexto del Caso Harley-Davidson (2026-10-13)
+
+> [!warning] La figura no se deforma para acomodar los rótulos
+> Para que diecinueve flechas salieran horizontales se estiró la elipse hasta volverla un óvalo
+> alto. Se leía perfecto y fue rechazado: *«tiene un huevo en vez de la figura»*. **La elipse de El
+> Producto mantiene su proporción normal** (más ancha que alta, como en `contexto_farmahosp`) y las
+> entidades van **alrededor**, no en dos columnas.
+
+Con la elipse normal, las flechas convergen y los rótulos no caben «a ojo». La solución que quedó en
+el generador es `_ubicar_rotulos`: para cada flecha prueba posiciones a lo largo de su recorrido, del
+lado de afuera del par, y se queda con la primera que no toca **ninguna flecha, ningún otro rótulo,
+ninguna caja ni la elipse**. Si no encuentra lugar, **aborta**: una lámina con rótulos encimados no
+se emite. Los rótulos van en dos renglones cortos; uno largo en una sola línea no entra en el sector.
+
+El emisor de SVG también acepta **texto girado** (`angle` en un `texto`), por si un diagrama lo
+necesita; para el contexto se prefirió el rótulo horizontal, que es el del molde.
+
 ### 3.4 Clases
 
 | Regla | Detalle |
@@ -748,6 +765,31 @@ Se ejecuta **siempre**, en este orden, y **se repite el ciclo hasta que pase com
 > cruces, los textos se desbordan, las etiquetas se pisan. **Nada se declara terminado sin haber
 > visto la imagen.** Para diagramas web (Excalidraw, SVG en el navegador), la captura se toma con
 > el MCP de Chrome DevTools; para StarUML, con `get_diagram_image_by_id`.
+
+### Paso 4 bis — ¿Se lee al tamaño en que va a quedar?
+
+Mirar la imagen a pantalla completa no alcanza: en el documento la lámina se achica. La cuenta es
+
+```
+puntos en papel = (px de la letra / ancho de la lámina en px) × ancho en pulgadas × 72
+```
+
+Por debajo de **5,5 puntos** no se lee impreso. Una letra de 11 px en una lámina de 2500 px de ancho,
+puesta a 9,2 pulgadas, queda en 2,9 puntos: fue el caso del despliegue de Harley-Davidson. Dos salidas,
+en este orden:
+
+1. **Subir la letra en el generador** hasta donde entre sin encimar.
+2. Si la lámina es grande por naturaleza (un despliegue), **dejar la vista de conjunto y agregar
+   figuras de detalle**: recortes de cada zona a mayor tamaño. Los recortes se hacen **por el borde de
+   una zona**, nunca por la mitad de un nodo, y se numeran como figuras propias.
+
+Y tres comprobaciones de contenido que se escaparon una vez:
+
+- **Ningún caso de uso sin actor**, tampoco los `«extend»`: los `«include»` de apoyo son la excepción.
+- **Ningún nombre que empiece con «Consultar», «Crear», «Editar» o «Eliminar»**, aunque la meta sea
+  legítima: se renombra (*«Seguir su desempeño…»*).
+- **El texto de la lámina y el de la tabla que la acompaña son idénticos.** Si se acorta un rótulo en el
+  dibujo, se acorta en la tabla.
 
 ### Paso 5 — Cierre
 

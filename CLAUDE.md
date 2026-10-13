@@ -791,6 +791,36 @@ fuera a propósito se anota **con su razón**, para no confundirlo con un olvido
   «requisitos».
 - **Al dibujar**, la notación de la clase, no UML genérico.
 
+### Validar contra la rúbrica antes de decir «listo»
+
+Lo pidió con estas palabras: *«valida si cumple con la rúbrica»*, *«seamos rigurosos en la elaboración
+de todo este material»*, *«validemos rigurosamente el PDF en su estructura»*. Validar **no es
+confirmar**: en el Caso Harley-Davidson la revisión encontró tres fallas de contenido y dos de
+disposición en una entrega que ya se había dado por terminada. El recorrido:
+
+1. **Criterio por criterio**, con el texto literal de la rúbrica al lado: ¿dónde está y con qué nombre?
+2. **Las propias afirmaciones del documento**: si dice *«ningún caso de uso es consultar»*, se busca
+   uno que lo sea. Se encontró.
+3. **Los convenios de clase** sobre cada lámina (actor en todo caso de uso, notación de negocio).
+4. **El acoplamiento**: que cada artefacto cite al del criterio anterior.
+5. **El PDF medido**: `validar-entrega-pdf.py`, y después mirarlo página por página.
+6. Decir **qué no se pudo comprobar** y qué queda como lectura propia. No se anticipa la nota.
+
+### Presentaciones: el recorrido que funciona
+
+1. La presentación se arma en la página de presentaciones y se revisa **en pantalla** con el navegador
+   (se navega con las flechas; los clics dentro del visor no se registran, y la descarga hay que
+   pedírsela a él: *Compartir › Exportación*).
+2. El `.pptx` exportado llega **sin animaciones, sin transiciones y con una tipografía web**. Se
+   completa con `06-Proyecto-MCP/animar-pptx.py`, que además pone el guion en las notas del orador.
+3. Las animaciones se **ven**, no se suponen: `06-Proyecto-MCP/probar-pptx-keynote.sh` reproduce el
+   archivo en Keynote, lo exporta a video y saca cuadros. La cuenta que tiene que dar es
+   **láminas + clics** estados estables. LibreOffice no sirve para esto: no ejecuta animaciones.
+4. **Cada tarjeta se agrupa en un solo objeto** antes de animarla. Pieza por pieza, en Keynote cada
+   forma viaja una distancia distinta y se enciman a mitad de la subida.
+5. El **guion** va en `08-Tareas/Guion - <caso>.md`: reloj por lámina, qué decir, dónde va cada clic,
+   preguntas probables y dónde está cada cosa en el PDF.
+
 ### El flujo, con las herramientas
 
 1. `metodo_tarea()` sin argumento → el método general, que arranca con el **punto de inicio**: el
@@ -1050,6 +1080,9 @@ boveda/
 ├── 06-Proyecto-MCP/generar-mdj.py         Escribe el proyecto .mdj de StarUML ya acomodado
 ├── 06-Proyecto-MCP/generar-entrega-docx.py  Arma el .docx que se sube a la plataforma
 ├── 06-Proyecto-MCP/generar-entrega-hd.py    Caso Harley-Davidson: emite la Entrega en .md, .docx y .pdf
+├── 06-Proyecto-MCP/validar-entrega-pdf.py   Mide el PDF: numeración, figuras, márgenes, páginas a medio llenar
+├── 06-Proyecto-MCP/animar-pptx.py           Completa un .pptx exportado: transiciones, animaciones, guion en notas
+├── 06-Proyecto-MCP/probar-pptx-keynote.sh   Reproduce el .pptx en Keynote y saca cuadros para ver las animaciones
 ├── 06-Proyecto-MCP/iconos/                 Trazos Lucide (ISC) para las láminas de bloques
 ├── 07-Referencias/              Manual de StarUML y Excalidraw (no es materia de examen)
 ├── 08-Tareas/                   Método, guías por entregable, planes y enunciados

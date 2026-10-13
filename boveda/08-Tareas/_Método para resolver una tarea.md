@@ -157,6 +157,19 @@ posterior, incluido el examen**. El generador que los aplica es
 | **Diagramas anchos** | página **apaisada** propia | A 6.5" de ancho el texto del diagrama no se lee |
 | **Formato de lámina** | SVG → **PNG 2× con fondo blanco explícito** | Ver `estilo-diagramas.md` §6 |
 
+**Agregados el 2026-10-13**, al entregar el Caso Harley-Davidson:
+
+| Parámetro | Cómo va | Por qué |
+|---|---|---|
+| **Orientación** | si casi todo son láminas y matrices anchas, **el documento entero apaisado** | alternar vertical y apaisado deja páginas a medio llenar antes de cada figura |
+| **Orden dentro de una sección** | título, texto, **tabla**, y la figura al final o en su propia página | una figura grande no entra en el resto de la página y salta, dejando un hueco: la tabla lo llena |
+| **Rayas largas** | **ninguna**: comas, paréntesis o dos puntos | las pidió fuera; el generador las convierte solo |
+| **Referencias** | sección final con el caso, el libro de la bibliografía, las normas y el material de clase | se cita de dónde sale cada formato |
+| **Encabezado de grupo** | tabla de integrantes con carné, y el número de grupo en el pie y en el nombre del archivo | lo pide el formato `GrupoN_…` |
+| **Descripciones textuales** | **todas**, agrupadas por proceso junto a su diagrama | una sola «de muestra» se lee como incompleto |
+| **Matrices** | generadas de las relaciones, nunca tipeadas; una fila que ubique cada columna en el criterio anterior | es lo que la rúbrica llama *acoplamiento* |
+| **Validación final** | `python3 06-Proyecto-MCP/validar-entrega-pdf.py <pdf>` hasta que diga «Sin fallas» | mide lo que en el `.docx` no se ve: páginas a medio llenar, figuras fuera de margen, títulos solos al pie |
+
 > [!important] Lo que se saca y lo que NO se saca
 > Se sacan las **checklists de rigor**, los comentarios sobre la rúbrica, las referencias a la bóveda
 > y cualquier mención a preguntas pendientes: son **aparato de trabajo**.
