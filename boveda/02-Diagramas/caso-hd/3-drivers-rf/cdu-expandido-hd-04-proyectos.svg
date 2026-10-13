@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 0 1510 840" width="1510" height="840" font-family="Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 0 1510 860" width="1510" height="860" font-family="Helvetica, Arial, sans-serif">
 <defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
-<rect x="90" y="0" width="1510" height="840" fill="#ffffff"/>
-<rect x="420" y="40" width="920" height="760" rx="12" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="2"/>
+<rect x="90" y="0" width="1510" height="860" fill="#ffffff"/>
+<rect x="420" y="40" width="920" height="780" rx="12" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="2"/>
 <text x="880.0" y="67.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">SiL'K: CDU-04 Compras en proyectos de nuevos productos</text>
 <ellipse cx="635.0" cy="158.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
 <text x="635.0" y="153.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-12 Planificar la participación</text>
@@ -9,12 +9,12 @@
 <ellipse cx="635.0" cy="398.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
 <text x="635.0" y="393.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-13 Acordar el coste objetivo</text>
 <text x="635.0" y="412.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de una pieza</text>
-<ellipse cx="635.0" cy="658.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
-<text x="635.0" y="653.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-14 Controlar la preparación</text>
-<text x="635.0" y="672.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">para el lanzamiento</text>
-<ellipse cx="1125.0" cy="658.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
-<text x="1125.0" y="653.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-20 Escalar riesgo</text>
-<text x="1125.0" y="672.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de lanzamiento</text>
+<ellipse cx="1125.0" cy="608.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="603.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-14 Controlar la preparación</text>
+<text x="1125.0" y="622.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">para el lanzamiento</text>
+<ellipse cx="635.0" cy="698.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="635.0" y="693.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-20 Escalar riesgo</text>
+<text x="635.0" y="712.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de lanzamiento</text>
 <ellipse cx="200.0" cy="344.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="200" y1="358" x2="200" y2="394" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="176" y1="370" x2="224" y2="370" stroke="#1e1e1e" stroke-width="1"/>
@@ -37,11 +37,12 @@
 <text x="1490.0" y="493.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Suministrador</text>
 <line x1="272" y1="357" x2="558" y2="200" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="272" y1="397" x2="470" y2="398" stroke="#1e1e1e" stroke-width="1"/>
-<line x1="272" y1="440" x2="563" y2="615" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="272" y1="413" x2="995" y2="578" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="272" y1="447" x2="571" y2="654" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="1418" y1="157" x2="800" y2="158" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="1418" y1="177" x2="753" y2="365" stroke="#1e1e1e" stroke-width="1"/>
 <line x1="1418" y1="443" x2="797" y2="407" stroke="#1e1e1e" stroke-width="1"/>
-<line x1="960" y1="658" x2="800" y2="658" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
-<text x="880.0" y="607.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«extend»</text>
-<text x="880.0" y="622.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">[hito de preparación incumplido]</text>
+<line x1="775" y1="672" x2="985" y2="634" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="910.0" y="686.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«extend»</text>
+<text x="910.0" y="701.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">[hito de preparación incumplido]</text>
 </svg>

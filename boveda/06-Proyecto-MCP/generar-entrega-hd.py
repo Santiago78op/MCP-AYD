@@ -6,7 +6,7 @@
 Una sola fuente de contenido, tres salidas:
   · ../08-Tareas/Entrega - Caso Harley-Davidson.md    (el artefacto vivo de la boveda)
   · ../08-Tareas/Entrega - Caso Harley-Davidson.docx  (editable)
-  · ../08-Tareas/GrupoN_CasoHD.pdf                    (lo que se sube; hace falta `soffice`)
+  · ../08-Tareas/Grupo2_CasoHD.pdf                    (lo que se sube; hace falta `soffice`)
 
 Las matrices NO se escriben a mano: salen de las tablas STK_RF, RF_CU y DEP_RF
 de este archivo, y la matriz Stakeholders x Casos de Uso se DERIVA de las otras
@@ -34,7 +34,7 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 DIAGRAMAS = os.path.join(AQUI, "..", "02-Diagramas")
 TAREAS = os.path.join(AQUI, "..", "08-Tareas")
 BASE = "Entrega - Caso Harley-Davidson"
-PDF = "GrupoN_CasoHD.pdf"
+PDF = "Grupo2_CasoHD.pdf"
 
 LAMINAS = {
     "contexto-hd": "caso-hd/1-caso-negocio",
@@ -99,7 +99,7 @@ def carta(sec, landscape=False):
 carta(doc.sections[0], True)
 
 
-def pie(sec, texto="Caso Harley-Davidson, proyecto SiL'K · Santiago Barrera"):
+def pie(sec, texto="Caso Harley-Davidson, proyecto SiL'K · Grupo 2"):
     if sec is None:
         return
     p = sec.footer.paragraphs[0]
@@ -250,7 +250,7 @@ def TBL(headers, rows, fracs=None, size=9, usable=9.4, centro_desde=None):
 
 
 ANCHO_IMG = {"contexto-hd": 9.3, "cdu-core-hd": 8.2, "cdu-descomposicion-hd": 7.6, "bloques-hd": 9.0,
-             "despliegue-hd": 9.4}
+             "despliegue-hd": 9.2}
 
 
 def IMGP(nombre, width=6.5, caption=None):
@@ -343,7 +343,7 @@ CU = [
  ["CU-06", "Seguir el estado del pedido", "CDU-02", "Comprador"],
  ["CU-07", "Conciliar factura, pedido y recepción", "CDU-02", "Suministrador · Sistema de Cuentas de Acreedores"],
  ["CU-08", "Incorporar suministrador a la base de aprovisionamiento", "CDU-03", "Comprador"],
- ["CU-09", "Consultar desempeño y demanda prevista", "CDU-03", "Suministrador"],
+ ["CU-09", "Seguir su desempeño y la demanda prevista", "CDU-03", "Suministrador"],
  ["CU-10", "Evaluar resultados del suministrador", "CDU-03", "Comprador"],
  ["CU-11", "Analizar el gasto consolidado de la empresa", "CDU-03", "Director de Compras"],
  ["CU-12", "Planificar la participación de Compras en el proyecto", "CDU-04", "Comprador de desarrollo · Ingeniero"],
@@ -493,11 +493,17 @@ p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 r = p.add_run("Caso Harley-Davidson: arquitectura del proyecto SiL'K")
 r.bold = True; r.font.size = Pt(19)
 for line in ["Análisis y Diseño de Sistemas II (785) · ECYS, USAC · MBA. MSc. Claudia Rojas de Morán",
-             "Santiago Barrera · Carné: ____________________ · 13 de octubre de 2026"]:
+             "Grupo 2 · 13 de octubre de 2026"]:
     p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p.add_run(line); r.font.size = Pt(10)
     p.paragraph_format.space_after = Pt(2)
     MD.append(line + "\n")
+doc.add_paragraph().paragraph_format.space_after = Pt(2)
+INTEGRANTES = [["Santiago Julián Barrera Reyes", "201905884"],
+               ["Jemima Solmaira Chavajay Quiejú", "201801521"],
+               ["Elías Abraham Vasquez Soto", "201900131"],
+               ["Byron Josué Par Rancho", "201701078"]]
+TBL(["Integrante", "Carné"], INTEGRANTES, fracs=[0.70, 0.30], size=10, centro_desde=1)
 
 H("Índice y correspondencia con la rúbrica", 2)
 TBL(["#", "Criterio de la rúbrica", "Pts", "Sección"],
@@ -531,13 +537,12 @@ NOTE("**Cómo se leyó la consigna**\n"
      "**«Modelo de calidad»:** según la indicación de la catedrática, el pensamiento ISO como **familia de normas**, "
      "con ISO/IEC 9126 y la serie ISO/IEC 25000 como normas concretas (§6.4).\n"
      "**Identificadores:** `STK-nn` stakeholder · `CDU-nn` proceso de negocio · `CU-nn` caso de uso del sistema · "
-     "`RF-nn` driver funcional · `EAC-nn` escenario de atributo de calidad (driver de calidad) · `RE-nn` driver de restricción.\n"
-     "**Trabajo individual:** el documento lo elaboró una sola persona. El nombre del archivo conserva el formato pedido.")
+     "`RF-nn` driver funcional · `EAC-nn` escenario de atributo de calidad (driver de calidad) · `RE-nn` driver de restricción.")
 
 # =====================================================================
 # §1 CASO DE NEGOCIO
 # =====================================================================
-H("1. Caso de negocio · criterio 1 — 15 pts", 1, brk=True)
+H("1. Caso de negocio · criterio 1 — 15 pts", 1)
 P("Es el **paso 0** del método de clase: antes de diseñar, delimitar el negocio y lo que el producto intercambia con "
   "su entorno. Tres diagramas, de afuera hacia adentro.")
 P("La notación es la de clase: en el diagrama de contexto, la **elipse** es El Producto, cada **rectángulo** es una "
@@ -545,9 +550,6 @@ P("La notación es la de clase: en el diagrama de contexto, la **elipse** es El 
 H("1.1 Diagrama de contexto", 2)
 P("**El Producto** es el software SiL'K. Las entidades son todo lo que intercambia información con él: personas, "
   "áreas y sistemas. Cada flecha es un *streamline* con nombre, en sustantivo: son **19**.")
-sec = SEC(True); pie(sec)
-IMGP("contexto-hd", 9.3, "Figura 1 — Diagrama de contexto de SiL'K: diez entidades y diecinueve flujos.")
-sec = SEC(False); pie(sec)
 TBL(["Entidad", "Entrega a SiL'K", "Recibe de SiL'K"],
     [["Empleado solicitante", "Solicitud de pedido", "Estado de la solicitud"],
      ["Responsable de área (aprobador)", "Decisión de aprobación", "Solicitud por aprobar"],
@@ -561,6 +563,9 @@ TBL(["Entidad", "Entrega a SiL'K", "Recibe de SiL'K"],
      ["Sistemas de compras locales (en retiro)", "Histórico de pedidos", "Ninguno: solo emiten, se migran y se apagan"]],
     fracs=[0.36, 0.32, 0.32], size=9)
 
+sec = SEC(True); pie(sec)
+IMGP("contexto-hd", 9.3, "Figura 1 — Diagrama de contexto de SiL'K: diez entidades y diecinueve flujos.")
+sec = SEC(False); pie(sec)
 H("1.2 CDU de alto nivel (core)", 2)
 P("Una sola elipse con el nombre del negocio completo y todos sus actores alrededor. Las asociaciones van **sin "
   "punta**: la comunicación se inicia en los dos sentidos.")
@@ -580,13 +585,13 @@ H("1.3 CDU primera descomposición", 2)
 P("Un solo diagrama, con **cuatro procesos** y el **mismo juego de actores** que el core: ninguno desaparece. Los "
   "procesos salen de las tres fases del anexo 6b; la fase 1 se partió en dos porque sus actores son distintos "
   "(quien pide no es quien recibe ni quien paga).")
-IMGP("cdu-descomposicion-hd", 6.0, "Figura 3 — Primera descomposición: cuatro procesos de negocio.")
 TBL(["Proceso", "Origen en el caso", "Actores", "Resultado de valor"],
     [["**CDU-01** Requisición y emisión del pedido de compra", "anexo 6b, fase 1 a-b · anexo 6a: Requisitos, Realización de pedidos", "Áreas solicitantes · Fabricación · Proveedor", "Un pedido en firme en manos del suministrador"],
      ["**CDU-02** Recepción, seguimiento y pago al suministrador", "anexo 6b, fase 1 c-d · anexo 6a: Logística de entrada, Recepción", "Proveedor · Logística · Cuentas de Acreedores", "Material recibido y factura pagada sin discrepancias"],
      ["**CDU-03** Gestión de la información y la relación con suministradores", "anexo 6b, fase 2", "Proveedor", "Un suministrador evaluado e informado, tratado como socio"],
      ["**CDU-04** Seguimiento de compras en proyectos de nuevos productos", "anexo 6b, fase 3 · anexo 6a: Desarrollo", "Desarrollo de Productos · Proveedor", "Piezas y suministradores listos en coste y plazo para el lanzamiento"]],
     fracs=[0.27, 0.25, 0.22, 0.26], size=9)
+IMGP("cdu-descomposicion-hd", 6.0, "Figura 3 — Primera descomposición: cuatro procesos de negocio.")
 NOTE("**Lo que quedó fuera del negocio, y por qué**\n"
      "El anexo 6a marca tres actividades como «no entra dentro del ámbito del proyecto SiL'K»: **Pedido / "
      "Programación** (pedidos de los clientes), **Movimiento interno de materiales** y **Distribución** (producto "
@@ -643,12 +648,6 @@ NOTE("**Cómo leer las relaciones**\n"
      "**reutilizar**: dos o tres casos base comparten el incluido.\n"
      "**«extend»** — ocurre **a veces**, bajo la condición entre corchetes; la flecha va de la extensión al base.\n"
      "Los cuatro diagramas están en el **plano del sistema**: actores y casos de uso sin la barra de negocio.")
-for n, cap in [("cdu-expandido-hd-01-requisicion", "Figura 4 — CDU-01 expandido."),
-               ("cdu-expandido-hd-02-recepcion", "Figura 5 — CDU-02 expandido."),
-               ("cdu-expandido-hd-03-suministradores", "Figura 6 — CDU-03 expandido."),
-               ("cdu-expandido-hd-04-proyectos", "Figura 7 — CDU-04 expandido.")]:
-    IMGP(n, 6.3, cap)
-
 H("Descripción textual del caso de uso CU-02, Emitir pedido de compra", 3)
 TBL(["Campo", "Contenido"],
     [["**Nombre**", "CU-02 Emitir pedido de compra"],
@@ -669,6 +668,12 @@ BUL(["**En la línea 2:** no hay contrato vigente para el artículo. El Comprado
      "**En la línea 5:** el Suministrador propone otra fecha. El sistema avisa al Comprador, que acepta o renegocia; "
      "con la fecha acordada se continúa en la línea 6.",
      "**Prioridad:** alta — es el caso que más RF concentra (RF-04, RF-05, RF-13)."], size=9.5)
+
+for n, cap in [("cdu-expandido-hd-01-requisicion", "Figura 4 — CDU-01 expandido."),
+               ("cdu-expandido-hd-02-recepcion", "Figura 5 — CDU-02 expandido."),
+               ("cdu-expandido-hd-03-suministradores", "Figura 6 — CDU-03 expandido."),
+               ("cdu-expandido-hd-04-proyectos", "Figura 7 — CDU-04 expandido.")]:
+    IMGP(n, 6.3, cap)
 
 H("3.2 Drivers de atributos de calidad", 2)
 NOTE("**Qué taxonomía se usa**\n"
@@ -712,7 +717,9 @@ TBL(["Id", "Categoría", "Restricción", "Fuente", "Stakeholders"], RE,
 # =====================================================================
 sec = SEC(True); pie(sec)
 H("4. Matrices de trazabilidad · criterio 4 — 15 pts", 1)
-P("Las cuatro matrices cruzan los artefactos de los criterios 1, 2 y 3. Están **acopladas**: la matriz 3 no se "
+P("Las cuatro matrices cruzan los artefactos de los criterios 1, 2 y 3: los **procesos y casos de uso** (criterio 1 "
+  "y su expansión), los **stakeholders** (criterio 2) y los **requerimientos** (criterio 3).")
+P("Están **acopladas**: la matriz 3 no se "
   "llenó a mano, se **derivó** de la 1 y la 2 (un stakeholder se relaciona con un caso de uso si le interesa algún "
   "requisito que ese caso realiza). Así no pueden contradecirse.")
 X = "X"
@@ -722,20 +729,25 @@ TBL(["Stakeholder \\ RF-"] + rfh,
     [["%s %s" % (s, STK_CORTO[s])] + [X if n in STK_RF[s] else "" for n in range(1, 19)] for s in ids_stk],
     fracs=[0.28] + [0.04] * 18, size=7.5, usable=9.4, centro_desde=1)
 P("Los requerimientos de calidad y de restricción también tienen dueño:", size=9.5)
-drv = [a[0] for a in AC] + [r[0] for r in RE]
-TBL(["Stakeholder"] + [d.replace("EAC-", "E").replace("RE-", "R") for d in drv],
-    [["%s %s" % (s, STK_CORTO[s])] + [X if d in STK_DRV[s] else "" for d in drv] for s in ids_stk],
-    fracs=[0.25] + [0.03] * 25, size=7, usable=9.4, centro_desde=1)
-P("E01-E09 son los escenarios de calidad EAC-01 a EAC-09; R01-R16, las restricciones RE-01 a RE-16. **Lectura:** ningún "
-  "requerimiento queda sin stakeholder y ningún stakeholder queda sin requerimiento. `STK-11` (Gestión del Cambio) "
-  "no pide funciones: su fila en RF está vacía y su interés aparece en EAC-05 y RE-10.", size=9.5)
+ids_eac = [a[0] for a in AC]
+ids_re = [r[0] for r in RE]
+TBL(["Stakeholder"] + ids_eac,
+    [["%s %s" % (s, STK_CORTO[s])] + [X if d in STK_DRV[s] else "" for d in ids_eac] for s in ids_stk],
+    fracs=[0.28] + [0.08] * 9, size=8, usable=9.4, centro_desde=1)
+TBL(["Stakeholder"] + ids_re,
+    [["%s %s" % (s, STK_CORTO[s])] + [X if d in STK_DRV[s] else "" for d in ids_re] for s in ids_stk],
+    fracs=[0.152] + [0.053] * 16, size=8, usable=9.4, centro_desde=1)
+P("**Lectura:** ningún requerimiento queda sin stakeholder y ningún stakeholder queda sin requerimiento. `STK-11` "
+  "(Gestión del Cambio) no pide funciones: su fila en RF está vacía y su interés aparece en EAC-05 y RE-10.", size=9.5)
 
 sec = SEC(True); pie(sec)
 H("4.2 Matriz 2 — Requerimientos vs. Casos de Uso", 2)
 cuh = ["CU-%02d" % n for n in range(1, 15)]
+FILA_CDU = ["**Proceso de negocio (criterio 1)**"] + ["**%s**" % c[2].replace("CDU-", "P") for c in CU]
 TBL(["Requerimiento"] + cuh,
-    [["RF-%02d %s" % (n, RF_CORTO[n])] + [X if c in RF_CU[n] else "" for c in range(1, 15)] for n in range(1, 19)],
+    [FILA_CDU] + [["RF-%02d %s" % (n, RF_CORTO[n])] + [X if c in RF_CU[n] else "" for c in range(1, 15)] for n in range(1, 19)],
     fracs=[0.30] + [0.05] * 14, size=7.5, usable=9.4, centro_desde=1)
+P("La primera fila ubica cada caso de uso en su proceso de negocio del criterio 1: P01 a P04 son CDU-01 a CDU-04.", size=9.5)
 P("**Lectura:** todo requerimiento lo realiza al menos un caso de uso (ninguna fila vacía) y todo caso de uso "
   "responde a algún requerimiento (ninguna columna vacía). RF-13 y RF-18 cruzan cuatro casos cada uno: el "
   "intercambio con el suministrador y la integración con lo existente son **transversales**, y eso es lo que "
@@ -745,7 +757,7 @@ P("**Lectura:** todo requerimiento lo realiza al menos un caso de uso (ninguna f
 sec = SEC(True); pie(sec)
 H("4.3 Matriz 3 — Stakeholders vs. Casos de Uso", 2)
 TBL(["Stakeholder"] + cuh,
-    [["%s %s" % (s, STK_CORTO[s])] + [X if c in STK_CU[s] else "" for c in range(1, 15)] for s in ids_stk],
+    [FILA_CDU] + [["%s %s" % (s, STK_CORTO[s])] + [X if c in STK_CU[s] else "" for c in range(1, 15)] for s in ids_stk],
     fracs=[0.30] + [0.05] * 14, size=7.5, usable=9.4, centro_desde=1)
 P("**Lectura:** derivada de las matrices 1 y 2. La fila de `STK-06` (compradores) es la más densa: son los usuarios "
   "principales. La de `STK-11` queda vacía por la razón ya dicha. Las columnas CU-02, CU-06 y CU-07 concentran más "
@@ -845,9 +857,6 @@ H("5.9 Diagrama de despliegue", 2)
 P("El **diagrama de despliegue** (o de distribución) muestra los nodos físicos y qué componentes ejecuta cada uno. "
   "Notación de clase: nodo como cubo; `«device»` para el hardware y `«executionEnvironment»` para el software que "
   "aloja componentes; componentes **dentro** del nodo; conexión de línea llena con el protocolo; zonas FrontEnd y BackEnd.")
-sec = SEC(True); pie(sec)
-IMGP("despliegue-hd", 9.4, "Figura 9 — Diagrama de despliegue de SiL'K.")
-sec = SEC(False); pie(sec)
 TBL(["Nodo", "Componentes", "Por qué está ahí"],
     [["PC de oficina", "Aplicación web SiL'K", "Compradores, solicitantes y dirección: sin instalación (EAC-05)"],
      ["Tableta del muelle", "App de recepción con cola local", "Recibir aunque no haya red (EAC-01)"],
@@ -861,6 +870,9 @@ TBL(["Nodo", "Componentes", "Por qué está ahí"],
      ["Servidor de planta (uno por centro)", "MRP/DRP · agente de integración · sistema local en retiro", "Los sistemas existentes no se mueven (RE-13, RE-14)"],
      ["Servidores corporativos", "Cuentas de Acreedores · directorio · sistemas de ingeniería", "Sistemas existentes de la sede (RE-13)"]],
     fracs=[0.24, 0.36, 0.40], size=9)
+sec = SEC(True); pie(sec)
+IMGP("despliegue-hd", 9.4, "Figura 9 — Diagrama de despliegue de SiL'K.")
+sec = SEC(False); pie(sec)
 NOTE("**Supuestos de dimensionamiento**\n"
      "El caso no trae ningún dato de hardware. Para 800 usuarios concurrentes (`EAC-02`) con crecimiento a 3.000 "
      "(`EAC-03`) se supone: clúster de 3 nodos de 8 vCPU y 32 GB (24 vCPU y 96 GB en total, con capacidad para perder "

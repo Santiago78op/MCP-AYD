@@ -509,10 +509,11 @@ Doctrina de esa entrega, para no volver a discutirla sin evidencia nueva:
 Caso nuevo, **no** continúa FarmaHosp. El PDF llegó en `enunciados/Tarea 2/`, pero todo se llama
 *Caso Harley-Davidson* para no confundirlo con la Tarea 2 de FarmaHosp. El estado vive en
 **`metodo_tarea("Avance - Caso Harley-Davidson")`** y el entregable en
-**`Entrega - Caso Harley-Davidson`**. Lo hace **solo**; modo **resolver y explicar**.
+**`Entrega - Caso Harley-Davidson`**. Se entrega como **Grupo 2** (cuatro integrantes), pero el material
+lo elabora él; modo **resolver y explicar**.
 
 > [!note] El entregable no se edita a mano
-> `08-Tareas/GrupoN_CasoHD.pdf` y el `.docx` salen de
+> `08-Tareas/Grupo2_CasoHD.pdf` y el `.docx` salen de
 > `python3 boveda/06-Proyecto-MCP/generar-entrega-hd.py`, que también escribe la `Entrega` en
 > markdown. Las cuatro matrices se **generan** de tres relaciones (`STK_RF`, `RF_CU`, `DEP_RF`) y la
 > de stakeholders contra casos de uso se **deriva**: para cambiar una celda se cambia la relación.

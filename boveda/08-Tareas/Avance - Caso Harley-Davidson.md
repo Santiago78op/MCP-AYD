@@ -8,8 +8,8 @@ alias: [avance harley, avance HD, tablero harley]
 
 # Avance — Caso Harley-Davidson (proyecto SiL'K)
 
-**Entrega y presentación: martes 13 de octubre de 2026.** Trabajo individual. Modo: **resolver y
-explicar**. El entregable es [[Entrega - Caso Harley-Davidson]]; el estudio del enunciado,
+**Entrega y presentación: martes 13 de octubre de 2026.** Se entrega como **Grupo 2** (cuatro
+integrantes); el material lo elabora Santiago. Modo: **resolver y explicar**. El entregable es [[Entrega - Caso Harley-Davidson]]; el estudio del enunciado,
 [[Plan - Caso Harley-Davidson]]; el molde de clase, [[Ejemplo resuelto - Sistema de Transporte READM]].
 
 ## Criterios
@@ -27,17 +27,21 @@ explicar**. El entregable es [[Entrega - Caso Harley-Davidson]]; el estudio del 
 
 | Qué | Dónde | Cómo se rehace |
 |---|---|---|
-| Documento que se sube | `08-Tareas/GrupoN_CasoHD.pdf` (36 páginas, apaisado) | `python3 06-Proyecto-MCP/generar-entrega-hd.py` |
+| Documento que se sube | `08-Tareas/Grupo2_CasoHD.pdf` (32 páginas, apaisado) | `python3 06-Proyecto-MCP/generar-entrega-hd.py` |
 | Versión editable | `08-Tareas/Entrega - Caso Harley-Davidson.docx` | el mismo comando |
 | Las nueve láminas | `02-Diagramas/caso-hd/` | `python3 06-Proyecto-MCP/generar-excalidraw.py caso-hd/<carpeta>` |
 | Presentación de 10 minutos | 13 láminas (12 más referencias) con notas del orador y animaciones, en claude.ai | se edita en la página |
 
 ## Lo que falta — lo hace el estudiante
 
-- [ ] Poner el **carné** en el encabezado del documento (está en blanco).
-- [ ] Renombrar el PDF con el **número de grupo** que indique la catedrática.
-- [ ] Confirmar con ella que la **presentación individual** habilita la entrega (duda 44).
-- [ ] Ensayar la presentación una vez con reloj: 10 minutos.
+- [x] Integrantes y carnés en el encabezado (Grupo 2).
+- [x] Nombre del archivo: `Grupo2_CasoHD.pdf`.
+- [ ] Ensayar la presentación una vez con reloj: 10 minutos, 23 clics de animación.
+- [ ] Mirar la presentación en modo presentar: las animaciones se validaron por regla, no en pantalla.
+
+> [!warning] La nota de la rúbrica sobre los integrantes
+> El enunciado dice: *"SOLO TOMEN EN CUENTA A LAS PERSONAS DEL EQUIPO QUE TRABAJEN ACTIVAMENTE EN LA
+> TAREA."* El encabezado lista a los cuatro por decisión del estudiante.
 
 ## Supuestos declarados en la entrega
 
@@ -65,6 +69,9 @@ dimensionamiento del despliegue: el caso no trae esos datos. También la lectura
   centro, entidades alrededor, rótulos horizontales): la primera versión estiraba la elipse y no era la
   figura de la notación. Al documento se le sumaron referencias y se le quitaron las rayas largas. La
   presentación pasó a un estilo sobrio de fondo oscuro, sin tonos crema ni degradados.
+- **2026-10-13, validación** — Revisión contra la rúbrica: se corrigieron tres fallas (un caso de uso
+  llamado «Consultar…», CU-20 sin actor, y matrices 2 y 3 sin el proceso del criterio 1). El PDF se
+  reordenó para no dejar páginas a medio llenar: de 37 a 32, todas por encima del 64 % de ocupación.
 
 ## Preguntas de repaso
 

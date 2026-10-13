@@ -10,7 +10,14 @@ alias: [entrega harley, entrega HD, CasoHD]
 
 Análisis y Diseño de Sistemas II (785) · ECYS, USAC · MBA. MSc. Claudia Rojas de Morán
 
-Santiago Barrera · Carné: ____________________ · 13 de octubre de 2026
+Grupo 2 · 13 de octubre de 2026
+
+| Integrante | Carné |
+|---|---|
+| Santiago Julián Barrera Reyes | 201905884 |
+| Jemima Solmaira Chavajay Quiejú | 201801521 |
+| Elías Abraham Vasquez Soto | 201900131 |
+| Byron Josué Par Rancho | 201701078 |
 
 
 ### Índice y correspondencia con la rúbrica
@@ -47,8 +54,6 @@ Santiago Barrera · Carné: ____________________ · 13 de octubre de 2026
 > **«Modelo de calidad»:** según la indicación de la catedrática, el pensamiento ISO como **familia de normas**, con ISO/IEC 9126 y la serie ISO/IEC 25000 como normas concretas (§6.4).
 >
 > **Identificadores:** `STK-nn` stakeholder · `CDU-nn` proceso de negocio · `CU-nn` caso de uso del sistema · `RF-nn` driver funcional · `EAC-nn` escenario de atributo de calidad (driver de calidad) · `RE-nn` driver de restricción.
->
-> **Trabajo individual:** el documento lo elaboró una sola persona. El nombre del archivo conserva el formato pedido.
 
 
 ## 1. Caso de negocio (criterio 1, 15 pts)
@@ -62,10 +67,6 @@ La notación es la de clase: en el diagrama de contexto, la **elipse** es El Pro
 
 **El Producto** es el software SiL'K. Las entidades son todo lo que intercambia información con él: personas, áreas y sistemas. Cada flecha es un *streamline* con nombre, en sustantivo: son **19**.
 
-![[02-Diagramas/caso-hd/1-caso-negocio/contexto-hd.svg]]
-
-*Figura 1. Diagrama de contexto de SiL'K: diez entidades y diecinueve flujos.*
-
 | Entidad | Entrega a SiL'K | Recibe de SiL'K |
 |---|---|---|
 | Empleado solicitante | Solicitud de pedido | Estado de la solicitud |
@@ -78,6 +79,10 @@ La notación es la de clase: en el diagrama de contexto, la **elipse** es El Pro
 | Sistema MRP/DRP de planta | Requisitos de material | Pedidos en firme y fechas |
 | Sistema de Cuentas de Acreedores | Estado del pago | Factura conciliada |
 | Sistemas de compras locales (en retiro) | Histórico de pedidos | Ninguno: solo emiten, se migran y se apagan |
+
+![[02-Diagramas/caso-hd/1-caso-negocio/contexto-hd.svg]]
+
+*Figura 1. Diagrama de contexto de SiL'K: diez entidades y diecinueve flujos.*
 
 
 ### 1.2 CDU de alto nivel (core)
@@ -104,16 +109,16 @@ Una sola elipse con el nombre del negocio completo y todos sus actores alrededor
 
 Un solo diagrama, con **cuatro procesos** y el **mismo juego de actores** que el core: ninguno desaparece. Los procesos salen de las tres fases del anexo 6b; la fase 1 se partió en dos porque sus actores son distintos (quien pide no es quien recibe ni quien paga).
 
-![[02-Diagramas/caso-hd/1-caso-negocio/cdu-descomposicion-hd.svg]]
-
-*Figura 3. Primera descomposición: cuatro procesos de negocio.*
-
 | Proceso | Origen en el caso | Actores | Resultado de valor |
 |---|---|---|---|
 | **CDU-01** Requisición y emisión del pedido de compra | anexo 6b, fase 1 a-b · anexo 6a: Requisitos, Realización de pedidos | Áreas solicitantes · Fabricación · Proveedor | Un pedido en firme en manos del suministrador |
 | **CDU-02** Recepción, seguimiento y pago al suministrador | anexo 6b, fase 1 c-d · anexo 6a: Logística de entrada, Recepción | Proveedor · Logística · Cuentas de Acreedores | Material recibido y factura pagada sin discrepancias |
 | **CDU-03** Gestión de la información y la relación con suministradores | anexo 6b, fase 2 | Proveedor | Un suministrador evaluado e informado, tratado como socio |
 | **CDU-04** Seguimiento de compras en proyectos de nuevos productos | anexo 6b, fase 3 · anexo 6a: Desarrollo | Desarrollo de Productos · Proveedor | Piezas y suministradores listos en coste y plazo para el lanzamiento |
+
+![[02-Diagramas/caso-hd/1-caso-negocio/cdu-descomposicion-hd.svg]]
+
+*Figura 3. Primera descomposición: cuatro procesos de negocio.*
 
 > **Lo que quedó fuera del negocio, y por qué**
 >
@@ -203,7 +208,7 @@ Salen de las doce actividades de las tres fases (anexo 6b), de los diez criterio
 | CU-06 | Seguir el estado del pedido | CDU-02 | Comprador |
 | CU-07 | Conciliar factura, pedido y recepción | CDU-02 | Suministrador · Sistema de Cuentas de Acreedores |
 | CU-08 | Incorporar suministrador a la base de aprovisionamiento | CDU-03 | Comprador |
-| CU-09 | Consultar desempeño y demanda prevista | CDU-03 | Suministrador |
+| CU-09 | Seguir su desempeño y la demanda prevista | CDU-03 | Suministrador |
 | CU-10 | Evaluar resultados del suministrador | CDU-03 | Comprador |
 | CU-11 | Analizar el gasto consolidado de la empresa | CDU-03 | Director de Compras |
 | CU-12 | Planificar la participación de Compras en el proyecto | CDU-04 | Comprador de desarrollo · Ingeniero |
@@ -227,22 +232,6 @@ Salen de las doce actividades de las tres fases (anexo 6b), de los diez criterio
 >
 > Los cuatro diagramas están en el **plano del sistema**: actores y casos de uso sin la barra de negocio.
 
-![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-01-requisicion.svg]]
-
-*Figura 4. CDU-01 expandido.*
-
-![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-02-recepcion.svg]]
-
-*Figura 5. CDU-02 expandido.*
-
-![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-03-suministradores.svg]]
-
-*Figura 6. CDU-03 expandido.*
-
-![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-04-proyectos.svg]]
-
-*Figura 7. CDU-04 expandido.*
-
 
 #### Descripción textual del caso de uso CU-02, Emitir pedido de compra
 
@@ -265,6 +254,22 @@ Salen de las doce actividades de las tres fases (anexo 6b), de los diez criterio
 - **En la línea 2:** no hay contrato vigente para el artículo. El Comprador solicita cotización a los suministradores (CU-16) y, con la oferta elegida, se continúa en la línea 3.
 - **En la línea 5:** el Suministrador propone otra fecha. El sistema avisa al Comprador, que acepta o renegocia; con la fecha acordada se continúa en la línea 6.
 - **Prioridad:** alta, es el caso que más RF concentra (RF-04, RF-05, RF-13).
+
+![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-01-requisicion.svg]]
+
+*Figura 4. CDU-01 expandido.*
+
+![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-02-recepcion.svg]]
+
+*Figura 5. CDU-02 expandido.*
+
+![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-03-suministradores.svg]]
+
+*Figura 6. CDU-03 expandido.*
+
+![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-04-proyectos.svg]]
+
+*Figura 7. CDU-04 expandido.*
 
 
 ### 3.2 Drivers de atributos de calidad
@@ -334,7 +339,9 @@ Por las seis categorías de clase. El caso no cita ninguna norma legal: las dos 
 
 ## 4. Matrices de trazabilidad (criterio 4, 15 pts)
 
-Las cuatro matrices cruzan los artefactos de los criterios 1, 2 y 3. Están **acopladas**: la matriz 3 no se llenó a mano, se **derivó** de la 1 y la 2 (un stakeholder se relaciona con un caso de uso si le interesa algún requisito que ese caso realiza). Así no pueden contradecirse.
+Las cuatro matrices cruzan los artefactos de los criterios 1, 2 y 3: los **procesos y casos de uso** (criterio 1 y su expansión), los **stakeholders** (criterio 2) y los **requerimientos** (criterio 3).
+
+Están **acopladas**: la matriz 3 no se llenó a mano, se **derivó** de la 1 y la 2 (un stakeholder se relaciona con un caso de uso si le interesa algún requisito que ese caso realiza). Así no pueden contradecirse.
 
 
 ### 4.1 Matriz 1: Stakeholders vs. Requerimientos
@@ -361,33 +368,54 @@ Las cuatro matrices cruzan los artefactos de los criterios 1, 2 y 3. Están **ac
 
 Los requerimientos de calidad y de restricción también tienen dueño:
 
-| Stakeholder | E01 | E02 | E03 | E04 | E05 | E06 | E07 | E08 | E09 | R01 | R02 | R03 | R04 | R05 | R06 | R07 | R08 | R09 | R10 | R11 | R12 | R13 | R14 | R15 | R16 |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| STK-01 VP Gestión de Materiales |  |  |  |  |  |  |  |  |  |  |  | X |  |  | X | X |  |  |  |  |  |  |  |  |  |
-| STK-02 VP Servicios de Información |  |  | X |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  | X |  |  |  | X | X |
-| STK-03 Grupo de Unidad de Compras |  |  |  |  |  |  |  |  |  |  |  |  | X | X | X |  | X |  |  |  |  |  |  |  |  |
-| STK-04 Dir. Planif. y Control de Compras |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X |  | X |  |  |  |  |  |  |
-| STK-05 Director del proyecto |  |  |  |  |  | X |  |  |  |  | X |  | X | X |  |  |  | X |  |  |  |  |  |  |  |
-| STK-06 Compradores |  | X |  |  | X |  |  |  | X |  |  |  |  |  |  |  |  |  |  | X |  |  | X |  |  |
-| STK-07 Empleados solicitantes |  | X |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| STK-08 Suministradores |  |  |  | X |  |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  | X |
-| STK-09 Integración de Arquitecturas |  |  |  | X |  | X |  | X |  | X |  |  |  |  |  |  |  |  |  |  |  | X |  |  |  |
-| STK-10 Sistemas del Grupo de Fabricación | X |  | X |  |  | X | X |  |  |  |  |  |  |  | X |  |  | X |  |  | X | X |  |  |  |
-| STK-11 Gestión del Cambio |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  |  | X |  |  |  |  |  |  |
-| STK-12 Innovación de Procesos |  |  |  |  |  |  |  |  | X |  |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |
-| STK-13 Cuentas de Acreedores |  |  |  | X |  |  |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X |  |
-| STK-14 Logística | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| STK-15 Fabricación | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X |  | X |  |  |
-| STK-16 Ingeniería |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| STK-17 Proveedor del software |  |  |  |  |  |  | X |  |  |  | X |  |  |  |  | X |  |  |  |  |  |  |  |  |  |
+| Stakeholder | EAC-01 | EAC-02 | EAC-03 | EAC-04 | EAC-05 | EAC-06 | EAC-07 | EAC-08 | EAC-09 |
+|---|---|---|---|---|---|---|---|---|---|
+| STK-01 VP Gestión de Materiales |  |  |  |  |  |  |  |  |  |
+| STK-02 VP Servicios de Información |  |  | X |  |  |  | X |  |  |
+| STK-03 Grupo de Unidad de Compras |  |  |  |  |  |  |  |  |  |
+| STK-04 Dir. Planif. y Control de Compras |  |  |  |  |  |  |  |  |  |
+| STK-05 Director del proyecto |  |  |  |  |  | X |  |  |  |
+| STK-06 Compradores |  | X |  |  | X |  |  |  | X |
+| STK-07 Empleados solicitantes |  | X |  |  | X |  |  |  |  |
+| STK-08 Suministradores |  |  |  | X |  |  |  |  |  |
+| STK-09 Integración de Arquitecturas |  |  |  | X |  | X |  | X |  |
+| STK-10 Sistemas del Grupo de Fabricación | X |  | X |  |  | X | X |  |  |
+| STK-11 Gestión del Cambio |  |  |  |  | X |  |  |  |  |
+| STK-12 Innovación de Procesos |  |  |  |  |  |  |  |  | X |
+| STK-13 Cuentas de Acreedores |  |  |  | X |  |  |  |  | X |
+| STK-14 Logística | X |  |  |  |  |  |  |  |  |
+| STK-15 Fabricación | X |  |  |  |  |  |  |  |  |
+| STK-16 Ingeniería |  |  |  |  |  |  |  |  |  |
+| STK-17 Proveedor del software |  |  |  |  |  |  | X |  |  |
 
-E01-E09 son los escenarios de calidad EAC-01 a EAC-09; R01-R16, las restricciones RE-01 a RE-16. **Lectura:** ningún requerimiento queda sin stakeholder y ningún stakeholder queda sin requerimiento. `STK-11` (Gestión del Cambio) no pide funciones: su fila en RF está vacía y su interés aparece en EAC-05 y RE-10.
+| Stakeholder | RE-01 | RE-02 | RE-03 | RE-04 | RE-05 | RE-06 | RE-07 | RE-08 | RE-09 | RE-10 | RE-11 | RE-12 | RE-13 | RE-14 | RE-15 | RE-16 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| STK-01 VP Gestión de Materiales |  |  | X |  |  | X | X |  |  |  |  |  |  |  |  |  |
+| STK-02 VP Servicios de Información |  |  |  |  |  |  |  |  |  |  | X |  |  |  | X | X |
+| STK-03 Grupo de Unidad de Compras |  |  |  | X | X | X |  | X |  |  |  |  |  |  |  |  |
+| STK-04 Dir. Planif. y Control de Compras |  |  |  |  |  |  |  | X |  | X |  |  |  |  |  |  |
+| STK-05 Director del proyecto |  | X |  | X | X |  |  |  | X |  |  |  |  |  |  |  |
+| STK-06 Compradores |  |  |  |  |  |  |  |  |  |  | X |  |  | X |  |  |
+| STK-07 Empleados solicitantes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| STK-08 Suministradores |  |  | X |  |  |  |  |  |  |  |  |  |  |  |  | X |
+| STK-09 Integración de Arquitecturas | X |  |  |  |  |  |  |  |  |  |  |  | X |  |  |  |
+| STK-10 Sistemas del Grupo de Fabricación |  |  |  |  |  | X |  |  | X |  |  | X | X |  |  |  |
+| STK-11 Gestión del Cambio |  |  |  |  |  |  |  |  |  | X |  |  |  |  |  |  |
+| STK-12 Innovación de Procesos |  |  |  |  |  |  |  | X |  |  |  |  |  |  |  |  |
+| STK-13 Cuentas de Acreedores |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X |  |
+| STK-14 Logística |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| STK-15 Fabricación |  |  |  |  |  |  |  |  |  |  |  | X |  | X |  |  |
+| STK-16 Ingeniería |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| STK-17 Proveedor del software |  | X |  |  |  |  | X |  |  |  |  |  |  |  |  |  |
+
+**Lectura:** ningún requerimiento queda sin stakeholder y ningún stakeholder queda sin requerimiento. `STK-11` (Gestión del Cambio) no pide funciones: su fila en RF está vacía y su interés aparece en EAC-05 y RE-10.
 
 
 ### 4.2 Matriz 2: Requerimientos vs. Casos de Uso
 
 | Requerimiento | CU-01 | CU-02 | CU-03 | CU-04 | CU-05 | CU-06 | CU-07 | CU-08 | CU-09 | CU-10 | CU-11 | CU-12 | CU-13 | CU-14 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **Proceso de negocio (criterio 1)** | **P01** | **P01** | **P01** | **P01** | **P02** | **P02** | **P02** | **P03** | **P03** | **P03** | **P03** | **P04** | **P04** | **P04** |
 | RF-01 Solicitud de pedido | X |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | RF-02 Requisitos MRP/DRP |  |  | X |  |  |  |  |  |  |  |  |  |  |  |
 | RF-03 Aprobación |  |  |  | X |  |  |  |  |  |  |  |  |  |  |
@@ -407,6 +435,8 @@ E01-E09 son los escenarios de calidad EAC-01 a EAC-09; R01-R16, las restriccione
 | RF-17 Preparación de lanzamiento |  |  |  |  |  |  |  |  |  |  |  |  |  | X |
 | RF-18 Integración con existentes |  |  | X |  | X |  | X |  |  |  |  | X |  |  |
 
+La primera fila ubica cada caso de uso en su proceso de negocio del criterio 1: P01 a P04 son CDU-01 a CDU-04.
+
 **Lectura:** todo requerimiento lo realiza al menos un caso de uso (ninguna fila vacía) y todo caso de uso responde a algún requerimiento (ninguna columna vacía). RF-13 y RF-18 cruzan cuatro casos cada uno: el intercambio con el suministrador y la integración con lo existente son **transversales**, y eso es lo que justifica en el §5 un Servicio de Integración y un API Gateway propios. Los casos de apoyo CU-15 a CU-20 heredan la traza de su caso base.
 
 
@@ -414,6 +444,7 @@ E01-E09 son los escenarios de calidad EAC-01 a EAC-09; R01-R16, las restriccione
 
 | Stakeholder | CU-01 | CU-02 | CU-03 | CU-04 | CU-05 | CU-06 | CU-07 | CU-08 | CU-09 | CU-10 | CU-11 | CU-12 | CU-13 | CU-14 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **Proceso de negocio (criterio 1)** | **P01** | **P01** | **P01** | **P01** | **P02** | **P02** | **P02** | **P03** | **P03** | **P03** | **P03** | **P04** | **P04** | **P04** |
 | STK-01 VP Gestión de Materiales |  | X | X |  |  |  |  |  | X | X | X | X |  |  |
 | STK-02 VP Servicios de Información |  |  | X |  | X |  | X |  |  |  | X | X |  |  |
 | STK-03 Grupo de Unidad de Compras |  | X | X |  |  |  |  |  | X | X | X |  |  |  |
@@ -557,10 +588,6 @@ El **diagrama de bloques de alto nivel** es el primer paso antes del detalle: qu
 
 El **diagrama de despliegue** (o de distribución) muestra los nodos físicos y qué componentes ejecuta cada uno. Notación de clase: nodo como cubo; `«device»` para el hardware y `«executionEnvironment»` para el software que aloja componentes; componentes **dentro** del nodo; conexión de línea llena con el protocolo; zonas FrontEnd y BackEnd.
 
-![[02-Diagramas/caso-hd/5-estilo-despliegue/despliegue-hd.svg]]
-
-*Figura 9. Diagrama de despliegue de SiL'K.*
-
 | Nodo | Componentes | Por qué está ahí |
 |---|---|---|
 | PC de oficina | Aplicación web SiL'K | Compradores, solicitantes y dirección: sin instalación (EAC-05) |
@@ -574,6 +601,10 @@ El **diagrama de despliegue** (o de distribución) muestra los nodos físicos y 
 | Región secundaria | Réplica y clúster en espera | Recuperación ante desastre (EAC-01) |
 | Servidor de planta (uno por centro) | MRP/DRP · agente de integración · sistema local en retiro | Los sistemas existentes no se mueven (RE-13, RE-14) |
 | Servidores corporativos | Cuentas de Acreedores · directorio · sistemas de ingeniería | Sistemas existentes de la sede (RE-13) |
+
+![[02-Diagramas/caso-hd/5-estilo-despliegue/despliegue-hd.svg]]
+
+*Figura 9. Diagrama de despliegue de SiL'K.*
 
 > **Supuestos de dimensionamiento**
 >

@@ -2904,7 +2904,7 @@ def cdu_expandido_hd_03():
         {"CU08": ("L", 110, "CU-08 Incorporar suministrador\na la base de aprovisionamiento"),
          "CU10": ("L", 350, "CU-10 Evaluar resultados\ndel suministrador"),
          "CU11": ("L", 610, "CU-11 Analizar el gasto\nconsolidado de la empresa"),
-         "CU09": ("R", 150, "CU-09 Consultar desempeño\ny demanda prevista"),
+         "CU09": ("R", 150, "CU-09 Seguir su desempeño\ny la demanda prevista"),
          "CU19": ("R", 450, "CU-19 Calcular indicadores de\ncalidad, coste y plazo")},
         {"COM": (150, 220, "Comprador"), "DIR": (150, 600, "Director de Compras"),
          "SUM": (1440, 130, "Suministrador")},
@@ -2914,17 +2914,21 @@ def cdu_expandido_hd_03():
 
 
 def cdu_expandido_hd_04():
+    # CU-14 va a la derecha y su extension debajo de los casos base: asi el
+    # Comprador de desarrollo llega a los cuatro sin cruzar ninguna linea, y
+    # CU-20 no queda sin actor (un caso de uso sin actor es un error).
     return _expandido(
-        "SiL'K: CDU-04 Compras en proyectos de nuevos productos", 760,
+        "SiL'K: CDU-04 Compras en proyectos de nuevos productos", 780,
         {"CU12": ("L", 110, "CU-12 Planificar la participación\nde Compras en el proyecto"),
          "CU13": ("L", 350, "CU-13 Acordar el coste objetivo\nde una pieza"),
-         "CU14": ("L", 610, "CU-14 Controlar la preparación\npara el lanzamiento"),
-         "CU20": ("R", 610, "CU-20 Escalar riesgo\nde lanzamiento")},
+         "CU14": ("R", 560, "CU-14 Controlar la preparación\npara el lanzamiento"),
+         "CU20": ("L", 650, "CU-20 Escalar riesgo\nde lanzamiento")},
         {"COM": (150, 330, "Comprador de\ndesarrollo"),
          "ING": (1440, 90, "Ingeniero del Centro\nde Desarrollo"),
          "SUM": (1440, 380, "Suministrador")},
-        [("COM", "CU12"), ("COM", "CU13"), ("COM", "CU14"), ("ING", "CU12"), ("ING", "CU13"), ("SUM", "CU13")],
-        [("extend", "CU20", "CU14", "hito de preparación incumplido", (0, -40))])
+        [("COM", "CU12"), ("COM", "CU13"), ("COM", "CU14"), ("COM", "CU20"),
+         ("ING", "CU12"), ("ING", "CU13"), ("SUM", "CU13")],
+        [("extend", "CU20", "CU14", "hito de preparación incumplido", (30, 44))])
 
 
 # --------------------------------------------------------------------------
