@@ -34,6 +34,8 @@ moverla a *Resueltas* con la fecha y **actualizar la nota que la origina**.
 
 | # | Pregunta | Contexto |
 |---|---|---|
+| 47 | **La lectura de MDA y el modelo en espiral** (Meaurio y Schmieder, 2013), ¿la repartió ella y **entra en el tercer parcial (17/10)**? ¿Qué más entra de la unidad 3? | Es la única fuente local sobre MDA y espiral. De la unidad 3 no hay presentación de clase sobre ágil y SCRUM, arquitectura de la información ni documentación | `00-Fuentes/lecturas/` · [[Arquitectura dirigida por modelos MDA]] · [[Arquitectura de software en el modelo en espiral]] |
+| 48 | **Las cuatro actividades del modelo en espiral**: la lectura da dos listas (con *evaluación del cliente* en la introducción y con *determinación de objetivos y alternativas* en el apartado III). ¿Cuál espera? | Lectura asumida: la del apartado III, que es la desarrollada y dibujada | [[Arquitectura de software en el modelo en espiral]] §1 |
 | 6 | ¿Va a dar **arquitectura basada en eventos** y **on premise**? *(Candidata y de referencia ya se dieron: ver Resueltas.)* Eventos (EDA) está **nombrada** en tres diapositivas pero no se desarrolló; on premise sigue sin ninguna | capturas_U2_F2 9, 30, 30-cc · [[Estilos arquitectónicos]] §3 |
 | 7 | Los estilos que **solo nombró** (centrada en datos, microkernel, microservicios, P2P), ¿se evalúan? *(Flujo de datos, llamada y retorno y SOA ya se desarrollaron: ver Resueltas. **REST** tiene una sola diapositiva, ver la 31.)* | La lista de 9 (capturas_U2_F2 9) nombra microkernel, microservicios y P2P sin ninguna diapositiva que los desarrolle |
 | 8 | ¿Espera que se distinga **capa** (lógica) de **nivel/tier** (físico), o se usan como sinónimos? | En clase se usan como sinónimos: "2 capas" = cliente-servidor, "N-niveles en la nube" |

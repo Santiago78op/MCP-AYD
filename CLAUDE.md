@@ -582,6 +582,22 @@ trazo de `06-Proyecto-MCP/iconos/` (Lucide, licencia ISC, monocromos) en el `.ex
 
 ---
 
+### La lectura de MDA y el modelo en espiral — unidad 3
+
+Notas: `Arquitectura dirigida por modelos MDA` y `Arquitectura de software en el modelo en espiral`.
+Salen de un artículo (Meaurio y Schmieder, 2013) que él dejó en `00-Fuentes/lecturas/` el 12/10.
+**Es una lectura, no una diapositiva**: falta confirmar si la repartió ella y si entra en el tercer
+parcial (duda 47). Cuando se use, decirlo.
+
+| Tema | Lo que dice la lectura | La trampa |
+|---|---|---|
+| **Los cuatro modelos** | CIM (negocio) → PIM (sistema sin tecnología) → PSM (con tecnología) → ISM (código) | poner la plataforma en el PIM: entra recién en el PSM |
+| **Las cuatro actividades de la espiral** | apartado III: objetivos y alternativas, análisis de riesgo, ingeniería, planificación | la introducción da otra lista, con *evaluación del cliente*: el artículo se contradice (duda 48) |
+| **Ventajas de MDA** | separación de responsabilidades, productividad, portabilidad, mantenimiento y documentación | prometer desventajas: el artículo las anuncia y **no las desarrolla** |
+| **Qué resuelve MDA** | la pérdida de trazabilidad de los ciclos tradicionales, con la doble transformación automática | decir que elimina el riesgo: lo **minimiza** |
+| **Atributos «más comunes»** | escalabilidad, seguridad, desempeño y fiabilidad | es una **quinta** lista de calidad: no reemplaza a las de clase |
+| **Requerimientos significativos arquitectónicamente** | los que tienen impacto esencial sobre la arquitectura | tratarlos como algo distinto de los drivers: es la misma idea |
+
 ## Procesar capturas de clase
 
 Es la vía por la que entra casi todo el material nuevo. El pipeline que funciona:

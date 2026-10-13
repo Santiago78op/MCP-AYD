@@ -185,6 +185,8 @@ Los artefactos vivos de cada tarea (el estado real se lee **ahí**, no acá):
 - [[Guion - Presentación Caso Harley-Davidson]] — el guion de los 10 minutos: qué decir en cada lámina, cuándo hacer clic, el reloj y las preguntas probables
 - [[Entrega - Caso Harley-Davidson]] — el entregable completo: caso de negocio, 17 stakeholders, drivers, cuatro matrices, SOA con bloques y despliegue, y el modelo de calidad ISO/IEC 25010
 - [[Ejemplo resuelto - Sistema de Transporte READM]] — **el ejemplo completo de la presentación Calidad del Software**: de contexto a despliegue, la tabla de EAC y el bus de eventos · tarjetas en [[Flashcards - Ejemplo READM y bus de eventos]]
+- [[Arquitectura dirigida por modelos MDA]] — **lectura (unidad 3)**: CIM, PIM, PSM e ISM, las cuatro ventajas y los estándares UML, MOF, XMI y CWM
+- [[Arquitectura de software en el modelo en espiral]] — **lectura (unidad 3)**: cuánto participa la arquitectura en cada vuelta de la espiral de Boehm y cómo se integra MDA · tarjetas en [[Flashcards - MDA y modelo en espiral]]
 - [[Avance - Caso 1 FarmaHosp]] — el tablero: criterios, ruta de pasos y bitácora
 - [[Entrega - Caso 1 FarmaHosp]] — el entregable numerado según la rúbrica (**manda sobre el Avance**)
 - [[Entrega - Parcial 1 SmartPress]] — lo entregado en el primer parcial (22/08), con sus láminas en `02-Diagramas/examen/`

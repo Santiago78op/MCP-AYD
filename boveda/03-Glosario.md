@@ -60,12 +60,14 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Calidad del desarrollo (*developmental quality*)** — Atributo que **no se observa ejecutando** el sistema sino modificándolo: modificabilidad, testabilidad, deployabilidad, integrabilidad. Es la línea del programa "otros atributos de calidad no observables vía ejecución". → [[Atributos de calidad]]
 - **Camino** — Conexión entre dos nodos de un diagrama de despliegue: línea llena con el protocolo como estereotipo (`«TCP/IP»`, `«wifi»`). → [[Diagrama de despliegue]]
 - **Capa vs tier** — La capa es una partición del código (estructura de módulos); el tier es una partición del despliegue (estructura de asignación). Confundirlos es el error clásico *(complemento, SAIP)*. **En clase se usan como sinónimos** (2 capas = cliente-servidor, three-tier, N-niveles en la nube). → [[Estilos arquitectónicos]] · [[Arquitectura en capas]] §4
+- **Cartucho MDA** — En MDA, el paquete que *"contiene las reglas necesarias para realizar una transformación de modelos"* (lectura de Meaurio y Schmieder). → [[Arquitectura dirigida por modelos MDA]] §2
 - **Caso de uso (CU)** — Descripción del comportamiento de un sistema en forma de acciones y reacciones, desde el punto de vista del usuario. Propuesto por Ivar Jacobson. → [[Caso de uso]]
 - **Caso de uso de apoyo** — CU incluido por **particionamiento** que **no se relaciona con actores**; es la excepción a la regla de "todo CU tiene al menos un actor". → [[Convenios del diagrama de CUN]]
 - **Caso de uso del negocio (CUN)** — Secuencia de acciones realizadas en el negocio que producen un resultado de valor observable para ciertos actores del negocio. Representa un proceso de negocio. → [[Caso de uso del negocio]]
 - **Catálogo de estilos** — Los estilos agrupados en familias: centrada en datos, flujo de datos, llamada y retorno, peer-to-peer y otras (código móvil, heterogéneos). La clase mostró **dos taxonomías que no coinciden**. → [[Catálogo de estilos arquitectónicos]]
 - **Categorías de estructuras** — Las tres en que se agrupan todas las estructuras: **módulos** (unidades de implementación), **componentes y conectores** (tiempo de ejecución) y **asignación** (lo que no es software: CPU, redes, equipos). La lámina *Estructuras* (capturas_U2_F2, 27) llama a la tercera **de localización**. → [[Categorías de estructuras]]
 - **Ciclo de influencias en la arquitectura** — Las cuatro influencias (stakeholders, organizaciones de desarrollo, ambiente técnico, experiencia del arquitecto) que moldean la arquitectura y que el sistema resultante retroalimenta. → [[Ciclo de influencias en la arquitectura]]
+- **CIM (Computation Independent Model)** — Primer modelo de MDA: *"se centra en los requerimientos y representa el nivel más alto del modelo de negocio. Es un modelo de dominio"*. → [[Arquitectura dirigida por modelos MDA]] §2
 - **Circuit Breaker** — Patrón arquitectónico de la lista de clase: deja de llamar a un servicio que falla para no propagar la caída (la definición es complemento). → [[Patrones arquitectónicos]]
 - **Clase candidata** — Cada sustantivo del enunciado, en singular y sin repetir, antes de pasarlo por las canastas de descarte. → [[Diagrama de clases]]
 - **Clasificación de procesos** — Técnica que separa los procesos del negocio en núcleo, soporte y gerenciales. → [[Identificación de procesos del negocio]]
@@ -81,6 +83,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **CUN expandidos** — Los CUN con relaciones de inclusión, extensión y generalización-especialización. → [[Caso de uso del negocio]]
 - **Curso alterno** — La variante, excepción o desvío del flujo de trabajo, contada en el texto del mismo caso de uso. → [[Descripción textual de casos de uso]]
 - **Curso normal de eventos** — El flujo básico de la descripción textual, en **dos columnas** (*acción del actor* / *respuesta del proceso de negocio*) con **una sola numeración** intercalada. → [[Descripción textual de casos de uso]]
+- **CWM (Common Warehouse Metamodel)** — Estándar en que se apoya MDA: formato común de intercambio de metadatos en data-warehouse. → [[Arquitectura dirigida por modelos MDA]] §5
 
 ## D
 
@@ -144,6 +147,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 
 - **Generalización-especialización** — Relación que muestra workflows que comparten estructura, propósito y comportamiento: un CU padre y uno o más CU hijos. → [[Generalización y especialización en casos de uso]]
 - **Gold plating** — Funcionalidad construida que ningún requisito pidió; la detecta la trazabilidad hacia atrás. → [[Matriz de trazabilidad de requisitos]]
+- **Grano grueso / grano fino** — Los elementos arquitectónicos son de grano grueso y los de diseño de grano fino; hay que conservar la traza entre ambos para que la arquitectura gobierne el resto del proceso. → [[Arquitectura de software en el modelo en espiral]] §2
 
 ## I
 - **IaaS / PaaS / SaaS** — Modelos de nube: infraestructura (el dispositivo), plataforma (el entorno de ejecución), software listo para usar (el artefacto). → [[Diagrama de despliegue]]
@@ -155,10 +159,12 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Inclusión por particionamiento** — `«include»` usado por **un solo** CU base, para partir un flujo largo. El incluido suele ser un **CU de apoyo sin actores**. La clase la marca **PARTICIONAR**. → [[Convenios del diagrama de CUN]]
 - **Inclusión por reutilización** — `«include»` usado por **dos o más** CU base que comparten comportamiento. La clase la marca **REUTILIZAR**. → [[Convenios del diagrama de CUN]]
 - **Infraestructura de software** — Frameworks y clases utilitarias compartidas (logging, wrappers de COTS, arranque/apagado); debe empezar antes del diseño de subsistemas, aunque sus requisitos salgan del propio desarrollo. → [[Arquitectura y proceso de desarrollo]]
+- **Integridad conceptual** — *"La clave para el diseño de sistemas con éxito"*: la tiene *"un pequeño número de mentes llegando juntos a diseñar la arquitectura"*. Es la meta de la interacción del arquitecto con el dominio y la planeación. → [[Arquitectura de software en el modelo en espiral]] §2
 - **Interfaz provista (proporcionada)** — Servicio que un componente **ofrece**; se dibuja como círculo (*lollipop*). → [[Interfaces de componentes]]
 - **Interfaz requerida** — Servicio que un componente **necesita** de otro; se dibuja como semicírculo (*socket*). → [[Interfaces de componentes]]
 - **Invariantes del estilo** — Las restricciones de interconexión o composición entre componentes que un estilo impone, y que lo identifican. → [[Estilos arquitectónicos]]
 - **Invocación implícita** — Estilo basado en eventos: el emisor anuncia un evento y la infraestructura decide a quién le llega; los suscriptores se invocan implícitamente. → [[Estilos arquitectónicos]]
+- **ISM (Implementation Specific Model)** — Último modelo de MDA: el código, que *"se realiza automáticamente a partir de cada PSM"*. → [[Arquitectura dirigida por modelos MDA]] §2
 - **ISO 9126** — Norma de calidad de producto con seis características: funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad y portabilidad. Es la lista del programa. → [[Atributos de calidad]]
 - **ISO/IEC 25010** — Sucesora de ISO 9126; asciende la seguridad y la compatibilidad a características de primer nivel, llegando a ocho. → [[Atributos de calidad]]
 - **Iteración controlada** — En proyectos grandes la iteración es inevitable (requisitos incompletos, cambios, ciclo de vida largo); “la única decisión es tomar el control de las iteraciones o no”. → [[Arquitectura y proceso de desarrollo]]
@@ -174,15 +180,18 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **MAC (medicamento de alto costo)** — Medicamento cuyo valor mensual por paciente supera los Q. 50,000; el objeto del sistema FarmaHosp. → [[Plan - Caso 1 FarmaHosp]]
 - **Matriz de dependencias** — Matriz cuadrada de requisito contra requisito: las **columnas (X)** son los que **originan** la dependencia y las **filas (Y)** los que **dependen**. Se lee "fila depende de columna" y sirve para analizar el impacto de los cambios. Es la plantilla oficial del Caso 1. → [[Guía - Matrices de trazabilidad]]
 - **Matriz de trazabilidad (RTM)** — Tabla que cruza cada requisito con su origen, su diseño, su código y sus pruebas. → [[Matriz de trazabilidad de requisitos]]
+- **MDA (Model Driven Architecture)** — Propuesta de la OMG: construir software como transformación sucesiva de modelos en UML, de CIM y PIM a PSM y a código. → [[Arquitectura dirigida por modelos MDA]]
 - **Mensaje síncrono / asíncrono** — El síncrono bloquea al emisor hasta la respuesta (cabeza llena, respuesta punteada); el asíncrono no espera (cabeza abierta). → [[Diagrama de secuencia]]
 - **Microkernel / plug-in** — Forma del estilo jerárquico: un núcleo con mecanismos mínimos y plug-ins que aportan la funcionalidad por interfaces fijas. → [[Estilos arquitectónicos]]
 - **Modelo 4+1 vistas** — Las vistas lógica, de procesos, de despliegue/desarrollo y física, más la de escenarios. Según la clase las identifica el **RUP**, y existen porque la arquitectura la usan **distintos grupos de personas en distintos momentos**. → [[Modelo 4+1 vistas]]
 - **Modelo activo** — En MVC, el modelo que *"notificará a las vistas los cambios que en los datos pueda producir un agente externo"* (capturas_U2_F3, 45), sin pasar por el controlador. → [[Modelo-Vista-Controlador]]
 - **Modelo de casos de uso del negocio** — Modelo que describe los procesos de un negocio y cómo se benefician e interactúan socios y clientes en esos procesos. → [[Modelo de casos de uso del negocio]]
 - **Modelo de referencia** — **En clase**: *"una división de funcionalidad junto con el flujo de datos entre las piezas"*; *"un estándar de descomposición de un problema conocido"*. No es una arquitectura. → [[Arquitectura de referencia]]
+- **Modelo en espiral** — Modelo evolutivo e iterativo de Boehm (1986), guiado por el **análisis de riesgo**. El avance angular es el progreso y el desplazamiento radial, el coste acumulado. Cuatro actividades: objetivos y alternativas, análisis de riesgo, ingeniería, planificación. → [[Arquitectura de software en el modelo en espiral]] §1
 - **Modelo-Vista-Controlador (MVC)** — **Patrón arquitectónico** (título de capturas_U2_F3, 44-48) que *"separa los datos de una aplicación, la interfaz de usuario, y la lógica de control en tres componentes distintos"*. El modelo tiene datos, reglas de negocio y persistencia; la vista muestra; el controlador recibe los eventos de entrada. Cae en llamada y retorno. → [[Modelo-Vista-Controlador]]
 - **Modelos semánticos (de un estilo)** — La parte de un estilo que permite entender las propiedades generales del sistema analizando las propiedades conocidas de sus partes. → [[Estilos arquitectónicos]]
 - **Moderación cautelosa** — La postura del libro frente a ágil: se produce menos documentación, pero incluso un equipo ágil grande necesita un número razonable de vistas. → [[Arquitectura y proceso de desarrollo]]
+- **MOF (Meta Object Facility)** — Estándar de la OMG con el que *"puede definirse cualquier lenguaje de modelado incluyendo UML"*; provee un repositorio de modelos y metamodelos. → [[Arquitectura dirigida por modelos MDA]] §5
 - **Muerte por mil cortes** — El deterioro de una arquitectura por la acción bienintencionada de quienes la modifican. → [[Tácticas y patrones arquitectónicos]]
 - **Multiplicidad** — Cuántas instancias de una clase participan en un extremo de la asociación (1, 0..1, *, 1..*). → [[Diagrama de clases]]
 
@@ -210,6 +219,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Patrón de diseño** — Solución a un problema de diseño con efectividad comprobada y reutilizable en contextos diferentes. Su impacto es **relativo**: quitarlo solo afecta a las clases relacionadas. La clase dio una lista de 25. → [[Patrones de diseño]]
 - **Patrones creacionales / estructurales / de comportamiento** — Las tres familias de patrones de diseño: cómo se **crean** los objetos, cómo se **relacionan** las clases, y cómo se asignan **responsabilidades** y se comunican los objetos. → [[Patrones de diseño]]
 - **Perspectiva de la arquitectura** — Representación desde una perspectiva específica de un determinado sistema o de una parte del mismo. → [[Arquitectura de software]]
+- **PIM (Platform Independent Model)** — Modelo de MDA de alto nivel, *"independiente de cualquier tecnología o plataforma"*. Equivale casi por entero a la fase de análisis; en él se hacen los cambios. → [[Arquitectura dirigida por modelos MDA]] §2
 - **Pipeline** — La arquitectura completa de filtros conectados por pipes (conectores que transmiten los datos de un filtro al siguiente). → [[Tuberías y filtros]]
 - **Pirámide invertida de re-uso** — Como describe la clase el modelo en capas: cada capa agrega responsabilidad y abstracción a la capa directamente sobre ella (capturas_U2_F3, 10). → [[Arquitectura en capas]] §6
 - **Pizarra (blackboard)** — Variante activa del estilo centrado en datos: el almacén notifica a los agentes suscritos (repositorio + invocación implícita). **En clase** el catálogo textual la pone en *centrada en datos*, y el árbol C&C la cuelga de **Repository y Event-based a la vez**. → [[Catálogo de estilos arquitectónicos]] · [[Estilos arquitectónicos]]
@@ -220,6 +230,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Primera descomposición** — **Un solo** diagrama de CUN que abre la única elipse del *core* en N procesos, conservando **el mismo juego de actores**. → [[Guía - Caso de negocio]]
 - **Prioridad y mejoras** — Dos campos de cierre de la descripción textual: la prioridad (un valor simple, p. ej. *Alta*) y las oportunidades de mejora detectadas en el proceso. → [[Descripción textual de casos de uso]]
 - **Proceso de negocio** — Grupo de tareas lógicamente relacionadas, en cierta secuencia y manera, que emplean recursos de la organización para dar resultados en apoyo a sus objetivos. → [[Proceso de negocio]]
+- **PSM (Platform Specific Model)** — Modelo de MDA que *"describe el sistema de acuerdo con una tecnología de implementación determinada"*. Se genera del PIM por transformación. → [[Arquitectura dirigida por modelos MDA]] §2
 - **Puerto** — Punto del borde de un componente que agrupa interfaces relacionadas; habitual en caja blanca. → [[Diagrama de componentes]]
 - **Punto de extensión** — Lugar que el caso de uso **base declara** y que el caso extendido es el único autorizado a alterar. Es lo que hace a `«extend»` "más controlada" que la generalización. → [[Relación de extensión extend]]
 - **Punto de sensibilidad** — Decisión con efecto marcado sobre una respuesta de un atributo de calidad. → [[Evaluación de la arquitectura]]
@@ -237,6 +248,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Realización** — El elemento (clase o componente) implementa una interfaz. En UML 2.x: punteada con triángulo hueco. **Ojo**: en sus diagramas de clases (capturas_U2 26-28, 54, 56) ella la dibuja con **línea llena rotulada «Realización»**. → [[Relaciones y dependencias en UML]]
 - **Realizaciones de CUN** — Muestran cómo colaboran los trabajadores y entidades de negocio para ejecutar el proceso; se documentan con diagramas de actividad, clases y secuencia, y descripción textual. → [[Realizaciones de casos de uso del negocio]]
 - **Repositorio** — Variante pasiva del estilo centrado en datos: los accesores tienen la iniciativa y el esquema de datos es el contrato común. → [[Estilos arquitectónicos]]
+- **Requerimientos significativos arquitectónicamente** — *"Aquellos que tienen un impacto esencial sobre la arquitectura"* (lectura de Meaurio y Schmieder). Es la misma idea que los drivers arquitectónicos de clase. → [[Arquitectura de software en el modelo en espiral]] §2 · [[Drivers arquitectónicos]]
 - **Requisito huérfano** — Requisito sin diseño o sin caso de prueba asociado; hueco de cobertura. → [[Matriz de trazabilidad de requisitos]]
 - **Requisitos en conflicto** — Dos requisitos están en conflicto "si no pueden implementarse juntos, es decir, si la solución a un requisito **impide** la implementación de otro" (NT1). Es el tradeoff visto desde los requisitos. → [[Matriz de trazabilidad de requisitos]]
 - **REST** — Estilo 8 de la lista de nueve de la clase. La única diapositiva es la de *API RESTful* (capturas_U2_F3, 20), puesta **dentro de la serie de flujo de datos**: *"interfaz que dos sistemas de computación utilizan para intercambiar información de manera segura a través de Internet"*. → [[Tuberías y filtros]] §4
@@ -281,3 +293,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Vista física** — Muestra cómo se distribuyen los componentes entre los equipos que conforman la solución. Diagrama de deployment. → [[Modelo 4+1 vistas]]
 - **Vista lógica** — Muestra los requisitos funcionales: el dominio de la aplicación, las clases y objetos del *core*. Diagramas de clases y de paquetes. → [[Modelo 4+1 vistas]]
 - **VoI (value of information)** — Técnica para decidir cuánto conviene gastar en experimentar antes de tomar una decisión arquitectónica. → [[El ciclo del architecting]]
+
+## X
+
+- **XMI (XML Metadata Interchange)** — Estándar que permite pasar un modelo UML a XML para que otras aplicaciones lo procesen. → [[Arquitectura dirigida por modelos MDA]] §5

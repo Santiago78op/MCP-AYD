@@ -156,6 +156,13 @@ const CASOS = [
   ["glosario", { termino: "EAC" }, "escenario de atributo de calidad"],
   ["obtener_flashcards", { tema: "READM" }, "?"],
 
+  // --- Lectura de MDA y modelo en espiral (2026-10-13)
+  ["leer_nota", { nombre: "Arquitectura dirigida por modelos MDA" }, "Platform Independent Model"],
+  ["leer_nota", { nombre: "Arquitectura de software en el modelo en espiral" }, "integridad conceptual"],
+  ["buscar", { consulta: "requerimientos significativos arquitectónicamente" }, "Arquitectura de software en el modelo en espiral"],
+  ["glosario", { termino: "PIM" }, "Platform Independent Model"],
+  ["obtener_flashcards", { tema: "MDA" }, "?"],
+
   ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
 
   // --- referencias y enunciado

@@ -116,10 +116,10 @@ teoría de estos cuatro puntos: de calidad trae la tabla de escenarios `EAC-nn` 
 
 | Tema | Estado |
 |---|---|
-| Arquitectura en las metodologías: enfoque predictivo y ágil (SCRUM) | 🟡 — [[Arquitectura y proceso de desarrollo]] (complemento) |
+| Arquitectura en las metodologías: enfoque predictivo y ágil (SCRUM) | 🟡 — [[Arquitectura y proceso de desarrollo]] (complemento) + [[Arquitectura de software en el modelo en espiral]] (lectura: un modelo evolutivo guiado por riesgo; **no** cubre ágil ni SCRUM) |
 | Integrando con la arquitectura de la información | ❌ — **sin material en ninguna fuente local** |
 | Documentando la arquitectura de software | 🟡 — [[Estructuras y vistas arquitectónicas]] + [[El ciclo del architecting]] §4 |
-| Implementación y pruebas | 🟡 — [[Arquitectura y proceso de desarrollo]] §3 (complemento) |
+| Implementación y pruebas | 🟡 — [[Arquitectura y proceso de desarrollo]] §3 (complemento) + [[Arquitectura dirigida por modelos MDA]] (lectura: generación de código desde modelos) |
 | Evaluación de la arquitectura | 🟡 — [[Evaluación de la arquitectura]] (complemento: ATAM completo) |
 
 Lo que sí es **de clase** es [[Arquitectura en el ciclo de vida del software]], que corresponde a la
