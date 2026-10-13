@@ -9,16 +9,19 @@ alias: [guion harley, guion presentación, guion HD, exposición harley]
 # Guion — Presentación del Caso Harley-Davidson (SiL'K)
 
 **Grupo 2 · martes 13 de octubre de 2026 · 10 minutos.**
-Presentación: https://claude.ai/artifact/Y8fPakHZCfFqdDaYZdA1zD
+Presentación para exponer: `08-Tareas/Grupo2_CasoHD_Presentacion.pptx` (PowerPoint o Keynote, sin conexión).
+Versión en línea: https://claude.ai/artifact/Y8fPakHZCfFqdDaYZdA1zD
 Documento: `08-Tareas/Grupo2_CasoHD.pdf`
 
 ## Antes de entrar
 
-- Abrí la presentación y entrá al modo presentar con el botón de reproducir, arriba a la derecha.
-- Se avanza con la flecha derecha. **Cada clic hace una sola cosa**: o trae una tarjeta, o pasa de
-  lámina. Son 23 clics de tarjetas y 12 cambios de lámina.
-- Los diagramas aparecen solos; las tarjetas y las filas entran una por clic.
-- Llevá una copia sin conexión: en la página, **Compartir › Exportación › PDF** (o PowerPoint).
+- Abrí `Grupo2_CasoHD_Presentacion.pptx` y empezá la presentación desde la primera lámina.
+- Se avanza con la flecha derecha o la barra espaciadora. **Cada clic hace una sola cosa**: o trae
+  una tarjeta, o pasa de lámina. Son 23 clics de tarjetas y 12 cambios de lámina.
+- Los diagramas aparecen con la lámina; las tarjetas y las filas entran una por clic.
+- Este guion también va en las **notas del orador** de cada lámina, con la marca `[CLIC]`: con la
+  vista de moderador lo tenés en tu pantalla mientras proyectás.
+- La tipografía es Arial, para que se vea igual en cualquier computadora.
 - Tené el PDF de la entrega abierto en otra ventana por si piden ver una matriz o un escenario.
 
 ## El reloj

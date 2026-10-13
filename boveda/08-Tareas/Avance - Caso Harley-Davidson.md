@@ -31,6 +31,7 @@ integrantes); el material lo elabora Santiago. Modo: **resolver y explicar**. El
 | Versión editable | `08-Tareas/Entrega - Caso Harley-Davidson.docx` | el mismo comando |
 | Las nueve láminas y tres detalles del despliegue | `02-Diagramas/caso-hd/` | `python3 06-Proyecto-MCP/generar-excalidraw.py caso-hd/<carpeta>`; los detalles los recorta el generador de la entrega |
 | Presentación de 10 minutos | 13 láminas con animaciones, en claude.ai | se edita en la página |
+| Presentación en PowerPoint | `08-Tareas/Grupo2_CasoHD_Presentacion.pptx`: 13 láminas, transiciones, 23 animaciones por clic, el guion en las notas, en Arial | `python3 06-Proyecto-MCP/animar-pptx.py <exportado.pptx> <salida.pptx> <guion.md> Arial` |
 | Guion para exponer | `08-Tareas/Guion - Presentación Caso Harley-Davidson.md` | a mano |
 
 ## Lo que falta — lo hace el estudiante
@@ -38,8 +39,8 @@ integrantes); el material lo elabora Santiago. Modo: **resolver y explicar**. El
 - [x] Integrantes y carnés en el encabezado (Grupo 2).
 - [x] Nombre del archivo: `Grupo2_CasoHD.pdf`.
 - [ ] Ensayar la presentación una vez con reloj: 10 minutos, 23 clics de animación.
-- [ ] Descargar la presentación: **Compartir › Exportación › PDF** o PowerPoint (la descarga automática no funcionó).
-- [ ] Probar el modo presentar: las 13 láminas se revisaron en pantalla en el editor; las animaciones, por regla.
+- [x] Presentación descargada en PowerPoint y completada (el exportado venía sin animaciones).
+- [ ] Abrir `Grupo2_CasoHD_Presentacion.pptx` en PowerPoint o Keynote y pasarla una vez: las animaciones se validaron por estructura, no reproducidas.
 
 > [!warning] La nota de la rúbrica sobre los integrantes
 > El enunciado dice: *"SOLO TOMEN EN CUENTA A LAS PERSONAS DEL EQUIPO QUE TRABAJEN ACTIVAMENTE EN LA
@@ -76,6 +77,9 @@ dimensionamiento del despliegue: el caso no trae esos datos. También la lectura
 - **2026-10-13, cierre** — Descripciones textuales de los veinte casos de uso, agrupadas por proceso junto a
   su diagrama. Letra más grande en bloques y despliegue, y tres figuras de detalle del despliegue. El PDF
   quedó en 48 páginas, ninguna por debajo del 47 % de ocupación. Guion de exposición escrito.
+- **2026-10-13, PowerPoint** — El `.pptx` exportado desde la página no trae animaciones ni transiciones y
+  depende de una tipografía que no está instalada. `animar-pptx.py` le agrega 13 transiciones, 23
+  animaciones de entrada por clic y el guion como notas, y cambia la tipografía a Arial.
 
 ## Preguntas de repaso
 

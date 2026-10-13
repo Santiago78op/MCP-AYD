@@ -561,6 +561,11 @@ propiedades del archivo a su nombre. En presentaciones: estilo sobrio tipo keyno
 o gris neutro, una sola tipografía sans, números grandes), **sin tonos crema ni degradados**, con
 animaciones de entrada, íconos, y ningún texto partido: los números con unidad van en una sola línea.
 
+**El PowerPoint exportado desde la página de presentaciones llega incompleto:** sin animaciones, sin
+transiciones y con una tipografía web que la computadora del aula no tiene (se sustituye y el diseño
+cambia). `06-Proyecto-MCP/animar-pptx.py` lo completa: transiciones, entrada por clic de cada tarjeta
+(agrupa las formas por zona), el guion en las notas y la tipografía cambiada a Arial.
+
 **Íconos en las láminas.** `generar-excalidraw.py` tiene `icono(nombre, x, y, tam)`: incrusta un
 trazo de `06-Proyecto-MCP/iconos/` (Lucide, licencia ISC, monocromos) en el `.excalidraw` y en el
 `.svg`. Para sumar uno: bajar el `.svg` de Lucide a esa carpeta.
