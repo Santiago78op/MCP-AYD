@@ -182,6 +182,7 @@ Los artefactos vivos de cada tarea (el estado real se lee **ahí**, no acá):
 - [[Entrega - Tarea 2 FarmaHosp]] — descripciones textuales de CDU-01..07, estilo SOA justificado, bloques y despliegue
 - [[Plan - Caso Harley-Davidson]] — **Caso Harley-Davidson, proyecto SiL'K (entrega 13/10)**: la rúbrica desarmada en 6 criterios, lo que el material no cubre (EaC, modelo de calidad) y las decisiones de fondo
 - [[Avance - Caso Harley-Davidson]] — el tablero: los 6 criterios hechos y lo que falta que haga el estudiante antes de subir
+- [[Guion - Presentación Caso Harley-Davidson]] — el guion de los 10 minutos: qué decir en cada lámina, cuándo hacer clic, el reloj y las preguntas probables
 - [[Entrega - Caso Harley-Davidson]] — el entregable completo: caso de negocio, 17 stakeholders, drivers, cuatro matrices, SOA con bloques y despliegue, y el modelo de calidad ISO/IEC 25010
 - [[Ejemplo resuelto - Sistema de Transporte READM]] — **el ejemplo completo de la presentación Calidad del Software**: de contexto a despliegue, la tabla de EAC y el bus de eventos · tarjetas en [[Flashcards - Ejemplo READM y bus de eventos]]
 - [[Avance - Caso 1 FarmaHosp]] — el tablero: criterios, ruta de pasos y bitácora

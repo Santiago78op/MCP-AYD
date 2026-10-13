@@ -159,9 +159,11 @@ def H(text, level=1, brk=False):
     MD.append("\n%s %s\n" % ("#" * (level + 1), llano(text)))
 
 
-def P(text, size=10.5):
+def P(text, size=10.5, pegar=False):
+    """pegar=True mantiene el parrafo en la misma pagina que lo que sigue."""
     p = doc.add_paragraph()
     runs(p, text, size=size)
+    p.paragraph_format.keep_with_next = pegar
     MD.append(llano(text) + "\n")
 
 
@@ -249,7 +251,7 @@ def TBL(headers, rows, fracs=None, size=9, usable=9.4, centro_desde=None):
     MD.append("")
 
 
-ANCHO_IMG = {"contexto-hd": 9.3, "cdu-core-hd": 8.2, "cdu-descomposicion-hd": 7.6, "bloques-hd": 9.0,
+ANCHO_IMG = {"contexto-hd": 9.3, "cdu-core-hd": 8.2, "cdu-descomposicion-hd": 7.6, "bloques-hd": 8.6,
              "despliegue-hd": 9.2}
 
 
@@ -265,6 +267,46 @@ def IMGP(nombre, width=6.5, caption=None):
             r.italic = True
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         MD.append("*%s*\n" % llano(caption))
+
+
+def IMGF(ruta_abs, ruta_boveda, width, caption):
+    """Figura que no es una lamina completa: un recorte ampliado de una."""
+    doc.add_picture(ruta_abs, width=Inches(width))
+    doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+    doc.paragraphs[-1].paragraph_format.keep_with_next = True
+    MD.append("![[%s]]\n" % ruta_boveda)
+    p = doc.add_paragraph()
+    runs(p, caption, size=9)
+    for r in p.runs:
+        r.italic = True
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    MD.append("*%s*\n" % llano(caption))
+
+
+def detalles_despliegue():
+    """Tres recortes del despliegue a mayor tamano: la lamina completa da la
+    vista de conjunto, pero impresa en una hoja su letra queda chica."""
+    from PIL import Image
+    base = Image.open(os.path.join(IMG, "despliegue-hd.png")).convert("RGB")
+    z = 2.0                                     # las laminas se convierten a 2x
+    carpeta = os.path.join(DIAGRAMAS, LAMINAS["despliegue-hd"])
+
+    def rec(x1, y1, x2, y2):
+        # coordenadas de la lamina; la imagen suma el margen de 40 px del SVG
+        # (su origen esta en x = -20, y = -30)
+        return base.crop((int((x1 + 20) * z), int((y1 + 30) * z), int((x2 + 20) * z), int((y2 + 30) * z)))
+    # dos filas, cada una con dos dispositivos completos (ningun cubo cortado)
+    a, b = rec(16, 72, 1130, 404), rec(1170, 72, 2444, 404)
+    usuarios = Image.new("RGB", (max(a.width, b.width), a.height + b.height + int(20 * z)), "white")
+    usuarios.paste(a, (0, 0)); usuarios.paste(b, (0, a.height + int(20 * z)))
+    salida = []
+    for nombre, im in (("despliegue-hd-detalle-1-usuarios", usuarios),
+                       ("despliegue-hd-detalle-2-nube", rec(12, 432, 1590, 1420)),
+                       ("despliegue-hd-detalle-3-existentes", rec(1732, 432, 2448, 1420))):
+        ruta = os.path.join(carpeta, nombre + ".png")
+        im.save(ruta, optimize=True)
+        salida.append((ruta, "02-Diagramas/%s/%s.png" % (LAMINAS["despliegue-hd"], nombre)))
+    return salida
 
 
 def SEC(landscape=False):
@@ -648,32 +690,224 @@ NOTE("**Cómo leer las relaciones**\n"
      "**reutilizar**: dos o tres casos base comparten el incluido.\n"
      "**«extend»** — ocurre **a veces**, bajo la condición entre corchetes; la flecha va de la extensión al base.\n"
      "Los cuatro diagramas están en el **plano del sistema**: actores y casos de uso sin la barra de negocio.")
-H("Descripción textual del caso de uso CU-02, Emitir pedido de compra", 3)
-TBL(["Campo", "Contenido"],
-    [["**Nombre**", "CU-02 Emitir pedido de compra"],
-     ["**Actores**", "Comprador (inicia) · Suministrador"],
-     ["**Propósito**", "Convertir la demanda aprobada en un pedido en firme con el suministrador asignado, al precio del contrato."],
-     ["**Resumen**", "El caso de uso se inicia cuando el Comprador toma solicitudes aprobadas o propuestas generadas desde MRP/DRP. El sistema agrupa la demanda contra el contrato vigente y emite el pedido. Finaliza cuando el Suministrador lo recibe y confirma."]],
-    fracs=[0.16, 0.84], size=9)
-TBL(["Acción del actor", "Respuesta del sistema"],
-    [["**1.** El Comprador selecciona las solicitudes aprobadas y las propuestas pendientes.", ""],
-     ["", "**2.** El sistema agrupa la demanda por suministrador y contrato vigente (incluye CU-15). *Si no hay contrato vigente, ver curso alterno de la línea 2.*"],
-     ["**3.** El Comprador revisa cantidades, fechas de entrega y centro de destino, y confirma.", ""],
-     ["", "**4.** El sistema registra el pedido de compra con su número único y lo envía al Suministrador."],
-     ["**5.** El Suministrador recibe el pedido y confirma fecha y cantidad.", ""],
-     ["", "**6.** El sistema deja el pedido en firme y devuelve la fecha confirmada al sistema MRP/DRP del centro."]],
-    fracs=[0.45, 0.55], size=9)
-BUL(["**En la línea 2:** no hay contrato vigente para el artículo. El Comprador solicita cotización a los "
-     "suministradores (CU-16) y, con la oferta elegida, se continúa en la línea 3.",
-     "**En la línea 5:** el Suministrador propone otra fecha. El sistema avisa al Comprador, que acepta o renegocia; "
-     "con la fecha acordada se continúa en la línea 6.",
-     "**Prioridad:** alta — es el caso que más RF concentra (RF-04, RF-05, RF-13)."], size=9.5)
+# --- descripciones textuales: plantilla de clase (nombre, actores, proposito, resumen, curso normal
+# en dos columnas con una sola numeracion, y cursos alternos anclados a la linea)
+A, S = "A", "S"
+DESCR = {
+ "CU-01": ("Empleado solicitante (inicia)", "RF-01", "Alta",
+  "Pedir un material o un servicio sin necesidad de formación previa y saber quién lo aprueba.",
+  "Se inicia cuando el Empleado solicitante necesita un artículo. El sistema guía la solicitud y la deja pendiente de aprobación. Finaliza cuando el Responsable de área recibe el aviso.",
+  [(A, "El Empleado solicitante busca el artículo o servicio en el catálogo e indica cantidad, fecha requerida y centro de coste."),
+   (S, "El sistema valida los datos y determina quién debe aprobar según las reglas de autorización."),
+   (A, "El Empleado solicitante confirma la solicitud."),
+   (S, "El sistema registra la solicitud con un número único, la deja pendiente de aprobación y avisa al Responsable de área.")],
+  ["**En la línea 1:** el artículo no está en el catálogo. El Empleado solicitante lo describe en texto libre y se continúa en la línea 2.",
+   "**En la línea 2:** faltan datos obligatorios. El sistema señala los campos y se vuelve a la línea 1."]),
+ "CU-02": ("Comprador (inicia) · Suministrador", "RF-04, RF-05, RF-13", "Alta",
+  "Convertir la demanda aprobada en un pedido en firme con el suministrador asignado, al precio del contrato.",
+  "Se inicia cuando el Comprador toma solicitudes aprobadas o propuestas generadas desde MRP/DRP. El sistema agrupa la demanda contra el contrato vigente y emite el pedido. Finaliza cuando el Suministrador lo recibe y confirma.",
+  [(A, "El Comprador selecciona las solicitudes aprobadas y las propuestas pendientes."),
+   (S, "El sistema agrupa la demanda por suministrador y contrato vigente (incluye CU-15)."),
+   (A, "El Comprador revisa cantidades, fechas de entrega y centro de destino, y confirma."),
+   (S, "El sistema registra el pedido de compra con su número único y lo envía al Suministrador."),
+   (A, "El Suministrador recibe el pedido y confirma fecha y cantidad."),
+   (S, "El sistema deja el pedido en firme y devuelve la fecha confirmada al sistema MRP/DRP del centro.")],
+  ["**En la línea 2:** no hay contrato vigente para el artículo. Se extiende con CU-16 y, con la oferta elegida, se continúa en la línea 3.",
+   "**En la línea 5:** el Suministrador propone otra fecha. El sistema avisa al Comprador, que acepta o renegocia; con la fecha acordada se continúa en la línea 6."]),
+ "CU-03": ("Sistema MRP/DRP de planta (inicia)", "RF-02, RF-04, RF-05, RF-18", "Alta",
+  "Transformar los requisitos de material planificados por cada centro en propuestas de pedido listas para emitir.",
+  "Se inicia cuando el Sistema MRP/DRP de un centro envía sus requisitos de material. El sistema los valida, los agrupa y genera propuestas. Finaliza cuando las propuestas quedan en la bandeja del Comprador.",
+  [(A, "El Sistema MRP/DRP de planta envía los requisitos de material planificados: pieza, cantidad y fecha."),
+   (S, "El sistema valida cada pieza contra el registro de suministradores y descarta lo que ya está cubierto por pedidos en firme."),
+   (S, "El sistema agrupa la demanda contra el contrato vigente (incluye CU-15)."),
+   (S, "El sistema genera las propuestas de pedido y las deja en la bandeja del Comprador."),
+   (A, "El Sistema MRP/DRP de planta recibe el acuse de los requisitos procesados.")],
+  ["**En la línea 1:** el envío llega incompleto. El sistema rechaza el lote y pide el reenvío. Fin del caso de uso para ese lote.",
+   "**En la línea 2:** una pieza no tiene suministrador asignado. El sistema genera la propuesta marcada «sin fuente» y alerta al Comprador; se continúa en la línea 3 con las demás."]),
+ "CU-04": ("Responsable de área (inicia)", "RF-03", "Alta",
+  "Autorizar o rechazar una solicitud de pedido dejando constancia de quién decidió.",
+  "Se inicia cuando el Responsable de área abre una solicitud pendiente. El sistema le muestra el detalle y registra su decisión. Finaliza cuando la solicitud aprobada llega a la bandeja del Comprador.",
+  [(A, "El Responsable de área abre una solicitud pendiente de aprobación."),
+   (S, "El sistema muestra el detalle, el importe estimado y el presupuesto disponible del centro de coste."),
+   (A, "El Responsable de área aprueba la solicitud."),
+   (S, "El sistema registra la decisión con fecha y autor, pasa la solicitud a la bandeja del Comprador y actualiza el estado para el Empleado solicitante.")],
+  ["**En la línea 2:** el importe supera el límite del Responsable de área. El sistema deriva la solicitud al nivel siguiente y se continúa en la línea 1 con ese aprobador.",
+   "**En la línea 3:** el Responsable de área rechaza la solicitud e indica el motivo. El sistema lo registra y avisa al Empleado solicitante. Fin del caso de uso."]),
+ "CU-15": ("Ninguno: caso de uso de apoyo, incluido por CU-02 y CU-03", "RF-05", "Alta",
+  "Aprovechar los contratos de toda la empresa agrupando la demanda de centros y divisiones.",
+  "Se inicia cuando un caso de uso base le entrega líneas de demanda. El sistema busca el contrato vigente y agrupa. Finaliza cuando devuelve los grupos al caso base.",
+  [(S, "El sistema recibe del caso de uso base las líneas de demanda."),
+   (S, "El sistema busca el contrato vigente para cada artículo y suministrador."),
+   (S, "El sistema agrupa las líneas de todos los centros y divisiones bajo un mismo contrato y aplica su precio y condiciones."),
+   (S, "El sistema devuelve los grupos al caso de uso base.")],
+  ["**En la línea 2:** no existe contrato vigente. El sistema devuelve la línea marcada «sin contrato» al caso de uso base."]),
+ "CU-16": ("Comprador (desde CU-02) · Suministrador", "RF-04, RF-13", "Media",
+  "Obtener precio y plazo cuando un artículo no tiene contrato vigente. Extiende a CU-02 bajo la condición [no hay contrato vigente].",
+  "Se inicia en la línea 2 de CU-02 cuando no hay contrato vigente. El sistema pide ofertas y las compara. Finaliza cuando la oferta elegida vuelve a CU-02.",
+  [(A, "El Comprador selecciona los suministradores candidatos del registro."),
+   (S, "El sistema envía la solicitud de cotización con su plazo de respuesta."),
+   (A, "El Suministrador responde con precio y plazo de entrega."),
+   (S, "El sistema compara las ofertas recibidas y las muestra al Comprador."),
+   (A, "El Comprador elige una oferta."),
+   (S, "El sistema registra la oferta elegida y devuelve el control a la línea 3 de CU-02.")],
+  ["**En la línea 3:** ningún Suministrador responde dentro del plazo. El sistema avisa al Comprador, que amplía el plazo o cambia los candidatos; se continúa en la línea 2."]),
+ "CU-05": ("Recepcionista de almacén (inicia)", "RF-06, RF-18", "Alta",
+  "Registrar en el muelle lo que llega, contra el pedido, aunque no haya red.",
+  "Se inicia cuando llega una entrega al muelle. El sistema muestra lo pendiente del pedido y registra lo recibido. Finaliza cuando la recepción queda registrada y publicada.",
+  [(A, "El Recepcionista de almacén lee el código del pedido en el documento de entrega."),
+   (S, "El sistema muestra las líneas pendientes de ese pedido."),
+   (A, "El Recepcionista de almacén registra las cantidades recibidas y su estado."),
+   (S, "El sistema registra la recepción, actualiza lo pendiente del pedido y publica el evento «material recibido».")],
+  ["**En la línea 1:** no hay conexión. La aplicación guarda el registro en su cola local y lo sincroniza al volver la red; se continúa en la línea 3.",
+   "**En la línea 3:** la cantidad no coincide o el material llega dañado. El sistema registra la diferencia y avisa al Comprador; se continúa en la línea 4."]),
+ "CU-06": ("Comprador (inicia)", "RF-07, RF-13", "Alta",
+  "Saber en qué estado está cada pedido sin perseguirlo por correo o teléfono.",
+  "Se inicia cuando el Comprador revisa sus pedidos abiertos. El sistema muestra el estado y los plazos. Finaliza cuando el Comprador ha visto el historial del pedido.",
+  [(A, "El Comprador abre la lista de pedidos abiertos de su cartera."),
+   (S, "El sistema muestra el estado, la fecha confirmada y los pedidos próximos a vencer."),
+   (A, "El Comprador abre un pedido."),
+   (S, "El sistema muestra su historial: confirmación, aviso de envío y recepciones.")],
+  ["**En la línea 2:** un pedido tiene el plazo de entrega vencido sin recepción. Se extiende con CU-18."]),
+ "CU-18": ("Comprador (desde CU-06) · Suministrador", "RF-07, RF-12, RF-13", "Media",
+  "Reclamar una entrega atrasada y dejar el retraso registrado. Extiende a CU-06 bajo la condición [plazo de entrega vencido].",
+  "Se inicia en la línea 2 de CU-06 cuando un plazo venció. El sistema envía el reclamo y recibe la nueva fecha. Finaliza cuando la fecha comprometida queda actualizada.",
+  [(S, "El sistema señala el pedido con plazo vencido y propone el reclamo."),
+   (A, "El Comprador confirma el reclamo."),
+   (S, "El sistema envía el reclamo al Suministrador y lo registra."),
+   (A, "El Suministrador responde con la nueva fecha y la causa del retraso."),
+   (S, "El sistema actualiza la fecha comprometida, registra el retraso para la evaluación del suministrador y avisa al centro de producción.")],
+  ["**En la línea 4:** el Suministrador no responde en dos días hábiles. El sistema escala el reclamo a la Dirección de Compras. Fin del caso de uso."]),
+ "CU-07": ("Suministrador (inicia) · Sistema de Cuentas de Acreedores", "RF-08, RF-09, RF-13, RF-18", "Alta",
+  "Pagar solo las facturas que coinciden con el pedido y con lo recibido.",
+  "Se inicia cuando el Suministrador presenta una factura. El sistema la compara con el pedido y la recepción. Finaliza cuando el Suministrador conoce el estado del pago.",
+  [(A, "El Suministrador presenta la factura por el portal o por la interfaz de su sistema."),
+   (S, "El sistema comprueba que la factura no sea repetida y localiza su pedido y sus recepciones."),
+   (S, "El sistema compara cantidades y precios de la factura, el pedido y la recepción."),
+   (S, "El sistema marca la factura como conciliada y la envía al Sistema de Cuentas de Acreedores."),
+   (A, "El Sistema de Cuentas de Acreedores devuelve el estado del pago."),
+   (S, "El sistema informa al Suministrador del estado del pago.")],
+  ["**En la línea 2:** la factura ya fue presentada. El sistema la rechaza indicando la original. Fin del caso de uso.",
+   "**En la línea 3:** factura, pedido y recepción no coinciden. Se extiende con CU-17."]),
+ "CU-17": ("Comprador (inicia)", "RF-08", "Media",
+  "Decidir qué se hace con una factura que no coincide. Extiende a CU-07 bajo la condición [factura, pedido y recepción no coinciden].",
+  "Se inicia en la línea 3 de CU-07 cuando hay diferencias. El sistema las muestra y registra la decisión. Finaliza cuando la factura vuelve a CU-07 o queda rechazada.",
+  [(S, "El sistema muestra al Comprador la diferencia línea por línea."),
+   (A, "El Comprador acepta la diferencia o pide una corrección al Suministrador."),
+   (S, "El sistema registra la decisión y su motivo."),
+   (S, "El sistema devuelve la factura a la línea 4 de CU-07.")],
+  ["**En la línea 2:** el Comprador rechaza la factura. El sistema avisa al Suministrador con el motivo. Fin del caso de uso para esa factura."]),
+ "CU-08": ("Comprador (inicia)", "RF-10", "Alta",
+  "Dar de alta a un suministrador una sola vez para toda la empresa.",
+  "Se inicia cuando el Comprador incorpora un suministrador nuevo. El sistema comprueba que no exista y crea su registro. Finaliza cuando el registro queda disponible para todos los centros.",
+  [(A, "El Comprador registra los datos del suministrador, sus contactos, las piezas que suministra y los centros que atiende."),
+   (S, "El sistema comprueba que el suministrador no exista ya y valida los datos."),
+   (A, "El Comprador confirma el alta."),
+   (S, "El sistema crea el registro único, habilita el acceso al portal para sus contactos y lo deja disponible para todos los centros.")],
+  ["**En la línea 2:** el suministrador ya existe. El sistema muestra el registro existente para actualizarlo. Fin del caso de uso."]),
+ "CU-09": ("Suministrador (inicia)", "RF-11, RF-12, RF-13", "Alta",
+  "Que el suministrador conozca cómo lo evalúa Harley-Davidson y qué demanda viene.",
+  "Se inicia cuando el Suministrador entra al portal. El sistema calcula sus indicadores y muestra la demanda prevista. Finaliza cuando el Suministrador ha visto sus datos.",
+  [(A, "El Suministrador entra al portal y se autentica con doble factor."),
+   (S, "El sistema calcula sus indicadores de calidad, coste y plazo (incluye CU-19)."),
+   (S, "El sistema muestra sus resultados y la demanda prevista de las piezas que suministra."),
+   (A, "El Suministrador abre el detalle de un indicador o de un periodo."),
+   (S, "El sistema muestra los pedidos y las recepciones que componen ese indicador.")],
+  ["**En la línea 4:** el Suministrador intenta ver datos de otro suministrador. El sistema rechaza la petición y la registra en la bitácora. Fin del caso de uso."]),
+ "CU-10": ("Comprador (inicia)", "RF-12", "Media",
+  "Evaluar al suministrador con datos, no con impresiones.",
+  "Se inicia cuando el Comprador evalúa un suministrador en un periodo. El sistema calcula los indicadores y registra la evaluación. Finaliza cuando la evaluación queda publicada al suministrador.",
+  [(A, "El Comprador selecciona el suministrador y el periodo."),
+   (S, "El sistema calcula los indicadores de calidad, coste y plazo (incluye CU-19)."),
+   (A, "El Comprador agrega su valoración y las acciones de mejora acordadas."),
+   (S, "El sistema registra la evaluación y la publica al suministrador.")],
+  ["**En la línea 2:** no hay datos suficientes en el periodo. El sistema lo indica y propone ampliar el periodo; se continúa en la línea 1."]),
+ "CU-11": ("Director de Compras (inicia)", "RF-14", "Media",
+  "Ver el gasto de toda la empresa en un solo lugar para decidir.",
+  "Se inicia cuando el Director de Compras consulta el gasto. El sistema consolida los datos de todos los centros. Finaliza cuando el Director de Compras ha visto el detalle que necesita.",
+  [(A, "El Director de Compras elige el periodo, la división y el centro."),
+   (S, "El sistema consolida el gasto de todos los centros y calcula los indicadores (incluye CU-19)."),
+   (S, "El sistema muestra el gasto por suministrador, categoría y centro, y las oportunidades de agrupar demanda."),
+   (A, "El Director de Compras profundiza en un suministrador o una categoría."),
+   (S, "El sistema muestra el detalle.")],
+  ["**En la línea 2:** un centro todavía no migró. El sistema usa su histórico e indica qué datos provienen del sistema de compras local; se continúa en la línea 3."]),
+ "CU-19": ("Ninguno: caso de uso de apoyo, incluido por CU-09, CU-10 y CU-11", "RF-12", "Alta",
+  "Calcular de una sola forma los indicadores que usan el suministrador, el comprador y la dirección.",
+  "Se inicia cuando un caso de uso base le entrega suministrador y periodo. El sistema calcula los tres indicadores. Finaliza cuando los devuelve al caso base.",
+  [(S, "El sistema recibe del caso de uso base el suministrador y el periodo."),
+   (S, "El sistema toma las recepciones, los rechazos, los precios y las fechas de entrega del periodo."),
+   (S, "El sistema calcula calidad (recepciones conformes), coste (variación frente al precio de contrato) y plazo (entregas a tiempo)."),
+   (S, "El sistema devuelve los indicadores al caso de uso base.")],
+  ["**En la línea 2:** no hay datos en el periodo. El sistema devuelve los indicadores marcados «sin datos»."]),
+ "CU-12": ("Ingeniero del Centro de Desarrollo (inicia) · Comprador de desarrollo", "RF-15, RF-18", "Media",
+  "Integrar a Compras y a los suministradores desde el inicio de un proyecto de nuevo producto.",
+  "Se inicia cuando arranca un proyecto de nuevo producto. El sistema registra piezas, hitos y responsables. Finaliza cuando queda el calendario de compras del proyecto.",
+  [(A, "El Ingeniero del Centro de Desarrollo comparte el plan del proyecto y la lista de piezas compradas."),
+   (S, "El sistema registra el proyecto, sus piezas y sus hitos."),
+   (A, "El Comprador de desarrollo asigna a cada pieza un suministrador candidato y un comprador responsable."),
+   (S, "El sistema registra la asignación de recursos y el calendario de compras del proyecto.")],
+  ["**En la línea 3:** una pieza no tiene suministrador en la base. El Comprador de desarrollo lo incorpora con CU-08 y se continúa en la línea 3."]),
+ "CU-13": ("Ingeniero del Centro de Desarrollo (inicia) · Comprador de desarrollo · Suministrador", "RF-16", "Media",
+  "Fijar el coste objetivo de una pieza comprada antes de que el diseño quede cerrado.",
+  "Se inicia cuando una pieza del proyecto necesita coste objetivo. El sistema registra la propuesta y la oferta. Finaliza cuando el coste acordado queda registrado.",
+  [(A, "El Ingeniero del Centro de Desarrollo propone el coste objetivo de la pieza."),
+   (S, "El sistema lo registra y lo comunica al Suministrador candidato."),
+   (A, "El Suministrador responde con su oferta."),
+   (S, "El sistema compara la oferta con el coste objetivo."),
+   (A, "El Comprador de desarrollo acuerda el coste con las partes."),
+   (S, "El sistema registra el coste objetivo acordado.")],
+  ["**En la línea 4:** la oferta supera el coste objetivo. El sistema muestra la diferencia; el Comprador de desarrollo renegocia y se vuelve a la línea 3, o pide revisar el diseño y se vuelve a la línea 1."]),
+ "CU-14": ("Comprador de desarrollo (inicia)", "RF-17", "Media",
+  "Saber, pieza por pieza, si los suministradores llegan a tiempo al lanzamiento.",
+  "Se inicia cuando el Comprador de desarrollo revisa un proyecto. El sistema muestra los hitos de preparación. Finaliza cuando el avance queda registrado.",
+  [(A, "El Comprador de desarrollo abre el proyecto."),
+   (S, "El sistema muestra, por pieza y suministrador, los hitos de preparación y su estado."),
+   (A, "El Comprador de desarrollo actualiza el estado de un hito."),
+   (S, "El sistema registra el avance y recalcula el estado del proyecto.")],
+  ["**En la línea 2:** un hito de preparación está incumplido. Se extiende con CU-20."]),
+ "CU-20": ("Comprador de desarrollo (inicia)", "RF-17", "Media",
+  "Hacer visible a tiempo un riesgo para la fecha de lanzamiento. Extiende a CU-14 bajo la condición [hito de preparación incumplido].",
+  "Se inicia en la línea 2 de CU-14 cuando un hito está incumplido. El sistema registra el riesgo y lo comunica. Finaliza cuando el riesgo queda abierto y asignado.",
+  [(S, "El sistema señala el hito incumplido y su efecto sobre la fecha de lanzamiento."),
+   (A, "El Comprador de desarrollo describe el riesgo y propone una acción."),
+   (S, "El sistema registra el riesgo y lo comunica al equipo del proyecto."),
+   (S, "El sistema mantiene el riesgo abierto hasta que el hito se cumpla.")],
+  ["**En la línea 2:** el Comprador de desarrollo reprograma el hito sin riesgo para el lanzamiento. El sistema registra la nueva fecha. Fin del caso de uso."]),
+}
+NOMBRE_CU = {c[0]: c[1] for c in CU + CU_APOYO}
+assert set(DESCR) == set(NOMBRE_CU), set(NOMBRE_CU) ^ set(DESCR)
 
-for n, cap in [("cdu-expandido-hd-01-requisicion", "Figura 4 — CDU-01 expandido."),
-               ("cdu-expandido-hd-02-recepcion", "Figura 5 — CDU-02 expandido."),
-               ("cdu-expandido-hd-03-suministradores", "Figura 6 — CDU-03 expandido."),
-               ("cdu-expandido-hd-04-proyectos", "Figura 7 — CDU-04 expandido.")]:
-    IMGP(n, 6.3, cap)
+
+def describir(cid):
+    actores, rfs, prioridad, proposito, resumen, pasos, alternos = DESCR[cid]
+    H("%s %s" % (cid, NOMBRE_CU[cid]), 4)
+    TBL(["Campo", "Contenido"],
+        [["**Actores**", actores], ["**Propósito**", proposito], ["**Resumen**", resumen],
+         ["**Requerimientos**", rfs], ["**Prioridad**", prioridad]],
+        fracs=[0.14, 0.86], size=9)
+    filas = []
+    for n, (lado, txt) in enumerate(pasos, 1):
+        celda = "**%d.** %s" % (n, txt)
+        filas.append([celda, ""] if lado == A else ["", celda])
+    TBL(["Acción del actor", "Respuesta del sistema"], filas, fracs=[0.45, 0.55], size=9)
+    BUL(alternos, size=9.5)
+
+
+P("**Descripciones textuales.** Cada caso de uso se describe con la plantilla de clase: curso normal en dos "
+  "columnas con una sola numeración, y cursos alternos anclados a la línea donde ocurren. Van agrupados por "
+  "proceso, después de su diagrama.")
+GRUPOS = [("CDU-01 Requisición y emisión del pedido de compra", "cdu-expandido-hd-01-requisicion", "Figura 4 — CDU-01 expandido.",
+           ["CU-01", "CU-02", "CU-03", "CU-04", "CU-15", "CU-16"]),
+          ("CDU-02 Recepción, seguimiento y pago al suministrador", "cdu-expandido-hd-02-recepcion", "Figura 5 — CDU-02 expandido.",
+           ["CU-05", "CU-06", "CU-07", "CU-17", "CU-18"]),
+          ("CDU-03 Gestión de la información y la relación con suministradores", "cdu-expandido-hd-03-suministradores", "Figura 6 — CDU-03 expandido.",
+           ["CU-08", "CU-09", "CU-10", "CU-11", "CU-19"]),
+          ("CDU-04 Seguimiento de compras en proyectos de nuevos productos", "cdu-expandido-hd-04-proyectos", "Figura 7 — CDU-04 expandido.",
+           ["CU-12", "CU-13", "CU-14", "CU-20"])]
+for titulo_g, lamina, leyenda, casos in GRUPOS:
+    H(titulo_g, 3, brk=True)
+    IMGP(lamina, 6.3, leyenda)
+    for cid in casos:
+        describir(cid)
 
 H("3.2 Drivers de atributos de calidad", 2)
 NOTE("**Qué taxonomía se usa**\n"
@@ -691,6 +925,10 @@ PRI = {a[0]: "(%s, %s)" % (a[5][0], a[6][0]) for a in AC}
 TBL(["Id", "Categoría", "Característica ISO/IEC 25010", "Motivo en el caso", "Medida de la respuesta", "Prioridad", "Stakeholders", "Fuente"],
     [[a[0], a[1], a[2], a[3], a[4], PRI[a[0]], a[7], a[8]] for a in AC],
     fracs=[0.06, 0.10, 0.15, 0.18, 0.27, 0.07, 0.09, 0.08], size=8, usable=9.4)
+NOTE("**Prioridad**\n"
+     "Con los dos ejes —importancia para el negocio y dificultad técnica— los que más pesan en el diseño son "
+     "**EAC-01, EAC-04 y EAC-06** — los tres (A, A) —, seguidos de EAC-02, EAC-05 y EAC-09, que son (A, M). Las restricciones no se priorizan: "
+     "todas son obligatorias.")
 P("**Escenarios de atributos de calidad (EaC).** Cada driver se especifica en seis partes: quién o qué lo provoca "
   "(fuente de estímulo), qué ocurre (estímulo), sobre qué parte (artefacto), en qué condiciones (entorno), qué hace "
   "el sistema (respuesta) y cómo se comprueba (medida de la respuesta). Sin medida no es un driver. El formato "
@@ -702,13 +940,9 @@ TBL(["ID", "Categoría", "Escenario", "Prioridad"],
       "**Respuesta:** %s.\n**Medida de la respuesta:** %s." % (e[1], e[2], e[3], e[4], e[5], e[6]),
       PRI[e[0]]] for e in EAC],
     fracs=[0.08, 0.14, 0.68, 0.10], size=8.5, usable=9.4)
-NOTE("**Prioridad**\n"
-     "Con los dos ejes —importancia para el negocio y dificultad técnica— los que más pesan en el diseño son "
-     "**EAC-01, EAC-04 y EAC-06** — los tres (A, A) —, seguidos de EAC-02, EAC-05 y EAC-09, que son (A, M). Las restricciones no se priorizan: "
-     "todas son obligatorias.")
 H("3.3 Drivers de restricción", 2)
 P("Por las seis categorías de clase. El caso no cita ninguna norma legal: las dos regulatorias son **supuestos** de "
-  "traer el caso al presente, y van rotuladas.")
+  "traer el caso al presente, y van rotuladas.", pegar=True)
 TBL(["Id", "Categoría", "Restricción", "Fuente", "Stakeholders"], RE,
     fracs=[0.06, 0.13, 0.50, 0.19, 0.12], size=8.5, usable=9.4)
 
@@ -826,17 +1060,9 @@ TBL(["En el caso (1998-1999)", "Hoy", "Driver"],
      ["ISO/IEC 9126", "Familia ISO/IEC 25000", "§6.4"]],
     fracs=[0.38, 0.42, 0.20], size=9)
 
-H("5.7 Perspectiva lógica: capas dentro de cada servicio", 2)
-TBL(["Elemento", "Responsabilidad"],
-    [["**Capa de presentación**", "Recibe la interacción del usuario y le muestra resultados: aplicación web, portal del suministrador y app de recepción"],
-     ["**Capa de servicios web**", "Expone los servicios para integrar sistemas externos: API Gateway y contratos de cada servicio"],
-     ["**Capa de negocio**", "Coordina la ejecución de los casos de uso: los cuatro servicios, uno por proceso"],
-     ["**Capa de datos**", "Almacena los objetos y oculta al resto que es una base relacional"],
-     ["**Capa de integración**", "Conecta con los sistemas existentes: MRP/DRP de planta, Cuentas de Acreedores, ingeniería"]],
-    fracs=[0.28, 0.72], size=9)
-H("5.8 Diagrama de bloques: arquitectura basada en eventos", 2)
+H("5.7 Diagrama de bloques: arquitectura basada en eventos", 2)
 P("El **diagrama de bloques de alto nivel** es el primer paso antes del detalle: quién produce, quién enruta y quién "
-  "consume. Toda flecha lleva el nombre del evento que transporta.")
+  "consume. Toda flecha lleva el nombre del evento que transporta.", pegar=True)
 sec = SEC(True); pie(sec)
 IMGP("bloques-hd", 9.3, "Figura 8 — Diagrama de bloques de SiL'K: productores, enrutador y consumidores de eventos.")
 sec = SEC(False); pie(sec)
@@ -853,10 +1079,20 @@ TBL(["Evento", "Publicador", "Suscriptores", "Para qué"],
 P("**Beneficios para SiL'K**, los cuatro de clase: comunicación desacoplada (una planta caída no detiene a las "
   "demás, `RE-12`), flexibilidad (cada fase agrega suscriptores sin tocar lo entregado, `RE-05`), escalabilidad "
   "(`EAC-03`) y reutilización de los eventos (el almacén analítico los recibe todos, `RF-14`).")
+H("5.8 Perspectiva lógica: capas dentro de cada servicio", 2)
+TBL(["Elemento", "Responsabilidad"],
+    [["**Capa de presentación**", "Recibe la interacción del usuario y le muestra resultados: aplicación web, portal del suministrador y app de recepción"],
+     ["**Capa de servicios web**", "Expone los servicios para integrar sistemas externos: API Gateway y contratos de cada servicio"],
+     ["**Capa de negocio**", "Coordina la ejecución de los casos de uso: los cuatro servicios, uno por proceso"],
+     ["**Capa de datos**", "Almacena los objetos y oculta al resto que es una base relacional"],
+     ["**Capa de integración**", "Conecta con los sistemas existentes: MRP/DRP de planta, Cuentas de Acreedores, ingeniería"]],
+    fracs=[0.28, 0.72], size=9)
 H("5.9 Diagrama de despliegue", 2)
 P("El **diagrama de despliegue** (o de distribución) muestra los nodos físicos y qué componentes ejecuta cada uno. "
   "Notación de clase: nodo como cubo; `«device»` para el hardware y `«executionEnvironment»` para el software que "
-  "aloja componentes; componentes **dentro** del nodo; conexión de línea llena con el protocolo; zonas FrontEnd y BackEnd.")
+  "aloja componentes; componentes **dentro** del nodo; conexión de línea llena con el protocolo; zonas FrontEnd y BackEnd. La figura 9 da la vista de conjunto y "
+  "las figuras 10 a 12 amplían cada zona.", pegar=True)
+IMGP("despliegue-hd", 9.2, "Figura 9 — Diagrama de despliegue de SiL'K, vista de conjunto.")
 TBL(["Nodo", "Componentes", "Por qué está ahí"],
     [["PC de oficina", "Aplicación web SiL'K", "Compradores, solicitantes y dirección: sin instalación (EAC-05)"],
      ["Tableta del muelle", "App de recepción con cola local", "Recibir aunque no haya red (EAC-01)"],
@@ -870,14 +1106,15 @@ TBL(["Nodo", "Componentes", "Por qué está ahí"],
      ["Servidor de planta (uno por centro)", "MRP/DRP · agente de integración · sistema local en retiro", "Los sistemas existentes no se mueven (RE-13, RE-14)"],
      ["Servidores corporativos", "Cuentas de Acreedores · directorio · sistemas de ingeniería", "Sistemas existentes de la sede (RE-13)"]],
     fracs=[0.24, 0.36, 0.40], size=9)
-sec = SEC(True); pie(sec)
-IMGP("despliegue-hd", 9.4, "Figura 9 — Diagrama de despliegue de SiL'K.")
-sec = SEC(False); pie(sec)
 NOTE("**Supuestos de dimensionamiento**\n"
      "El caso no trae ningún dato de hardware. Para 800 usuarios concurrentes (`EAC-02`) con crecimiento a 3.000 "
      "(`EAC-03`) se supone: clúster de 3 nodos de 8 vCPU y 32 GB (24 vCPU y 96 GB en total, con capacidad para perder "
      "un nodo), base de datos primaria y en espera en zonas distintas, y mensajería de 3 nodos. Son valores de "
      "partida para la prueba de carga del paso 5 (§6.1), no un compromiso.")
+DET = detalles_despliegue()
+IMGF(DET[0][0], DET[0][1], 9.2, "Figura 10 — Detalle del despliegue: usuarios y dispositivos.")
+IMGF(DET[1][0], DET[1][1], 9.2, "Figura 11 — Detalle del despliegue: nube privada virtual y región secundaria.")
+IMGF(DET[2][0], DET[2][1], 4.4, "Figura 12 — Detalle del despliegue: sistemas existentes en los centros.")
 
 # =====================================================================
 # §6 PASOS + MODELO DE CALIDAD
@@ -967,8 +1204,8 @@ BUL(["Las medidas de calidad, las dos restricciones regulatorias y el dimensiona
      "No se elige proveedor de software: el caso termina sin decidirlo y la rúbrica no lo pide. La arquitectura vale "
      "para cualquiera de los tres finalistas, porque el paquete queda detrás de los contratos de servicio.",
      "No se incluye un diagrama de componentes aparte: los componentes van dentro de sus nodos en el despliegue.",
-     "Se entrega la descripción textual de un caso de uso (CU-02) como muestra de la plantilla; los otros trece "
-     "quedan especificados por su diagrama y su traza."], size=9.5)
+     "Las medidas de las descripciones textuales (por ejemplo, dos días hábiles para responder un reclamo) son "
+     "reglas de negocio propuestas."], size=9.5)
 
 H("8. Referencias", 2)
 BUL(["Austin, R. D., Sole, D. y Cotteleer, M. J. (2003). *La selección de software empresarial de Harley Davidson "

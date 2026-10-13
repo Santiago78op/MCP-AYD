@@ -2961,67 +2961,67 @@ def despliegue_hd():
          (1830, "Servidor del suministrador", "Sistema de gestión del suministrador",
           "Cliente de API / EDI")]
     for x, dev, ee, comp in C:
-        els += cubo(x, 110, 480, 260, "«device»", dev)
-        els += cubo(x + 20, 190, 420, 160, "«executionEnvironment»", ee, d=12, tam=12)
-        els += componente(x + 45, 258, 350, 62, comp, 12)
+        els += cubo(x, 110, 480, 260, "«device»", dev, tam=15)
+        els += cubo(x + 20, 190, 420, 160, "«executionEnvironment»", ee, d=12, tam=14)
+        els += componente(x + 45, 258, 350, 62, comp, 13)
 
     els += cubo(60, 480, 1480, 170, "«device»",
                 "Borde de red: balanceador de carga y cortafuegos de aplicación\n(dos zonas de disponibilidad)",
                 rotulo=(80, 600))
-    els += componente(720, 565, 240, 62, "API Gateway\n(límite de tasa · EAC-04)", 11)
-    els += componente(990, 565, 240, 62, "Proveedor de identidad\n(SSO · MFA)", 11)
-    els += componente(1260, 565, 240, 62, "Pasarela VPN\na los centros", 11)
+    els += componente(720, 565, 240, 62, "API Gateway\n(límite de tasa · EAC-04)", 13)
+    els += componente(990, 565, 240, 62, "Proveedor de identidad\n(SSO · MFA)", 13)
+    els += componente(1260, 565, 240, 62, "Pasarela VPN\na los centros", 13)
 
     els += cubo(60, 690, 900, 420, "«device»",
                 "Clúster de contenedores: 3 nodos · 8 vCPU · 32 GB c/u (supuesto)", rotulo=(80, 800))
     els += cubo(80, 770, 860, 320, "«executionEnvironment»", "Orquestador de contenedores: espacio SiL'K",
-                d=12, tam=12)
+                d=12, tam=14)
     SV = ["Servicio Requisición\ny Pedido (CDU-01)", "Servicio Recepción\ny Facturas (CDU-02)",
           "Servicio Suministradores\n(CDU-03)", "Servicio Proyectos\nde producto (CDU-04)",
           "Portal web y Portal\ndel suministrador", "Servicio de Integración\n(adaptadores · RE-13)"]
     for i, t in enumerate(SV):
-        els += componente(100 + (i % 3) * 275, 850 + (i // 3) * 110, 255, 80, t, 11)
+        els += componente(100 + (i % 3) * 275, 850 + (i // 3) * 110, 255, 80, t, 13)
 
-    els += cubo(1100, 690, 440, 130, "«device»", "Clúster de mensajería (3 nodos)")
-    els += componente(1115, 757, 195, 50, "Bus de eventos", 11)
-    els += componente(1320, 757, 195, 50, "Cola de reintentos\n(EAC-09)", 11)
-    els += cubo(1100, 850, 440, 130, "«device»", "Almacén analítico")
-    els += componente(1115, 917, 195, 50, "Almacén de datos\nde compras", 11)
-    els += componente(1320, 917, 195, 50, "Tablero de gasto\ne indicadores", 11)
-    els += cubo(1100, 1010, 440, 170, "«device»", "Servidor de base de datos: primario + espera activa")
-    els += componente(1115, 1090, 195, 62, "BD transaccional\n(SGBD relacional)", 11)
-    els += componente(1320, 1090, 195, 62, "Bitácora de auditoría\n(solo inserción · RE-15)", 11)
+    els += cubo(1100, 690, 440, 130, "«device»", "Clúster de mensajería (3 nodos)", tam=15)
+    els += componente(1115, 757, 195, 50, "Bus de eventos", 13)
+    els += componente(1320, 757, 195, 50, "Cola de reintentos\n(EAC-09)", 13)
+    els += cubo(1100, 850, 440, 130, "«device»", "Almacén analítico", tam=15)
+    els += componente(1115, 917, 195, 50, "Almacén de datos\nde compras", 13)
+    els += componente(1320, 917, 195, 50, "Tablero de gasto\ne indicadores", 13)
+    els += cubo(1100, 1010, 440, 170, "«device»", "Servidor de base de datos (primario y espera)", tam=15)
+    els += componente(1115, 1090, 195, 62, "BD transaccional\n(SGBD relacional)", 13)
+    els += componente(1320, 1090, 195, 62, "Bitácora de auditoría\n(inserción · RE-15)", 13)
 
-    els += cubo(1100, 1250, 440, 130, "«device»", "Servidor de la región secundaria")
-    els += componente(1115, 1317, 400, 50, "Réplica de la BD y clúster en espera", 11)
+    els += cubo(1100, 1250, 440, 130, "«device»", "Servidor de la región secundaria", tam=15)
+    els += componente(1115, 1317, 400, 50, "Réplica de la BD y clúster en espera", 13)
 
     els += cubo(1780, 480, 620, 310, "«device»",
                 "Servidor de planta: uno por centro (York · Kansas City ·\nTomahawk · Wauwatosa · Menomonee Falls · Franklin)")
-    els += componente(1800, 590, 270, 62, "Sistema MRP/DRP\nde planta", 11)
-    els += componente(2090, 590, 270, 62, "Agente de integración\n(guardar y reenviar)", 11)
-    els += componente(1800, 690, 270, 62, "Sistema de compras local\n(en retiro · RE-14)", 11)
-    els += cubo(1780, 840, 620, 310, "«device»", "Servidores corporativos: sede de Milwaukee")
-    els += componente(1800, 930, 270, 62, "Sistema de Cuentas\nde Acreedores", 11)
-    els += componente(2090, 930, 270, 62, "Directorio corporativo", 11)
-    els += componente(1800, 1030, 270, 62, "Sistemas de ingeniería\n(Centro de Desarrollo)", 11)
+    els += componente(1800, 590, 270, 62, "Sistema MRP/DRP\nde planta", 13)
+    els += componente(2090, 590, 270, 62, "Agente de integración\n(guardar y reenviar)", 13)
+    els += componente(1800, 690, 270, 62, "Sistema de compras local\n(en retiro · RE-14)", 13)
+    els += cubo(1780, 840, 620, 310, "«device»", "Servidores corporativos: sede de Milwaukee", tam=15)
+    els += componente(1800, 930, 270, 62, "Sistema de Cuentas\nde Acreedores", 13)
+    els += componente(2090, 930, 270, 62, "Directorio corporativo", 13)
+    els += componente(1800, 1030, 270, 62, "Sistemas de ingeniería\n(Centro de Desarrollo)", 13)
 
     # clientes -> borde
-    els += ruta([(300, 370), (300, 500)], punta=None, etiqueta="«HTTPS · TLS 1.3»", pos=(390, 420), ancho=130)
-    els += ruta([(870, 370), (870, 500)], punta=None, etiqueta="«HTTPS · TLS 1.3»", pos=(960, 420), ancho=130)
-    els += ruta([(1340, 370), (1340, 500)], punta=None, etiqueta="«Internet · HTTPS»", pos=(1250, 420), ancho=130)
+    els += ruta([(300, 370), (300, 500)], punta=None, etiqueta="«HTTPS · TLS 1.3»", pos=(390, 420), ancho=130, tam=13)
+    els += ruta([(870, 370), (870, 500)], punta=None, etiqueta="«HTTPS · TLS 1.3»", pos=(960, 420), ancho=130, tam=13)
+    els += ruta([(1340, 370), (1340, 500)], punta=None, etiqueta="«Internet · HTTPS»", pos=(1250, 420), ancho=130, tam=13)
     els += ruta([(2070, 370), (2070, 424), (1460, 424), (1460, 500)], punta=None,
-                etiqueta="«Internet · HTTPS · API»", pos=(1670, 411), ancho=170)
+                etiqueta="«Internet · HTTPS · API»", pos=(1670, 411), ancho=170, tam=13)
     # dentro de la nube
-    els += ruta([(400, 650), (400, 710)], punta=None, etiqueta="«HTTPS»", pos=(450, 672), ancho=70)
-    els += ruta([(950, 760), (1100, 760)], punta=None, etiqueta="«AMQP · TLS»", pos=(1025, 745), ancho=110)
-    els += ruta([(950, 1090), (1100, 1090)], punta=None, etiqueta="«SQL · TLS»", pos=(1025, 1075), ancho=110)
-    els += ruta([(1300, 980), (1300, 1030)], punta=None, etiqueta="«captura de cambios»", pos=(1420, 997), ancho=150)
+    els += ruta([(400, 650), (400, 710)], punta=None, etiqueta="«HTTPS»", pos=(450, 672), ancho=70, tam=13)
+    els += ruta([(950, 760), (1100, 760)], punta=None, etiqueta="«AMQP · TLS»", pos=(1025, 745), ancho=110, tam=13)
+    els += ruta([(950, 1090), (1100, 1090)], punta=None, etiqueta="«SQL · TLS»", pos=(1025, 1075), ancho=110, tam=13)
+    els += ruta([(1300, 980), (1300, 1030)], punta=None, etiqueta="«captura de cambios»", pos=(1420, 997), ancho=150, tam=13)
     els += ruta([(1300, 1180), (1300, 1270)], punta=None, etiqueta="«replicación asíncrona · TLS»",
-                pos=(1440, 1211), ancho=210)
+                pos=(1440, 1211), ancho=210, tam=13)
     # hacia los centros
-    els += ruta([(1530, 560), (1780, 560)], punta=None, etiqueta="«VPN IPsec · HTTPS»", pos=(1660, 545), ancho=130)
+    els += ruta([(1530, 560), (1780, 560)], punta=None, etiqueta="«VPN IPsec · HTTPS»", pos=(1660, 545), ancho=130, tam=13)
     els += ruta([(1530, 620), (1612, 620), (1612, 900), (1780, 900)], punta=None,
-                etiqueta="«VPN IPsec ·\nHTTPS · LDAPS»", pos=(1678, 760), ancho=104)
+                etiqueta="«VPN IPsec ·\nHTTPS · LDAPS»", pos=(1678, 760), ancho=104, tam=13)
     return els
 
 
@@ -3071,26 +3071,26 @@ def bloques_hd():
           "todos los eventos")]
     for x0, rotulo, lista in ((40, "Productores de eventos", P), (1200, "Consumidores de eventos", C)):
         els.append(_rect(x0, 100, 400, 870))
-        els.append(texto(rotulo, x0 + 90, 91, 220, 15))
+        els.append(texto(rotulo, x0 + 80, 89, 240, 17))
         for (ic, nombre, desc, _), y in zip(lista, Y):
             els.append(icono(ic, x0 + 168, y, 64))
-            els.append(texto(nombre, x0 + 20, y + 72, 360, 15, _halo=False))
-            els.append(texto(desc, x0 + 20, y + 96, 360, 12, _halo=False))
+            els.append(texto(nombre, x0 + 20, y + 70, 360, 17, _halo=False))
+            els.append(texto(desc, x0 + 20, y + 98, 360, 14, _halo=False))
     # enrutador
     els.append(icono("filter", 780, YC - 110, 80))
-    els.append(texto("Enrutador de eventos", 680, YC - 20, 280, 15, _halo=False))
+    els.append(texto("Enrutador de eventos", 680, YC - 22, 280, 17, _halo=False))
     els.append(texto("El bus de eventos recibe, filtra\ny empuja los eventos a los\nconsumidores apropiados",
-                     680, YC + 4, 280, 12, _halo=False))
+                     680, YC + 6, 280, 14, _halo=False))
     # productores -> enrutador (tronco comun en x=600)
     for (_, _, _, ev), y in zip(P, Y):
         yy = y + 40
         els += ruta([(440, yy), (600, yy), (600, YC - 70), (770, YC - 70)], etiqueta=ev,
-                    pos=(520, yy - 20), ancho=150, tam=12)
+                    pos=(520, yy - 22), ancho=156, tam=14)
     # enrutador -> consumidores (tronco comun en x=1040)
     for (_, _, _, ev), y in zip(C, Y):
         yy = y + 40
         els += ruta([(870, YC - 70), (1040, YC - 70), (1040, yy), (1200, yy)], etiqueta=ev,
-                    pos=(1120, yy - 20), ancho=150, tam=12)
+                    pos=(1120, yy - 22), ancho=156, tam=14)
     return els
 
 

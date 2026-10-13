@@ -18,7 +18,7 @@ integrantes); el material lo elabora Santiago. Modo: **resolver y explicar**. El
 |---|---|---|---|---|
 | 1 | Caso de negocio: contexto, core, primera descomposición | 15 | hecho — 3 láminas verificadas | Entrega §1 |
 | 2 | Stakeholders | 10 | hecho — 17, con interés propio y fuente | Entrega §2 |
-| 3 | Drivers RF, de calidad y de restricción | 20 | hecho — 18 RF, 14 + 6 casos de uso en 4 diagramas, 9 EAC, 16 RE | Entrega §3 |
+| 3 | Drivers RF, de calidad y de restricción | 20 | hecho — 18 RF, 20 casos de uso en 4 diagramas con sus 20 descripciones textuales, 9 EAC, 16 RE | Entrega §3 |
 | 4 | Cuatro matrices acopladas | 15 | hecho — generadas de tres relaciones; la 3 se deriva | Entrega §4 |
 | 5 | Estilos, bloques y despliegue | 20 | hecho — SOA + capas + eventos; 2 láminas verificadas | Entrega §5 |
 | 6 | Drivers en los pasos y modelo de calidad | 20 | hecho — 7 pasos, EAC a tácticas, ISO/IEC 25010 | Entrega §6 |
@@ -27,17 +27,19 @@ integrantes); el material lo elabora Santiago. Modo: **resolver y explicar**. El
 
 | Qué | Dónde | Cómo se rehace |
 |---|---|---|
-| Documento que se sube | `08-Tareas/Grupo2_CasoHD.pdf` (32 páginas, apaisado) | `python3 06-Proyecto-MCP/generar-entrega-hd.py` |
+| Documento que se sube | `08-Tareas/Grupo2_CasoHD.pdf` (48 páginas, apaisado) | `python3 06-Proyecto-MCP/generar-entrega-hd.py` |
 | Versión editable | `08-Tareas/Entrega - Caso Harley-Davidson.docx` | el mismo comando |
-| Las nueve láminas | `02-Diagramas/caso-hd/` | `python3 06-Proyecto-MCP/generar-excalidraw.py caso-hd/<carpeta>` |
-| Presentación de 10 minutos | 13 láminas (12 más referencias) con notas del orador y animaciones, en claude.ai | se edita en la página |
+| Las nueve láminas y tres detalles del despliegue | `02-Diagramas/caso-hd/` | `python3 06-Proyecto-MCP/generar-excalidraw.py caso-hd/<carpeta>`; los detalles los recorta el generador de la entrega |
+| Presentación de 10 minutos | 13 láminas con animaciones, en claude.ai | se edita en la página |
+| Guion para exponer | `08-Tareas/Guion - Presentación Caso Harley-Davidson.md` | a mano |
 
 ## Lo que falta — lo hace el estudiante
 
 - [x] Integrantes y carnés en el encabezado (Grupo 2).
 - [x] Nombre del archivo: `Grupo2_CasoHD.pdf`.
 - [ ] Ensayar la presentación una vez con reloj: 10 minutos, 23 clics de animación.
-- [ ] Mirar la presentación en modo presentar: las animaciones se validaron por regla, no en pantalla.
+- [ ] Descargar la presentación: **Compartir › Exportación › PDF** o PowerPoint (la descarga automática no funcionó).
+- [ ] Probar el modo presentar: las 13 láminas se revisaron en pantalla en el editor; las animaciones, por regla.
 
 > [!warning] La nota de la rúbrica sobre los integrantes
 > El enunciado dice: *"SOLO TOMEN EN CUENTA A LAS PERSONAS DEL EQUIPO QUE TRABAJEN ACTIVAMENTE EN LA
@@ -55,8 +57,7 @@ dimensionamiento del despliegue: el caso no trae esos datos. También la lectura
 |---|---|
 | Elegir uno de los tres proveedores de software | El caso no lo decide y la rúbrica no lo pide |
 | Diagrama de componentes aparte | Los componentes van dentro de los nodos del despliegue |
-| Descripción textual de los 14 casos de uso | Se entrega una (CU-02) como muestra de la plantilla |
-| Lámina propia de la perspectiva lógica en capas | Va como tabla de responsabilidades (Entrega §5.7) |
+| Lámina propia de la perspectiva lógica en capas | Va como tabla de responsabilidades (Entrega §5.8) |
 
 ## Bitácora
 
@@ -72,6 +73,9 @@ dimensionamiento del despliegue: el caso no trae esos datos. También la lectura
 - **2026-10-13, validación** — Revisión contra la rúbrica: se corrigieron tres fallas (un caso de uso
   llamado «Consultar…», CU-20 sin actor, y matrices 2 y 3 sin el proceso del criterio 1). El PDF se
   reordenó para no dejar páginas a medio llenar: de 37 a 32, todas por encima del 64 % de ocupación.
+- **2026-10-13, cierre** — Descripciones textuales de los veinte casos de uso, agrupadas por proceso junto a
+  su diagrama. Letra más grande en bloques y despliegue, y tres figuras de detalle del despliegue. El PDF
+  quedó en 48 páginas, ninguna por debajo del 47 % de ocupación. Guion de exposición escrito.
 
 ## Preguntas de repaso
 

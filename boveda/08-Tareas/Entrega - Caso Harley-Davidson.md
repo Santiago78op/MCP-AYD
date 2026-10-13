@@ -232,44 +232,453 @@ Salen de las doce actividades de las tres fases (anexo 6b), de los diez criterio
 >
 > Los cuatro diagramas están en el **plano del sistema**: actores y casos de uso sin la barra de negocio.
 
+**Descripciones textuales.** Cada caso de uso se describe con la plantilla de clase: curso normal en dos columnas con una sola numeración, y cursos alternos anclados a la línea donde ocurren. Van agrupados por proceso, después de su diagrama.
 
-#### Descripción textual del caso de uso CU-02, Emitir pedido de compra
 
-| Campo | Contenido |
-|---|---|
-| **Nombre** | CU-02 Emitir pedido de compra |
-| **Actores** | Comprador (inicia) · Suministrador |
-| **Propósito** | Convertir la demanda aprobada en un pedido en firme con el suministrador asignado, al precio del contrato. |
-| **Resumen** | El caso de uso se inicia cuando el Comprador toma solicitudes aprobadas o propuestas generadas desde MRP/DRP. El sistema agrupa la demanda contra el contrato vigente y emite el pedido. Finaliza cuando el Suministrador lo recibe y confirma. |
-
-| Acción del actor | Respuesta del sistema |
-|---|---|
-| **1.** El Comprador selecciona las solicitudes aprobadas y las propuestas pendientes. |  |
-|  | **2.** El sistema agrupa la demanda por suministrador y contrato vigente (incluye CU-15). *Si no hay contrato vigente, ver curso alterno de la línea 2.* |
-| **3.** El Comprador revisa cantidades, fechas de entrega y centro de destino, y confirma. |  |
-|  | **4.** El sistema registra el pedido de compra con su número único y lo envía al Suministrador. |
-| **5.** El Suministrador recibe el pedido y confirma fecha y cantidad. |  |
-|  | **6.** El sistema deja el pedido en firme y devuelve la fecha confirmada al sistema MRP/DRP del centro. |
-
-- **En la línea 2:** no hay contrato vigente para el artículo. El Comprador solicita cotización a los suministradores (CU-16) y, con la oferta elegida, se continúa en la línea 3.
-- **En la línea 5:** el Suministrador propone otra fecha. El sistema avisa al Comprador, que acepta o renegocia; con la fecha acordada se continúa en la línea 6.
-- **Prioridad:** alta, es el caso que más RF concentra (RF-04, RF-05, RF-13).
+#### CDU-01 Requisición y emisión del pedido de compra
 
 ![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-01-requisicion.svg]]
 
 *Figura 4. CDU-01 expandido.*
 
+
+##### CU-01 Solicitar material o servicio
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Empleado solicitante (inicia) |
+| **Propósito** | Pedir un material o un servicio sin necesidad de formación previa y saber quién lo aprueba. |
+| **Resumen** | Se inicia cuando el Empleado solicitante necesita un artículo. El sistema guía la solicitud y la deja pendiente de aprobación. Finaliza cuando el Responsable de área recibe el aviso. |
+| **Requerimientos** | RF-01 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Empleado solicitante busca el artículo o servicio en el catálogo e indica cantidad, fecha requerida y centro de coste. |  |
+|  | **2.** El sistema valida los datos y determina quién debe aprobar según las reglas de autorización. |
+| **3.** El Empleado solicitante confirma la solicitud. |  |
+|  | **4.** El sistema registra la solicitud con un número único, la deja pendiente de aprobación y avisa al Responsable de área. |
+
+- **En la línea 1:** el artículo no está en el catálogo. El Empleado solicitante lo describe en texto libre y se continúa en la línea 2.
+- **En la línea 2:** faltan datos obligatorios. El sistema señala los campos y se vuelve a la línea 1.
+
+
+##### CU-02 Emitir pedido de compra
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Comprador (inicia) · Suministrador |
+| **Propósito** | Convertir la demanda aprobada en un pedido en firme con el suministrador asignado, al precio del contrato. |
+| **Resumen** | Se inicia cuando el Comprador toma solicitudes aprobadas o propuestas generadas desde MRP/DRP. El sistema agrupa la demanda contra el contrato vigente y emite el pedido. Finaliza cuando el Suministrador lo recibe y confirma. |
+| **Requerimientos** | RF-04, RF-05, RF-13 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Comprador selecciona las solicitudes aprobadas y las propuestas pendientes. |  |
+|  | **2.** El sistema agrupa la demanda por suministrador y contrato vigente (incluye CU-15). |
+| **3.** El Comprador revisa cantidades, fechas de entrega y centro de destino, y confirma. |  |
+|  | **4.** El sistema registra el pedido de compra con su número único y lo envía al Suministrador. |
+| **5.** El Suministrador recibe el pedido y confirma fecha y cantidad. |  |
+|  | **6.** El sistema deja el pedido en firme y devuelve la fecha confirmada al sistema MRP/DRP del centro. |
+
+- **En la línea 2:** no hay contrato vigente para el artículo. Se extiende con CU-16 y, con la oferta elegida, se continúa en la línea 3.
+- **En la línea 5:** el Suministrador propone otra fecha. El sistema avisa al Comprador, que acepta o renegocia; con la fecha acordada se continúa en la línea 6.
+
+
+##### CU-03 Generar propuestas de pedido desde MRP/DRP
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Sistema MRP/DRP de planta (inicia) |
+| **Propósito** | Transformar los requisitos de material planificados por cada centro en propuestas de pedido listas para emitir. |
+| **Resumen** | Se inicia cuando el Sistema MRP/DRP de un centro envía sus requisitos de material. El sistema los valida, los agrupa y genera propuestas. Finaliza cuando las propuestas quedan en la bandeja del Comprador. |
+| **Requerimientos** | RF-02, RF-04, RF-05, RF-18 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Sistema MRP/DRP de planta envía los requisitos de material planificados: pieza, cantidad y fecha. |  |
+|  | **2.** El sistema valida cada pieza contra el registro de suministradores y descarta lo que ya está cubierto por pedidos en firme. |
+|  | **3.** El sistema agrupa la demanda contra el contrato vigente (incluye CU-15). |
+|  | **4.** El sistema genera las propuestas de pedido y las deja en la bandeja del Comprador. |
+| **5.** El Sistema MRP/DRP de planta recibe el acuse de los requisitos procesados. |  |
+
+- **En la línea 1:** el envío llega incompleto. El sistema rechaza el lote y pide el reenvío. Fin del caso de uso para ese lote.
+- **En la línea 2:** una pieza no tiene suministrador asignado. El sistema genera la propuesta marcada «sin fuente» y alerta al Comprador; se continúa en la línea 3 con las demás.
+
+
+##### CU-04 Aprobar solicitud de pedido
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Responsable de área (inicia) |
+| **Propósito** | Autorizar o rechazar una solicitud de pedido dejando constancia de quién decidió. |
+| **Resumen** | Se inicia cuando el Responsable de área abre una solicitud pendiente. El sistema le muestra el detalle y registra su decisión. Finaliza cuando la solicitud aprobada llega a la bandeja del Comprador. |
+| **Requerimientos** | RF-03 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Responsable de área abre una solicitud pendiente de aprobación. |  |
+|  | **2.** El sistema muestra el detalle, el importe estimado y el presupuesto disponible del centro de coste. |
+| **3.** El Responsable de área aprueba la solicitud. |  |
+|  | **4.** El sistema registra la decisión con fecha y autor, pasa la solicitud a la bandeja del Comprador y actualiza el estado para el Empleado solicitante. |
+
+- **En la línea 2:** el importe supera el límite del Responsable de área. El sistema deriva la solicitud al nivel siguiente y se continúa en la línea 1 con ese aprobador.
+- **En la línea 3:** el Responsable de área rechaza la solicitud e indica el motivo. El sistema lo registra y avisa al Empleado solicitante. Fin del caso de uso.
+
+
+##### CU-15 Agrupar demanda contra contrato vigente
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Ninguno: caso de uso de apoyo, incluido por CU-02 y CU-03 |
+| **Propósito** | Aprovechar los contratos de toda la empresa agrupando la demanda de centros y divisiones. |
+| **Resumen** | Se inicia cuando un caso de uso base le entrega líneas de demanda. El sistema busca el contrato vigente y agrupa. Finaliza cuando devuelve los grupos al caso base. |
+| **Requerimientos** | RF-05 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+|  | **1.** El sistema recibe del caso de uso base las líneas de demanda. |
+|  | **2.** El sistema busca el contrato vigente para cada artículo y suministrador. |
+|  | **3.** El sistema agrupa las líneas de todos los centros y divisiones bajo un mismo contrato y aplica su precio y condiciones. |
+|  | **4.** El sistema devuelve los grupos al caso de uso base. |
+
+- **En la línea 2:** no existe contrato vigente. El sistema devuelve la línea marcada «sin contrato» al caso de uso base.
+
+
+##### CU-16 Solicitar cotización a suministradores
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Comprador (desde CU-02) · Suministrador |
+| **Propósito** | Obtener precio y plazo cuando un artículo no tiene contrato vigente. Extiende a CU-02 bajo la condición [no hay contrato vigente]. |
+| **Resumen** | Se inicia en la línea 2 de CU-02 cuando no hay contrato vigente. El sistema pide ofertas y las compara. Finaliza cuando la oferta elegida vuelve a CU-02. |
+| **Requerimientos** | RF-04, RF-13 |
+| **Prioridad** | Media |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Comprador selecciona los suministradores candidatos del registro. |  |
+|  | **2.** El sistema envía la solicitud de cotización con su plazo de respuesta. |
+| **3.** El Suministrador responde con precio y plazo de entrega. |  |
+|  | **4.** El sistema compara las ofertas recibidas y las muestra al Comprador. |
+| **5.** El Comprador elige una oferta. |  |
+|  | **6.** El sistema registra la oferta elegida y devuelve el control a la línea 3 de CU-02. |
+
+- **En la línea 3:** ningún Suministrador responde dentro del plazo. El sistema avisa al Comprador, que amplía el plazo o cambia los candidatos; se continúa en la línea 2.
+
+
+#### CDU-02 Recepción, seguimiento y pago al suministrador
+
 ![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-02-recepcion.svg]]
 
 *Figura 5. CDU-02 expandido.*
+
+
+##### CU-05 Recibir material contra pedido
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Recepcionista de almacén (inicia) |
+| **Propósito** | Registrar en el muelle lo que llega, contra el pedido, aunque no haya red. |
+| **Resumen** | Se inicia cuando llega una entrega al muelle. El sistema muestra lo pendiente del pedido y registra lo recibido. Finaliza cuando la recepción queda registrada y publicada. |
+| **Requerimientos** | RF-06, RF-18 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Recepcionista de almacén lee el código del pedido en el documento de entrega. |  |
+|  | **2.** El sistema muestra las líneas pendientes de ese pedido. |
+| **3.** El Recepcionista de almacén registra las cantidades recibidas y su estado. |  |
+|  | **4.** El sistema registra la recepción, actualiza lo pendiente del pedido y publica el evento «material recibido». |
+
+- **En la línea 1:** no hay conexión. La aplicación guarda el registro en su cola local y lo sincroniza al volver la red; se continúa en la línea 3.
+- **En la línea 3:** la cantidad no coincide o el material llega dañado. El sistema registra la diferencia y avisa al Comprador; se continúa en la línea 4.
+
+
+##### CU-06 Seguir el estado del pedido
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Comprador (inicia) |
+| **Propósito** | Saber en qué estado está cada pedido sin perseguirlo por correo o teléfono. |
+| **Resumen** | Se inicia cuando el Comprador revisa sus pedidos abiertos. El sistema muestra el estado y los plazos. Finaliza cuando el Comprador ha visto el historial del pedido. |
+| **Requerimientos** | RF-07, RF-13 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Comprador abre la lista de pedidos abiertos de su cartera. |  |
+|  | **2.** El sistema muestra el estado, la fecha confirmada y los pedidos próximos a vencer. |
+| **3.** El Comprador abre un pedido. |  |
+|  | **4.** El sistema muestra su historial: confirmación, aviso de envío y recepciones. |
+
+- **En la línea 2:** un pedido tiene el plazo de entrega vencido sin recepción. Se extiende con CU-18.
+
+
+##### CU-07 Conciliar factura, pedido y recepción
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Suministrador (inicia) · Sistema de Cuentas de Acreedores |
+| **Propósito** | Pagar solo las facturas que coinciden con el pedido y con lo recibido. |
+| **Resumen** | Se inicia cuando el Suministrador presenta una factura. El sistema la compara con el pedido y la recepción. Finaliza cuando el Suministrador conoce el estado del pago. |
+| **Requerimientos** | RF-08, RF-09, RF-13, RF-18 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Suministrador presenta la factura por el portal o por la interfaz de su sistema. |  |
+|  | **2.** El sistema comprueba que la factura no sea repetida y localiza su pedido y sus recepciones. |
+|  | **3.** El sistema compara cantidades y precios de la factura, el pedido y la recepción. |
+|  | **4.** El sistema marca la factura como conciliada y la envía al Sistema de Cuentas de Acreedores. |
+| **5.** El Sistema de Cuentas de Acreedores devuelve el estado del pago. |  |
+|  | **6.** El sistema informa al Suministrador del estado del pago. |
+
+- **En la línea 2:** la factura ya fue presentada. El sistema la rechaza indicando la original. Fin del caso de uso.
+- **En la línea 3:** factura, pedido y recepción no coinciden. Se extiende con CU-17.
+
+
+##### CU-17 Resolver discrepancia de factura
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Comprador (inicia) |
+| **Propósito** | Decidir qué se hace con una factura que no coincide. Extiende a CU-07 bajo la condición [factura, pedido y recepción no coinciden]. |
+| **Resumen** | Se inicia en la línea 3 de CU-07 cuando hay diferencias. El sistema las muestra y registra la decisión. Finaliza cuando la factura vuelve a CU-07 o queda rechazada. |
+| **Requerimientos** | RF-08 |
+| **Prioridad** | Media |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+|  | **1.** El sistema muestra al Comprador la diferencia línea por línea. |
+| **2.** El Comprador acepta la diferencia o pide una corrección al Suministrador. |  |
+|  | **3.** El sistema registra la decisión y su motivo. |
+|  | **4.** El sistema devuelve la factura a la línea 4 de CU-07. |
+
+- **En la línea 2:** el Comprador rechaza la factura. El sistema avisa al Suministrador con el motivo. Fin del caso de uso para esa factura.
+
+
+##### CU-18 Reclamar retraso al suministrador
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Comprador (desde CU-06) · Suministrador |
+| **Propósito** | Reclamar una entrega atrasada y dejar el retraso registrado. Extiende a CU-06 bajo la condición [plazo de entrega vencido]. |
+| **Resumen** | Se inicia en la línea 2 de CU-06 cuando un plazo venció. El sistema envía el reclamo y recibe la nueva fecha. Finaliza cuando la fecha comprometida queda actualizada. |
+| **Requerimientos** | RF-07, RF-12, RF-13 |
+| **Prioridad** | Media |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+|  | **1.** El sistema señala el pedido con plazo vencido y propone el reclamo. |
+| **2.** El Comprador confirma el reclamo. |  |
+|  | **3.** El sistema envía el reclamo al Suministrador y lo registra. |
+| **4.** El Suministrador responde con la nueva fecha y la causa del retraso. |  |
+|  | **5.** El sistema actualiza la fecha comprometida, registra el retraso para la evaluación del suministrador y avisa al centro de producción. |
+
+- **En la línea 4:** el Suministrador no responde en dos días hábiles. El sistema escala el reclamo a la Dirección de Compras. Fin del caso de uso.
+
+
+#### CDU-03 Gestión de la información y la relación con suministradores
 
 ![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-03-suministradores.svg]]
 
 *Figura 6. CDU-03 expandido.*
 
+
+##### CU-08 Incorporar suministrador a la base de aprovisionamiento
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Comprador (inicia) |
+| **Propósito** | Dar de alta a un suministrador una sola vez para toda la empresa. |
+| **Resumen** | Se inicia cuando el Comprador incorpora un suministrador nuevo. El sistema comprueba que no exista y crea su registro. Finaliza cuando el registro queda disponible para todos los centros. |
+| **Requerimientos** | RF-10 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Comprador registra los datos del suministrador, sus contactos, las piezas que suministra y los centros que atiende. |  |
+|  | **2.** El sistema comprueba que el suministrador no exista ya y valida los datos. |
+| **3.** El Comprador confirma el alta. |  |
+|  | **4.** El sistema crea el registro único, habilita el acceso al portal para sus contactos y lo deja disponible para todos los centros. |
+
+- **En la línea 2:** el suministrador ya existe. El sistema muestra el registro existente para actualizarlo. Fin del caso de uso.
+
+
+##### CU-09 Seguir su desempeño y la demanda prevista
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Suministrador (inicia) |
+| **Propósito** | Que el suministrador conozca cómo lo evalúa Harley-Davidson y qué demanda viene. |
+| **Resumen** | Se inicia cuando el Suministrador entra al portal. El sistema calcula sus indicadores y muestra la demanda prevista. Finaliza cuando el Suministrador ha visto sus datos. |
+| **Requerimientos** | RF-11, RF-12, RF-13 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Suministrador entra al portal y se autentica con doble factor. |  |
+|  | **2.** El sistema calcula sus indicadores de calidad, coste y plazo (incluye CU-19). |
+|  | **3.** El sistema muestra sus resultados y la demanda prevista de las piezas que suministra. |
+| **4.** El Suministrador abre el detalle de un indicador o de un periodo. |  |
+|  | **5.** El sistema muestra los pedidos y las recepciones que componen ese indicador. |
+
+- **En la línea 4:** el Suministrador intenta ver datos de otro suministrador. El sistema rechaza la petición y la registra en la bitácora. Fin del caso de uso.
+
+
+##### CU-10 Evaluar resultados del suministrador
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Comprador (inicia) |
+| **Propósito** | Evaluar al suministrador con datos, no con impresiones. |
+| **Resumen** | Se inicia cuando el Comprador evalúa un suministrador en un periodo. El sistema calcula los indicadores y registra la evaluación. Finaliza cuando la evaluación queda publicada al suministrador. |
+| **Requerimientos** | RF-12 |
+| **Prioridad** | Media |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Comprador selecciona el suministrador y el periodo. |  |
+|  | **2.** El sistema calcula los indicadores de calidad, coste y plazo (incluye CU-19). |
+| **3.** El Comprador agrega su valoración y las acciones de mejora acordadas. |  |
+|  | **4.** El sistema registra la evaluación y la publica al suministrador. |
+
+- **En la línea 2:** no hay datos suficientes en el periodo. El sistema lo indica y propone ampliar el periodo; se continúa en la línea 1.
+
+
+##### CU-11 Analizar el gasto consolidado de la empresa
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Director de Compras (inicia) |
+| **Propósito** | Ver el gasto de toda la empresa en un solo lugar para decidir. |
+| **Resumen** | Se inicia cuando el Director de Compras consulta el gasto. El sistema consolida los datos de todos los centros. Finaliza cuando el Director de Compras ha visto el detalle que necesita. |
+| **Requerimientos** | RF-14 |
+| **Prioridad** | Media |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Director de Compras elige el periodo, la división y el centro. |  |
+|  | **2.** El sistema consolida el gasto de todos los centros y calcula los indicadores (incluye CU-19). |
+|  | **3.** El sistema muestra el gasto por suministrador, categoría y centro, y las oportunidades de agrupar demanda. |
+| **4.** El Director de Compras profundiza en un suministrador o una categoría. |  |
+|  | **5.** El sistema muestra el detalle. |
+
+- **En la línea 2:** un centro todavía no migró. El sistema usa su histórico e indica qué datos provienen del sistema de compras local; se continúa en la línea 3.
+
+
+##### CU-19 Calcular indicadores de calidad, coste y plazo
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Ninguno: caso de uso de apoyo, incluido por CU-09, CU-10 y CU-11 |
+| **Propósito** | Calcular de una sola forma los indicadores que usan el suministrador, el comprador y la dirección. |
+| **Resumen** | Se inicia cuando un caso de uso base le entrega suministrador y periodo. El sistema calcula los tres indicadores. Finaliza cuando los devuelve al caso base. |
+| **Requerimientos** | RF-12 |
+| **Prioridad** | Alta |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+|  | **1.** El sistema recibe del caso de uso base el suministrador y el periodo. |
+|  | **2.** El sistema toma las recepciones, los rechazos, los precios y las fechas de entrega del periodo. |
+|  | **3.** El sistema calcula calidad (recepciones conformes), coste (variación frente al precio de contrato) y plazo (entregas a tiempo). |
+|  | **4.** El sistema devuelve los indicadores al caso de uso base. |
+
+- **En la línea 2:** no hay datos en el periodo. El sistema devuelve los indicadores marcados «sin datos».
+
+
+#### CDU-04 Seguimiento de compras en proyectos de nuevos productos
+
 ![[02-Diagramas/caso-hd/3-drivers-rf/cdu-expandido-hd-04-proyectos.svg]]
 
 *Figura 7. CDU-04 expandido.*
+
+
+##### CU-12 Planificar la participación de Compras en el proyecto
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Ingeniero del Centro de Desarrollo (inicia) · Comprador de desarrollo |
+| **Propósito** | Integrar a Compras y a los suministradores desde el inicio de un proyecto de nuevo producto. |
+| **Resumen** | Se inicia cuando arranca un proyecto de nuevo producto. El sistema registra piezas, hitos y responsables. Finaliza cuando queda el calendario de compras del proyecto. |
+| **Requerimientos** | RF-15, RF-18 |
+| **Prioridad** | Media |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Ingeniero del Centro de Desarrollo comparte el plan del proyecto y la lista de piezas compradas. |  |
+|  | **2.** El sistema registra el proyecto, sus piezas y sus hitos. |
+| **3.** El Comprador de desarrollo asigna a cada pieza un suministrador candidato y un comprador responsable. |  |
+|  | **4.** El sistema registra la asignación de recursos y el calendario de compras del proyecto. |
+
+- **En la línea 3:** una pieza no tiene suministrador en la base. El Comprador de desarrollo lo incorpora con CU-08 y se continúa en la línea 3.
+
+
+##### CU-13 Acordar el coste objetivo de una pieza
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Ingeniero del Centro de Desarrollo (inicia) · Comprador de desarrollo · Suministrador |
+| **Propósito** | Fijar el coste objetivo de una pieza comprada antes de que el diseño quede cerrado. |
+| **Resumen** | Se inicia cuando una pieza del proyecto necesita coste objetivo. El sistema registra la propuesta y la oferta. Finaliza cuando el coste acordado queda registrado. |
+| **Requerimientos** | RF-16 |
+| **Prioridad** | Media |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Ingeniero del Centro de Desarrollo propone el coste objetivo de la pieza. |  |
+|  | **2.** El sistema lo registra y lo comunica al Suministrador candidato. |
+| **3.** El Suministrador responde con su oferta. |  |
+|  | **4.** El sistema compara la oferta con el coste objetivo. |
+| **5.** El Comprador de desarrollo acuerda el coste con las partes. |  |
+|  | **6.** El sistema registra el coste objetivo acordado. |
+
+- **En la línea 4:** la oferta supera el coste objetivo. El sistema muestra la diferencia; el Comprador de desarrollo renegocia y se vuelve a la línea 3, o pide revisar el diseño y se vuelve a la línea 1.
+
+
+##### CU-14 Controlar la preparación para el lanzamiento
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Comprador de desarrollo (inicia) |
+| **Propósito** | Saber, pieza por pieza, si los suministradores llegan a tiempo al lanzamiento. |
+| **Resumen** | Se inicia cuando el Comprador de desarrollo revisa un proyecto. El sistema muestra los hitos de preparación. Finaliza cuando el avance queda registrado. |
+| **Requerimientos** | RF-17 |
+| **Prioridad** | Media |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+| **1.** El Comprador de desarrollo abre el proyecto. |  |
+|  | **2.** El sistema muestra, por pieza y suministrador, los hitos de preparación y su estado. |
+| **3.** El Comprador de desarrollo actualiza el estado de un hito. |  |
+|  | **4.** El sistema registra el avance y recalcula el estado del proyecto. |
+
+- **En la línea 2:** un hito de preparación está incumplido. Se extiende con CU-20.
+
+
+##### CU-20 Escalar riesgo de lanzamiento
+
+| Campo | Contenido |
+|---|---|
+| **Actores** | Comprador de desarrollo (inicia) |
+| **Propósito** | Hacer visible a tiempo un riesgo para la fecha de lanzamiento. Extiende a CU-14 bajo la condición [hito de preparación incumplido]. |
+| **Resumen** | Se inicia en la línea 2 de CU-14 cuando un hito está incumplido. El sistema registra el riesgo y lo comunica. Finaliza cuando el riesgo queda abierto y asignado. |
+| **Requerimientos** | RF-17 |
+| **Prioridad** | Media |
+
+| Acción del actor | Respuesta del sistema |
+|---|---|
+|  | **1.** El sistema señala el hito incumplido y su efecto sobre la fecha de lanzamiento. |
+| **2.** El Comprador de desarrollo describe el riesgo y propone una acción. |  |
+|  | **3.** El sistema registra el riesgo y lo comunica al equipo del proyecto. |
+|  | **4.** El sistema mantiene el riesgo abierto hasta que el hito se cumpla. |
+
+- **En la línea 2:** el Comprador de desarrollo reprograma el hito sin riesgo para el lanzamiento. El sistema registra la nueva fecha. Fin del caso de uso.
 
 
 ### 3.2 Drivers de atributos de calidad
@@ -294,6 +703,10 @@ Salen de las doce actividades de las tres fases (anexo 6b), de los diez criterio
 | EAC-08 | Portabilidad | Portabilidad › adaptabilidad, capacidad de ser instalado | El caso califica la «portabilidad de plataformas» | El mismo paquete de despliegue se levanta en otra nube o centro de datos en ≤ 5 días hábiles con 0 cambios de código | (B, M) | STK-09 | anexo 10 |
 | EAC-09 | Fiabilidad | Fiabilidad › tolerancia a fallos · Seguridad › integridad | «Eliminación de registros duplicados» y «corrección de errores» | 0 pedidos o facturas duplicados ante reintentos; 100 % de las facturas conciliadas a tres bandas antes del pago | (A, M) | STK-13, STK-06, STK-12 | anexo 3 |
 
+> **Prioridad**
+>
+> Con los dos ejes (importancia para el negocio y dificultad técnica) los que más pesan en el diseño son **EAC-01, EAC-04 y EAC-06**, los tres (A, A),  seguidos de EAC-02, EAC-05 y EAC-09, que son (A, M). Las restricciones no se priorizan: todas son obligatorias.
+
 **Escenarios de atributos de calidad (EaC).** Cada driver se especifica en seis partes: quién o qué lo provoca (fuente de estímulo), qué ocurre (estímulo), sobre qué parte (artefacto), en qué condiciones (entorno), qué hace el sistema (respuesta) y cómo se comprueba (medida de la respuesta). Sin medida no es un driver. El formato de seis partes es el de Bass, Clements y Kazman (2021) y el del ejemplo visto en clase.
 
 | ID | Categoría | Escenario | Prioridad |
@@ -307,10 +720,6 @@ Salen de las doce actividades de las tres fases (anexo 6b), de los diez criterio
 | EAC-07 | Modificabilidad | **Fuente de estímulo:** Dirección de Compras.<br>**Estímulo:** Cambia el límite de aprobación de un tipo de compra.<br>**Artefacto:** Servicio Requisición y Pedido.<br>**Entorno:** Mantenimiento.<br>**Respuesta:** La regla se cambia por configuración, se prueba y se despliega.<br>**Medida de la respuesta:** ≤ 1 día hábil · 1 servicio tocado. | (M, M) |
 | EAC-08 | Portabilidad | **Fuente de estímulo:** Grupo de Integración de Arquitecturas.<br>**Estímulo:** Cambia la norma de infraestructura y hay que mover la plataforma.<br>**Artefacto:** Paquete de despliegue.<br>**Entorno:** Cambio planificado.<br>**Respuesta:** La misma definición de infraestructura levanta la solución en el nuevo entorno.<br>**Medida de la respuesta:** ≤ 5 días hábiles · 0 cambios de código. | (B, M) |
 | EAC-09 | Fiabilidad | **Fuente de estímulo:** Sistema del suministrador.<br>**Estímulo:** Reenvía la misma factura tras un corte de red.<br>**Artefacto:** Servicio Recepción y Facturas y cola de reintentos.<br>**Entorno:** Red inestable.<br>**Respuesta:** El segundo envío se reconoce como repetido y no genera otro registro.<br>**Medida de la respuesta:** 0 duplicados · 100 % de facturas conciliadas antes del pago. | (A, M) |
-
-> **Prioridad**
->
-> Con los dos ejes (importancia para el negocio y dificultad técnica) los que más pesan en el diseño son **EAC-01, EAC-04 y EAC-06**, los tres (A, A),  seguidos de EAC-02, EAC-05 y EAC-09, que son (A, M). Las restricciones no se priorizan: todas son obligatorias.
 
 
 ### 3.3 Drivers de restricción
@@ -551,18 +960,7 @@ De la lista de clase, de menor alcance que el estilo y con una regla cada uno: *
 | ISO/IEC 9126 | Familia ISO/IEC 25000 | §6.4 |
 
 
-### 5.7 Perspectiva lógica: capas dentro de cada servicio
-
-| Elemento | Responsabilidad |
-|---|---|
-| **Capa de presentación** | Recibe la interacción del usuario y le muestra resultados: aplicación web, portal del suministrador y app de recepción |
-| **Capa de servicios web** | Expone los servicios para integrar sistemas externos: API Gateway y contratos de cada servicio |
-| **Capa de negocio** | Coordina la ejecución de los casos de uso: los cuatro servicios, uno por proceso |
-| **Capa de datos** | Almacena los objetos y oculta al resto que es una base relacional |
-| **Capa de integración** | Conecta con los sistemas existentes: MRP/DRP de planta, Cuentas de Acreedores, ingeniería |
-
-
-### 5.8 Diagrama de bloques: arquitectura basada en eventos
+### 5.7 Diagrama de bloques: arquitectura basada en eventos
 
 El **diagrama de bloques de alto nivel** es el primer paso antes del detalle: quién produce, quién enruta y quién consume. Toda flecha lleva el nombre del evento que transporta.
 
@@ -584,9 +982,24 @@ El **diagrama de bloques de alto nivel** es el primer paso antes del detalle: qu
 **Beneficios para SiL'K**, los cuatro de clase: comunicación desacoplada (una planta caída no detiene a las demás, `RE-12`), flexibilidad (cada fase agrega suscriptores sin tocar lo entregado, `RE-05`), escalabilidad (`EAC-03`) y reutilización de los eventos (el almacén analítico los recibe todos, `RF-14`).
 
 
+### 5.8 Perspectiva lógica: capas dentro de cada servicio
+
+| Elemento | Responsabilidad |
+|---|---|
+| **Capa de presentación** | Recibe la interacción del usuario y le muestra resultados: aplicación web, portal del suministrador y app de recepción |
+| **Capa de servicios web** | Expone los servicios para integrar sistemas externos: API Gateway y contratos de cada servicio |
+| **Capa de negocio** | Coordina la ejecución de los casos de uso: los cuatro servicios, uno por proceso |
+| **Capa de datos** | Almacena los objetos y oculta al resto que es una base relacional |
+| **Capa de integración** | Conecta con los sistemas existentes: MRP/DRP de planta, Cuentas de Acreedores, ingeniería |
+
+
 ### 5.9 Diagrama de despliegue
 
-El **diagrama de despliegue** (o de distribución) muestra los nodos físicos y qué componentes ejecuta cada uno. Notación de clase: nodo como cubo; `«device»` para el hardware y `«executionEnvironment»` para el software que aloja componentes; componentes **dentro** del nodo; conexión de línea llena con el protocolo; zonas FrontEnd y BackEnd.
+El **diagrama de despliegue** (o de distribución) muestra los nodos físicos y qué componentes ejecuta cada uno. Notación de clase: nodo como cubo; `«device»` para el hardware y `«executionEnvironment»` para el software que aloja componentes; componentes **dentro** del nodo; conexión de línea llena con el protocolo; zonas FrontEnd y BackEnd. La figura 9 da la vista de conjunto y las figuras 10 a 12 amplían cada zona.
+
+![[02-Diagramas/caso-hd/5-estilo-despliegue/despliegue-hd.svg]]
+
+*Figura 9. Diagrama de despliegue de SiL'K, vista de conjunto.*
 
 | Nodo | Componentes | Por qué está ahí |
 |---|---|---|
@@ -602,13 +1015,21 @@ El **diagrama de despliegue** (o de distribución) muestra los nodos físicos y 
 | Servidor de planta (uno por centro) | MRP/DRP · agente de integración · sistema local en retiro | Los sistemas existentes no se mueven (RE-13, RE-14) |
 | Servidores corporativos | Cuentas de Acreedores · directorio · sistemas de ingeniería | Sistemas existentes de la sede (RE-13) |
 
-![[02-Diagramas/caso-hd/5-estilo-despliegue/despliegue-hd.svg]]
-
-*Figura 9. Diagrama de despliegue de SiL'K.*
-
 > **Supuestos de dimensionamiento**
 >
 > El caso no trae ningún dato de hardware. Para 800 usuarios concurrentes (`EAC-02`) con crecimiento a 3.000 (`EAC-03`) se supone: clúster de 3 nodos de 8 vCPU y 32 GB (24 vCPU y 96 GB en total, con capacidad para perder un nodo), base de datos primaria y en espera en zonas distintas, y mensajería de 3 nodos. Son valores de partida para la prueba de carga del paso 5 (§6.1), no un compromiso.
+
+![[02-Diagramas/caso-hd/5-estilo-despliegue/despliegue-hd-detalle-1-usuarios.png]]
+
+*Figura 10. Detalle del despliegue: usuarios y dispositivos.*
+
+![[02-Diagramas/caso-hd/5-estilo-despliegue/despliegue-hd-detalle-2-nube.png]]
+
+*Figura 11. Detalle del despliegue: nube privada virtual y región secundaria.*
+
+![[02-Diagramas/caso-hd/5-estilo-despliegue/despliegue-hd-detalle-3-existentes.png]]
+
+*Figura 12. Detalle del despliegue: sistemas existentes en los centros.*
 
 
 ## 6. Drivers de calidad y de restricción en los pasos, y modelo de calidad (criterio 6, 20 pts)
@@ -705,7 +1126,7 @@ Un **modelo de calidad** descompone la calidad del producto en características 
 - Las medidas de calidad, las dos restricciones regulatorias y el dimensionamiento son **supuestos de diseño**; el caso no trae esos datos.
 - No se elige proveedor de software: el caso termina sin decidirlo y la rúbrica no lo pide. La arquitectura vale para cualquiera de los tres finalistas, porque el paquete queda detrás de los contratos de servicio.
 - No se incluye un diagrama de componentes aparte: los componentes van dentro de sus nodos en el despliegue.
-- Se entrega la descripción textual de un caso de uso (CU-02) como muestra de la plantilla; los otros trece quedan especificados por su diagrama y su traza.
+- Las medidas de las descripciones textuales (por ejemplo, dos días hábiles para responder un reclamo) son reglas de negocio propuestas.
 
 
 ### 8. Referencias
