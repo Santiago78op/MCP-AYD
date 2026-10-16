@@ -27,11 +27,14 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Arco de comunicación** — El nombre formal de la línea que une un actor con un caso de uso; es la misma que en el diagrama de CUN lleva la navegabilidad. → [[Caso de uso]]
 - **Arqueología arquitectónica** — Recuperar la arquitectura de un sistema legacy sin documentación confiable (Clements). → [[El ciclo del architecting]]
 - **Arquitecting** — El proceso de la arquitectura del software. → [[Proceso de diseño arquitectónico]]
+- **Arquitecto de información** — El rol que organiza los contenidos de un producto según las necesidades informativas de los usuarios: *"organiza los patrones inherentes a los datos, haciendo lo complejo claro"*. Ni RUP ni XP lo definen; la NT2 pide incluirlo. → [[Arquitectura de la información]] §6
 - **Arquitecto de software** — Rol responsable de obtener los requisitos del cliente, generar el diseño de arquitectura, dar soluciones a los desarrolladores e integrar los requerimientos no funcionales. → [[Arquitecto de software]]
 - **Arquitecto jefe** — El único rol que la clase marca como **necesario** cuando la arquitectura la diseña un equipo (los otros: arquitecto de aplicaciones, de infraestructuras, de datos). → [[Arquitecto de software]]
+- **Arquitectura ágil (AA)** — Concepto que integra la arquitectura de software con las metodologías ágiles, que se veían incompatibles; *"se enfatiza fuertemente en el concepto de los Requisitos Significantes para la Arquitectura"* (NT3). → [[Arquitectura ágil]]
 - **Arquitectura candidata** — La primera propuesta de arquitectura, todavía por validar: se produce en el **esfuerzo inicial** (guarda `[initial effort]` del flujo de Ambler). **En clase** (capturas_U2_F2, 25) la diapositiva la presenta con una tabla de **tipos**: conceptual, modular, código y ejecución, cada uno con sus elementos y relaciones. → [[Arquitectura de referencia]] · [[Proceso de diseño arquitectónico]]
 - **Arquitectura centrada en el flujo de datos** — **En clase**: familia en la que *"la computación/procesamiento es dirigido por el flujo de datos en el sistema"* (capturas_U2_F3, 13); los datos se transforman pasando por filtros conectados por tuberías. *"Enfatiza la reutilización y la modificabilidad"* (15). Miembros: tuberías y filtros, secuencial por lotes. → [[Arquitectura centrada en el flujo de datos]]
 - **Arquitectura de 2 capas (cliente-servidor)** — El cliente hace la petición y el servidor responde. Cliente y servidor son **roles**, no máquinas: un smartphone puede ser los dos. → [[Arquitectura en capas]]
+- **Arquitectura de la información (AI)** — *"La disciplina encargada de la organización de los contenidos en un producto, tomando como punto de partida las necesidades y consideraciones de la audiencia"* (NT2). No es la arquitectura de software: organiza contenidos, no componentes. → [[Arquitectura de la información]]
 - **Arquitectura de la nube** — Los componentes y subcomponentes que se encuentran en una nube, y el diseño que los conecta; "hay mucho más que solo tecnología". → [[Arquitectura en la nube]]
 - **Arquitectura de referencia** — **En clase**: *"un modelo de referencia mapeado en elementos de software que cooperativamente implementan la funcionalidad definida en el modelo de referencia y flujos de datos entre ellos"*. Sale de modelo de referencia + patrón arquitectónico, y se adapta para llegar a la arquitectura de un sistema; **en sí no es una arquitectura**. En el flujo de Ambler es la que se reutiliza entre proyectos. → [[Arquitectura de referencia]]
 - **Arquitectura de software** — La organización fundamental de un sistema: sus componentes, la relación entre ellos y con el ambiente, y los principios que guían su diseño y evolución. → [[Arquitectura de software]]
@@ -129,6 +132,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Estructura de despliegue** — Muestra cómo el software se asigna a los elementos de procesamiento y comunicación del hardware; permite razonar sobre rendimiento, integridad, seguridad y disponibilidad. → [[Diagrama de despliegue]]
 - **Estructuras de asignación** — Las que mapean software sobre lo que NO es software: despliegue, implementación y asignación de trabajo. → [[Diagrama de despliegue]]
 - **Estructuras de localización** — El nombre que la lámina *Estructuras* da a las de **asignación**: relación entre los elementos de software y los ambientes externos donde el software es creado o ejecutado. → [[Categorías de estructuras]]
+- **Etapas de la arquitectura de la información** — Tres: **investigación**, **organización** y **diseño** (Ronda León, en la NT2). Se corresponden con Inicio, Elaboración y Construcción de RUP, y con Exploración, Planificación y Producción de XP. → [[Arquitectura de la información]] §5
 - **Etapas del método de diseño** — Las **ocho** de la Figura 2-8, en cuatro fases: requerimientos (drivers, alcance), diseño/refinamiento, experimentación (decisión, experimentar) y producción (planear, implementar). → [[Método de diseño centrado en la arquitectura]]
 - **Extend (relación de extensión)** — Relación que agrega a un CU base una conducta opcional u optativa, que no siempre ocurre. → [[Relación de extensión extend]]
 - **Extremo cliente / extremo servidor** — En el diagrama de RPC de clase, las piezas que empaquetan, envían, reciben y desempaquetan, y ocultan la red al cliente y al servidor (fuera de clase: *stub* y *skeleton*). → [[Llamada a procedimiento remoto]]
@@ -148,6 +152,10 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Generalización-especialización** — Relación que muestra workflows que comparten estructura, propósito y comportamiento: un CU padre y uno o más CU hijos. → [[Generalización y especialización en casos de uso]]
 - **Gold plating** — Funcionalidad construida que ningún requisito pidió; la detecta la trazabilidad hacia atrás. → [[Matriz de trazabilidad de requisitos]]
 - **Grano grueso / grano fino** — Los elementos arquitectónicos son de grano grueso y los de diseño de grano fino; hay que conservar la traza entre ambos para que la arquitectura gobierne el resto del proceso. → [[Arquitectura de software en el modelo en espiral]] §2
+
+## H
+
+- **Historia de usuario** — En XP, el artefacto que escribe el **cliente** para describir escenarios del funcionamiento del software; define los requisitos y se prioriza en la fase de planificación (NT2). → [[Arquitectura de la información]] §3
 
 ## I
 - **IaaS / PaaS / SaaS** — Modelos de nube: infraestructura (el dispositivo), plataforma (el entorno de ejecución), software listo para usar (el artefacto). → [[Diagrama de despliegue]]
@@ -248,11 +256,13 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Realización** — El elemento (clase o componente) implementa una interfaz. En UML 2.x: punteada con triángulo hueco. **Ojo**: en sus diagramas de clases (capturas_U2 26-28, 54, 56) ella la dibuja con **línea llena rotulada «Realización»**. → [[Relaciones y dependencias en UML]]
 - **Realizaciones de CUN** — Muestran cómo colaboran los trabajadores y entidades de negocio para ejecutar el proceso; se documentan con diagramas de actividad, clases y secuencia, y descripción textual. → [[Realizaciones de casos de uso del negocio]]
 - **Repositorio** — Variante pasiva del estilo centrado en datos: los accesores tienen la iniciativa y el esquema de datos es el contrato común. → [[Estilos arquitectónicos]]
-- **Requerimientos significativos arquitectónicamente** — *"Aquellos que tienen un impacto esencial sobre la arquitectura"* (lectura de Meaurio y Schmieder). Es la misma idea que los drivers arquitectónicos de clase. → [[Arquitectura de software en el modelo en espiral]] §2 · [[Drivers arquitectónicos]]
+- **Requerimientos significativos arquitectónicamente** — *"Aquellos que tienen un impacto esencial sobre la arquitectura"* (NT1, Meaurio y Schmieder). Es la misma idea que los drivers arquitectónicos de clase, y lo que la NT3 llama **RSA**. → [[Arquitectura de software en el modelo en espiral]] §2 · [[Requisitos significativos para la arquitectura]] · [[Drivers arquitectónicos]]
 - **Requisito huérfano** — Requisito sin diseño o sin caso de prueba asociado; hueco de cobertura. → [[Matriz de trazabilidad de requisitos]]
 - **Requisitos en conflicto** — Dos requisitos están en conflicto "si no pueden implementarse juntos, es decir, si la solución a un requisito **impide** la implementación de otro" (NT1). Es el tradeoff visto desde los requisitos. → [[Matriz de trazabilidad de requisitos]]
+- **Requisitos significativos para la arquitectura (RSA, ASR)** — *"Aquellos requisitos que tienen un impacto medible en una arquitectura de sistemas de software"* (Chen, en la NT3): si faltan, la arquitectura resultante sería totalmente diferente. Suelen ser no funcionales, pero también pueden ser funcionales. Son subjetivos, relativos e interactúan entre ellos. → [[Requisitos significativos para la arquitectura]]
 - **REST** — Estilo 8 de la lista de nueve de la clase. La única diapositiva es la de *API RESTful* (capturas_U2_F3, 20), puesta **dentro de la serie de flujo de datos**: *"interfaz que dos sistemas de computación utilizan para intercambiar información de manera segura a través de Internet"*. → [[Tuberías y filtros]] §4
 - **Rol (asociación)** — Nombre del papel que juega una clase en un extremo de una asociación. → [[Diagrama de clases]]
+- **RSA** — Ver **Requisitos significativos para la arquitectura**. → [[Requisitos significativos para la arquitectura]]
 - **RUP** — *Rational Unified Process*: fases (inception, elaboration, construction, transition) y flujos de trabajo donde el arquitecto tiene un rol definido en cada uno. Según la clase, es el que **identifica las 4+1 vistas de arquitectura**. → [[Arquitectura y proceso de desarrollo]] · [[Modelo 4+1 vistas]]
 
 ## S
@@ -297,3 +307,4 @@ líneas y el enlace a la nota donde se explica a fondo.
 ## X
 
 - **XMI (XML Metadata Interchange)** — Estándar que permite pasar un modelo UML a XML para que otras aplicaciones lo procesen. → [[Arquitectura dirigida por modelos MDA]] §5
+- **XP (eXtreme Programming)** — Metodología ágil. Seis fases según la NT2: Exploración, Planificación de la entrega, Iteraciones, Producción, Mantenimiento y Muerte del proyecto. Roles: cliente, programador y encargado de pruebas. → [[Arquitectura de la información]] §3 · [[Arquitectura ágil]]

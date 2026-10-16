@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura en el ciclo de vida
-fuente: "LECTURA — Meaurio y Schmieder (2013), Revista Latinoamericana de Ingeniería de Software 1(4): 142-146"
+fuente: "NOTA TÉCNICA DE CLASE NT1 (unidad 3) — Meaurio y Schmieder (2013), Revista Latinoamericana de Ingeniería de Software 1(4): 142-146"
 fecha: 2026-10-13
 ---
 
@@ -10,8 +10,9 @@ Compatible con el plugin **Spaced Repetition** de Obsidian: cada tarjeta es una 
 pregunta, el separador de dos signos de dos puntos, y la respuesta. Salen de
 [[Arquitectura dirigida por modelos MDA]] y [[Arquitectura de software en el modelo en espiral]].
 
-> [!warning] Es una lectura, no una diapositiva
-> Falta confirmar si la repartió la catedrática y si entra en el tercer parcial.
+> [!note] Es la NT1 de la unidad 3
+> Nota técnica de clase (*Arquitectura del SW y CCV*), no una diapositiva. No confundir con la NT1
+> de trazabilidad de la unidad 1.
 
 ¿Qué es MDA y quién lo promueve? :: Model Driven Architecture, de la OMG: construir software como transformación sucesiva de modelos en UML, desde alto nivel de abstracción hasta una plataforma concreta.
 ¿Cuáles son los cuatro modelos de MDA, en orden? :: CIM, PIM, PSM e ISM: negocio, sistema sin tecnología, sistema con tecnología, y código.

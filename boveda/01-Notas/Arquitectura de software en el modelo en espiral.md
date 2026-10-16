@@ -1,7 +1,8 @@
 ---
 tema: Arquitectura en el ciclo de vida
-fuente: "LECTURA — Meaurio y Schmieder (2013), «La Arquitectura de Software en el Proceso de Desarrollo: Integrando MDA al Ciclo de Vida en Espiral», Revista Latinoamericana de Ingeniería de Software 1(4): 142-146. Archivo en 00-Fuentes/lecturas/. Secciones III a VI y figuras 3, 4 y 5. Falta confirmar si la repartió la catedrática (duda 47). La lectura de la figura 4 (qué tramo es alto, medio o bajo) es propia y va marcada."
+fuente: "NOTA TÉCNICA DE CLASE — Meaurio y Schmieder (2013), «La Arquitectura de Software en el Proceso de Desarrollo: Integrando MDA al Ciclo de Vida en Espiral», Revista Latinoamericana de Ingeniería de Software 1(4): 142-146. Es la NOTA TÉCNICA DE CLASE NT1 de la unidad 3, «Arquitectura del SW y CCV» (00-Fuentes/lecturas/; el mismo texto está en La_Arquitectura_de_Software_en_el_Proceso_de_Desar.pdf, verificado al 99,6 %). No confundir con la NT1 de trazabilidad de la unidad 1. Secciones III a VI y figuras 3, 4 y 5. La lectura de la figura 4 (qué tramo es alto, medio o bajo) es propia y va marcada."
 fecha: 2026-10-13
+actualizada: 2026-10-16
 alias: [modelo en espiral, espiral de Boehm, ciclo de vida en espiral, arquitectura en el ciclo de vida, integridad conceptual, requerimientos significativos arquitectónicamente, MDA en espiral]
 ---
 
@@ -13,8 +14,10 @@ cuánto**; y **cómo se integra MDA** a ese ciclo para bajar el riesgo. Para ubi
 
 > [!note] De dónde sale esta nota
 > Del mismo artículo que [[Arquitectura dirigida por modelos MDA]] (Meaurio y Schmieder, 2013). Es
-> una lectura, no una diapositiva. Lo que sí es de clase sobre este tema está en
-> [[Arquitectura en el ciclo de vida del software]].
+> la **NT1 de la unidad 3**, *Arquitectura del SW y CCV*: una nota técnica, o sea **material de
+> clase**, aunque no sea una diapositiva. La diapositiva sobre el tema está en
+> [[Arquitectura en el ciclo de vida del software]]. Las otras dos notas técnicas de la unidad son
+> [[Arquitectura de la información]] (NT2) y [[Arquitectura ágil]] (NT3).
 
 ## 1. El modelo en espiral
 
@@ -193,7 +196,7 @@ información, la documentación ni la evaluación.
 | Idea de la lectura | Con qué se cruza |
 |---|---|
 | La arquitectura son las decisiones de diseño más tempranas | [[Arquitectura de software]], [[Beneficios de la arquitectura de software]] |
-| Requerimientos significativos arquitectónicamente | [[Drivers arquitectónicos]]: es la misma idea con otro nombre |
+| Requerimientos significativos arquitectónicamente | [[Drivers arquitectónicos]]: es la misma idea con otro nombre. La NT3 los desarrolla como **RSA**: [[Requisitos significativos para la arquitectura]] |
 | ADD, diseño dirigido por atributos | [[Método de diseño centrado en la arquitectura]], [[Guía - Drivers de calidad y restricción]] |
 | Usar legado, construir o comprar componentes | la decisión del [[Plan - Caso Harley-Davidson]] |
 | Analizar si la arquitectura soporta la calidad | [[Evaluación de la arquitectura]] |

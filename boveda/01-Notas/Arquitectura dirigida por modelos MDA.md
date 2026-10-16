@@ -1,7 +1,8 @@
 ---
 tema: Arquitectura en el ciclo de vida
-fuente: "LECTURA — Meaurio y Schmieder (2013), «La Arquitectura de Software en el Proceso de Desarrollo: Integrando MDA al Ciclo de Vida en Espiral», Revista Latinoamericana de Ingeniería de Software 1(4): 142-146. Archivo en 00-Fuentes/lecturas/. Secciones I y II y figuras 1 y 2. Falta confirmar si la repartió la catedrática (duda 47): hasta entonces se trata como lectura, no como diapositiva de clase."
+fuente: "NOTA TÉCNICA DE CLASE — Meaurio y Schmieder (2013), «La Arquitectura de Software en el Proceso de Desarrollo: Integrando MDA al Ciclo de Vida en Espiral», Revista Latinoamericana de Ingeniería de Software 1(4): 142-146. Es la NOTA TÉCNICA DE CLASE NT1 de la unidad 3, «Arquitectura del SW y CCV» (00-Fuentes/lecturas/; el mismo texto está en La_Arquitectura_de_Software_en_el_Proceso_de_Desar.pdf, verificado al 99,6 %). No confundir con la NT1 de trazabilidad de la unidad 1. Secciones I y II y figuras 1 y 2."
 fecha: 2026-10-13
+actualizada: 2026-10-16
 alias: [MDA, Model Driven Architecture, arquitectura dirigida por modelos, CIM, PIM, PSM, ISM, MOF, XMI, CWM]
 ---
 
@@ -13,8 +14,9 @@ implementación en una plataforma concreta"*. La idea de fondo: lo que se mantie
 y el código se **genera**.
 
 > [!note] De dónde sale esta nota
-> De un artículo de cinco páginas (Meaurio y Schmieder, 2013). No es una diapositiva de clase. El
-> artículo tiene dos mitades: esta nota cubre **qué es MDA**; la otra,
+> De un artículo de cinco páginas (Meaurio y Schmieder, 2013), que la catedrática repartió como la
+> **NT1 de la unidad 3** (*Arquitectura del SW y CCV*). Es nota técnica: **material de clase**,
+> aunque no sea una diapositiva. El artículo tiene dos mitades: esta nota cubre **qué es MDA**; la otra,
 > [[Arquitectura de software en el modelo en espiral]], cubre dónde participa la arquitectura en el
 > ciclo de vida y cómo se integra MDA.
 

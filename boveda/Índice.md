@@ -185,8 +185,11 @@ Los artefactos vivos de cada tarea (el estado real se lee **ahí**, no acá):
 - [[Guion - Presentación Caso Harley-Davidson]] — el guion de los 10 minutos: qué decir en cada lámina, cuándo hacer clic, el reloj y las preguntas probables
 - [[Entrega - Caso Harley-Davidson]] — el entregable completo: caso de negocio, 17 stakeholders, drivers, cuatro matrices, SOA con bloques y despliegue, y el modelo de calidad ISO/IEC 25010
 - [[Ejemplo resuelto - Sistema de Transporte READM]] — **el ejemplo completo de la presentación Calidad del Software**: de contexto a despliegue, la tabla de EAC y el bus de eventos · tarjetas en [[Flashcards - Ejemplo READM y bus de eventos]]
-- [[Arquitectura dirigida por modelos MDA]] — **lectura (unidad 3)**: CIM, PIM, PSM e ISM, las cuatro ventajas y los estándares UML, MOF, XMI y CWM
-- [[Arquitectura de software en el modelo en espiral]] — **lectura (unidad 3)**: cuánto participa la arquitectura en cada vuelta de la espiral de Boehm y cómo se integra MDA · tarjetas en [[Flashcards - MDA y modelo en espiral]]
+- [[Arquitectura dirigida por modelos MDA]] — **NT1 de la unidad 3** (nota técnica de clase): CIM, PIM, PSM e ISM, las cuatro ventajas y los estándares UML, MOF, XMI y CWM
+- [[Arquitectura de software en el modelo en espiral]] — **NT1 de la unidad 3**: cuánto participa la arquitectura en cada vuelta de la espiral de Boehm y cómo se integra MDA · tarjetas en [[Flashcards - MDA y modelo en espiral]]
+- [[Arquitectura de la información]] — **NT2 de la unidad 3**: la AI organiza contenidos para el usuario; sus tres etapas (investigación, organización, diseño) contra las fases de RUP y XP · figuras en `adjuntos/nt2-arquitectura-de-la-informacion/`
+- [[Arquitectura ágil]] — **NT3 de la unidad 3**: por qué ágil y arquitectura parecían incompatibles y cómo los junta la arquitectura ágil
+- [[Requisitos significativos para la arquitectura]] — **NT3**: los RSA, sus tres propiedades y las estrategias de captura · tarjetas de NT2 y NT3 en [[Flashcards - Arquitectura de la información y ágil]]
 - [[Avance - Caso 1 FarmaHosp]] — el tablero: criterios, ruta de pasos y bitácora
 - [[Entrega - Caso 1 FarmaHosp]] — el entregable numerado según la rúbrica (**manda sobre el Avance**)
 - [[Entrega - Parcial 1 SmartPress]] — lo entregado en el primer parcial (22/08), con sus láminas en `02-Diagramas/examen/`

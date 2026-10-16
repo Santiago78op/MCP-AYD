@@ -116,10 +116,10 @@ teoría de estos cuatro puntos: de calidad trae la tabla de escenarios `EAC-nn` 
 
 | Tema | Estado |
 |---|---|
-| Arquitectura en las metodologías: enfoque predictivo y ágil (SCRUM) | 🟡 — [[Arquitectura y proceso de desarrollo]] (complemento) + [[Arquitectura de software en el modelo en espiral]] (lectura: un modelo evolutivo guiado por riesgo; **no** cubre ágil ni SCRUM) |
-| Integrando con la arquitectura de la información | ❌ — **sin material en ninguna fuente local** |
+| Arquitectura en las metodologías: enfoque predictivo y ágil (SCRUM) | 🟡 — [[Arquitectura y proceso de desarrollo]] (complemento) + [[Arquitectura de software en el modelo en espiral]] (NT1: un modelo evolutivo guiado por riesgo) + [[Arquitectura ágil]] y [[Requisitos significativos para la arquitectura]] (**NT3**: ágil y arquitectura, los RSA). SCRUM como proceso sigue solo en el complemento |
+| Integrando con la arquitectura de la información | ✅ — [[Arquitectura de la información]] (**NT2**, nota técnica de clase, 2026-10-16) |
 | Documentando la arquitectura de software | 🟡 — [[Estructuras y vistas arquitectónicas]] + [[El ciclo del architecting]] §4 |
-| Implementación y pruebas | 🟡 — [[Arquitectura y proceso de desarrollo]] §3 (complemento) + [[Arquitectura dirigida por modelos MDA]] (lectura: generación de código desde modelos) |
+| Implementación y pruebas | 🟡 — [[Arquitectura y proceso de desarrollo]] §3 (complemento) + [[Arquitectura dirigida por modelos MDA]] (NT1: generación de código desde modelos) |
 | Evaluación de la arquitectura | 🟡 — [[Evaluación de la arquitectura]] (complemento: ATAM completo) |
 
 Lo que sí es **de clase** es [[Arquitectura en el ciclo de vida del software]], que corresponde a la
@@ -127,10 +127,11 @@ diapositiva "¿Dónde debe colocarse la arquitectura en el ciclo de vida?" — e
 unidad completa. Todo lo demás de esta unidad es **complemento** y hay que validarlo contra la
 presentación cuando llegue.
 
-> [!warning] El único punto del programa sin ninguna fuente
-> **"Integrando con la arquitectura de la información"** no aparece en la guía de estudio, ni en
-> Reynoso, ni en Garland & Anthony — lo busqué en los tres y da **cero menciones**. No lo voy a
-> inventar: hay que **pedirlo en clase**.
+> [!note] La arquitectura de la información ya tiene fuente
+> Era el único punto del programa sin ninguna fuente. El 2026-10-16 llegó la **NT2**, *La
+> Arquitectura de la Información en el CCV*, y lo cubre entero: [[Arquitectura de la información]].
+> Las tres notas técnicas de la unidad 3 son **material de clase**: NT1 (MDA y espiral), NT2 (AI)
+> y NT3 (arquitectura ágil).
 
 ### Unidad 4 — Arquitectura y Negocios ❌
 

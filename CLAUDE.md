@@ -582,12 +582,25 @@ trazo de `06-Proyecto-MCP/iconos/` (Lucide, licencia ISC, monocromos) en el `.ex
 
 ---
 
-### La lectura de MDA y el modelo en espiral — unidad 3
+### Las tres notas técnicas de la unidad 3 — NT1, NT2 y NT3
 
-Notas: `Arquitectura dirigida por modelos MDA` y `Arquitectura de software en el modelo en espiral`.
-Salen de un artículo (Meaurio y Schmieder, 2013) que él dejó en `00-Fuentes/lecturas/` el 12/10.
-**Es una lectura, no una diapositiva**: falta confirmar si la repartió ella y si entra en el tercer
-parcial (duda 47). Cuando se use, decirlo.
+Llegaron el 16/10 y son **material de clase** (notas técnicas, como la NT1 de trazabilidad), aunque
+ninguna es diapositiva. **La numeración se reinicia por unidad**: hay *dos* NT1, la de trazabilidad
+(unidad 1) y la de *Arquitectura del SW y CCV* (unidad 3). Al citarlas, decí de qué unidad. Si
+entran en el parcial del 17/10 sigue abierto (duda 47).
+
+| NT | Archivo | Notas |
+|---|---|---|
+| **NT1** | `lecturas/NT1. Arquitectura del SW y CCV.pdf`: el **mismo** artículo de Meaurio y Schmieder del 12/10 (99,6 % igual) | `Arquitectura dirigida por modelos MDA`, `Arquitectura de software en el modelo en espiral` |
+| **NT2** | `presentaciones/NT2. La Arquitectura de la Información en el CCV.pdf` (Moyares y Bretones, UCI 2010) | `Arquitectura de la información` |
+| **NT3** | `lecturas/NT3. Arquitectura del SW y Metodologías Ágiles.pdf` (Navarro y otros, U.N.S.J.) | `Arquitectura ágil`, `Requisitos significativos para la arquitectura` |
+
+| Tema | Lo que dice la NT | La trampa |
+|---|---|---|
+| **AI ≠ AS** | la AI organiza **contenidos** para el usuario (categorías, etiquetas, navegación) | confundirla con la arquitectura de software |
+| **Etapas de AI** | investigación → organización → diseño = Inicio/Elaboración/Construcción (RUP) = Exploración/Planificación/Producción (XP) | sumarle Transición o Mantenimiento: la tabla 1 no los relaciona |
+| **RSA** | impacto **medible**; si falta, la arquitectura sería otra. Suelen ser no funcionales **pero también funcionales** | igualar RSA con «no funcional» |
+| **Arquitectura ágil** | integra AS y ágil a través de los RSA | decir que la NT3 rechaza la arquitectura en ágil |
 
 | Tema | Lo que dice la lectura | La trampa |
 |---|---|---|

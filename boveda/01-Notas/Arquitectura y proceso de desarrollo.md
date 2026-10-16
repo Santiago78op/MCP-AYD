@@ -246,14 +246,12 @@ Métodos específicos de arquitectura que menciona: **ABD** (Architecture Based 
 
 ---
 
-## Hueco honesto: "arquitectura de la información"
+## La arquitectura de la información ya no es un hueco
 
 El programa lista *"Integrando con la arquitectura de la información"* como punto de la unidad 3, y
-**no aparece en ninguna de las fuentes que tenés**: lo busqué en la guía de estudio, en Reynoso y en
-Garland & Anthony — **cero menciones**.
-
-No voy a inventar el contenido. Es un punto que hay que **pedir en clase**, y quedó anotado como hueco
-en [[Programa oficial del curso]].
+hasta el 2026-10-16 no aparecía en ninguna fuente. Ahora lo cubre la **NT2**, que es material de
+clase: [[Arquitectura de la información]]. Y lo ágil tiene su nota técnica, la **NT3**:
+[[Arquitectura ágil]]. **Si esta nota de complemento y las NT dicen algo distinto, mandan las NT.**
 
 ---
 

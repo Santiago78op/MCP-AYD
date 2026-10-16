@@ -163,6 +163,15 @@ const CASOS = [
   ["glosario", { termino: "PIM" }, "Platform Independent Model"],
   ["obtener_flashcards", { tema: "MDA" }, "?"],
 
+  // --- Notas tecnicas NT2 y NT3 de la unidad 3 (2026-10-16)
+  ["leer_nota", { nombre: "Arquitectura de la informacion" }, "investigación, organización y diseño"],
+  ["leer_nota", { nombre: "Arquitectura agil" }, "Requisitos Significantes para la Arquitectura"],
+  ["leer_nota", { nombre: "Requisitos significativos para la arquitectura" }, "impacto medible"],
+  ["buscar", { consulta: "arquitecto de información" }, "Arquitectura de la información"],
+  ["buscar", { consulta: "RSA" }, "Requisitos significativos para la arquitectura"],
+  ["glosario", { termino: "Historia de usuario" }, "XP"],
+  ["obtener_flashcards", { tema: "Arquitectura de la información y ágil" }, "?"],
+
   ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
 
   // --- referencias y enunciado
