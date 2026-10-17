@@ -97,8 +97,8 @@ La lámina *"Modelo del CV guiado por Arquitecturas"* junta todo en un solo fluj
 
 | Tramo | Qué pasa |
 |---|---|
-| **Entrada (en rojo)** | **Creación del Caso de Negocio** → **Inventario de Información** → entran al **Análisis de Requerimientos** junto con los *requerimientos funcionales* y los *atributos de calidad* |
-| Análisis | *Análisis de Requerimientos* → **Análisis Global**; pasa *requerimientos, atributos de calidad y restricciones* (los **tres tipos de driver**) al **Diseño de Arquitectura** |
+| **Entrada (en rojo)** | **Creación del Caso de Negocio** → **Inventario de Información** → entran al **Análisis de Requerimientos** junto con los *requerimientos funcionales* y los *atributos de calidad* (tres flechas rojas) |
+| Análisis | *Análisis de Requerimientos* → **Análisis Global** (flecha gris) y → **Diseño de Arquitectura** (flecha roja). El rótulo *requerimientos, atributos de calidad y restricciones* (los **tres tipos de driver**) está **entre las dos flechas**, sin tocar ninguna: leído con zoom, no se puede decir a cuál pertenece. Lectura tomada: es lo que sale del análisis de requerimientos |
 | **Diseño de Arquitectura** (caja oscura) | recibe también, en rojo, **estándares, patrones y tácticas**; tiene ida y vuelta con el Análisis Global |
 | Evaluación | el diseño entrega la *descripción de la arquitectura* a la **Evaluación de la Arquitectura**, que también recibe *problemas y estrategias* del Análisis Global |
 | Riesgos | la evaluación pasa *riesgos (técnicos, recursos, operativos)* al **Análisis de Riesgos**, que sale con *estrategias de mitigación, estrategia de ciclo de vida, secuencia de elaboración, estimaciones, criterios de aceptación* |
@@ -111,7 +111,7 @@ flowchart LR
     CN["Creación del caso de negocio"] --> INV["Inventario de información"]
     INV --> AR["Análisis de requerimientos"]
     AR --> AG["Análisis global"]
-    AR -->|"requerimientos, atributos de calidad y restricciones"| DA["Diseño de arquitectura"]
+    AR -->|"drivers: requerimientos, calidad, restricciones"| DA["Diseño de arquitectura"]
     EPT["Estándares, patrones, tácticas"] --> DA
     AG <--> DA
     AG -->|"problemas y estrategias"| EV["Evaluación de la arquitectura"]

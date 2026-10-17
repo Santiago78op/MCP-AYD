@@ -84,17 +84,23 @@ cara y extendiendo el color en cada paso.
 
 ## 4. Predictivo vs. ágil — diferencias y similitudes
 
-La lámina compara dos líneas de tiempo con tres íconos de leyenda:
+La lámina compara dos líneas de tiempo (*TIME*), con tres paradas cada una, y una leyenda de tres
+íconos: **caja de cartón** = *Deliverable Product* (producto entregable), **caja azul** = *Chance of
+Failure* (probabilidad de fallar) y **dado rosa** = *Project Run Rate* (ritmo de gasto del proyecto).
+Contado con zoom:
 
-| Ícono | Leyenda | En **Waterfall** | En **Agile** |
-|---|---|---|---|
-| caja de cartón | *Deliverable Product* (producto entregable) | aparece **solo al final**, todo junto | **en cada tramo**, creciendo |
-| caja azul | *Chance of Failure* (probabilidad de fallar) | va acompañada de más dados a medida que avanza | presente en cada tramo, pero acotada |
-| dado rosa | *Project Run Rate* (ritmo de gasto del proyecto) | se **acumula** hacia el final | **parejo** en cada tramo |
+| Parada | **Waterfall** | **Agile** |
+|---|---|---|
+| 1.ª | caja azul + 2 dados | caja de cartón + caja azul + montón de dados |
+| 2.ª | caja azul + más dados | caja de cartón **más grande** + caja azul + dados |
+| 3.ª | caja azul + **muchos** dados + **recién ahí** las cajas de cartón | caja de cartón **más grande todavía** + caja azul + dados |
 
-*(La lectura de los íconos es propia: la lámina se titula «Diferencias y Similitudes» y no tiene más
-texto.)* La **similitud**: los dos producen el mismo producto y tienen las mismas actividades; lo que
-cambia es **cuándo** se entrega y **dónde** se concentra el riesgo.
+**La lectura** *(propia: la lámina solo dice «Diferencias y Similitudes»)*:
+
+- **Diferencia**: en cascada **el producto aparece solo al final** y el gasto (dados) se va
+  **acumulando** hasta ahí; en ágil hay **producto en cada parada** y crece de a poco.
+- **Similitud**: la **caja azul está en las seis paradas**: los dos enfoques corren riesgo de fallar
+  en todo momento. Lo que cambia es que en ágil, si falla, ya hay producto entregado.
 
 ![[adjuntos/capturas-clase-U3/metodologias/u3f1-39-predictivo-vs-agil-diferencias.png]]
 

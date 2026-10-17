@@ -205,6 +205,8 @@ const CASOS = [
   ["obtener_flashcards", { tema: "Metodologías, Scrum y ciclo de la arquitectura" }, "?"],
   ["obtener_flashcards", { tema: "Modelos de calidad y calidad en uso" }, "?"],
 
+  ["metodo_tarea", { entregable: "Repaso - Parcial 3" }, "Autoevaluación"],
+
   ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
 
   // --- referencias y enunciado

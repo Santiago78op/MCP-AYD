@@ -18,7 +18,7 @@ alias: [modelos de calidad, modelo de calidad, estado del arte, modelos a nivel 
 | Fuente | Definición |
 |---|---|
 | **El artículo** | *"el grado de desempeño de las principales características con las que debe cumplir un sistema computacional durante su ciclo de vida"* |
-| **Pressman (2010)** | *"concordancia con los requisitos funcionales y de rendimiento explícitamente establecidos, con los estándares de desarrollo plenamente documentados y con las características implícitas que se espera de todo software desarrollado profesionalmente"* |
+| **Pressman (2010)** | *"concordancia con los requisitos funcionales y de rendimiento explícitamente establecidos con los estándares de desarrollo plenamente documentados y con las características implícitas que se espera de todo software desarrollado profesionalmente"* |
 | **IEEE (1990)** | *"el grado con el que un sistema, componente o proceso cumple los requerimientos especificados y las necesidades o expectativas del cliente o usuario"* |
 
 La de Pressman es **la misma idea de los tres puntos de ISO 9126** en la clase: requisitos explícitos,
@@ -38,7 +38,7 @@ para proponer mejoras en análisis, diseño, desarrollo y pruebas.
 
 **Figura 1** (Scalone 2006, Bautista 2012): un **factor de calidad** se compone de **criterios de
 calidad**, y cada criterio se evalúa con **métricas**. Se va *"de lo general a lo particular"* para
-*"reducir la subjetividad en la asignación de un valor"*.
+*"permitir la reducción de la subjetividad en la asignación de un valor"*.
 
 ```mermaid
 flowchart TD
@@ -62,7 +62,7 @@ flowchart TD
 
 | Enfoque | Qué evalúa | Idea clave del artículo |
 |---|---|---|
-| **Proceso** | cómo se construye | *"la calidad debe ser programada desde el inicio del proyecto"* y controlada en cada etapa; si una etapa se descuida, baja la calidad del proceso **y del producto** |
+| **Proceso** | cómo se construye | *"la calidad de un sistema software debe ser programada desde el inicio del proyecto"* y controlada en cada etapa; si una etapa se descuida, baja la calidad del proceso **y del producto** |
 | **Producto** | el software construido | especificar y evaluar criterios con **medidas internas y/o externas** (Bevan 2010). Las normas definen la calidad de producto en **tres tipos: interna, externa y en uso** |
 | **En uso** | el producto usado por usuarios reales | *"conjunto de atributos relacionados con la aceptación por parte del usuario final y seguridad"*, basada en **eficacia, productividad, seguridad y satisfacción** (ISO/IEC 9126) |
 
@@ -126,8 +126,9 @@ flowchart TD
 >    incremental… cada iteración se divide en cuatro sectores: planeación, análisis de riesgo,
 >    ingeniería y evaluación"*: eso es el **modelo en espiral** (→
 >    [[Arquitectura de software en el modelo en espiral]]), un modelo de **proceso**, no el modelo de
->    calidad de 1978. Si preguntan por Boehm como **modelo de calidad**, va la versión de clase (1978,
->    jerárquico). Duda 55.
+>    calidad de 1978. La NT1 de la unidad 3 lo confirma: fecha el **espiral** en *"Barry Boehm 1986"*.
+>    Si preguntan por Boehm como **modelo de calidad**, va la versión de clase (1978, jerárquico).
+>    Duda 55.
 > 2. **"Habilidad" es fiabilidad.** En las listas de ISO 9126 y 25000 dice *"Habilidad"*: es un error de
 >    texto por **fiabilidad**.
 > 3. **"TPS" en la figura 2 es TSP.**

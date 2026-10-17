@@ -24,6 +24,9 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 >    (taxonomía de estilos, ahora con más evidencia) y las nuevas 30-37.
 > 3. ~~**Calidad del Software** sigue sin material de clase~~ — llegó el 2026-10-16 (capturas_U3_F1).
 
+> [!tip] Parcial 3 (17/10): empezá por [[Repaso - Parcial 3]]
+> La guía junta unidad 3 y calidad en seis bloques con autoevaluación.
+
 > [!important] Antes que nada
 > [[Programa oficial del curso]] — el contenido temático oficial de la sección A, el cronograma
 > con las fechas de los parciales, y qué puntos del programa **todavía no tienen nota**.

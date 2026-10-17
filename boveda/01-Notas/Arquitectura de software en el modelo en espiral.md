@@ -157,7 +157,7 @@ flowchart TD
 | 1. Descomposición | arquitectos junto con los expertos del dominio | la **primera versión de la arquitectura** |
 | 2. Priorización | los responsables de la administración del proyecto | los requisitos prioritarios para avanzar |
 | 3. Evaluación de alternativas | — | se tienen presentes *"las restricciones, los requisitos de calidad y el análisis de riesgo"* |
-| 4. PIM | — | *"un modelo formal que especifique qué debe realizar la aplicación"*, *"libre de detalles de implementación, pero extremadamente detallado"*. Equivale *"casi en su totalidad"* a la fase de **análisis** tradicional |
+| 4. PIM | — | *"un modelo formal que especifique qué debe realizar la aplicación"*, *"libre de detalles de implementación, pero será extremadamente detallado"*. Equivale *"casi en su totalidad"* a la fase de **análisis** tradicional |
 | 5. Transformaciones | automáticas | PIM a PSM, y PSM a código fuente |
 | 6. Validación | con los stakeholders | ajustes sobre el PIM, que entran en la planificación de la etapa siguiente |
 
