@@ -614,6 +614,12 @@ Notas: `Metodologías predictivas y ágiles`, `Proceso Scrum en la arquitectura 
 | **Mapeo del ciclo** | requerimientos con requerimientos; **diseño, documentación y evaluación en Diseño**; implementación en **Construcción**; pruebas e implantación sin etapa de arquitectura | confundir implementación de la arquitectura con implantación |
 | **Arquitectura empresarial** | cuatro dominios: empresarial, de aplicaciones, de la información (*modelo de datos*), tecnológica | la AI de esta lámina (datos) no es la de la NT2 (contenidos) — duda 57 |
 
+> [!important] Si te habla el día del parcial 3 (17/10)
+> El repaso está armado en **`metodo_tarea("Repaso - Parcial 3")`**: seis bloques con definiciones,
+> listas, trampas y la tabla de qué contestar en cada duda abierta. En **modo examen** se resuelve
+> desde ahí y desde las notas que cita, sin explicar antes. Lo que se genere va en
+> `02-Diagramas/examen 3/<sección>/`.
+
 **Para el parcial 3 (17/10) el estudiante dijo que entran también dos lecturas de calidad**:
 `Modelos de calidad del software` (NT: factor-criterio-métrica, proceso/producto/uso, CMMI escalonado
 5 y continuo 6, veinte modelos con su año) y `Calidad en uso` (Covella y Olsina: eficacia,
@@ -1139,7 +1145,7 @@ boveda/
 │                                3.3-drivers-restriccion, 3.4-priorizacion,
 │                                4-matrices-trazabilidad, 6-bloques-despliegue de la Tarea 2)
 │                                más ejemplos-clase, herramientas, practica, examen (1er parcial)
-│                                y "examen 2" (vacía: el día del 2do parcial todo va ahí). Cada lámina: .excalidraw editable, .svg para
+│                                "examen 2" (2do parcial) y "examen 3" (vacía: el día del 3er parcial, 17/10, todo va ahí, una subcarpeta por sección). Cada lámina: .excalidraw editable, .svg para
 │                                entregar y -verificacion.png. El índice está en su README.md
 ├── 03-Glosario.md               Glosario alfabético
 ├── 04-Flashcards/               Tarjetas de repaso, un archivo por tema (contalas, no las cites de memoria)
