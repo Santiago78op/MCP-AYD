@@ -7,9 +7,17 @@ punto_del_programa: "Unidad 2 — Calidad del Software"
 
 # Atributos de calidad
 
+> [!important] Llegó la teoría de clase (2026-10-16, capturas_U3_F1)
+> Ahora hay láminas de la unidad 2, y **mandan sobre esta nota**:
+> [[Calidad del software]] (qué es, Garvin, por qué importa), [[Norma ISO 9126]] (las seis
+> características con sus subcaracterísticas), [[Familia de normas ISO 25000]],
+> [[Atributos observables y no observables vía ejecución]] (Bass 1998) y [[Escenarios de calidad]]
+> (EAC, con tres ejemplos). Esta nota queda como **complemento** del SAIP: la comparación de
+> taxonomías (§3 ter), los tradeoffs y la técnica para sacar números siguen valiendo.
+
 > [!warning] Nota de COMPLEMENTO
-> La **unidad 2** del programa se da del **25 de agosto al 7 de septiembre** y todavía no hay
-> presentación. Lo que sigue viene del **SAIP** (Bass, Clements y Kazman — bibliografía oficial) vía
+> La **unidad 2** del programa se da del **25 de agosto al 7 de septiembre**; cuando se escribió esta
+> nota no había presentación. Lo que sigue viene del **SAIP** (Bass, Clements y Kazman — bibliografía oficial) vía
 > la guía de estudio, más el contenido temático del programa. Cuando llegue la presentación hay que
 > revisar esta nota contra ella: **si la clase dice algo distinto, manda la clase.**
 >
@@ -278,6 +286,7 @@ docenas de subcaracterísticas**… y la **escalabilidad ni aparece**.
 
 ## Notas relacionadas
 
+- [[Norma ISO 9126]] · [[Escenarios de calidad]] · [[Atributos observables y no observables vía ejecución]] — **la versión de clase**
 - [[Guía - Drivers de calidad y restricción]] — cómo se convierte todo esto en un entregable
 - [[Arquitectura en el ciclo de vida del software]] — "equilibrar requisitos funcionales y calidad"
 - [[Estilos arquitectónicos]] — la tabla de qué atributo favorece y sacrifica cada estilo

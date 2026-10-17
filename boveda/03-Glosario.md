@@ -61,6 +61,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **C & C (componentes y conectores)** — La raíz del árbol de estilos que mostró la clase, con cuatro familias: data flow, call-return, event-based y repository. → [[Catálogo de estilos arquitectónicos]]
 - **Caja negra / caja blanca** — Ver un componente solo por sus interfaces, o mostrando sus clases o subcomponentes internos. → [[Diagrama de componentes]]
 - **Calidad del desarrollo (*developmental quality*)** — Atributo que **no se observa ejecutando** el sistema sino modificándolo: modificabilidad, testabilidad, deployabilidad, integrabilidad. Es la línea del programa "otros atributos de calidad no observables vía ejecución". → [[Atributos de calidad]]
+- **Calidad del software** — De clase: *"proceso eficaz de software que se aplica de manera que crea un producto útil que proporciona valor medible a quienes lo producen y a quienes lo utilizan"*. ISO 9000:2000 la define como el grado en que un conjunto de características inherentes cumple con los requisitos. → [[Calidad del software]]
 - **Camino** — Conexión entre dos nodos de un diagrama de despliegue: línea llena con el protocolo como estereotipo (`«TCP/IP»`, `«wifi»`). → [[Diagrama de despliegue]]
 - **Capa vs tier** — La capa es una partición del código (estructura de módulos); el tier es una partición del despliegue (estructura de asignación). Confundirlos es el error clásico *(complemento, SAIP)*. **En clase se usan como sinónimos** (2 capas = cliente-servidor, three-tier, N-niveles en la nube). → [[Estilos arquitectónicos]] · [[Arquitectura en capas]] §4
 - **Cartucho MDA** — En MDA, el paquete que *"contiene las reglas necesarias para realizar una transformación de modelos"* (lectura de Meaurio y Schmieder). → [[Arquitectura dirigida por modelos MDA]] §2
@@ -83,6 +84,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Conector** — En las estructuras de componentes y conectores, el **vehículo de comunicación** entre los componentes, que son unidades de computación en ejecución. → [[Categorías de estructuras]]
 - **Contexto (del diseño)** — Una de las tres entradas del diseño arquitectónico: aspectos del negocio, de la estructura organizacional, tendencias actuales y tecnología disponible. → [[Qué se tiene en cuenta para el diseño]]
 - **Core (diagrama)** — El diagrama de CUN de más alto nivel: **una sola elipse** que nombra el negocio o sistema completo, rodeada de todos los actores. → [[Ejemplos resueltos de casos de negocio]]
+- **Cumplimiento (subcaracterística)** — En ISO 9126, la capacidad de adherirse a normas, convenciones o legislación de una característica. La rueda de clase pone un *cumplimiento* en cada una de las seis. → [[Norma ISO 9126]] §5
 - **CUN expandidos** — Los CUN con relaciones de inclusión, extensión y generalización-especialización. → [[Caso de uso del negocio]]
 - **Curso alterno** — La variante, excepción o desvío del flujo de trabajo, contada en el texto del mismo caso de uso. → [[Descripción textual de casos de uso]]
 - **Curso normal de eventos** — El flujo básico de la descripción textual, en **dos columnas** (*acción del actor* / *respuesta del proceso de negocio*) con **una sola numeración** intercalada. → [[Descripción textual de casos de uso]]
@@ -124,7 +126,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Empaquetado / desempaquetado** — En RPC, convertir los parámetros o el resultado en bytes para cruzar la red y reconstruirlos del otro lado (pasos del diagrama de la captura 43 de U2_F3). → [[Llamada a procedimiento remoto]]
 - **Entorno de ejecución (`«executionEnvironment»`)** — Nodo que representa **software** capaz de ejecutar artefactos (JRE, máquina virtual); siempre va dentro de un dispositivo. → [[Diagrama de despliegue]]
 - **ESB (Enterprise Service Bus, bus empresarial)** — Intermediario al que se conectan clientes y proveedores de servicios en lugar de invocarse directamente (capturas_U2_F3, 34 y 39). → [[Arquitectura orientada a servicios]] §8
-- **Escenario de atributo de calidad** — La especificación de un requisito de calidad en seis partes: fuente, estímulo, artefacto, entorno, respuesta y **medida**. → [[Atributos de calidad]]
+- **Escenario de atributo de calidad (escenario de calidad)** — De clase: caso preciso que detalla en qué condiciones y de qué manera debe cumplirse un atributo de calidad. Estructura: fuente (u origen) del estímulo, estímulo, entorno, artefacto, respuesta, **medida de la respuesta** (*"criterio para testear el requerimiento"*) y atributo de calidad afectado. → [[Escenarios de calidad]] · [[Atributos de calidad]] §7
 - **Escenarios (vista de)** — La vista "+1" del modelo 4+1: los casos de uso que amarran las otras cuatro vistas y dan trazabilidad. → [[Modelo 4+1 vistas]]
 - **Estereotipo** — Extensión de UML que define un tipo especializado; se escribe entre `«»` y se aplica tanto a clases como a **relaciones**. En el modelo de CUN los dos estereotipos base son *actor del negocio* y *caso de uso del negocio*. → [[Relaciones y dependencias en UML]], [[Modelo de casos de uso del negocio]]
 - **Estilo arquitectónico** — **En clase hay dos definiciones, sin que ella elija**: *"establece las restricciones sobre la arquitectura de una familia de diseños arquitectónicos"* (capturas_U2 21) y *"establece un marco de referencia a partir del cual es posible construir aplicaciones que comparten un conjunto de atributos y características"* (capturas_U2_F2 6). También lo define como una **transformación impuesta** al diseño de todo un sistema, que se compone de uno o más patrones arquitectónicos. En Reynoso (complemento) conjuga componentes, conectores, configuraciones y restricciones. → [[Estilos arquitectónicos]]
@@ -139,6 +141,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 
 ## F
 
+- **Familia de normas ISO/IEC 25000** — Cinco divisiones: 2500n gestión, 2501n modelo, 2502n medición, 2503n requisitos y 2504n evaluación de la calidad. El modelo concreto (25010) vive en la 2501n. → [[Familia de normas ISO 25000]]
 - **Filtro** — Componente de tuberías y filtros. **En clase**: *"no necesariamente realizan únicamente tareas de filtrado sino que ejecutan formas variables de transformación"*, y no necesita conocer el funcionamiento de los filtros vecinos (capturas_U2_F3, 19). → [[Tuberías y filtros]]
 - **Forma icónica / expandida (interfaces)** — La interfaz dibujada como símbolo (círculo o semicírculo) o como caja `«interface»` con sus operaciones. → [[Interfaces de componentes]]
 - **Fragmento combinado (alt/opt/break/loop)** — Marco con condición en un diagrama de secuencia: alterna, hace opcional, corta o repite parte del flujo. → [[Diagrama de secuencia]]
@@ -147,6 +150,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **FURPS** — Taxonomía de calidad de la Tabla 1 de la NT1: **F**uncionalidad, facilidad de uso (*usability*), confiabilidad (*reliability*), rendimiento (*performance*) y capacidad de soporte (*supportability*). Es **otra** clasificación de clase, distinta de los seis del programa. → [[Atributos de calidad]]
 
 ## G
+- **Garvin (puntos de vista de la calidad)** — Cinco: trascendental (se reconoce pero es difícil de definir), usuario (cumple los requerimientos), fabricante (cumple las especificaciones), producto (implementación de funciones) y valor (lo que el cliente está dispuesto a pagar). → [[Calidad del software]] §1
 - **Generalización entre actores** — El actor **padre** se queda con el CUN **compartido** y cada **hijo** con el suyo. Ejemplo de clase: *Cliente* despacha medicamentos; solo Consulta Externa asigna citas y solo Hospitalización asigna camas. → [[Ejemplos resueltos de casos de negocio]]
 
 - **Generalización-especialización** — Relación que muestra workflows que comparten estructura, propósito y comportamiento: un CU padre y uno o más CU hijos. → [[Generalización y especialización en casos de uso]]
@@ -173,8 +177,9 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **Invariantes del estilo** — Las restricciones de interconexión o composición entre componentes que un estilo impone, y que lo identifican. → [[Estilos arquitectónicos]]
 - **Invocación implícita** — Estilo basado en eventos: el emisor anuncia un evento y la infraestructura decide a quién le llega; los suscriptores se invocan implícitamente. → [[Estilos arquitectónicos]]
 - **ISM (Implementation Specific Model)** — Último modelo de MDA: el código, que *"se realiza automáticamente a partir de cada PSM"*. → [[Arquitectura dirigida por modelos MDA]] §2
-- **ISO 9126** — Norma de calidad de producto con seis características: funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad y portabilidad. Es la lista del programa. → [[Atributos de calidad]]
-- **ISO/IEC 25010** — Sucesora de ISO 9126; asciende la seguridad y la compatibilidad a características de primer nivel, llegando a ocho. → [[Atributos de calidad]]
+- **ISO 9000:2000** — Define la calidad como el *"grado en el que un conjunto de características inherentes cumple con los requisitos"*. → [[Calidad del software]] §1
+- **ISO 9126** — **De clase** desde el 16/10. Define la calidad como la totalidad de características que satisfacen necesidades establecidas o implícitas, con seis características: funcionalidad, fiabilidad (o confiabilidad), usabilidad, eficiencia, mantenibilidad y portabilidad; la rueda del modelo de calidad interna/externa tiene 27 subcaracterísticas. → [[Norma ISO 9126]]
+- **ISO/IEC 25010** — Sucesora de ISO 9126 (complemento); asciende la seguridad y la compatibilidad a características de primer nivel, llegando a ocho. Es la norma de modelo de la división 2501n. → [[Familia de normas ISO 25000]] · [[Atributos de calidad]]
 - **Iteración controlada** — En proyectos grandes la iteración es inevitable (requisitos incompletos, cambios, ciclo de vida largo); “la única decisión es tomar el control de las iteraciones o no”. → [[Arquitectura y proceso de desarrollo]]
 
 ## L
@@ -188,6 +193,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 - **MAC (medicamento de alto costo)** — Medicamento cuyo valor mensual por paciente supera los Q. 50,000; el objeto del sistema FarmaHosp. → [[Plan - Caso 1 FarmaHosp]]
 - **Matriz de dependencias** — Matriz cuadrada de requisito contra requisito: las **columnas (X)** son los que **originan** la dependencia y las **filas (Y)** los que **dependen**. Se lee "fila depende de columna" y sirve para analizar el impacto de los cambios. Es la plantilla oficial del Caso 1. → [[Guía - Matrices de trazabilidad]]
 - **Matriz de trazabilidad (RTM)** — Tabla que cruza cada requisito con su origen, su diseño, su código y sus pruebas. → [[Matriz de trazabilidad de requisitos]]
+- **McCall (1977) y Boehm (1978)** — Los modelos de calidad antiguos que nombra la clase: jerárquicos, con refinamientos sucesivos que culminan en primitivas que se pueden medir directamente. → [[Norma ISO 9126]] §2
 - **MDA (Model Driven Architecture)** — Propuesta de la OMG: construir software como transformación sucesiva de modelos en UML, de CIM y PIM a PSM y a código. → [[Arquitectura dirigida por modelos MDA]]
 - **Mensaje síncrono / asíncrono** — El síncrono bloquea al emisor hasta la respuesta (cabeza llena, respuesta punteada); el asíncrono no espera (cabeza abierta). → [[Diagrama de secuencia]]
 - **Microkernel / plug-in** — Forma del estilo jerárquico: un núcleo con mecanismos mínimos y plug-ins que aportan la funcionalidad por interfaces fijas. → [[Estilos arquitectónicos]]
@@ -216,6 +222,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 
 ## O
 
+- **Observables / no observables vía ejecución** — Clasificación de Bass y otros (1998): observables, los que se determinan del comportamiento en tiempo de ejecución (disponibilidad, funcionalidad, confidencialidad, desempeño); no observables, los que se establecen durante el desarrollo (interoperabilidad, portabilidad, escalabilidad, mantenibilidad). → [[Atributos observables y no observables vía ejecución]]
 - **Orquestación / coreografía** — Los motores que, según la clase, hacen que SOA sea *event-based* (capturas_U2_F3, 34). Orquestación: un coordinador central; coreografía: cada servicio reacciona a los otros (definición: complemento). → [[Arquitectura orientada a servicios]]
 
 ## P
@@ -267,6 +274,7 @@ líneas y el enlace a la nota donde se explica a fondo.
 
 ## S
 
+- **Safety / security** — En la tabla de clase: *seguridad externa* (safety), ausencia de consecuencias catastróficas en el ambiente; *seguridad interna* (security), resistir intentos de uso no autorizados y negación del servicio. → [[Atributos observables y no observables vía ejecución]] §3
 - **SCADA** — Sistema de supervisión, control y adquisición de datos para procesos industriales en tiempo real; ejemplo de clase de diagrama de bloques. → [[Diagrama de bloques de alto nivel]]
 - **Scrum** — Proceso ágil iterativo; el libro relata un proyecto tipo Scrum de ~250 desarrolladores que arrancó **sin arquitecto** y tuvo que nombrar uno tarde. → [[Arquitectura y proceso de desarrollo]]
 - **Serializable** — *"Convertible en una corriente de bytes"*: condición para que un parámetro de RPC viaje por la red (capturas_U2_F3, 43). → [[Llamada a procedimiento remoto]]

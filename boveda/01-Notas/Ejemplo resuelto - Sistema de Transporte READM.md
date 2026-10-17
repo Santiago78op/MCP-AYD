@@ -1,6 +1,6 @@
 ---
 tema: Calidad del software
-fuente: "Presentación de clase «Calidad del Software» (MBA. MSc. Claudia Rojas de Morán) — archivo 00-Fuentes/lecturas/Calidad del SW Parte II.pdf, 23 diapositivas. NÚCLEO. Está en la carpeta de lecturas, pero es material de clase: lleva su encabezado y su pie. + COMPLEMENTO — procedencia probable de las tablas (Cervantes, Velasco y Castro, «Arquitectura de software: conceptos y ciclo de desarrollo») y la lectura de las figuras sin texto, marcadas"
+fuente: "Presentación de clase «Calidad del Software» (MBA. MSc. Claudia Rojas de Morán) — archivo 00-Fuentes/lecturas/Calidad del SW Parte II.pdf, 23 diapositivas. NÚCLEO. Está en la carpeta de lecturas, pero es material de clase: lleva su encabezado y su pie. + COMPLEMENTO — procedencia probable de las tablas (Cervantes, Velasco y Castro, «Arquitectura de software: conceptos y ciclo de desarrollo») y la lectura de las figuras sin texto, marcadas. La clase la volvió a dar el 16/10: capturas_U3_F1 26-34 = láminas 14-23"
 fecha: 2026-10-12
 alias: [READM, RedADM, sistema de transporte, EAC, EaC, escenario de atributo de calidad, bus de eventos, ejemplo de calidad]
 ---
@@ -270,7 +270,12 @@ diagrama de bloques, diagrama de componentes y beneficios.
 
 Se titula *Calidad del Software*, pero **no desarrolla** los puntos de la unidad 2 del programa:
 conceptos generales, normas ISO ni la lista de atributos. De calidad trae la tabla de EAC y nada
-más. Las normas siguen siendo complemento en [[Atributos de calidad]].
+más.
+
+**Actualización 2026-10-16:** la teoría llegó en otra tanda de capturas (`capturas_U3_F1` 0-25), que
+además **repite** las láminas 14-23 de esta presentación (capturas 26-34, señal de que pesan en el
+examen). Ver [[Calidad del software]], [[Norma ISO 9126]], [[Familia de normas ISO 25000]],
+[[Atributos observables y no observables vía ejecución]] y [[Escenarios de calidad]].
 
 ## Notas relacionadas
 

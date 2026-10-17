@@ -96,21 +96,25 @@ El detalle de 1.9 contra lo que dio la clase (capturas_U2, capturas_U2_F2 y capt
 > [!warning] Desfase de numeración
 > El estudiante rotuló estas capturas como **unidad 2**, pero su contenido es el de los puntos
 > **1.4, 1.5, 1.7 y 1.9** de la unidad 1 del programa. La unidad 2 del programa (**Calidad del
-> Software**) sigue **sin material de clase**. Pregunta abierta para ella: qué entra en el
+> Software**) recibió su teoría de clase recién el 2026-10-16, en `capturas_U3_F1`. Pregunta abierta para ella: qué entra en el
 > segundo parcial (19 de septiembre).
 
-### Unidad 2 — Calidad del Software 🟡
+### Unidad 2 — Calidad del Software ✅
 
-Llegó la presentación *Calidad del Software* (2026-10-12), pero es un **ejemplo resuelto**, no la
-teoría de estos cuatro puntos: de calidad trae la tabla de escenarios `EAC-nn` →
-[[Ejemplo resuelto - Sistema de Transporte READM]]. Las normas ISO siguen como complemento en
-[[Atributos de calidad]]. Sin presentación de clase todavía:
+**Llegó la teoría de clase el 2026-10-16** (`capturas_U3_F1` 0-25: la carpeta dice U3, el contenido
+es esta unidad). Antes solo estaba el ejemplo READM (2026-10-12) y el complemento del SAIP.
 
-1. Conceptos generales
-2. ¿Por qué es importante?
-3. **Normas ISO**
-4. **Atributos de calidad**: funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad,
-   portabilidad, y otros atributos no observables vía ejecución
+| # | Punto | Estado |
+|---|---|---|
+| 1 | Conceptos generales | ✅ [[Calidad del software]]: definición de clase, Garvin, ISO 9000:2000 |
+| 2 | ¿Por qué es importante? | ✅ [[Calidad del software]] §2-§4: los números del problema y las fuentes de errores (56 % requerimientos) |
+| 3 | **Normas ISO** | ✅ [[Norma ISO 9126]] (definición, McCall y Boehm, seis características con tablas y rueda) y [[Familia de normas ISO 25000]] (cinco divisiones). La 25010 sigue siendo complemento |
+| 4 | **Atributos de calidad**: funcionalidad, fiabilidad, usabilidad, eficiencia, mantenibilidad, portabilidad | ✅ [[Norma ISO 9126]] §4-§5 |
+| 4 bis | y otros atributos **no observables vía ejecución** | ✅ [[Atributos observables y no observables vía ejecución]] (Bass 1998: árbol y tabla) |
+| — | Escenarios de calidad (EAC) | ✅ [[Escenarios de calidad]] (teoría y tres ejemplos) + [[Ejemplo resuelto - Sistema de Transporte READM]] §5 (tabla `EAC-nn`) |
+
+[[Atributos de calidad]] queda como **complemento** (SAIP): taxonomías comparadas, tradeoffs y
+escenarios generales vs concretos.
 
 ### Unidad 3 — Arquitectura en el Ciclo de Vida 🟡
 

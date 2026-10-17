@@ -361,9 +361,9 @@ los cursos alternos se anclan con *"En la línea N"*.
 
 > [!warning] "U2" es el nombre de la carpeta, no la unidad del programa
 > El estudiante rotuló estas capturas como **unidad 2**, pero su contenido es el de los puntos **1.4,
-> 1.5, 1.7 y 1.9** del programa. La unidad 2 oficial (**Calidad del Software**: ISO, atributos) sigue
-> **sin presentación de clase** — la nota `Atributos de calidad` es complemento. No confundas una con otra
-> cuando pregunte "qué entra en el parcial": el cruce está en `Programa oficial del curso.md`.
+> 1.5, 1.7 y 1.9** del programa. La unidad 2 oficial (**Calidad del Software**) recibió su teoría de
+> clase recién el 16/10, en una carpeta rotulada **`capturas_U3_F1`** (ver *La teoría de calidad*). Las
+> carpetas siguen el calendario de clases, no el programa: el cruce está en `Programa oficial del curso.md`.
 
 Las notas: hub `Cómo se modela la arquitectura` → componentes, interfaces, despliegue, paquetes,
 clases, secuencia, bloques de alto nivel; estilos → monolítica, capas, nube; y
@@ -582,6 +582,22 @@ trazo de `06-Proyecto-MCP/iconos/` (Lucide, licencia ISC, monocromos) en el `.ex
 
 ---
 
+### La teoría de calidad — lo que dio en `capturas_U3_F1`
+
+La carpeta dice U3, pero es **la unidad 2 del programa** (*Calidad del Software*), con teoría de clase
+por primera vez. Notas: `Calidad del software`, `Norma ISO 9126`, `Familia de normas ISO 25000`,
+`Atributos observables y no observables vía ejecución`, `Escenarios de calidad`. Las capturas 26-34
+repiten las láminas 14-23 del ejemplo READM. `Atributos de calidad` queda como complemento del SAIP.
+
+| Tema | Lo que manda la clase | La trampa |
+|---|---|---|
+| **Calidad** | la suya: *"proceso eficaz de software que crea un producto útil que proporciona valor medible"*; ISO 9000:2000: *"grado en el que un conjunto de características inherentes cumple con los requisitos"*; los **cinco puntos de vista de Garvin** | confundir *usuario* (sus requerimientos) con *fabricante* (la especificación) |
+| **Fuentes de errores** | 56 % requerimientos, 27 % diseño, 7 % programación, 10 % otros | — |
+| **ISO 9126** | seis características; **confiabilidad = fiabilidad** (las láminas usan las dos). Tabla con 21 subcaracterísticas, **rueda con 27** (cada característica con su *cumplimiento*) y nombres distintos entre las dos | dar la lista de la tabla como completa: faltan adaptabilidad y coexistencia |
+| **ISO 25000** | **cinco divisiones**: 2500n gestión, 2501n modelo, 2502n medición, 2503n requisitos, 2504n evaluación | decir que «la 25000» es el modelo: el modelo es la 25010, división 2501n (complemento) |
+| **Observables / no observables** | Bass 1998. Árbol: observables = disponibilidad, funcionalidad, confidencialidad, desempeño; no observables = interoperabilidad, portabilidad, **escalabilidad**, mantenibilidad | la lámina 17 se titula *NO observables* y lista **los observables**: errata (duda 52) |
+| **Escenarios (EAC)** | seis partes **+ atributo de calidad afectado**; *origen del estímulo* = fuente; la medida es *"criterio para testear el requerimiento"*; el campo *Afecta* nombra la **subcaracterística** ISO 9126 | copiar sus medidas sin número (*"inmediata"*): en una entrega, **número con unidad** siempre (duda 54) |
+
 ### Las tres notas técnicas de la unidad 3 — NT1, NT2 y NT3
 
 Llegaron el 16/10 y son **material de clase** (notas técnicas, como la NT1 de trazabilidad), aunque
@@ -651,7 +667,8 @@ Es la vía por la que entra casi todo el material nuevo. El pipeline que funcion
    entraba en llamada y retorno) y cerrá con `lint_wiki`.
 
 > [!note] Él sigue agregando carpetas de capturas
-> Además de `capturas_U1/` y `capturas_U2/` aparecieron `capturas_U2_F2/` y `capturas_U2_F3/`. **Listá `00-Fuentes/` al
+> Además de `capturas_U1/` y `capturas_U2/` aparecieron `capturas_U2_F2/`, `capturas_U2_F3/` y `capturas_U3_F1/`
+> (esta última es *Calidad del Software*: el número de carpeta no es la unidad del programa). **Listá `00-Fuentes/` al
 > empezar** en vez de asumir las carpetas que conocés.
 
 ### Lotes grandes: agentes en paralelo

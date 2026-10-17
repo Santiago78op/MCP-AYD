@@ -172,6 +172,20 @@ const CASOS = [
   ["glosario", { termino: "Historia de usuario" }, "XP"],
   ["obtener_flashcards", { tema: "Arquitectura de la información y ágil" }, "?"],
 
+  // --- Calidad del Software, teoria de clase: capturas_U3_F1 (2026-10-16)
+  ["leer_nota", { nombre: "Calidad del software" }, "trascendental"],
+  ["leer_nota", { nombre: "Norma ISO 9126" }, "Calidad interna/externa"],
+  ["leer_nota", { nombre: "Familia de normas ISO 25000" }, "2503n"],
+  ["leer_nota", { nombre: "Atributos observables y no observables vía ejecución" }, "Bass et al. (1998)"],
+  ["leer_nota", { nombre: "Escenarios de calidad" }, "criterio para testear el requerimiento"],
+  ["buscar", { consulta: "Garvin" }, "Calidad del software"],
+  ["buscar", { consulta: "tolerancia a fallos" }, "Norma ISO 9126"],
+  ["buscar", { consulta: "no observables vía ejecución" }, "Atributos observables y no observables vía ejecución"],
+  ["buscar", { consulta: "identificación de contribuyentes" }, "Escenarios de calidad"],
+  ["glosario", { termino: "ISO 9000:2000" }, "características inherentes"],
+  ["glosario", { termino: "McCall" }, "primitivas"],
+  ["obtener_flashcards", { tema: "Calidad del software e ISO 9126" }, "?"],
+
   ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
 
   // --- referencias y enunciado

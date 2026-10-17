@@ -22,7 +22,7 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 >    desventajas de capas y de tuberías y filtros, y las responsabilidades de modelo, vista y controlador.
 > 2. Llevar a clase [[Preguntas pendientes para clase]]: la 1 (**qué entra en el parcial**), la 24
 >    (taxonomía de estilos, ahora con más evidencia) y las nuevas 30-37.
-> 3. **Calidad del Software** (unidad 2 del programa) sigue **sin material de clase**.
+> 3. ~~**Calidad del Software** sigue sin material de clase~~ — llegó el 2026-10-16 (capturas_U3_F1).
 
 > [!important] Antes que nada
 > [[Programa oficial del curso]] — el contenido temático oficial de la sección A, el cronograma
@@ -104,6 +104,11 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 
 ### Calidad del software
 
+- [[Calidad del software]] — **de clase** (2026-10-16): definición, Garvin, ISO 9000:2000, los números del problema y las fuentes de errores
+- [[Norma ISO 9126]] — **de clase**: tres puntos, McCall y Boehm, las seis características con sus tablas y la rueda de 27 subcaracterísticas
+- [[Familia de normas ISO 25000]] — **de clase**: las cinco divisiones 2500n a 2504n
+- [[Atributos observables y no observables vía ejecución]] — **de clase**: Bass 1998, el árbol y la tabla de título invertido
+- [[Escenarios de calidad]] — **de clase**: EAC, definición, estructura de seis partes más el atributo afectado y tres ejemplos
 - [[Atributos de calidad]] — unidad 2: definición, los seis del programa, escenarios de 6 partes, tradeoffs e ISO
 
 ### Arquitectura en el ciclo de vida
@@ -152,6 +157,7 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Flashcards - Diagrama de paquetes]] (9 tarjetas) — de clase (capturas_U2)
 - [[Flashcards - Diagrama de clases]] (10 tarjetas) — de clase (capturas_U2 + PDF IS 04 05b)
 - [[Flashcards - Atributos de calidad]] (24 tarjetas)
+- [[Flashcards - Calidad del software e ISO 9126]] (34 tarjetas) — de clase (capturas_U3_F1)
 - [[Flashcards - Stakeholders, tácticas y evaluación]] (30 tarjetas)
 - [[Flashcards - Arquitectura y proceso de desarrollo]] (28 tarjetas)
 - [[Flashcards - Drivers arquitectónicos y contexto]] (39 tarjetas) — de diapositivas de clase
@@ -261,9 +267,9 @@ El detalle punto por punto está en [[Programa oficial del curso]].
 
 ### Unidad 2 — Calidad del Software
 
-- [x] Conceptos generales · ¿Por qué es importante? — [[Atributos de calidad]] (**complemento**: falta la presentación)
-- [x] **Normas ISO** — ISO 9126 y 25010 en [[Atributos de calidad]] (**complemento**)
-- [x] **Atributos de calidad**: los seis del programa, con escenarios de 6 partes — [[Atributos de calidad]] (**complemento**)
+- [x] Conceptos generales · ¿Por qué es importante? — [[Calidad del software]] (**de clase**, capturas_U3_F1 0-3)
+- [x] **Normas ISO** — [[Norma ISO 9126]] y [[Familia de normas ISO 25000]] (**de clase**, 4-15); la 25010 sigue como complemento
+- [x] **Atributos de calidad**: los seis de ISO 9126, los observables y no observables vía ejecución y los escenarios — [[Norma ISO 9126]], [[Atributos observables y no observables vía ejecución]], [[Escenarios de calidad]] (**de clase**, 16-25) + [[Atributos de calidad]] (complemento)
 
 ### Unidad 3 — Arquitectura en el Ciclo de Vida
 
@@ -286,7 +292,7 @@ Lo que **falta material** para poder escribir la nota, ordenado por urgencia:
 |---|---|---|
 | Media | ~~Presentación de **1.9**~~ — **RESUELTO EN PARTE** con capturas_U2 (monolítica, capas, nube, diseño/estilo/patrón). Faltan **basada en eventos**, **on premise** y los estilos solo nombrados (centrado en datos, flujo de datos, llamada y retorno) | Parte de 1.9 |
 | Media | ~~**Arquitectura candidata** y **de referencia**~~ — **RESUELTO**: primero con el *Flujo de Definición* de Ambler ([[Proceso de diseño arquitectónico]]) y desde el 2026-09-16 con diapositivas propias → [[Arquitectura de referencia]]. Sigue faltando **on premise vs cloud** | Parte de 1.9 |
-| **Alta** | Presentación de la **unidad 2** para validar [[Atributos de calidad]], que hoy es todo complemento | Se da del 25 de agosto al 7 de septiembre |
+| ~~Alta~~ | ~~Presentación de la **unidad 2**~~ — **RESUELTO el 2026-10-16** con capturas_U3_F1 (ver *Capturas de clase, cuarta tanda*) | — |
 | **Alta** | **"Integrando con la arquitectura de la información"** (unidad 3): lo busqué en la guía de estudio, en Reynoso y en Garland — **cero menciones** en todas | Es el único punto del programa sin **ninguna** fuente |
 | Baja | Unidad 3 (validar contra la presentación) y unidad 4 completa | Septiembre y octubre |
 | Baja | **Unidad 4**: hay una captura sin procesar — *"Sistema de entrega de valor"* (`adjuntos/capturas-clase/sistema-de-entrega-de-valor.png`), con el modelo entorno externo / interno / portafolio → programa → proyecto → producto → operaciones. Encaja en "Arquitectura y Negocios" | Se da del 19 al 27 de octubre |
@@ -417,3 +423,26 @@ smartphone/smartwatch) y la **29** es la 30 sin la definición de síncrono en r
 > **ciclo de influencias**, el **diagrama de Kiviat**, el cubo de dimensiones, los **beneficios
 > 2 y 3** y el ejemplo de AWS. Las notas están hechas con la **unión** de ambos y cada nota
 > declara en el frontmatter de cuál viene.
+
+### Capturas de clase, cuarta tanda: inventario (`00-Fuentes/capturas_U3_F1/`, 35)
+
+> [!warning] "U3" es el nombre de la carpeta; el contenido es la **unidad 2** del programa
+> *Calidad del Software*: la primera teoría de clase de esa unidad. Las 26-34 repiten láminas 14-23 de
+> la presentación READM (`lecturas/Calidad del SW Parte II.pdf`): no se copiaron, y quedó anotado en
+> la `fuente` de [[Ejemplo resuelto - Sistema de Transporte READM]] que la clase la volvió a dar.
+
+| Capturas | Subcarpeta de `adjuntos/capturas-clase-U3/` | Nota |
+|---|---|---|
+| 0–3 | `calidad-del-software/` | [[Calidad del software]] |
+| 4–14 | `iso-9126/` | [[Norma ISO 9126]] |
+| 15 | `iso-9126/` | [[Familia de normas ISO 25000]] |
+| 16, 17, 22 | `atributos-observables/` | [[Atributos observables y no observables vía ejecución]] |
+| 18–21, 23–25 | `escenarios-de-calidad/` | [[Escenarios de calidad]] |
+| 26–34 | — (repetidas) | [[Ejemplo resuelto - Sistema de Transporte READM]] §8-§10 |
+
+> [!note] Erratas de las láminas que hay que conocer
+> - **17**: se titula *NO observables* pero lista los **observables** (duda 52).
+> - **10**: *aprendizaje* y *comprensión* tienen la misma descripción (duda 51).
+> - **Tabla vs rueda**: la tabla trae 21 subcaracterísticas con otros nombres; la rueda, 27.
+> - **22**: la escalabilidad cae en *no observables* y la usabilidad no aparece (duda 53).
+> - **23-24**: las medidas de sus escenarios no llevan número (duda 54).
