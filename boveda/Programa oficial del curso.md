@@ -116,15 +116,18 @@ es esta unidad). Antes solo estaba el ejemplo READM (2026-10-12) y el complement
 [[Atributos de calidad]] queda como **complemento** (SAIP): taxonomías comparadas, tradeoffs y
 escenarios generales vs concretos.
 
-### Unidad 3 — Arquitectura en el Ciclo de Vida 🟡
+### Unidad 3 — Arquitectura en el Ciclo de Vida 🟢
+
+**El 2026-10-16 llegaron láminas de clase** (`capturas_U3_F1` 35-45 y `capturas_U3_F3`, 14).
 
 | Tema | Estado |
 |---|---|
-| Arquitectura en las metodologías: enfoque predictivo y ágil (SCRUM) | 🟡 — [[Arquitectura y proceso de desarrollo]] (complemento) + [[Arquitectura de software en el modelo en espiral]] (NT1: un modelo evolutivo guiado por riesgo) + [[Arquitectura ágil]] y [[Requisitos significativos para la arquitectura]] (**NT3**: ágil y arquitectura, los RSA). SCRUM como proceso sigue solo en el complemento |
-| Integrando con la arquitectura de la información | ✅ — [[Arquitectura de la información]] (**NT2**, nota técnica de clase, 2026-10-16) |
-| Documentando la arquitectura de software | 🟡 — [[Estructuras y vistas arquitectónicas]] + [[El ciclo del architecting]] §4 |
-| Implementación y pruebas | 🟡 — [[Arquitectura y proceso de desarrollo]] §3 (complemento) + [[Arquitectura dirigida por modelos MDA]] (NT1: generación de código desde modelos) |
-| Evaluación de la arquitectura | 🟡 — [[Evaluación de la arquitectura]] (complemento: ATAM completo) |
+| Arquitectura en las metodologías: enfoque predictivo y ágil (SCRUM) | ✅ **de clase**: [[Metodologías predictivas y ágiles]] (factores, cascada, ágil, valor, roles) y [[Proceso Scrum en la arquitectura de software]] (sprint, ceremonias, los 14 pasos con la arquitectura base y su refinamiento). + NT1 [[Arquitectura de software en el modelo en espiral]], NT3 [[Arquitectura ágil]] y [[Requisitos significativos para la arquitectura]] |
+| Integrando con la arquitectura de la información | ✅ [[Arquitectura de la información]] (NT2 + láminas de inventario, mapa y diagrama funcional) y [[Arquitectura empresarial]] (los cuatro dominios, de clase) |
+| Documentando la arquitectura de software | 🟡 — [[Ciclo de desarrollo de la arquitectura]] (la documentación cae en Diseño) + [[Estructuras y vistas arquitectónicas]] + [[El ciclo del architecting]] §4 |
+| Implementación y pruebas | 🟡 — [[Ciclo de desarrollo de la arquitectura]] (implementación en Construcción; pruebas sin etapa de arquitectura) y el *modelo del CV guiado por arquitecturas* + [[Arquitectura dirigida por modelos MDA]] (NT1) |
+| Evaluación de la arquitectura | 🟡 — de clase solo su lugar en el ciclo ([[Ciclo de desarrollo de la arquitectura]], [[Proceso general de diseño de la arquitectura]]); el método está en [[Evaluación de la arquitectura]] (complemento: ATAM) |
+
 
 Lo que sí es **de clase** es [[Arquitectura en el ciclo de vida del software]], que corresponde a la
 diapositiva "¿Dónde debe colocarse la arquitectura en el ciclo de vida?" — es una parte, no la

@@ -186,6 +186,25 @@ const CASOS = [
   ["glosario", { termino: "McCall" }, "primitivas"],
   ["obtener_flashcards", { tema: "Calidad del software e ISO 9126" }, "?"],
 
+  // --- Unidad 3 de clase y lecturas de calidad del parcial 3 (2026-10-16)
+  ["leer_nota", { nombre: "Metodologías predictivas y ágiles" }, "Planning fallacy"],
+  ["leer_nota", { nombre: "Proceso Scrum en la arquitectura de software" }, "arquitectura base"],
+  ["leer_nota", { nombre: "Proceso general de diseño de la arquitectura" }, "caja negra"],
+  ["leer_nota", { nombre: "Ciclo de desarrollo de la arquitectura" }, "Construcción"],
+  ["leer_nota", { nombre: "Arquitectura empresarial" }, "cartera de aplicaciones"],
+  ["leer_nota", { nombre: "Modelos de calidad del software" }, "CMMI"],
+  ["leer_nota", { nombre: "Calidad en uso" }, "eficacia, productividad, seguridad y satisfacción"],
+  ["buscar", { consulta: "Scrum Master" }, "Metodologías predictivas y ágiles"],
+  ["buscar", { consulta: "niveles de diseño" }, "Proceso general de diseño de la arquitectura"],
+  ["buscar", { consulta: "guiado por arquitecturas" }, "Ciclo de desarrollo de la arquitectura"],
+  ["buscar", { consulta: "inventario de la información" }, "Arquitectura de la información"],
+  ["buscar", { consulta: "representación escalonada" }, "Modelos de calidad del software"],
+  ["buscar", { consulta: "métrica indirecta" }, "Calidad en uso"],
+  ["glosario", { termino: "CMMI" }, "escalonada"],
+  ["glosario", { termino: "Calidad en uso" }, "contexto específico de uso"],
+  ["obtener_flashcards", { tema: "Metodologías, Scrum y ciclo de la arquitectura" }, "?"],
+  ["obtener_flashcards", { tema: "Modelos de calidad y calidad en uso" }, "?"],
+
   ["metodo_tarea", { entregable: "preguntas" }, "pendientes"],
 
   // --- referencias y enunciado

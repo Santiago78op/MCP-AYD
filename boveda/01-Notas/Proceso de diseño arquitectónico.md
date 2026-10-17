@@ -74,6 +74,11 @@ flowchart TD
 
 ![[adjuntos/capturas-clase/pasos-definicion-ciclo-precede.png]]
 
+> [!note] La clase la volvió a dar (capturas_U3_F3 0, 2026-10-16)
+> Y esta vez la siguió con el **mapeo** de cada etapa sobre el desarrollo de sistemas
+> ([[Ciclo de desarrollo de la arquitectura]]) y con lo que pasa **dentro** de DISEÑO
+> ([[Proceso general de diseño de la arquitectura]]).
+
 > [!warning] Corrección 2026-09-15 — la flecha de retorno es LLENA
 > Leída a resolución completa (capturas_U2, 1), la flecha que vuelve de IMPLEMENTACIÓN a REQUERIMIENTOS
 > es una línea **llena**, igual que las demás, con su propio **`<<precede>>`** al costado. Antes este

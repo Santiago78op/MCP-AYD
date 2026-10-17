@@ -107,12 +107,19 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Calidad del software]] — **de clase** (2026-10-16): definición, Garvin, ISO 9000:2000, los números del problema y las fuentes de errores
 - [[Norma ISO 9126]] — **de clase**: tres puntos, McCall y Boehm, las seis características con sus tablas y la rueda de 27 subcaracterísticas
 - [[Familia de normas ISO 25000]] — **de clase**: las cinco divisiones 2500n a 2504n
+- [[Modelos de calidad del software]] — **NT de clase** (parcial 3): factor-criterio-métrica, proceso/producto/uso, CMMI y los 20 modelos con su año
+- [[Calidad en uso]] — **lectura** Covella y Olsina (parcial 3): eficacia, productividad, seguridad y satisfacción; métricas, indicadores y el caso QPlus
 - [[Atributos observables y no observables vía ejecución]] — **de clase**: Bass 1998, el árbol y la tabla de título invertido
 - [[Escenarios de calidad]] — **de clase**: EAC, definición, estructura de seis partes más el atributo afectado y tres ejemplos
 - [[Atributos de calidad]] — unidad 2: definición, los seis del programa, escenarios de 6 partes, tradeoffs e ISO
 
 ### Arquitectura en el ciclo de vida
 
+- [[Metodologías predictivas y ágiles]] — **de clase** (2026-10-16): siete factores para elegir, por qué falla la cascada, ágil, dónde aparece el valor y los roles de Scrum
+- [[Proceso Scrum en la arquitectura de software]] — **de clase**: sprint, ceremonias, responsabilidades y los 14 pasos (arquitectura base en el primer sprint, refinada del 1 al n)
+- [[Proceso general de diseño de la arquitectura]] — **de clase**: diseño como caja negra, niveles de diseño y el ciclo interno (subconjunto de drivers, decisiones, diseño parcial)
+- [[Ciclo de desarrollo de la arquitectura]] — **de clase**: el mapeo sobre el desarrollo de sistemas y el modelo del CV guiado por arquitecturas
+- [[Arquitectura empresarial]] — **de clase**: los cuatro dominios y el diagrama de comunicación
 - [[El ciclo del architecting]] — los seis pasos, los cinco rasgos, y qué es la descripción arquitectónica
 - [[Evaluación de la arquitectura]] — ATAM: fases, nueve pasos, riesgos, sensibilidades y tradeoffs
 - [[Arquitectura y proceso de desarrollo]] — predictivo (RUP) vs ágil (SCRUM), el rol del arquitecto en cada flujo, implementación y pruebas
@@ -158,6 +165,8 @@ Nota de entrada de la bóveda. Desde acá navego todo.
 - [[Flashcards - Diagrama de clases]] (10 tarjetas) — de clase (capturas_U2 + PDF IS 04 05b)
 - [[Flashcards - Atributos de calidad]] (24 tarjetas)
 - [[Flashcards - Calidad del software e ISO 9126]] (34 tarjetas) — de clase (capturas_U3_F1)
+- [[Flashcards - Metodologías, Scrum y ciclo de la arquitectura]] (29 tarjetas) — de clase (capturas_U3_F1 36-45, U3_F3)
+- [[Flashcards - Modelos de calidad y calidad en uso]] (29 tarjetas) — NT de modelos de calidad y Covella
 - [[Flashcards - Stakeholders, tácticas y evaluación]] (30 tarjetas)
 - [[Flashcards - Arquitectura y proceso de desarrollo]] (28 tarjetas)
 - [[Flashcards - Drivers arquitectónicos y contexto]] (39 tarjetas) — de diapositivas de clase
@@ -446,3 +455,24 @@ smartphone/smartwatch) y la **29** es la 30 sin la definición de síncrono en r
 > - **Tabla vs rueda**: la tabla trae 21 subcaracterísticas con otros nombres; la rueda, 27.
 > - **22**: la escalabilidad cae en *no observables* y la usabilidad no aparece (duda 53).
 > - **23-24**: las medidas de sus escenarios no llevan número (duda 54).
+
+### Capturas de clase, quinta tanda: unidad 3 (`capturas_U3_F1` 35-45 y `capturas_U3_F3`, 25)
+
+> [!note] Esta sí es la unidad 3 del programa
+> Metodologías, Scrum, diseño y ciclo de la arquitectura, arquitectura de la información. Llegó con
+> dos PDF para el **parcial 3**: la NT *Modelos de calidad del software* y la lectura de Covella.
+
+| Capturas | Subcarpeta de `adjuntos/capturas-clase-U3/` | Nota |
+|---|---|---|
+| F1 35 | — (repetida: `arq-p20`) | [[Arquitectura en el ciclo de vida del software]] |
+| F1 36-41, F3 5-8 | `metodologias/` | [[Metodologías predictivas y ágiles]] · [[Proceso Scrum en la arquitectura de software]] |
+| F1 42 | — (la 43 sin la cita) | [[Proceso general de diseño de la arquitectura]] |
+| F1 43-45 | `diseno-arquitectura/` | [[Proceso general de diseño de la arquitectura]] |
+| F3 0 | — (repetida: `pasos-definicion-ciclo-precede`) | [[Proceso de diseño arquitectónico]] · [[Ciclo de desarrollo de la arquitectura]] |
+| F3 1 | — (repite la F1 44) | [[Proceso general de diseño de la arquitectura]] |
+| F3 3, 4, 14 | `diseno-arquitectura/` | [[Ciclo de desarrollo de la arquitectura]] |
+| F3 9, 13 | `arquitectura-informacion/` | [[Arquitectura empresarial]] |
+| F3 10-12 | `arquitectura-informacion/` | [[Arquitectura de la información]] §9 |
+
+La carpeta `capturas_U3_F3` no tiene la captura **2** (salta de la 1 a la 3).
+Figuras de los PDF: `adjuntos/nt-modelos-de-calidad/` (figuras 1-3) y `adjuntos/covella-calidad-en-uso/` (figuras 1-2).

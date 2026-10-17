@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura en el ciclo de vida
-fuente: "NOTA TÉCNICA DE CLASE — NT2. «La Arquitectura de la Información en el CCV» (00-Fuentes/presentaciones/). Es el artículo de Moyares y Bretones Lorenzo, «La Arquitectura de Información (AI) en el proceso de desarrollo de software», Anales de la UCI, año 6, n.º 6, 2010, pp. 97-102. Figura 1 y tabla 1."
+fuente: "NOTA TÉCNICA DE CLASE — NT2. «La Arquitectura de la Información en el CCV» (00-Fuentes/presentaciones/). Es el artículo de Moyares y Bretones Lorenzo, «La Arquitectura de Información (AI) en el proceso de desarrollo de software», Anales de la UCI, año 6, n.º 6, 2010, pp. 97-102. Figura 1 y tabla 1. + Presentación de clase, capturas_U3_F3 10-12 (inventario, mapa y diagrama funcional de la AI), 2026-10-16. NÚCLEO."
 fecha: 2026-10-16
 punto_del_programa: "Unidad 3 — Integrando con la arquitectura de la información"
 alias: [AI, arquitectura de información, arquitecto de información, NT2, etapas de la AI, investigación organización y diseño, Wurman, AIfIA]
@@ -225,8 +225,38 @@ engancha a las fases de inicio, elaboración y construcción.**
 | Escenarios y tareas de los usuarios (etapa de organización) | [[Drivers arquitectónicos]] y [[Ejemplo resuelto - Sistema de Transporte READM]]: en la AS, los escenarios son de **calidad**; acá, de **uso** |
 | RUP y XP | [[Arquitectura y proceso de desarrollo]] (complemento) y [[Arquitectura ágil]] (NT3) |
 
+## 9. Los entregables de la AI — láminas de clase (capturas_U3_F3 10-12)
+
+La clase mostró **tres artefactos** con que se documenta la AI. Encajan con las etapas de la §5:
+el inventario sale de la **investigación**, el mapa de la **organización** y el diagrama funcional del
+**diseño** *(correspondencia propia)*.
+
+| Artefacto (título de la lámina) | Qué muestra |
+|---|---|
+| **Inventario de la Información** | todo el contenido existente, agrupado en **categorías** (la lámina dibuja un montón de documentos repartido en *Categoría 1* a *Categoría 4*) |
+| **Mapa** | la **jerarquía** del sitio. Ejemplo: el del **Nielsen Norman Group**, con las secciones *Reports, Training, Consulting* y *Articles*, y debajo sus subpáginas |
+| **Diagrama Funcional de la Arquitectura de la Información** | las páginas, **cómo se navega** entre ellas y qué funciones tienen. Ejemplo: *Inicio* → *Empresa, Productos, Contacto*, más *Buscador* (contra la base de datos, con *Resultados*), *Correo electrónico*, video promocional, fotos, gráfico de venta y carpeta de productos |
+
+![[adjuntos/capturas-clase-U3/arquitectura-informacion/u3f3-10-inventario-de-la-informacion.png]]
+
+![[adjuntos/capturas-clase-U3/arquitectura-informacion/u3f3-11-mapa-nielsen-norman.png]]
+
+![[adjuntos/capturas-clase-U3/arquitectura-informacion/u3f3-12-diagrama-funcional-ai.png]]
+
+> [!tip] Mapa vs diagrama funcional
+> El diagrama funcional de la lámina pone **al lado** un árbol mínimo (*Inicio* → *Empresa,
+> Productos, Contacto*): eso es el **mapa** del mismo sitio. El mapa dice **qué hay y dónde**; el
+> diagrama funcional agrega **cómo se recorre y qué hace** cada parte (buscar, enviar correo, ver
+> fotos).
+
+El **inventario de información** reaparece en el [[Ciclo de desarrollo de la arquitectura]] §4: va
+justo después de la *creación del caso de negocio* y alimenta el *análisis de requerimientos*. Y los
+cuatro dominios (empresarial, aplicaciones, información, tecnológica) están en
+[[Arquitectura empresarial]].
+
 ## Notas relacionadas
 
+- [[Arquitectura empresarial]] — los cuatro dominios y el diagrama de comunicación (de clase)
 - [[Arquitectura ágil]] — la NT3: arquitectura de software dentro de las metodologías ágiles
 - [[Arquitectura de software en el modelo en espiral]] — la NT1: dónde participa la arquitectura en el ciclo de vida
 - [[Arquitectura y proceso de desarrollo]] — RUP y ágil según Garland & Anthony (complemento)
@@ -238,4 +268,5 @@ engancha a las fases de inicio, elaboración y construcción.**
 2. ¿Qué tienen en común las definiciones de Wurman, del AIfIA y de las autoras?
 3. Nombrá las tres etapas de la AI y una tarea de cada una.
 4. ¿Con qué fase de RUP y con qué fase de XP se corresponde cada etapa de la AI?
+5. ¿Qué tres entregables de la AI mostró la clase, y qué diferencia hay entre el mapa y el diagrama funcional?
 5. ¿En qué fase de RUP salen juntas la AI y la arquitectura de software, y qué otros artefactos produce RUP en el inicio?

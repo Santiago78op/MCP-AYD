@@ -1,6 +1,6 @@
 ---
 tema: Arquitectura de software
-fuente: "Arquitectura de Software.pdf / Arquitectura de Software (1).pdf + Presentación de clase — capturas_U2 (3, 4). NÚCLEO."
+fuente: "Arquitectura de Software.pdf / Arquitectura de Software (1).pdf + Presentación de clase — capturas_U2 (3, 4). NÚCLEO. La clase volvió a dar la lámina de las siete afirmaciones el 2026-10-16 (capturas_U3_F1 35)."
 fecha: 2026-08-19
 actualizada: 2026-09-15
 ---
@@ -11,7 +11,7 @@ La pregunta de la diapositiva es: **¿dónde debe colocarse la arquitectura en e
 del software?** La respuesta implícita es que **no se coloca en un solo lugar**: atraviesa el
 ciclo, porque es iterativa y depende de cosas que van cambiando.
 
-## Las ocho afirmaciones
+## Las siete afirmaciones
 
 1. Involucra requisitos **funcionales y no funcionales**.
 2. Es un **proceso iterativo** a través de requisitos y calidad.
@@ -27,6 +27,11 @@ ciclo, porque es iterativa y depende de cosas que van cambiando.
 desglosarlo al estudiar.)
 
 ![[adjuntos/arquitectura-de-software/arq-p20.png]]
+
+> [!note] La respuesta con dibujo (clase del 2026-10-16)
+> Dónde se coloca, en concreto: [[Ciclo de desarrollo de la arquitectura]] mapea cada etapa de la
+> arquitectura sobre las actividades del desarrollo, y [[Proceso general de diseño de la arquitectura]]
+> muestra el diseño como transformación de drivers en estructuras.
 
 ## Lo que hay que sacar de acá
 

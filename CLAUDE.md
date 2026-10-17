@@ -598,6 +598,29 @@ repiten las láminas 14-23 del ejemplo READM. `Atributos de calidad` queda como 
 | **Observables / no observables** | Bass 1998. Árbol: observables = disponibilidad, funcionalidad, confidencialidad, desempeño; no observables = interoperabilidad, portabilidad, **escalabilidad**, mantenibilidad | la lámina 17 se titula *NO observables* y lista **los observables**: errata (duda 52) |
 | **Escenarios (EAC)** | seis partes **+ atributo de calidad afectado**; *origen del estímulo* = fuente; la medida es *"criterio para testear el requerimiento"*; el campo *Afecta* nombra la **subcaracterística** ISO 9126 | copiar sus medidas sin número (*"inmediata"*): en una entrega, **número con unidad** siempre (duda 54) |
 
+### Lo que dio en la unidad 3 de clase — `capturas_U3_F1` 35-45 y `capturas_U3_F3`
+
+Notas: `Metodologías predictivas y ágiles`, `Proceso Scrum en la arquitectura de software`,
+`Proceso general de diseño de la arquitectura`, `Ciclo de desarrollo de la arquitectura`,
+`Arquitectura empresarial`, y la §9 nueva de `Arquitectura de la información`.
+
+| Tema | Lo que manda la clase | La trampa |
+|---|---|---|
+| **Elegir metodología** | siete factores: certidumbre de requisitos, estabilidad del alcance, cadencia de entrega, riesgos, seguridad, proyecto, organización. La cascada es *"válida en entornos estables y con certidumbre"* | decir que ágil siempre es mejor |
+| **Valor** | cascada: una flecha VALOR al final; ágil: una por iteración de 1-4 semanas | — |
+| **Scrum en la arquitectura** | 14 pasos; los de arquitectura (resaltados) son **1 especificación de CDU, 2 priorización de CDU, 4 arquitectura base (primer sprint), 9 refinamiento (sprint 1 al n)** | creer que en Scrum no hay arquitectura |
+| **Diseño como caja negra** | drivers (RF, calidad, restricción) a la izquierda, estructuras a la derecha, arquitecto arriba: *"una transformación… de los drivers hacia las distintas estructuras"* | — |
+| **Niveles de diseño** | arquitectura → interfaces → diseño detallado de módulos; adentro del primero: subconjunto de drivers → decisiones → diseño parcial | — |
+| **Mapeo del ciclo** | requerimientos con requerimientos; **diseño, documentación y evaluación en Diseño**; implementación en **Construcción**; pruebas e implantación sin etapa de arquitectura | confundir implementación de la arquitectura con implantación |
+| **Arquitectura empresarial** | cuatro dominios: empresarial, de aplicaciones, de la información (*modelo de datos*), tecnológica | la AI de esta lámina (datos) no es la de la NT2 (contenidos) — duda 57 |
+
+**Para el parcial 3 (17/10) el estudiante dijo que entran también dos lecturas de calidad**:
+`Modelos de calidad del software` (NT: factor-criterio-métrica, proceso/producto/uso, CMMI escalonado
+5 y continuo 6, veinte modelos con su año) y `Calidad en uso` (Covella y Olsina: eficacia,
+productividad, seguridad y satisfacción; métrica directa/indirecta, indicador elemental/global). La NT
+describe a **Boehm con el espiral** y lo fecha en 1986: para *modelo de calidad* manda la lámina,
+Boehm 1978 jerárquico (duda 55).
+
 ### Las tres notas técnicas de la unidad 3 — NT1, NT2 y NT3
 
 Llegaron el 16/10 y son **material de clase** (notas técnicas, como la NT1 de trazabilidad), aunque
@@ -667,8 +690,9 @@ Es la vía por la que entra casi todo el material nuevo. El pipeline que funcion
    entraba en llamada y retorno) y cerrá con `lint_wiki`.
 
 > [!note] Él sigue agregando carpetas de capturas
-> Además de `capturas_U1/` y `capturas_U2/` aparecieron `capturas_U2_F2/`, `capturas_U2_F3/` y `capturas_U3_F1/`
-> (esta última es *Calidad del Software*: el número de carpeta no es la unidad del programa). **Listá `00-Fuentes/` al
+> Además de `capturas_U1/` y `capturas_U2/` aparecieron `capturas_U2_F2/`, `capturas_U2_F3/`, `capturas_U3_F1/`
+> (sus 0-34 son *Calidad del Software*: el número de carpeta no es la unidad del programa) y `capturas_U3_F3/`.
+> **Él sigue sumando capturas mientras trabajás**: antes de cerrar, volvé a listar las carpetas. **Listá `00-Fuentes/` al
 > empezar** en vez de asumir las carpetas que conocés.
 
 ### Lotes grandes: agentes en paralelo
