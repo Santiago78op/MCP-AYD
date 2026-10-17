@@ -1,6 +1,6 @@
 ---
 tema: Calidad del software
-fuente: "Presentación de clase «Calidad del Software» (MBA. MSc. Claudia Rojas de Morán) — archivo 00-Fuentes/lecturas/Calidad del SW Parte II.pdf, 23 diapositivas. NÚCLEO. Está en la carpeta de lecturas, pero es material de clase: lleva su encabezado y su pie. + COMPLEMENTO — procedencia probable de las tablas (Cervantes, Velasco y Castro, «Arquitectura de software: conceptos y ciclo de desarrollo») y la lectura de las figuras sin texto, marcadas. La clase la volvió a dar el 16/10: capturas_U3_F1 26-34 = láminas 14-23"
+fuente: "Presentación de clase «Calidad del Software» (MBA. MSc. Claudia Rojas de Morán) — archivo 00-Fuentes/lecturas/Calidad del SW Parte II.pdf, 23 diapositivas. NÚCLEO. Está en la carpeta de lecturas, pero es material de clase: lleva su encabezado y su pie. + COMPLEMENTO — procedencia probable de las tablas (Cervantes, Velasco y Castro, «Arquitectura de software: conceptos y ciclo de desarrollo») y la lectura de las figuras sin texto, marcadas. La clase la volvió a dar el 16/10: capturas_U3_F1 26-31 = láminas 14-19, 32-33 = 21-22, 34 = 20 (la 23 repite ese diagrama)"
 fecha: 2026-10-12
 alias: [READM, RedADM, sistema de transporte, EAC, EaC, escenario de atributo de calidad, bus de eventos, ejemplo de calidad]
 ---

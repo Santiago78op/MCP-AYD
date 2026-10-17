@@ -91,7 +91,7 @@ Sobre una pantalla de *login* con **RUT** y **Clave** (y los enlaces *recuperar 
 
 | Campo | Valor |
 |---|---|
-| Descripción | Se busca que el usuario se demore la menor cantidad de tiempo en aprender a usar el sistema; por esto cada *input text* debe aparecer una breve descripción de qué ingresar en ese campo |
+| Descripción | Se busca que el usuario se demoré *(sic)* la menor cantidad de tiempo en aprender a usar el sistema; por esto cada *input text* debe aparecer una breve descripción de qué ingresar en ese campo |
 | Afecta | Usuario — **Capacidad de aprendizaje** |
 | Origen del estímulo | Usuario |
 | Estímulo | Colocar cursor en un *input text* |
