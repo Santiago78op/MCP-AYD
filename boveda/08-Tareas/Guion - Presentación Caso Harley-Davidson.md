@@ -9,19 +9,26 @@ alias: [guion harley, guion presentación, guion HD, exposición harley]
 # Guion — Presentación del Caso Harley-Davidson (SiL'K)
 
 **Grupo 2 · martes 13 de octubre de 2026 · 10 minutos.**
-Presentación para exponer: `08-Tareas/Grupo2_CasoHD_Presentacion.pptx` (PowerPoint o Keynote, sin conexión).
-Versión en línea: https://claude.ai/artifact/Y8fPakHZCfFqdDaYZdA1zD
+Presentación para exponer: `08-Tareas/Grupo2_CasoHD_Presentacion_azul.pptx` (PowerPoint o Keynote, sin conexión).
 Documento: `08-Tareas/Grupo2_CasoHD.pdf`
+
+## El hilo: seguir un pedido
+
+La exposición no recorre la rúbrica en orden: sigue **un pedido de piezas** desde que alguien lo pide
+hasta que se paga. Cada lámina contesta una pregunta sobre ese pedido, y la etiqueta «Criterio N» de
+la esquina dice qué parte de la rúbrica cubre. El orden queda: criterio 1, 3, 5, 6, 2 y 4.
+
+Las versiones anteriores quedan de respaldo: `Grupo2_CasoHD_Presentacion.pptx` (orden por criterio,
+fondo negro y naranja) y `Grupo2_CasoHD_Presentacion_pedido.pptx` (este orden, colores anteriores).
 
 ## Antes de entrar
 
-- Abrí `Grupo2_CasoHD_Presentacion.pptx` y empezá la presentación desde la primera lámina.
+- Abrí `Grupo2_CasoHD_Presentacion_azul.pptx` y empezá la presentación desde la primera lámina.
 - Se avanza con la flecha derecha o la barra espaciadora. **Cada clic hace una sola cosa**: o trae
   una tarjeta, o pasa de lámina. Son 23 clics de tarjetas y 12 cambios de lámina.
 - Los diagramas aparecen con la lámina; las tarjetas y las filas entran una por clic.
-- Este guion también va en las **notas del orador** de cada lámina, con la marca `[CLIC]`: con la
-  vista de moderador lo tenés en tu pantalla mientras proyectás.
-- La tipografía es Arial, para que se vea igual en cualquier computadora.
+- Este guion también va en las **notas del orador** de cada lámina, con la marca `[CLIC]`.
+- Los títulos van en Georgia y el resto en Arial: las dos están en Windows y en macOS.
 - Tené el PDF de la entrega abierto en otra ventana por si piden ver una matriz o un escenario.
 
 ## El reloj
@@ -30,19 +37,20 @@ Documento: `08-Tareas/Grupo2_CasoHD.pdf`
 |---|---|---|---|---|
 | 1 | Portada | 0 | 0:20 | 0:20 |
 | 2 | El caso | 3 | 0:50 | 1:10 |
-| 3 | Diagrama de contexto | 0 | 0:45 | 1:55 |
-| 4 | Seis actores, cuatro procesos | 0 | 1:00 | 2:55 |
-| 5 | Stakeholders | 4 | 0:40 | 3:35 |
-| 6 | Drivers | 3 | 1:10 | 4:45 |
-| 7 | Matrices | 4 | 0:50 | 5:35 |
-| 8 | SOA | 4 | 1:10 | 6:45 |
-| 9 | Diagrama de bloques | 0 | 0:40 | 7:25 |
-| 10 | Diagrama de despliegue | 0 | 0:50 | 8:15 |
-| 11 | Modelo de calidad | 2 | 1:15 | 9:30 |
+| 3 | Seis actores, cuatro procesos | 0 | 1:00 | 2:10 |
+| 4 | Diagrama de contexto | 0 | 0:45 | 2:55 |
+| 5 | Drivers | 3 | 1:10 | 4:05 |
+| 6 | SOA | 4 | 1:10 | 5:15 |
+| 7 | Diagrama de bloques | 0 | 0:40 | 5:55 |
+| 8 | Diagrama de despliegue | 0 | 0:50 | 6:45 |
+| 9 | Modelo de calidad | 2 | 1:15 | 8:00 |
+| 10 | Stakeholders | 4 | 0:40 | 8:40 |
+| 11 | Matrices | 4 | 0:50 | 9:30 |
 | 12 | Cierre | 3 | 0:30 | 10:00 |
 | 13 | Referencias | 0 | no se expone | — |
 
-Si a los cinco minutos todavía no llegaste a las matrices, recortá la lámina 9 a una frase.
+Las frases de enganche suman unos cinco segundos por lámina. Si a los cinco minutos todavía no
+llegaste al diagrama de bloques, recortá esa lámina a una frase.
 
 ---
 
@@ -50,12 +58,16 @@ Si a los cinco minutos todavía no llegaste a las matrices, recortá la lámina 
 
 > Buenos días. Somos el Grupo 2. El caso es de Harvard y cuenta cómo Harley-Davidson eligió un
 > software de compras en 1998. Nuestra tarea no fue elegir el proveedor: fue definir la arquitectura
-> que ese proyecto, SiL'K, necesitaría hoy. Vamos criterio por criterio de la rúbrica.
+> que ese proyecto, SiL'K, necesitaría hoy. En vez de recorrer la rúbrica en orden, vamos a seguir
+> un pedido de piezas desde que alguien lo pide hasta que se paga. Arriba de cada lámina está el
+> criterio que cubre.
 
 ## 2 · El caso — 0:50
 
 Un clic por cada cifra.
 
+> Empecemos por qué importa ese pedido.
+>
 > Tres datos explican por qué existe SiL'K.
 > *(clic)* Entre el 55 y el 60 por ciento del valor de una motocicleta son piezas compradas.
 > *(clic)* El personal de Compras pasa el 85 por ciento de su tiempo en tareas no estratégicas,
@@ -67,18 +79,10 @@ Un clic por cada cifra.
 > todo lo demás: los compradores son trabajadores del negocio, y los actores son el proveedor y las
 > áreas que piden, reciben y pagan.
 
-## 3 · Diagrama de contexto — 0:45
+## 3 · Seis actores, cuatro procesos — 1:00
 
-> Criterio uno. El Producto es el software SiL'K, la elipse del centro; los rectángulos son las
-> entidades externas. Arriba y a la izquierda están las personas y las áreas; a la derecha, el
-> suministrador y la recepción; abajo, los sistemas que ya existen. Son diez entidades y diecinueve
-> flujos, y cada flecha lleva nombre en sustantivo.
+> ¿Por dónde pasa el pedido? Este es el negocio. Criterio uno.
 >
-> Un detalle: el comprador aparece aquí como entidad externa al software, aunque dentro del negocio
-> es un trabajador. Cambia la lente, no la persona.
-
-## 4 · Seis actores, cuatro procesos — 1:00
-
 > El core es una sola elipse, la gestión de suministros y compras, con seis actores: el proveedor y
 > cinco áreas. Aplicamos la regla de clase: las áreas son actores, las personas son trabajadores.
 >
@@ -88,24 +92,26 @@ Un clic por cada cifra.
 >
 > Quédense con esto: estos cuatro procesos van a ser después los cuatro servicios de la arquitectura.
 
-## 5 · Stakeholders — 0:40
+## 4 · Diagrama de contexto — 0:45
 
-Un clic por tarjeta.
-
-> Criterio dos: diecisiete interesados. Entra a la lista quien aporta un interés que ningún otro trae.
-> *(clic)* Cinco patrocinan y deciden. *(clic)* Seis usan el sistema: unos 200 compradores, más de
-> 2.000 solicitantes y cuatro áreas vecinas. *(clic)* Cuatro regulan y acompañan, entre ellos el
-> grupo que fija las normas de arquitectura. *(clic)* Y dos son externos.
+> Mientras el pedido viaja, el software intercambia información con todos estos.
 >
-> Ojo: el caso llama «suministrador» tanto al proveedor de piezas como al de software. El primero es
-> actor del negocio; el segundo solo es stakeholder del proyecto.
+> Sigue siendo el criterio uno. El Producto es el software SiL'K, la elipse del centro; los rectángulos son las
+> entidades externas. Arriba y a la izquierda están las personas y las áreas; a la derecha, el
+> suministrador y la recepción; abajo, los sistemas que ya existen. Son diez entidades y diecinueve
+> flujos, y cada flecha lleva nombre en sustantivo.
+>
+> Un detalle: el comprador aparece aquí como entidad externa al software, aunque dentro del negocio
+> es un trabajador. Cambia la lente, no la persona.
 
-## 6 · Drivers — 1:10
+## 5 · Drivers — 1:10
 
 Un clic por tarjeta.
 
+> ¿Qué le exige ese pedido al sistema?
+>
 > Criterio tres: los tres tipos de driver.
-> *(clic)* Dieciocho funcionales, entregados como casos de uso expandidos: catorce casos en cuatro
+> *(clic)* Dieciocho funcionales, entregados como casos de uso expandidos: veinte casos en cuatro
 > diagramas, y ninguno es un «crear, editar o consultar».
 > *(clic)* Nueve de calidad, escritos como escenarios de atributos de calidad, los EaC, con sus seis
 > partes: fuente de estímulo, estímulo, artefacto, entorno, respuesta y medida. Sin medida no es un
@@ -117,22 +123,12 @@ Un clic por tarjeta.
 > Una aclaración honesta: el caso da cifras de negocio, no de comportamiento del sistema. Las medidas
 > las derivamos de sus volúmenes y lo declaramos como supuesto.
 
-## 7 · Matrices — 0:50
-
-Un clic por fila.
-
-> Criterio cuatro: las cuatro matrices que pide la rúbrica.
-> *(clic)* Stakeholders contra requerimientos: ningún requerimiento queda sin dueño.
-> *(clic)* Requerimientos contra casos de uso: todo requerimiento se realiza.
-> *(clic)* Stakeholders contra casos de uso: no la llenamos a mano, sale de cruzar las dos anteriores,
-> así que no puede contradecirlas.
-> *(clic)* Y requerimientos contra requerimientos, que es de dependencias: muestra que el registro
-> único de suministradores sostiene a otros seis requerimientos. Eso nos dice qué construir primero.
-
-## 8 · SOA — 1:10
+## 6 · SOA — 1:10
 
 Un clic por escalón; la escalera sube de izquierda a derecha.
 
+> ¿Cómo lo atendemos?
+>
 > Criterio cinco. El estilo principal es SOA, con un servicio por proceso de negocio. Lo justificamos
 > con la escalera de la lámina de clase.
 > *(clic)* Define las necesidades del negocio. *(clic)* Desarrolla los procesos como servicios: son
@@ -144,15 +140,19 @@ Un clic por escalón; la escalera sube de izquierda a derecha.
 > complementamos con capas dentro de cada servicio y eventos entre servicios. Y descartamos el
 > monolítico porque el propio equipo dijo que no buscaba un ERP completo.
 
-## 9 · Diagrama de bloques — 0:40
+## 7 · Diagrama de bloques — 0:40
 
+> Así viaja el pedido por dentro.
+>
 > Este es el diagrama de bloques, con el molde del ejemplo de clase: a la izquierda los productores
 > de eventos, al centro el enrutador y a la derecha los consumidores. Cada flecha lleva el evento que
 > transporta. Quien produce un evento no conoce a quien lo consume: si el sistema de una planta se
 > cae, los demás siguen. Eso responde a la restricción de no parar la producción.
 
-## 10 · Diagrama de despliegue — 0:50
+## 8 · Diagrama de despliegue — 0:50
 
+> Y aquí es donde ocurre.
+>
 > El despliegue tiene cuatro zonas. Arriba, en verde, los dispositivos: la PC, la tableta del muelle
 > y el suministrador por Internet. Al centro, en naranja, la nube: una sola entrada, el clúster con un
 > servicio por proceso, el bus de eventos y la base de datos con su réplica. A la derecha, en
@@ -161,10 +161,12 @@ Un clic por escalón; la escalera sube de izquierda a derecha.
 > Lo existente no se mueve: se conecta. El caso no trae hardware, así que el dimensionamiento es un
 > supuesto declarado.
 
-## 11 · Modelo de calidad — 1:15
+## 9 · Modelo de calidad — 1:15
 
 Un clic para la tabla y otro para la frase de abajo.
 
+> ¿Cómo sabemos que el pedido llegó bien?
+>
 > Criterio seis, que tiene dos partes. La primera: los siete pasos para definir la arquitectura. En
 > el documento indicamos, paso por paso, qué drivers de calidad y de restricción lo condicionan; por
 > ejemplo, las tres fases y no parar la línea condicionan la implementación.
@@ -174,6 +176,34 @@ Un clic para la tabla y otro para la frase de abajo.
 > seguridad y compatibilidad son características de primer nivel, y son las que más pesan en este
 > caso. Cada característica queda con su escenario, su decisión de arquitectura y su umbral.
 > *(clic)* Y se mide dos veces: antes de construir y al cerrar cada fase.
+
+## 10 · Stakeholders — 0:40
+
+Un clic por tarjeta.
+
+> ¿A quién le importa que ese pedido salga bien?
+>
+> Criterio dos: diecisiete interesados. Entra a la lista quien aporta un interés que ningún otro trae.
+> *(clic)* Cinco patrocinan y deciden. *(clic)* Seis usan el sistema: unos 200 compradores, más de
+> 2.000 solicitantes y cuatro áreas vecinas. *(clic)* Cuatro regulan y acompañan, entre ellos el
+> grupo que fija las normas de arquitectura. *(clic)* Y dos son externos.
+>
+> Ojo: el caso llama «suministrador» tanto al proveedor de piezas como al de software. El primero es
+> actor del negocio; el segundo solo es stakeholder del proyecto.
+
+## 11 · Matrices — 0:50
+
+Un clic por fila.
+
+> Y la prueba de que nada quedó suelto.
+>
+> Criterio cuatro: las cuatro matrices que pide la rúbrica.
+> *(clic)* Stakeholders contra requerimientos: ningún requerimiento queda sin dueño.
+> *(clic)* Requerimientos contra casos de uso: todo requerimiento se realiza.
+> *(clic)* Stakeholders contra casos de uso: no la llenamos a mano, sale de cruzar las dos anteriores,
+> así que no puede contradecirlas.
+> *(clic)* Y requerimientos contra requerimientos, que es de dependencias: muestra que el registro
+> único de suministradores sostiene a otros seis requerimientos. Eso nos dice qué construir primero.
 
 ## 12 · Cierre — 0:30
 
@@ -202,6 +232,7 @@ No se expone. Queda de respaldo si preguntan de dónde sale algo.
 | ¿Por qué SOA y no microservicios? | La granularidad por proceso ya alcanza, y el núcleo es un paquete de mercado. Partir más fino multiplica la operación sin un driver que lo pida |
 | ¿Por qué no un ERP? | El caso lo prohíbe: el equipo dijo que no buscaba una solución completa de planificación de recursos empresariales |
 | ¿Por qué ISO/IEC 25010 y no 9126? | La consigna pide métodos actuales y la 25010 sustituye a la 9126. Además, seguridad y compatibilidad eran subcaracterísticas de funcionalidad en la 9126 |
+| ¿Por qué no siguieron el orden de la rúbrica? | Están los seis criterios, cada lámina dice cuál cubre. Los ordenamos como ocurre un pedido porque así se ve que cada artefacto sale del anterior |
 | ¿Qué proveedor eligieron? | Ninguno: el caso no lo decide y la rúbrica no lo pide. El paquete queda detrás de los contratos de servicio |
 | ¿Qué es un EaC? | Un escenario de atributo de calidad: fuente de estímulo, estímulo, artefacto, entorno, respuesta y medida de la respuesta |
 | ¿Cómo «trajeron el caso al presente»? | Se actualizó la tecnología: portal web y API en lugar de la «red Internet de Suministros», nube, inicio de sesión único. Los hechos del caso no se tocaron |
