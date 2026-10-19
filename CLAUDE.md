@@ -531,6 +531,36 @@ Doctrina de esa entrega:
   como la 9126 o la 25000*. Se adoptó ISO/IEC 25010 declarando que sucede a la 9126 del programa.
 - **Los números de calidad son supuestos declarados**: el caso solo trae cifras de negocio.
 
+### La Tarea 3: Caso 4 *Repensando los parquímetros* (SERVIparq) — llegó el 19/10/2026
+
+Caso de la UAM (Ciudad de México, 2012), **no** continúa los anteriores. El estado vive en
+**`metodo_tarea("Avance - Caso Parquímetros")`** y el entregable en **`Entrega - Caso Parquímetros`**.
+Se entrega como **Grupo 2 de tres**: Santiago (Scrum Master / coordinador), Jemima (Product Owner),
+Byron (equipo de desarrollo); **Elías Vasquez ya no está**. Modo: **resolver y explicar**.
+
+> [!note] Nada se edita a mano
+> PDF y `.docx`: `python3 boveda/06-Proyecto-MCP/generar-entrega-parq.py`. Presentación, notas del
+> orador y los tres guiones individuales: `generar-presentacion-parq.py`, que lee el guion maestro
+> `Guion - Presentación Caso Parquímetros.md` y **aborta si los clics no coinciden con los «(clic)»**.
+
+Doctrina de esa entrega:
+
+- **Las cuatro perspectivas de la consigna** (arquitectura del software, calidad, ciclo de vida y
+  arquitectura de la información) se aplican a cada alternativa y organizan la solución.
+- **Frontera:** la gestión del estacionamiento en la vía pública. Los **cuidacarros no son actores**:
+  son un factor externo (RE-12, EAC-11, CU-12).
+- **Solución:** S-2 pago por placa conectado como núcleo, S-1 (rediseño de información) adentro, S-4
+  (gobierno comunitario) alrededor y S-3 (sensores) aplazada. SOA por proceso con eventos.
+- **El 72 % = 80 % × 90 %**; la propuesta propia es un umbral por tarea según la consecuencia de fallar.
+- **Vocabulario, pedido por él:** lenguaje de estudiante; todo término raro se define al usarlo.
+  «Franelero» (palabra mexicana del caso) se define una vez y después se dice **cuidacarros**.
+
+> [!warning] Keynote rechaza un .pptx con notas creadas desde la plantilla por defecto de python-pptx
+> Lo abre sin error si no tiene notas; con notas, *«Can't make missing value»* y el archivo no carga.
+> Por eso `generar-presentacion-parq.py` parte de `06-Proyecto-MCP/plantillas/base-presentacion-16x9.pptx`
+> (la presentación HD sin láminas). Una presentación nueva por python-pptx tiene que salir de esa base.
+> Y en esa retícula de 1920 px, **1 pt = 2 px**: calcular alturas de texto con ese factor.
+
 ### El ejemplo READM — lo que dio en la presentación *Calidad del Software*
 
 Nota: `Ejemplo resuelto - Sistema de Transporte READM`. El PDF está en `00-Fuentes/lecturas/`, pero

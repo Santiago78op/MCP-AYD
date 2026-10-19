@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parquímetro SIEP</title>
+<style>
+:root{
+  --bg:#e9ebee; --panel:#ffffff; --ink:#111418; --muted:#545b66; --line:#c9ced6;
+  --accent:#0b5cad; --accent-ink:#ffffff; --ok:#0f7a3a; --warn:#a4461b; --chip:#eef1f5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121417; --panel:#1b1f24; --ink:#f2f4f7; --muted:#a8b0bb; --line:#343a42;
+    --accent:#5aa2ff; --accent-ink:#0b0d10; --ok:#4cc27b; --warn:#f08a5a; --chip:#242a31;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121417; --panel:#1b1f24; --ink:#f2f4f7; --muted:#a8b0bb; --line:#343a42;
+  --accent:#5aa2ff; --accent-ink:#0b0d10; --ok:#4cc27b; --warn:#f08a5a; --chip:#242a31;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 -apple-system,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px;display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:24px}
+@media (max-width:900px){.wrap{grid-template-columns:1fr}}
+.meter{background:var(--panel);border:2px solid var(--line);border-radius:18px;overflow:hidden}
+.top{padding:16px 20px;border-bottom:2px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.top b{font-size:20px}
+.top small{color:var(--muted);display:block}
+.tarifa{background:var(--chip);padding:12px 20px;font-size:15px;display:flex;gap:18px;flex-wrap:wrap}
+.tarifa span{white-space:nowrap}
+.steps{display:flex;padding:14px 20px 0;gap:8px}
+.step{flex:1;text-align:center;font-size:13px;color:var(--muted);border-top:5px solid var(--line);padding-top:6px}
+.step.on{color:var(--ink);border-color:var(--accent);font-weight:600}
+.step.done{border-color:var(--ok)}
+.screen{padding:20px;min-height:430px}
+h2{font-size:26px;margin:0 0 6px}
+.hint{color:var(--muted);margin:0 0 16px}
+.placa{display:flex;align-items:center;gap:10px;font:700 34px/1 ui-monospace,Menlo,monospace;letter-spacing:3px;
+  border:3px solid var(--ink);border-radius:10px;padding:12px 16px;min-height:66px;background:var(--panel)}
+.placa .pre{background:var(--ink);color:var(--panel);border-radius:6px;padding:4px 10px}
+.keys{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:14px}
+button{font:inherit;cursor:pointer;border-radius:10px;border:2px solid var(--line);background:var(--chip);color:var(--ink);padding:12px 6px;min-height:48px}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700;font-size:19px;width:100%;margin-top:16px}
+.primary:disabled{opacity:.4;cursor:not-allowed}
+.row{display:flex;gap:10px;align-items:center}
+.big{font-size:44px;font-weight:700;text-align:center;flex:1}
+.pay{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pay button{padding:18px 6px;font-weight:600}
+.pay button[aria-pressed="true"]{border-color:var(--accent);outline:2px solid var(--accent)}
+.ok{color:var(--ok);font-weight:700}
+.aviso{border-left:5px solid var(--warn);background:var(--chip);padding:10px 14px;margin-top:16px;font-size:15px}
+.side{display:flex;flex-direction:column;gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card h3{margin:0 0 8px;font-size:17px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.muted{color:var(--muted);font-size:14px}
+.tag{display:inline-block;padding:1px 8px;border-radius:99px;background:var(--chip);font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="meter" aria-label="Pantalla del parquímetro">
+    <div class="top">
+      <div><b>Parquímetro 0412</b><small>Zona 4 · 7.ª avenida, cuadra 12</small></div>
+      <div style="text-align:right"><b id="reloj">10:00</b><small>lunes a sábado, 7:00 a 20:00</small></div>
+    </div>
+    <div class="tarifa" aria-label="Tarifa de esta cuadra">
+      <span><b>Q3</b> por 30 min la 1.ª hora</span><span>luego <b>Q3.50</b></span><span>máximo <b>4 h</b></span><span>monedas · tarjeta · QR</span>
+    </div>
+    <div class="steps" aria-hidden="true">
+      <div class="step" data-s="1">1 · Placa</div>
+      <div class="step" data-s="2">2 · Tiempo</div>
+      <div class="step" data-s="3">3 · Pago</div>
+      <div class="step" data-s="4">Listo</div>
+    </div>
+    <div class="screen" id="screen" aria-live="polite"></div>
+  </section>
+
+  <aside class="side">
+    <div class="card">
+      <h3>Prueba de desempeño</h3>
+      <p class="muted">Modo para el moderador: cada tarea se cronometra desde que el participante empieza hasta que
+        la termina. Una tarea cuenta como lograda si se encontró la información <b>y</b> se usó bien.</p>
+      <table>
+        <thead><tr><th>Tarea</th><th class="n">Tiempo</th><th>Resultado</th></tr></thead>
+        <tbody id="log"><tr><td colspan="3" class="muted">Sin intentos todavía.</td></tr></tbody>
+      </table>
+      <p style="margin:12px 0 0">Eficacia: <b id="efic" class="n">sin datos</b> · criterio acordado <b class="n">72 %</b></p>
+      <div class="row" style="margin-top:10px;gap:8px">
+        <button id="fallo" type="button">Marcar intento fallido</button>
+        <button id="csv" type="button">Descargar CSV</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Qué cambia frente al «Pay and Display»</h3>
+      <table>
+        <tr><td>Boleto en el tablero</td><td>El pago queda <b>ligado a la placa</b>: no hay boleto que colocar ni que se caiga</td></tr>
+        <tr><td>Solo monedas</td><td>Monedas, tarjeta sin contacto y QR de la app</td></tr>
+        <tr><td>Instrucciones en un panel</td><td>Tres pasos numerados, uno por pantalla, con la tarifa siempre visible</td></tr>
+        <tr><td>No saber a quién reclamar</td><td>El comprobante trae el folio, el número del parquímetro y la línea de atención</td></tr>
+        <tr><td>Cuidacarros que cobran</td><td>Aviso explícito de que el único pago es este y botón de denuncia con la ubicación</td></tr>
+      </table>
+    </div>
+  </aside>
+</div>
+
+<script>
+const S = {paso: 1, placa: "", min: 30, medio: null, t0: null, intentos: []};
+const scr = document.getElementById("screen");
+const TECLAS = "1234567890ABCDEFGHJKLMNPRSTVWXYZ".split("");
+
+// tarifario del Acuerdo COM-40-2022 de la Municipalidad de Guatemala (vehiculos, por cada 30 min):
+// Q3 la primera hora, Q3.50 desde la segunda hora y Q4 desde la cuarta
+function costo(min){
+  let q = 0;
+  for (let t = 0; t < min; t += 30) q += t < 60 ? 3 : t < 180 ? 3.5 : 4;
+  return q % 1 ? q.toFixed(2) : q;
+}
+function hhmm(totalMin){ const h = Math.floor(totalMin / 60), m = totalMin % 60; return `${h}:${String(m).padStart(2,"0")}`; }
+function fin(){ return hhmm(600 + S.min); }
+
+function marcarPasos(){
+  document.querySelectorAll(".step").forEach(el => {
+    const s = +el.dataset.s;
+    el.classList.toggle("on", s === S.paso);
+    el.classList.toggle("done", s < S.paso);
+  });
+}
+
+function pinta(){
+  marcarPasos();
+  if (S.paso === 1){
+    scr.innerHTML = `<h2>Escriba su placa</h2>
+      <p class="hint">Es la misma del vehículo que dejó en esta cuadra. Ejemplo: P 123ABC</p>
+      <div class="placa"><span class="pre">P</span><span id="pl">${S.placa || "&nbsp;"}</span></div>
+      <div class="keys">${TECLAS.map(k => `<button type="button" data-k="${k}">${k}</button>`).join("")}
+        <button type="button" data-k="DEL" style="grid-column:span 2">Borrar</button></div>
+      <button class="primary" id="sig" ${S.placa.length === 6 ? "" : "disabled"}>Continuar</button>`;
+    scr.querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
+      if (!S.t0) S.t0 = performance.now();
+      const k = b.dataset.k;
+      if (k === "DEL") S.placa = S.placa.slice(0, -1);
+      else if (S.placa.length < 6) S.placa += k;
+      pinta();
+    });
+  } else if (S.paso === 2){
+    scr.innerHTML = `<h2>¿Cuánto tiempo?</h2>
+      <p class="hint">Se cobra cada 30 minutos; desde la segunda hora cada bloque cuesta Q3.50. Puede extenderlo después desde la app sin volver al parquímetro.</p>
+      <div class="row"><button type="button" id="menos" aria-label="Menos 30 minutos">− 30 min</button>
+        <div class="big n">${hhmm(S.min)} h</div>
+        <button type="button" id="mas" aria-label="Más 30 minutos">+ 30 min</button></div>
+      <p style="text-align:center;font-size:20px">Total <b class="n">Q${costo(S.min)}</b> · vence a las <b class="n">${fin()}</b></p>
+      <button class="primary" id="sig">Continuar al pago</button>`;
+    document.getElementById("menos").onclick = () => { S.min = Math.max(30, S.min - 30); pinta(); };
+    document.getElementById("mas").onclick = () => { S.min = Math.min(240, S.min + 30); pinta(); };
+  } else if (S.paso === 3){
+    scr.innerHTML = `<h2>Elija cómo pagar <span class="n">Q${costo(S.min)}</span></h2>
+      <p class="hint">Monedas de Q1, 50 y 25 centavos. La tarjeta se acerca al lector, sin firmar.</p>
+      <div class="pay">${["Monedas","Tarjeta","QR de la app"].map(m =>
+        `<button type="button" aria-pressed="${S.medio === m}" data-m="${m}">${m}</button>`).join("")}</div>
+      <div class="aviso">Este es el <b>único</b> cobro por estacionarse en esta cuadra. Si alguien le pide dinero por el
+        espacio, no pague: use «Reportar» en el comprobante.</div>
+      <button class="primary" id="sig" ${S.medio ? "" : "disabled"}>Pagar</button>`;
+    scr.querySelectorAll("[data-m]").forEach(b => b.onclick = () => { S.medio = b.dataset.m; pinta(); });
+  } else {
+    scr.innerHTML = `<h2 class="ok">Pago registrado</h2>
+      <p class="hint">No necesita colocar boleto: el verificador consulta su placa.</p>
+      <table>
+        <tr><td>Placa</td><td class="n"><b>P ${S.placa}</b></td></tr>
+        <tr><td>Vence</td><td class="n"><b>${fin()}</b> (le avisamos 10 min antes en la app)</td></tr>
+        <tr><td>Pagado</td><td class="n">Q${costo(S.min)} · ${S.medio}</td></tr>
+        <tr><td>Folio</td><td class="n">0412-${String(S.intentos.length + 1).padStart(4,"0")}</td></tr>
+        <tr><td>Dudas o reclamos</td><td>Línea 1551 · siep.muni/reclamos · parquímetro 0412</td></tr>
+      </table>
+      <div class="row" style="margin-top:16px;gap:10px"><button type="button" id="rep">Reportar cobro informal</button>
+        <button type="button" id="otra">Nueva placa</button></div>`;
+    document.getElementById("otra").onclick = reinicia;
+    document.getElementById("rep").onclick = () => {
+      document.getElementById("rep").textContent = "Reporte enviado con la ubicación de la cuadra";
+    };
+  }
+  const sig = document.getElementById("sig");
+  if (sig) sig.onclick = () => {
+    if (!S.t0) S.t0 = performance.now();
+    S.paso++;
+    if (S.paso === 4) registra(true);
+    pinta();
+  };
+}
+
+function registra(ok){
+  const seg = S.t0 ? (performance.now() - S.t0) / 1000 : 0;
+  S.intentos.push({tarea: "Pagar 1 h por placa", seg: seg.toFixed(1), ok});
+  S.t0 = null;
+  const tb = document.getElementById("log");
+  tb.innerHTML = S.intentos.map((r, i) =>
+    `<tr><td>${i + 1}. ${r.tarea}</td><td class="n">${r.seg} s</td><td>${r.ok ? "lograda" : "<b>fallida</b>"}</td></tr>`).join("");
+  const p = S.intentos.filter(r => r.ok).length / S.intentos.length * 100;
+  document.getElementById("efic").textContent = p.toFixed(0) + " %" + (p >= 72 ? " (cumple)" : " (no cumple)");
+}
+
+function reinicia(){ Object.assign(S, {paso: 1, placa: "", min: 30, medio: null, t0: null}); pinta(); }
+
+document.getElementById("fallo").onclick = () => { registra(false); reinicia(); };
+document.getElementById("csv").onclick = () => {
+  const filas = ["tarea,segundos,resultado", ...S.intentos.map(r => `${r.tarea},${r.seg},${r.ok ? "lograda" : "fallida"}`)];
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([filas.join("\n")], {type: "text/csv"}));
+  a.download = "prueba-desempeno.csv"; a.click();
+};
+// ?paso=N muestra una pantalla ya cargada (capturas para el documento)
+const qs = new URLSearchParams(location.search);
+if (qs.get("tema")) document.documentElement.dataset.theme = qs.get("tema");
+const demo = +new URLSearchParams(location.search).get("paso");
+if (demo) Object.assign(S, {paso: demo, placa: "123ABC", min: 60, medio: demo >= 3 ? "Tarjeta" : null});
+pinta();
+</script>
+</body>
+</html>

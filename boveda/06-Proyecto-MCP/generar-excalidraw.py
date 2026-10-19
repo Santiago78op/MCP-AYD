@@ -2745,12 +2745,12 @@ def _ubicar_rotulos(pedidos, segmentos, cajas, elipse_):
     return salida
 
 
-def contexto_hd():
+def contexto_hd(lista=None, producto="SiL'K\nSistema integrado de compras\ny gestión de suministradores"):
+    """El molde sirve para cualquier caso: lista = [(entidad, lado, x, y, entra, sale)]."""
     CX, CY, RX, RY, EW, EH, TAM = (_CTXH[k] for k in ("CX", "CY", "RX", "RY", "EW", "EH", "TAM"))
-    els = elipse(CX - RX, CY - RY, 2 * RX, 2 * RY,
-                 "SiL'K\nSistema integrado de compras\ny gestión de suministradores", tam=18)
+    els = elipse(CX - RX, CY - RY, 2 * RX, 2 * RY, producto, tam=18)
     cajas, segmentos, pedidos, flechas = [], [], [], []
-    for nombre, lado, x, y, entra, sale in CTX_HD:
+    for nombre, lado, x, y, entra, sale in (lista or CTX_HD):
         els += entidad(x, y, EW, EH, nombre, tam=16)
         cajas.append((x - 6, y - 6, x + EW + 6, y + EH + 6))
         ex, ey = x + EW / 2.0, y + EH / 2.0
@@ -3116,6 +3116,262 @@ SUBCARPETA.update({
     "cdu-expandido-hd-03-suministradores": "caso-hd/3-drivers-rf",
     "cdu-expandido-hd-04-proyectos": "caso-hd/3-drivers-rf",
     "despliegue-hd": "caso-hd/5-estilo-despliegue",
+})
+
+
+# ==========================================================================
+# TAREA 3 — Caso "Repensando los parquímetros" (SERVIparq / Smartmedia)
+#
+# Frontera declarada: el negocio es la GESTION DEL ESTACIONAMIENTO EN LA VIA
+# PUBLICA (zonas tarifadas), no la movilidad de la ciudad ni el gobierno
+# completo. Las personas de SERVIparq (verificador, tecnico, operador de
+# monitoreo, analista) son TRABAJADORES; el conductor, las areas y las
+# organizaciones externas son ACTORES DE NEGOCIO. Los cuidacarros no son
+# actores: no interactuan con el negocio de forma legitima (son un factor
+# externo que la arquitectura tiene que contrarrestar).
+# ==========================================================================
+CTX_PQ = [
+    ("Conductor\n(usuario primario)", "arriba", 215, 40, "Placa, pago\ny reclamos", "Comprobante y\naviso de tiempo"),
+    ("Comité vecinal\nde transparencia", "arriba", 745, 40, "Opinión y\nreportes", "Informe de\nrecursos 70/30"),
+    ("Delegación\n(municipalidad)", "arriba", 1275, 40, "Reglamento,\nzonas y tarifas", "Recaudación e\nindicadores"),
+    ("Verificador\nde SERVIparq", "izq", 20, 380, "Evidencia de\ninfracción", "Placas sin\npago vigente"),
+    ("Oficial de tránsito", "izq", 20, 750, "Multa\nconfirmada", "Infracción\npor confirmar"),
+    ("Banco y pasarela\nde pagos", "der", 1470, 380, "Autorización\ndel cobro", "Solicitud\nde cobro"),
+    ("Proveedor de\nparquímetros", "der", 1470, 750, "Reparación\nrealizada", "Orden de\nmantenimiento"),
+    ("Parquímetro\n(equipo en la calle)", "abajo", 215, 1090, "Pagos y\ntelemetría", "Tarifas y\nconfiguración"),
+    ("Registro vehicular\n(padrón de placas)", "abajo", 745, 1090, "Datos del\nvehículo", None),
+    ("Sistema de multas\nde tránsito", "abajo", 1275, 1090, "Estado de\nla multa", "Multa\nregistrada"),
+]
+
+
+def contexto_parq():
+    return contexto_hd(CTX_PQ, "SIEP\nSistema integrado de estacionamiento\nen la vía pública")
+
+
+_PQ_ACT = [("Banco y pasarela\nde pagos", 110, 200, [1]), ("Conductor", 110, 390, [1, 2]),
+           ("Oficial de tránsito", 110, 580, [2]), ("Proveedor de\nparquímetros", 110, 770, [4]),
+           ("Delegación\n(municipalidad)", 1210, 105, [0]), ("Comité vecinal\nde transparencia", 1210, 390, [0, 3])]
+
+
+def core_negocio_parq():
+    els = [titulo("CDU de alto nivel (core): plano del negocio", 40, 10, 1400)]
+    EX, EY, EW, EH = 520, 370, 560, 200
+    els += elipse_negocio(EX, EY, EW, EH, "Gestión del Estacionamiento\nen la Vía Pública (SERVIparq)", tam=17)
+    e = _f_elipse(EX, EY, EW, EH)
+    A = [(250, 110, "Conductor"), (750, 90, "Comité vecinal\nde transparencia"),
+         (1250, 110, "Delegación\n(municipalidad)"),
+         (250, 690, "Banco y pasarela\nde pagos"), (750, 710, "Oficial de tránsito"),
+         (1250, 690, "Proveedor de\nparquímetros")]
+    for x, y, n in A:
+        els += actor_negocio(x, y, n)
+        els += _une(_f_actor(x, y, True), e)
+    return els
+
+
+def descomposicion_parq():
+    els = [titulo("CDU primera descomposición: plano del negocio", 40, 10, 1400)]
+    EX, EW, EH = 430, 560, 120
+    nombres = ["CDU-01 · Concertar e implementar\nla zona con la comunidad",
+               "CDU-02 · Cobrar el estacionamiento\npor placa",
+               "CDU-03 · Verificar el pago\ny sancionar",
+               "CDU-04 · Rendir cuentas de los\nrecursos a la comunidad",
+               "CDU-05 · Mantener y monitorear\nla red de parquímetros"]
+    E = []
+    for i, n in enumerate(nombres):
+        y = 100 + i * 190
+        els += elipse_negocio(EX, y, EW, EH, n, tam=14)
+        E.append(_f_elipse(EX, y, EW, EH))
+    for n, x, y, ks in _PQ_ACT:
+        els += actor_negocio(x, y, n)
+        a = _f_actor(x, y, True)
+        for k in ks:
+            if x < 700:
+                els += _une(a, E[k])
+                continue
+            # del lado derecho la linea llega al contorno superior derecho: asi
+            # no atraviesa las elipses de en medio ni toca la diagonal de negocio
+            x2, y2 = _borde(E[k], E[k][1] + 300, E[k][2] - 100)
+            x1, y1 = _borde(a, x2, y2)
+            els += linea(int(x1), int(y1), int(x2), int(y2))
+    return els
+
+
+def cdu_expandido_parq_02():
+    return _expandido(
+        "SIEP: CDU-02 Cobrar el estacionamiento por placa", 780,
+        {"CU04": ("L", 130, "CU-04 Pagar el estacionamiento\npor placa"),
+         "CU07": ("L", 520, "CU-07 Avisar el vencimiento\ny extender el tiempo"),
+         "CU05": ("R", 110, "CU-05 Calcular tarifa y\ntiempo máximo de la zona"),
+         "CU06": ("R", 330, "CU-06 Autorizar el pago\ncon tarjeta o billetera"),
+         "CU19": ("R", 600, "CU-19 Registrar la sesión\nde estacionamiento")},
+        {"CON": (150, 300, "Conductor"), "BAN": (1440, 300, "Banco y pasarela\nde pagos")},
+        [("CON", "CU04"), ("CON", "CU07"), ("BAN", "CU06")],
+        [("include", "CU04", "CU05", None, (0, -22)), ("include", "CU04", "CU19", None, (-60, 30)),
+         ("include", "CU07", "CU19", None, (0, 22)),
+         ("extend", "CU06", "CU04", "pago electrónico", (40, 30))])
+
+
+def cdu_expandido_parq_03():
+    # CU-09 extiende a CU-08 y tambien lo ejecuta el verificador: va debajo de
+    # su base, en la misma columna, para que el actor llegue a los dos sin
+    # cruzar nada (un caso de uso sin actor es un error).
+    return _expandido(
+        "SIEP: CDU-03 Verificar el pago y sancionar", 820,
+        {"CU08": ("L", 90, "CU-08 Verificar el pago\npor placa en la cuadra"),
+         "CU09": ("L", 240, "CU-09 Registrar presunta\ninfracción con evidencia"),
+         "CU10": ("L", 400, "CU-10 Confirmar y emitir\nla multa"),
+         "CU11": ("L", 560, "CU-11 Presentar reclamo\nde infracción"),
+         "CU12": ("L", 710, "CU-12 Reportar un cobro\ninformal (cuidacarros)")},
+        {"VER": (150, 150, "Verificador"), "OFI": (150, 380, "Oficial de tránsito"),
+         "CON": (150, 620, "Conductor"), "MUL": (1440, 380, "Sistema de multas\nde tránsito")},
+        [("VER", "CU08"), ("VER", "CU09"), ("OFI", "CU10"), ("CON", "CU11"), ("CON", "CU12"), ("MUL", "CU10")],
+        [("extend", "CU09", "CU08", "placa sin pago vigente", (110, 0))])
+
+
+def bloques_parq():
+    els = [titulo("Diagrama de bloques: SIEP, arquitectura basada en eventos", 40, 10, 1500),
+           texto("Los productores publican eventos sin conocer a los consumidores: el enrutador los filtra y los "
+                 "entrega. Cada flecha lleva el nombre del evento.", 40, 44, 1560, 13, align="left", _halo=False)]
+    Y = [140, 350, 560, 770]
+    YC = 500
+    P = [("parking-meter", "Parquímetro (pago por placa)", "El conductor teclea su placa y paga con\nmonedas, tarjeta o código QR",
+          "pago registrado"),
+         ("smartphone", "App y web del conductor", "Paga, extiende el tiempo, reclama\no reporta un cobro informal",
+          "pago · reclamo ·\nreporte informal"),
+         ("scan-line", "App del verificador", "Consulta placas en la cuadra y\nregistra la evidencia (sin conexión)",
+          "infracción presunta"),
+         ("radio-tower", "Telemetría de la red", "Cada parquímetro informa su estado,\nsu caja y los intentos de vandalismo",
+          "falla · alarma")]
+    C = [("database", "Base de sesiones de pago", "Los eventos abren y cierran sesiones\npor placa, zona y cajón",
+          "pago registrado"),
+         ("landmark", "Sistema de multas de tránsito", "El oficial confirma la infracción y\nla multa se registra",
+          "infracción presunta"),
+         ("bell", "Notificaciones", "Avisa al conductor el vencimiento y al\nproveedor la orden de mantenimiento",
+          "vencimiento ·\nfalla · alarma"),
+         ("chart-column", "Tablero de transparencia", "Recaudación 70/30, desempeño de la red\ny mapa de cobros informales",
+          "todos los eventos")]
+    for x0, rotulo, lista in ((40, "Productores de eventos", P), (1200, "Consumidores de eventos", C)):
+        els.append(_rect(x0, 100, 400, 870))
+        els.append(texto(rotulo, x0 + 80, 89, 240, 17))
+        for (ic, nombre, desc, _), y in zip(lista, Y):
+            els.append(icono(ic, x0 + 168, y, 64))
+            els.append(texto(nombre, x0 + 20, y + 70, 360, 17, _halo=False))
+            els.append(texto(desc, x0 + 20, y + 98, 360, 14, _halo=False))
+    els.append(icono("filter", 780, YC - 110, 80))
+    els.append(texto("Enrutador de eventos", 680, YC - 22, 280, 17, _halo=False))
+    els.append(texto("El bus de eventos recibe, filtra\ny empuja los eventos a los\nconsumidores apropiados",
+                     680, YC + 6, 280, 14, _halo=False))
+    for (_, _, _, ev), y in zip(P, Y):
+        yy = y + 40
+        els += ruta([(440, yy), (600, yy), (600, YC - 70), (770, YC - 70)], etiqueta=ev,
+                    pos=(520, yy - 22), ancho=156, tam=14)
+    for (_, _, _, ev), y in zip(C, Y):
+        yy = y + 40
+        els += ruta([(870, YC - 70), (1040, YC - 70), (1040, yy), (1200, yy)], etiqueta=ev,
+                    pos=(1120, yy - 22), ancho=156, tam=14)
+    return els
+
+
+def despliegue_parq():
+    els = [titulo("Diagrama de despliegue (distribución): SIEP", 40, 10, 1400),
+           texto("Nodo = cubo · «device» = hardware · «executionEnvironment» = software dentro de un dispositivo · "
+                 "componentes dentro del nodo que los ejecuta · conexión = línea llena con el protocolo como estereotipo.",
+                 40, 44, 2250, 13, align="left", _halo=False)]
+    els.append(_rect(20, 80, 2420, 320, VERDE, punteado=True))
+    els.append(texto("FrontEnd: en la calle y en manos de los usuarios", 30, 86, 500, 13, align="left", _halo=False))
+    els.append(_rect(20, 440, 1560, 760, NARANJA, punteado=True))
+    els.append(texto("BackEnd: nube del gobierno de la ciudad (región primaria)",
+                     30, 1176, 700, 13, align="left", _halo=False))
+    els.append(_rect(20, 1220, 1560, 190, GRIS, punteado=True))
+    els.append(texto("Región secundaria: recuperación ante desastre", 30, 1386, 600, 13, align="left", _halo=False))
+    els.append(_rect(1740, 440, 700, 970, AMARILLO, punteado=True))
+    els.append(texto("Sistemas externos", 1750, 1386, 600, 13, align="left", _halo=False))
+
+    C = [(60, "Parquímetro (uno por cuadra)", "Firmware del equipo",
+          "Terminal de pago por placa\n(guardar y reenviar)"),
+         (630, "Teléfono del conductor", "App móvil / navegador",
+          "App del conductor"),
+         (1200, "Teléfono del verificador", "App instalable (sin conexión)",
+          "App de verificación\n(lista local de placas)"),
+         (1830, "PC de la Delegación y del comité", "Navegador web",
+          "Consola de zonas y\ntablero de transparencia")]
+    for x, dev, ee, comp in C:
+        els += cubo(x, 110, 480, 260, "«device»", dev, tam=15)
+        els += cubo(x + 20, 190, 420, 160, "«executionEnvironment»", ee, d=12, tam=14)
+        els += componente(x + 45, 258, 350, 62, comp, 13)
+
+    els += cubo(60, 480, 1480, 170, "«device»",
+                "Borde de red: balanceador de carga y cortafuegos de aplicación\n(dos zonas de disponibilidad)",
+                rotulo=(80, 600))
+    els += componente(720, 565, 240, 62, "API Gateway\n(límite de tasa)", 13)
+    els += componente(990, 565, 240, 62, "Proveedor de identidad\n(verificadores · MFA)", 13)
+    els += componente(1260, 565, 240, 62, "Pasarela IoT\n(MQTT · certificados)", 13)
+
+    els += cubo(60, 690, 900, 420, "«device»",
+                "Clúster de contenedores: 3 nodos · 4 vCPU · 16 GB c/u (supuesto)", rotulo=(80, 800))
+    els += cubo(80, 770, 860, 320, "«executionEnvironment»", "Orquestador de contenedores: espacio SIEP",
+                d=12, tam=14)
+    SV = ["Servicio Zonas y\nComunidad (CDU-01)", "Servicio Cobro\npor placa (CDU-02)",
+          "Servicio Verificación\ny Sanción (CDU-03)", "Servicio Transparencia\n(CDU-04)",
+          "Servicio Red y\nMantenimiento (CDU-05)", "Servicio de Integración\n(adaptadores)"]
+    for i, t in enumerate(SV):
+        els += componente(100 + (i % 3) * 275, 850 + (i // 3) * 110, 255, 80, t, 13)
+
+    els += cubo(1100, 690, 440, 130, "«device»", "Clúster de mensajería (3 nodos)", tam=15)
+    els += componente(1115, 757, 195, 50, "Bus de eventos", 13)
+    els += componente(1320, 757, 195, 50, "Cola de reintentos", 13)
+    els += cubo(1100, 850, 440, 130, "«device»", "Almacén analítico", tam=15)
+    els += componente(1115, 917, 195, 50, "Almacén de datos\nde estacionamiento", 13)
+    els += componente(1320, 917, 195, 50, "Indicadores de\ndesempeño (72 %)", 13)
+    els += cubo(1100, 1010, 440, 170, "«device»", "Servidor de base de datos (primario y espera)", tam=15)
+    els += componente(1115, 1090, 195, 62, "BD transaccional\n(sesiones y multas)", 13)
+    els += componente(1320, 1090, 195, 62, "Bitácora de auditoría\n(solo inserción)", 13)
+
+    els += cubo(1100, 1250, 440, 130, "«device»", "Servidor de la región secundaria", tam=15)
+    els += componente(1115, 1317, 400, 50, "Réplica de la BD y clúster en espera", 13)
+
+    els += cubo(1780, 480, 620, 310, "«device»", "Servidores del banco adquirente", tam=15)
+    els += componente(1800, 590, 270, 62, "Pasarela de pagos\n(tarjeta · QR)", 13)
+    els += componente(2090, 590, 270, 62, "Conciliación\nbancaria", 13)
+    els += cubo(1780, 840, 620, 310, "«device»", "Servidores de la autoridad de tránsito", tam=15)
+    els += componente(1800, 930, 270, 62, "Sistema de multas\nde tránsito", 13)
+    els += componente(2090, 930, 270, 62, "Registro vehicular\n(padrón de placas)", 13)
+    els += componente(1800, 1030, 270, 62, "Sistema del proveedor\nde parquímetros", 13)
+
+    els += ruta([(300, 370), (300, 500)], punta=None, etiqueta="«MQTT · TLS · 4G LTE»", pos=(400, 420), ancho=150, tam=13)
+    els += ruta([(870, 370), (870, 500)], punta=None, etiqueta="«HTTPS · TLS 1.3»", pos=(960, 420), ancho=130, tam=13)
+    els += ruta([(1340, 370), (1340, 500)], punta=None, etiqueta="«HTTPS · TLS 1.3»", pos=(1250, 420), ancho=130, tam=13)
+    els += ruta([(2070, 370), (2070, 424), (1460, 424), (1460, 500)], punta=None,
+                etiqueta="«Internet · HTTPS»", pos=(1670, 411), ancho=150, tam=13)
+    els += ruta([(400, 650), (400, 710)], punta=None, etiqueta="«HTTPS»", pos=(450, 672), ancho=70, tam=13)
+    els += ruta([(950, 760), (1100, 760)], punta=None, etiqueta="«AMQP · TLS»", pos=(1025, 745), ancho=110, tam=13)
+    els += ruta([(950, 1090), (1100, 1090)], punta=None, etiqueta="«SQL · TLS»", pos=(1025, 1075), ancho=110, tam=13)
+    els += ruta([(1300, 980), (1300, 1030)], punta=None, etiqueta="«captura de cambios»", pos=(1420, 997), ancho=150, tam=13)
+    els += ruta([(1300, 1180), (1300, 1270)], punta=None, etiqueta="«replicación asíncrona · TLS»",
+                pos=(1440, 1211), ancho=210, tam=13)
+    els += ruta([(1530, 560), (1780, 560)], punta=None, etiqueta="«HTTPS · mTLS»", pos=(1660, 545), ancho=120, tam=13)
+    els += ruta([(1530, 620), (1612, 620), (1612, 900), (1780, 900)], punta=None,
+                etiqueta="«HTTPS · mTLS ·\nservicios web»", pos=(1678, 760), ancho=104, tam=13)
+    return els
+
+
+DIAGRAMAS.update({
+    "contexto-parq": contexto_parq,
+    "cdu-core-parq": core_negocio_parq,
+    "cdu-descomposicion-parq": descomposicion_parq,
+    "cdu-expandido-parq-02-cobro": cdu_expandido_parq_02,
+    "cdu-expandido-parq-03-verificacion": cdu_expandido_parq_03,
+    "bloques-parq": bloques_parq,
+    "despliegue-parq": despliegue_parq,
+})
+SUBCARPETA.update({
+    "contexto-parq": "caso-parquimetros/1-caso-negocio",
+    "cdu-core-parq": "caso-parquimetros/1-caso-negocio",
+    "cdu-descomposicion-parq": "caso-parquimetros/1-caso-negocio",
+    "cdu-expandido-parq-02-cobro": "caso-parquimetros/2-drivers-rf",
+    "cdu-expandido-parq-03-verificacion": "caso-parquimetros/2-drivers-rf",
+    "bloques-parq": "caso-parquimetros/3-arquitectura",
+    "despliegue-parq": "caso-parquimetros/3-arquitectura",
 })
 
 

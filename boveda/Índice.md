@@ -202,6 +202,10 @@ Los artefactos vivos de cada tarea (el estado real se lee **ahí**, no acá):
 - [[Avance - Caso Harley-Davidson]] — el tablero: los 6 criterios hechos y lo que falta que haga el estudiante antes de subir
 - [[Guion - Presentación Caso Harley-Davidson]] — el guion de los 10 minutos: qué decir en cada lámina, cuándo hacer clic, el reloj y las preguntas probables
 - [[Entrega - Caso Harley-Davidson]] — el entregable completo: caso de negocio, 17 stakeholders, drivers, cuatro matrices, SOA con bloques y despliegue, y el modelo de calidad ISO/IEC 25010
+- [[Avance - Caso Parquímetros]] — **Tarea 3, Caso 4 Repensando los parquímetros (Grupo 2, tres integrantes)**: el tablero y cómo se rehace todo
+- [[Entrega - Caso Parquímetros]] — el entregable: análisis, Guatemala y los cuidacarros, 4 alternativas, SIEP (SOA con eventos), calidad, ciclo de vida, arquitectura de la información, 14 respuestas y prototipo
+- [[Guion - Presentación Caso Parquímetros]] — el guion de 15 minutos para tres oradores; los individuales están en `08-Tareas/guiones-caso-parquimetros/`
+- [[Caso Parquímetros]] — el enunciado de la Tarea 3 y el texto del caso
 - [[Ejemplo resuelto - Sistema de Transporte READM]] — **el ejemplo completo de la presentación Calidad del Software**: de contexto a despliegue, la tabla de EAC y el bus de eventos · tarjetas en [[Flashcards - Ejemplo READM y bus de eventos]]
 - [[Arquitectura dirigida por modelos MDA]] — **NT1 de la unidad 3** (nota técnica de clase): CIM, PIM, PSM e ISM, las cuatro ventajas y los estándares UML, MOF, XMI y CWM
 - [[Arquitectura de software en el modelo en espiral]] — **NT1 de la unidad 3**: cuánto participa la arquitectura en cada vuelta de la espiral de Boehm y cómo se integra MDA · tarjetas en [[Flashcards - MDA y modelo en espiral]]

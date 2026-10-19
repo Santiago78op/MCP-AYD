@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 0 1800 1202" width="1800" height="1202" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="-20" y="0" width="1800" height="1202" fill="#ffffff"/>
+<ellipse cx="880.0" cy="600.0" rx="250.0" ry="145.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="880.0" y="583.46" font-size="18" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">SIEP</text>
+<text x="880.0" y="605.96" font-size="18" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema integrado de estacionamiento</text>
+<text x="880.0" y="628.46" font-size="18" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">en la vía pública</text>
+<rect x="215" y="40" width="270" height="72" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="350.0" y="71.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Conductor</text>
+<text x="350.0" y="91.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(usuario primario)</text>
+<rect x="745" y="40" width="270" height="72" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="880.0" y="71.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Comité vecinal</text>
+<text x="880.0" y="91.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de transparencia</text>
+<rect x="1275" y="40" width="270" height="72" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1410.0" y="71.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Delegación</text>
+<text x="1410.0" y="91.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(municipalidad)</text>
+<rect x="20" y="380" width="270" height="72" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="155.0" y="411.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Verificador</text>
+<text x="155.0" y="431.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de SERVIparq</text>
+<rect x="20" y="750" width="270" height="72" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="155.0" y="791.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Oficial de tránsito</text>
+<rect x="1470" y="380" width="270" height="72" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1605.0" y="411.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Banco y pasarela</text>
+<text x="1605.0" y="431.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de pagos</text>
+<rect x="1470" y="750" width="270" height="72" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1605.0" y="781.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Proveedor de</text>
+<text x="1605.0" y="801.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">parquímetros</text>
+<rect x="215" y="1090" width="270" height="72" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="350.0" y="1121.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Parquímetro</text>
+<text x="350.0" y="1141.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(equipo en la calle)</text>
+<rect x="745" y="1090" width="270" height="72" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="880.0" y="1121.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Registro vehicular</text>
+<text x="880.0" y="1141.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(padrón de placas)</text>
+<rect x="1275" y="1090" width="270" height="72" rx="12" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1410.0" y="1121.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Sistema de multas</text>
+<text x="1410.0" y="1141.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de tránsito</text>
+<line x1="312" y1="112" x2="728" y2="485" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="781" y1="467" x2="388" y2="112" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="842" y1="112" x2="850" y2="456" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="910" y1="456" x2="918" y2="112" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="1372" y1="112" x2="979" y2="467" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="1032" y1="485" x2="1448" y2="112" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="290" y1="398" x2="665" y2="526" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="640" y1="558" x2="290" y2="434" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="290" y1="768" x2="641" y2="642" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="665" y1="674" x2="290" y2="804" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="1470" y1="398" x2="1095" y2="526" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="1120" y1="558" x2="1470" y2="434" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="1470" y1="768" x2="1119" y2="642" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="1095" y1="674" x2="1470" y2="804" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="312" y1="1090" x2="728" y2="715" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="781" y1="733" x2="388" y2="1090" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="880" y1="1090" x2="880" y2="745" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="1372" y1="1090" x2="979" y2="733" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<line x1="1032" y1="715" x2="1448" y2="1090" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="482.0" y="333.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Placa, pago</text>
+<text x="482.0" y="352.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y reclamos</text>
+<text x="629.0" y="232.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Comprobante y</text>
+<text x="629.0" y="251.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">aviso de tiempo</text>
+<text x="794.5" y="278.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Opinión y</text>
+<text x="794.5" y="297.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">reportes</text>
+<text x="984.5" y="278.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Informe de</text>
+<text x="984.5" y="297.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">recursos 70/30</text>
+<text x="1130.0" y="232.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Reglamento,</text>
+<text x="1130.0" y="251.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">zonas y tarifas</text>
+<text x="1280.5" y="337.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Recaudación e</text>
+<text x="1280.5" y="356.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">indicadores</text>
+<text x="491.0" y="413.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Evidencia de</text>
+<text x="491.0" y="432.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">infracción</text>
+<text x="449.0" y="531.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Placas sin</text>
+<text x="449.0" y="550.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">pago vigente</text>
+<text x="451.0" y="658.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Multa</text>
+<text x="451.0" y="677.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">confirmada</text>
+<text x="492.5" y="775.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Infracción</text>
+<text x="492.5" y="794.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">por confirmar</text>
+<text x="1267.0" y="413.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Autorización</text>
+<text x="1267.0" y="432.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">del cobro</text>
+<text x="1307.5" y="528.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Solicitud</text>
+<text x="1307.5" y="547.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de cobro</text>
+<text x="1308.0" y="658.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Reparación</text>
+<text x="1308.0" y="677.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">realizada</text>
+<text x="1266.5" y="775.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Orden de</text>
+<text x="1266.5" y="794.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">mantenimiento</text>
+<text x="484.0" y="855.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Pagos y</text>
+<text x="484.0" y="874.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">telemetría</text>
+<text x="625.5" y="951.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Tarifas y</text>
+<text x="625.5" y="970.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">configuración</text>
+<text x="929.5" y="910.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Datos del</text>
+<text x="929.5" y="929.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">vehículo</text>
+<text x="1140.5" y="942.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Estado de</text>
+<text x="1140.5" y="961.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">la multa</text>
+<text x="1275.0" y="855.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Multa</text>
+<text x="1275.0" y="874.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">registrada</text>
+</svg>

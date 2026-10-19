@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 1640 1040" width="1640" height="1040" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="0" y="-30" width="1640" height="1040" fill="#ffffff"/>
+<text x="40" y="29.4" font-size="20" fill="#1e1e1e" text-anchor="start">Diagrama de bloques: SIEP, arquitectura basada en eventos</text>
+<text x="40" y="56.61" font-size="13" fill="#1e1e1e" text-anchor="start">Los productores publican eventos sin conocer a los consumidores: el enrutador los filtra y los entrega. Cada flecha lleva el nombre del evento.</text>
+<rect x="40" y="100" width="400" height="870" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="240.0" y="105.49" font-size="17" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Productores de eventos</text>
+<svg x="208" y="140" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2" /> <path d="M12 12v3" /> <path d="M12 19v3" /> <path d="M15.282 19a1 1 0 0 0 .948-.68l2.37-6.988a7 7 0 1 0-13.2 0l2.37 6.988a1 1 0 0 0 .948.68z" /> <path d="M9 9a3 3 0 1 1 6 0" /></svg>
+<text x="240.0" y="226.49" font-size="17" fill="#1e1e1e" text-anchor="middle">Parquímetro (pago por placa)</text>
+<text x="240.0" y="251.58" font-size="14" fill="#1e1e1e" text-anchor="middle">El conductor teclea su placa y paga con</text>
+<text x="240.0" y="269.08" font-size="14" fill="#1e1e1e" text-anchor="middle">monedas, tarjeta o código QR</text>
+<svg x="208" y="350" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /> <path d="M12 18h.01" /></svg>
+<text x="240.0" y="436.49" font-size="17" fill="#1e1e1e" text-anchor="middle">App y web del conductor</text>
+<text x="240.0" y="461.58" font-size="14" fill="#1e1e1e" text-anchor="middle">Paga, extiende el tiempo, reclama</text>
+<text x="240.0" y="479.08" font-size="14" fill="#1e1e1e" text-anchor="middle">o reporta un cobro informal</text>
+<svg x="208" y="560" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2" /> <path d="M17 3h2a2 2 0 0 1 2 2v2" /> <path d="M21 17v2a2 2 0 0 1-2 2h-2" /> <path d="M7 21H5a2 2 0 0 1-2-2v-2" /> <path d="M7 12h10" /></svg>
+<text x="240.0" y="646.49" font-size="17" fill="#1e1e1e" text-anchor="middle">App del verificador</text>
+<text x="240.0" y="671.58" font-size="14" fill="#1e1e1e" text-anchor="middle">Consulta placas en la cuadra y</text>
+<text x="240.0" y="689.08" font-size="14" fill="#1e1e1e" text-anchor="middle">registra la evidencia (sin conexión)</text>
+<svg x="208" y="770" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" /> <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" /> <circle cx="12" cy="9" r="2" /> <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" /> <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" /> <path d="M9.5 18h5" /> <path d="m8 22 4-11 4 11" /></svg>
+<text x="240.0" y="856.49" font-size="17" fill="#1e1e1e" text-anchor="middle">Telemetría de la red</text>
+<text x="240.0" y="881.58" font-size="14" fill="#1e1e1e" text-anchor="middle">Cada parquímetro informa su estado,</text>
+<text x="240.0" y="899.08" font-size="14" fill="#1e1e1e" text-anchor="middle">su caja y los intentos de vandalismo</text>
+<rect x="1200" y="100" width="400" height="870" rx="0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1400.0" y="105.49" font-size="17" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Consumidores de eventos</text>
+<svg x="1368" y="140" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5V19A9 3 0 0 0 21 19V5" /> <path d="M3 12A9 3 0 0 0 21 12" /></svg>
+<text x="1400.0" y="226.49" font-size="17" fill="#1e1e1e" text-anchor="middle">Base de sesiones de pago</text>
+<text x="1400.0" y="251.58" font-size="14" fill="#1e1e1e" text-anchor="middle">Los eventos abren y cierran sesiones</text>
+<text x="1400.0" y="269.08" font-size="14" fill="#1e1e1e" text-anchor="middle">por placa, zona y cajón</text>
+<svg x="1368" y="350" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22" /> <line x1="6" x2="6" y1="18" y2="11" /> <line x1="10" x2="10" y1="18" y2="11" /> <line x1="14" x2="14" y1="18" y2="11" /> <line x1="18" x2="18" y1="18" y2="11" /> <polygon points="12 2 20 7 4 7" /></svg>
+<text x="1400.0" y="436.49" font-size="17" fill="#1e1e1e" text-anchor="middle">Sistema de multas de tránsito</text>
+<text x="1400.0" y="461.58" font-size="14" fill="#1e1e1e" text-anchor="middle">El oficial confirma la infracción y</text>
+<text x="1400.0" y="479.08" font-size="14" fill="#1e1e1e" text-anchor="middle">la multa se registra</text>
+<svg x="1368" y="560" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /> <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg>
+<text x="1400.0" y="646.49" font-size="17" fill="#1e1e1e" text-anchor="middle">Notificaciones</text>
+<text x="1400.0" y="671.58" font-size="14" fill="#1e1e1e" text-anchor="middle">Avisa al conductor el vencimiento y al</text>
+<text x="1400.0" y="689.08" font-size="14" fill="#1e1e1e" text-anchor="middle">proveedor la orden de mantenimiento</text>
+<svg x="1368" y="770" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg>
+<text x="1400.0" y="856.49" font-size="17" fill="#1e1e1e" text-anchor="middle">Tablero de transparencia</text>
+<text x="1400.0" y="881.58" font-size="14" fill="#1e1e1e" text-anchor="middle">Recaudación 70/30, desempeño de la red</text>
+<text x="1400.0" y="899.08" font-size="14" fill="#1e1e1e" text-anchor="middle">y mapa de cobros informales</text>
+<svg x="780" y="390" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg>
+<text x="820.0" y="494.49" font-size="17" fill="#1e1e1e" text-anchor="middle">Enrutador de eventos</text>
+<text x="820.0" y="519.58" font-size="14" fill="#1e1e1e" text-anchor="middle">El bus de eventos recibe, filtra</text>
+<text x="820.0" y="537.08" font-size="14" fill="#1e1e1e" text-anchor="middle">y empuja los eventos a los</text>
+<text x="820.0" y="554.58" font-size="14" fill="#1e1e1e" text-anchor="middle">consumidores apropiados</text>
+<line x1="440" y1="180" x2="600" y2="180" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="600" y1="180" x2="600" y2="430" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="600" y1="430" x2="770" y2="430" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="520.0" y="162.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">pago registrado</text>
+<line x1="440" y1="390" x2="600" y2="390" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="600" y1="390" x2="600" y2="430" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="600" y1="430" x2="770" y2="430" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="520.0" y="363.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">pago · reclamo ·</text>
+<text x="520.0" y="381.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">reporte informal</text>
+<line x1="440" y1="600" x2="600" y2="600" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="600" y1="600" x2="600" y2="430" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="600" y1="430" x2="770" y2="430" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="520.0" y="582.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">infracción presunta</text>
+<line x1="440" y1="810" x2="600" y2="810" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="600" y1="810" x2="600" y2="430" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="600" y1="430" x2="770" y2="430" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="520.0" y="792.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">falla · alarma</text>
+<line x1="870" y1="430" x2="1040" y2="430" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1040" y1="430" x2="1040" y2="180" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1040" y1="180" x2="1200" y2="180" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1120.0" y="162.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">pago registrado</text>
+<line x1="870" y1="430" x2="1040" y2="430" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1040" y1="430" x2="1040" y2="390" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1040" y1="390" x2="1200" y2="390" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1120.0" y="372.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">infracción presunta</text>
+<line x1="870" y1="430" x2="1040" y2="430" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1040" y1="430" x2="1040" y2="600" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1040" y1="600" x2="1200" y2="600" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1120.0" y="573.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">vencimiento ·</text>
+<text x="1120.0" y="591.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">falla · alarma</text>
+<line x1="870" y1="430" x2="1040" y2="430" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1040" y1="430" x2="1040" y2="810" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1040" y1="810" x2="1200" y2="810" stroke="#1e1e1e" stroke-width="1" marker-end="url(#flecha)"/>
+<text x="1120.0" y="792.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">todos los eventos</text>
+</svg>

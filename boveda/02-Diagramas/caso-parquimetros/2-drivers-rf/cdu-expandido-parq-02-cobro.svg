@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 0 1510 860" width="1510" height="860" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="gen" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><polygon points="0,0 12,6 0,12" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/></marker><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><polygon points="0,0 10,5 0,10" fill="#1e1e1e"/></marker></defs>
+<rect x="90" y="0" width="1510" height="860" fill="#ffffff"/>
+<rect x="420" y="40" width="920" height="780" rx="12" fill="#f5f5f5" stroke="#1e1e1e" stroke-width="2"/>
+<text x="880.0" y="67.52" font-size="16" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">SIEP: CDU-02 Cobrar el estacionamiento por placa</text>
+<ellipse cx="635.0" cy="178.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="635.0" y="173.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-04 Pagar el estacionamiento</text>
+<text x="635.0" y="192.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">por placa</text>
+<ellipse cx="635.0" cy="568.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="635.0" y="563.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-07 Avisar el vencimiento</text>
+<text x="635.0" y="582.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">y extender el tiempo</text>
+<ellipse cx="1125.0" cy="158.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="153.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-05 Calcular tarifa y</text>
+<text x="1125.0" y="172.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">tiempo máximo de la zona</text>
+<ellipse cx="1125.0" cy="378.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="373.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-06 Autorizar el pago</text>
+<text x="1125.0" y="392.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">con tarjeta o billetera</text>
+<ellipse cx="1125.0" cy="648.0" rx="165.0" ry="48.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1125.0" y="643.55" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">CU-19 Registrar la sesión</text>
+<text x="1125.0" y="662.3" font-size="15" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de estacionamiento</text>
+<ellipse cx="200.0" cy="314.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="200" y1="328" x2="200" y2="364" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="176" y1="340" x2="224" y2="340" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="200" y1="364" x2="180" y2="394" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="200" y1="364" x2="220" y2="394" stroke="#1e1e1e" stroke-width="1"/>
+<text x="200.0" y="413.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Conductor</text>
+<ellipse cx="1490.0" cy="314.0" rx="14.0" ry="14.0" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1490" y1="328" x2="1490" y2="364" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1466" y1="340" x2="1514" y2="340" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1490" y1="364" x2="1470" y2="394" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1490" y1="364" x2="1510" y2="394" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1490.0" y="413.58" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Banco y pasarela</text>
+<text x="1490.0" y="431.08" font-size="14" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">de pagos</text>
+<line x1="272" y1="336" x2="543" y2="218" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="272" y1="400" x2="547" y2="527" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="1418" y1="369" x2="1289" y2="373" stroke="#1e1e1e" stroke-width="1"/>
+<line x1="798" y1="171" x2="962" y2="165" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="880.0" y="135.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«include»</text>
+<line x1="683" y1="224" x2="1077" y2="602" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="820.0" y="432.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«include»</text>
+<line x1="779" y1="591" x2="981" y2="625" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="880.0" y="619.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«include»</text>
+<line x1="1029" y1="339" x2="731" y2="217" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="8 6" marker-end="url(#flecha)"/>
+<text x="920.0" y="297.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">«extend»</text>
+<text x="920.0" y="312.64" font-size="12" fill="#1e1e1e" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">[pago electrónico]</text>
+</svg>
