@@ -535,14 +535,15 @@ for num, (slide, grupos, empuje) in enumerate(LAMINAS, 1):
         '</mc:AlternateContent>' % (P_NS, P_NS)))
     if grupos:
         sld.append(etree.fromstring(timing_xml([(g.shape_id, getattr(g, "efecto", "subir")) for g in grupos])))
-    notas = "\n".join(guion.get(num, [])).replace("*(clic)*", "[CLIC]")
-    slide.notes_slide.notes_text_frame.text = "%s · %s\n\n%s" % (orador.get(num, ""), titulos.get(num, ""),
-                                                                 re.sub(r"\*+", "", notas))
+    # Sin notas del orador: el guion va en archivos aparte (guion general y uno por integrante),
+    # asi el .pptx que se entrega no lleva comentarios.
     informe.append((num, "morph", len(grupos), orador.get(num, "")))
 
 prs.core_properties.author = "Santiago Barrera"
 prs.core_properties.last_modified_by = "Santiago Barrera"
 prs.core_properties.title = "Repensando los parquímetros: SIEP"
+import datetime
+prs.core_properties.created = prs.core_properties.modified = datetime.datetime(2026, 10, 19, 9, 0)
 prs.save(SALIDA)
 
 # --- un guion por integrante, con sus laminas completas y las de entrada y salida

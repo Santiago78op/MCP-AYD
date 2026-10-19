@@ -10,8 +10,8 @@ alias: [guion parquimetros, guion tarea 3, presentación SERVIparq]
 
 Grupo 2 · tres oradores · **15 minutos** (supuesto: si dan 10, ver el recorte al final).
 Archivo: `08-Tareas/Grupo2_CasoParquimetros_Presentacion.pptx`, que se arma con
-`python3 06-Proyecto-MCP/generar-presentacion-parq.py`. El texto citado de cada lámina (`>`) va a
-las **notas del orador**; *(clic)* marca dónde se avanza una animación.
+`python3 06-Proyecto-MCP/generar-presentacion-parq.py`. El .pptx no lleva notas del orador: el guion
+es este archivo y los individuales. *(clic)* marca dónde se avanza una animación.
 
 | Bloque | Orador | Láminas | Reloj |
 |---|---|---|---|

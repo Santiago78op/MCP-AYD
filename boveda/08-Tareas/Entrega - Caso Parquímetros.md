@@ -28,7 +28,7 @@ alias: [entrega parquimetros, entrega tarea 3, SERVIparq, SIEP]
 **Cómo se construye.** Con un ciclo en espiral, que revisa los riesgos en cada vuelta, y Scrum por dentro, en cuatro fases que empiezan por una colonia piloto. Desarrollamos además un prototipo de la pantalla del parquímetro que mide el 72 % mientras se prueba.
 
 
-## Equipo y correspondencia con la consigna
+## Equipo de trabajo
 
 | Integrante | Carné | Rol en el equipo | Responsabilidad en este caso |
 |---|---|---|---|
@@ -36,43 +36,20 @@ alias: [entrega parquimetros, entrega tarea 3, SERVIparq, SIEP]
 | Jemima Solmaira Chavajay Quiejú | 201801521 | Product Owner | Problemáticas y requisitos de desempeño, calidad del software, arquitectura de la información |
 | Byron Josué Par Rancho | 201701078 | Equipo de desarrollo | Alternativas de solución, arquitectura de software (estilos, bloques, despliegue) y prototipo |
 
-El trabajo se versionó con **GitFlow** en el repositorio github.com/Santiago78op/Dise-o-Arquitectonico-los-Parqu-metros: una rama por entregable (documento, presentación y sitio), integradas en `develop` y publicadas en `main` con una versión etiquetada.
 
+### Alcance del análisis
 
-### Qué pide la consigna y dónde está
-
-| Lo que pide la consigna | Dónde está |
-|---|---|
-| Estudio y análisis del caso | §1 Análisis del caso |
-| Investigación de los tópicos relacionados | §2 Investigación: sistemas de referencia y el estacionamiento en Guatemala |
-| Posibles soluciones desde la arquitectura del software, la calidad, la arquitectura en el ciclo de vida y la arquitectura de la información | §3 Caso de negocio y drivers (los insumos) · §4 Posibles soluciones, evaluadas en las cuatro perspectivas |
-| Solución seleccionada, debidamente justificada | §5 (5.1 arquitectura del software · 5.2 calidad · 5.3 ciclo de vida · 5.4 arquitectura de la información · 5.5 factores externos: los cobros informales) |
-| Respuestas a las cuestiones que presenta el caso | §6 Las 14 preguntas del caso |
-| Desarrollo de una parte del sistema, según la arquitectura elegida | §7 Prototipo del parquímetro con pago por placa |
-| Supuestos, límites y fuentes | §8 y §9 · al inicio, «Palabras que usamos» |
-
-
-### Declaraciones que condicionan todo el documento
-
-> **Frontera del negocio**
+> **El negocio que se modela**
 >
 > **El negocio** es la **gestión del estacionamiento en la vía pública** en zonas tarifadas: concertar la zona con la comunidad, cobrar, verificar, rendir cuentas y mantener la red. No es la movilidad de la ciudad ni el gobierno completo, y no es el proyecto de diseño de Smartmedia: ese relato es la fuente de los problemas y los requisitos.
 >
 > **Consecuencia:** el personal de SERVIparq (verificadores, técnicos, operadores de monitoreo, analistas) son **trabajadores del negocio**. Son **actores** las entidades de afuera: el conductor, el comité vecinal, la Delegación, el área de tránsito, el banco y el proveedor de los parquímetros.
 >
-> **Cambio de lente:** frente al **software**, el verificador deja de ser trabajador y pasa a ser una entidad que usa el sistema. Por eso no está en el core (§3.2) y sí en el contexto (§3.1) y en los CDU expandidos (§3.3).
+> Frente al **software**, en cambio, el verificador deja de ser trabajador y pasa a ser una entidad que usa el sistema. Por eso no está en el core (§3.2) y sí en el contexto (§3.1) y en los CDU expandidos (§3.3).
 >
 > **Los cuidacarros no son actores:** no interactúan con el negocio de forma legítima. Son un **factor externo** que genera restricciones y escenarios de calidad (§3.5, §5.5).
 
-> **Cómo se leyó la consigna**
->
-> **Las cuatro perspectivas** se aplican a cada alternativa (§4) y organizan la solución elegida (§5): arquitectura del software, calidad del software, arquitectura en el ciclo de vida y arquitectura de la información.
->
-> **El caso ocurre en la Ciudad de México en 2012.** La solución se diseña para SERVIparq, y en cada decisión se indica cómo se trasladaría a una municipalidad guatemalteca, con los hechos del §2.2.
->
-> **Identificadores:** `STK-nn` stakeholder · `P-nn` problemática del diagnóstico · `CDU-nn` proceso de negocio · `CU-nn` caso de uso del sistema · `EAC-nn` escenario de atributo de calidad · `RE-nn` restricción · `S-n` alternativa de solución.
->
-> **Nombre de la solución:** SIEP, Sistema Integrado de Estacionamiento en la vía Pública.
+**SIEP** (Sistema Integrado de Estacionamiento en la vía Pública) es el nombre de la solución. El caso ocurre en la Ciudad de México en 2012; en cada decisión se indica cómo se aplicaría en una municipalidad guatemalteca. Los identificadores usados son: `STK-nn` involucrado, `P-nn` problemática, `CDU-nn` proceso de negocio, `CU-nn` caso de uso del sistema, `EAC-nn` escenario de calidad, `RE-nn` restricción y `S-n` alternativa de solución.
 
 
 ### Palabras que usamos
@@ -107,7 +84,7 @@ SERVIparq, el programa del gobierno de la Ciudad de México que instala y opera 
 
 El diagnóstico de Margarita, hecho con investigación secundaria y entrevistas a expertos, encuentra seis problemas. Para resolver los de uso contrata a Smartmedia, una empresa de diseño de interacción que aplica el método de pruebas de desempeño de David Sless: observación participativa, análisis funcional de las 13 partes de información del dispositivo, una sesión con SERVIparq para acordar los requisitos de desempeño (antes, durante y después del uso), un criterio cuantitativo del 72 % y dos rondas de pruebas, la segunda con prototipos en una calle simulada mediante *bodystorming* (recrear la calle en una sala y que los participantes actúen la situación). El caso cierra con la mejora medida y una junta para el plan del año siguiente.
 
-**La lectura que guía este documento:** Smartmedia resolvió bien la capa de información del dispositivo, pero tres de los seis problemas no son de interfaz. Son de **gobierno del programa** (consulta y rendición de cuentas), de **capacidades del sistema que se apagaron** (pago electrónico y alarma, restringidos a «Pay and Display» por falta de personal) y de **un actor informal que compite por el espacio** (los **franeleros**: así se les dice en México a las personas que apartan lugares en la calle y cobran por dejarlos usar; en Guatemala les decimos **cuidacarros**, y así los llamamos en el resto del documento). Una solución completa necesita las cuatro perspectivas que pide la consigna.
+**Nuestra lectura del caso:** Smartmedia resolvió bien la capa de información del dispositivo, pero tres de los seis problemas no son de interfaz. Son de **gobierno del programa** (consulta y rendición de cuentas), de **capacidades del sistema que se apagaron** (pago electrónico y alarma, restringidos a «Pay and Display» por falta de personal) y de **un actor informal que compite por el espacio** (los **franeleros**: así se les dice en México a las personas que apartan lugares en la calle y cobran por dejarlos usar; en Guatemala les decimos **cuidacarros**, y así los llamamos en el resto del documento). Una solución completa necesita las cuatro perspectivas que pide la consigna.
 
 
 ### 1.2 Involucrados (stakeholders)
@@ -178,7 +155,7 @@ El caso agrupa las problemáticas según las preguntas de Margarita (1-2 comunid
 | La Corte suspendió justamente la base de datos de placas de MarbEx | Una base de placas necesita fundamento legal explícito y protección de datos desde el diseño | RE-04 · EAC-06 |
 | La Corte suspendió la multa de Q500 | La sanción tiene que salir de quien la norma faculta y con evidencia verificable | RE-03 · EAC-05 · CU-10 |
 | La recaudación de Antigua casi se duplicó en un año | Lo que se cobra se puede medir y publicar: es la respuesta a P-06 | CDU-04 · EAC-09 |
-| EMETRA planea app más estaciones de pago | La misma combinación que propone este documento: canal digital sin dejar fuera a quien no tiene teléfono | S-2 · §5.1 |
+| EMETRA planea app más estaciones de pago | La misma combinación que proponemos: canal digital sin dejar fuera a quien no tiene teléfono | S-2 · §5.1 |
 
 
 ## 3. Caso de negocio y drivers: los insumos de la arquitectura
@@ -468,13 +445,7 @@ Diecinueve casos de uso. Ninguno se llama crear, editar, eliminar o consultar: c
 
 ### 3.4 Drivers de calidad: escenarios de atributos de calidad (EAC)
 
-> **Qué taxonomía se usa**
->
-> La **categoría** es la de la lista de drivers de calidad de clase (rendimiento, escalabilidad, disponibilidad, seguridad, mantenibilidad, usabilidad, fiabilidad). La columna **atributo afectado** nombra la subcaracterística de **ISO/IEC 9126**, el modelo del programa, y la calidad en uso (§5.2).
->
-> **Prioridad:** el par (importancia para el negocio, dificultad técnica), en A alta, M media o B baja.
->
-> **De dónde salen los números:** el 72 % es el criterio que acordaron SERVIparq y Smartmedia; las demás medidas son **supuestos de diseño**, declarados como tales.
+Cada escenario indica su categoría de calidad (la lista de drivers de calidad vista en clase) y la subcaracterística de ISO/IEC 9126 que afecta. La prioridad es el par (importancia para el negocio, dificultad técnica), en A alta, M media o B baja. El 72 % es el criterio que acordaron SERVIparq y Smartmedia; las demás medidas son metas que propone el grupo.
 
 | ID | Categoría | Escenario de seis partes | Atributo afectado | Prioridad |
 |---|---|---|---|---|
@@ -605,7 +576,7 @@ Se plantean cuatro alternativas. Las tres primeras son excluyentes en su núcleo
 
 *Figura 7. Diagrama de despliegue de SIEP.*
 
-**Cómo leer el despliegue.** Arriba, los cuatro dispositivos de los usuarios; al centro, la nube del gobierno de la ciudad con el borde de red, el clúster de los seis servicios, la mensajería, la analítica y la base de datos; abajo, la réplica en una segunda región; a la derecha, los sistemas externos del banco y de la autoridad de tránsito. El dimensionamiento es un supuesto de diseño. Las tres vistas siguientes amplían la lámina para leerla impresa.
+**El despliegue.** Arriba, los cuatro dispositivos de los usuarios; al centro, la nube del gobierno de la ciudad con el borde de red, el clúster de los seis servicios, la mensajería, la analítica y la base de datos; abajo, la réplica en una segunda región; a la derecha, los sistemas externos del banco y de la autoridad de tránsito. El tamaño de los servidores es una estimación. Las figuras 7a a 7c muestran cada zona con más detalle.
 
 ![[02-Diagramas/caso-parquimetros/3-arquitectura/despliegue-parq-detalle-1-usuarios.png]]
 
@@ -640,7 +611,7 @@ Se plantean cuatro alternativas. Las tres primeras son excluyentes en su núcleo
 
 #### El 72 %, y cómo se mejora la forma de fijarlo
 
-El 72 % sale de multiplicar dos probabilidades: que la persona **encuentre** la información (Smartmedia proponía 90 %; Margarita la bajó a **80 %** porque la gente usa el parquímetro con prisa) y que, encontrada, la **use bien** (se mantuvo en **90 %**): 0,80 × 0,90 = 0,72. Es un buen punto de partida, pero aplica el mismo número a todas las tareas. Este documento propone **fijar el umbral por tarea, según su consecuencia**:
+El 72 % sale de multiplicar dos probabilidades: que la persona **encuentre** la información (Smartmedia proponía 90 %; Margarita la bajó a **80 %** porque la gente usa el parquímetro con prisa) y que, encontrada, la **use bien** (se mantuvo en **90 %**): 0,80 × 0,90 = 0,72. Es un buen punto de partida, pero aplica el mismo número a todas las tareas. Proponemos **fijar el umbral por tarea, según su consecuencia**:
 
 | Tarea | Consecuencia de fallar | Umbral propuesto |
 |---|---|---|
@@ -677,7 +648,7 @@ El 72 % sale de multiplicar dos probabilidades: que la persona **encuentre** la 
 | Etapa del ciclo de la arquitectura | Qué se hace en SIEP | Etapa del proyecto |
 |---|---|---|
 | Requerimientos | Diagnóstico con usuarios, requisitos de desempeño, drivers del §3 | Fase 0 |
-| Diseño, documentación y evaluación | Este documento; evaluación contra los EAC; prueba de desempeño de los prototipos | Fase 0 y sprint 1 |
+| Diseño, documentación y evaluación | Documento de arquitectura; evaluación contra los EAC; prueba de desempeño de los prototipos | Fase 0 y sprint 1 |
 | Implementación de la arquitectura | Arquitectura base: cobro por placa, verificación, bus de eventos | Construcción, sprints 1-4 |
 | Pruebas | Pruebas de desempeño con personas en la calle y pruebas de carga contra EAC-04 | Cada sprint |
 | Implantación | Colonia piloto, luego por zona con su comité | Fases 1-3 |
@@ -781,7 +752,7 @@ Le devolvió el **contexto** que el permiso faltante le había quitado: prisa, d
 
 #### Pregunta 11. ¿Qué acción llevó a cabo SERVIparq a partir de esta experiencia?
 
-El caso cierra con una junta de directivos y Delegaciones para el **plan de acción del año siguiente**, sobre estrategias de implementación y monitoreo. Lo razonable es que haya adoptado el rediseño de la interfaz en los equipos, incorporado las pruebas de desempeño como criterio de aceptación de futuros diseños y revisado la estrategia de implementación por colonia. Este documento propone que ese plan sea la hoja de ruta del §5.3.
+El caso cierra con una junta de directivos y Delegaciones para el **plan de acción del año siguiente**, sobre estrategias de implementación y monitoreo. Lo razonable es que haya adoptado el rediseño de la interfaz en los equipos, incorporado las pruebas de desempeño como criterio de aceptación de futuros diseños y revisado la estrategia de implementación por colonia. Nuestra propuesta es que ese plan siga la hoja de ruta del §5.3.
 
 
 #### Pregunta 12. ¿Cómo pueden complementarse o mejorarse las técnicas del caso?
@@ -801,7 +772,7 @@ En todo desplegado informativo que alguien debe entender sin ayuda: **cajeros au
 
 ## 7. Parte desarrollada: prototipo del parquímetro con pago por placa
 
-La consigna permite desarrollar una parte del sistema siguiendo la arquitectura elegida. Se desarrolló el **cliente del parquímetro** del CDU-02 (CU-04 con CU-05 y la extensión CU-06), que es donde se juegan EAC-01 y EAC-02. Es una página web que corre en cualquier navegador: `08-Tareas/prototipo-parquimetros/index.html`.
+Siguiendo la arquitectura elegida, desarrollamos el **cliente del parquímetro** del CDU-02 (CU-04 con CU-05 y la extensión CU-06), que es donde se juegan EAC-01 y EAC-02. Es una página web que corre en cualquier navegador: `08-Tareas/prototipo-parquimetros/index.html`.
 
 ![[02-Diagramas/caso-parquimetros/4-prototipo/prototipo-cuatro-pantallas.png]]
 

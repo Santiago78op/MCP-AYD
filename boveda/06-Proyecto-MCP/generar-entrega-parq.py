@@ -275,7 +275,7 @@ def TBL(headers, rows, fracs=None, size=9, usable=9.4, centro_desde=None):
     MD.append("")
 
 
-ANCHO_IMG = {"contexto-parq": 7.3, "cdu-core-parq": 8.0, "cdu-descomposicion-parq": 7.4, "bloques-parq": 8.6,
+ANCHO_IMG = {"contexto-parq": 6.4, "cdu-core-parq": 8.0, "cdu-descomposicion-parq": 7.4, "bloques-parq": 8.6,
              "despliegue-parq": 9.2, "cdu-expandido-parq-02-cobro": 8.4, "cdu-expandido-parq-03-verificacion": 8.0}
 
 
@@ -461,7 +461,7 @@ P("**Cómo se construye.** Con un ciclo en espiral, que revisa los riesgos en ca
   "fases que empiezan por una colonia piloto. Desarrollamos además un prototipo de la pantalla del parquímetro que mide "
   "el 72 % mientras se prueba.")
 
-H("Equipo y correspondencia con la consigna", 1, brk=True)
+H("Equipo de trabajo", 1, brk=True)
 TBL(["Integrante", "Carné", "Rol en el equipo", "Responsabilidad en este caso"],
     [["Santiago Julián Barrera Reyes", "201905884", "Scrum Master / coordinador",
       "Análisis del caso, investigación del contexto guatemalteco, arquitectura en el ciclo de vida, integración del documento"],
@@ -470,43 +470,22 @@ TBL(["Integrante", "Carné", "Rol en el equipo", "Responsabilidad en este caso"]
      ["Byron Josué Par Rancho", "201701078", "Equipo de desarrollo",
       "Alternativas de solución, arquitectura de software (estilos, bloques, despliegue) y prototipo"]],
     fracs=[0.27, 0.13, 0.20, 0.40], size=9.5, centro_desde=None)
-P("El trabajo se versionó con **GitFlow** en el repositorio "
-  "github.com/Santiago78op/Dise-o-Arquitectonico-los-Parqu-metros: una rama por entregable (documento, presentación y "
-  "sitio), integradas en `develop` y publicadas en `main` con una versión etiquetada.")
-H("Qué pide la consigna y dónde está", 2)
-TBL(["Lo que pide la consigna", "Dónde está"],
-    [["Estudio y análisis del caso", "§1 Análisis del caso"],
-     ["Investigación de los tópicos relacionados", "§2 Investigación: sistemas de referencia y el estacionamiento en Guatemala"],
-     ["Posibles soluciones desde la arquitectura del software, la calidad, la arquitectura en el ciclo de vida y la arquitectura de la información",
-      "§3 Caso de negocio y drivers (los insumos) · §4 Posibles soluciones, evaluadas en las cuatro perspectivas"],
-     ["Solución seleccionada, debidamente justificada", "§5 (5.1 arquitectura del software · 5.2 calidad · 5.3 ciclo de vida · "
-      "5.4 arquitectura de la información · 5.5 factores externos: los cobros informales)"],
-     ["Respuestas a las cuestiones que presenta el caso", "§6 Las 14 preguntas del caso"],
-     ["Desarrollo de una parte del sistema, según la arquitectura elegida", "§7 Prototipo del parquímetro con pago por placa"],
-     ["Supuestos, límites y fuentes", "§8 y §9 · al inicio, «Palabras que usamos»"]],
-    fracs=[0.55, 0.45], size=9.5)
-
-H("Declaraciones que condicionan todo el documento", 2)
-NOTE("**Frontera del negocio**\n"
+H("Alcance del análisis", 2)
+NOTE("**El negocio que se modela**\n"
      "**El negocio** es la **gestión del estacionamiento en la vía pública** en zonas tarifadas: concertar la zona con "
      "la comunidad, cobrar, verificar, rendir cuentas y mantener la red. No es la movilidad de la ciudad ni el gobierno "
      "completo, y no es el proyecto de diseño de Smartmedia: ese relato es la fuente de los problemas y los requisitos.\n"
      "**Consecuencia:** el personal de SERVIparq (verificadores, técnicos, operadores de monitoreo, analistas) son "
      "**trabajadores del negocio**. Son **actores** las entidades de afuera: el conductor, el comité vecinal, la "
      "Delegación, el área de tránsito, el banco y el proveedor de los parquímetros.\n"
-     "**Cambio de lente:** frente al **software**, el verificador deja de ser trabajador y pasa a ser una entidad que "
+     "Frente al **software**, en cambio, el verificador deja de ser trabajador y pasa a ser una entidad que "
      "usa el sistema. Por eso no está en el core (§3.2) y sí en el contexto (§3.1) y en los CDU expandidos (§3.3).\n"
      "**Los cuidacarros no son actores:** no interactúan con el negocio de forma legítima. Son un **factor externo** "
      "que genera restricciones y escenarios de calidad (§3.5, §5.5).")
-NOTE("**Cómo se leyó la consigna**\n"
-     "**Las cuatro perspectivas** se aplican a cada alternativa (§4) y organizan la solución elegida (§5): arquitectura "
-     "del software, calidad del software, arquitectura en el ciclo de vida y arquitectura de la información.\n"
-     "**El caso ocurre en la Ciudad de México en 2012.** La solución se diseña para SERVIparq, y en cada decisión se "
-     "indica cómo se trasladaría a una municipalidad guatemalteca, con los hechos del §2.2.\n"
-     "**Identificadores:** `STK-nn` stakeholder · `P-nn` problemática del diagnóstico · `CDU-nn` proceso de negocio · "
-     "`CU-nn` caso de uso del sistema · `EAC-nn` escenario de atributo de calidad · `RE-nn` restricción · `S-n` alternativa de solución.\n"
-     "**Nombre de la solución:** SIEP, Sistema Integrado de Estacionamiento en la vía Pública.")
-
+P("**SIEP** (Sistema Integrado de Estacionamiento en la vía Pública) es el nombre de la solución. El caso ocurre en la "
+  "Ciudad de México en 2012; en cada decisión se indica cómo se aplicaría en una municipalidad guatemalteca. Los "
+  "identificadores usados son: `STK-nn` involucrado, `P-nn` problemática, `CDU-nn` proceso de negocio, `CU-nn` caso de "
+  "uso del sistema, `EAC-nn` escenario de calidad, `RE-nn` restricción y `S-n` alternativa de solución.")
 H("Palabras que usamos", 2)
 P("Los términos del caso y del curso que aparecen en el documento, en lenguaje sencillo.", pegar=True)
 TBL(["Palabra", "Qué quiere decir aquí"],
@@ -543,7 +522,7 @@ P("El diagnóstico de Margarita, hecho con investigación secundaria y entrevist
   "del dispositivo, una sesión con SERVIparq para acordar los requisitos de desempeño (antes, durante y después del "
   "uso), un criterio cuantitativo del 72 % y dos rondas de pruebas, la segunda con prototipos en una calle simulada "
   "mediante *bodystorming* (recrear la calle en una sala y que los participantes actúen la situación). El caso cierra con la mejora medida y una junta para el plan del año siguiente.")
-P("**La lectura que guía este documento:** Smartmedia resolvió bien la capa de información del dispositivo, pero tres "
+P("**Nuestra lectura del caso:** Smartmedia resolvió bien la capa de información del dispositivo, pero tres "
   "de los seis problemas no son de interfaz. Son de **gobierno del programa** (consulta y rendición de cuentas), de "
   "**capacidades del sistema que se apagaron** (pago electrónico y alarma, restringidos a «Pay and Display» por falta "
   "de personal) y de **un actor informal que compite por el espacio** (los **franeleros**: así se les dice en México a las personas que apartan lugares en la calle y cobran por dejarlos usar; en Guatemala les decimos **cuidacarros**, y así los llamamos en el resto del documento). Una solución completa necesita "
@@ -632,17 +611,17 @@ TBL(["Hecho", "Lección para la arquitectura", "Dónde se aplica"],
      ["La Corte suspendió justamente la base de datos de placas de MarbEx", "Una base de placas necesita fundamento legal explícito y protección de datos desde el diseño", "RE-04 · EAC-06"],
      ["La Corte suspendió la multa de Q500", "La sanción tiene que salir de quien la norma faculta y con evidencia verificable", "RE-03 · EAC-05 · CU-10"],
      ["La recaudación de Antigua casi se duplicó en un año", "Lo que se cobra se puede medir y publicar: es la respuesta a P-06", "CDU-04 · EAC-09"],
-     ["EMETRA planea app más estaciones de pago", "La misma combinación que propone este documento: canal digital sin dejar fuera a quien no tiene teléfono", "S-2 · §5.1"]],
+     ["EMETRA planea app más estaciones de pago", "La misma combinación que proponemos: canal digital sin dejar fuera a quien no tiene teléfono", "S-2 · §5.1"]],
     fracs=[0.33, 0.47, 0.20], size=9)
 
 # =====================================================================
 # §3 CASO DE NEGOCIO Y DRIVERS
 # =====================================================================
+SEC(True)
 H("3. Caso de negocio y drivers: los insumos de la arquitectura", 1)
 P("Antes de proponer una solución se delimita el negocio (el **paso 0** del método de clase) y se identifican los "
   "**drivers arquitectónicos**: los factores críticos que guían el diseño, en sus tres tipos de clase: funcionales "
   "(casos de uso), de calidad (escenarios con medida) y de restricción (condiciones impuestas desde afuera).")
-SEC(True)
 H("3.1 Diagrama de contexto", 2)
 P("**El Producto** es el software SIEP. Notación de clase: la **elipse** es El Producto, cada **rectángulo** una "
   "entidad o agente externo y cada **flecha** un flujo con nombre, en sustantivo. Son diez entidades y diecinueve flujos.")
@@ -881,13 +860,9 @@ EAC = [
   "reporte entregado en ≤ 5 min · 0 datos personales del denunciante almacenados", "(A, M)"),
 ]
 H("3.4 Drivers de calidad: escenarios de atributos de calidad (EAC)", 2)
-NOTE("**Qué taxonomía se usa**\n"
-     "La **categoría** es la de la lista de drivers de calidad de clase (rendimiento, escalabilidad, disponibilidad, "
-     "seguridad, mantenibilidad, usabilidad, fiabilidad). La columna **atributo afectado** nombra la subcaracterística "
-     "de **ISO/IEC 9126**, el modelo del programa, y la calidad en uso (§5.2).\n"
-     "**Prioridad:** el par (importancia para el negocio, dificultad técnica), en A alta, M media o B baja.\n"
-     "**De dónde salen los números:** el 72 % es el criterio que acordaron SERVIparq y Smartmedia; las demás medidas "
-     "son **supuestos de diseño**, declarados como tales.")
+P("Cada escenario indica su categoría de calidad (la lista de drivers de calidad vista en clase) y la subcaracterística "
+  "de ISO/IEC 9126 que afecta. La prioridad es el par (importancia para el negocio, dificultad técnica), en A alta, M media "
+  "o B baja. El 72 % es el criterio que acordaron SERVIparq y Smartmedia; las demás medidas son metas que propone el grupo.")
 TBL(["ID", "Categoría", "Escenario de seis partes", "Atributo afectado", "Prioridad"],
     [[e[0], e[1],
       "**Fuente de estímulo:** %s. **Estímulo:** %s. **Artefacto:** %s. **Entorno:** %s. **Respuesta:** %s. "
@@ -1014,10 +989,10 @@ BUL(["**El pago se liga a la placa, no a un boleto.** Desaparece el boleto mal c
 IMGP("bloques-parq", 8.6, "Figura 6. Diagrama de bloques: productores, enrutador y consumidores de eventos.")
 SEC(True)
 IMGP("despliegue-parq", 9.2, "Figura 7. Diagrama de despliegue de SIEP.")
-P("**Cómo leer el despliegue.** Arriba, los cuatro dispositivos de los usuarios; al centro, la nube del gobierno de "
+P("**El despliegue.** Arriba, los cuatro dispositivos de los usuarios; al centro, la nube del gobierno de "
   "la ciudad con el borde de red, el clúster de los seis servicios, la mensajería, la analítica y la base de datos; "
   "abajo, la réplica en una segunda región; a la derecha, los sistemas externos del banco y de la autoridad de "
-  "tránsito. El dimensionamiento es un supuesto de diseño. Las tres vistas siguientes amplían la lámina para leerla impresa.")
+  "tránsito. El tamaño de los servidores es una estimación. Las figuras 7a a 7c muestran cada zona con más detalle.")
 for (ruta, ruta_b), leyenda, ancho in zip(detalles_despliegue(),
         ["Figura 7a. Despliegue, detalle: dispositivos de los usuarios.",
          "Figura 7b. Despliegue, detalle: nube del gobierno de la ciudad y región secundaria.",
@@ -1046,7 +1021,7 @@ H("El 72 %, y cómo se mejora la forma de fijarlo", 3)
 P("El 72 % sale de multiplicar dos probabilidades: que la persona **encuentre** la información (Smartmedia proponía "
   "90 %; Margarita la bajó a **80 %** porque la gente usa el parquímetro con prisa) y que, encontrada, la **use bien** "
   "(se mantuvo en **90 %**): 0,80 × 0,90 = 0,72. Es un buen punto de partida, pero aplica el mismo número a todas las "
-  "tareas. Este documento propone **fijar el umbral por tarea, según su consecuencia**:")
+  "tareas. Proponemos **fijar el umbral por tarea, según su consecuencia**:")
 TBL(["Tarea", "Consecuencia de fallar", "Umbral propuesto"],
     [["Pagar por placa", "Una multa injusta", "≥ 81 % (el máximo teórico del método)"],
      ["Entender la tarifa y el tiempo máximo", "Pagar de más o de menos", "≥ 72 %"],
@@ -1080,7 +1055,7 @@ NOTE("**Decisión: un ciclo híbrido**\n"
      "**Los requisitos significativos para la arquitectura** (NT3): EAC-05, EAC-06 y EAC-03. Si cambian, la arquitectura sería otra.")
 TBL(["Etapa del ciclo de la arquitectura", "Qué se hace en SIEP", "Etapa del proyecto"],
     [["Requerimientos", "Diagnóstico con usuarios, requisitos de desempeño, drivers del §3", "Fase 0"],
-     ["Diseño, documentación y evaluación", "Este documento; evaluación contra los EAC; prueba de desempeño de los prototipos", "Fase 0 y sprint 1"],
+     ["Diseño, documentación y evaluación", "Documento de arquitectura; evaluación contra los EAC; prueba de desempeño de los prototipos", "Fase 0 y sprint 1"],
      ["Implementación de la arquitectura", "Arquitectura base: cobro por placa, verificación, bus de eventos", "Construcción, sprints 1-4"],
      ["Pruebas", "Pruebas de desempeño con personas en la calle y pruebas de carga contra EAC-04", "Cada sprint"],
      ["Implantación", "Colonia piloto, luego por zona con su comité", "Fases 1-3"]],
@@ -1202,7 +1177,7 @@ RESP = [
   "El caso cierra con una junta de directivos y Delegaciones para el **plan de acción del año siguiente**, sobre "
   "estrategias de implementación y monitoreo. Lo razonable es que haya adoptado el rediseño de la interfaz en los "
   "equipos, incorporado las pruebas de desempeño como criterio de aceptación de futuros diseños y revisado la "
-  "estrategia de implementación por colonia. Este documento propone que ese plan sea la hoja de ruta del §5.3."),
+  "estrategia de implementación por colonia. Nuestra propuesta es que ese plan siga la hoja de ruta del §5.3."),
  ("¿Cómo pueden complementarse o mejorarse las técnicas del caso?",
   "Probar **en el contexto real**, con el permiso tramitado desde el inicio; grabar en **video**; subir el número de "
   "participantes; sumar **evaluación heurística** por expertos y **analítica de uso** (abandonos en cada paso del "
@@ -1229,7 +1204,7 @@ for i, (preg, resp) in enumerate(RESP, 1):
 # =====================================================================
 SEC(True)
 H("7. Parte desarrollada: prototipo del parquímetro con pago por placa", 1, brk=True)
-P("La consigna permite desarrollar una parte del sistema siguiendo la arquitectura elegida. Se desarrolló el **cliente "
+P("Siguiendo la arquitectura elegida, desarrollamos el **cliente "
   "del parquímetro** del CDU-02 (CU-04 con CU-05 y la extensión CU-06), que es donde se juegan EAC-01 y EAC-02. Es una "
   "página web que corre en cualquier navegador: `08-Tareas/prototipo-parquimetros/index.html`.")
 IMGF(PROTO, "02-Diagramas/caso-parquimetros/4-prototipo/prototipo-cuatro-pantallas.png", 6.6,
@@ -1300,6 +1275,9 @@ cp.last_modified_by = "Santiago Barrera"
 cp.title = "Repensando los parquímetros: una solución desde la arquitectura del software"
 cp.subject = "Análisis y Diseño de Sistemas II"
 cp.comments = ""
+import datetime
+cp.created = cp.modified = datetime.datetime(2026, 10, 19, 9, 0)
+cp.revision = 1
 cp.keywords = ""
 
 MD.append("\n## Preguntas de repaso\n")
