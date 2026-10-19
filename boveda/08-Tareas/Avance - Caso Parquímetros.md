@@ -30,12 +30,13 @@ El entregable es [[Entrega - Caso Parquímetros]]; el enunciado, [[enunciados/Ca
 
 | Qué | Dónde | Cómo se rehace |
 |---|---|---|
-| Documento que se sube | `08-Tareas/Grupo2_CasoParquimetros.pdf` (35 páginas, apaisado) y `.docx` | `python3 06-Proyecto-MCP/generar-entrega-parq.py` |
+| Documento que se sube | `08-Tareas/Grupo2_CasoParquimetros.pdf` (44 páginas: carátula del molde de Redes, índice paginado, texto vertical y figuras anchas en horizontal) y `.docx` | `python3 06-Proyecto-MCP/generar-entrega-parq.py` (el índice se calcula en dos pasadas) |
 | Presentación | `08-Tareas/Grupo2_CasoParquimetros_Presentacion.pptx` (Arial, animada, guion en notas) | `python3 06-Proyecto-MCP/generar-presentacion-parq.py` |
 | Guion maestro | [[Guion - Presentación Caso Parquímetros]] | a mano; de él salen notas y guiones individuales |
 | Guiones individuales | `08-Tareas/guiones-caso-parquimetros/Guion - Santiago.md`, `- Jemima.md`, `- Byron.md` | los genera el script de la presentación |
 | Láminas | `02-Diagramas/caso-parquimetros/` (contexto, core, descomposición, 2 CDU expandidos, bloques, despliegue) | `python3 06-Proyecto-MCP/generar-excalidraw.py caso-parquimetros/<carpeta>` |
 | Prototipo | `08-Tareas/prototipo-parquimetros/index.html` (`?paso=1..4` muestra cada pantalla) | a mano |
+| Repositorio público del grupo | github.com/Santiago78op/Dise-o-Arquitectonico-los-Parqu-metros (`main`, `develop`, `v1.0.0`) con documento, presentación, diagramas y el **sitio** (`sitio/index.html` + `prototipo.html`) | se copian las salidas de acá; el sitio vive solo allá |
 
 ## Verificación hecha
 
@@ -51,6 +52,13 @@ El entregable es [[Entrega - Caso Parquímetros]]; el enunciado, [[enunciados/Ca
 - Revisar que la portada diga la fecha correcta («octubre de 2026»).
 
 ## Bitácora
+
+- **2026-10-19 (tarde).** Repo del grupo creado con GitFlow (tres `feature/*`, `release/1.0.0`,
+  etiqueta `v1.0.0`). Documento: carátula como la de Redes (escudo de Ingeniería, título dorado),
+  índice con páginas reales, resumen ejecutivo, equipo, conclusiones y recomendaciones; texto en
+  vertical. Presentación: títulos aserción (Alley), barra de avance con Morph (Keynote lo
+  reproduce como Movimiento mágico, medido), barrido en flujos; 46 estados verificados. Sitio
+  desde la plantilla 39 del segundo cerebro: axe 0 violaciones de 320 a 1440 px.
 
 - **2026-10-19.** Enunciado guardado y decodificado. Investigación de Guatemala. Siete láminas,
   prototipo, entrega (md, docx, pdf), presentación y guiones. A pedido suyo: vocabulario de

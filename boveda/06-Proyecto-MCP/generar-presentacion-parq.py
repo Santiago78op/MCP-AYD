@@ -112,10 +112,36 @@ def rect(shapes, x, y, w, h, relleno=TARJETA, borde=BORDE, redondeo=0.06):
     return s
 
 
+# Los cinco bloques de la exposicion. La barra de avance lleva los mismos nombres de forma en
+# todas las laminas («!!» es la convencion de PowerPoint para emparejar objetos), asi la
+# transicion Morph (Movimiento magico en Keynote) desliza el segmento activo de un bloque al otro.
+BLOQUES = [("El caso", 1, 3), ("El problema", 4, 5), ("La solución", 6, 9),
+           ("Calidad e información", 10, 12), ("Cómo se construye", 13, 15)]
+GRIS_HECHO = RGBColor(0x55, 0x5B, 0x66)
+TAM_TITULO = 36
+
+
+def avance(slide, n):
+    for k, (nombre, a, b) in enumerate(BLOQUES):
+        x, w = 120 + k * 340, 320
+        activo, hecho = a <= n <= b, n > b
+        barra = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, px(x), px(44), px(w), px(6))
+        barra.name = "!!avance%d" % k
+        barra.fill.solid()
+        barra.fill.fore_color.rgb = ACENTO if activo else (GRIS_HECHO if hecho else BORDE)
+        barra.line.fill.background()
+        barra.shadow.inherit = False
+        r = texto(slide.shapes, x, 58, w, 26, nombre, tam=11, negrita=activo, color=TEXTO if activo else SUAVE)
+        r.name = "!!rotulo%d" % k
+
+
 def cabecera(slide, n, antetitulo, titulo):
     fondo(slide)
-    texto(slide.shapes, 120, 84, 1400, 34, antetitulo.upper(), tam=15, color=ACENTO, negrita=True)
-    texto(slide.shapes, 120, 126, 1680, 100, titulo, tam=38, negrita=True, interlineado=1.0)
+    avance(slide, n)
+    a = texto(slide.shapes, 120, 112, 1400, 34, antetitulo.upper(), tam=15, color=ACENTO, negrita=True)
+    a.name = "!!antetitulo"
+    t = texto(slide.shapes, 120, 150, 1680, 160, titulo, tam=TAM_TITULO, negrita=True, interlineado=1.02)
+    t.name = "!!titulo"
     texto(slide.shapes, 120, 1020, 1200, 28, "Grupo 2 · Caso 4: Repensando los parquímetros", tam=11, color=SUAVE)
     texto(slide.shapes, 1700, 1020, 100, 28, str(n), tam=11, color=SUAVE, alinear=PP_ALIGN.RIGHT)
 
@@ -193,11 +219,12 @@ TOPE = 980            # nada baja de aqui: el pie va en 1020
 
 def nueva(n, antetitulo, titulo, empuje=False, bajada=None):
     """Devuelve la lamina, su lista de grupos animados y la y donde empieza el contenido."""
-    if lineas(titulo, 1680, 38, True) > 1:
-        raise SystemExit("lámina %d: el título %r ocupa más de una línea" % (n, titulo))
+    nl = lineas(titulo, 1680, TAM_TITULO, True)
+    if nl > 2:
+        raise SystemExit("lámina %d: el título %r ocupa más de dos líneas" % (n, titulo))
     s = prs.slides.add_slide(VACIA)
     cabecera(s, n, antetitulo, titulo)
-    y = 250
+    y = 150 + nl * TAM_TITULO * 2 * 1.06 + 34
     if bajada:
         hb = alto(bajada, 1680, 20)
         texto(s.shapes, 120, y, 1680, hb, bajada, tam=20, color=SUAVE)
@@ -223,7 +250,7 @@ for i, (nom, rol) in enumerate([("Santiago Julián Barrera Reyes", "Scrum Master
 texto(s.shapes, 120, 1000, 1600, 30, "Grupo 2 · ECYS, USAC · MBA. MSc. Claudia Rojas de Morán · octubre de 2026", tam=13, color=SUAVE)
 
 # ---------------------------------------------------------------- 2 el caso
-s, G, y = nueva(2, "El caso", "SERVIparq quiere que el cajón rote",
+s, G, y = nueva(2, "El caso", "SERVIparq quiere que el cajón rote, pero el programa tiene seis problemas",
                 bajada="Ciudad de México, 2012. Un cajón de estacionamiento vale hasta **200 mil pesos**: la meta es que lo usen muchos conductores, no uno solo.")
 (x1, w1), (x2, w2), (x3, w3) = COLS3
 G.append(tarjeta(s, x1, y, w1, TOPE - y, grande="70 / 30", titulo="Así se reparte lo cobrado",
@@ -234,16 +261,16 @@ G.append(tarjeta(s, x3, y, w3, TOPE - y, icono="users", titulo="Smartmedia mide 
                  cuerpo="Pide tareas reales con el parquímetro y mide si la gente encuentra y entiende la información. Hasta recrearon una calle en una sala."))
 
 # ---------------------------------------------------------------- 3 Guatemala
-s, G, y = nueva(3, "Investigación", "Guatemala: el cobro y los cuidacarros")
+s, G, y = nueva(3, "Investigación", "En Guatemala se cobra Q3 por media hora, y también cobran los cuidacarros")
 tarjeta(s, x1, y, w1, TOPE - y, grande="Q3", titulo="por cada 30 minutos",
         cuerpo="Acuerdo COM-40-2022 de la Municipalidad de Guatemala, vigente desde febrero de 2024. Banqueta por colores: blanco se puede, rojo no. EMETRA anunció pago por aplicación.")
 G.append(tarjeta(s, x2, y, w2, TOPE - y, grande="2,500", titulo="objetos que apartaban lugares",
-                 cuerpo="Retirados en un operativo de la Policía Municipal de Tránsito (2023). Cobrar por dejar estacionar podría ser extorsión: se denuncia al 1551. Zona 13, abril de 2026: 33 personas cobraban entre Q35 y US$50."))
+                 cuerpo="Retirados en un operativo de la PMT (2023). Cobrar por dejar estacionar puede ser extorsión: se denuncia al 1551. Zona 13, 2026: 33 personas cobraban hasta US$50."))
 G.append(tarjeta(s, x3, y, w3, TOPE - y, grande="Q12 M", titulo="cobró MarbEx en 2025, Antigua Guatemala",
                  cuerpo="Marbete digital por placa: Q7 M en 2024. En 2026 la Corte de Constitucionalidad suspendió la base de datos de placas y la multa de Q500."))
 
 # ---------------------------------------------------------------- 4 problemas
-s, G, y = nueva(4, "Los seis problemas", "Tres problemas no son de pantalla", empuje=True)
+s, G, y = nueva(4, "Los seis problemas", "Tres de los seis problemas no se arreglan con una pantalla mejor", empuje=True)
 for (x, w), ic, tit, cue in zip(COLS4, ["users", "map-pin", "wrench", "hand-coins"],
                                 ["Gobierno", "Información", "Capacidad", "Cobro informal"],
                                 ["P-01 Vecinos no consultados.\nP-06 Nadie ve a dónde va el dinero.",
@@ -253,7 +280,7 @@ for (x, w), ic, tit, cue in zip(COLS4, ["users", "map-pin", "wrench", "hand-coin
     G.append(tarjeta(s, x, y, w, TOPE - y, icono=ic, titulo=tit, cuerpo=cue, tam_cuerpo=18, alto_titulo=46 * 2 * 1.05))
 
 # ---------------------------------------------------------------- 5 el 72 %
-s, G, y = nueva(5, "Requisitos de desempeño", "Qué debe lograr el conductor")
+s, G, y = nueva(5, "Requisitos de desempeño", "El 72 % es el éxito esperado, pero cada tarea merece su propio número")
 for i, (t, c) in enumerate([("Antes del uso", "Encontrar la zona, un cajón y su parquímetro"),
                             ("Durante", "Entender tarifa y tiempo máximo, y pagar"),
                             ("Después", "Saber cuándo vence y cómo reclamar")]):
@@ -261,7 +288,7 @@ for i, (t, c) in enumerate([("Antes del uso", "Encontrar la zona, un cajón y su
     texto(s.shapes, 150 + i * 570, y + 22, 480, 44, t, tam=20, negrita=True)
     texto(s.shapes, 150 + i * 570, y + 70, 480, 70, c, tam=16, color=SUAVE)
 y2 = y + 195
-G.append(tarjeta(s, 120, y2, 820, TOPE - y2, grande="72 %", tam_grande=80, titulo="el nivel que acordaron",
+G.append(tarjeta(s, 120, y2, 820, TOPE - y2, grande="72 %", tam_grande=64, titulo="el nivel que acordaron",
                  cuerpo="80 % encuentra la información (va con prisa)\n× 90 % la usa bien\n= 72 % completa la tarea."))
 g = s.shapes.add_group_shape()
 rect(g.shapes, 980, y2, 820, TOPE - y2)
@@ -269,23 +296,23 @@ texto(g.shapes, 1020, y2 + 36, 740, 50, "Un número por tarea", tam=22, negrita=
 for i, (t, v) in enumerate([("Pagar por placa (si falla, multa injusta)", "81 %"),
                             ("Entender la tarifa", "72 %"), ("Saber cómo reclamar", "72 %"),
                             ("Ubicar el número del parquímetro", "64 %")]):
-    yy = y2 + 110 + i * 82
+    yy = y2 + 96 + i * 74
     texto(g.shapes, 1020, yy, 560, 76, t, tam=17, color=SUAVE, ancla=MSO_ANCHOR.MIDDLE)
     texto(g.shapes, 1590, yy, 170, 76, v, tam=30, negrita=True, color=ACENTO, alinear=PP_ALIGN.RIGHT, ancla=MSO_ANCHOR.MIDDLE)
 G.append(g)
 
 # ---------------------------------------------------------------- 6 el negocio
-s, G, y = nueva(6, "Caso de negocio", "El negocio y sus cinco procesos", empuje=True)
+s, G, y = nueva(6, "Caso de negocio", "El negocio son cinco procesos; el cuidacarros queda fuera, pero cuenta", empuje=True)
 texto(s.shapes, 120, y, 600, TOPE - y,
       "**Negocio:** gestionar el estacionamiento en la calle.\n\n"
       "**Actores:** conductor, comité vecinal, Delegación, oficial de tránsito, banco y proveedor del parquímetro.\n\n"
       "**Trabajadores:** el verificador y el personal de SERVIparq.\n\n"
       "**No es actor:** el cuidacarros. No participa de forma legal, pero el diseño lo toma en cuenta.",
-      tam=18, color=SUAVE, interlineado=1.15)
+      tam=16, color=SUAVE, interlineado=1.12)
 G.append(imagen(s, svg_png("1-caso-negocio/cdu-descomposicion-parq.svg"), 780, y, 1020, TOPE - y))
 
 # ---------------------------------------------------------------- 7 alternativas
-s, G, y = nueva(7, "Posibles soluciones", "Cuatro alternativas, una combinación")
+s, G, y = nueva(7, "Posibles soluciones", "Elegimos pagar por placa con el equipo que ya se compró")
 for (x, w), tag, tit, cue in zip(COLS4, ["DENTRO", "NÚCLEO", "DESPUÉS", "ALREDEDOR"],
                                  ["S-1 Rediseñar solo la información", "S-2 Pago por placa, conectado",
                                   "S-3 Sensores y tarifa por demanda", "S-4 Gobierno comunitario"],
@@ -294,15 +321,21 @@ for (x, w), tag, tit, cue in zip(COLS4, ["DENTRO", "NÚCLEO", "DESPUÉS", "ALRED
                                   "Como San Francisco. Caro, expuesto al vandalismo y sin datos todavía.",
                                   "Consulta previa, tablero público y protocolo con los cuidacarros."]):
     g = tarjeta(s, x, y, w, TOPE - y, titulo=tit, cuerpo=cue, tam_cuerpo=18, alto_titulo=46 * 3 * 1.05)
+    if tag == "NÚCLEO":
+        fondo_tarjeta = g.shapes[0]
+        fondo_tarjeta.line.color.rgb = ACENTO
+        fondo_tarjeta.line.width = Pt(2.25)
     texto(g.shapes, x + 40, TOPE - 80, w - 80, 44, tag, tam=20, negrita=True, color=ACENTO)
     G.append(g)
 
 # ---------------------------------------------------------------- 8 arquitectura
-s, G, y = nueva(8, "Arquitectura del software", "Un servicio por proceso, con eventos")
+s, G, y = nueva(8, "Arquitectura del software", "Cada proceso es un servicio, y los servicios se avisan con eventos")
 for i, t in enumerate(["Zonas y comunidad", "Cobro por placa", "Verificación y sanción", "Transparencia", "Red y mantenimiento"]):
     rect(s.shapes, 120, y + i * 96, 580, 80)
     texto(s.shapes, 150, y + i * 96, 530, 80, "**CDU-0%d**  %s" % (i + 1, t), tam=17, ancla=MSO_ANCHOR.MIDDLE)
-G.append(imagen(s, svg_png("3-arquitectura/bloques-parq.svg"), 780, y, 1020, 500))
+g = imagen(s, svg_png("3-arquitectura/bloques-parq.svg"), 780, y, 1020, TOPE - 190 - y)
+g.efecto = "barrido"
+G.append(g)
 g = s.shapes.add_group_shape()
 for i, t in enumerate(["El pago queda en la placa: no hay boleto", "Se encienden el pago con tarjeta y la alarma",
                        "La multa nace solo si el oficial la confirma", "Todo lo cobrado se publica"]):
@@ -311,11 +344,11 @@ for i, t in enumerate(["El pago queda en la placa: no hay boleto", "Se encienden
 G.append(g)
 
 # ---------------------------------------------------------------- 9 despliegue
-s, G, y = nueva(9, "Despliegue", "Dónde corre cada parte")
+s, G, y = nueva(9, "Despliegue", "El parquímetro sigue cobrando aunque se caiga la señal")
 imagen(s, svg_png("3-arquitectura/despliegue-parq.svg", 3000), 120, y, 1680, TOPE - y)
 
 # ---------------------------------------------------------------- 10 calidad
-s, G, y = nueva(10, "Calidad del software", "Los números que nos comprometemos", empuje=True)
+s, G, y = nueva(10, "Calidad del software", "Nos comprometemos con cuatro números que se pueden medir", empuje=True)
 for (x, w), gr, tit, cue in zip(COLS4, ["72 %", "2 s", "0", "100 %"],
                                 ["Eficacia", "Rendimiento", "Disponibilidad", "Seguridad"],
                                 ["de los conductores paga sin ayuda la primera vez (calidad en uso, ISO 9126).",
@@ -325,43 +358,77 @@ for (x, w), gr, tit, cue in zip(COLS4, ["72 %", "2 s", "0", "100 %"],
     G.append(tarjeta(s, x, y, w, TOPE - y, grande=gr, tam_grande=52, titulo=tit, cuerpo=cue, tam_cuerpo=18))
 
 # ---------------------------------------------------------------- 11 arquitectura de la informacion
-s, G, y = nueva(11, "Arquitectura de la información", "La información, por momento de uso",
-                bajada="Organizar y nombrar los contenidos para que la persona encuentre lo que busca. No es la arquitectura del software.")
-for (x, w), ic, tit, cue in zip(COLS3, ["map-pin", "parking-meter", "bell"], ["Antes", "Durante", "Después"],
-                                ["Señal con el color de la banqueta.\nMapa de la zona en la app.\nNúmero grande del parquímetro.",
-                                 "Tres pasos: placa, tiempo y pago.\nLa tarifa siempre arriba.\n«Este es el único cobro».",
-                                 "Comprobante con folio y hora de vencimiento.\nAviso 10 min antes.\nCómo reclamar o reportar un cobro."]):
-    G.append(tarjeta(s, x, y, w, TOPE - y, icono=ic, titulo=tit, cuerpo=cue, tam_cuerpo=19))
+s, G, y = nueva(11, "Arquitectura de la información", "La información se ordena por lo que el conductor hace en cada momento")
+
+
+def pantalla(paso):
+    """La columna del parquimetro en una captura del prototipo (capturas a 2x)."""
+    from PIL import Image
+    salida = os.path.join(TMP, "pantalla-%d.png" % paso)
+    Image.open(os.path.join(DIAG, "4-prototipo", "prototipo-paso-%d.png" % paso)).crop((60, 40, 1210, 1300)).save(salida)
+    return salida
+
+
+for (x, w), tit, cue, vis in zip(COLS3, ["Antes", "Durante", "Después"],
+                                 ["Señal con el color de la banqueta, la tarifa y el número del parquímetro.",
+                                  "Tres pasos: placa, tiempo y pago, con la tarifa siempre arriba.",
+                                  "Comprobante con folio y hora de vencimiento, y cómo reclamar."],
+                                 [None, 1, 4]):
+    g = s.shapes.add_group_shape()
+    rect(g.shapes, x, y, w, TOPE - y)
+    alto_vis = TOPE - y - 250
+    if vis is None:
+        # la senal de la cuadra, dibujada: lo que el conductor ve antes de bajarse
+        sx, sy, sw = x + 90, y + 40, w - 180
+        rect(g.shapes, sx, sy, sw, alto_vis - 20, relleno=BLANCO, borde=None, redondeo=0.05)
+        r = rect(g.shapes, sx + sw / 2 - 60, sy + 30, 120, 120, relleno=RGBColor(0x0B, 0x5C, 0xAD), borde=None, redondeo=0.12)
+        texto(g.shapes, sx + sw / 2 - 60, sy + 30, 120, 120, "P", tam=60, negrita=True, color=BLANCO,
+              alinear=PP_ALIGN.CENTER, ancla=MSO_ANCHOR.MIDDLE)
+        texto(g.shapes, sx + 10, sy + 165, sw - 20, 40, "Zona con parquímetro", tam=14, negrita=True,
+              color=RGBColor(0x11, 0x14, 0x18), alinear=PP_ALIGN.CENTER)
+        texto(g.shapes, sx + 10, sy + 200, sw - 20, 70, "Q3 por 30 min\nParquímetro 0412", tam=12,
+              color=RGBColor(0x44, 0x4A, 0x52), alinear=PP_ALIGN.CENTER)
+    else:
+        from PIL import Image
+        ruta = pantalla(vis)
+        iw, ih = Image.open(ruta).size
+        h = alto_vis - 20
+        w_img = h * iw / ih
+        g.shapes.add_picture(ruta, px(x + (w - w_img) / 2), px(y + 40), px(w_img), px(h))
+    texto(g.shapes, x + 40, TOPE - 200, w - 80, 46, tit, tam=24, negrita=True, color=ACENTO)
+    texto(g.shapes, x + 40, TOPE - 148, w - 80, 120, cue, tam=16, color=SUAVE)
+    G.append(g)
 
 # ---------------------------------------------------------------- 12 prototipo
-s, G, y = nueva(12, "Parte desarrollada", "Prototipo: la pantalla del parquímetro")
+s, G, y = nueva(12, "Parte desarrollada", "El prototipo mide si llegamos al 72 % mientras se prueba")
 imagen(s, os.path.join(DIAG, "4-prototipo", "prototipo-cuatro-pantallas.png"), 120, y, 1680, TOPE - y - 70)
 texto(s.shapes, 120, TOPE - 40, 1680, 40, "Tarifario real de la capital · pago por placa · aviso contra el cobro informal · modo de prueba que mide el 72 %",
       tam=16, color=SUAVE, alinear=PP_ALIGN.CENTER)
 
 # ---------------------------------------------------------------- 13 ciclo de vida
-s, G, y = nueva(13, "Arquitectura en el ciclo de vida", "Espiral por fuera, Scrum por dentro", empuje=True,
+s, G, y = nueva(13, "Arquitectura en el ciclo de vida", "Se construye en espiral por fuera y con Scrum por dentro", empuje=True,
                 bajada="Siete factores de la clase: la pantalla se descubre probando, cada Delegación es distinta y hay riesgos fuertes al inicio.")
 g = s.shapes.add_group_shape()
 for i, (t, c) in enumerate([("Espiral", "Cada vuelta empieza revisando los riesgos: legales, vandalismo y aceptación de los vecinos."),
                             ("Scrum con arquitectura", "Pasos 1, 2, 4 y 9 de la lámina: especificar y priorizar casos de uso, arquitectura base en el primer sprint y refinarla en cada sprint.")]):
-    rect(g.shapes, 120 + i * 850, y, 830, 250)
-    texto(g.shapes, 160 + i * 850, y + 28, 760, 50, t, tam=24, negrita=True, color=ACENTO)
-    texto(g.shapes, 160 + i * 850, y + 90, 760, 150, c, tam=18, color=SUAVE)
+    rect(g.shapes, 120 + i * 850, y, 830, 240)
+    texto(g.shapes, 160 + i * 850, y + 22, 760, 50, t, tam=22, negrita=True, color=ACENTO)
+    texto(g.shapes, 160 + i * 850, y + 88, 760, 115, c, tam=16, color=SUAVE)
 G.append(g)
 g = s.shapes.add_group_shape()
-y3 = y + 280
+y3 = y + 262
 for i, (f, c) in enumerate([("Fase 0", "Consulta en la colonia piloto y conteo de cuidacarros"),
                             ("Fase 1", "Pago por placa, verificación y multa con evidencia"),
                             ("Fase 2", "App del conductor, alarma y reportes"),
                             ("Fase 3", "Con datos: sensores y tarifa por demanda")]):
     rect(g.shapes, 120 + i * 425, y3, 400, TOPE - y3)
-    texto(g.shapes, 150 + i * 425, y3 + 28, 340, 70, f, tam=30, negrita=True, color=ACENTO)
-    texto(g.shapes, 150 + i * 425, y3 + 100, 340, TOPE - y3 - 120, c, tam=18)
+    texto(g.shapes, 150 + i * 425, y3 + 20, 340, 70, f, tam=26, negrita=True, color=ACENTO)
+    texto(g.shapes, 150 + i * 425, y3 + 92, 340, TOPE - y3 - 100, c, tam=16)
+g.efecto = "barrido"
 G.append(g)
 
 # ---------------------------------------------------------------- 14 cobros ajenos
-s, G, y = nueva(14, "Factores externos", "Ganarle al cobro informal")
+s, G, y = nueva(14, "Factores externos", "Al cobro informal se le gana con información, datos y acuerdos")
 for (x, w), ic, tit, cue in zip(COLS4, ["parking-meter", "smartphone", "shield-check", "hand-coins"],
                                 ["Información", "Software", "Ciclo de vida", "Opción para la Delegación"],
                                 ["La pantalla y la señal dicen que el único cobro es el del parquímetro, y cuánto es.",
@@ -382,27 +449,43 @@ texto(s.shapes, 120, TOPE - 50, 1600, 50, "Gracias. ¿Preguntas?", tam=24, color
 
 
 # ======================================================================= animacion
-def timing_xml(ids):
+def timing_xml(objetivos):
+    """objetivos: [(spid, efecto)] con efecto «subir» (desvanecido con subida) o «barrido» (de izquierda
+    a derecha, para lo que se lee en ese sentido: un flujo, una linea de tiempo)."""
     n = [2]
 
     def nid():
         n[0] += 1
         return n[0]
     clics = []
-    for sp in ids:
+    for sp, tipo in objetivos:
         dest = '<p:tgtEl><p:spTgt spid="%d"/></p:tgtEl>' % sp
+        if tipo == "barrido":
+            efecto = (
+                '<p:par><p:cTn id="%d" presetID="22" presetClass="entr" presetSubtype="8" fill="hold" nodeType="clickEffect">'
+                '<p:stCondLst><p:cond delay="0"/></p:stCondLst><p:childTnLst>'
+                '<p:set><p:cBhvr><p:cTn id="%d" dur="1" fill="hold"><p:stCondLst><p:cond delay="0"/></p:stCondLst></p:cTn>'
+                '%s<p:attrNameLst><p:attrName>style.visibility</p:attrName></p:attrNameLst>'
+                '</p:cBhvr><p:to><p:strVal val="visible"/></p:to></p:set>'
+                '<p:animEffect transition="in" filter="wipe(left)"><p:cBhvr><p:cTn id="%d" dur="700"/>%s</p:cBhvr></p:animEffect>'
+                '</p:childTnLst></p:cTn></p:par>' % (nid(), nid(), dest, nid(), dest))
+            clics.append(
+                '<p:par><p:cTn id="%d" fill="hold"><p:stCondLst><p:cond delay="indefinite"/></p:stCondLst><p:childTnLst>'
+                '<p:par><p:cTn id="%d" fill="hold"><p:stCondLst><p:cond delay="0"/></p:stCondLst><p:childTnLst>%s'
+                '</p:childTnLst></p:cTn></p:par></p:childTnLst></p:cTn></p:par>' % (nid(), nid(), efecto))
+            continue
         efecto = (
             '<p:par><p:cTn id="%d" presetID="42" presetClass="entr" presetSubtype="0" fill="hold" nodeType="clickEffect">'
             '<p:stCondLst><p:cond delay="0"/></p:stCondLst><p:childTnLst>'
             '<p:set><p:cBhvr><p:cTn id="%d" dur="1" fill="hold"><p:stCondLst><p:cond delay="0"/></p:stCondLst></p:cTn>'
             '%s<p:attrNameLst><p:attrName>style.visibility</p:attrName></p:attrNameLst>'
             '</p:cBhvr><p:to><p:strVal val="visible"/></p:to></p:set>'
-            '<p:animEffect transition="in" filter="fade"><p:cBhvr><p:cTn id="%d" dur="600"/>%s</p:cBhvr></p:animEffect>'
-            '<p:anim calcmode="lin" valueType="num"><p:cBhvr><p:cTn id="%d" dur="600" fill="hold"/>%s'
+            '<p:animEffect transition="in" filter="fade"><p:cBhvr><p:cTn id="%d" dur="500"/>%s</p:cBhvr></p:animEffect>'
+            '<p:anim calcmode="lin" valueType="num"><p:cBhvr><p:cTn id="%d" dur="500" fill="hold"/>%s'
             '<p:attrNameLst><p:attrName>ppt_x</p:attrName></p:attrNameLst></p:cBhvr><p:tavLst>'
             '<p:tav tm="0"><p:val><p:strVal val="#ppt_x"/></p:val></p:tav>'
             '<p:tav tm="100000"><p:val><p:strVal val="#ppt_x"/></p:val></p:tav></p:tavLst></p:anim>'
-            '<p:anim calcmode="lin" valueType="num"><p:cBhvr><p:cTn id="%d" dur="600" decel="100000" fill="hold"/>%s'
+            '<p:anim calcmode="lin" valueType="num"><p:cBhvr><p:cTn id="%d" dur="500" decel="100000" fill="hold"/>%s'
             '<p:attrNameLst><p:attrName>ppt_y</p:attrName></p:attrNameLst></p:cBhvr><p:tavLst>'
             '<p:tav tm="0"><p:val><p:strVal val="#ppt_y+.06"/></p:val></p:tav>'
             '<p:tav tm="100000"><p:val><p:strVal val="#ppt_y"/></p:val></p:tav></p:tavLst></p:anim>'
@@ -442,15 +525,20 @@ for num, (slide, grupos, empuje) in enumerate(LAMINAS, 1):
     if clics_guion != len(grupos):
         raise SystemExit("lámina %d: %d grupos animados y %d «(clic)» en el guion" % (num, len(grupos), clics_guion))
     sld = slide._element
-    trans = etree.fromstring('<p:transition xmlns:p="%s" spd="med">%s</p:transition>'
-                             % (P_NS, '<p:push dir="l"/>' if empuje else '<p:fade/>'))
-    sld.append(trans)
+    # Morph en PowerPoint 2019 o posterior; Keynote lo importa como Movimiento magico (verificado el
+    # 2026-10-19 exportando a video). Las versiones viejas toman el desvanecido de respaldo.
+    sld.append(etree.fromstring(
+        '<mc:AlternateContent xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">'
+        '<mc:Choice xmlns:p159="http://schemas.microsoft.com/office/powerpoint/2015/09/main" Requires="p159">'
+        '<p:transition xmlns:p="%s" spd="med"><p159:morph option="byObject"/></p:transition></mc:Choice>'
+        '<mc:Fallback><p:transition xmlns:p="%s" spd="med"><p:fade/></p:transition></mc:Fallback>'
+        '</mc:AlternateContent>' % (P_NS, P_NS)))
     if grupos:
-        sld.append(etree.fromstring(timing_xml([g.shape_id for g in grupos])))
+        sld.append(etree.fromstring(timing_xml([(g.shape_id, getattr(g, "efecto", "subir")) for g in grupos])))
     notas = "\n".join(guion.get(num, [])).replace("*(clic)*", "[CLIC]")
     slide.notes_slide.notes_text_frame.text = "%s · %s\n\n%s" % (orador.get(num, ""), titulos.get(num, ""),
                                                                  re.sub(r"\*+", "", notas))
-    informe.append((num, "empuje" if empuje else "fundido", len(grupos), orador.get(num, "")))
+    informe.append((num, "morph", len(grupos), orador.get(num, "")))
 
 prs.core_properties.author = "Santiago Barrera"
 prs.core_properties.last_modified_by = "Santiago Barrera"

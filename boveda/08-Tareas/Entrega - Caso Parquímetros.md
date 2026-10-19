@@ -8,9 +8,27 @@ alias: [entrega parquimetros, entrega tarea 3, SERVIparq, SIEP]
 
 # Caso 4: Repensando los parquímetros · Entrega
 
-Análisis y Diseño de Sistemas II (785) · ECYS, USAC · MBA. MSc. Claudia Rojas de Morán
 
-Tarea 3 · Caso 4 (Morales Zaragoza, UAM Cuajimalpa) · Grupo 2 · octubre de 2026
+## Resumen ejecutivo
+
+**El caso.** SERVIparq, el programa de parquímetros de la Ciudad de México, enfrenta seis problemas: vecinos que no fueron consultados, cuidacarros que siguen cobrando, instrucciones de pago confusas, conductores que no saben cómo reclamar una multa, falta de personal y la sospecha de que el dinero se pierde. Una consultora de diseño, Smartmedia, mejoró la información del parquímetro con pruebas hechas con personas y fijó un nivel de desempeño del 72 %.
+
+**Lo que encontramos.** Tres de los seis problemas no se arreglan con una pantalla mejor: son de gobierno del programa, de funciones del equipo que estaban apagadas y de un cobro informal que compite por el mismo espacio. En Guatemala pasa lo mismo: la capital cobra Q3 por media hora, pero en un solo operativo se retiraron 2,500 objetos con los que se apartaban lugares, y en Antigua la Corte de Constitucionalidad suspendió la base de datos de placas del cobro digital.
+
+**Lo que proponemos.** SIEP, un sistema en el que el pago queda ligado a la placa y no a un boleto. Cada uno de los cinco procesos del negocio es un servicio (arquitectura orientada a servicios) y los servicios se avisan entre sí con eventos. Se reutiliza el parquímetro ya comprado, se encienden el pago con tarjeta y la alarma de vandalismo, la multa solo nace cuando un oficial confirma la evidencia, y todo lo cobrado se publica en un tablero.
+
+| Qué se compromete | Número | Cómo se comprueba |
+|---|---|---|
+| Conductores que pagan sin ayuda la primera vez | ≥ 72 % | Prueba de desempeño con 12 personas, en la calle |
+| Tiempo para saber si una placa pagó | ≤ 2 s | Prueba de carga con 500 verificadores |
+| Pagos perdidos si se cae la señal | 0 | Corte de red simulado en el piloto |
+| Multas con foto, hora, ubicación y confirmación del oficial | 100 % | Revisión de la bitácora |
+| Diferencia entre lo publicado y lo depositado en el banco | Q0 | Conciliación diaria |
+
+**Cómo se construye.** Con un ciclo en espiral, que revisa los riesgos en cada vuelta, y Scrum por dentro, en cuatro fases que empiezan por una colonia piloto. Desarrollamos además un prototipo de la pantalla del parquímetro que mide el 72 % mientras se prueba.
+
+
+## Equipo y correspondencia con la consigna
 
 | Integrante | Carné | Rol en el equipo | Responsabilidad en este caso |
 |---|---|---|---|
@@ -18,8 +36,10 @@ Tarea 3 · Caso 4 (Morales Zaragoza, UAM Cuajimalpa) · Grupo 2 · octubre de 20
 | Jemima Solmaira Chavajay Quiejú | 201801521 | Product Owner | Problemáticas y requisitos de desempeño, calidad del software, arquitectura de la información |
 | Byron Josué Par Rancho | 201701078 | Equipo de desarrollo | Alternativas de solución, arquitectura de software (estilos, bloques, despliegue) y prototipo |
 
+El trabajo se versionó con **GitFlow** en el repositorio github.com/Santiago78op/Dise-o-Arquitectonico-los-Parqu-metros: una rama por entregable (documento, presentación y sitio), integradas en `develop` y publicadas en `main` con una versión etiquetada.
 
-### Índice y correspondencia con la consigna
+
+### Qué pide la consigna y dónde está
 
 | Lo que pide la consigna | Dónde está |
 |---|---|
@@ -798,7 +818,29 @@ La consigna permite desarrollar una parte del sistema siguiendo la arquitectura 
 | **Modo de prueba de desempeño:** cronometra cada intento, marca lograda o fallida, calcula la eficacia contra el 72 % y exporta CSV | EAC-01 · §5.2: el prototipo trae su propia herramienta de medición |
 
 
-## 8. Supuestos y límites
+## 8. Conclusiones y recomendaciones
+
+
+### 8.1 Conclusiones
+
+- **La pantalla era la mitad del problema.** El método de Smartmedia resolvió bien la información del parquímetro, pero los problemas de consulta vecinal, cobro informal y desconfianza son de gobierno y de arquitectura del sistema.
+- **Lo que faltaba ya estaba en el equipo.** El parquímetro comprado podía cobrar con tarjeta y avisar vandalismo; habilitarlo, y ligar el pago a la placa, cubre la falta de personal sin contratar a nadie.
+- **Un servicio por proceso** deja que cada Delegación adopte el sistema a su ritmo y que la tarifa cambie sin tocar código.
+- **El 72 % es un buen punto de partida**, pero vale más un umbral por tarea, según lo que cuesta fallar.
+- **El cobro informal se combate ganándole**: con información visible, reportes sin riesgo para el conductor y un acuerdo previo con la comunidad, como mostró Antigua Guatemala.
+- **Lo que se cobra se publica.** Sin transparencia sobre el 70/30, cualquier mejora técnica se percibe como otro cobro.
+
+
+### 8.2 Recomendaciones
+
+- Empezar por **una colonia piloto** con su comité vecinal y medir los once escenarios de calidad antes de crecer.
+- Tramitar desde el inicio el **permiso para probar en la calle** y la **base legal de la base de datos de placas**.
+- Hacer de la **prueba de desempeño** el criterio de aceptación de cada pantalla nueva, con al menos 12 personas.
+- Dejar los **sensores y la tarifa por demanda** para cuando haya datos de ocupación que justifiquen la inversión.
+- Para Guatemala: coordinar con la Policía Municipal de Tránsito y la Procuraduría de los Derechos Humanos el protocolo para los cuidacarros **antes** de instalar.
+
+
+## 9. Supuestos y límites
 
 - Las medidas de calidad, salvo el 72 % del caso, y el dimensionamiento del despliegue son **supuestos de diseño**.
 - La solución se diseña para SERVIparq (Ciudad de México, 2012); el traslado a Guatemala usa hechos públicos de 2023 a 2026 citados en el §2.2. El estado legal de MarbEx en Antigua puede haber cambiado después de julio de 2026.
@@ -806,7 +848,7 @@ La consigna permite desarrollar una parte del sistema siguiendo la arquitectura 
 - El prototipo es de interfaz: simula el cobro y no se conecta a un banco ni a una base de datos.
 
 
-## 9. Referencias
+## 10. Referencias
 
 - Morales Zaragoza, N. (2015). *Repensando los parquímetros, un acercamiento al diseño de interfaces desde la perspectiva del usuario* (Caso 4). Universidad Autónoma Metropolitana, Unidad Cuajimalpa.
 - Bass, L., Clements, P. y Kazman, R. (2021). *Software Architecture in Practice* (4.ª ed.). Addison-Wesley.

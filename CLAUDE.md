@@ -555,6 +555,18 @@ Doctrina de esa entrega:
 - **Vocabulario, pedido por él:** lenguaje de estudiante; todo término raro se define al usarlo.
   «Franelero» (palabra mexicana del caso) se define una vez y después se dice **cuidacarros**.
 
+> [!note] Lo que se suma a una entrega de grupo desde el 2026-10-19
+> - **Carátula** cuando él la pide: el molde es su trabajo de Redes (`[SO2-A]AWS…pdf`): datos de la
+>   universidad arriba a la izquierda en Times 11-12, escudo de Ingeniería a la derecha
+>   (`06-Proyecto-MCP/plantillas/escudo-ingenieria-usac.jpg`), título dorado `#ECB727` en Arial
+>   negrita al centro e integrantes en tabla abajo. Va en una sección vertical sin pie.
+> - **Índice con páginas reales**: dos pasadas sobre el PDF (ver `generar-entrega-parq.py`).
+> - **Texto en vertical, figuras anchas en horizontal**, y `validar-entrega-pdf.py` sin fallas.
+> - **Repo del grupo con GitFlow**: `main` + `develop`, una `feature/*` por entregable, `release/x.y.z`
+>   con etiqueta. El de la Tarea 3: github.com/Santiago78op/Dise-o-Arquitectonico-los-Parqu-metros.
+> - **Morph** en las presentaciones: Keynote lo importa como Movimiento mágico (medido en video).
+>   Los objetos que deben deslizarse llevan el mismo nombre con prefijo `!!` en todas las láminas.
+
 > [!warning] Keynote rechaza un .pptx con notas creadas desde la plantilla por defecto de python-pptx
 > Lo abre sin error si no tiene notas; con notas, *«Can't make missing value»* y el archivo no carga.
 > Por eso `generar-presentacion-parq.py` parte de `06-Proyecto-MCP/plantillas/base-presentacion-16x9.pptx`

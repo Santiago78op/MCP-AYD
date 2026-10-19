@@ -21,7 +21,7 @@ import tempfile
 
 from docx import Document
 from docx.shared import Pt, Inches, RGBColor
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT, WD_TAB_LEADER
 from docx.enum.section import WD_SECTION, WD_ORIENT
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml.ns import qn
@@ -66,11 +66,11 @@ MD = []          # la misma entrega, en markdown para la boveda
 
 st = doc.styles["Normal"]
 st.font.name = "Calibri"
-st.font.size = Pt(10.5)
-st.paragraph_format.space_after = Pt(6)
-st.paragraph_format.line_spacing = 1.15
-for name, size, before, after in [("Heading 1", 17, 18, 8), ("Heading 2", 13.5, 14, 6),
-                                  ("Heading 3", 11.5, 11, 4), ("Heading 4", 10.5, 9, 3)]:
+st.font.size = Pt(11)
+st.paragraph_format.space_after = Pt(8)
+st.paragraph_format.line_spacing = 1.2
+for name, size, before, after in [("Heading 1", 18, 6, 12), ("Heading 2", 14, 18, 8),
+                                  ("Heading 3", 12, 14, 6), ("Heading 4", 11, 10, 4)]:
     s = doc.styles[name]
     s.font.name = "Calibri"; s.font.size = Pt(size); s.font.color.rgb = NEGRO; s.font.bold = True
     s.paragraph_format.space_before = Pt(before)
@@ -91,7 +91,10 @@ def carta(sec, landscape=False):
         sec.top_margin = sec.bottom_margin = Inches(1.0)
 
 
-carta(doc.sections[0], True)
+carta(doc.sections[0], False)          # la caratula va vertical, como la de Redes
+ORIENT = {"h": False, "recien": False}  # orientacion de la seccion en curso
+USABLE = {False: 6.5, True: 9.4}         # ancho util en pulgadas
+ALTO_UTIL = {False: 9.0, True: 7.1}
 
 
 def pie(sec, texto="Caso 4: Repensando los parquímetros · Grupo 2"):
@@ -106,7 +109,7 @@ def pie(sec, texto="Caso 4: Repensando los parquímetros · Grupo 2"):
     p._p.append(fld)
 
 
-pie(doc.sections[0])
+# la seccion de la caratula no lleva pie: el pie empieza con la seccion siguiente
 
 
 def llano(t):
@@ -143,18 +146,35 @@ def runs(par, text, size=None, bold_all=False):
     return par
 
 
+TOC = []          # (nivel, titulo) en orden de aparicion: el indice se arma con esto
+
+
+def _filete(par):
+    """Linea fina bajo los titulos de nivel 1."""
+    pPr = par._p.get_or_add_pPr()
+    bdr = OxmlElement('w:pBdr'); b = OxmlElement('w:bottom')
+    for k, v in (('w:val', 'single'), ('w:sz', '6'), ('w:space', '4'), ('w:color', '9AA0A6')):
+        b.set(qn(k), v)
+    bdr.append(b); pPr.append(bdr)
+
+
 def H(text, level=1, brk=False):
     p = doc.add_heading(level=level)
     p.text = ""
     runs(p, text, bold_all=True)
     for r in p.runs:
         r.font.color.rgb = NEGRO
-    if brk:
+    if brk and not ORIENT["recien"]:
         p.paragraph_format.page_break_before = True
+    ORIENT["recien"] = False
+    if level == 1:
+        _filete(p)
+    if level in (1, 2):
+        TOC.append((level, llano(text)))
     MD.append("\n%s %s\n" % ("#" * (level + 1), llano(text)))
 
 
-def P(text, size=10.5, pegar=False):
+def P(text, size=11, pegar=False):
     """pegar=True mantiene el parrafo en la misma pagina que lo que sigue."""
     p = doc.add_paragraph()
     runs(p, text, size=size)
@@ -162,7 +182,7 @@ def P(text, size=10.5, pegar=False):
     MD.append(llano(text) + "\n")
 
 
-def BUL(items, size=10):
+def BUL(items, size=10.5):
     for it in items:
         p = doc.add_paragraph(style="List Bullet")
         runs(p, it, size=size)
@@ -195,11 +215,16 @@ def _shade(cell):
 
 
 def TBL(headers, rows, fracs=None, size=9, usable=9.4, centro_desde=None):
-    usable = 9.4
-    size = max(size, 8)
+    usable = USABLE[ORIENT["h"]]
+    size = max(size, 8.5)
     n = len(headers)
     if fracs is None:
         fracs = [1.0 / n] * n
+    if headers[0] in ("ID", "Id", "#"):
+        # un identificador (STK-01, EAC-11) no se parte: la primera columna tiene un minimo
+        w0 = max(fracs[0] * usable, 0.72 if headers[0] != "#" else 0.35)
+        resto = sum(fracs[1:])
+        fracs = [w0 / usable] + [f * (1 - w0 / usable) / resto for f in fracs[1:]]
     widths = [Inches(usable * f) for f in fracs]
     t = doc.add_table(rows=1, cols=n)
     t.style = "Table Grid"
@@ -233,6 +258,10 @@ def TBL(headers, rows, fracs=None, size=9, usable=9.4, centro_desde=None):
     for i, w in enumerate(widths):
         t.columns[i].width = w
     tblPr = t._tbl.tblPr
+    mar = OxmlElement('w:tblCellMar')
+    for lado, v in (('top', 50), ('left', 100), ('bottom', 50), ('right', 100)):
+        e = OxmlElement('w:' + lado); e.set(qn('w:w'), str(v)); e.set(qn('w:type'), 'dxa'); mar.append(e)
+    tblPr.append(mar)
     for old in tblPr.findall(qn('w:tblW')):
         tblPr.remove(old)
     tw = OxmlElement('w:tblW'); tw.set(qn('w:type'), 'dxa')
@@ -246,12 +275,20 @@ def TBL(headers, rows, fracs=None, size=9, usable=9.4, centro_desde=None):
     MD.append("")
 
 
-ANCHO_IMG = {"contexto-parq": 9.0, "cdu-core-parq": 8.0, "cdu-descomposicion-parq": 7.4, "bloques-parq": 8.6,
+ANCHO_IMG = {"contexto-parq": 7.3, "cdu-core-parq": 8.0, "cdu-descomposicion-parq": 7.4, "bloques-parq": 8.6,
              "despliegue-parq": 9.2, "cdu-expandido-parq-02-cobro": 8.4, "cdu-expandido-parq-03-verificacion": 8.0}
 
 
+def _ancho(ruta, preferido):
+    """El ancho que cabe: ni mas que la pagina en curso ni tan alta que empuje su pie a la siguiente."""
+    from PIL import Image
+    w, h = Image.open(ruta).size
+    return min(preferido, USABLE[ORIENT["h"]] - 0.05, (ALTO_UTIL[ORIENT["h"]] - 0.7) * w / h)
+
+
 def IMGP(nombre, width=6.5, caption=None):
-    doc.add_picture(os.path.join(IMG, nombre + ".png"), width=Inches(ANCHO_IMG.get(nombre, 9.0)))
+    doc.add_picture(os.path.join(IMG, nombre + ".png"), width=Inches(_ancho(os.path.join(IMG, nombre + ".png"),
+                                                                          ANCHO_IMG.get(nombre, 9.0))))
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     doc.paragraphs[-1].paragraph_format.keep_with_next = True
     MD.append("![[02-Diagramas/%s/%s.svg]]\n" % (LAMINAS[nombre], nombre))
@@ -266,7 +303,7 @@ def IMGP(nombre, width=6.5, caption=None):
 
 def IMGF(ruta_abs, ruta_boveda, width, caption):
     """Figura que no es una lamina completa: un recorte ampliado de una."""
-    doc.add_picture(ruta_abs, width=Inches(width))
+    doc.add_picture(ruta_abs, width=Inches(_ancho(ruta_abs, width)))
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     doc.paragraphs[-1].paragraph_format.keep_with_next = True
     MD.append("![[%s]]\n" % ruta_boveda)
@@ -305,9 +342,15 @@ def detalles_despliegue():
 
 
 def SEC(landscape=False):
-    """Todo el documento va apaisado: las laminas y las matrices necesitan el
-    ancho, y alternar orientaciones dejaba paginas a medio llenar."""
-    return None
+    """Texto en vertical (renglones legibles); horizontal solo donde una figura o una
+    tabla ancha lo necesita. Cada cambio abre seccion en pagina nueva, con su pie."""
+    if landscape == ORIENT["h"] and len(doc.sections) > 1:
+        return
+    sec = doc.add_section(WD_SECTION.NEW_PAGE)
+    carta(sec, landscape)
+    sec.footer.is_linked_to_previous = False
+    pie(sec)
+    ORIENT["h"], ORIENT["recien"] = landscape, True
 
 
 
@@ -321,16 +364,104 @@ MD.append("---\ntema: Entrega de tarea\nfuente: \"Generado por 06-Proyecto-MCP/g
           "cambiar el generador y volver a correrlo\"\nfecha: 2026-10-19\ntarea: Tarea 3 - Caso Parquímetros\n"
           "alias: [entrega parquimetros, entrega tarea 3, SERVIparq, SIEP]\n---\n")
 MD.append("# Caso 4: Repensando los parquímetros · Entrega\n")
-p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-r = p.add_run("Repensando los parquímetros: una solución desde la arquitectura del software")
-r.bold = True; r.font.size = Pt(19)
-for line in ["Análisis y Diseño de Sistemas II (785) · ECYS, USAC · MBA. MSc. Claudia Rojas de Morán",
-             "Tarea 3 · Caso 4 (Morales Zaragoza, UAM Cuajimalpa) · Grupo 2 · octubre de 2026"]:
-    p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = p.add_run(line); r.font.size = Pt(10)
-    p.paragraph_format.space_after = Pt(2)
-    MD.append(line + "\n")
-doc.add_paragraph().paragraph_format.space_after = Pt(2)
+
+# ---------------------------------------------------------------- caratula (molde del curso de Redes)
+FECHA_CARATULA = "Guatemala 19 de octubre del 2026"
+ESCUDO = os.path.join(AQUI, "plantillas", "escudo-ingenieria-usac.jpg")
+DORADO = RGBColor(0xEC, 0xB7, 0x27)
+INTEGRANTES = [("Santiago Julián Barrera Reyes", "201905884"), ("Jemima Solmaira Chavajay Quiejú", "201801521"),
+               ("Byron Josué Par Rancho", "201701078")]
+
+
+def _bordes(tabla, val):
+    tblPr = tabla._tbl.tblPr
+    b = OxmlElement('w:tblBorders')
+    for lado in ('top', 'left', 'bottom', 'right', 'insideH', 'insideV'):
+        e = OxmlElement('w:' + lado); e.set(qn('w:val'), val); e.set(qn('w:sz'), '4'); e.set(qn('w:color'), 'A6A6A6')
+        b.append(e)
+    tblPr.append(b)
+
+
+def _times(par, texto_, tam=12, **kw):
+    r = par.add_run(texto_); r.font.name = "Times New Roman"; r.font.size = Pt(tam)
+    r._element.rPr.rFonts.set(qn('w:eastAsia'), "Times New Roman")
+    for k, v in kw.items():
+        setattr(r.font, k, v)
+    return r
+
+
+cab = doc.add_table(rows=1, cols=2)
+_bordes(cab, 'nil')
+cab.autofit = False
+izq, der = cab.rows[0].cells
+izq.width, der.width = Inches(4.9), Inches(1.6)
+cab.columns[0].width, cab.columns[1].width = Inches(4.9), Inches(1.6)
+for k, linea in enumerate([FECHA_CARATULA, "Universidad San Carlos de Guatemala", "Facultad de Ingeniería",
+                           "Escuela de Ingeniería en Ciencias y Sistemas.", "Segundo Semestre 2026",
+                           "Magistral - Análisis y Diseño de Sistemas 2 - Sección A",
+                           "Catedrática: MBA. MSc. Claudia Rojas de Morán"]):
+    par = izq.paragraphs[0] if k == 0 else izq.add_paragraph()
+    par.paragraph_format.space_after = Pt(1)
+    par.paragraph_format.line_spacing = 1.0
+    _times(par, linea, 11)
+der.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.RIGHT
+der.paragraphs[0].add_run().add_picture(ESCUDO, width=Inches(1.5))
+t = doc.add_paragraph(); t.alignment = WD_ALIGN_PARAGRAPH.CENTER
+t.paragraph_format.space_before = Pt(150); t.paragraph_format.space_after = Pt(4)
+r = t.add_run("Repensando los Parquímetros"); r.bold = True; r.font.size = Pt(30); r.font.name = "Arial"; r.font.color.rgb = DORADO
+t = doc.add_paragraph(); t.alignment = WD_ALIGN_PARAGRAPH.CENTER
+r = t.add_run("Una solución desde la arquitectura del software"); r.font.size = Pt(15); r.font.name = "Arial"
+r.font.color.rgb = RGBColor(0x59, 0x59, 0x59)
+t = doc.add_paragraph(); t.alignment = WD_ALIGN_PARAGRAPH.CENTER
+r = t.add_run("Tarea 3 · Caso 4 · Grupo 2"); r.font.size = Pt(12); r.font.name = "Arial"; r.font.color.rgb = RGBColor(0x59, 0x59, 0x59)
+t = doc.add_paragraph(); t.paragraph_format.space_before = Pt(150); t.paragraph_format.space_after = Pt(4)
+_times(t, "Grupo 2", 11, bold=True)
+tab = doc.add_table(rows=0, cols=2)
+_bordes(tab, 'single')
+tab.autofit = False
+for nom, carne in INTEGRANTES:
+    c1, c2 = tab.add_row().cells
+    c1.width, c2.width = Inches(2.9), Inches(1.1)
+    _times(c1.paragraphs[0], nom, 10); _times(c2.paragraphs[0], carne, 10)
+    for c in (c1, c2):
+        c.paragraphs[0].paragraph_format.space_after = Pt(2)
+tab.columns[0].width, tab.columns[1].width = Inches(2.9), Inches(1.1)
+
+# ---------------------------------------------------------------- indice (se llena al final, con paginas reales)
+SEC(False)
+hi = doc.add_heading(level=1); hi.text = ""; runs(hi, "Índice", bold_all=True)
+for r in hi.runs:
+    r.font.color.rgb = NEGRO
+_filete(hi)
+ORIENT["recien"] = False
+ANCLA_INDICE = doc.add_paragraph()
+
+# ---------------------------------------------------------------- resumen ejecutivo
+H("Resumen ejecutivo", 1, brk=True)
+P("**El caso.** SERVIparq, el programa de parquímetros de la Ciudad de México, enfrenta seis problemas: vecinos que no "
+  "fueron consultados, cuidacarros que siguen cobrando, instrucciones de pago confusas, conductores que no saben cómo "
+  "reclamar una multa, falta de personal y la sospecha de que el dinero se pierde. Una consultora de diseño, Smartmedia, "
+  "mejoró la información del parquímetro con pruebas hechas con personas y fijó un nivel de desempeño del 72 %.")
+P("**Lo que encontramos.** Tres de los seis problemas no se arreglan con una pantalla mejor: son de gobierno del programa, "
+  "de funciones del equipo que estaban apagadas y de un cobro informal que compite por el mismo espacio. En Guatemala pasa "
+  "lo mismo: la capital cobra Q3 por media hora, pero en un solo operativo se retiraron 2,500 objetos con los que se "
+  "apartaban lugares, y en Antigua la Corte de Constitucionalidad suspendió la base de datos de placas del cobro digital.")
+P("**Lo que proponemos.** SIEP, un sistema en el que el pago queda ligado a la placa y no a un boleto. Cada uno de los cinco "
+  "procesos del negocio es un servicio (arquitectura orientada a servicios) y los servicios se avisan entre sí con eventos. "
+  "Se reutiliza el parquímetro ya comprado, se encienden el pago con tarjeta y la alarma de vandalismo, la multa solo nace "
+  "cuando un oficial confirma la evidencia, y todo lo cobrado se publica en un tablero.")
+TBL(["Qué se compromete", "Número", "Cómo se comprueba"],
+    [["Conductores que pagan sin ayuda la primera vez", "≥ 72 %", "Prueba de desempeño con 12 personas, en la calle"],
+     ["Tiempo para saber si una placa pagó", "≤ 2 s", "Prueba de carga con 500 verificadores"],
+     ["Pagos perdidos si se cae la señal", "0", "Corte de red simulado en el piloto"],
+     ["Multas con foto, hora, ubicación y confirmación del oficial", "100 %", "Revisión de la bitácora"],
+     ["Diferencia entre lo publicado y lo depositado en el banco", "Q0", "Conciliación diaria"]],
+    fracs=[0.50, 0.14, 0.36], size=10, centro_desde=1)
+P("**Cómo se construye.** Con un ciclo en espiral, que revisa los riesgos en cada vuelta, y Scrum por dentro, en cuatro "
+  "fases que empiezan por una colonia piloto. Desarrollamos además un prototipo de la pantalla del parquímetro que mide "
+  "el 72 % mientras se prueba.")
+
+H("Equipo y correspondencia con la consigna", 1, brk=True)
 TBL(["Integrante", "Carné", "Rol en el equipo", "Responsabilidad en este caso"],
     [["Santiago Julián Barrera Reyes", "201905884", "Scrum Master / coordinador",
       "Análisis del caso, investigación del contexto guatemalteco, arquitectura en el ciclo de vida, integración del documento"],
@@ -338,9 +469,11 @@ TBL(["Integrante", "Carné", "Rol en el equipo", "Responsabilidad en este caso"]
       "Problemáticas y requisitos de desempeño, calidad del software, arquitectura de la información"],
      ["Byron Josué Par Rancho", "201701078", "Equipo de desarrollo",
       "Alternativas de solución, arquitectura de software (estilos, bloques, despliegue) y prototipo"]],
-    fracs=[0.24, 0.10, 0.18, 0.48], size=9.5, centro_desde=None)
-
-H("Índice y correspondencia con la consigna", 2)
+    fracs=[0.27, 0.13, 0.20, 0.40], size=9.5, centro_desde=None)
+P("El trabajo se versionó con **GitFlow** en el repositorio "
+  "github.com/Santiago78op/Dise-o-Arquitectonico-los-Parqu-metros: una rama por entregable (documento, presentación y "
+  "sitio), integradas en `develop` y publicadas en `main` con una versión etiquetada.")
+H("Qué pide la consigna y dónde está", 2)
 TBL(["Lo que pide la consigna", "Dónde está"],
     [["Estudio y análisis del caso", "§1 Análisis del caso"],
      ["Investigación de los tópicos relacionados", "§2 Investigación: sistemas de referencia y el estacionamiento en Guatemala"],
@@ -509,6 +642,7 @@ H("3. Caso de negocio y drivers: los insumos de la arquitectura", 1)
 P("Antes de proponer una solución se delimita el negocio (el **paso 0** del método de clase) y se identifican los "
   "**drivers arquitectónicos**: los factores críticos que guían el diseño, en sus tres tipos de clase: funcionales "
   "(casos de uso), de calidad (escenarios con medida) y de restricción (condiciones impuestas desde afuera).")
+SEC(True)
 H("3.1 Diagrama de contexto", 2)
 P("**El Producto** es el software SIEP. Notación de clase: la **elipse** es El Producto, cada **rectángulo** una "
   "entidad o agente externo y cada **flecha** un flujo con nombre, en sustantivo. Son diez entidades y diecinueve flujos.")
@@ -526,6 +660,7 @@ TBL(["Entidad", "Entrega a SIEP", "Recibe de SIEP"],
      ["Sistema de multas de tránsito", "Estado de la multa", "Multa registrada"]],
     fracs=[0.36, 0.32, 0.32], size=9)
 
+SEC(False)
 H("3.2 CDU de alto nivel (core) y primera descomposición", 2)
 P("El core lleva **una sola elipse** con el nombre del negocio y todos sus actores alrededor; la descomposición, "
   "**un solo diagrama** con cinco procesos y **el mismo juego de actores**. Notación de negocio: actor y caso de "
@@ -814,6 +949,7 @@ TBL(["Alternativa", "Arquitectura del software", "Calidad del software", "Arquit
       "Agrega una fase previa de concertación a cada zona",
       "Publica cuentas claras y avisa que el único cobro es el del parquímetro"]],
     fracs=[0.20, 0.20, 0.20, 0.20, 0.20], size=8.5)
+SEC(False)
 H("4.1 Evaluación contra las problemáticas y los drivers", 2)
 P("**Sí** resuelve · **Parcial** resuelve en parte · **No** no resuelve. Una alternativa que no toca un driver de los cinco "
   "priorizados (§3.6) queda descartada como solución única.", pegar=True)
@@ -844,7 +980,8 @@ NOTE("**Solución seleccionada: S-2 como núcleo, con S-1 dentro y S-4 alrededor
 # =====================================================================
 # §5 SOLUCION SELECCIONADA
 # =====================================================================
-H("5. Solución seleccionada: SIEP", 1, brk=True)
+SEC(False)
+H("5. Solución seleccionada: SIEP", 1)
 H("5.1 Arquitectura del software", 2)
 P("**Estilo principal: arquitectura orientada a servicios (SOA), un servicio por proceso de negocio.** Los cinco "
   "procesos de la primera descomposición se convierten en cinco servicios, más uno de integración. Se justifica con "
@@ -875,6 +1012,7 @@ BUL(["**El pago se liga a la placa, no a un boleto.** Desaparece el boleto mal c
      "**Todo lo que se cobra se publica.** El tablero de transparencia muestra la recaudación por zona y el reparto "
      "70/30 conciliado con el banco (EAC-09, P-06)."], size=10)
 IMGP("bloques-parq", 8.6, "Figura 6. Diagrama de bloques: productores, enrutador y consumidores de eventos.")
+SEC(True)
 IMGP("despliegue-parq", 9.2, "Figura 7. Diagrama de despliegue de SIEP.")
 P("**Cómo leer el despliegue.** Arriba, los cuatro dispositivos de los usuarios; al centro, la nube del gobierno de "
   "la ciudad con el borde de red, el clúster de los seis servicios, la mensajería, la analítica y la base de datos; "
@@ -886,6 +1024,7 @@ for (ruta, ruta_b), leyenda, ancho in zip(detalles_despliegue(),
          "Figura 7c. Despliegue, detalle: sistemas externos."], [9.0, 8.4, 4.4]):
     IMGF(ruta, ruta_b, ancho, leyenda)
 
+SEC(False)
 H("5.2 Calidad del software", 2)
 P("**Modelo de calidad.** Se usan los dos modelos de ISO/IEC 9126 que da el programa: el de **calidad del producto** "
   "(seis características) para la arquitectura, y el de **calidad en uso** (eficacia, productividad, seguridad y "
@@ -1088,11 +1227,12 @@ for i, (preg, resp) in enumerate(RESP, 1):
 # =====================================================================
 # §7 PROTOTIPO
 # =====================================================================
+SEC(True)
 H("7. Parte desarrollada: prototipo del parquímetro con pago por placa", 1, brk=True)
 P("La consigna permite desarrollar una parte del sistema siguiendo la arquitectura elegida. Se desarrolló el **cliente "
   "del parquímetro** del CDU-02 (CU-04 con CU-05 y la extensión CU-06), que es donde se juegan EAC-01 y EAC-02. Es una "
   "página web que corre en cualquier navegador: `08-Tareas/prototipo-parquimetros/index.html`.")
-IMGF(PROTO, "02-Diagramas/caso-parquimetros/4-prototipo/prototipo-cuatro-pantallas.png", 9.2,
+IMGF(PROTO, "02-Diagramas/caso-parquimetros/4-prototipo/prototipo-cuatro-pantallas.png", 6.6,
      "Figura 8. Las cuatro pantallas del prototipo: placa, tiempo, pago y comprobante.")
 TBL(["Qué implementa", "Decisión que materializa"],
     [["Tres pasos lineales con barra de progreso y la tarifa fija arriba", "Arquitectura de la información (§5.4): organización por momento de uso"],
@@ -1104,14 +1244,34 @@ TBL(["Qué implementa", "Decisión que materializa"],
      ["**Modo de prueba de desempeño:** cronometra cada intento, marca lograda o fallida, calcula la eficacia contra el 72 % y exporta CSV", "EAC-01 · §5.2: el prototipo trae su propia herramienta de medición"]],
     fracs=[0.55, 0.45], size=9)
 
-H("8. Supuestos y límites", 1)
+SEC(False)
+H("8. Conclusiones y recomendaciones", 1)
+H("8.1 Conclusiones", 2)
+BUL(["**La pantalla era la mitad del problema.** El método de Smartmedia resolvió bien la información del parquímetro, "
+     "pero los problemas de consulta vecinal, cobro informal y desconfianza son de gobierno y de arquitectura del sistema.",
+     "**Lo que faltaba ya estaba en el equipo.** El parquímetro comprado podía cobrar con tarjeta y avisar vandalismo; "
+     "habilitarlo, y ligar el pago a la placa, cubre la falta de personal sin contratar a nadie.",
+     "**Un servicio por proceso** deja que cada Delegación adopte el sistema a su ritmo y que la tarifa cambie sin tocar código.",
+     "**El 72 % es un buen punto de partida**, pero vale más un umbral por tarea, según lo que cuesta fallar.",
+     "**El cobro informal se combate ganándole**: con información visible, reportes sin riesgo para el conductor y un "
+     "acuerdo previo con la comunidad, como mostró Antigua Guatemala.",
+     "**Lo que se cobra se publica.** Sin transparencia sobre el 70/30, cualquier mejora técnica se percibe como otro cobro."])
+H("8.2 Recomendaciones", 2)
+BUL(["Empezar por **una colonia piloto** con su comité vecinal y medir los once escenarios de calidad antes de crecer.",
+     "Tramitar desde el inicio el **permiso para probar en la calle** y la **base legal de la base de datos de placas**.",
+     "Hacer de la **prueba de desempeño** el criterio de aceptación de cada pantalla nueva, con al menos 12 personas.",
+     "Dejar los **sensores y la tarifa por demanda** para cuando haya datos de ocupación que justifiquen la inversión.",
+     "Para Guatemala: coordinar con la Policía Municipal de Tránsito y la Procuraduría de los Derechos Humanos el "
+     "protocolo para los cuidacarros **antes** de instalar."])
+
+H("9. Supuestos y límites", 1)
 BUL(["Las medidas de calidad, salvo el 72 % del caso, y el dimensionamiento del despliegue son **supuestos de diseño**.",
      "La solución se diseña para SERVIparq (Ciudad de México, 2012); el traslado a Guatemala usa hechos públicos de "
      "2023 a 2026 citados en el §2.2. El estado legal de MarbEx en Antigua puede haber cambiado después de julio de 2026.",
      "La opción de formalizar a los cuidadores es una propuesta para que la decida cada Delegación; requiere base legal.",
      "El prototipo es de interfaz: simula el cobro y no se conecta a un banco ni a una base de datos."], size=9.5)
 
-H("9. Referencias", 1)
+H("10. Referencias", 1)
 BUL(["Morales Zaragoza, N. (2015). *Repensando los parquímetros, un acercamiento al diseño de interfaces desde la "
      "perspectiva del usuario* (Caso 4). Universidad Autónoma Metropolitana, Unidad Cuajimalpa.",
      "Bass, L., Clements, P. y Kazman, R. (2021). *Software Architecture in Practice* (4.ª ed.). Addison-Wesley.",
@@ -1149,6 +1309,25 @@ MD.append("1. ¿Por qué los cuidacarros no son actores del negocio?\n"
           "4. ¿Qué escalón de la lámina de SOA fija el tamaño de los servicios?\n"
           "5. ¿Qué le enseña a la arquitectura la suspensión de MarbEx por la Corte de Constitucionalidad?\n")
 
+# --- el indice, con las paginas que midio la pasada anterior
+import json
+import sys
+CACHE = os.path.join(tempfile.gettempdir(), "indice-entrega-parq.json")
+PASADA = int(os.environ.get("PASADA_INDICE", "1"))
+paginas = json.load(open(CACHE, encoding="utf-8")) if PASADA > 1 and os.path.exists(CACHE) else {}
+for nivel, titulo in TOC:
+    par = ANCLA_INDICE.insert_paragraph_before()
+    pf = par.paragraph_format
+    pf.tab_stops.add_tab_stop(Inches(6.5), WD_TAB_ALIGNMENT.RIGHT, WD_TAB_LEADER.DOTS)
+    pf.left_indent = Inches(0 if nivel == 1 else 0.3)
+    pf.space_before = Pt(7 if nivel == 1 else 0)
+    pf.space_after = Pt(2)
+    pf.line_spacing = 1.0
+    r = par.add_run("%s\t%s" % (titulo, paginas.get(titulo, "")))
+    r.font.size = Pt(10.5 if nivel == 1 else 10)
+    r.bold = nivel == 1
+ANCLA_INDICE._p.getparent().remove(ANCLA_INDICE._p)
+
 out_docx = os.path.join(TAREAS, BASE + ".docx")
 doc.save(out_docx)
 with open(os.path.join(TAREAS, BASE + ".md"), "w", encoding="utf-8") as f:
@@ -1160,6 +1339,28 @@ if shutil.which("soffice"):
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     shutil.move(os.path.join(tmp, BASE + ".pdf"), os.path.join(TAREAS, PDF))
     print("pdf:", os.path.join(TAREAS, PDF))
+    import pymupdf
+    d = pymupdf.open(os.path.join(TAREAS, PDF))
+    medidas, desde = {}, 2
+    for nivel, titulo in TOC:
+        clave = titulo[:28]
+        for i in range(desde, len(d)):
+            lineas = ["".join(sp["text"] for sp in l["spans"]) for b in d[i].get_text("dict")["blocks"]
+                      for l in b.get("lines", []) if l["spans"] and l["spans"][0]["size"] >= 13]
+            if any(l.strip().startswith(clave) for l in lineas):
+                medidas[titulo] = i + 1
+                desde = i
+                break
+    faltan = [t for _, t in TOC if t not in medidas]
+    if faltan:
+        print("índice: no encontré en el PDF", faltan)
+    if medidas != paginas and PASADA < 4:
+        json.dump(medidas, open(CACHE, "w", encoding="utf-8"), ensure_ascii=False)
+        print("índice: pasada %d, rehago con las páginas medidas" % PASADA)
+        shutil.rmtree(IMG, ignore_errors=True)
+        os.environ["PASADA_INDICE"] = str(PASADA + 1)
+        os.execv(sys.executable, [sys.executable, os.path.abspath(__file__)])
+    print("índice: estable en la pasada", PASADA)
 else:
     print("Sin soffice: exporta el .docx a PDF a mano como", PDF)
 shutil.rmtree(IMG, ignore_errors=True)
