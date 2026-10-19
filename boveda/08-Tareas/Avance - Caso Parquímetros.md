@@ -59,8 +59,9 @@ El sitio se levanta en local con `python3 -m http.server 8000` en la raíz del r
 
 ## Lo que falta (lo hace el grupo)
 
-- Confirmar fecha de entrega y minutos de exposición; si son 10, el guion trae el recorte.
-- Si la fecha no es el 19/10/2026, cambiar `FECHA_CARATULA` en el generador y regenerar.
+- **Exposición confirmada: lunes 19/10/2026, turno 1, de 17:20 a 18:00** (anuncio de la clase). El
+  turno es de 40 minutos; la exposición sigue armada para 15 y el resto queda para preguntas. La
+  carátula ya dice 19/10/2026: no hay que regenerar.
 - Ensayar con el reloj del guion; cada integrante tiene su archivo.
 - Revisar que la portada diga la fecha correcta («octubre de 2026»).
 

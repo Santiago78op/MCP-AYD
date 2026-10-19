@@ -533,6 +533,8 @@ Doctrina de esa entrega:
 
 ### La Tarea 3: Caso 4 *Repensando los parquímetros* (SERVIparq) — llegó el 19/10/2026
 
+**Se expone el lunes 19/10/2026, turno 1 (17:20-18:00)**, como Grupo 2.
+
 Caso de la UAM (Ciudad de México, 2012), **no** continúa los anteriores. El estado vive en
 **`metodo_tarea("Avance - Caso Parquímetros")`** y el entregable en **`Entrega - Caso Parquímetros`**.
 Se entrega como **Grupo 2 de tres**: Santiago (Scrum Master / coordinador), Jemima (Product Owner),
