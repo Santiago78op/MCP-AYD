@@ -13,7 +13,7 @@ Archivo: `08-Tareas/Grupo2_CasoParquimetros_Presentacion.pptx`, que se arma con
 `python3 06-Proyecto-MCP/generar-presentacion-parq.py`. El .pptx no lleva notas del orador: el guion
 es este archivo y los individuales. *(clic)* marca dónde se avanza una animación.
 
-| Bloque | Orador | Láminas | Reloj |
+| Bloque | Orador | Diapositivas | Reloj |
 |---|---|---|---|
 | Apertura, caso y Guatemala | **Santiago** (coordinador) | 1 a 3 | 0:00 a 3:00 |
 | Problemas y requisitos de desempeño | **Jemima** (Product Owner) | 4 y 5 | 3:00 a 5:00 |
@@ -21,9 +21,9 @@ es este archivo y los individuales. *(clic)* marca dónde se avanza una animaci�
 | Calidad, información y prototipo | **Jemima** | 10 a 12 | 9:30 a 12:30 |
 | Ciclo de vida, cobros informales y cierre | **Santiago** | 13 a 15 | 12:30 a 15:00 |
 
-**Las láminas de cada uno:**
+**Las diapositivas de cada uno:**
 
-| Orador | Láminas | Cuáles son | Tiempo |
+| Orador | Diapositivas | Cuáles son | Tiempo |
 |---|---|---|---|
 | **Santiago** | **1, 2, 3, 13, 14, 15** | Portada · El caso en una lámina · Guatemala · Ciclo de vida · Cobros de personas ajenas · Cierre | 5:30 |
 | **Jemima** | **4, 5, 10, 11, 12** | Seis problemas · Requisitos de desempeño y el 72 % · Calidad · Arquitectura de la información · Prototipo | 5:00 |
@@ -225,6 +225,6 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 
 ## Si dan 10 minutos
 
-Se omiten las láminas 9 (despliegue: se nombra en la 8) y 12 (prototipo: se menciona en la 11), y la
+Se omiten las diapositivas 9 (despliegue: se nombra en la 8) y 12 (prototipo: se menciona en la 11), y la
 13 se reduce a las cuatro fases. Reloj: Santiago 0:00-2:30, Jemima 2:30-4:00, Byron 4:00-6:30,
 Jemima 6:30-8:00, Santiago 8:00-10:00.

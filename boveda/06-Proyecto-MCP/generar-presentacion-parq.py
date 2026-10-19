@@ -572,8 +572,8 @@ for quien, (nombre, rol) in ROLES.items():
     out = ["---", "tema: Guion de presentación", "fuente: \"Generado por 06-Proyecto-MCP/generar-presentacion-parq.py "
            "desde Guion - Presentación Caso Parquímetros.md\"", "fecha: 2026-10-19", "tarea: Tarea 3 - Caso Parquímetros",
            "---", "", "# Guion de %s · %s" % (nombre, rol), "",
-           "## Tus láminas", "",
-           "| Lámina | Título | Empieza en | Dura |", "|---|---|---|---|"]
+           "## Tus diapositivas", "",
+           "| Diapositiva | Título | Empieza en | Dura |", "|---|---|---|---|"]
     for n in mias:
         fin = segundos(reloj[n + 1]) if n + 1 in reloj else 15 * 60
         out.append("| **%d** | %s | %s | %s |" % (n, titulos[n], reloj[n], minutos(fin - segundos(reloj[n]))))
@@ -583,11 +583,11 @@ for quien, (nombre, rol) in ROLES.items():
     for n in mias:
         prev = orador.get(n - 1)
         if prev and prev != quien:
-            out.append("> *Entra después de %s (lámina %d).*\n" % (prev, n - 1))
+            out.append("> *Entra después de %s (diapositiva %d).*\n" % (prev, n - 1))
         out += bloques[n]
         nxt = orador.get(n + 1)
         if nxt and nxt != quien:
-            out.append("> *Al terminar, le pasa la palabra a %s (lámina %d).*\n" % (nxt, n + 1))
+            out.append("> *Al terminar, le pasa la palabra a %s (diapositiva %d).*\n" % (nxt, n + 1))
     out += ["", "## Preguntas que te tocan", ""]
     tabla = open(GUION, encoding="utf-8").read().split("## Preguntas probables y quién responde")[1].split("## Si dan")[0]
     filas = [l for l in tabla.strip().split("\n")[2:] if l.split("|")[2].strip().startswith(quien)]

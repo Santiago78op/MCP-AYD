@@ -7,9 +7,9 @@ tarea: Tarea 3 - Caso Parquímetros
 
 # Guion de Jemima Solmaira Chavajay Quiejú · Product Owner
 
-## Tus láminas
+## Tus diapositivas
 
-| Lámina | Título | Empieza en | Dura |
+| Diapositiva | Título | Empieza en | Dura |
 |---|---|---|---|
 | **4** | Seis problemas, tres que no son de pantalla | 3:00 | 1:00 |
 | **5** | Requisitos de desempeño y el 72 % | 4:00 | 1:00 |
@@ -21,7 +21,7 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 
 **Antes de hablar:** quién te pasa la palabra y con qué frase; **al terminar:** a quién se la pasás.
 
-> *Entra después de Santiago (lámina 3).*
+> *Entra después de Santiago (diapositiva 3).*
 
 ## Diapositiva 4 · Seis problemas, tres que no son de pantalla · Jemima · 3:00
 
@@ -48,9 +48,9 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 > multa injusta, así que ahí pedimos ochenta y uno, el máximo del método. Byron les explica cómo lo
 > resolvemos.
 
-> *Al terminar, le pasa la palabra a Byron (lámina 6).*
+> *Al terminar, le pasa la palabra a Byron (diapositiva 6).*
 
-> *Entra después de Byron (lámina 9).*
+> *Entra después de Byron (diapositiva 9).*
 
 ## Diapositiva 10 · Calidad: los números que se comprometen · Jemima · 9:30
 
@@ -82,7 +82,7 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 > por ciento. Y en el paso de pago dice lo que el cuidacarros no quiere que se sepa: este es el único
 > cobro. Santiago cierra con cómo se construye.
 
-> *Al terminar, le pasa la palabra a Santiago (lámina 13).*
+> *Al terminar, le pasa la palabra a Santiago (diapositiva 13).*
 
 
 ## Preguntas que te tocan

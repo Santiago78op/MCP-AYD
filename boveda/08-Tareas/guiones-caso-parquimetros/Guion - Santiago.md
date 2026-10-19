@@ -7,9 +7,9 @@ tarea: Tarea 3 - Caso Parquímetros
 
 # Guion de Santiago Julián Barrera Reyes · Scrum Master / coordinador
 
-## Tus láminas
+## Tus diapositivas
 
-| Lámina | Título | Empieza en | Dura |
+| Diapositiva | Título | Empieza en | Dura |
 |---|---|---|---|
 | **1** | Portada | 0:00 | 0:30 |
 | **2** | El caso en una lámina | 0:30 | 1:00 |
@@ -62,9 +62,9 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > multa de quinientos quetzales. La lección: no basta con cobrar, hay que hacerlo con base legal y que
 > la gente confíe. Le doy la palabra a Jemima, que les muestra los problemas.
 
-> *Al terminar, le pasa la palabra a Jemima (lámina 4).*
+> *Al terminar, le pasa la palabra a Jemima (diapositiva 4).*
 
-> *Entra después de Jemima (lámina 12).*
+> *Entra después de Jemima (diapositiva 12).*
 
 ## Diapositiva 13 · Arquitectura en el ciclo de vida · Santiago · 12:30
 

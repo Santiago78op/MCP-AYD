@@ -7,9 +7,9 @@ tarea: Tarea 3 - Caso Parquímetros
 
 # Guion de Byron Josué Par Rancho · Equipo de desarrollo
 
-## Tus láminas
+## Tus diapositivas
 
-| Lámina | Título | Empieza en | Dura |
+| Diapositiva | Título | Empieza en | Dura |
 |---|---|---|---|
 | **6** | El negocio: cinco procesos | 5:00 | 1:00 |
 | **7** | Cuatro alternativas | 6:00 | 1:15 |
@@ -20,7 +20,7 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 
 **Antes de hablar:** quién te pasa la palabra y con qué frase; **al terminar:** a quién se la pasás.
 
-> *Entra después de Jemima (lámina 5).*
+> *Entra después de Jemima (diapositiva 5).*
 
 ## Diapositiva 6 · El negocio: cinco procesos · Byron · 5:00
 
@@ -68,7 +68,7 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 > abajo, una réplica en otra región; a la derecha, el banco y la autoridad de tránsito.
 > Jemima les muestra cómo medimos que esto funciona.
 
-> *Al terminar, le pasa la palabra a Jemima (lámina 10).*
+> *Al terminar, le pasa la palabra a Jemima (diapositiva 10).*
 
 
 ## Preguntas que te tocan
