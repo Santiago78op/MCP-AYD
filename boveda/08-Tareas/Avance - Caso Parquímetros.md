@@ -66,6 +66,13 @@ El sitio se levanta en local con `python3 -m http.server 8000` en la raíz del r
 
 ## Bitácora
 
+- **2026-10-19 (noche).** Guion reescrito para el público: cada diapositiva dice qué se ve, qué
+  aparece en cada clic, la idea clave y una nota «Por qué lo menciono» con el origen de cada
+  referencia (México, Antigua, San Francisco, ISO 9126, PDH); glosario y respuestas listas. Los
+  encabezados usan el antetítulo real de la pantalla y el generador aborta si no coinciden. Fotos del
+  parquímetro del caso en las diapositivas 2 y 4; PDF de la presentación rehecho desde Keynote.
+  Habla medida: unos 14 min de 15. Repo del grupo en `v1.0.3`.
+
 - **2026-10-19 (cierre).** A pedido suyo: fuera del documento GitFlow y las frases que hablaban del
   propio texto («este documento propone», «cómo se leyó la consigna», la tabla de la consigna); el
   .pptx sin notas del orador. Presentación exportada a PDF. Repo del grupo en `v1.0.2`.
