@@ -7,7 +7,18 @@ tarea: Tarea 3 - Caso Parquímetros
 
 # Guion de Santiago Julián Barrera Reyes · Scrum Master / coordinador
 
-Láminas a cargo: 1, 2, 3, 13, 14, 15. Reloj total de la presentación: 15 minutos.
+## Tus láminas
+
+| Lámina | Título | Empieza en | Dura |
+|---|---|---|---|
+| **1** | Portada | 0:00 | 0:30 |
+| **2** | El caso en una lámina | 0:30 | 1:00 |
+| **3** | Guatemala: cómo funciona y quién más cobra | 1:30 | 1:30 |
+| **13** | Arquitectura en el ciclo de vida | 12:30 | 1:00 |
+| **14** | Los cobros de personas ajenas | 13:30 | 1:00 |
+| **15** | Cierre | 14:30 | 0:30 |
+
+Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cuatro fases; hablás de 0:00 a 2:30 y de 8:00 a 10:00.
 
 **Antes de hablar:** quién te pasa la palabra y con qué frase; **al terminar:** a quién se la pasás.
 

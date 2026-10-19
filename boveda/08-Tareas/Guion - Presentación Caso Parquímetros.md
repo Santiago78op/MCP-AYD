@@ -21,6 +21,14 @@ es este archivo y los individuales. *(clic)* marca dónde se avanza una animaci�
 | Calidad, información y prototipo | **Jemima** | 10 a 12 | 9:30 a 12:30 |
 | Ciclo de vida, cobros informales y cierre | **Santiago** | 13 a 15 | 12:30 a 15:00 |
 
+**Las láminas de cada uno:**
+
+| Orador | Láminas | Cuáles son | Tiempo |
+|---|---|---|---|
+| **Santiago** | **1, 2, 3, 13, 14, 15** | Portada · El caso en una lámina · Guatemala · Ciclo de vida · Cobros de personas ajenas · Cierre | 5:30 |
+| **Jemima** | **4, 5, 10, 11, 12** | Seis problemas · Requisitos de desempeño y el 72 % · Calidad · Arquitectura de la información · Prototipo | 5:00 |
+| **Byron** | **6, 7, 8, 9** | El negocio: cinco procesos · Cuatro alternativas · Arquitectura SOA con eventos · Despliegue | 4:30 |
+
 **Cómo hablar:** con palabras de todos los días. Si sale un término del curso (SOA, driver, evento),
 se dice qué significa en la misma frase. El documento trae la tabla «Palabras que usamos».
 

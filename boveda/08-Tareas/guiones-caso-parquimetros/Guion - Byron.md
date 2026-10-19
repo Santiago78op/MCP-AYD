@@ -7,7 +7,16 @@ tarea: Tarea 3 - Caso Parquímetros
 
 # Guion de Byron Josué Par Rancho · Equipo de desarrollo
 
-Láminas a cargo: 6, 7, 8, 9. Reloj total de la presentación: 15 minutos.
+## Tus láminas
+
+| Lámina | Título | Empieza en | Dura |
+|---|---|---|---|
+| **6** | El negocio: cinco procesos | 5:00 | 1:00 |
+| **7** | Cuatro alternativas | 6:00 | 1:15 |
+| **8** | La arquitectura: SOA con eventos | 7:15 | 1:15 |
+| **9** | Despliegue | 8:30 | 1:00 |
+
+Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el despliegue se nombra en la 8); hablás de 4:00 a 6:30.
 
 **Antes de hablar:** quién te pasa la palabra y con qué frase; **al terminar:** a quién se la pasás.
 

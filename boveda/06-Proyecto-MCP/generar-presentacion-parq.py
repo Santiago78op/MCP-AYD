@@ -504,13 +504,14 @@ def timing_xml(objetivos):
 
 
 # --- guion: el texto citado de cada "## N · Titulo · Orador · reloj"
-guion, orador, titulos, bloques = {}, {}, {}, {}
+guion, orador, titulos, bloques, reloj = {}, {}, {}, {}, {}
 actual = None
 for linea in open(GUION, encoding="utf-8").read().split("\n"):
     m = re.match(r"^## (\d+) · (.+?) · (\w+) · ([\d:]+)", linea)
     if m:
         actual = int(m.group(1))
         guion[actual], titulos[actual], orador[actual] = [], m.group(2), m.group(3)
+        reloj[actual] = m.group(4)
         bloques[actual] = [linea]
     elif linea.startswith("## "):
         actual = None
@@ -552,12 +553,32 @@ os.makedirs(carpeta, exist_ok=True)
 ROLES = {"Santiago": ("Santiago Julián Barrera Reyes", "Scrum Master / coordinador"),
          "Jemima": ("Jemima Solmaira Chavajay Quiejú", "Product Owner"),
          "Byron": ("Byron Josué Par Rancho", "Equipo de desarrollo")}
+RECORTE_10 = {"Santiago": "la 13 se reduce a las cuatro fases; hablás de 0:00 a 2:30 y de 8:00 a 10:00.",
+              "Jemima": "se omite la 12 (el prototipo se menciona en la 11); hablás de 2:30 a 4:00 y de 6:30 a 8:00.",
+              "Byron": "se omite la 9 (el despliegue se nombra en la 8); hablás de 4:00 a 6:30."}
+
+
+def segundos(r):
+    m, s = r.split(":")
+    return int(m) * 60 + int(s)
+
+
+def minutos(seg):
+    return "%d:%02d" % (seg // 60, seg % 60)
+
+
 for quien, (nombre, rol) in ROLES.items():
     mias = [n for n in sorted(orador) if orador[n] == quien]
     out = ["---", "tema: Guion de presentación", "fuente: \"Generado por 06-Proyecto-MCP/generar-presentacion-parq.py "
            "desde Guion - Presentación Caso Parquímetros.md\"", "fecha: 2026-10-19", "tarea: Tarea 3 - Caso Parquímetros",
            "---", "", "# Guion de %s · %s" % (nombre, rol), "",
-           "Láminas a cargo: %s. Reloj total de la presentación: 15 minutos." % ", ".join(str(n) for n in mias), "",
+           "## Tus láminas", "",
+           "| Lámina | Título | Empieza en | Dura |", "|---|---|---|---|"]
+    for n in mias:
+        fin = segundos(reloj[n + 1]) if n + 1 in reloj else 15 * 60
+        out.append("| **%d** | %s | %s | %s |" % (n, titulos[n], reloj[n], minutos(fin - segundos(reloj[n]))))
+    total = sum((segundos(reloj[n + 1]) if n + 1 in reloj else 15 * 60) - segundos(reloj[n]) for n in mias)
+    out += ["", "Hablás **%s** de los 15 minutos. Si dan 10 minutos: %s" % (minutos(total), RECORTE_10[quien]), "",
            "**Antes de hablar:** quién te pasa la palabra y con qué frase; **al terminar:** a quién se la pasás.", ""]
     for n in mias:
         prev = orador.get(n - 1)

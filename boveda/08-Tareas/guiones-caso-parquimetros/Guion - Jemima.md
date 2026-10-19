@@ -7,7 +7,17 @@ tarea: Tarea 3 - Caso Parquímetros
 
 # Guion de Jemima Solmaira Chavajay Quiejú · Product Owner
 
-Láminas a cargo: 4, 5, 10, 11, 12. Reloj total de la presentación: 15 minutos.
+## Tus láminas
+
+| Lámina | Título | Empieza en | Dura |
+|---|---|---|---|
+| **4** | Seis problemas, tres que no son de pantalla | 3:00 | 1:00 |
+| **5** | Requisitos de desempeño y el 72 % | 4:00 | 1:00 |
+| **10** | Calidad: los números que se comprometen | 9:30 | 1:15 |
+| **11** | Arquitectura de la información | 10:45 | 0:45 |
+| **12** | Prototipo | 11:30 | 1:00 |
+
+Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el prototipo se menciona en la 11); hablás de 2:30 a 4:00 y de 6:30 a 8:00.
 
 **Antes de hablar:** quién te pasa la palabra y con qué frase; **al terminar:** a quién se la pasás.
 
