@@ -37,6 +37,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 
 ## 1 · Portada · Santiago · 0:00
 
+**Página 1 de 15** de la presentación
+
 > Buenos días. Somos el Grupo 2: Jemima Chavajay, Byron Par y Santiago Barrera. Presentamos el caso
 > cuatro, *Repensando los parquímetros*. Nuestra propuesta se llama SIEP, Sistema Integrado de
 > Estacionamiento en la vía Pública, y la vamos a defender desde las cuatro perspectivas que pide la
@@ -44,6 +46,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > información.
 
 ## 2 · El caso en una lámina · Santiago · 0:30
+
+**Página 2 de 15** de la presentación
 
 > SERVIparq es el programa del gobierno de la Ciudad de México que opera los parquímetros. Su meta es
 > urbana: que un cajón que vale hasta doscientos mil pesos deje de ser de uno solo y rote.
@@ -55,6 +59,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > pantalla, pero tres de los seis problemas no tienen que ver con la pantalla.
 
 ## 3 · Guatemala: cómo funciona y quién más cobra · Santiago · 1:30
+
+**Página 3 de 15** de la presentación
 
 > Trajimos el caso a Guatemala. En la capital, la municipalidad cobra tres quetzales por media hora
 > según su acuerdo COM-40-2022, y la banqueta se pinta por colores: blanco se puede, rojo no. EMETRA,
@@ -71,6 +77,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 
 ## 4 · Seis problemas, tres que no son de pantalla · Jemima · 3:00
 
+**Página 4 de 15** de la presentación
+
 > Ordenamos los seis problemas por su causa.
 > *(clic)* Los de gobierno: vecinos que no fueron consultados y un sistema que se percibe corrupto
 > porque nadie ve a dónde va el dinero.
@@ -82,6 +90,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 
 ## 5 · Requisitos de desempeño y el 72 % · Jemima · 4:00
 
+**Página 5 de 15** de la presentación
+
 > Smartmedia acordó con SERVIparq qué tiene que poder hacer el conductor antes, durante y después de
 > usar el parquímetro.
 > *(clic)* Y le puso un número. Setenta y dos por ciento: el ochenta por ciento encuentra la
@@ -92,6 +102,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 
 ## 6 · El negocio: cinco procesos · Byron · 5:00
 
+**Página 6 de 15** de la presentación
+
 > Primero delimitamos el negocio: la gestión del estacionamiento en la vía pública. Los actores son el
 > conductor, el comité vecinal, la Delegación, el área de tránsito, el banco y el proveedor del equipo.
 > El verificador trabaja adentro, así que no es actor sino trabajador. Y el cuidacarros tampoco es
@@ -101,6 +113,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 
 ## 7 · Cuatro alternativas · Byron · 6:00
 
+**Página 7 de 15** de la presentación
+
 > Evaluamos cuatro soluciones contra los seis problemas y los drivers.
 > *(clic)* Uno: rediseñar solo la información. Barato, pero no toca la falta de personal.
 > *(clic)* Dos: pagar con el número de placa, con monedas, tarjeta o celular, usando el mismo equipo que ya se compró.
@@ -109,6 +123,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > Elegimos la dos como núcleo, con la uno adentro y la cuatro alrededor. La tres queda para después, cuando haya datos.
 
 ## 8 · La arquitectura: SOA con eventos · Byron · 7:15
+
+**Página 8 de 15** de la presentación
 
 > El estilo principal es SOA, arquitectura orientada a servicios: cada uno de los cinco procesos es un
 > servicio independiente. Es justo lo que dice la lámina de clase: desarrollar los procesos de negocio
@@ -122,6 +138,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 
 ## 9 · Despliegue · Byron · 8:30
 
+**Página 9 de 15** de la presentación
+
 > Así se despliega. Arriba, el parquímetro, el teléfono del conductor, el del verificador y la consola
 > de la Delegación. El parquímetro se conecta por la red celular y, si se cae la señal, sigue cobrando,
 > guarda los pagos y los manda cuando vuelve la conexión. Al centro, la nube con los seis servicios, la mensajería, la base de datos y la analítica;
@@ -129,6 +147,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > Jemima les muestra cómo medimos que esto funciona.
 
 ## 10 · Calidad: los números que se comprometen · Jemima · 9:30
+
+**Página 10 de 15** de la presentación
 
 > Usamos los dos modelos de ISO 9126 del programa: calidad del producto y calidad en uso.
 > *(clic)* Eficacia: setenta y dos por ciento completa el pago sin ayuda.
@@ -139,6 +159,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 
 ## 11 · Arquitectura de la información · Jemima · 10:45
 
+**Página 11 de 15** de la presentación
+
 > La arquitectura de la información organiza los contenidos para que la gente los encuentre. La
 > organizamos por momento de uso.
 > *(clic)* Antes: la señal con el color de la banqueta y el mapa en la app.
@@ -147,12 +169,16 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 
 ## 12 · Prototipo · Jemima · 11:30
 
+**Página 12 de 15** de la presentación
+
 > Desarrollamos una parte del sistema: la pantalla del parquímetro. Usa el tarifario real de la
 > capital y trae un modo de prueba que cronometra cada intento y calcula si llegamos al setenta y dos
 > por ciento. Y en el paso de pago dice lo que el cuidacarros no quiere que se sepa: este es el único
 > cobro. Santiago cierra con cómo se construye.
 
 ## 13 · Arquitectura en el ciclo de vida · Santiago · 12:30
+
+**Página 13 de 15** de la presentación
 
 > Para elegir cómo trabajar usamos los siete factores de la clase. La pantalla no se sabe cómo debe
 > quedar hasta probarla con gente, cada Delegación quiere algo distinto y hay riesgos fuertes al
@@ -166,6 +192,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 
 ## 14 · Los cobros de personas ajenas · Santiago · 13:30
 
+**Página 14 de 15** de la presentación
+
 > Volvemos al cuidacarros, porque es el problema que más se parece a Guatemala.
 > *(clic)* Información: la pantalla dice que es el único cobro.
 > *(clic)* Software: el conductor puede reportar un cobro sin dar su nombre, y el sistema marca las
@@ -175,6 +203,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Y una opción para la Delegación: ofrecer trabajo formal de orientación, pagado con el treinta por ciento comunitario.
 
 ## 15 · Cierre · Santiago · 14:30
+
+**Página 15 de 15** de la presentación
 
 > Tres ideas para llevarse. La pantalla era la mitad del problema. Las funciones que faltaban ya
 > estaban en el equipo. Y lo que se cobra se publica, porque sin confianza no hay sistema. Gracias;

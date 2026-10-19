@@ -24,6 +24,8 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 
 ## 6 · El negocio: cinco procesos · Byron · 5:00
 
+**Página 6 de 15** de la presentación
+
 > Primero delimitamos el negocio: la gestión del estacionamiento en la vía pública. Los actores son el
 > conductor, el comité vecinal, la Delegación, el área de tránsito, el banco y el proveedor del equipo.
 > El verificador trabaja adentro, así que no es actor sino trabajador. Y el cuidacarros tampoco es
@@ -33,6 +35,8 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 
 ## 7 · Cuatro alternativas · Byron · 6:00
 
+**Página 7 de 15** de la presentación
+
 > Evaluamos cuatro soluciones contra los seis problemas y los drivers.
 > *(clic)* Uno: rediseñar solo la información. Barato, pero no toca la falta de personal.
 > *(clic)* Dos: pagar con el número de placa, con monedas, tarjeta o celular, usando el mismo equipo que ya se compró.
@@ -41,6 +45,8 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 > Elegimos la dos como núcleo, con la uno adentro y la cuatro alrededor. La tres queda para después, cuando haya datos.
 
 ## 8 · La arquitectura: SOA con eventos · Byron · 7:15
+
+**Página 8 de 15** de la presentación
 
 > El estilo principal es SOA, arquitectura orientada a servicios: cada uno de los cinco procesos es un
 > servicio independiente. Es justo lo que dice la lámina de clase: desarrollar los procesos de negocio
@@ -53,6 +59,8 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 > evidencia; y todo lo cobrado se publica.
 
 ## 9 · Despliegue · Byron · 8:30
+
+**Página 9 de 15** de la presentación
 
 > Así se despliega. Arriba, el parquímetro, el teléfono del conductor, el del verificador y la consola
 > de la Delegación. El parquímetro se conecta por la red celular y, si se cae la señal, sigue cobrando,

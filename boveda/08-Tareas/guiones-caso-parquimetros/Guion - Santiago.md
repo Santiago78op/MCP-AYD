@@ -24,6 +24,8 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 
 ## 1 · Portada · Santiago · 0:00
 
+**Página 1 de 15** de la presentación
+
 > Buenos días. Somos el Grupo 2: Jemima Chavajay, Byron Par y Santiago Barrera. Presentamos el caso
 > cuatro, *Repensando los parquímetros*. Nuestra propuesta se llama SIEP, Sistema Integrado de
 > Estacionamiento en la vía Pública, y la vamos a defender desde las cuatro perspectivas que pide la
@@ -31,6 +33,8 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > información.
 
 ## 2 · El caso en una lámina · Santiago · 0:30
+
+**Página 2 de 15** de la presentación
 
 > SERVIparq es el programa del gobierno de la Ciudad de México que opera los parquímetros. Su meta es
 > urbana: que un cajón que vale hasta doscientos mil pesos deje de ser de uno solo y rote.
@@ -42,6 +46,8 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > pantalla, pero tres de los seis problemas no tienen que ver con la pantalla.
 
 ## 3 · Guatemala: cómo funciona y quién más cobra · Santiago · 1:30
+
+**Página 3 de 15** de la presentación
 
 > Trajimos el caso a Guatemala. En la capital, la municipalidad cobra tres quetzales por media hora
 > según su acuerdo COM-40-2022, y la banqueta se pinta por colores: blanco se puede, rojo no. EMETRA,
@@ -62,6 +68,8 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 
 ## 13 · Arquitectura en el ciclo de vida · Santiago · 12:30
 
+**Página 13 de 15** de la presentación
+
 > Para elegir cómo trabajar usamos los siete factores de la clase. La pantalla no se sabe cómo debe
 > quedar hasta probarla con gente, cada Delegación quiere algo distinto y hay riesgos fuertes al
 > inicio. Por eso combinamos dos métodos.
@@ -74,6 +82,8 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 
 ## 14 · Los cobros de personas ajenas · Santiago · 13:30
 
+**Página 14 de 15** de la presentación
+
 > Volvemos al cuidacarros, porque es el problema que más se parece a Guatemala.
 > *(clic)* Información: la pantalla dice que es el único cobro.
 > *(clic)* Software: el conductor puede reportar un cobro sin dar su nombre, y el sistema marca las
@@ -83,6 +93,8 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > *(clic)* Y una opción para la Delegación: ofrecer trabajo formal de orientación, pagado con el treinta por ciento comunitario.
 
 ## 15 · Cierre · Santiago · 14:30
+
+**Página 15 de 15** de la presentación
 
 > Tres ideas para llevarse. La pantalla era la mitad del problema. Las funciones que faltaban ya
 > estaban en el equipo. Y lo que se cobra se publica, porque sin confianza no hay sistema. Gracias;
