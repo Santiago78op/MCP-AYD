@@ -610,7 +610,9 @@ for quien, (nombre, rol) in ROLES.items():
                                                      minutos(fin - segundos(reloj[n]))))
     total = sum((segundos(reloj[n + 1]) if n + 1 in reloj else 15 * 60) - segundos(reloj[n]) for n in mias)
     out += ["", "Hablás **%s** de los 15 minutos. Si dan 10 minutos: %s" % (minutos(total), RECORTE_10[quien]), "",
-           "**Antes de hablar:** quién te pasa la palabra y con qué frase; **al terminar:** a quién se la pasás.", ""]
+           "**Cómo leerlo:** en cada diapositiva va primero **qué se ve al entrar**, después lo que decís (texto "
+           "en gris), y en cada *(clic)* qué tarjeta aparece. La **idea clave** es lo único que no se puede olvidar. "
+           "Arriba de tu primera diapositiva dice quién te pasa la palabra; abajo de la última, a quién se la pasás.", ""]
     for n in mias:
         prev = orador.get(n - 1)
         if prev and prev != quien:
@@ -620,9 +622,13 @@ for quien, (nombre, rol) in ROLES.items():
         if nxt and nxt != quien:
             out.append("> *Al terminar, le pasa la palabra a %s (diapositiva %d).*\n" % (nxt, n + 1))
     out += ["", "## Preguntas que te tocan", ""]
-    tabla = open(GUION, encoding="utf-8").read().split("## Preguntas probables y quién responde")[1].split("## Si dan")[0]
+    todo = open(GUION, encoding="utf-8").read()
+    tabla = todo.split("## Preguntas probables y quién responde")[1].split("\n## ")[0]
     filas = [l for l in tabla.strip().split("\n")[2:] if l.split("|")[2].strip().startswith(quien)]
     out += ["| Pregunta | Respuesta | Dónde está en el PDF |", "|---|---|---|"] + filas
+    # las palabras del curso que cualquiera puede tener que explicar, en cada guion individual
+    out += ["", "## Palabras que hay que saber explicar", "",
+            todo.split("## Palabras que hay que saber explicar")[1].split("\n## ")[0].strip()]
     open(os.path.join(carpeta, "Guion - %s.md" % quien), "w", encoding="utf-8").write("\n".join(out) + "\n")
 
 print("lámina  transición  clics  orador")
