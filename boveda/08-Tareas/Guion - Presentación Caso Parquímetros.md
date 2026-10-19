@@ -35,7 +35,7 @@ se dice qué significa en la misma frase. El documento trae la tabla «Palabras 
 Regla para los cambios de orador: quien termina nombra al siguiente y su tema en una frase
 (*«Jemima les muestra qué problemas encontramos»*). Así no hay silencios.
 
-## 1 · Portada · Santiago · 0:00
+## Diapositiva 1 · Portada · Santiago · 0:00
 
 **Página 1 de 15** de la presentación
 
@@ -45,7 +45,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > consigna: arquitectura del software, calidad, arquitectura en el ciclo de vida y arquitectura de la
 > información.
 
-## 2 · El caso en una lámina · Santiago · 0:30
+## Diapositiva 2 · El caso en una lámina · Santiago · 0:30
 
 **Página 2 de 15** de la presentación
 
@@ -58,7 +58,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > sala para que los participantes actuaran la situación. Nuestra conclusión: Smartmedia arregló la
 > pantalla, pero tres de los seis problemas no tienen que ver con la pantalla.
 
-## 3 · Guatemala: cómo funciona y quién más cobra · Santiago · 1:30
+## Diapositiva 3 · Guatemala: cómo funciona y quién más cobra · Santiago · 1:30
 
 **Página 3 de 15** de la presentación
 
@@ -75,7 +75,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > multa de quinientos quetzales. La lección: no basta con cobrar, hay que hacerlo con base legal y que
 > la gente confíe. Le doy la palabra a Jemima, que les muestra los problemas.
 
-## 4 · Seis problemas, tres que no son de pantalla · Jemima · 3:00
+## Diapositiva 4 · Seis problemas, tres que no son de pantalla · Jemima · 3:00
 
 **Página 4 de 15** de la presentación
 
@@ -88,7 +88,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Y los cuidacarros, que el caso llama franeleros: apartan el lugar y cobran por él, o sea
 > que le compiten al parquímetro por el mismo espacio.
 
-## 5 · Requisitos de desempeño y el 72 % · Jemima · 4:00
+## Diapositiva 5 · Requisitos de desempeño y el 72 % · Jemima · 4:00
 
 **Página 5 de 15** de la presentación
 
@@ -100,7 +100,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > multa injusta, así que ahí pedimos ochenta y uno, el máximo del método. Byron les explica cómo lo
 > resolvemos.
 
-## 6 · El negocio: cinco procesos · Byron · 5:00
+## Diapositiva 6 · El negocio: cinco procesos · Byron · 5:00
 
 **Página 6 de 15** de la presentación
 
@@ -111,7 +111,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* De ahí salen cinco procesos: concertar la zona, cobrar por placa, verificar y sancionar,
 > rendir cuentas y mantener la red. Cada uno será un servicio.
 
-## 7 · Cuatro alternativas · Byron · 6:00
+## Diapositiva 7 · Cuatro alternativas · Byron · 6:00
 
 **Página 7 de 15** de la presentación
 
@@ -122,7 +122,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Cuatro: gobierno comunitario, que no es software pero resuelve consulta y confianza.
 > Elegimos la dos como núcleo, con la uno adentro y la cuatro alrededor. La tres queda para después, cuando haya datos.
 
-## 8 · La arquitectura: SOA con eventos · Byron · 7:15
+## Diapositiva 8 · La arquitectura: SOA con eventos · Byron · 7:15
 
 **Página 8 de 15** de la presentación
 
@@ -136,7 +136,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > se encienden el pago con tarjeta y la alarma; la multa solo nace cuando el oficial confirma la
 > evidencia; y todo lo cobrado se publica.
 
-## 9 · Despliegue · Byron · 8:30
+## Diapositiva 9 · Despliegue · Byron · 8:30
 
 **Página 9 de 15** de la presentación
 
@@ -146,7 +146,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > abajo, una réplica en otra región; a la derecha, el banco y la autoridad de tránsito.
 > Jemima les muestra cómo medimos que esto funciona.
 
-## 10 · Calidad: los números que se comprometen · Jemima · 9:30
+## Diapositiva 10 · Calidad: los números que se comprometen · Jemima · 9:30
 
 **Página 10 de 15** de la presentación
 
@@ -157,7 +157,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Seguridad: el cien por ciento de las multas con foto, hora, ubicación y la firma del oficial.
 > Cada entrega se acepta con una prueba de desempeño, ahora en la calle y con doce personas.
 
-## 11 · Arquitectura de la información · Jemima · 10:45
+## Diapositiva 11 · Arquitectura de la información · Jemima · 10:45
 
 **Página 11 de 15** de la presentación
 
@@ -167,7 +167,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Durante: tres pasos, placa, tiempo y pago, con la tarifa siempre arriba.
 > *(clic)* Después: comprobante con folio, aviso antes de vencer y cómo reclamar.
 
-## 12 · Prototipo · Jemima · 11:30
+## Diapositiva 12 · Prototipo · Jemima · 11:30
 
 **Página 12 de 15** de la presentación
 
@@ -176,7 +176,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > por ciento. Y en el paso de pago dice lo que el cuidacarros no quiere que se sepa: este es el único
 > cobro. Santiago cierra con cómo se construye.
 
-## 13 · Arquitectura en el ciclo de vida · Santiago · 12:30
+## Diapositiva 13 · Arquitectura en el ciclo de vida · Santiago · 12:30
 
 **Página 13 de 15** de la presentación
 
@@ -190,7 +190,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Cuatro fases: concertación con la colonia piloto; pago por placa y verificación; app y red
 > monitoreada; y, con datos, sensores.
 
-## 14 · Los cobros de personas ajenas · Santiago · 13:30
+## Diapositiva 14 · Los cobros de personas ajenas · Santiago · 13:30
 
 **Página 14 de 15** de la presentación
 
@@ -202,7 +202,7 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > Procuraduría de los Derechos Humanos cómo se actúa, como se hizo en Antigua.
 > *(clic)* Y una opción para la Delegación: ofrecer trabajo formal de orientación, pagado con el treinta por ciento comunitario.
 
-## 15 · Cierre · Santiago · 14:30
+## Diapositiva 15 · Cierre · Santiago · 14:30
 
 **Página 15 de 15** de la presentación
 

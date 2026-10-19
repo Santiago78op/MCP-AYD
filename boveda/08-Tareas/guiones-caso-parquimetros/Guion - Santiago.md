@@ -22,7 +22,7 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 
 **Antes de hablar:** quién te pasa la palabra y con qué frase; **al terminar:** a quién se la pasás.
 
-## 1 · Portada · Santiago · 0:00
+## Diapositiva 1 · Portada · Santiago · 0:00
 
 **Página 1 de 15** de la presentación
 
@@ -32,7 +32,7 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > consigna: arquitectura del software, calidad, arquitectura en el ciclo de vida y arquitectura de la
 > información.
 
-## 2 · El caso en una lámina · Santiago · 0:30
+## Diapositiva 2 · El caso en una lámina · Santiago · 0:30
 
 **Página 2 de 15** de la presentación
 
@@ -45,7 +45,7 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > sala para que los participantes actuaran la situación. Nuestra conclusión: Smartmedia arregló la
 > pantalla, pero tres de los seis problemas no tienen que ver con la pantalla.
 
-## 3 · Guatemala: cómo funciona y quién más cobra · Santiago · 1:30
+## Diapositiva 3 · Guatemala: cómo funciona y quién más cobra · Santiago · 1:30
 
 **Página 3 de 15** de la presentación
 
@@ -66,7 +66,7 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 
 > *Entra después de Jemima (lámina 12).*
 
-## 13 · Arquitectura en el ciclo de vida · Santiago · 12:30
+## Diapositiva 13 · Arquitectura en el ciclo de vida · Santiago · 12:30
 
 **Página 13 de 15** de la presentación
 
@@ -80,7 +80,7 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > *(clic)* Cuatro fases: concertación con la colonia piloto; pago por placa y verificación; app y red
 > monitoreada; y, con datos, sensores.
 
-## 14 · Los cobros de personas ajenas · Santiago · 13:30
+## Diapositiva 14 · Los cobros de personas ajenas · Santiago · 13:30
 
 **Página 14 de 15** de la presentación
 
@@ -92,7 +92,7 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > Procuraduría de los Derechos Humanos cómo se actúa, como se hizo en Antigua.
 > *(clic)* Y una opción para la Delegación: ofrecer trabajo formal de orientación, pagado con el treinta por ciento comunitario.
 
-## 15 · Cierre · Santiago · 14:30
+## Diapositiva 15 · Cierre · Santiago · 14:30
 
 **Página 15 de 15** de la presentación
 

@@ -507,7 +507,7 @@ def timing_xml(objetivos):
 guion, orador, titulos, bloques, reloj = {}, {}, {}, {}, {}
 actual = None
 for linea in open(GUION, encoding="utf-8").read().split("\n"):
-    m = re.match(r"^## (\d+) · (.+?) · (\w+) · ([\d:]+)", linea)
+    m = re.match(r"^## Diapositiva (\d+) · (.+?) · (\w+) · ([\d:]+)", linea)
     if m:
         actual = int(m.group(1))
         guion[actual], titulos[actual], orador[actual] = [], m.group(2), m.group(3)

@@ -23,7 +23,7 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 
 > *Entra después de Santiago (lámina 3).*
 
-## 4 · Seis problemas, tres que no son de pantalla · Jemima · 3:00
+## Diapositiva 4 · Seis problemas, tres que no son de pantalla · Jemima · 3:00
 
 **Página 4 de 15** de la presentación
 
@@ -36,7 +36,7 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 > *(clic)* Y los cuidacarros, que el caso llama franeleros: apartan el lugar y cobran por él, o sea
 > que le compiten al parquímetro por el mismo espacio.
 
-## 5 · Requisitos de desempeño y el 72 % · Jemima · 4:00
+## Diapositiva 5 · Requisitos de desempeño y el 72 % · Jemima · 4:00
 
 **Página 5 de 15** de la presentación
 
@@ -52,7 +52,7 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 
 > *Entra después de Byron (lámina 9).*
 
-## 10 · Calidad: los números que se comprometen · Jemima · 9:30
+## Diapositiva 10 · Calidad: los números que se comprometen · Jemima · 9:30
 
 **Página 10 de 15** de la presentación
 
@@ -63,7 +63,7 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 > *(clic)* Seguridad: el cien por ciento de las multas con foto, hora, ubicación y la firma del oficial.
 > Cada entrega se acepta con una prueba de desempeño, ahora en la calle y con doce personas.
 
-## 11 · Arquitectura de la información · Jemima · 10:45
+## Diapositiva 11 · Arquitectura de la información · Jemima · 10:45
 
 **Página 11 de 15** de la presentación
 
@@ -73,7 +73,7 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 > *(clic)* Durante: tres pasos, placa, tiempo y pago, con la tarifa siempre arriba.
 > *(clic)* Después: comprobante con folio, aviso antes de vencer y cómo reclamar.
 
-## 12 · Prototipo · Jemima · 11:30
+## Diapositiva 12 · Prototipo · Jemima · 11:30
 
 **Página 12 de 15** de la presentación
 

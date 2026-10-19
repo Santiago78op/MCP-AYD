@@ -22,7 +22,7 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 
 > *Entra después de Jemima (lámina 5).*
 
-## 6 · El negocio: cinco procesos · Byron · 5:00
+## Diapositiva 6 · El negocio: cinco procesos · Byron · 5:00
 
 **Página 6 de 15** de la presentación
 
@@ -33,7 +33,7 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 > *(clic)* De ahí salen cinco procesos: concertar la zona, cobrar por placa, verificar y sancionar,
 > rendir cuentas y mantener la red. Cada uno será un servicio.
 
-## 7 · Cuatro alternativas · Byron · 6:00
+## Diapositiva 7 · Cuatro alternativas · Byron · 6:00
 
 **Página 7 de 15** de la presentación
 
@@ -44,7 +44,7 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 > *(clic)* Cuatro: gobierno comunitario, que no es software pero resuelve consulta y confianza.
 > Elegimos la dos como núcleo, con la uno adentro y la cuatro alrededor. La tres queda para después, cuando haya datos.
 
-## 8 · La arquitectura: SOA con eventos · Byron · 7:15
+## Diapositiva 8 · La arquitectura: SOA con eventos · Byron · 7:15
 
 **Página 8 de 15** de la presentación
 
@@ -58,7 +58,7 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 > se encienden el pago con tarjeta y la alarma; la multa solo nace cuando el oficial confirma la
 > evidencia; y todo lo cobrado se publica.
 
-## 9 · Despliegue · Byron · 8:30
+## Diapositiva 9 · Despliegue · Byron · 8:30
 
 **Página 9 de 15** de la presentación
 
