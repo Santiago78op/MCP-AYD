@@ -29,7 +29,9 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 **Qué se ve al entrar:** a la izquierda, el texto con el negocio y los actores. El diagrama de la
 derecha aparece con clic.
 
-> Antes de diseñar el sistema definimos el negocio: gestionar el estacionamiento en la calle.
+> Gracias, Jemima. Ahora pasamos a la solución. Antes de diseñar software, en el curso aprendimos a
+> delimitar primero el negocio, porque así sabemos qué tiene que hacer el sistema y para quién.
+> Definimos el negocio así: gestionar el estacionamiento en la calle.
 > Los actores son quienes tratan con ese negocio desde afuera: el conductor, el comité de vecinos, la
 > Delegación, que es como una municipalidad dentro de la Ciudad de México, el área de tránsito, el
 > banco y el proveedor del parquímetro.
@@ -42,13 +44,17 @@ derecha aparece con clic.
 
 **Idea clave:** cinco procesos, y el cuidacarros no es actor pero sí cuenta.
 
+**Por qué lo menciono:** delimitar el negocio antes de diseñar es el primer paso del método que vimos
+en el curso; los cinco procesos son los que después se vuelven servicios.
+
 ## Diapositiva 7 · POSIBLES SOLUCIONES · Byron · 6:00
 
 **Página 7 de 15** · en pantalla: «Elegimos pagar por placa con el equipo que ya se compró»
 
 **Qué se ve al entrar:** solo el título. Las cuatro soluciones aparecen una por clic.
 
-> Comparamos cuatro soluciones contra los seis problemas.
+> Con los problemas y el negocio claros, vimos qué caminos había. Comparamos cuatro soluciones contra
+> los seis problemas.
 > *(clic)* **→ aparece «S-1».** Rediseñar solo la información. Es barata y rápida, pero no resuelve la
 > falta de personal ni la desconfianza.
 > *(clic)* **→ aparece «S-2», marcada como núcleo.** Pagar con el número de placa: con monedas, tarjeta
@@ -62,6 +68,10 @@ derecha aparece con clic.
 
 **Idea clave:** pago por placa con el equipo que ya existe.
 
+**Por qué lo menciono:** **San Francisco** aparece en el propio caso como ejemplo de un sistema más
+avanzado, con sensores por lugar; por eso lo usamos como la opción más ambiciosa. Comparar cuatro
+caminos es lo que pide la consigna: «posibles soluciones y la solución seleccionada».
+
 ## Diapositiva 8 · ARQUITECTURA DEL SOFTWARE · Byron · 7:15
 
 **Página 8 de 15** · en pantalla: «Cada proceso es un servicio, y los servicios se avisan con eventos»
@@ -69,10 +79,11 @@ derecha aparece con clic.
 **Qué se ve al entrar:** a la izquierda, los cinco procesos. El diagrama de bloques y la fila de
 cuatro decisiones aparecen con clic.
 
+> Ya elegimos qué hacer; ahora, cómo se arma el software por dentro.
 > Usamos SOA, que significa arquitectura orientada a servicios: el sistema se arma con piezas
 > independientes llamadas servicios, una por cada proceso del negocio. Son los cinco que ven a la
-> izquierda. Así lo enseña la clase: los procesos de negocio se desarrollan como servicios. Y como
-> cada pieza es independiente, cada Delegación puede ir adoptándolas a su ritmo.
+> izquierda. Es uno de los estilos que vimos en el curso, y su regla es justo esa: cada proceso del
+> negocio se vuelve un servicio.
 > *(clic)* **→ aparece el diagrama de bloques.** Los servicios se comunican con eventos. Un evento es un
 > aviso de que algo pasó. Cuando alguien paga, el parquímetro avisa «pago registrado», y a ese aviso
 > reaccionan la base de datos, las notificaciones y el tablero público, sin que el parquímetro tenga
@@ -83,13 +94,17 @@ cuatro decisiones aparecen con clic.
 
 **Idea clave:** una pieza por proceso, y las piezas se avisan entre sí cuando algo pasa.
 
+**Por qué lo menciono:** SOA es un estilo de arquitectura del curso. Lo elegimos porque los cinco
+procesos ya nos dan las piezas, y porque cada Delegación puede adoptarlas por separado. Los eventos
+resuelven que el pago avise a varias partes sin depender de ellas.
+
 ## Diapositiva 9 · DESPLIEGUE · Byron · 8:30
 
 **Página 9 de 15** · en pantalla: «El parquímetro sigue cobrando aunque se caiga la señal»
 
 **Qué se ve al entrar:** el diagrama de despliegue completo. No hay clics: se va señalando cada zona.
 
-> El despliegue muestra en qué equipos corre cada parte. Arriba están los aparatos de la gente: el
+> Esto no se queda en papel: el despliegue muestra en qué equipos corre cada parte. Arriba están los aparatos de la gente: el
 > parquímetro, el celular del conductor, el del verificador y la computadora de la Delegación.
 > El parquímetro se conecta por la red celular. Si se cae la señal, sigue cobrando: guarda los pagos y
 > los envía cuando vuelve la conexión. Eso dice el título.
@@ -100,6 +115,9 @@ cuatro decisiones aparecen con clic.
 > Jemima les muestra cómo medimos que esto funciona.
 
 **Idea clave:** si se cae la señal, el parquímetro no pierde ningún pago.
+
+**Por qué lo menciono:** el despliegue demuestra que la solución se puede montar con equipo real, y
+responde el riesgo más obvio en la calle: que se caiga la red celular.
 
 > *Al terminar, le pasa la palabra a Jemima (diapositiva 10).*
 

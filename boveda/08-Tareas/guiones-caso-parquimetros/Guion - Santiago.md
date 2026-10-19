@@ -28,13 +28,18 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 
 **Qué se ve al entrar:** el título, el nombre de la propuesta (SIEP) y los tres nombres. No hay clics.
 
-> Buenos días. Somos el Grupo 2: Jemima Chavajay, Byron Par y yo, Santiago Barrera. Les presentamos el
-> caso cuatro, «Repensando los parquímetros».
-> Nuestra propuesta se llama SIEP: Sistema Integrado de Estacionamiento en la vía Pública.
-> La consigna pide ver el caso desde cuatro ángulos: la arquitectura del software, la calidad, el
-> ciclo de vida y la arquitectura de la información. En ese orden vamos a ir.
+> Buenos días. Somos el Grupo 2: Jemima Chavajay, Byron Par y yo, Santiago Barrera.
+> El caso cuatro cuenta qué pasó con los parquímetros de la Ciudad de México en 2012. Nos pidieron
+> analizarlo y proponer una solución desde cuatro ángulos: arquitectura del software, calidad, ciclo
+> de vida y arquitectura de la información. Nuestra propuesta se llama SIEP: Sistema Integrado de
+> Estacionamiento en la vía Pública.
+> Vamos en cinco partes, que ven en la barra de arriba. Y en cada una lo traemos a Guatemala, porque
+> aquí pasa lo mismo.
 
-**Idea clave:** quiénes somos y que la propuesta se llama SIEP.
+**Idea clave:** quiénes somos, qué nos pidieron y por dónde vamos a ir.
+
+**Por qué lo menciono:** las cuatro perspectivas no son nuestras: las pide la consigna de la tarea, y
+la solución se ordena con ellas. La barra de arriba es el mapa de la exposición.
 
 ## Diapositiva 2 · EL CASO · Santiago · 0:30
 
@@ -43,6 +48,7 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 **Qué se ve al entrar:** a la izquierda, la foto del parquímetro con sus partes. Las tres tarjetas de
 la derecha aparecen con clic.
 
+> Empiezo por el caso, porque todo lo que vamos a proponer responde a él.
 > El caso pasa en la Ciudad de México, en 2012. SERVIparq es el programa del gobierno que instala y
 > opera los parquímetros. Este es su parquímetro: arriba, el panel con las instrucciones; abajo, la
 > ranura de monedas, el teclado para escribir la placa y una ranura para tarjeta que no se usaba.
@@ -54,10 +60,15 @@ la derecha aparecen con clic.
 > diagnóstico y encuentra seis problemas.
 > *(clic)* **→ aparece «Pruebas con personas».** Para mejorar el parquímetro contrata a Smartmedia, una
 > empresa de diseño, que pone a personas reales a usarlo y mide si entienden la información.
-> Adelantamos nuestra conclusión: Smartmedia mejoró la pantalla, pero la mitad de los problemas no son
-> de pantalla.
 
 **Idea clave:** el parquímetro existe para que el lugar rote, y tiene seis problemas.
+
+**Por qué lo menciono:**
+- **Ciudad de México, 2012:** es donde y cuando pasa el caso que nos dieron; no lo elegimos nosotros.
+- **Los 200 mil pesos:** explican por qué importa que el lugar rote: es un espacio caro y escaso.
+- **Margarita Patiño y Smartmedia:** son los protagonistas del caso. Lo que hizo Smartmedia es el
+  punto de partida que nosotros completamos.
+- **La foto:** es del propio caso; sirve para que el público vea el aparato del que hablamos.
 
 ## Diapositiva 3 · INVESTIGACIÓN · Santiago · 1:30
 
@@ -65,13 +76,15 @@ la derecha aparecen con clic.
 
 **Qué se ve al entrar:** la tarjeta «Q3». Las otras dos aparecen con clic.
 
-> ¿Y cómo es esto en Guatemala? En la capital, la Municipalidad cobra tres quetzales por cada media
+> ¿Por qué hablamos de Guatemala si el caso es de México? Porque la consigna pide investigar los temas
+> del caso, y aquí estamos viviendo lo mismo.
+> En la capital, la Municipalidad cobra tres quetzales por cada media
 > hora. La banqueta pintada de blanco indica que se puede estacionar, y la roja que no. EMETRA, la
 > empresa municipal de tránsito, anunció que se va a poder pagar con el celular.
 > *(clic)* **→ aparece «2,500».** Igual que en México, hay personas que no son de la municipalidad y
 > cobran por dejar estacionar: los cuidacarros. En el caso les dicen «franeleros», que es la palabra
 > mexicana. En un solo operativo de la Policía Municipal de Tránsito se retiraron dos mil quinientos
-> objetos, como botes, sillas y llantas, que apartaban lugares. Y este año, en la zona 13, el
+> objetos que apartaban lugares. Y este año, en la zona 13, el
 > Ministerio Público identificó a treinta y tres personas que cobraban hasta cincuenta dólares a
 > turistas.
 > *(clic)* **→ aparece «Q12 M».** En Antigua, el marbete digital MarbEx, que es un pago ligado a la
@@ -82,6 +95,16 @@ la derecha aparecen con clic.
 
 **Idea clave:** en Guatemala pasa lo mismo, y Antigua muestra que sin confianza ni base legal el
 sistema se cae.
+
+**Por qué lo menciono:**
+- **La capital y EMETRA:** muestran que en Guatemala ya se cobra por parquímetro y que se viene el
+  pago por celular, lo mismo que proponemos.
+- **El operativo de la PMT y la zona 13:** prueban que los cuidacarros no son una anécdota: es un
+  problema grande y puede ser delito.
+- **Antigua y MarbEx:** es el ejemplo guatemalteco más parecido a nuestra propuesta, porque también
+  cobra por placa. Muestra que funciona (subió lo recaudado) y su riesgo (la Corte frenó la base de
+  datos de placas). Por eso nuestra solución cuida esos datos.
+- Todo esto sale de noticias de 2023 a 2026, citadas en el §2.2 del documento.
 
 > *Al terminar, le pasa la palabra a Jemima (diapositiva 4).*
 
@@ -94,7 +117,8 @@ sistema se cae.
 **Qué se ve al entrar:** el título y una línea con los factores. Los dos cuadros de método y las
 cuatro fases aparecen con clic.
 
-> Para elegir cómo trabajar usamos los siete factores que vimos en clase. Aquí pesan tres: la pantalla
+> Gracias, Jemima. La última perspectiva es el ciclo de vida: cómo se construye todo esto en el
+> tiempo. Para elegir cómo trabajar usamos los siete factores que vimos en el curso. Aquí pesan tres: la pantalla
 > correcta solo se descubre probando con gente, cada Delegación quiere algo distinto y hay riesgos
 > fuertes al inicio. Por eso mezclamos dos métodos.
 > *(clic)* **→ aparecen «Espiral» y «Scrum con arquitectura».** Por fuera, el modelo en espiral: el
@@ -107,13 +131,18 @@ cuatro fases aparecen con clic.
 
 **Idea clave:** espiral para controlar riesgos, Scrum para avanzar, y cuatro fases.
 
+**Por qué lo menciono:** los siete factores para elegir metodología y los pasos de arquitectura
+dentro de Scrum son material del curso. Smartmedia aparece porque su forma de trabajar, probar y
+corregir, es justo una vuelta de espiral.
+
 ## Diapositiva 14 · FACTORES EXTERNOS · Santiago · 13:30
 
 **Página 14 de 15** · en pantalla: «Al cobro informal se le gana con información, datos y acuerdos»
 
 **Qué se ve al entrar:** solo el título. Las cuatro tarjetas aparecen una por clic.
 
-> Volvemos al cuidacarros, porque es lo que más se parece a Guatemala. Lo atacamos desde cuatro lados.
+> Antes de cerrar volvemos al cuidacarros, porque es el problema que más se parece a Guatemala y el
+> que más nos preguntan. Lo atacamos desde cuatro lados.
 > *(clic)* **→ aparece «Información».** La pantalla y la señal dicen que el único cobro es el del
 > parquímetro, y cuánto es.
 > *(clic)* **→ aparece «Software».** El conductor puede reportar un cobro sin dar su nombre. Y el
@@ -126,13 +155,17 @@ cuatro fases aparecen con clic.
 **Idea clave:** al cuidacarros no se le gana solo con multas: se le gana con información, datos y
 acuerdos.
 
+**Por qué lo menciono:** **la PDH en Antigua**: allí la gobernación y la municipalidad firmaron un
+acuerdo para recuperar los espacios ocupados por cuidadores, con un protocolo que incluye a la
+Procuraduría de los Derechos Humanos (2017). Lo tomamos como modelo porque ya se probó en Guatemala.
+
 ## Diapositiva 15 · CIERRE · Santiago · 14:30
 
 **Página 15 de 15** · en pantalla: «Tres ideas para llevarse»
 
 **Qué se ve al entrar:** las tres ideas numeradas y «Gracias. ¿Preguntas?». No hay clics.
 
-> Para cerrar, tres ideas. Uno: la pantalla era solo la mitad del problema. Dos: lo que faltaba ya
+> Para cerrar, tres ideas que resumen todo lo que vieron. Uno: la pantalla era solo la mitad del problema. Dos: lo que faltaba ya
 > estaba en el equipo. Tres: lo que se cobra se publica, porque sin confianza no hay sistema.
 > Muchas gracias. Con gusto respondemos sus preguntas.
 
@@ -143,7 +176,7 @@ acuerdos.
 
 | Pregunta | Respuesta | Dónde está en el PDF |
 |---|---|---|
-| ¿Cómo protegen la base de placas? | Santiago: «En los reportes la placa se cambia por un código, cada acceso queda registrado y los datos se borran a los 90 días (EAC-06). Lo aprendimos de lo que le pasó a Antigua.» | §2.3, §3.4 |
+| ¿Cómo protegen la base de placas? | Santiago: «En los reportes la placa se cambia por un código, cada acceso queda registrado y los datos se borran a los 90 días (EAC-06). Lo aprendimos de lo que le pasó a Antigua.» | §2.2, §3.4 |
 | ¿Qué metodología y por qué? | Santiago: «Una mezcla: espiral por fuera para controlar los riesgos y Scrum por dentro para avanzar rápido. La elegimos con los siete factores de clase.» | §5.3 |
 
 ## Palabras que hay que saber explicar

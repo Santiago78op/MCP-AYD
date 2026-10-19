@@ -29,7 +29,8 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 
 **Qué se ve al entrar:** solo el título. Las cuatro tarjetas aparecen una por clic.
 
-> Los seis problemas no tienen la misma causa. Los ordenamos en cuatro grupos.
+> Gracias, Santiago. Para proponer algo, primero hay que entender qué falla. Los seis problemas del
+> diagnóstico no tienen la misma causa, así que los ordenamos en cuatro grupos.
 > *(clic)* **→ aparece «Gobierno».** A los vecinos no se les consultó antes de instalar los
 > parquímetros, y nadie ve a dónde va el dinero, así que la gente piensa que hay corrupción.
 > *(clic)* **→ aparece «Información», con la foto del panel.** Este es el panel real del parquímetro.
@@ -43,6 +44,9 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 
 **Idea clave:** solo el grupo de información es de pantalla; los demás necesitan otra solución.
 
+**Por qué lo menciono:** los seis problemas los encontró la directora en el caso; los grupos son
+nuestros. Agruparlos por causa es lo que justifica que la solución no sea solo una pantalla nueva.
+
 ## Diapositiva 5 · REQUISITOS DE DESEMPEÑO · Jemima · 4:00
 
 **Página 5 de 15** · en pantalla: «El 72 % es el éxito esperado, pero cada tarea merece su propio número»
@@ -50,6 +54,8 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 **Qué se ve al entrar:** tres cuadros arriba: antes, durante y después del uso. La tarjeta del 72 % y
 la tabla de la derecha aparecen con clic.
 
+> Además de los problemas, el caso trae una meta que se puede medir. La usamos como la vara con la que
+> medimos nuestra propia solución.
 > Smartmedia y SERVIparq acordaron qué tiene que lograr el conductor en tres momentos: antes, encontrar
 > la zona y el parquímetro; durante, entender la tarifa y pagar; y después, saber cuándo se le vence el
 > tiempo y cómo reclamar.
@@ -58,11 +64,13 @@ la tabla de la derecha aparecen con clic.
 > prisa, por el noventa por ciento que la usa bien.
 > *(clic)* **→ aparece «Un número por tarea».** Nuestra mejora es que no todas las tareas pesan igual.
 > Si alguien paga mal, le llega una multa injusta; por eso ahí pedimos ochenta y uno por ciento, lo más
-> alto que permite el método. Ubicar el número del parquímetro importa menos: ahí alcanza con sesenta
-> y cuatro.
+> alto que permite el método.
 > Byron les explica cómo lo resolvemos.
 
 **Idea clave:** el 72 % es 80 % por 90 %, y nosotros pedimos más donde fallar sale caro.
+
+**Por qué lo menciono:** el 72 % y el tope del 81 % vienen del caso: la autora dice que ningún
+desplegado informativo supera el 81 %. El umbral por tarea es nuestra propuesta.
 
 > *Al terminar, le pasa la palabra a Byron (diapositiva 6).*
 
@@ -74,7 +82,8 @@ la tabla de la derecha aparecen con clic.
 
 **Qué se ve al entrar:** solo el título. Las cuatro tarjetas aparecen una por clic.
 
-> Para la calidad usamos la norma ISO 9126, la que trae el programa del curso. Mira dos cosas: la
+> Gracias, Byron. Una solución que no se puede medir no se puede comprobar. Por eso definimos cómo
+> vamos a saber que funciona. Usamos la norma ISO 9126, que es la que trae el programa del curso. Mira dos cosas: la
 > calidad del producto y la calidad en uso, es decir, qué tan bien le funciona a la persona que lo
 > usa. Nos comprometemos con cuatro números.
 > *(clic)* **→ aparece «72 %», eficacia.** El setenta y dos por ciento de los conductores paga sin
@@ -88,13 +97,17 @@ la tabla de la derecha aparecen con clic.
 
 **Idea clave:** cuatro promesas, todas con un número que se puede medir.
 
+**Por qué lo menciono:** la calidad es una de las cuatro perspectivas de la consigna. La ISO 9126 es
+la norma de calidad del programa del curso; por eso la usamos y no otra.
+
 ## Diapositiva 11 · ARQUITECTURA DE LA INFORMACIÓN · Jemima · 10:45
 
 **Página 11 de 15** · en pantalla: «La información se ordena por lo que el conductor hace en cada momento»
 
 **Qué se ve al entrar:** solo el título. Las tres columnas aparecen una por clic.
 
-> La arquitectura de la información es cómo se ordena lo que la gente lee para que lo encuentre. No es
+> La tercera perspectiva que pide la consigna es la arquitectura de la información. Es cómo se ordena
+> lo que la gente lee para que lo encuentre. No es
 > lo mismo que la arquitectura del software. La ordenamos según lo que hace el conductor en cada
 > momento.
 > *(clic)* **→ aparece «Antes».** La señal de la cuadra: el color de la banqueta, la tarifa y el
@@ -104,13 +117,16 @@ la tabla de la derecha aparecen con clic.
 
 **Idea clave:** la información se ordena por momentos: antes, durante y después.
 
+**Por qué lo menciono:** los tres momentos son los mismos de la diapositiva 5, los que acordaron
+Smartmedia y SERVIparq. Así la información responde directo a la meta del 72 %.
+
 ## Diapositiva 12 · PARTE DESARROLLADA · Jemima · 11:30
 
 **Página 12 de 15** · en pantalla: «El prototipo mide si llegamos al 72 % mientras se prueba»
 
 **Qué se ve al entrar:** las cuatro pantallas del prototipo. No hay clics.
 
-> La consigna permitía desarrollar una parte del sistema. Hicimos la pantalla del parquímetro: son las
+> Para mostrar que la idea funciona, la consigna permitía desarrollar una parte del sistema. Hicimos la pantalla del parquímetro: son las
 > cuatro pantallas que ven. Usa la tarifa real de la capital, tres quetzales por media hora. El
 > conductor escribe la placa, elige el tiempo y paga.
 > Además tiene un modo de prueba: toma el tiempo de cada intento y calcula si llegamos al setenta y dos
@@ -119,6 +135,9 @@ la tabla de la derecha aparecen con clic.
 > Santiago cierra con cómo se construye todo esto.
 
 **Idea clave:** el prototipo funciona y mide solo si cumple la meta.
+
+**Por qué lo menciono:** la consigna dice que se puede desarrollar una parte del sistema. Elegimos la
+pantalla porque es donde se mide el 72 %. La tarifa es la real de la capital de Guatemala.
 
 > *Al terminar, le pasa la palabra a Santiago (diapositiva 13).*
 
