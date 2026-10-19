@@ -139,6 +139,11 @@ sistema se cae.
   datos de placas). Por eso nuestra solución cuida esos datos.
 - Todo esto sale de noticias de 2023 a 2026, citadas en el §2.2 del documento.
 
+**Ojo con el reloj:** las diapositivas 1 a 3 suman unos 3:14 dichos a ritmo normal, y tenés 3:00.
+Ensayalas una vez con cronómetro. Si vas pasado, acortá la parte de la zona 13 a una frase
+(*«y en la zona 13 el Ministerio Público identificó a treinta y tres cuidacarros»*). Lo que no se puede
+saltar es la lección de Antigua. Tenés que pasarle la palabra a Jemima en el **minuto 3:00**.
+
 ## Diapositiva 4 · LOS SEIS PROBLEMAS · Jemima · 3:00
 
 **Página 4 de 15** · en pantalla: «Tres de los seis problemas no se arreglan con una pantalla mejor»
