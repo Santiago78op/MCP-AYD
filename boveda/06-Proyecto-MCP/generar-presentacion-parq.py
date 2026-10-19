@@ -520,6 +520,16 @@ for linea in open(GUION, encoding="utf-8").read().split("\n"):
         if linea.startswith(">"):
             guion[actual].append(linea[1:].strip())
 
+# lo que se ve en pantalla: el guion tiene que nombrar cada diapositiva con su antetitulo y su titular,
+# si no el orador no sabe que parte le toca
+pantalla = {}
+for num, (slide, grupos, empuje) in enumerate(LAMINAS, 1):
+    d = {sh.name: sh.text_frame.text for sh in slide.shapes if sh.has_text_frame}
+    pantalla[num] = (d.get("!!antetitulo", "PORTADA"), d.get("!!titulo", "Repensando los parquímetros"))
+    linea = "**Página %d de %d** · en pantalla: «%s»" % (num, len(LAMINAS), pantalla[num][1])
+    if titulos.get(num) != pantalla[num][0] or linea not in bloques.get(num, []):
+        raise SystemExit("diapositiva %d: el guion no coincide con la pantalla (%s · «%s»)" % ((num,) + pantalla[num]))
+
 informe = []
 for num, (slide, grupos, empuje) in enumerate(LAMINAS, 1):
     clics_guion = sum(l.count("(clic)") for l in guion.get(num, []))
@@ -573,10 +583,11 @@ for quien, (nombre, rol) in ROLES.items():
            "desde Guion - Presentación Caso Parquímetros.md\"", "fecha: 2026-10-19", "tarea: Tarea 3 - Caso Parquímetros",
            "---", "", "# Guion de %s · %s" % (nombre, rol), "",
            "## Tus diapositivas", "",
-           "| Diapositiva | Título | Empieza en | Dura |", "|---|---|---|---|"]
+           "| Diapositiva | Arriba dice | Titular en pantalla | Empieza en | Dura |", "|---|---|---|---|---|"]
     for n in mias:
         fin = segundos(reloj[n + 1]) if n + 1 in reloj else 15 * 60
-        out.append("| **%d** | %s | %s | %s |" % (n, titulos[n], reloj[n], minutos(fin - segundos(reloj[n]))))
+        out.append("| **%d** | %s | %s | %s | %s |" % (n, pantalla[n][0], pantalla[n][1], reloj[n],
+                                                     minutos(fin - segundos(reloj[n]))))
     total = sum((segundos(reloj[n + 1]) if n + 1 in reloj else 15 * 60) - segundos(reloj[n]) for n in mias)
     out += ["", "Hablás **%s** de los 15 minutos. Si dan 10 minutos: %s" % (minutos(total), RECORTE_10[quien]), "",
            "**Antes de hablar:** quién te pasa la palabra y con qué frase; **al terminar:** a quién se la pasás.", ""]

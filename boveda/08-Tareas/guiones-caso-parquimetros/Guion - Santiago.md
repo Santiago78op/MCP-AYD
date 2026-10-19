@@ -9,22 +9,22 @@ tarea: Tarea 3 - Caso Parquímetros
 
 ## Tus diapositivas
 
-| Diapositiva | Título | Empieza en | Dura |
-|---|---|---|---|
-| **1** | Portada | 0:00 | 0:30 |
-| **2** | El caso en una lámina | 0:30 | 1:00 |
-| **3** | Guatemala: cómo funciona y quién más cobra | 1:30 | 1:30 |
-| **13** | Arquitectura en el ciclo de vida | 12:30 | 1:00 |
-| **14** | Los cobros de personas ajenas | 13:30 | 1:00 |
-| **15** | Cierre | 14:30 | 0:30 |
+| Diapositiva | Arriba dice | Titular en pantalla | Empieza en | Dura |
+|---|---|---|---|---|
+| **1** | PORTADA | Repensando los parquímetros | 0:00 | 0:30 |
+| **2** | EL CASO | SERVIparq quiere que el cajón rote, pero el programa tiene seis problemas | 0:30 | 1:00 |
+| **3** | INVESTIGACIÓN | En Guatemala se cobra Q3 por media hora, y también cobran los cuidacarros | 1:30 | 1:30 |
+| **13** | ARQUITECTURA EN EL CICLO DE VIDA | Se construye en espiral por fuera y con Scrum por dentro | 12:30 | 1:00 |
+| **14** | FACTORES EXTERNOS | Al cobro informal se le gana con información, datos y acuerdos | 13:30 | 1:00 |
+| **15** | CIERRE | Tres ideas para llevarse | 14:30 | 0:30 |
 
 Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cuatro fases; hablás de 0:00 a 2:30 y de 8:00 a 10:00.
 
 **Antes de hablar:** quién te pasa la palabra y con qué frase; **al terminar:** a quién se la pasás.
 
-## Diapositiva 1 · Portada · Santiago · 0:00
+## Diapositiva 1 · PORTADA · Santiago · 0:00
 
-**Página 1 de 15** de la presentación
+**Página 1 de 15** · en pantalla: «Repensando los parquímetros»
 
 > Buenos días. Somos el Grupo 2: Jemima Chavajay, Byron Par y Santiago Barrera. Presentamos el caso
 > cuatro, *Repensando los parquímetros*. Nuestra propuesta se llama SIEP, Sistema Integrado de
@@ -32,9 +32,9 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > consigna: arquitectura del software, calidad, arquitectura en el ciclo de vida y arquitectura de la
 > información.
 
-## Diapositiva 2 · El caso en una lámina · Santiago · 0:30
+## Diapositiva 2 · EL CASO · Santiago · 0:30
 
-**Página 2 de 15** de la presentación
+**Página 2 de 15** · en pantalla: «SERVIparq quiere que el cajón rote, pero el programa tiene seis problemas»
 
 > SERVIparq es el programa del gobierno de la Ciudad de México que opera los parquímetros. Su meta es
 > urbana: que un cajón que vale hasta doscientos mil pesos deje de ser de uno solo y rote.
@@ -45,9 +45,9 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > sala para que los participantes actuaran la situación. Nuestra conclusión: Smartmedia arregló la
 > pantalla, pero tres de los seis problemas no tienen que ver con la pantalla.
 
-## Diapositiva 3 · Guatemala: cómo funciona y quién más cobra · Santiago · 1:30
+## Diapositiva 3 · INVESTIGACIÓN · Santiago · 1:30
 
-**Página 3 de 15** de la presentación
+**Página 3 de 15** · en pantalla: «En Guatemala se cobra Q3 por media hora, y también cobran los cuidacarros»
 
 > Trajimos el caso a Guatemala. En la capital, la municipalidad cobra tres quetzales por media hora
 > según su acuerdo COM-40-2022, y la banqueta se pinta por colores: blanco se puede, rojo no. EMETRA,
@@ -66,9 +66,9 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 
 > *Entra después de Jemima (diapositiva 12).*
 
-## Diapositiva 13 · Arquitectura en el ciclo de vida · Santiago · 12:30
+## Diapositiva 13 · ARQUITECTURA EN EL CICLO DE VIDA · Santiago · 12:30
 
-**Página 13 de 15** de la presentación
+**Página 13 de 15** · en pantalla: «Se construye en espiral por fuera y con Scrum por dentro»
 
 > Para elegir cómo trabajar usamos los siete factores de la clase. La pantalla no se sabe cómo debe
 > quedar hasta probarla con gente, cada Delegación quiere algo distinto y hay riesgos fuertes al
@@ -80,9 +80,9 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > *(clic)* Cuatro fases: concertación con la colonia piloto; pago por placa y verificación; app y red
 > monitoreada; y, con datos, sensores.
 
-## Diapositiva 14 · Los cobros de personas ajenas · Santiago · 13:30
+## Diapositiva 14 · FACTORES EXTERNOS · Santiago · 13:30
 
-**Página 14 de 15** de la presentación
+**Página 14 de 15** · en pantalla: «Al cobro informal se le gana con información, datos y acuerdos»
 
 > Volvemos al cuidacarros, porque es el problema que más se parece a Guatemala.
 > *(clic)* Información: la pantalla dice que es el único cobro.
@@ -92,9 +92,9 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 > Procuraduría de los Derechos Humanos cómo se actúa, como se hizo en Antigua.
 > *(clic)* Y una opción para la Delegación: ofrecer trabajo formal de orientación, pagado con el treinta por ciento comunitario.
 
-## Diapositiva 15 · Cierre · Santiago · 14:30
+## Diapositiva 15 · CIERRE · Santiago · 14:30
 
-**Página 15 de 15** de la presentación
+**Página 15 de 15** · en pantalla: «Tres ideas para llevarse»
 
 > Tres ideas para llevarse. La pantalla era la mitad del problema. Las funciones que faltaban ya
 > estaban en el equipo. Y lo que se cobra se publica, porque sin confianza no hay sistema. Gracias;

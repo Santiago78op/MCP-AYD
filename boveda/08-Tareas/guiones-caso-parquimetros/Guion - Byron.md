@@ -9,12 +9,12 @@ tarea: Tarea 3 - Caso Parquímetros
 
 ## Tus diapositivas
 
-| Diapositiva | Título | Empieza en | Dura |
-|---|---|---|---|
-| **6** | El negocio: cinco procesos | 5:00 | 1:00 |
-| **7** | Cuatro alternativas | 6:00 | 1:15 |
-| **8** | La arquitectura: SOA con eventos | 7:15 | 1:15 |
-| **9** | Despliegue | 8:30 | 1:00 |
+| Diapositiva | Arriba dice | Titular en pantalla | Empieza en | Dura |
+|---|---|---|---|---|
+| **6** | CASO DE NEGOCIO | El negocio son cinco procesos; el cuidacarros queda fuera, pero cuenta | 5:00 | 1:00 |
+| **7** | POSIBLES SOLUCIONES | Elegimos pagar por placa con el equipo que ya se compró | 6:00 | 1:15 |
+| **8** | ARQUITECTURA DEL SOFTWARE | Cada proceso es un servicio, y los servicios se avisan con eventos | 7:15 | 1:15 |
+| **9** | DESPLIEGUE | El parquímetro sigue cobrando aunque se caiga la señal | 8:30 | 1:00 |
 
 Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el despliegue se nombra en la 8); hablás de 4:00 a 6:30.
 
@@ -22,9 +22,9 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 
 > *Entra después de Jemima (diapositiva 5).*
 
-## Diapositiva 6 · El negocio: cinco procesos · Byron · 5:00
+## Diapositiva 6 · CASO DE NEGOCIO · Byron · 5:00
 
-**Página 6 de 15** de la presentación
+**Página 6 de 15** · en pantalla: «El negocio son cinco procesos; el cuidacarros queda fuera, pero cuenta»
 
 > Primero delimitamos el negocio: la gestión del estacionamiento en la vía pública. Los actores son el
 > conductor, el comité vecinal, la Delegación, el área de tránsito, el banco y el proveedor del equipo.
@@ -33,9 +33,9 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 > *(clic)* De ahí salen cinco procesos: concertar la zona, cobrar por placa, verificar y sancionar,
 > rendir cuentas y mantener la red. Cada uno será un servicio.
 
-## Diapositiva 7 · Cuatro alternativas · Byron · 6:00
+## Diapositiva 7 · POSIBLES SOLUCIONES · Byron · 6:00
 
-**Página 7 de 15** de la presentación
+**Página 7 de 15** · en pantalla: «Elegimos pagar por placa con el equipo que ya se compró»
 
 > Evaluamos cuatro soluciones contra los seis problemas y los drivers.
 > *(clic)* Uno: rediseñar solo la información. Barato, pero no toca la falta de personal.
@@ -44,9 +44,9 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 > *(clic)* Cuatro: gobierno comunitario, que no es software pero resuelve consulta y confianza.
 > Elegimos la dos como núcleo, con la uno adentro y la cuatro alrededor. La tres queda para después, cuando haya datos.
 
-## Diapositiva 8 · La arquitectura: SOA con eventos · Byron · 7:15
+## Diapositiva 8 · ARQUITECTURA DEL SOFTWARE · Byron · 7:15
 
-**Página 8 de 15** de la presentación
+**Página 8 de 15** · en pantalla: «Cada proceso es un servicio, y los servicios se avisan con eventos»
 
 > El estilo principal es SOA, arquitectura orientada a servicios: cada uno de los cinco procesos es un
 > servicio independiente. Es justo lo que dice la lámina de clase: desarrollar los procesos de negocio
@@ -58,9 +58,9 @@ Hablás **4:30** de los 15 minutos. Si dan 10 minutos: se omite la 9 (el desplie
 > se encienden el pago con tarjeta y la alarma; la multa solo nace cuando el oficial confirma la
 > evidencia; y todo lo cobrado se publica.
 
-## Diapositiva 9 · Despliegue · Byron · 8:30
+## Diapositiva 9 · DESPLIEGUE · Byron · 8:30
 
-**Página 9 de 15** de la presentación
+**Página 9 de 15** · en pantalla: «El parquímetro sigue cobrando aunque se caiga la señal»
 
 > Así se despliega. Arriba, el parquímetro, el teléfono del conductor, el del verificador y la consola
 > de la Delegación. El parquímetro se conecta por la red celular y, si se cae la señal, sigue cobrando,

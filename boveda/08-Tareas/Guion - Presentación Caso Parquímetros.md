@@ -23,11 +23,11 @@ es este archivo y los individuales. *(clic)* marca dónde se avanza una animaci�
 
 **Las diapositivas de cada uno:**
 
-| Orador | Diapositivas | Cuáles son | Tiempo |
+| Orador | Diapositivas | Lo que dice arriba en cada una | Tiempo |
 |---|---|---|---|
-| **Santiago** | **1, 2, 3, 13, 14, 15** | Portada · El caso en una lámina · Guatemala · Ciclo de vida · Cobros de personas ajenas · Cierre | 5:30 |
-| **Jemima** | **4, 5, 10, 11, 12** | Seis problemas · Requisitos de desempeño y el 72 % · Calidad · Arquitectura de la información · Prototipo | 5:00 |
-| **Byron** | **6, 7, 8, 9** | El negocio: cinco procesos · Cuatro alternativas · Arquitectura SOA con eventos · Despliegue | 4:30 |
+| **Santiago** | **1, 2, 3, 13, 14, 15** | 1 PORTADA · 2 EL CASO · 3 INVESTIGACIÓN · 13 ARQUITECTURA EN EL CICLO DE VIDA · 14 FACTORES EXTERNOS · 15 CIERRE | 5:30 |
+| **Jemima** | **4, 5, 10, 11, 12** | 4 LOS SEIS PROBLEMAS · 5 REQUISITOS DE DESEMPEÑO · 10 CALIDAD DEL SOFTWARE · 11 ARQUITECTURA DE LA INFORMACIÓN · 12 PARTE DESARROLLADA | 5:00 |
+| **Byron** | **6, 7, 8, 9** | 6 CASO DE NEGOCIO · 7 POSIBLES SOLUCIONES · 8 ARQUITECTURA DEL SOFTWARE · 9 DESPLIEGUE | 4:30 |
 
 **Cómo hablar:** con palabras de todos los días. Si sale un término del curso (SOA, driver, evento),
 se dice qué significa en la misma frase. El documento trae la tabla «Palabras que usamos».
@@ -35,9 +35,9 @@ se dice qué significa en la misma frase. El documento trae la tabla «Palabras 
 Regla para los cambios de orador: quien termina nombra al siguiente y su tema en una frase
 (*«Jemima les muestra qué problemas encontramos»*). Así no hay silencios.
 
-## Diapositiva 1 · Portada · Santiago · 0:00
+## Diapositiva 1 · PORTADA · Santiago · 0:00
 
-**Página 1 de 15** de la presentación
+**Página 1 de 15** · en pantalla: «Repensando los parquímetros»
 
 > Buenos días. Somos el Grupo 2: Jemima Chavajay, Byron Par y Santiago Barrera. Presentamos el caso
 > cuatro, *Repensando los parquímetros*. Nuestra propuesta se llama SIEP, Sistema Integrado de
@@ -45,9 +45,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > consigna: arquitectura del software, calidad, arquitectura en el ciclo de vida y arquitectura de la
 > información.
 
-## Diapositiva 2 · El caso en una lámina · Santiago · 0:30
+## Diapositiva 2 · EL CASO · Santiago · 0:30
 
-**Página 2 de 15** de la presentación
+**Página 2 de 15** · en pantalla: «SERVIparq quiere que el cajón rote, pero el programa tiene seis problemas»
 
 > SERVIparq es el programa del gobierno de la Ciudad de México que opera los parquímetros. Su meta es
 > urbana: que un cajón que vale hasta doscientos mil pesos deje de ser de uno solo y rote.
@@ -58,9 +58,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > sala para que los participantes actuaran la situación. Nuestra conclusión: Smartmedia arregló la
 > pantalla, pero tres de los seis problemas no tienen que ver con la pantalla.
 
-## Diapositiva 3 · Guatemala: cómo funciona y quién más cobra · Santiago · 1:30
+## Diapositiva 3 · INVESTIGACIÓN · Santiago · 1:30
 
-**Página 3 de 15** de la presentación
+**Página 3 de 15** · en pantalla: «En Guatemala se cobra Q3 por media hora, y también cobran los cuidacarros»
 
 > Trajimos el caso a Guatemala. En la capital, la municipalidad cobra tres quetzales por media hora
 > según su acuerdo COM-40-2022, y la banqueta se pinta por colores: blanco se puede, rojo no. EMETRA,
@@ -75,9 +75,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > multa de quinientos quetzales. La lección: no basta con cobrar, hay que hacerlo con base legal y que
 > la gente confíe. Le doy la palabra a Jemima, que les muestra los problemas.
 
-## Diapositiva 4 · Seis problemas, tres que no son de pantalla · Jemima · 3:00
+## Diapositiva 4 · LOS SEIS PROBLEMAS · Jemima · 3:00
 
-**Página 4 de 15** de la presentación
+**Página 4 de 15** · en pantalla: «Tres de los seis problemas no se arreglan con una pantalla mejor»
 
 > Ordenamos los seis problemas por su causa.
 > *(clic)* Los de gobierno: vecinos que no fueron consultados y un sistema que se percibe corrupto
@@ -88,9 +88,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Y los cuidacarros, que el caso llama franeleros: apartan el lugar y cobran por él, o sea
 > que le compiten al parquímetro por el mismo espacio.
 
-## Diapositiva 5 · Requisitos de desempeño y el 72 % · Jemima · 4:00
+## Diapositiva 5 · REQUISITOS DE DESEMPEÑO · Jemima · 4:00
 
-**Página 5 de 15** de la presentación
+**Página 5 de 15** · en pantalla: «El 72 % es el éxito esperado, pero cada tarea merece su propio número»
 
 > Smartmedia acordó con SERVIparq qué tiene que poder hacer el conductor antes, durante y después de
 > usar el parquímetro.
@@ -100,9 +100,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > multa injusta, así que ahí pedimos ochenta y uno, el máximo del método. Byron les explica cómo lo
 > resolvemos.
 
-## Diapositiva 6 · El negocio: cinco procesos · Byron · 5:00
+## Diapositiva 6 · CASO DE NEGOCIO · Byron · 5:00
 
-**Página 6 de 15** de la presentación
+**Página 6 de 15** · en pantalla: «El negocio son cinco procesos; el cuidacarros queda fuera, pero cuenta»
 
 > Primero delimitamos el negocio: la gestión del estacionamiento en la vía pública. Los actores son el
 > conductor, el comité vecinal, la Delegación, el área de tránsito, el banco y el proveedor del equipo.
@@ -111,9 +111,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* De ahí salen cinco procesos: concertar la zona, cobrar por placa, verificar y sancionar,
 > rendir cuentas y mantener la red. Cada uno será un servicio.
 
-## Diapositiva 7 · Cuatro alternativas · Byron · 6:00
+## Diapositiva 7 · POSIBLES SOLUCIONES · Byron · 6:00
 
-**Página 7 de 15** de la presentación
+**Página 7 de 15** · en pantalla: «Elegimos pagar por placa con el equipo que ya se compró»
 
 > Evaluamos cuatro soluciones contra los seis problemas y los drivers.
 > *(clic)* Uno: rediseñar solo la información. Barato, pero no toca la falta de personal.
@@ -122,9 +122,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Cuatro: gobierno comunitario, que no es software pero resuelve consulta y confianza.
 > Elegimos la dos como núcleo, con la uno adentro y la cuatro alrededor. La tres queda para después, cuando haya datos.
 
-## Diapositiva 8 · La arquitectura: SOA con eventos · Byron · 7:15
+## Diapositiva 8 · ARQUITECTURA DEL SOFTWARE · Byron · 7:15
 
-**Página 8 de 15** de la presentación
+**Página 8 de 15** · en pantalla: «Cada proceso es un servicio, y los servicios se avisan con eventos»
 
 > El estilo principal es SOA, arquitectura orientada a servicios: cada uno de los cinco procesos es un
 > servicio independiente. Es justo lo que dice la lámina de clase: desarrollar los procesos de negocio
@@ -136,9 +136,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > se encienden el pago con tarjeta y la alarma; la multa solo nace cuando el oficial confirma la
 > evidencia; y todo lo cobrado se publica.
 
-## Diapositiva 9 · Despliegue · Byron · 8:30
+## Diapositiva 9 · DESPLIEGUE · Byron · 8:30
 
-**Página 9 de 15** de la presentación
+**Página 9 de 15** · en pantalla: «El parquímetro sigue cobrando aunque se caiga la señal»
 
 > Así se despliega. Arriba, el parquímetro, el teléfono del conductor, el del verificador y la consola
 > de la Delegación. El parquímetro se conecta por la red celular y, si se cae la señal, sigue cobrando,
@@ -146,9 +146,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > abajo, una réplica en otra región; a la derecha, el banco y la autoridad de tránsito.
 > Jemima les muestra cómo medimos que esto funciona.
 
-## Diapositiva 10 · Calidad: los números que se comprometen · Jemima · 9:30
+## Diapositiva 10 · CALIDAD DEL SOFTWARE · Jemima · 9:30
 
-**Página 10 de 15** de la presentación
+**Página 10 de 15** · en pantalla: «Nos comprometemos con cuatro números que se pueden medir»
 
 > Usamos los dos modelos de ISO 9126 del programa: calidad del producto y calidad en uso.
 > *(clic)* Eficacia: setenta y dos por ciento completa el pago sin ayuda.
@@ -157,9 +157,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Seguridad: el cien por ciento de las multas con foto, hora, ubicación y la firma del oficial.
 > Cada entrega se acepta con una prueba de desempeño, ahora en la calle y con doce personas.
 
-## Diapositiva 11 · Arquitectura de la información · Jemima · 10:45
+## Diapositiva 11 · ARQUITECTURA DE LA INFORMACIÓN · Jemima · 10:45
 
-**Página 11 de 15** de la presentación
+**Página 11 de 15** · en pantalla: «La información se ordena por lo que el conductor hace en cada momento»
 
 > La arquitectura de la información organiza los contenidos para que la gente los encuentre. La
 > organizamos por momento de uso.
@@ -167,18 +167,18 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Durante: tres pasos, placa, tiempo y pago, con la tarifa siempre arriba.
 > *(clic)* Después: comprobante con folio, aviso antes de vencer y cómo reclamar.
 
-## Diapositiva 12 · Prototipo · Jemima · 11:30
+## Diapositiva 12 · PARTE DESARROLLADA · Jemima · 11:30
 
-**Página 12 de 15** de la presentación
+**Página 12 de 15** · en pantalla: «El prototipo mide si llegamos al 72 % mientras se prueba»
 
 > Desarrollamos una parte del sistema: la pantalla del parquímetro. Usa el tarifario real de la
 > capital y trae un modo de prueba que cronometra cada intento y calcula si llegamos al setenta y dos
 > por ciento. Y en el paso de pago dice lo que el cuidacarros no quiere que se sepa: este es el único
 > cobro. Santiago cierra con cómo se construye.
 
-## Diapositiva 13 · Arquitectura en el ciclo de vida · Santiago · 12:30
+## Diapositiva 13 · ARQUITECTURA EN EL CICLO DE VIDA · Santiago · 12:30
 
-**Página 13 de 15** de la presentación
+**Página 13 de 15** · en pantalla: «Se construye en espiral por fuera y con Scrum por dentro»
 
 > Para elegir cómo trabajar usamos los siete factores de la clase. La pantalla no se sabe cómo debe
 > quedar hasta probarla con gente, cada Delegación quiere algo distinto y hay riesgos fuertes al
@@ -190,9 +190,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > *(clic)* Cuatro fases: concertación con la colonia piloto; pago por placa y verificación; app y red
 > monitoreada; y, con datos, sensores.
 
-## Diapositiva 14 · Los cobros de personas ajenas · Santiago · 13:30
+## Diapositiva 14 · FACTORES EXTERNOS · Santiago · 13:30
 
-**Página 14 de 15** de la presentación
+**Página 14 de 15** · en pantalla: «Al cobro informal se le gana con información, datos y acuerdos»
 
 > Volvemos al cuidacarros, porque es el problema que más se parece a Guatemala.
 > *(clic)* Información: la pantalla dice que es el único cobro.
@@ -202,9 +202,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > Procuraduría de los Derechos Humanos cómo se actúa, como se hizo en Antigua.
 > *(clic)* Y una opción para la Delegación: ofrecer trabajo formal de orientación, pagado con el treinta por ciento comunitario.
 
-## Diapositiva 15 · Cierre · Santiago · 14:30
+## Diapositiva 15 · CIERRE · Santiago · 14:30
 
-**Página 15 de 15** de la presentación
+**Página 15 de 15** · en pantalla: «Tres ideas para llevarse»
 
 > Tres ideas para llevarse. La pantalla era la mitad del problema. Las funciones que faltaban ya
 > estaban en el equipo. Y lo que se cobra se publica, porque sin confianza no hay sistema. Gracias;

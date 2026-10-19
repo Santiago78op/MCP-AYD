@@ -9,13 +9,13 @@ tarea: Tarea 3 - Caso Parquímetros
 
 ## Tus diapositivas
 
-| Diapositiva | Título | Empieza en | Dura |
-|---|---|---|---|
-| **4** | Seis problemas, tres que no son de pantalla | 3:00 | 1:00 |
-| **5** | Requisitos de desempeño y el 72 % | 4:00 | 1:00 |
-| **10** | Calidad: los números que se comprometen | 9:30 | 1:15 |
-| **11** | Arquitectura de la información | 10:45 | 0:45 |
-| **12** | Prototipo | 11:30 | 1:00 |
+| Diapositiva | Arriba dice | Titular en pantalla | Empieza en | Dura |
+|---|---|---|---|---|
+| **4** | LOS SEIS PROBLEMAS | Tres de los seis problemas no se arreglan con una pantalla mejor | 3:00 | 1:00 |
+| **5** | REQUISITOS DE DESEMPEÑO | El 72 % es el éxito esperado, pero cada tarea merece su propio número | 4:00 | 1:00 |
+| **10** | CALIDAD DEL SOFTWARE | Nos comprometemos con cuatro números que se pueden medir | 9:30 | 1:15 |
+| **11** | ARQUITECTURA DE LA INFORMACIÓN | La información se ordena por lo que el conductor hace en cada momento | 10:45 | 0:45 |
+| **12** | PARTE DESARROLLADA | El prototipo mide si llegamos al 72 % mientras se prueba | 11:30 | 1:00 |
 
 Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el prototipo se menciona en la 11); hablás de 2:30 a 4:00 y de 6:30 a 8:00.
 
@@ -23,9 +23,9 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 
 > *Entra después de Santiago (diapositiva 3).*
 
-## Diapositiva 4 · Seis problemas, tres que no son de pantalla · Jemima · 3:00
+## Diapositiva 4 · LOS SEIS PROBLEMAS · Jemima · 3:00
 
-**Página 4 de 15** de la presentación
+**Página 4 de 15** · en pantalla: «Tres de los seis problemas no se arreglan con una pantalla mejor»
 
 > Ordenamos los seis problemas por su causa.
 > *(clic)* Los de gobierno: vecinos que no fueron consultados y un sistema que se percibe corrupto
@@ -36,9 +36,9 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 > *(clic)* Y los cuidacarros, que el caso llama franeleros: apartan el lugar y cobran por él, o sea
 > que le compiten al parquímetro por el mismo espacio.
 
-## Diapositiva 5 · Requisitos de desempeño y el 72 % · Jemima · 4:00
+## Diapositiva 5 · REQUISITOS DE DESEMPEÑO · Jemima · 4:00
 
-**Página 5 de 15** de la presentación
+**Página 5 de 15** · en pantalla: «El 72 % es el éxito esperado, pero cada tarea merece su propio número»
 
 > Smartmedia acordó con SERVIparq qué tiene que poder hacer el conductor antes, durante y después de
 > usar el parquímetro.
@@ -52,9 +52,9 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 
 > *Entra después de Byron (diapositiva 9).*
 
-## Diapositiva 10 · Calidad: los números que se comprometen · Jemima · 9:30
+## Diapositiva 10 · CALIDAD DEL SOFTWARE · Jemima · 9:30
 
-**Página 10 de 15** de la presentación
+**Página 10 de 15** · en pantalla: «Nos comprometemos con cuatro números que se pueden medir»
 
 > Usamos los dos modelos de ISO 9126 del programa: calidad del producto y calidad en uso.
 > *(clic)* Eficacia: setenta y dos por ciento completa el pago sin ayuda.
@@ -63,9 +63,9 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 > *(clic)* Seguridad: el cien por ciento de las multas con foto, hora, ubicación y la firma del oficial.
 > Cada entrega se acepta con una prueba de desempeño, ahora en la calle y con doce personas.
 
-## Diapositiva 11 · Arquitectura de la información · Jemima · 10:45
+## Diapositiva 11 · ARQUITECTURA DE LA INFORMACIÓN · Jemima · 10:45
 
-**Página 11 de 15** de la presentación
+**Página 11 de 15** · en pantalla: «La información se ordena por lo que el conductor hace en cada momento»
 
 > La arquitectura de la información organiza los contenidos para que la gente los encuentre. La
 > organizamos por momento de uso.
@@ -73,9 +73,9 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 > *(clic)* Durante: tres pasos, placa, tiempo y pago, con la tarifa siempre arriba.
 > *(clic)* Después: comprobante con folio, aviso antes de vencer y cómo reclamar.
 
-## Diapositiva 12 · Prototipo · Jemima · 11:30
+## Diapositiva 12 · PARTE DESARROLLADA · Jemima · 11:30
 
-**Página 12 de 15** de la presentación
+**Página 12 de 15** · en pantalla: «El prototipo mide si llegamos al 72 % mientras se prueba»
 
 > Desarrollamos una parte del sistema: la pantalla del parquímetro. Usa el tarifario real de la
 > capital y trae un modo de prueba que cronometra cada intento y calcula si llegamos al setenta y dos
