@@ -72,7 +72,7 @@ El sitio se levanta en local con `python3 -m http.server 8000` en la raíz del r
   referencia (México, Antigua, San Francisco, ISO 9126, PDH); glosario y respuestas listas. Los
   encabezados usan el antetítulo real de la pantalla y el generador aborta si no coinciden. Fotos del
   parquímetro del caso en las diapositivas 2 y 4; PDF de la presentación rehecho desde Keynote.
-  Habla medida: unos 14 min de 15. Repo del grupo en `v1.0.3`.
+  Habla medida: unos 14 min de 15. Repo del grupo en `v1.0.4`.
 
 - **2026-10-19 (cierre).** A pedido suyo: fuera del documento GitFlow y las frases que hablaban del
   propio texto («este documento propone», «cómo se leyó la consigna», la tabla de la consigna); el

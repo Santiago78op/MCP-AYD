@@ -562,7 +562,7 @@ Doctrina de esa entrega:
   el `.pptx` **sin notas del orador** (el guion va en `Guion - Presentación Caso Parquímetros.md` y
   en `guiones-caso-parquimetros/`).
 - **A UEDI van** el PDF del documento y la presentación (`.pptx`, y su PDF si piden PDF). El repo
-  público del grupo está en `v1.0.3`; el sitio se sirve en local, Pages no está activado.
+  público del grupo está en `v1.0.4`; el sitio se sirve en local, Pages no está activado.
 
 > [!note] Lo que se suma a una entrega de grupo desde el 2026-10-19
 > - **Carátula** cuando él la pide: el molde es su trabajo de Redes (`[SO2-A]AWS…pdf`): datos de la
