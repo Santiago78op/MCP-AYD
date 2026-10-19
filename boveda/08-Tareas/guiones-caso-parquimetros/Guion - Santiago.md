@@ -37,7 +37,9 @@ Hablás **5:30** de los 15 minutos. Si dan 10 minutos: la 13 se reduce a las cua
 **Página 2 de 15** · en pantalla: «SERVIparq quiere que el cajón rote, pero el programa tiene seis problemas»
 
 > SERVIparq es el programa del gobierno de la Ciudad de México que opera los parquímetros. Su meta es
-> urbana: que un cajón que vale hasta doscientos mil pesos deje de ser de uno solo y rote.
+> urbana: que un cajón que vale hasta doscientos mil pesos deje de ser de uno solo y rote. A la
+> izquierda está el parquímetro del caso: arriba el panel con las instrucciones y abajo la ranura de
+> monedas, el teclado para la placa y la ranura de tarjeta, que estaba apagada.
 > *(clic)* Lo recaudado se reparte setenta por ciento para operar y treinta para la comunidad.
 > *(clic)* En 2012 llega Margarita Patiño, hace un diagnóstico y encuentra seis problemas.
 > *(clic)* Contrata a Smartmedia, una empresa de diseño. Le pide a la gente que haga tareas con el

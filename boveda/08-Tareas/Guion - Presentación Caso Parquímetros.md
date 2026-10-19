@@ -50,7 +50,9 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 **Página 2 de 15** · en pantalla: «SERVIparq quiere que el cajón rote, pero el programa tiene seis problemas»
 
 > SERVIparq es el programa del gobierno de la Ciudad de México que opera los parquímetros. Su meta es
-> urbana: que un cajón que vale hasta doscientos mil pesos deje de ser de uno solo y rote.
+> urbana: que un cajón que vale hasta doscientos mil pesos deje de ser de uno solo y rote. A la
+> izquierda está el parquímetro del caso: arriba el panel con las instrucciones y abajo la ranura de
+> monedas, el teclado para la placa y la ranura de tarjeta, que estaba apagada.
 > *(clic)* Lo recaudado se reparte setenta por ciento para operar y treinta para la comunidad.
 > *(clic)* En 2012 llega Margarita Patiño, hace un diagnóstico y encuentra seis problemas.
 > *(clic)* Contrata a Smartmedia, una empresa de diseño. Le pide a la gente que haga tareas con el
@@ -82,7 +84,8 @@ Regla para los cambios de orador: quien termina nombra al siguiente y su tema en
 > Ordenamos los seis problemas por su causa.
 > *(clic)* Los de gobierno: vecinos que no fueron consultados y un sistema que se percibe corrupto
 > porque nadie ve a dónde va el dinero.
-> *(clic)* Los de información: instrucciones confusas y no saber cómo reclamar una multa.
+> *(clic)* Los de información: este es el panel real del parquímetro. Instrucciones confusas y no
+> saber cómo reclamar una multa.
 > *(clic)* Los de capacidad: falta personal, pero el parquímetro ya podía cobrar con tarjeta y avisar
 > vandalismo; esas funciones estaban apagadas.
 > *(clic)* Y los cuidacarros, que el caso llama franeleros: apartan el lugar y cobran por él, o sea

@@ -30,7 +30,8 @@ Hablás **5:00** de los 15 minutos. Si dan 10 minutos: se omite la 12 (el protot
 > Ordenamos los seis problemas por su causa.
 > *(clic)* Los de gobierno: vecinos que no fueron consultados y un sistema que se percibe corrupto
 > porque nadie ve a dónde va el dinero.
-> *(clic)* Los de información: instrucciones confusas y no saber cómo reclamar una multa.
+> *(clic)* Los de información: este es el panel real del parquímetro. Instrucciones confusas y no
+> saber cómo reclamar una multa.
 > *(clic)* Los de capacidad: falta personal, pero el parquímetro ya podía cobrar con tarjeta y avisar
 > vandalismo; esas funciones estaban apagadas.
 > *(clic)* Y los cuidacarros, que el caso llama franeleros: apartan el lugar y cobran por él, o sea

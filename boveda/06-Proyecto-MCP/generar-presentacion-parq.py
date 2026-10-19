@@ -30,6 +30,7 @@ from pptx.util import Emu, Pt
 AQUI = os.path.dirname(os.path.abspath(__file__))
 TAREAS = os.path.join(AQUI, "..", "08-Tareas")
 DIAG = os.path.join(AQUI, "..", "02-Diagramas", "caso-parquimetros")
+FOTOS = os.path.join(AQUI, "..", "adjuntos", "caso-parquimetros")   # fotos del PDF del caso (Morales Zaragoza)
 GUION = os.path.join(TAREAS, "Guion - Presentación Caso Parquímetros.md")
 SALIDA = os.path.join(TAREAS, "Grupo2_CasoParquimetros_Presentacion.pptx")
 FUENTE = "Arial"
@@ -167,14 +168,21 @@ def alto(t, ancho, tam, negrita=False, inter=1.12):
 
 
 def tarjeta(slide, x, y, w, h, icono=None, grande=None, titulo=None, cuerpo=None, tam_grande=54, tam_cuerpo=17,
-            alto_titulo=None):
+            alto_titulo=None, foto=None, alto_visual=None):
     """Una tarjeta = un grupo: fondo, icono, numero grande, titulo y cuerpo, apilados con su alto real."""
     g = slide.shapes.add_group_shape()
     rect(g.shapes, x, y, w, h)
     cw, cy = w - 80, y + 36
-    if icono:
+    if foto:
+        # la foto del caso en lugar del icono: muestra el problema en el aparato real
+        from PIL import Image
+        iw, ih = Image.open(foto).size
+        hf = cw * ih / iw
+        g.shapes.add_picture(foto, px(x + 40), px(cy), px(cw), px(hf))
+        cy += hf + 14
+    elif icono:
         g.shapes.add_picture(icono_png(icono), px(x + 40), px(cy), px(64), px(64))
-        cy += 92
+        cy += alto_visual + 14 if alto_visual else 92   # alto_visual: los titulos alineados con una tarjeta con foto
     if grande:
         hg = alto(grande, cw, tam_grande, True, 1.0)
         texto(g.shapes, x + 40, cy, cw, hg, grande, tam=tam_grande, negrita=True, color=ACENTO, interlineado=1.0)
@@ -252,13 +260,23 @@ texto(s.shapes, 120, 1000, 1600, 30, "Grupo 2 · ECYS, USAC · MBA. MSc. Claudia
 # ---------------------------------------------------------------- 2 el caso
 s, G, y = nueva(2, "El caso", "SERVIparq quiere que el cajón rote, pero el programa tiene seis problemas",
                 bajada="Ciudad de México, 2012. Un cajón de estacionamiento vale hasta **200 mil pesos**: la meta es que lo usen muchos conductores, no uno solo.")
+# la foto del caso: el aparato del que se habla, con sus partes rotuladas por la autora
+rect(s.shapes, 120, y, 400, TOPE - y, relleno=BLANCO, borde=None, redondeo=0.04)
+hf = 370 * 640 / 856
+yf = y + (TOPE - y - hf - 24 - 60) / 2          # foto y pie centrados en el panel
+s.shapes.add_picture(os.path.join(FOTOS, "parquimetro-partes.png"), px(135), px(yf), px(370), px(hf))
+texto(s.shapes, 140, yf + hf + 24, 360, 60, "El parquímetro de SERVIparq\n(Morales Zaragoza, 2015)", tam=13,
+      color=RGBColor(0x44, 0x4A, 0x52), alinear=PP_ALIGN.CENTER)
+(x1, w1), (x2, w2), (x3, w3) = COLS4[1:]
+G.append(tarjeta(s, x1, y, w1, TOPE - y, grande="70/30", tam_grande=44, titulo="Así se reparte lo cobrado",
+                 cuerpo="70 % para operar y mantener los equipos.\n30 % se reinvierte en la comunidad.", tam_cuerpo=16))
+G.append(tarjeta(s, x2, y, w2, TOPE - y, grande="6", tam_grande=44, titulo="problemas en el diagnóstico",
+                 cuerpo="Consulta, cuidacarros, instrucciones, reclamos, personal y desconfianza.",
+                 tam_cuerpo=16))
+G.append(tarjeta(s, x3, y, w3, TOPE - y, icono="users", titulo="Pruebas con personas",
+                 cuerpo="Smartmedia mide con tareas reales si la gente encuentra y entiende la información.",
+                 tam_cuerpo=16))
 (x1, w1), (x2, w2), (x3, w3) = COLS3
-G.append(tarjeta(s, x1, y, w1, TOPE - y, grande="70 / 30", titulo="Así se reparte lo cobrado",
-                 cuerpo="70 % para operar y mantener los equipos.\n30 % se reinvierte en la comunidad."))
-G.append(tarjeta(s, x2, y, w2, TOPE - y, grande="6", titulo="problemas en el diagnóstico",
-                 cuerpo="Vecinos no consultados, cuidacarros, instrucciones confusas, reclamos sin respuesta, falta de personal y desconfianza."))
-G.append(tarjeta(s, x3, y, w3, TOPE - y, icono="users", titulo="Smartmedia mide con personas",
-                 cuerpo="Pide tareas reales con el parquímetro y mide si la gente encuentra y entiende la información. Hasta recrearon una calle en una sala."))
 
 # ---------------------------------------------------------------- 3 Guatemala
 s, G, y = nueva(3, "Investigación", "En Guatemala se cobra Q3 por media hora, y también cobran los cuidacarros")
@@ -277,7 +295,9 @@ for (x, w), ic, tit, cue in zip(COLS4, ["users", "map-pin", "wrench", "hand-coin
                                  "P-03 Instrucciones confusas y solo monedas.\nP-04 No se sabe cómo reclamar una multa.",
                                  "P-05 Falta personal. El equipo ya podía cobrar con tarjeta y avisar vandalismo: estaba apagado.",
                                  "P-02 Cuidacarros («franeleros» en el caso): apartan el lugar y cobran por él."]):
-    G.append(tarjeta(s, x, y, w, TOPE - y, icono=ic, titulo=tit, cuerpo=cue, tam_cuerpo=18, alto_titulo=46 * 2 * 1.05))
+    foto = os.path.join(FOTOS, "parquimetro-panel-de-uso.png") if tit == "Información" else None
+    G.append(tarjeta(s, x, y, w, TOPE - y, icono=ic, titulo=tit, cuerpo=cue, tam_cuerpo=18, alto_titulo=46 * 2 * 1.05,
+                     foto=foto, alto_visual=320 * 286 / 635))
 
 # ---------------------------------------------------------------- 5 el 72 %
 s, G, y = nueva(5, "Requisitos de desempeño", "El 72 % es el éxito esperado, pero cada tarea merece su propio número")
