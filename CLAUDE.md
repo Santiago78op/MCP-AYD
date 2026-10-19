@@ -538,7 +538,8 @@ Doctrina de esa entrega:
 Caso de la UAM (Ciudad de México, 2012), **no** continúa los anteriores. El estado vive en
 **`metodo_tarea("Avance - Caso Parquímetros")`** y el entregable en **`Entrega - Caso Parquímetros`**.
 Se entrega como **Grupo 2 de tres**: Santiago (Scrum Master / coordinador), Jemima (Product Owner),
-Byron (equipo de desarrollo); **Elías Vasquez ya no está**. Modo: **resolver y explicar**.
+Byron (equipo de desarrollo); **Elías Vasquez ya no está**. **Byron no expone** (aviso del 19/10): sigue
+en la portada, pero sus diapositivas 6-9 y sus respuestas pasaron a Santiago, que habla 10 de los 15 minutos. Modo: **resolver y explicar**.
 
 > [!note] Nada se edita a mano
 > PDF y `.docx`: `python3 boveda/06-Proyecto-MCP/generar-entrega-parq.py`. Presentación, notas del

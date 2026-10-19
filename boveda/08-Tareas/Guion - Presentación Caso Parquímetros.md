@@ -8,15 +8,18 @@ alias: [guion parquimetros, guion tarea 3, presentación SERVIparq]
 
 # Guion de la presentación · Caso 4: Repensando los parquímetros
 
-Grupo 2 · tres personas · **15 minutos**. Si dan solo 10, ver el recorte al final.
+Grupo 2 · tres integrantes, **exponen dos** · **15 minutos**. Si dan solo 10, ver el recorte al final.
+
+> [!warning] Byron no expone (aviso del 19/10)
+> Byron sigue en el grupo y en la portada, pero no puede estar en la presentación. Sus diapositivas
+> (6 a 9) y sus respuestas pasan a **Santiago**. Se dice una sola vez, en la portada.
 
 ## Quién presenta qué
 
 | Orador | Diapositivas | Lo que dice arriba en cada una | Tiempo |
 |---|---|---|---|
-| **Santiago** (coordinador) | **1, 2, 3** y **13, 14, 15** | 1 PORTADA · 2 EL CASO · 3 INVESTIGACIÓN · 13 ARQUITECTURA EN EL CICLO DE VIDA · 14 FACTORES EXTERNOS · 15 CIERRE | 5:30 |
+| **Santiago** (coordinador) | **1, 2, 3**, **6, 7, 8, 9** y **13, 14, 15** | 1 PORTADA · 2 EL CASO · 3 INVESTIGACIÓN · 6 CASO DE NEGOCIO · 7 POSIBLES SOLUCIONES · 8 ARQUITECTURA DEL SOFTWARE · 9 DESPLIEGUE · 13 ARQUITECTURA EN EL CICLO DE VIDA · 14 FACTORES EXTERNOS · 15 CIERRE | 10:00 |
 | **Jemima** (Product Owner) | **4, 5** y **10, 11, 12** | 4 LOS SEIS PROBLEMAS · 5 REQUISITOS DE DESEMPEÑO · 10 CALIDAD DEL SOFTWARE · 11 ARQUITECTURA DE LA INFORMACIÓN · 12 PARTE DESARROLLADA | 5:00 |
-| **Byron** (equipo de desarrollo) | **6, 7, 8, 9** | 6 CASO DE NEGOCIO · 7 POSIBLES SOLUCIONES · 8 ARQUITECTURA DEL SOFTWARE · 9 DESPLIEGUE | 4:30 |
 
 El orden en que se habla:
 
@@ -24,7 +27,7 @@ El orden en que se habla:
 |---|---|---|---|
 | 0:00 a 3:00 | **Santiago** | 1 a 3 | Quiénes somos, el caso y cómo es en Guatemala |
 | 3:00 a 5:00 | **Jemima** | 4 y 5 | Los seis problemas y la meta del 72 % |
-| 5:00 a 9:30 | **Byron** | 6 a 9 | El negocio, las soluciones posibles y la arquitectura |
+| 5:00 a 9:30 | **Santiago** | 6 a 9 | El negocio, las soluciones posibles y la arquitectura |
 | 9:30 a 12:30 | **Jemima** | 10 a 12 | Cómo medimos la calidad, cómo se ordena la información y el prototipo |
 | 12:30 a 15:00 | **Santiago** | 13 a 15 | Cómo se construye, qué hacer con los cuidacarros y cierre |
 
@@ -61,7 +64,8 @@ explica en la misma frase. Al final está la tabla «Palabras que hay que saber 
 
 **Qué se ve al entrar:** el título, el nombre de la propuesta (SIEP) y los tres nombres. No hay clics.
 
-> Buenos días. Somos el Grupo 2: Jemima Chavajay, Byron Par y yo, Santiago Barrera.
+> Buenos días. Somos el Grupo 2: Jemima Chavajay, Byron Par, que hoy no pudo acompañarnos, y yo,
+> Santiago Barrera.
 > El caso cuatro cuenta qué pasó con los parquímetros de la Ciudad de México en 2012. Nos pidieron
 > analizarlo y proponer una solución desde cuatro ángulos: arquitectura del software, calidad, ciclo
 > de vida y arquitectura de la información. Nuestra propuesta se llama SIEP: Sistema Integrado de
@@ -186,14 +190,14 @@ la tabla de la derecha aparecen con clic.
 > *(clic)* **→ aparece «Un número por tarea».** Nuestra mejora es que no todas las tareas pesan igual.
 > Si alguien paga mal, le llega una multa injusta; por eso ahí pedimos ochenta y uno por ciento, lo más
 > alto que permite el método.
-> Byron les explica cómo lo resolvemos.
+> Ahora les explico cómo lo resolvemos.
 
 **Idea clave:** el 72 % es 80 % por 90 %, y nosotros pedimos más donde fallar sale caro.
 
 **Por qué lo menciono:** el 72 % y el tope del 81 % vienen del caso: la autora dice que ningún
 desplegado informativo supera el 81 %. El umbral por tarea es nuestra propuesta.
 
-## Diapositiva 6 · CASO DE NEGOCIO · Byron · 5:00
+## Diapositiva 6 · CASO DE NEGOCIO · Santiago · 5:00
 
 **Página 6 de 15** · en pantalla: «El negocio son cinco procesos; el cuidacarros queda fuera, pero cuenta»
 
@@ -218,7 +222,7 @@ derecha aparece con clic.
 **Por qué lo menciono:** delimitar el negocio antes de diseñar es el primer paso del método que vimos
 en el curso; los cinco procesos son los que después se vuelven servicios.
 
-## Diapositiva 7 · POSIBLES SOLUCIONES · Byron · 6:00
+## Diapositiva 7 · POSIBLES SOLUCIONES · Santiago · 6:00
 
 **Página 7 de 15** · en pantalla: «Elegimos pagar por placa con el equipo que ya se compró»
 
@@ -243,7 +247,7 @@ en el curso; los cinco procesos son los que después se vuelven servicios.
 avanzado, con sensores por lugar; por eso lo usamos como la opción más ambiciosa. Comparar cuatro
 caminos es lo que pide la consigna: «posibles soluciones y la solución seleccionada».
 
-## Diapositiva 8 · ARQUITECTURA DEL SOFTWARE · Byron · 7:15
+## Diapositiva 8 · ARQUITECTURA DEL SOFTWARE · Santiago · 7:15
 
 **Página 8 de 15** · en pantalla: «Cada proceso es un servicio, y los servicios se avisan con eventos»
 
@@ -269,7 +273,7 @@ cuatro decisiones aparecen con clic.
 procesos ya nos dan las piezas, y porque cada Delegación puede adoptarlas por separado. Los eventos
 resuelven que el pago avise a varias partes sin depender de ellas.
 
-## Diapositiva 9 · DESPLIEGUE · Byron · 8:30
+## Diapositiva 9 · DESPLIEGUE · Santiago · 8:30
 
 **Página 9 de 15** · en pantalla: «El parquímetro sigue cobrando aunque se caiga la señal»
 
@@ -296,7 +300,7 @@ responde el riesgo más obvio en la calle: que se caiga la red celular.
 
 **Qué se ve al entrar:** solo el título. Las cuatro tarjetas aparecen una por clic.
 
-> Gracias, Byron. Una solución que no se puede medir no se puede comprobar. Por eso definimos cómo
+> Gracias, Santiago. Una solución que no se puede medir no se puede comprobar. Por eso definimos cómo
 > vamos a saber que funciona. Usamos la norma ISO 9126, que es la que trae el programa del curso. Mira dos cosas: la
 > calidad del producto y la calidad en uso, es decir, qué tan bien le funciona a la persona que lo
 > usa. Nos comprometemos con cuatro números.
@@ -418,13 +422,13 @@ Procuraduría de los Derechos Humanos (2017). Lo tomamos como modelo porque ya s
 
 | Pregunta | Responde | Dónde está en el PDF |
 |---|---|---|
-| ¿Por qué SOA y no microservicios? | Byron: «Microservicios son decenas de piezas pequeñas y cada una hay que operarla. SERVIparq ya tiene poco personal (RE-07), así que cinco servicios grandes, uno por proceso, es lo que puede sostener.» | §5.1 |
+| ¿Por qué SOA y no microservicios? | Santiago: «Microservicios son decenas de piezas pequeñas y cada una hay que operarla. SERVIparq ya tiene poco personal (RE-07), así que cinco servicios grandes, uno por proceso, es lo que puede sostener.» | §5.1 |
 | ¿De dónde sale el 72 %? | Jemima: «Es una multiplicación: el 80 % encuentra la información y, de esos, el 90 % la usa bien. Ochenta por noventa da setenta y dos.» | §5.2 |
-| ¿Por qué el cuidacarros no es actor? | Byron: «Un actor trata con el negocio de forma legítima, y el cuidacarros no. Lo tratamos como factor externo: genera una restricción (RE-12) y un escenario de calidad (EAC-11).» | Declaraciones, §5.5 |
-| ¿Qué pasa si se cae la red? | Byron: «El parquímetro guarda los pagos y los manda cuando vuelve la señal. La meta es cero pagos perdidos (EAC-03).» | §3.4, §5.1 |
+| ¿Por qué el cuidacarros no es actor? | Santiago: «Un actor trata con el negocio de forma legítima, y el cuidacarros no. Lo tratamos como factor externo: genera una restricción (RE-12) y un escenario de calidad (EAC-11).» | Declaraciones, §5.5 |
+| ¿Qué pasa si se cae la red? | Santiago: «El parquímetro guarda los pagos y los manda cuando vuelve la señal. La meta es cero pagos perdidos (EAC-03).» | §3.4, §5.1 |
 | ¿Qué modelo de calidad usaron? | Jemima: «ISO 9126, la del programa, con sus dos partes: calidad del producto y calidad en uso. La ISO 25010 es la versión más nueva que la reemplaza.» | §5.2 |
 | ¿Cómo protegen la base de placas? | Santiago: «En los reportes la placa se cambia por un código, cada acceso queda registrado y los datos se borran a los 90 días (EAC-06). Lo aprendimos de lo que le pasó a Antigua.» | §2.2, §3.4 |
-| ¿Por qué no sensores desde el inicio? | Byron: «Son caros, se pueden dañar y todavía no hay datos para fijar la tarifa por demanda. La arquitectura los deja preparados para la fase tres.» | §4.2 |
+| ¿Por qué no sensores desde el inicio? | Santiago: «Son caros, se pueden dañar y todavía no hay datos para fijar la tarifa por demanda. La arquitectura los deja preparados para la fase tres.» | §4.2 |
 | ¿Qué metodología y por qué? | Santiago: «Una mezcla: espiral por fuera para controlar los riesgos y Scrum por dentro para avanzar rápido. La elegimos con los siete factores de clase.» | §5.3 |
 
 ## Palabras que hay que saber explicar
@@ -448,7 +452,7 @@ Procuraduría de los Derechos Humanos (2017). Lo tomamos como modelo porque ya s
 
 Se saltan tres cosas: la diapositiva 9 (el despliegue se menciona en una frase en la 8), la 12 (el
 prototipo se menciona en la 11) y, en la 13, se dicen solo las cuatro fases. Reloj: Santiago
-0:00-2:30, Jemima 2:30-4:00, Byron 4:00-6:30, Jemima 6:30-8:00, Santiago 8:00-10:00.
+0:00-2:30, Jemima 2:30-4:00, Santiago 4:00-6:30, Jemima 6:30-8:00, Santiago 8:00-10:00.
 
 ---
 

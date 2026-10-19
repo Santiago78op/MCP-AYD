@@ -65,16 +65,16 @@ la tabla de la derecha aparecen con clic.
 > *(clic)* **→ aparece «Un número por tarea».** Nuestra mejora es que no todas las tareas pesan igual.
 > Si alguien paga mal, le llega una multa injusta; por eso ahí pedimos ochenta y uno por ciento, lo más
 > alto que permite el método.
-> Byron les explica cómo lo resolvemos.
+> Ahora les explico cómo lo resolvemos.
 
 **Idea clave:** el 72 % es 80 % por 90 %, y nosotros pedimos más donde fallar sale caro.
 
 **Por qué lo menciono:** el 72 % y el tope del 81 % vienen del caso: la autora dice que ningún
 desplegado informativo supera el 81 %. El umbral por tarea es nuestra propuesta.
 
-> *Al terminar, le pasa la palabra a Byron (diapositiva 6).*
+> *Al terminar, le pasa la palabra a Santiago (diapositiva 6).*
 
-> *Entra después de Byron (diapositiva 9).*
+> *Entra después de Santiago (diapositiva 9).*
 
 ## Diapositiva 10 · CALIDAD DEL SOFTWARE · Jemima · 9:30
 
@@ -82,7 +82,7 @@ desplegado informativo supera el 81 %. El umbral por tarea es nuestra propuesta.
 
 **Qué se ve al entrar:** solo el título. Las cuatro tarjetas aparecen una por clic.
 
-> Gracias, Byron. Una solución que no se puede medir no se puede comprobar. Por eso definimos cómo
+> Gracias, Santiago. Una solución que no se puede medir no se puede comprobar. Por eso definimos cómo
 > vamos a saber que funciona. Usamos la norma ISO 9126, que es la que trae el programa del curso. Mira dos cosas: la
 > calidad del producto y la calidad en uso, es decir, qué tan bien le funciona a la persona que lo
 > usa. Nos comprometemos con cuatro números.

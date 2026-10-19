@@ -581,11 +581,11 @@ prs.save(SALIDA)
 carpeta = os.path.join(TAREAS, "guiones-caso-parquimetros")
 os.makedirs(carpeta, exist_ok=True)
 ROLES = {"Santiago": ("Santiago Julián Barrera Reyes", "Scrum Master / coordinador"),
-         "Jemima": ("Jemima Solmaira Chavajay Quiejú", "Product Owner"),
-         "Byron": ("Byron Josué Par Rancho", "Equipo de desarrollo")}
-RECORTE_10 = {"Santiago": "la 13 se reduce a las cuatro fases; hablás de 0:00 a 2:30 y de 8:00 a 10:00.",
-              "Jemima": "se omite la 12 (el prototipo se menciona en la 11); hablás de 2:30 a 4:00 y de 6:30 a 8:00.",
-              "Byron": "se omite la 9 (el despliegue se nombra en la 8); hablás de 4:00 a 6:30."}
+         "Jemima": ("Jemima Solmaira Chavajay Quiejú", "Product Owner")}
+# Byron no expone (19/10): sigue en la portada, pero sus laminas pasaron a Santiago
+RECORTE_10 = {"Santiago": "se omite la 9 (el despliegue se nombra en la 8) y la 13 se reduce a las cuatro fases; "
+                          "hablás de 0:00 a 2:30, de 4:00 a 6:30 y de 8:00 a 10:00.",
+              "Jemima": "se omite la 12 (el prototipo se menciona en la 11); hablás de 2:30 a 4:00 y de 6:30 a 8:00."}
 
 
 def segundos(r):
