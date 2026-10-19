@@ -554,6 +554,12 @@ Doctrina de esa entrega:
 - **El 72 % = 80 % × 90 %**; la propuesta propia es un umbral por tarea según la consecuencia de fallar.
 - **Vocabulario, pedido por él:** lenguaje de estudiante; todo término raro se define al usarlo.
   «Franelero» (palabra mexicana del caso) se define una vez y después se dice **cuidacarros**.
+- **Lo entregable no habla de sí mismo** (pedido el 19/10): nada de «este documento propone», «cómo se
+  leyó la consigna» ni tablas de qué pide la consigna; ni GitFlow ni el repo dentro del documento; y
+  el `.pptx` **sin notas del orador** (el guion va en `Guion - Presentación Caso Parquímetros.md` y
+  en `guiones-caso-parquimetros/`).
+- **A UEDI van** el PDF del documento y la presentación (`.pptx`, y su PDF si piden PDF). El repo
+  público del grupo está en `v1.0.2`; el sitio se sirve en local, Pages no está activado.
 
 > [!note] Lo que se suma a una entrega de grupo desde el 2026-10-19
 > - **Carátula** cuando él la pide: el molde es su trabajo de Redes (`[SO2-A]AWS…pdf`): datos de la

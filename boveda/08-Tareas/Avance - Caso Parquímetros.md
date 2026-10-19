@@ -38,6 +38,18 @@ El entregable es [[Entrega - Caso Parquímetros]]; el enunciado, [[enunciados/Ca
 | Prototipo | `08-Tareas/prototipo-parquimetros/index.html` (`?paso=1..4` muestra cada pantalla) | a mano |
 | Repositorio público del grupo | github.com/Santiago78op/Dise-o-Arquitectonico-los-Parqu-metros (`main`, `develop`, `v1.0.0`) con documento, presentación, diagramas y el **sitio** (`sitio/index.html` + `prototipo.html`) | se copian las salidas de acá; el sitio vive solo allá |
 
+## Qué se sube a UEDI
+
+| Archivo | Para qué |
+|---|---|
+| `Grupo2_CasoParquimetros.pdf` (43 páginas) | El documento: es lo que se califica |
+| `Grupo2_CasoParquimetros_Presentacion.pdf` (15 páginas) | La presentación, si la plataforma pide PDF |
+| `Grupo2_CasoParquimetros_Presentacion.pptx` | Para exponer: tiene las animaciones; **sin notas del orador** |
+
+Él movió las copias de entrega a `~/Documents/02-Diagramas/G2-Parquimetros/`; acá quedan las mismas.
+El sitio se levanta en local con `python3 -m http.server 8000` en la raíz del repo del grupo
+(`http://127.0.0.1:8000/sitio/`); GitHub Pages **no** está activado.
+
 ## Verificación hecha
 
 - PDF: `validar-entrega-pdf.py` sin fallas (ocupación mínima 69 %); páginas revisadas a ojo.
@@ -48,10 +60,15 @@ El entregable es [[Entrega - Caso Parquímetros]]; el enunciado, [[enunciados/Ca
 ## Lo que falta (lo hace el grupo)
 
 - Confirmar fecha de entrega y minutos de exposición; si son 10, el guion trae el recorte.
+- Si la fecha no es el 19/10/2026, cambiar `FECHA_CARATULA` en el generador y regenerar.
 - Ensayar con el reloj del guion; cada integrante tiene su archivo.
 - Revisar que la portada diga la fecha correcta («octubre de 2026»).
 
 ## Bitácora
+
+- **2026-10-19 (cierre).** A pedido suyo: fuera del documento GitFlow y las frases que hablaban del
+  propio texto («este documento propone», «cómo se leyó la consigna», la tabla de la consigna); el
+  .pptx sin notas del orador. Presentación exportada a PDF. Repo del grupo en `v1.0.2`.
 
 - **2026-10-19 (tarde).** Repo del grupo creado con GitFlow (tres `feature/*`, `release/1.0.0`,
   etiqueta `v1.0.0`). Documento: carátula como la de Redes (escudo de Ingeniería, título dorado),
